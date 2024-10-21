@@ -1,0 +1,41 @@
+from django.forms import ModelForm
+from .models import entidadesFinancieras2
+
+class financieras(ModelForm):
+    class Meta:
+        model = entidadesFinancieras2
+        fields = [ 'nombre_proyecto',  'region',  'municipio' , 'localidad', 'tipo_tenencia', 'tipo_persona', 
+    'num_credito', 
+    'num_cliente', 
+    'nombre_cliente', 
+    'representante_legal', 
+    'telefono',
+    'producto_tipoCredito', 
+    'monto_total', 
+    'fecha_inicio', 
+    'fecha_termino', 
+    'tasa_interes', 
+    'periodo_pago',
+    'monto_garantiasLiquidasVigente', 
+    'porcentaje_garantias', 
+    'monto_garantiaLiquidaEjercida', 
+    'saldo_disponible', 
+    'monto_recuperado',
+    'inclumplimiento_credito',
+    'intermediario_financiero',
+    'tipo_concepto', 
+    'descripcion_concepto', 
+    'beneficiarios_hombres', 
+    'beneficiarios_mujer', 
+    'total_beneficiarios', 
+    'empleos_directos', 
+    'empleos_indirectos', 
+    'subsector', 
+    'especie', 
+    'variedad', 
+    'cultivo',
+    'superficie',
+    'volumen_produccion_anual', 
+    'tipo_mercado', 
+    'producto_comercializa', 
+        ]
