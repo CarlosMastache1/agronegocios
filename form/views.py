@@ -146,7 +146,9 @@ def reporte(request):
     })
 
 def graficas(request):
- return render(request, 'graficas.html ')
+    if request.method == 'GET':
+        return render(request, 'graficas.html')
+
 
 
 def get_chart(request):
