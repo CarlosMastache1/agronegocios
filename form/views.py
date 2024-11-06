@@ -8,7 +8,8 @@ from .forms import financieras
 from django.contrib import messages
 from .models import entidadesFinancieras2, municipios
 from django.db.models import Sum
-
+from django.http.response import JsonResponse
+from random import randrange
 
 # Create your views here.
 def home(request):
@@ -146,5 +147,35 @@ def reporte(request):
 
 def graficas(request):
  return render(request, 'graficas.html ')
+
+
+def get_chart(request):
+    serie=[]
+    counter = 0
+
+    while (counter < 7):
+        serie.append(randrange(100,400))
+        counter += 1
+    chart = {
+        'xAxis':[
+            {
+                'type' : "category",
+                'data' :  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            }
+        ],
+        'yAxis' : [
+            {
+                'type' : "value",
+            }
+        ],
+        'series' :[
+            {
+                'data':serie,
+                'type':"line"
+            }
+        ]
+    }
+
+    return JsonResponse(chart)
        
 

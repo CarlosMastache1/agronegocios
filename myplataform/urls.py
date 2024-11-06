@@ -13,7 +13,7 @@ urlpatterns = [
     path('logout/', views.signout, name='logout'),
     path('reporte/', views.reporte, name='reporte'),
     path('grafica/', views.graficas, name='grafica'),
-
+    path('getcharts/', views.get_chart, name='getcharts'),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
 
 
