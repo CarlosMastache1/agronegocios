@@ -1,6 +1,6 @@
 const getOptionChart = async () =>{
  try{
-    const response = await fetch("http://127.0.0.1:8000/getcharts/");
+    const response = await fetch("https://sefader-agronegocios.com/getcharts/");
     return await response.json();
  } catch (ex) {
     alert(ex);
