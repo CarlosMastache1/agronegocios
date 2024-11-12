@@ -154,4 +154,4 @@ STATICFILES_DIR = (os.path.join(BASE_DIR, 'form/static'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-3fb5.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-3fb5.up.railway.app', 'https://sefader-agronegocios.com']
