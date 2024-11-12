@@ -55,12 +55,26 @@
         </div>
     </div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     {% if error %}
-    <br>
-    <div class="alert alert-danger" role="alert">
-      {{error}}
-    </div>
+
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "{{error}}",
+            showConfirmButton: false,
+            timer: 3500
+
+        });
+    </script>
+
     {% endif %}
+
+   
 
     {% endblock %}
 

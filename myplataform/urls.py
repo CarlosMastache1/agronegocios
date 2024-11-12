@@ -14,9 +14,10 @@ urlpatterns = [
     path('reporte/', views.reporte, name='reporte'),
     path('grafica/', views.graficas, name='grafica'),
     path('getcharts/', views.get_chart, name='getcharts'),
+    path('getcharts2/', views.get_chart2, name='getcharts2'),
+    path('getcharts3/', views.get_chart3, name='getcharts3'),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
-
-
+    path('credit/<int:credit_id>/delete', views.delete_credit, name='delete_credit'),
 
 
 ]

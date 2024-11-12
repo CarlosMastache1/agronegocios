@@ -82,16 +82,29 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'agronegocios',
-        'USER': 'carlos',
-        'PASSWORD': 'mastache123',
-        'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-        'PORT': '5432', 
-    }
-}
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'agronegocios',
+          'USER': 'carlos',
+          'PASSWORD': 'mastache123',
+          'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+          'PORT': '5432', 
+      }
+  }
+
+# BASE DE DATOS PARA DESARROLLO
+# DATABASES = {
+#        'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'developer',
+#         'USER': 'postgres', 
+#         'PASSWORD': 'mastache', 
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+#   }
 
 
 # Password validation
@@ -129,6 +142,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+LOGIN_URL = '/login'
+
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIR = (os.path.join(BASE_DIR, 'form/static'),)

@@ -4,7 +4,7 @@ from .models import entidadesFinancieras2
 class financieras(ModelForm):
     class Meta:
         model = entidadesFinancieras2
-        fields = [ 'nombre_proyecto',  'region',  'municipio' , 'localidad', 'tipo_tenencia', 'tipo_persona', 
+        fields = [ 'nombre_proyecto',  'municipio' , 'localidad', 'tipo_tenencia', 'tipo_persona', 
     'num_credito', 
     'num_cliente', 
     'nombre_cliente', 

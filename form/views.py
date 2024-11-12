@@ -7,11 +7,13 @@ from django.db import IntegrityError
 from .forms import financieras 
 from django.contrib import messages
 from .models import entidadesFinancieras2, municipios
-from django.db.models import Sum
+from django.db.models import Sum, Count
 from django.http.response import JsonResponse
 from random import randrange
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def home(request):
     finan = entidadesFinancieras2.objects.all()
     return render(request, 'home.html', {'finan' : finan})
@@ -26,13 +28,13 @@ def signin(request):
         if user is None:
              return render(request, 'login.html' , {
             'form' : AuthenticationForm,
-            'error' : 'Usuario o contraseña incorrecto'
+            'error' : 'Usuario o Contraseña Incorrecto'
             })
         else: 
             login(request, user)
             return redirect('home')
  
-
+@login_required
 def signup(request):
 
     if request.method == 'GET':
@@ -61,7 +63,7 @@ def signout(request):
     logout(request)
     return redirect('login')
 
-
+@login_required
 def form(request):
     if request.method == 'GET':
         muni = municipios.objects.all()
@@ -76,13 +78,14 @@ def form(request):
         messages.success(request, 'Registro guardado en la base de datos')
         return redirect('home')
 
-
+@login_required
 def creditDetail(request, credit_id):
     credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)
     return render(request, 'cred_detail.html', {
         'credito' : credito
     })
 
+@login_required
 def reporte(request):
     bh = entidadesFinancieras2.objects.aggregate(bhsuma=Sum('beneficiarios_hombres'))
     bm = entidadesFinancieras2.objects.aggregate(bmsuma=Sum('beneficiarios_mujer'))
@@ -93,20 +96,21 @@ def reporte(request):
     entidadesOCO = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO").count()
 
     total_creditos = entidadesFinancieras2.objects.values("id").count()
-    region_istmo = entidadesFinancieras2.objects.values("region").filter(region="Istmo").count()
-    region_mixteca = entidadesFinancieras2.objects.values("region").filter(region="Mixteca").count() 
-    region_costa = entidadesFinancieras2.objects.values("region").filter(region="Costa").count()   
-    region_sierra = entidadesFinancieras2.objects.values("region").filter(region="Sierra de Flores Magon").count()
-    region_sierraJuarez = entidadesFinancieras2.objects.values("region").filter(region="Sierra de Juarez").count()
-    region_sierraSur = entidadesFinancieras2.objects.values("region").filter(region="Sierra Sur").count()
-    region_valles = entidadesFinancieras2.objects.values("region").filter(region="Valles Centrales").count()
+    # region_istmo = entidadesFinancieras2.objects.values("region").filter(region="Istmo").count()
+    # region_mixteca = entidadesFinancieras2.objects.values("region").filter(region="Mixteca").count() 
+    #region_mixteca = entidadesFinancieras2.objects.annotate(region= Count('region')).filter()
+    # region_costa = entidadesFinancieras2.objects.values("region").filter(region="Costa").count()   
+    # region_sierra = entidadesFinancieras2.objects.values("region").filter(region="Sierra de Flores Magon").count()
+    # region_sierraJuarez = entidadesFinancieras2.objects.values("region").filter(region="Sierra de Juarez").count()
+    # region_sierraSur = entidadesFinancieras2.objects.values("region").filter(region="Sierra Sur").count()
+    # region_valles = entidadesFinancieras2.objects.values("region").filter(region="Valles Centrales").count()
 
-    concepto_infraestructuraAgroalimentaria = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Infraestructura Agroalimentaria").count()
-    concepto_infraestructuraAgroindustrial = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Infraestructura Agroindustrial").count()
-    concepto_mecanizacion = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Mecanizacion").count()
-    concepto_equipamiento = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Equipamiento").count()
-    concepto_agricultura = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Agricultura Protegida").count()
-    concepto_rehabilitacion = entidadesFinancieras2.objects.values("tipo_concepto").filter(region="Rehabilitacion").count()
+    concepto_infraestructuraAgroalimentaria = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Infraestructura Agroalimentaria").count()
+    concepto_infraestructuraAgroindustrial = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Infraestructura Agroindustrial").count()
+    concepto_mecanizacion = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Mecanizacion").count()
+    concepto_equipamiento = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Equipamiento").count()
+    concepto_agricultura = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Agricultura Protegida").count()
+    concepto_rehabilitacion = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Rehabilitacion").count()
 
 
 
@@ -128,13 +132,13 @@ def reporte(request):
         'entidadesNEO' : entidadesNEO,
         'entidadesFIRA' : entidadesFIRA,
         'entidadesOCO' : entidadesOCO,
-        'region_istmo' : region_istmo,
-        'region_mixteca' : region_mixteca,
-        'region_costa' : region_costa,
-        'region_sierra' : region_sierra,
-        'region_sierraJuarez' : region_sierraJuarez,
-        'region_sierraSur' : region_sierraSur, 
-        'region_valles' : region_valles,
+        # 'region_istmo' : region_istmo,
+        # 'region_mixteca' : region_mixteca,
+        # 'region_costa' : region_costa,
+        # 'region_sierra' : region_sierra,
+        # 'region_sierraJuarez' : region_sierraJuarez,
+        # 'region_sierraSur' : region_sierraSur, 
+        # 'region_valles' : region_valles,
 
         'concepto_infraestructuraAgroalimentaria' : concepto_infraestructuraAgroalimentaria,
         'concepto_infraestructuraAgroindustrial' : concepto_infraestructuraAgroindustrial,
@@ -145,24 +149,25 @@ def reporte(request):
 
     })
 
+@login_required
 def graficas(request):
     if request.method == 'GET':
         return render(request, 'graficas.html')
 
 
-
+@login_required
 def get_chart(request):
     serie=[]
     counter = 0
 
-    while (counter < 7):
+    while (counter < 6):
         serie.append(randrange(100,400))
         counter += 1
     chart = {
         'xAxis':[
             {
                 'type' : "category",
-                'data' :  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                'data' :  ['FINDECA', 'ACREIMEX', 'FIRA', 'CAJA 4', 'CAJA 5', 'CAJA 6']
             }
         ],
         'yAxis' : [
@@ -179,5 +184,116 @@ def get_chart(request):
     }
 
     return JsonResponse(chart)
+
+
+@login_required
+def get_chart2(request):
+
+    entidadesFINDECA = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="'FINDECA', SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE").count()
+
+    serie=[30,7,20,30,40,50,60, 20]
+
+    chart = {
+    'tooltip': {
+    'trigger': 'axis',
+    'axisPointer': {
+      'type': 'shadow'
+    }
+  },
+  'grid': {
+    'left': '3%',
+    'right': '4%',
+   'bottom': '3%',
+    'containLabel': 'true'
+  },
+    'xAxis': [
+    {
+      'type': 'category',
+      'data': ['Valles Centrales', 'Istmo', 'Costa', 'Papaloapan', 'Mixteca', 'Sierra de Juarez', 'Sierra Sur', 'Sierra de Flores Magon'],
+      'axisTick': {
+        'alignWithLabel': 'true'
+      }
+    }
+  ],
+    'yAxis': [
+    {
+      'type': 'value'
+    }
+  ],
+    'series': [
+        {
+        'name': 'Monto de Financiamiento por región (Millones de pesos)',
+        'type': 'bar',
+        'barWidth': '60%',
+        'data': serie,
+        }
+    ]
+    }
+
+    return JsonResponse(chart)
+
+
+@login_required
+def get_chart3(request):
+
+    bh = entidadesFinancieras2.objects.aggregate(bhsuma=Sum('beneficiarios_hombres'))
+    bm = entidadesFinancieras2.objects.aggregate(bmsuma=Sum('beneficiarios_mujer'))
+
+    bhtemplates = bh['bhsuma'] 
+    bmtemplates = bm['bmsuma']  
+
+    chart = {
+
+    'tooltip': {
+    'trigger': 'item'
+  },
+  'legend': {
+    'top': '5%',
+    'left': 'center'
+  },
+  'series': [
+    {
+      'name': 'Proyectos por tipo de persona',
+      'type': 'pie',
+      'radius': ['40%', '70%'],
+      'avoidLabelOverlap': 'false',
+      'label': {
+        'show': 'false',
+        'position': 'center'
+      },
+      'emphasis': {
+        'label': {
+          'show': 'true',
+          'fontSize': '40',
+          'fontWeight': 'bold'
+        }
+      },
+      'labelLine': {
+        'show': 'false'
+      },
+      'data': [
+        { 'value': bhtemplates, 'name': 'Moral' },
+        { 'value': bmtemplates, 'name': 'Fisica' },
+      ]
+    }
+  ]
+
+    }
+
+    return JsonResponse(chart)
+
+
+def delete_credit(request, credit_id):
+  credit = get_object_or_404(entidadesFinancieras2, pk= credit_id)
+  if request.method == 'POST':
+    credit.delete()
+    messages.success(request, 'Registro eliminado en la base de datos')
+    return redirect('home')
+
+
+
+
+
+
        
 

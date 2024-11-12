@@ -21,7 +21,7 @@
                        
                     </div>
                     <div class="row">
-                      <div class="col-6">
+                      <!-- <div class="col-6">
                         <div class="form-group"> 
                           <label class=" control-label">Región</label>
                             <div class=" selectContainer">
@@ -39,7 +39,7 @@
                           </div>
                         </div>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-6">
                         <div class="form-group">
                           <label class="control-label" >Municipio</label> 
@@ -48,7 +48,7 @@
                             <select name="municipio" class="form-control selectpicker" required>
                               <option value=" " >Por favor selecciona el municipio</option>
                               {% for mun in muni %}
-                              <option value="{{mun.nombre_municipio}}">{{mun.nombre_municipio}}</option>
+                              <option value="{{mun.id}}">{{mun.nombre_municipio}}</option>
                               {% endfor %}
                             </select>
                           </div>
@@ -246,6 +246,8 @@
                               <option value="cuatrimestral">Cuatrimestral</option>
                               <option value="semestral">Semestral</option>
                               <option value="anual">Anual</option>
+                              <option value="anual">Al vencimiento</option>
+
                             </select>
                           </div>
                         </div>
@@ -389,7 +391,7 @@
                     <div class="row">
                       <div class="col-6">
                         <div class="form-group"> 
-                          <label class=" control-label">Descirpción del Concepto</label>
+                          <label class=" control-label">Descripción del proyecto</label>
                               <div class="inputGroupContainer">
                                 <div class="input-group">
                               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>

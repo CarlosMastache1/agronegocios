@@ -16,11 +16,10 @@
             </caption>
             <tr>
                 <th>NOMBRE DEL PORYECTO</th>
-                <th>REGIÓN </th>
-                <th>MUNICIPIO</th>
+                <th>PRODUCTO QUE COMERCIALIZA</th>
                 <th>NOMBRE DEL CLIENTE</th>
                 <th>MONTO TOTAL</th>
-                <th>SUB SECTOR</th>
+                <th>FINANCIERA</th>
                 <th>TIPO DE MERCADO</th>
                 <th>OPCIONES</th>
 
@@ -32,13 +31,18 @@
 
             <tr class="table-primary" >
                 <td scope="row">{{fin.nombre_proyecto}}</td>
-                <td>{{fin.region}}</td>
-                <td>{{fin.municipio}}</td>
+                <td>{{fin.producto_comercializa}}</td>
                 <td>{{fin.nombre_cliente}}</td>
                 <td>{{fin.monto_total}}</td>
-                <td>{{fin.subsector}}</td>
+                <td>{{fin.intermediario_financiero}}</td>
                 <td>{{fin.tipo_mercado}}</td>
-                <td><a href="{% url 'creditDetail' fin.id %}" class="btn btn-danger">Ver</a></td>
+                <td><a href="{% url 'creditDetail' fin.id %}" class="btn btn-success">Ver </a>
+                    <form action="{% url 'delete_credit' fin.id %}" method="POST">
+                        {% csrf_token  %}
+                        <button  class="btn btn-danger pt-2">Eliminar</button>
+
+                    </form>
+                </td>
 
 
             </tr>
@@ -52,6 +56,21 @@
    
 </div>
 </div>
+
+{% if messages %}
+{% for message in messages %}
+<script>
+  Swal.fire({
+    "title" :  "Eliminado",
+    "text" : "{{message}}",
+    "icon" : "success",
+    showConfirmButton: false,
+      timer: 1200
+  })
+</script>
+{% endfor %}
+{% endif %}
+
 
 
 
