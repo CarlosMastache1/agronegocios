@@ -84,10 +84,33 @@
   {% endif %}
 
     {% load static %}
+
+    <script>
+      const subsectores = document.getElementById('subsector'); 
+
+function ocultarTodosLosSubsectores() {
+  document.getElementById(`sub-Agricola`).style.display = 'none';
+  document.getElementById(`sub-Pecuario`).style.display = 'none';
+  document.getElementById(`sub-Acuicola`).style.display = 'none';
+  document.getElementById(`sub-Pesquero`).style.display = 'none';
+  document.getElementById(`sub-Forestal`).style.display = 'none';
+}
+
+subsectores.addEventListener('change', () => {
+  ocultarTodosLosSubsectores();
+  if (subsectores.value != 0) {
+    document.getElementById(`sub-${subsectores.value}`).style.display = 'block';
+  }
+});
+
+ocultarTodosLosSubsectores();
+    </script>
     <script src="{% static 'js/index.js' %}" ></script>
     <script src="{% static 'js/select.js' %}" ></script>
     <script src="{% static 'js/datatable.js' %}" ></script>
     
+
+
 
     <script src="{% static 'lib/highcharts/highcharts.js' %}" ></script>
     <script src="{% static 'lib/highcharts/modules/exporting.js' %}" ></script>
