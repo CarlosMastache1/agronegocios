@@ -36,6 +36,15 @@ class financieras(ModelForm):
     'cultivo',
     'superficie',
     'volumen_produccion_anual', 
+    'volumen_produccion',
+    'especie_forestal',
+    'especie_captura',
+    'peso_vivo_anual',
+    'peso_desembarcado_anual',
+    'fin_zootecnico',
     'tipo_mercado', 
     'producto_comercializa', 
+    'status',
+    'rfc',
+    'aportacion_productor'
         ]

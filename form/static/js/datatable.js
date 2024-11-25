@@ -1,3 +1,6 @@
+let table = new DataTable('#myTable');
+
+
 const dataTableOptions ={
     columnDefs:[
         {orderable:false, target:[3,4]},

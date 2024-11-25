@@ -9,7 +9,7 @@
         <div class="col-md-10"> 
             <div class="card" style="width: auto; background-color: rgb(182, 231, 163);">
                 <div class="card-body">
-                  <h5 class="card-title" style="text-align: center;">RELLENA EL SIGUIENTE FORMUALRIO CON LOS DATOS QUE SE TE PIDEN</h5>
+                  <h5 class="card-title" style="text-align: center;">RELLENA EL SIGUIENTE FORMULARIO CON LOS DATOS QUE SE TE PIDEN</h5>
                   <br>
                   <form action="/form/" method="POST"  id="contact_form">
                     {% csrf_token %}
@@ -477,15 +477,14 @@
                     </div>
 
                     <div class="row">
-
-                      <div class="col-6">
+                      <div class="col-12">
                         <div class="form-group"> 
                           <label class=" control-label">Sub Sector</label>
                             <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="subsector" class="form-control selectpicker" >
-                              <option value=" " >Selecciona el Sub Sector</option>
+                            <select name="subsector" id="subsector" class="form-control selectpicker" >
+                              <option value="0" >Selecciona el Sub Sector</option>
                               <option value="Agricola">Agrícola</option>
                               <option value="Pecuario">Pecuario</option>
                               <option value="Acuicola">Acuicola</option>
@@ -496,15 +495,57 @@
                         </div>
                         </div>
                       </div>
+                    </div>
 
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Especie</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="especie" placeholder="Especie" class="form-control"  type="text">
-                          <span></span>
+                    <div id="sub-Agricola">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Cultivo</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="cultivo" placeholder="Cultivo" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Variedad</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Superficie (Has.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="superficie" placeholder="Superficie" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Volumen de producción anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                          
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -512,29 +553,228 @@
 
                     </div>
 
-                    <div class="row">
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Variedad</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
-                          <span></span>
+                    <div id="sub-Pecuario">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Especie</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="especie" placeholder="Especie" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Variedad</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <span></span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Cultivo</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="cultivo" placeholder="Cultivo" class="form-control"  type="text">
-                          <span></span>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Fin Zootécnico</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="fin_zootecnico" placeholder="Fin Zootécnico" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Volumen de Producción Anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                     
+                      </div>
+
+                    </div>
+
+                    <div id="sub-Acuicola">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Especie</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="especie" placeholder="Especie" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Variedad</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Volumen de Producción (KG/M2)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="volumen_produccion" placeholder="Volumen de Producción (KG/M2)" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Volumen de Producción Anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                     
+                      </div>
+
+                    </div>
+
+
+                    <div id="sub-Pesquero">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Especie que captura</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="especie_captura" placeholder="Especie que captura" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Variedad</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Peso Vivo Anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="peso_vivo_anual" placeholder="Peso vivo anual (Ton.)" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Peso Desembarcado Anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="peso_desembarcado_anual" placeholder="Peso Desembarcado Anual (Ton.)" class="form-control"  type="number">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div id="sub-Forestal">
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Especie Forestal</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="especie_forestal" placeholder="Especie Forestal" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" > Variedad</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Superficie (Has.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="superficie" placeholder="Superficie" class="form-control"  type="text">
+                            <span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label class="control-label" >Volumen de producción anual (Ton.)</label> 
+                              <div class="inputGroupContainer">
+                              <div class="input-group">
+                            <input name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                          
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -542,35 +782,6 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Superficie</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="superficie" placeholder="Superficie" class="form-control"  type="text">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Volumen de Producción Anual (Ton.)</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                       <div class="col-6">
                         <div class="form-group"> 
                           <label class=" control-label">Tipo de Mercado</label>
@@ -590,9 +801,6 @@
                         </div>
                       </div>
 
-                    </div>
-
-                    <div class="row">
                       <div class="col-6">
                         <div class="form-group">
                           <label class="control-label" >Producto que Comercializa</label> 
@@ -605,7 +813,48 @@
                           </div>
                         </div>
                       </div>
-                    </div>  <br>
+                    </div> 
+
+                    <div class="row">
+                      
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >Status</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <input name="status" placeholder="Status" class="form-control"  type="text">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >RFC</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <input name="rfc" placeholder="RFC" class="form-control"  type="text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >Aportación del productor</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <input name="aportacion_productor" placeholder="Aportación del productor" class="form-control"  type="number">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <br>
                     <div class="row">
                       <div class="col-md-4"></div>
                       <div class="col-md-4">                    <button class="btn btn-success" style="width: 250px; height: 80px; font-size: larger ; font-weight: bold;">Enviar datos</button>
@@ -622,7 +871,6 @@
     </div>
     
 </div>
-
 
    
 {% endblock %}

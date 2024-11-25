@@ -96,6 +96,9 @@ def reporte(request):
     entidadesOCO = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO").count()
 
     total_creditos = entidadesFinancieras2.objects.values("id").count()
+
+    region = municipios.objects.get()
+
     # region_istmo = entidadesFinancieras2.objects.values("region").filter(region="Istmo").count()
     # region_mixteca = entidadesFinancieras2.objects.values("region").filter(region="Mixteca").count() 
     #region_mixteca = entidadesFinancieras2.objects.annotate(region= Count('region')).filter()

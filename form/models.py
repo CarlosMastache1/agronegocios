@@ -41,13 +41,24 @@ class entidadesFinancieras2(models.Model):
     empleos_directos = models.IntegerField() 
     empleos_indirectos = models.IntegerField() 
     subsector = models.CharField(max_length=50) 
-    especie = models.CharField(max_length=50) 
-    variedad = models.CharField(max_length=50) 
-    cultivo = models.CharField(max_length=40)
-    superficie = models.CharField(max_length=40)
-    volumen_produccion_anual = models.IntegerField() 
+    especie = models.CharField(max_length=50, blank=True) 
+    variedad = models.CharField(max_length=50, blank=True) 
+    cultivo = models.CharField(max_length=40, blank=True)
+    superficie = models.CharField(max_length=40, blank=True)
+    volumen_produccion_anual = models.CharField(max_length=20, blank=True) 
+    volumen_produccion = models.CharField(max_length=50, blank=True)
+    especie_forestal = models.CharField(max_length=50, blank=True)
+    especie_captura = models.CharField(max_length=50, blank=True)
+    peso_vivo_anual = models.CharField(max_length=50, blank=True)
+    peso_desembarcado_anual = models.CharField(max_length=50, blank=True)
+    fin_zootecnico = models.CharField(max_length=50, blank=True)
     tipo_mercado = models.CharField(max_length=50) 
     producto_comercializa = models.CharField(max_length=50) 
+    status = models.CharField(max_length=40,  blank=True)
+    rfc = models.CharField(max_length=20,  blank=True)
+    aportacion_productor = models.IntegerField(null=True)
+
+
     
     
      
