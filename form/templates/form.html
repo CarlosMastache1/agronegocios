@@ -7,7 +7,7 @@
     <div class="row justify-content-center align-items-center g-2">
         <div class="col-md-1"></div>
         <div class="col-md-10"> 
-            <div class="card" style="width: auto; background-color: rgb(182, 231, 163);">
+            <div class="card" style="width: auto; background-color: #9d24486c;">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center;">RELLENA EL SIGUIENTE FORMULARIO CON LOS DATOS QUE SE TE PIDEN</h5>
                   <br>
@@ -15,9 +15,9 @@
                     {% csrf_token %}
 
                     <div class="form-group">
-                      <label class=" control-label">Nombre del proyecto</label>  
+                      <label class=" control-label">NOMBRE DEL PROYECTO</label>  
                      
-                      <input  name="nombre_proyecto" placeholder="Nombre del proyecto" class="form-control"  type="text" required>
+                      <input  name="nombre_proyecto" style="text-transform:uppercase" placeholder="Nombre del proyecto" class="form-control"  type="text" >
                        
                     </div>
                     <div class="row">
@@ -26,7 +26,7 @@
                           <label class=" control-label">Región</label>
                             <div class=" selectContainer">
                             <div class="input-group">
-                            <select name="region" class="form-control selectpicker" required>
+                            <select name="region" class="form-control selectpicker" >
                               <option value=" " >Por favor selecciona la región</option>
                               <option value="Sierra de Flores Magon">Sierra de Flores Magón</option>
                               <option value="Costa">Costa</option>
@@ -42,11 +42,11 @@
                       </div> -->
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Municipio</label> 
+                          <label class="control-label" >MUNICIPIO</label> 
                           <div class=" selectContainer">
                             <div class="input-group">
-                            <select name="municipio" class="form-control selectpicker" required>
-                              <option value=" " >Por favor selecciona el municipio</option>
+                            <select class="form-control" name="municipio" id="js-example-basic-single" >
+                              <option value=" " >POR FAVOR SELECCIONA EL MUNICIPIO</option>
                               {% for mun in muni %}
                               <option value="{{mun.id}}">{{mun.nombre_municipio}}</option>
                               {% endfor %}
@@ -59,20 +59,20 @@
                     <div class="row">
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Localidad</label> 
+                          <label class="control-label" >LOCALIDAD</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="localidad" placeholder="Localidad" class="form-control"  type="text" required>
+                          <input name="localidad" style="text-transform:uppercase" placeholder="Localidad" class="form-control"  type="text" >
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Tipo de tenencia de la tierra</label> 
+                          <label class="control-label" >TIPO DE TENENCIA DE LA TIERRA</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="tipo_tenencia" placeholder="Tipo de tenencia de la tierra" class="form-control"  type="text" required>
+                          <input name="tipo_tenencia" style="text-transform:uppercase" placeholder="Tipo de tenencia de la tierra" class="form-control"  type="text" >
                             </div>
                           </div>
                         </div>
@@ -83,275 +83,168 @@
                     <div class="row">
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Tipo de persona</label> 
+                          <label class="control-label" >NOMBRE DEL CLIENTE</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input name="nombre_cliente" style="text-transform:uppercase" placeholder="Nombre del cliente" class="form-control"  type="text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >RFC</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <input name="rfc" placeholder="RFC" style="text-transform:uppercase" class="form-control"  type="text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >NÚMERO DE CRÉDITO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" type="number" name="num_credito" placeholder="Número de Crédito" class="form-control"  step=".0001">
+                            </div>
+                          </div>
+                        </div>
+                   
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >NÚMERO DE CLIENTE</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" type="number" name="num_cliente" placeholder="Número de Cliente" class="form-control"  step=".0001">
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6" id="tPersona">
+                        <div class="form-group">
+                          <label class="control-label" >TIPO DE PERSONA</label> 
                           <div class=" selectContainer">
                             <div class="input-group">
-                            <select name="tipo_persona" class="form-control selectpicker" required >
-                              <option value=" " >Por favor selecciona el tipo de persona</option>
-                              <option value="Persona Fisica">Persona Fisica</option>
-                              <option value="Persona Moral">Persona Moral</option>
+                            <select name="tipo_persona" class="form-control selectpicker"  >
+                              <option value="" >POR FAVOR SELECCINA EL TIPO DE PERSONA</option>
+                              <option value="PERSONA FISICA">PERSONA FISICA</option>
+                              <option value="PERSONA MORAL">PERSONA MORAL</option>
                             </select>
                           </div>
                         </div>
                         </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-6" id="rLegal">
                         <div class="form-group">
-                          <label class="control-label" >Número de Crédito</label> 
+                          <label class="control-label" >REPRESENTANTE LEGAL</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="num_credito" placeholder="Número de Crédito" class="form-control"  type="number">
+                          <input name="representante_legal" style="text-transform:uppercase" placeholder="Representante legal" class="form-control"  type="text">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                   
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >NUMERO DE TELEFONO DEL SOLICITANTE</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" type="number" name="telefono" placeholder="Numero celular" class="form-control"  type="text">
                             </div>
                           </div>
                         </div>
                    
                       </div>
-                    </div>
-
-                    <div class="row">
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Número de Cliente</label> 
+                          <label class="control-label" >BENEFICIARIOS (HOMBRES)</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="num_cliente" placeholder="Número de Cliente" class="form-control"  type="number">
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Nombre del cliente</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="nombre_cliente" placeholder="Nombre del cliente" class="form-control"  type="text">
-                            </div>
-                          </div>
-                        </div>
-                   
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Representante Legal</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="representante_legal" placeholder="Representante legal" class="form-control"  type="text">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Numero de telefono del solicitante</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="telefono" placeholder="Numero celular" class="form-control"  type="text">
-                            </div>
-                          </div>
-                        </div>
-                   
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Producto o tipo de credito</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="producto_tipoCredito" placeholder="Producto o tipo de credito" class="form-control"  type="text">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Monto total del credito</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="monto_total" placeholder="Monto total del credito" class="form-control"  type="number">
-                            </div>
-                          </div>
-                        </div>
-                   
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Fecha de inicio del credito</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="date" name="fecha_inicio" id="" class="form-control">
-                          
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Fecha de termino del credito</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="date" name="fecha_termino" id="" class="form-control">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Tasa de interes anual</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="tasa_interes" placeholder="Tasa de interes" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Periodo de pago</label> 
-                          <div class=" selectContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="periodo_pago" class="form-control selectpicker" >
-                              <option value=" " >Por favor selecciona el periodo de pago</option>
-                              <option value="mensual">Mensual</option>
-                              <option value="bimestral">Bimestral</option>
-                              <option value="trimestral">Trimestral</option>
-                              <option value="cuatrimestral">Cuatrimestral</option>
-                              <option value="semestral">Semestral</option>
-                              <option value="anual">Anual</option>
-                              <option value="anual">Al vencimiento</option>
-
-                            </select>
-                          </div>
-                        </div>
-                        </div>
-                      </div>
-                    </div>
-
-
-              
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Monto de las garantias liquidas vigentes</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="monto_garantiasLiquidasVigente" placeholder="Monto de las garantias liquidas vigentes" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div> 
-                      </div>
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Porcentaje de las garantias liquidas</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="porcentaje_garantias" placeholder="Porcentaje de las garantias liquidas" class="form-control"  type="number">
+                          <input style="text-transform:uppercase" type="number" name="beneficiarios_hombres" placeholder="Beneficiarios Hombres" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="row">
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" > Monto de la garantía liquida Ejercida</label> 
+                          <label class="control-label" >BENEFICIARIOS (MUJERES)</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="monto_garantiaLiquidaEjercida" placeholder="Monto de la garantia liquida ejercida" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div> 
-                      </div>
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Saldo Disponible del Fondo de Garantias Liquidas</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="saldo_disponible" placeholder="Saldo Disponible del Fondo de Garantias Liquidas" class="form-control"  type="number">
+                          <input style="text-transform:uppercase" type="number"  name="beneficiarios_mujer" placeholder="Beneficiarios Mujeres" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-
-
-                    <div class="row">
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" > Monto recuperado de los creditos otorgados </label> 
+                          <label class="control-label" >TOTAL DE BENEFICIARIOS</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="monto_recuperado" placeholder="Monto Recuperado de los Creditos Otorgados" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div> 
-                      </div>
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Incumplimiento del credito por vencimiento u otra cosa</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="inclumplimiento_credito" placeholder="Incumplimiento del credito por vencimiento u otra cosa" class="form-control"  type="text">
+                          <input style="text-transform:uppercase" type="number" name="total_beneficiarios" placeholder="Total de beneficiarios" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > NUMEROS DE EMPLEOS DIRECTOS</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" type="number" name="empleos_directos" placeholder="Numero de Empleos Directos" class="form-control"  step=".0001">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >NUMEROS DE EMPLEOS INDIRECTOS</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" type="number" name="empleos_indirectos" placeholder="Numero de Empleos Indirectos" class="form-control"  step=".0001">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="col-6">
                         <div class="form-group"> 
-                          <label class=" control-label">Intermediario Financiero</label>
+                          <label class=" control-label">INTERMEDIARIO FINANCIERO</label>
                             <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="intermediario_financiero" class="form-control selectpicker" >
-                              <option value=" " >Selecciona el intemediario financiero</option>
+                              <option value="" >SELECCIONA EL INTERMEDIARIO FINANCIERO</option>
                               <option value="COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO">COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRÉSTAMO</option>
                               <option value="'FINDECA', SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE">"FINDECA", SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE</option>
                               <option value="NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE">NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE</option>
@@ -362,134 +255,248 @@
                         </div>
                         </div>
                       </div>
-  
+
                       <div class="col-6">
-                        <div class="form-group"> 
-                          <label class=" control-label">Tipo de Concepto Solicitado</label>
-                            <div class=" selectContainer">
+                        <div class="form-group">
+                          <label class="control-label" > PRODUCTO O TIPO DE CREDITO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase"  name="producto_tipoCredito" placeholder="Producto o tipo de credito" class="form-control"  type="text">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >MONTO TOTAL DEL CREDITO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase"  name="monto_total" placeholder="Monto total del credito" class="form-control" type="number"  step=".0001">
+                            </div>
+                          </div>
+                        </div>
+                   
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > MONTO DE LAS GARANTIAS LIQUIDAS VIGENTES</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="monto_garantiasLiquidasVigente" placeholder="Monto de las garantias liquidas vigentes" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+
+                     
+
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > PORCENTAJE DE LAS GARANTIAS LIQUIDAS VIGENTES</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="porcentaje_garantias" placeholder="Porcentaje de las garantias liquidas" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >MONTO DE LA GARANTÍA LIQUIDA EJERCIDA</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="monto_garantiaLiquidaEjercida" placeholder="Monto de la garantia liquida ejercida" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+
+                      
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >SALDO DISPONIBLE DEL FONDO DE GARANTIAS LIQUIDAS</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="saldo_disponible" placeholder="Saldo Disponible del Fondo de Garantias Liquidas" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > MONTO RECUPERADO DE LOS CREDITOS OTORGADOS </label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="monto_recuperado" placeholder="Monto Recuperado de los Creditos Otorgados" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >INCUMPLIMIENTO DEL CREDITO POR VENCIMIENTO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="inclumplimiento_credito" placeholder="Incumplimiento del credito por vencimiento u otra cosa" class="form-control"  type="text">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >APORTACIÓN DEL PRODUCTOR</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <input  style="text-transform:uppercase" name="aportacion_productor" placeholder="Aportación del productor" class="form-control"  type="number">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                 
+                
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > FECHA DE INCIO DE CREDITO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input type="date" style="text-transform:uppercase"  name="fecha_inicio" id="" class="form-control">
+                          
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > FECHA DE TERMINO DE CREDITO</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input type="date" style="text-transform:uppercase"  name="fecha_termino" id="" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" > TASA DE INTERES ANUAL</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input style="text-transform:uppercase" name="tasa_interes" placeholder="Tasa de interes" class="form-control"  type="number">
+                          <span></span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="control-label" >PERIODO DE PAGO</label> 
+                          <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="tipo_concepto" class="form-control selectpicker" >
-                              <option value=" " >Selecciona el tipo de concepto solicitado</option>
-                              <option value="Infraestructura Agroalimentaria">INFRAESTRUCTURA AGROALIMENTARIA</option>
-                              <option value="Infraestructura Agroindustrial">INFRAESTRUCTURA AGROINDUSTRIAL</option>
-                              <option value="Mecanizacion">MECANIZACIÓN</option>
-                              <option value="Equipamiento">EQUIPAMIENTO</option>
-                              <option value="Agricultura Protegida">AGRICULTURA PROTEGIDA</option>
-                              <option value="Rehabilitacion">REHABILITACIÓN</option>
-                              <option value="Capital de Trabajo">CAPITAL DE TRABAJO</option>
+                            <select name="periodo_pago" class="form-control selectpicker" >
+                              <option value="" >SELECCIONA EL PERIODO DE PAGO</option>
+                              <option value="MENSUAL">MENSUAL</option>
+                              <option value="BIMESTRAL">BIMESTRAL</option>
+                              <option value="TRIMESTRAL">TRIMESTRAL</option>
+                              <option value="CUATRIMESTRAL">CUATRIMESTRAL</option>
+                              <option value="SEMESTRAL">SEMESTRAL</option>
+                              <option value="ANUAL">ANUAL</option>
+                              <option value="AL VENCIMIENTO">AL VENCIMIENTO</option>
+
                             </select>
                           </div>
                         </div>
                         </div>
                       </div>
-
-                      
                     </div>
 
 
                     <div class="row">
+                      
+  
                       <div class="col-6">
                         <div class="form-group"> 
-                          <label class=" control-label">Descripción del proyecto</label>
+                          <label class=" control-label">TIPO DE CONCEPTO SOLICITADO</label>
+                            <div class=" selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="tipo_concepto" class="form-control selectpicker" >
+                              <option value="" >SELECIIONA EL TIPO DE CONCEPTO SOLICITADO</option>
+                              <option value="INFRAESTRUCTURA AGROALIMENTARIA">INFRAESTRUCTURA AGROALIMENTARIA</option>
+                              <option value="INFRAESTRUCTURA AGROINDUSTRIAL">INFRAESTRUCTURA AGROINDUSTRIAL</option>
+                              <option value="MECANIZACION">MECANIZACIÓN</option>
+                              <option value="EQUIPAMIENTO">EQUIPAMIENTO</option>
+                              <option value="AGRICULTURA PROTEGIDA">AGRICULTURA PROTEGIDA</option>
+                              <option value="REHABILITACION">REHABILITACIÓN</option>
+                              <option value="CAPITAL DE TRABAJO">CAPITAL DE TRABAJO</option>
+                            </select>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"> 
+                          <label class=" control-label">DESCRIPCIÓN DEL PROYECTO</label>
                               <div class="inputGroupContainer">
                                 <div class="input-group">
                               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                              <textarea class="form-control" name="descripcion_concepto" id=""></textarea>
+                              <textarea style="text-transform:uppercase" class="form-control" name="descripcion_concepto" id=""></textarea>
                               <span></span>
                                 </div>
                               </div>
                         </div>
-                      </div>
-  
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Beneficiarios (Hombres)</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="beneficiarios_hombres" placeholder="Beneficiarios Hombres" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      
-                    </div>
-
-
-                    
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Beneficiarios (Mujeres)</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="beneficiarios_mujer" placeholder="Beneficiarios Mujeres" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Total de Beneficiarios</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="total_beneficiarios" placeholder="Total de beneficiarios" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Numero de Empleos Directos</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="empleos_directos" placeholder="Numero de Empleos Directos" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" > Numero de Empleos Indirectos</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="empleos_indirectos" placeholder="Numero de Empleos Indirectos" class="form-control"  type="number">
-                          <span></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      </div>                      
                     </div>
 
                     <div class="row">
                       <div class="col-12">
                         <div class="form-group"> 
-                          <label class=" control-label">Sub Sector</label>
+                          <label class=" control-label">SUBSECTOR</label>
                             <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="subsector" id="subsector" class="form-control selectpicker" >
-                              <option value="0" >Selecciona el Sub Sector</option>
-                              <option value="Agricola">Agrícola</option>
-                              <option value="Pecuario">Pecuario</option>
-                              <option value="Acuicola">Acuicola</option>
-                              <option value="Pesquero">Pesquero</option>
-                              <option value="Forestal">Forestal</option>
+                              <option value="0" >SELECCIONA EL SUBSECTOR</option>
+                              <option value="Agricola">AGRICOLA</option>
+                              <option value="Pecuario">PECUARIO</option>
+                              <option value="Acuicola">ACUICOLA</option>
+                              <option value="Pesquero">PESQUERO</option>
+                              <option value="Forestal">FORESTAL</option>
                             </select>
                           </div>
                         </div>
@@ -501,10 +508,10 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Cultivo</label> 
+                            <label class="control-label" >CULTIVO</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="cultivo" placeholder="Cultivo" class="form-control"  type="text">
+                            <input name="cultivo" style="text-transform:uppercase" placeholder="Cultivo" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -513,11 +520,11 @@
   
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Variedad</label> 
+                            <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -528,11 +535,11 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Superficie (Has.)</label> 
+                            <label class="control-label" >SUPERFICIE (HAS.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="superficie" placeholder="Superficie" class="form-control"  type="number">
+                            <input name="superficie" style="text-transform:uppercase" placeholder="Superficie" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -540,10 +547,10 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Volumen de producción anual (Ton.)</label> 
+                            <label class="control-label" >VOLUMEN DE PRODUCCIÓN ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                            <input name="volumen_produccion_anual" style="text-transform:uppercase" placeholder="Volumen de producción anual" class="form-control"  type="number">
                           
                               </div>
                             </div>
@@ -557,11 +564,11 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Especie</label> 
+                            <label class="control-label" >ESPECIE</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie" placeholder="Especie" class="form-control"  type="text">
+                            <input name="especie" style="text-transform:uppercase" placeholder="Especie" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -570,11 +577,11 @@
   
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Variedad</label> 
+                            <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -585,10 +592,10 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Fin Zootécnico</label> 
+                            <label class="control-label" >FIN ZOOTÉCNICO</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="fin_zootecnico" placeholder="Fin Zootécnico" class="form-control"  type="text">
+                            <input name="fin_zootecnico" style="text-transform:uppercase" placeholder="Fin Zootécnico" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -596,11 +603,11 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Volumen de Producción Anual (Ton.)</label> 
+                            <label class="control-label" >VOLUMEN DE PRODUCCIÓN ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -616,11 +623,11 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Especie</label> 
+                            <label class="control-label" > ESPECIE</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie" placeholder="Especie" class="form-control"  type="text">
+                            <input name="especie" style="text-transform:uppercase" placeholder="Especie" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -629,11 +636,11 @@
   
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Variedad</label> 
+                            <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -644,10 +651,10 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Volumen de Producción (KG/M2)</label> 
+                            <label class="control-label" >VOLUMEN DE PRODUCCIÓN (KG/M2)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="volumen_produccion" placeholder="Volumen de Producción (KG/M2)" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="volumen_produccion" placeholder="Volumen de Producción (KG/M2)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -655,11 +662,11 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Volumen de Producción Anual (Ton.)</label> 
+                            <label class="control-label" >VOLUMEN DE PRODUCCIÓN ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -676,11 +683,11 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Especie que captura</label> 
+                            <label class="control-label" > ESPECIE QUE CAPTURA</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie_captura" placeholder="Especie que captura" class="form-control"  type="text">
+                            <input style="text-transform:uppercase" name="especie_captura" placeholder="Especie que captura" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -689,11 +696,11 @@
   
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Variedad</label> 
+                            <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input style="text-transform:uppercase" name="variedad" placeholder="Variedad" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -703,10 +710,10 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Peso Vivo Anual (Ton.)</label> 
+                            <label class="control-label" >PESO VIVO ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="peso_vivo_anual" placeholder="Peso vivo anual (Ton.)" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="peso_vivo_anual" placeholder="Peso vivo anual (Ton.)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -714,11 +721,11 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Peso Desembarcado Anual (Ton.)</label> 
+                            <label class="control-label" >PESO DESEMBARCADO ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="peso_desembarcado_anual" placeholder="Peso Desembarcado Anual (Ton.)" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="peso_desembarcado_anual" placeholder="Peso Desembarcado Anual (Ton.)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -732,11 +739,11 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Especie Forestal</label> 
+                            <label class="control-label" >ESPECIE FORESTAL</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie_forestal" placeholder="Especie Forestal" class="form-control"  type="text">
+                            <input style="text-transform:uppercase" name="especie_forestal" placeholder="Especie Forestal" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -744,10 +751,10 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" > Variedad</label> 
+                            <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input style="text-transform:uppercase" name="variedad" placeholder="Variedad" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -757,10 +764,10 @@
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Superficie (Has.)</label> 
+                            <label class="control-label" >SUPERFICIE (HAS.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="superficie" placeholder="Superficie" class="form-control"  type="text">
+                            <input style="text-transform:uppercase" name="superficie" placeholder="Superficie" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -769,10 +776,10 @@
 
                         <div class="col-6">
                           <div class="form-group">
-                            <label class="control-label" >Volumen de producción anual (Ton.)</label> 
+                            <label class="control-label" >VOLUMEN DE PRODCCION ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
                           
                               </div>
                             </div>
@@ -784,17 +791,17 @@
                     <div class="row">
                       <div class="col-6">
                         <div class="form-group"> 
-                          <label class=" control-label">Tipo de Mercado</label>
+                          <label class=" control-label">TIPO DE MERCADO</label>
                             <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="tipo_mercado" class="form-control selectpicker" >
-                              <option value=" " >Selecciona el Tipo de Mercado</option>
-                              <option value="Local">Local</option>
-                              <option value="Regional">Regional</option>
-                              <option value="Estatal">Estatal</option>
-                              <option value="Nacional">Nacional</option>
-                              <option value="Internacional">Internacional</option>
+                              <option value="" >SELECCIONA EL TIPO DE MERCADO</option>
+                              <option value="LOCAL">LOCAL</option>
+                              <option value="REGIONAL">REGIONAL</option>
+                              <option value="ESTATAK">ESTATAL</option>
+                              <option value="NACIONAL">NACIONAL</option>
+                              <option value="INTERNACIONAL">INTERNACIONAL</option>
                             </select>
                           </div>
                         </div>
@@ -803,11 +810,11 @@
 
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Producto que Comercializa</label> 
+                          <label class="control-label" >PRODUCTO QUE COMERCIALIZA</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="producto_comercializa" placeholder="Producto que Comercializa" class="form-control"  type="text">
+                          <input style="text-transform:uppercase" name="producto_comercializa" placeholder="Producto que Comercializa" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -819,45 +826,27 @@
                       
                       <div class="col-6">
                         <div class="form-group">
-                          <label class="control-label" >Status</label> 
+                          <label class="control-label" >STATUS</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="status" placeholder="Status" class="form-control"  type="text">
+                          <input style="text-transform:uppercase" name="status" placeholder="Status" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >RFC</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <input name="rfc" placeholder="RFC" class="form-control"  type="text">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                     
 
                     </div>
 
                     <div class="row">
-                      <div class="col-6">
-                        <div class="form-group">
-                          <label class="control-label" >Aportación del productor</label> 
-                            <div class="inputGroupContainer">
-                            <div class="input-group">
-                          <input name="aportacion_productor" placeholder="Aportación del productor" class="form-control"  type="number">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                   
                     </div>
 
                     <br>
                     <div class="row">
                       <div class="col-md-4"></div>
-                      <div class="col-md-4">                    <button class="btn btn-success" style="width: 250px; height: 80px; font-size: larger ; font-weight: bold;">Enviar datos</button>
+                      <div class="col-md-4">                    <button class="btn"  style="width: 250px; height: 80px; font-size: larger ; font-weight: bold; background-color: #9d2449; color: white;">Enviar datos</button>
                       </div>
 
                     </div>
@@ -872,6 +861,12 @@
     
 </div>
 
+
+<script>
+  $(document).ready(function() {
+    $('#js-example-basic-single').select2();
+});
+</script>
    
 {% endblock %}
 
