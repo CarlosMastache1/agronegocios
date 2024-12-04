@@ -17,7 +17,7 @@
                     <div class="form-group">
                       <label class=" control-label">NOMBRE DEL PROYECTO</label>  
                      
-                      <input  name="nombre_proyecto" style="text-transform:uppercase" placeholder="Nombre del proyecto" class="form-control"  type="text" >
+                      <input  name="nombre_proyecto" onkeyup="mayus(this);" placeholder="NOMBRE DEL PROYECTO" class="form-control"  type="text" >
                        
                     </div>
                     <div class="row">
@@ -62,7 +62,7 @@
                           <label class="control-label" >LOCALIDAD</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="localidad" style="text-transform:uppercase" placeholder="Localidad" class="form-control"  type="text" >
+                          <input name="localidad" onkeyup="mayus(this);" placeholder="LOCALIDAD" class="form-control"  type="text" >
                             </div>
                           </div>
                         </div>
@@ -72,7 +72,7 @@
                           <label class="control-label" >TIPO DE TENENCIA DE LA TIERRA</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="tipo_tenencia" style="text-transform:uppercase" placeholder="Tipo de tenencia de la tierra" class="form-control"  type="text" >
+                          <input name="tipo_tenencia" onkeyup="mayus(this);" placeholder="TIPO DE TENENCIA DE LA TIERRA" class="form-control"  type="text" >
                             </div>
                           </div>
                         </div>
@@ -87,7 +87,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="nombre_cliente" style="text-transform:uppercase" placeholder="Nombre del cliente" class="form-control"  type="text">
+                          <input name="nombre_cliente" onkeyup="mayus(this);" placeholder="NOMBRE DEL CLIENTE" class="form-control"  type="text">
                             </div>
                           </div>
                         </div>
@@ -98,7 +98,7 @@
                           <label class="control-label" >RFC</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input name="rfc" placeholder="RFC" style="text-transform:uppercase" class="form-control"  type="text">
+                          <input name="rfc" placeholder="RFC" onkeyup="mayus(this);" class="form-control"  type="text">
                             </div>
                           </div>
                         </div>
@@ -112,7 +112,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="num_credito" placeholder="Número de Crédito" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="num_credito" placeholder="NÚMERO DE CRÉDITO" class="form-control"  step=".0001">
                             </div>
                           </div>
                         </div>
@@ -124,7 +124,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="num_cliente" placeholder="Número de Cliente" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="num_cliente" placeholder="NÚMERO DE CLIENTE" class="form-control"  step=".0001">
                             </div>
                           </div>
                         </div>
@@ -153,7 +153,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="representante_legal" style="text-transform:uppercase" placeholder="Representante legal" class="form-control"  type="text">
+                          <input name="representante_legal" onkeyup="mayus(this);" placeholder="REPRESENTANTE LEGAL" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -170,7 +170,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="telefono" placeholder="Numero celular" class="form-control"  type="text">
+                          <input onkeyup="mayus(this);" type="number" name="telefono" placeholder="NUMERO DE TELEFONO DEL SOLICITANTE" class="form-control"  type="text">
                             </div>
                           </div>
                         </div>
@@ -182,7 +182,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="beneficiarios_hombres" placeholder="Beneficiarios Hombres" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="beneficiarios_hombres" placeholder="BENEFICIARIOS (HOMBRES)" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
@@ -194,7 +194,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number"  name="beneficiarios_mujer" placeholder="Beneficiarios Mujeres" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number"  name="beneficiarios_mujer" placeholder="BENEFICIARIOS (MUJERES)" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
@@ -206,7 +206,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="total_beneficiarios" placeholder="Total de beneficiarios" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="total_beneficiarios" placeholder="TOTAL DE BENEFICIARIOS" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
@@ -218,7 +218,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="empleos_directos" placeholder="Numero de Empleos Directos" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="empleos_directos" placeholder="NUMEROS DE EMPLEOS DIRECTOS" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
@@ -231,7 +231,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" type="number" name="empleos_indirectos" placeholder="Numero de Empleos Indirectos" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="number" name="empleos_indirectos" placeholder="NUMEROS DE EMPLEOS INDIRECTOS" class="form-control"  step=".0001">
                           <span></span>
                             </div>
                           </div>
@@ -262,7 +262,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase"  name="producto_tipoCredito" placeholder="Producto o tipo de credito" class="form-control"  type="text">
+                          <input onkeyup="mayus(this);"  name="producto_tipoCredito" placeholder="PRODUCTO O TIPO DE CREDITO" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -276,7 +276,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="text"  onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase"  name="monto_total" placeholder="Monto total del credito" class="form-control" >
+                          <input type="text"  onkeyup="moneda(this);" onkeydown="return decimal(event, this);" onkeyup="mayus(this);"  name="monto_total" placeholder="MONTO TOTAL DEL CREDITO" class="form-control" >
                             </div>
                           </div>
                         </div>
@@ -289,7 +289,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_garantiasLiquidasVigente" placeholder="Monto de las garantias liquidas vigentes" class="form-control"  type="text">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" onkeyup="mayus(this);" name="monto_garantiasLiquidasVigente" placeholder="MONTO DE LAS GARANTIAS LIQUIDAS VIGENTES" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -305,7 +305,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="porcentaje_garantias" placeholder="Porcentaje de las garantias liquidas" class="form-control"  type="number">
+                          <input onkeyup="mayus(this);" name="porcentaje_garantias" placeholder="PORCENTAJE DE LAS GARANTIAS LIQUIDAS VIGENTES" class="form-control"  type="number">
                           <span></span>
                             </div>
                           </div>
@@ -319,7 +319,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_garantiaLiquidaEjercida" placeholder="Monto de la garantia liquida ejercida" class="form-control"  type="text">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" onkeyup="mayus(this);" name="monto_garantiaLiquidaEjercida" placeholder="MONTO DE LA GARANTÍA LIQUIDA EJERCIDA" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -333,7 +333,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="saldo_disponible" placeholder="Saldo Disponible del Fondo de Garantias Liquidas" class="form-control"  type="text">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" onkeyup="mayus(this);" name="saldo_disponible" placeholder="SALDO DISPONIBLE DEL FONDO DE GARANTIAS LIQUIDAS" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -346,7 +346,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_recuperado" placeholder="Monto Recuperado de los Creditos Otorgados" class="form-control"  type="text">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" onkeyup="mayus(this);" name="monto_recuperado" placeholder="MONTO RECUPERADO DE LOS CREDITOS OTORGADOS" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -359,7 +359,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="inclumplimiento_credito" placeholder="Incumplimiento del credito por vencimiento u otra cosa" class="form-control"  type="text">
+                          <input onkeyup="mayus(this);" name="inclumplimiento_credito" placeholder="INCUMPLIMIENTO DEL CREDITO POR VENCIMIENTO" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -371,7 +371,7 @@
                           <label class="control-label" >APORTACIÓN DEL PRODUCTOR</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input  style="text-transform:uppercase" name="aportacion_productor" placeholder="Aportación del productor" class="form-control"  type="number">
+                          <input  onkeyup="mayus(this);" name="aportacion_productor" placeholder="APORTACIÓN DEL PRODUCTOR" class="form-control"  type="number">
                             </div>
                           </div>
                         </div>
@@ -388,7 +388,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="date" style="text-transform:uppercase"  name="fecha_inicio" id="" class="form-control">
+                          <input type="date" onkeyup="mayus(this);"  name="fecha_inicio" id="" class="form-control">
                           
                             </div>
                           </div>
@@ -401,7 +401,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="date" style="text-transform:uppercase"  name="fecha_termino" id="" class="form-control">
+                          <input type="date" onkeyup="mayus(this);"  name="fecha_termino" id="" class="form-control">
                             </div>
                           </div>
                         </div>
@@ -415,7 +415,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="tasa_interes" placeholder="Tasa de interes" class="form-control"  type="number">
+                          <input onkeyup="mayus(this);" name="tasa_interes" placeholder="TASA DE INTERES ANUAL" class="form-control"  type="number">
                           <span></span>
                             </div>
                           </div>
@@ -475,7 +475,7 @@
                               <div class="inputGroupContainer">
                                 <div class="input-group">
                               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                              <textarea style="text-transform:uppercase" class="form-control" name="descripcion_concepto" id=""></textarea>
+                              <textarea onkeyup="mayus(this);" class="form-control" name="descripcion_concepto" id=""></textarea>
                               <span></span>
                                 </div>
                               </div>
@@ -511,7 +511,7 @@
                             <label class="control-label" >CULTIVO</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="cultivo" style="text-transform:uppercase" placeholder="Cultivo" class="form-control"  type="text">
+                            <input name="cultivo" onkeyup="mayus(this);" placeholder="CULTIVO" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -524,7 +524,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" onkeyup="mayus(this);" placeholder="VARIEDAD" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -539,7 +539,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="superficie" style="text-transform:uppercase" placeholder="Superficie" class="form-control"  type="number">
+                            <input name="superficie" onkeyup="mayus(this);" placeholder="SUPERFICIE" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -550,7 +550,7 @@
                             <label class="control-label" >VOLUMEN DE PRODUCCIÓN ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="volumen_produccion_anual" style="text-transform:uppercase" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                            <input name="volumen_produccion_anual" onkeyup="mayus(this);" placeholder="VOLUMEN DE PRODUCCIÓN ANUAL" class="form-control"  type="number">
                           
                               </div>
                             </div>
@@ -568,7 +568,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie" style="text-transform:uppercase" placeholder="Especie" class="form-control"  type="text">
+                            <input name="especie" onkeyup="mayus(this);" placeholder="ESPECIE" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -581,7 +581,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" onkeyup="mayus(this);" placeholder="VARIEDAD" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -595,7 +595,7 @@
                             <label class="control-label" >FIN ZOOTÉCNICO</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input name="fin_zootecnico" style="text-transform:uppercase" placeholder="Fin Zootécnico" class="form-control"  type="text">
+                            <input name="fin_zootecnico" onkeyup="mayus(this);" placeholder="FIN ZOOTÉCNICO" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -607,7 +607,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="volumen_produccion_anual" placeholder="VOLUMEN DE PRODUCCIÓN ANUAL" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -627,7 +627,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="especie" style="text-transform:uppercase" placeholder="Especie" class="form-control"  type="text">
+                            <input name="especie" onkeyup="mayus(this);" placeholder="ESPECIE" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -640,7 +640,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="variedad" style="text-transform:uppercase" placeholder="Variedad" class="form-control"  type="text">
+                            <input name="variedad" onkeyup="mayus(this);" placeholder="VARIEDAD" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -654,7 +654,7 @@
                             <label class="control-label" >VOLUMEN DE PRODUCCIÓN (KG/M2)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input style="text-transform:uppercase" name="volumen_produccion" placeholder="Volumen de Producción (KG/M2)" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="volumen_produccion" placeholder="VOLUMEN DE PRODUCCIÓN (KG/M2)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -666,7 +666,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de Producción Anual" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="volumen_produccion_anual" placeholder="VOLUMEN DE PRODUCCIÓN ANUAL" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -687,7 +687,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="especie_captura" placeholder="Especie que captura" class="form-control"  type="text">
+                            <input onkeyup="mayus(this);" name="especie_captura" placeholder="ESPECIE QUE CAPTURA" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -700,7 +700,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input onkeyup="mayus(this);" name="variedad" placeholder="VARIEDAD" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -713,7 +713,7 @@
                             <label class="control-label" >PESO VIVO ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input style="text-transform:uppercase" name="peso_vivo_anual" placeholder="Peso vivo anual (Ton.)" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="peso_vivo_anual" placeholder="PESO VIVO ANUAL (Ton.)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -725,7 +725,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="peso_desembarcado_anual" placeholder="Peso Desembarcado Anual (Ton.)" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="peso_desembarcado_anual" placeholder="PESO DESEMBARCADO ANUAL (TON.)" class="form-control"  type="number">
                             <span></span>
                               </div>
                             </div>
@@ -743,7 +743,7 @@
                               <div class="inputGroupContainer">
                               <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input style="text-transform:uppercase" name="especie_forestal" placeholder="Especie Forestal" class="form-control"  type="text">
+                            <input onkeyup="mayus(this);" name="especie_forestal" placeholder="ESPECIE FORESTAL" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -754,7 +754,7 @@
                             <label class="control-label" > VARIEDAD</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input style="text-transform:uppercase" name="variedad" placeholder="Variedad" class="form-control"  type="text">
+                            <input onkeyup="mayus(this);" name="variedad" placeholder="VARIEDAD" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -767,7 +767,7 @@
                             <label class="control-label" >SUPERFICIE (HAS.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input style="text-transform:uppercase" name="superficie" placeholder="Superficie" class="form-control"  type="text">
+                            <input onkeyup="mayus(this);" name="superficie" placeholder="SUPERFICIE" class="form-control"  type="text">
                             <span></span>
                               </div>
                             </div>
@@ -779,7 +779,7 @@
                             <label class="control-label" >VOLUMEN DE PRODCCION ANUAL (TON.)</label> 
                               <div class="inputGroupContainer">
                               <div class="input-group">
-                            <input style="text-transform:uppercase" name="volumen_produccion_anual" placeholder="Volumen de producción anual" class="form-control"  type="number">
+                            <input onkeyup="mayus(this);" name="volumen_produccion_anual" placeholder="VOLUMEN DE PRODCCION ANUAL" class="form-control"  type="number">
                           
                               </div>
                             </div>
@@ -814,7 +814,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="producto_comercializa" placeholder="Producto que Comercializa" class="form-control"  type="text">
+                          <input onkeyup="mayus(this);" name="producto_comercializa" placeholder="PRODUCTO QUE COMERCIALIZA" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -829,7 +829,7 @@
                           <label class="control-label" >STATUS</label> 
                             <div class="inputGroupContainer">
                             <div class="input-group">
-                          <input style="text-transform:uppercase" name="status" placeholder="Status" class="form-control"  type="text">
+                          <input onkeyup="mayus(this);" name="status" placeholder="STATUS" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
