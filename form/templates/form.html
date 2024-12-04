@@ -276,7 +276,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase"  name="monto_total" placeholder="Monto total del credito" class="form-control" type="number"  step=".0001">
+                          <input type="text"  onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase"  name="monto_total" placeholder="Monto total del credito" class="form-control" >
                             </div>
                           </div>
                         </div>
@@ -289,7 +289,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="monto_garantiasLiquidasVigente" placeholder="Monto de las garantias liquidas vigentes" class="form-control"  type="number">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_garantiasLiquidasVigente" placeholder="Monto de las garantias liquidas vigentes" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -319,7 +319,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="monto_garantiaLiquidaEjercida" placeholder="Monto de la garantia liquida ejercida" class="form-control"  type="number">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_garantiaLiquidaEjercida" placeholder="Monto de la garantia liquida ejercida" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -333,7 +333,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="saldo_disponible" placeholder="Saldo Disponible del Fondo de Garantias Liquidas" class="form-control"  type="number">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="saldo_disponible" placeholder="Saldo Disponible del Fondo de Garantias Liquidas" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -346,7 +346,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input style="text-transform:uppercase" name="monto_recuperado" placeholder="Monto Recuperado de los Creditos Otorgados" class="form-control"  type="number">
+                          <input onkeyup="moneda(this);" onkeydown="return decimal(event, this);" style="text-transform:uppercase" name="monto_recuperado" placeholder="Monto Recuperado de los Creditos Otorgados" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -867,6 +867,9 @@
     $('#js-example-basic-single').select2();
 });
 </script>
+
+
+
    
 {% endblock %}
 

@@ -12,8 +12,7 @@
 <div class="table-responsive" >
     <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
         <thead class="table-light">
-            <caption>
-            </caption>
+      
             <tr>
                 <th>NOMBRE DEL PORYECTO</th>
                 <th>PRODUCTO QUE COMERCIALIZA</th>
@@ -40,17 +39,13 @@
                     <form action="{% url 'delete_credit' fin.id %}" method="POST">
                         {% csrf_token  %}
                         <button  class="btn btn-danger pt-2">Eliminar</button>
-
                     </form>
                 </td>
-
-
             </tr>
             {% endfor %}
 
         </tbody>
-        <tfoot>
-        </tfoot>
+        
     </table>    
 </div>
    

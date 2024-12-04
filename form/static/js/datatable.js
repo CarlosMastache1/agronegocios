@@ -1,18 +1,20 @@
-let table = new DataTable('#myTable');
 
 
 const dataTableOptions ={
     columnDefs:[
-        {orderable:false, target:[3,4]},
-        {searchable: false, targets:[3,4]}
+        {orderable:false, target:[6]},
+        {searchable: false, targets:[6]}
     ],
 };
 
 
 
+
 $(document).ready(function () {
-    $('#myTable').DataTable({pageLength : 7});
-});
-
-
-
+    var table = new DataTable('#myTable',{
+        language: {
+            url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/es-ES.json',
+        },
+    })
+    
+})
