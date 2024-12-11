@@ -80,10 +80,29 @@ def form(request):
 
 @login_required
 def creditDetail(request, credit_id):
+  credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)
+  return render(request, 'cred_detail.html', {
+      'credito' : credito
+  })
+
+
+
+def creditUpdate(request, credit_id):
+  if request.method == 'GET':
     credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)
-    return render(request, 'cred_detail.html', {
-        'credito' : credito
+    form = financieras(instance = credito)
+    return render(request, 'cred_edit.html', {
+        'credito' : credito,
+        'form' : form
     })
+  else:
+    credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)
+    form = financieras(request.POST, instance=credito)
+    form.save()
+    return redirect('home')
+
+
+
 
 @login_required
 def reporte(request):
