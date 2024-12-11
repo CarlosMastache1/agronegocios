@@ -33,7 +33,7 @@ class entidadesFinancieras2(models.Model):
     saldo_disponible = models.DecimalField(max_digits = 12, decimal_places=5, blank=True,  null=True)
     monto_recuperado = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True)
     inclumplimiento_credito = models.CharField(max_length= 100, blank=True, null=True)
-    financieras = (('COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', 'ACREIMEX'), ('"FINDECA", SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE', 'FINDECA'))
+    financieras = (('COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', 'COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO'), ('FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE', 'FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE'))
     intermediario_financiero = models.CharField(max_length= 150, blank=True, null=True, choices=financieras) 
     tipo_concepto = models.CharField(max_length= 30, blank=True, null=True) 
     descripcion_concepto = models.TextField(blank=True, null=True) 

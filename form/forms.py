@@ -50,6 +50,7 @@ class financieras(forms.ModelForm):
         ]
         widgets={
             'nombre_proyecto': forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);' }),
+            'municipio' : forms.Select(attrs={'class' : 'form-control'}),
             'localidad': forms.TextInput(attrs={'class' : 'form-control'}),
             'nombre_cliente' : forms.TextInput(attrs={'class' : 'form-control'}),
             'tipo_tenencia': forms.TextInput(attrs={'class' : 'form-control'}),
@@ -84,6 +85,17 @@ class financieras(forms.ModelForm):
             'especie' : forms.TextInput(attrs={'class' : 'form-control'}),
             'variedad' : forms.TextInput(attrs={'class' : 'form-control'}),
             'cultivo' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'superficie' : forms.NumberInput(attrs={'class' : 'form-control'}), 
+            'volumen_produccion_anual' : forms.NumberInput(attrs={'class' : 'form-control'}),
+            'volumen_produccion' : forms.NumberInput(attrs={'class' : 'form-control'}), 
+            'especie_forestal' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'especie_captura' :  forms.TextInput(attrs={'class' : 'form-control'}),
+            'peso_vivo_anual' : forms.NumberInput(attrs={'class' : 'form-control'}), 
+            'peso_desembarcado_anual' : forms.NumberInput(attrs={'class' : 'form-control'}), 
+            'fin_zootecnico' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'tipo_mercado' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'producto_comercializa' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'status' : forms.TextInput(attrs={'class' : 'form-control'}),
 
 
         }
