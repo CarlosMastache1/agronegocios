@@ -16,19 +16,3 @@ const subsectores = document.getElementById('subsector');
     });
 
     ocultarTodosLosSubsectores();
-
-
-const tipoPersona = document.getElementById('tPersona'); 
-
-  function ocultarRepresentantelegal() {
-    document.getElementById('rLegal').style.display = 'none';
-  }
-
-  tipoPersona.addEventListener('change', () => {
-    ocultarRepresentantelegal();
-    if (tipoPersona.value != 'PERSONA MORAL') {
-      document.getElementById('rLegal').style.display = 'block';
-    }
-  });
-
-  ocultarRepresentantelegal();
