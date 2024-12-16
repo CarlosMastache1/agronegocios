@@ -96,6 +96,6 @@ class financieras(forms.ModelForm):
             'tipo_mercado' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
             'producto_comercializa' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
             'status' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
-
+            
 
         }
