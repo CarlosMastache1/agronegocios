@@ -164,9 +164,44 @@ def reporte(request):
 
 @login_required
 def graficas(request):
-      valles_centrales = municipios.objects.get(region='VALLES CENTRALES')
-      num_proyectos_VC = valles_centrales.entidades.Count()
+      # valles_centrales = municipios.objects.get(region='VALLES CENTRALES')
+      # num_proyectos_VC = valles_centrales.entidades.count()
+
+      # mixteca = municipios.objects.get(region='MIXTECA')
+      # num_proyectos_MIX = mixteca.entidades.count()
+
+
+      istmo = municipios.objects.get(region='ISTMO')
+      num_proyectos_IST = istmo.entidades.count()
+
+
+      papaloapan = municipios.objects.get(region='PAPALOAPAN')
+      num_proyectos_papa = papaloapan.entidades.count()
+
+
+      
+      costa = municipios.objects.get(region='COSTA')
+      num_proyectos_costa = papaloapan.entidades.count()
+
+      sj = municipios.objects.get(region='SIERRA DE JUAREZ')
+      num_proyectos_sj = sj.entidades.count()
+
+
+   
+
+
+
+
+
       return render(request, 'graficas.html',{
+        # 'num_proyectos_VC' : num_proyectos_VC,
+        # 'num_proyectos_MIX' : num_proyectos_MIX,
+        'num_proyectos_IST' : num_proyectos_IST,
+        'num_proyectos_papa' : num_proyectos_papa,
+        'num_proyectos_costa' : num_proyectos_costa,
+        'num_proyectos_sj' : num_proyectos_sj
+
+
 
         })
 
