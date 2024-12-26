@@ -108,7 +108,8 @@ def creditUpdate(request, credit_id):
 def reporte(request):
     bh = entidadesFinancieras2.objects.aggregate(bhsuma=Sum('beneficiarios_hombres'))
     bm = entidadesFinancieras2.objects.aggregate(bmsuma=Sum('beneficiarios_mujer'))
-    valles_centrales_proy = entidadesFinancieras2.objects.aggregate(vcsuma=Sum(''))
+    valles_centrales = municipios.objects.get(region='VALLES CENTRALES')
+    num_proyectos_VC = valles_centrales.entidades.Count()
     entidadesFINDECA = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="'FINDECA', SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE").count()
     entidadesACRIMEX = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO").count()
     entidadesNEO = entidadesFinancieras2.objects.values("intermediario_financiero").filter(intermediario_financiero="NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE").count()
@@ -134,11 +135,7 @@ def reporte(request):
     concepto_equipamiento = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Equipamiento").count()
     concepto_agricultura = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Agricultura Protegida").count()
     concepto_rehabilitacion = entidadesFinancieras2.objects.values("tipo_concepto").filter(tipo_concepto="Rehabilitacion").count()
-
-
-
-
-
+    prueba_nombre = entidadesFinancieras2.objects.get()
 
     bhtemplates = bh['bhsuma'] 
     bmtemplates = bm['bmsuma']    
@@ -155,27 +152,23 @@ def reporte(request):
         'entidadesNEO' : entidadesNEO,
         'entidadesFIRA' : entidadesFIRA,
         'entidadesOCO' : entidadesOCO,
-        # 'region_istmo' : region_istmo,
-        # 'region_mixteca' : region_mixteca,
-        # 'region_costa' : region_costa,
-        # 'region_sierra' : region_sierra,
-        # 'region_sierraJuarez' : region_sierraJuarez,
-        # 'region_sierraSur' : region_sierraSur, 
-        # 'region_valles' : region_valles,
-
         'concepto_infraestructuraAgroalimentaria' : concepto_infraestructuraAgroalimentaria,
         'concepto_infraestructuraAgroindustrial' : concepto_infraestructuraAgroindustrial,
         'concepto_mecanizacion' : concepto_mecanizacion,
         'concepto_equipamiento' : concepto_equipamiento,
         'concepto_agricultura' : concepto_agricultura,
-        'concepto_rehabilitacion' : concepto_rehabilitacion 
+        'concepto_rehabilitacion' : concepto_rehabilitacion,
+        'num_proyectos_VC' : num_proyectos_VC
 
     })
 
 @login_required
 def graficas(request):
-    if request.method == 'GET':
-        return render(request, 'graficas.html')
+      valles_centrales = municipios.objects.get(region='VALLES CENTRALES')
+      num_proyectos_VC = valles_centrales.entidades.Count()
+      return render(request, 'graficas.html',{
+
+        })
 
 
 @login_required

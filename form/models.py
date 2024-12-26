@@ -3,22 +3,22 @@ from django.db import models
 # Create your models here.
 class municipios(models.Model):
     nombre_municipio = models.CharField(max_length=200)
-    region = models.CharField(max_length=100, default='valles centrales')
+    region = models.CharField(max_length=100)
     eCien = models.BooleanField(default=False)
-    puebloIndigena = models.CharField(max_length=100, default='Mixteco')
+    puebloIndigena = models.CharField(max_length=100)
     ciit = models.BooleanField(default=False)
 
 
 class entidadesFinancieras2(models.Model):
     nombre_proyecto = models.CharField(max_length = 200) 
-    municipio = models.ForeignKey(municipios, on_delete=models.CASCADE) 
+    municipio = models.ForeignKey(municipios, on_delete=models.CASCADE, related_name='entidades') 
     localidad = models.CharField(max_length=100, blank=True, null=True) 
     tipo_tenencia = models.CharField(max_length=50,blank=True, null=True) 
     # personas = (('PERSONA FISICA', 'PERSONA FISICA'), ('PERSONA MORAL', 'PERSONA MORAL'))
     tipo_persona = models.CharField(max_length=30, blank=True, null=True) 
     num_credito = models.IntegerField(blank=True, null=True) 
     num_cliente = models.IntegerField(blank=True, null=True) 
-    nombre_cliente = models.CharField(max_length=50, blank=True, null=True) 
+    nombre_cliente = models.CharField(max_length=200, blank=True, null=True) 
     representante_legal = models.CharField(max_length=40, blank=True, null=True) 
     telefono = models.CharField(max_length=12, blank=True, null=True) 
     producto_tipoCredito = models.CharField(max_length=40, blank=True, null=True) 
