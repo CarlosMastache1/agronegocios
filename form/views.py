@@ -164,8 +164,7 @@ def reporte(request):
 
 @login_required
 def graficas(request):
-      valles_centrales = municipios.objects.get(region='VALLES CENTRALES')
-      num_proyectos_VC = valles_centrales.entidades.count()
+     
 
       
       mixteca = municipios.objects.get(region='MIXTECA') 
@@ -199,7 +198,7 @@ def graficas(request):
 
 
       return render(request, 'graficas.html',{
-        'num_proyectos_VC' : num_proyectos_VC,
+        
         'num_proyectos_MIX' : num_proyectos_MIX,
         'num_proyectos_IST' : num_proyectos_IST,
         # 'num_proyectos_papa' : num_proyectos_papa,
