@@ -27,7 +27,9 @@
                     {% for region in conteo_VC %}
                     <td> {{ region.total }} </td>
                     {% endfor %}
-                    <td> </td>
+                    {% for monto_VC in monto_VC %}
+                    <td> ${{ monto_VC.monto_total }} </td>
+                    {% endfor %}
                     <td></td>
                     <td></td>
                     <td></td>

@@ -175,6 +175,10 @@ def graficas(request):
       conteo_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
 
 
+      monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(monto_total=Sum('monto_total')))
+
+
+
       return render(request, 'graficas.html',{
 
         'conteo_VC' : conteo_VC, 
@@ -184,7 +188,8 @@ def graficas(request):
         'conteo_COS' : conteo_COS,
         'conteo_SJ' : conteo_SJ,
         'conteo_SS' : conteo_SS, 
-        'conteo_SFM' : conteo_SFM
+        'conteo_SFM' : conteo_SFM,
+        'monto_VC' : monto_VC
 
         })
 
