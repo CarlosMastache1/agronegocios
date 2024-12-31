@@ -164,48 +164,27 @@ def reporte(request):
 
 @login_required
 def graficas(request):
-     
 
-      
-      mixteca = municipios.objects.get(region='MIXTECA') 
-      num_proyectos_MIX = mixteca.entidades.count()
-      
-
-
-      istmo = municipios.objects.get(region='ISTMO')
-      num_proyectos_IST = istmo.entidades.count()
-
- 
-
-
-
-      # papaloapan = municipios.objects.get(region='PAPALOAPAN')
-      # num_proyectos_papa = papaloapan.entidades.count()
-
-
-      
-      # costa = municipios.objects.get(region='COSTA')
-      # num_proyectos_costa = papaloapan.entidades.count()
-
-      # sj = municipios.objects.get(region='SIERRA DE JUAREZ')
-      # num_proyectos_sj = sj.entidades.count()
-
-
-   
-
-
-
+      conteo_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').values('municipio__region').annotate(total=Count('id')))
+      conteo_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').values('municipio__region').annotate(total=Count('id')))
+      conteo_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').values('municipio__region').annotate(total=Count('id')))
+      conteo_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN').values('municipio__region').annotate(total=Count('id')))
+      conteo_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA').values('municipio__region').annotate(total=Count('id')))
+      conteo_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').values('municipio__region').annotate(total=Count('id')))
+      conteo_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').values('municipio__region').annotate(total=Count('id')))
+      conteo_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
 
 
       return render(request, 'graficas.html',{
-        
-        'num_proyectos_MIX' : num_proyectos_MIX,
-        'num_proyectos_IST' : num_proyectos_IST,
-        # 'num_proyectos_papa' : num_proyectos_papa,
-        # 'num_proyectos_costa' : num_proyectos_costa,
-        # 'num_proyectos_sj' : num_proyectos_sj
 
-
+        'conteo_VC' : conteo_VC, 
+        'conteo_IST' : conteo_IST, 
+        'conteo_MIX' : conteo_MIX,
+        'conteo_PAPA' : conteo_PAPA,
+        'conteo_COS' : conteo_COS,
+        'conteo_SJ' : conteo_SJ,
+        'conteo_SS' : conteo_SS, 
+        'conteo_SFM' : conteo_SFM
 
         })
 

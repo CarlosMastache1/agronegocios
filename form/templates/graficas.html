@@ -24,7 +24,9 @@
                 <tbody>
                   <tr>
                     <th scope="row">Valles Centrales</th>
-                    <td>{{ num_proyectos_VC }}</td>
+                    {% for region in conteo_VC %}
+                    <td> {{ region.total }} </td>
+                    {% endfor %}
                     <td> </td>
                     <td></td>
                     <td></td>
@@ -35,7 +37,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Istmo</th>
-                    <td>{{ num_proyectos_IST }}  </td>
+                    {% for region_IST in conteo_IST %}
+                    <td> {{ region_IST.total }} </td>
+                    {% endfor %}                    
                     <td></td>
                     <td></td>
                     <td></td>
@@ -45,7 +49,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Costa</th>
-                    <td>  </td>
+                    {% for conteo_COS in conteo_COS %}
+                    <td> {{ conteo_COS.total }} </td>
+                    {% endfor %} 
                     <td></td>
                     <td></td>
                     <td></td>
@@ -55,7 +61,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Papaloapan</th>
-                    <td>  </td>
+                    {% for conteo_PAPA in conteo_PAPA %}
+                    <td> {{ conteo_PAPA.total }} </td>
+                    {% endfor %}  
                     <td></td>
                     <td></td>
                     <td></td>
@@ -65,7 +73,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Mixteca</th>
-                    <td>{{ num_proyectos_MIX }}</td>
+                    {% for conteo_MIX in conteo_MIX %}
+                    <td> {{ conteo_MIX.total }} </td>
+                    {% endfor %}  
                     <td></td>
                     <td></td>
                     <td></td>
@@ -75,7 +85,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Sierra de Juarez</th>
-                    <td>  </td>
+                    {% for conteo_SJ in conteo_SJ %}
+                    <td> {{ conteo_SJ.total }} </td>
+                    {% endfor %}  
                     <td></td>
                     <td></td>
                     <td></td>
@@ -85,7 +97,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Sierra Sur</th>
-                    <td></td>
+                    {% for conteo_SS in conteo_SS %}
+                    <td> {{ conteo_SS.total }} </td>
+                    {% endfor %} 
                     <td></td>
                     <td></td>
                     <td></td>
@@ -95,7 +109,9 @@
                   </tr>
                   <tr>
                     <th scope="row">Sierra de Flores Magon</th>
-                    <td></td>
+                    {% for conteo_SFM in conteo_SFM %}
+                    <td> {{ conteo_SFM.total }} </td>
+                    {% endfor %}
                     <td></td>
                     <td></td>
                     <td></td>
