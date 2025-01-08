@@ -173,11 +173,47 @@ def graficas(request):
       conteo_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').values('municipio__region').annotate(total=Count('id')))
       conteo_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').values('municipio__region').annotate(total=Count('id')))
       conteo_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
+      
+      if not conteo_IST.exists():
+        mensaje_IST = "0"
 
+      if not conteo_MIX.exists():
+        mensaje_MIX = "0" 
 
-      monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(monto_total=Sum('monto_total')))
+      if not conteo_PAPA.exists():
+        mensaje_PAPA = "0" 
 
+      if not conteo_COS.exists():
+        mensaje_COS = "0" 
 
+      if not conteo_SJ.exists():
+        mensaje_SJ = "0" 
+
+      if not conteo_SFM.exists():
+        mensaje_SFM = "0"    
+
+      if not conteo_SS.exists():
+        mensaje_SS = "0"        
+
+      monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_total')))
+      monto_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').aggregate(sumatotal=Sum('monto_total')))
+      monto_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').aggregate(sumatotal=Sum('monto_total')))
+      monto_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('monto_total')))
+      monto_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA').aggregate(sumatotal=Sum('monto_total')))
+      monto_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('monto_total')))
+      monto_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('monto_total')))
+      monto_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('monto_total')))
+
+      monto_VC_templates = monto_VC['sumatotal'] 
+      monto_IST_templates = monto_IST['sumatotal'] 
+      monto_MIX_templates = monto_MIX['sumatotal'] 
+      monto_PAPA_templates = monto_PAPA['sumatotal'] 
+      monto_COS_templates = monto_COS['sumatotal'] 
+      monto_SJ_templates = monto_SJ['sumatotal'] 
+      monto_SS_templates = monto_SS['sumatotal']
+      monto_SFM_templates = monto_SFM['sumatotal'] 
+       
+ 
 
       return render(request, 'graficas.html',{
 
@@ -189,7 +225,24 @@ def graficas(request):
         'conteo_SJ' : conteo_SJ,
         'conteo_SS' : conteo_SS, 
         'conteo_SFM' : conteo_SFM,
-        'monto_VC' : monto_VC
+        'monto_VC_templates' : monto_VC_templates,
+        'monto_IST_templates' : monto_IST_templates,
+        'monto_MIX_templates' : monto_MIX_templates,
+        'monto_PAPA_templates' : monto_PAPA_templates,
+        'monto_COS_templates' : monto_COS_templates,
+        'monto_SJ_templates' : monto_SJ_templates,
+        'monto_SS_templates' : monto_SS_templates,
+        'monto_SFM_templates' : monto_SFM_templates
+        # 'mensaje_SFM' : mensaje_SFM,
+        # 'mensaje_SS' : mensaje_SS,
+        # 'mensaje_SJ' : mensaje_SJ,
+        # 'mensaje_COS' : mensaje_COS,
+        # 'mensaje_PAPA' : mensaje_PAPA,
+        # 'mensaje_MIX' : mensaje_MIX,
+        # 'mensaje_IST' : mensaje_IST,
+
+
+
 
         })
 
