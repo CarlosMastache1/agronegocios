@@ -11,6 +11,8 @@ from django.db.models import Sum, Count, Q
 from django.http.response import JsonResponse
 from random import randrange
 from django.contrib.auth.decorators import login_required
+from django.db.models.functions import ExtractYear
+
 
 # Create your views here.
 @login_required
@@ -165,6 +167,8 @@ def reporte(request):
 @login_required
 def graficas(request):
 
+
+      #CANTIDAD DE PROYECTOS 
       conteo_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').values('municipio__region').annotate(total=Count('id')))
       conteo_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').values('municipio__region').annotate(total=Count('id')))
       conteo_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').values('municipio__region').annotate(total=Count('id')))
@@ -173,27 +177,7 @@ def graficas(request):
       conteo_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').values('municipio__region').annotate(total=Count('id')))
       conteo_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').values('municipio__region').annotate(total=Count('id')))
       conteo_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
-      
-      # if not conteo_IST.exists():
-      #   mensaje_IST = "0"
-
-      # if not conteo_MIX.exists():
-      #   mensaje_MIX = "0" 
-
-      # if not conteo_PAPA.exists():
-      #   mensaje_PAPA = "0" 
-
-      # if not conteo_COS.exists():
-      #   mensaje_COS = "0" 
-
-      # if not conteo_SJ.exists():
-      #   mensaje_SJ = "0" 
-
-      # if not conteo_SFM.exists():
-      #   mensaje_SFM = "0"    
-
-      # if not conteo_SS.exists():
-      #   mensaje_SS = "0"        
+         
 
       #MONTOS DE FINANCIAMIENTO
       monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_total')))
@@ -295,8 +279,119 @@ def graficas(request):
       empleos_SJ_T = empleos_SJ['sumatotal']
       empleos_SS_T= empleos_SS['sumatotal']
       empleos_SFM_T = empleos_SFM['sumatotal']
+
+
+      #CANTIDAD DE PROYECTOS 2023
+      conteo_VC_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='VALLES CENTRALES').values('municipio__region').annotate(total=Count('id')))
+      conteo_IST_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='ISTMO').values('municipio__region').annotate(total=Count('id')))
+      conteo_MIX_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='MIXTECA').values('municipio__region').annotate(total=Count('id')))
+      conteo_PAPA_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='PAPALOAPAN').values('municipio__region').annotate(total=Count('id')))
+      conteo_COS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='COSTA').values('municipio__region').annotate(total=Count('id')))
+      conteo_SJ_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE JUAREZ').values('municipio__region').annotate(total=Count('id')))
+      conteo_SS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA SUR').values('municipio__region').annotate(total=Count('id')))
+      conteo_SFM_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
       
 
+      #MONTOS DE FINANCIAMIENTO 2023
+      monto_VC_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_total')))
+      monto_IST_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='ISTMO').aggregate(sumatotal=Sum('monto_total')))
+      monto_MIX_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='MIXTECA').aggregate(sumatotal=Sum('monto_total')))
+      monto_PAPA_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('monto_total')))
+      monto_COS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='COSTA').aggregate(sumatotal=Sum('monto_total')))
+      monto_SJ_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('monto_total')))
+      monto_SS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('monto_total')))
+      monto_SFM_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('monto_total')))
+
+      monto_VC_templates_2023 = monto_VC_2023['sumatotal'] 
+      monto_IST_templates_2023 = monto_IST_2023['sumatotal'] 
+      monto_MIX_templates_2023 = monto_MIX_2023['sumatotal'] 
+      monto_PAPA_templates_2023 = monto_PAPA_2023['sumatotal'] 
+      monto_COS_templates_2023 = monto_COS_2023['sumatotal'] 
+      monto_SJ_templates_2023 = monto_SJ_2023['sumatotal'] 
+      monto_SS_templates_2023 = monto_SS_2023['sumatotal']
+      monto_SFM_templates_2023 = monto_SFM_2023['sumatotal'] 
+
+
+      #GARANTIAS LIQUIDAS 2023
+      garantias_VC_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_IST_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='ISTMO').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_MIX_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='MIXTECA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_PAPA_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_COS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='COSTA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SJ_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SFM_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      
+
+      garantia_VC_templates_2023 = garantias_VC_2023['sumatotal'] 
+      garantia_IST_templates_2023 = garantias_IST_2023['sumatotal'] 
+      garantia_MIX_templates_2023 = garantias_MIX_2023['sumatotal'] 
+      garantia_PAPA_templates_2023 = garantias_PAPA_2023['sumatotal'] 
+      garantia_COS_templates_2023 = garantias_COS_2023['sumatotal'] 
+      garantia_SJ_templates_2023 = garantias_SJ_2023['sumatotal'] 
+      garantia_SS_templates_2023 = garantias_SS_2023['sumatotal']
+      garantia_SFM_templates_2023 = garantias_SFM_2023['sumatotal'] 
+
+
+      #BENEFICIARIOS 2023
+      beneficiarios_VC_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_IST_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='ISTMO').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_MIX_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='MIXTECA').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_PAPA_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_COS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='COSTA').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SJ_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SFM_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('total_beneficiarios')))
+
+ 
+      beneficiarios_VC_T_2023 = beneficiarios_VC_2023['sumatotal'] 
+      beneficiarios_IST_T_2023 = beneficiarios_IST_2023['sumatotal'] 
+      beneficiarios_MIX_T_2023 = beneficiarios_MIX_2023['sumatotal'] 
+      beneficiarios_PAPA_T_2023 = beneficiarios_PAPA_2023['sumatotal'] 
+      beneficiarios_COS_T_2023 = beneficiarios_COS_2023['sumatotal'] 
+      beneficiarios_SJ_T_2023 = beneficiarios_SJ_2023['sumatotal'] 
+      beneficiarios_SS_T_2023 = beneficiarios_SS_2023['sumatotal'] 
+      beneficiarios_SFM_T_2023 = beneficiarios_SFM_2023['sumatotal'] 
+
+
+      #E1002023
+      E100_VC_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='VALLES CENTRALES').count())
+      E100_IST_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='ISTMO').count())
+      E100_MIX_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='MIXTECA').count())
+      E100_PAPA_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='PAPALOAPAN').count())
+      E100_COS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='COSTA').count())
+      E100_SJ_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='SIERRA DE JUAREZ').count())
+      E100_SS_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='SIERRA SUR').count())
+      E100_SFM_2023 = (entidadesFinancieras2.objects.filter(fecha_inicio__year=2023, municipio__eCien=True, municipio__region='SIERRA DE FLORES MAGON').count())
+
+      #PUEBLOSINDIGENAS 2023
+      PI_VC_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='VALLES CENTRALES', fecha_inicio__year=2023).count())
+      PI_IST_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='ISTMO', fecha_inicio__year=2023).count())
+      PI_MIX_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='MIXTECA', fecha_inicio__year=2023).count())
+      PI_PAPA_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='PAPALOAPAN', fecha_inicio__year=2023).count())
+      PI_COS_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='COSTA', fecha_inicio__year=2023).count())
+      PI_SJ_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA DE JUAREZ', fecha_inicio__year=2023).count())
+      PI_SS_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA SUR', fecha_inicio__year=2023).count())
+      PI_SFM_2023 = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA DE FLORES MAGON', fecha_inicio__year=2023).count())
+
+      #EMPLEOS DIRECTOS 2023
+      empleos_VC_2023 = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_IST_2023 = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_MIX_2023 = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_PAPA_2023 = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_COS_2023 = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SJ_2023 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SS_2023 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SFM_2023 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', fecha_inicio__year=2023).aggregate(sumatotal=Sum('empleos_directos')))
+
+      empleos_VC_T_2023 = empleos_VC_2023['sumatotal']
+      empleos_IST_T_2023 = empleos_IST_2023['sumatotal']
+      empleos_MIX_T_2023 = empleos_MIX_2023['sumatotal']
+      empleos_PAPA_T_2023 = empleos_PAPA_2023['sumatotal']
+      empleos_COS_T_2023 = empleos_COS_2023['sumatotal']
+      empleos_SJ_T_2023 = empleos_SJ_2023['sumatotal']
+      empleos_SS_T_2023 = empleos_SS_2023['sumatotal']
+      empleos_SFM_T_2023 = empleos_SFM_2023['sumatotal']
 
       return render(request, 'graficas.html',{
         'conteo_VC' : conteo_VC, 
@@ -354,7 +449,63 @@ def graficas(request):
         'empleos_COS_T' :  empleos_COS_T,
         'empleos_SJ_T' :  empleos_SJ_T,
         'empleos_SS_T' : empleos_SS_T,
-        'empleos_SFM_T' :  empleos_SFM_T
+        'empleos_SFM_T' :  empleos_SFM_T,
+        'conteo_VC_2023' : conteo_VC_2023, 
+        'conteo_IST_2023' : conteo_IST_2023, 
+        'conteo_MIX_2023' : conteo_MIX_2023,
+        'conteo_PAPA_2023' : conteo_PAPA_2023,
+        'conteo_COS_2023' : conteo_COS_2023,
+        'conteo_SJ_2023' : conteo_SJ_2023,
+        'conteo_SS_2023' : conteo_SS_2023, 
+        'conteo_SFM_2023' : conteo_SFM_2023,
+        'monto_VC_templates_2023' : monto_VC_templates_2023,
+        'monto_IST_templates_2023' : monto_IST_templates_2023,
+        'monto_MIX_templates_2023' : monto_MIX_templates_2023,
+        'monto_PAPA_templates_2023' : monto_PAPA_templates_2023,
+        'monto_COS_templates_2023' : monto_COS_templates_2023,
+        'monto_SJ_templates_2023' : monto_SJ_templates_2023,
+        'monto_SS_templates_2023' : monto_SS_templates_2023,
+        'monto_SFM_templates_2023' : monto_SFM_templates_2023,
+        'garantia_VC_templates_2023' :  garantia_VC_templates_2023, 
+        'garantia_IST_templates_2023'  : garantia_IST_templates_2023,  
+        'garantia_MIX_templates_2023'  : garantia_MIX_templates_2023,  
+        'garantia_PAPA_templates_2023' : garantia_PAPA_templates_2023, 
+        'garantia_COS_templates_2023'  : garantia_COS_templates_2023,  
+        'garantia_SJ_templates_2023' : garantia_SJ_templates_2023, 
+        'garantia_SS_templates_2023' : garantia_SS_templates_2023, 
+        'garantia_SFM_templates_2023' : garantia_SFM_templates_2023,
+        'beneficiarios_VC_T_2023' : beneficiarios_VC_T_2023,
+        'beneficiarios_IST_T_2023' : beneficiarios_IST_T_2023,
+        'beneficiarios_MIX_T_2023' : beneficiarios_MIX_T_2023,
+        'beneficiarios_PAPA_T_2023' : beneficiarios_PAPA_T_2023,
+        'beneficiarios_COS_T_2023' : beneficiarios_COS_T_2023,
+        'beneficiarios_SJ_T_2023' : beneficiarios_SJ_T_2023,
+        'beneficiarios_SS_T_2023' : beneficiarios_SS_T_2023,
+        'beneficiarios_SFM_T_2023' : beneficiarios_SFM_T_2023,
+        'E100_VC_2023' : E100_VC_2023,
+        'E100_IST_2023' : E100_IST_2023,
+        'E100_MIX_2023' : E100_MIX_2023,
+        'E100_PAPA_2023' : E100_PAPA_2023,
+        'E100_COS_2023' : E100_COS_2023,
+        'E100_SJ_2023' : E100_SJ_2023,
+        'E100_SS_2023' : E100_SS_2023,
+        'E100_SFM_2023' : E100_SFM_2023,
+        'PI_VC_2023' : PI_VC_2023,
+        'PI_IST_2023' : PI_IST_2023,
+        'PI_MIX_2023' : PI_MIX_2023,
+        'PI_PAPA_2023' : PI_PAPA_2023,
+        'PI_COS_2023' : PI_COS_2023,
+        'PI_SJ_2023' : PI_SJ_2023,
+        'PI_SS_2023' : PI_SS_2023, 
+        'PI_SFM_2023' : PI_SFM_2023,
+        'empleos_VC_T_2023' :  empleos_VC_T_2023,
+        'empleos_IST_T_2023' : empleos_IST_T_2023, 
+        'empleos_MIX_T_2023' : empleos_MIX_T_2023,
+        'empleos_PAPA_T_2023' : empleos_PAPA_T_2023,
+        'empleos_COS_T_2023' :  empleos_COS_T_2023,
+        'empleos_SJ_T_2023' :  empleos_SJ_T_2023,
+        'empleos_SS_T_2023' : empleos_SS_T_2023,
+        'empleos_SFM_T_2023' :  empleos_SFM_T_2023,
 
 
         })
