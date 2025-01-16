@@ -7,7 +7,7 @@ from django.db import IntegrityError
 from .forms import financieras 
 from django.contrib import messages
 from .models import entidadesFinancieras2, municipios
-from django.db.models import Sum, Count
+from django.db.models import Sum, Count, Q
 from django.http.response import JsonResponse
 from random import randrange
 from django.contrib.auth.decorators import login_required
@@ -174,27 +174,28 @@ def graficas(request):
       conteo_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').values('municipio__region').annotate(total=Count('id')))
       conteo_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').values('municipio__region').annotate(total=Count('id')))
       
-      if not conteo_IST.exists():
-        mensaje_IST = "0"
+      # if not conteo_IST.exists():
+      #   mensaje_IST = "0"
 
-      if not conteo_MIX.exists():
-        mensaje_MIX = "0" 
+      # if not conteo_MIX.exists():
+      #   mensaje_MIX = "0" 
 
-      if not conteo_PAPA.exists():
-        mensaje_PAPA = "0" 
+      # if not conteo_PAPA.exists():
+      #   mensaje_PAPA = "0" 
 
-      if not conteo_COS.exists():
-        mensaje_COS = "0" 
+      # if not conteo_COS.exists():
+      #   mensaje_COS = "0" 
 
-      if not conteo_SJ.exists():
-        mensaje_SJ = "0" 
+      # if not conteo_SJ.exists():
+      #   mensaje_SJ = "0" 
 
-      if not conteo_SFM.exists():
-        mensaje_SFM = "0"    
+      # if not conteo_SFM.exists():
+      #   mensaje_SFM = "0"    
 
-      if not conteo_SS.exists():
-        mensaje_SS = "0"        
+      # if not conteo_SS.exists():
+      #   mensaje_SS = "0"        
 
+      #MONTOS DE FINANCIAMIENTO
       monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_total')))
       monto_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').aggregate(sumatotal=Sum('monto_total')))
       monto_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').aggregate(sumatotal=Sum('monto_total')))
@@ -212,11 +213,92 @@ def graficas(request):
       monto_SJ_templates = monto_SJ['sumatotal'] 
       monto_SS_templates = monto_SS['sumatotal']
       monto_SFM_templates = monto_SFM['sumatotal'] 
-       
+
+
+      #GARANTIAS LIQUIDAS
+      garantias_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      garantias_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))
+      
+
+      garantia_VC_templates = garantias_VC['sumatotal'] 
+      garantia_IST_templates = garantias_IST['sumatotal'] 
+      garantia_MIX_templates = garantias_MIX['sumatotal'] 
+      garantia_PAPA_templates = garantias_PAPA['sumatotal'] 
+      garantia_COS_templates = garantias_COS['sumatotal'] 
+      garantia_SJ_templates = garantias_SJ['sumatotal'] 
+      garantia_SS_templates = garantias_SS['sumatotal']
+      garantia_SFM_templates = garantias_SFM['sumatotal'] 
+
+      #BENEFICIARIOS 
+      beneficiarios_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('total_beneficiarios')))
+      beneficiarios_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('total_beneficiarios')))
+
  
+      beneficiarios_VC_T = beneficiarios_VC['sumatotal'] 
+      beneficiarios_IST_T = beneficiarios_IST['sumatotal'] 
+      beneficiarios_MIX_T = beneficiarios_MIX['sumatotal'] 
+      beneficiarios_PAPA_T = beneficiarios_PAPA['sumatotal'] 
+      beneficiarios_COS_T = beneficiarios_COS['sumatotal'] 
+      beneficiarios_SJ_T = beneficiarios_SJ['sumatotal'] 
+      beneficiarios_SS_T = beneficiarios_SS['sumatotal'] 
+      beneficiarios_SFM_T = beneficiarios_SFM['sumatotal'] 
+
+      #E100
+      E100_VC = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='VALLES CENTRALES').count())
+      E100_IST = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='ISTMO').count())
+      E100_MIX = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='MIXTECA').count())
+      E100_PAPA = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='PAPALOAPAN').count())
+      E100_COS = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='COSTA').count())
+      E100_SJ = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='SIERRA DE JUAREZ').count())
+      E100_SS = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='SIERRA SUR').count())
+      E100_SFM = (entidadesFinancieras2.objects.filter(municipio__eCien=True, municipio__region='SIERRA DE FLORES MAGON').count())
+
+      #PUEBLOSINDIGENAS
+      PI_VC = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='VALLES CENTRALES').count())
+      PI_IST = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='ISTMO').count())
+      PI_MIX = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='MIXTECA').count())
+      PI_PAPA = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='PAPALOAPAN').count())
+      PI_COS = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='COSTA').count())
+      PI_SJ = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA DE JUAREZ').count())
+      PI_SS = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA SUR').count())
+      PI_SFM = (entidadesFinancieras2.objects.filter(~Q(municipio__puebloIndigena='false'), municipio__region='SIERRA DE FLORES MAGON').count())
+
+
+      #EMPLEOS DIRECTOS
+      empleos_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR').aggregate(sumatotal=Sum('empleos_directos')))
+      empleos_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON').aggregate(sumatotal=Sum('empleos_directos')))
+
+
+      empleos_VC_T = empleos_VC['sumatotal']
+      empleos_IST_T = empleos_IST['sumatotal']
+      empleos_MIX_T = empleos_MIX['sumatotal']
+      empleos_PAPA_T = empleos_PAPA['sumatotal']
+      empleos_COS_T = empleos_COS['sumatotal']
+      empleos_SJ_T = empleos_SJ['sumatotal']
+      empleos_SS_T= empleos_SS['sumatotal']
+      empleos_SFM_T = empleos_SFM['sumatotal']
+      
+
 
       return render(request, 'graficas.html',{
-
         'conteo_VC' : conteo_VC, 
         'conteo_IST' : conteo_IST, 
         'conteo_MIX' : conteo_MIX,
@@ -232,16 +314,47 @@ def graficas(request):
         'monto_COS_templates' : monto_COS_templates,
         'monto_SJ_templates' : monto_SJ_templates,
         'monto_SS_templates' : monto_SS_templates,
-        'monto_SFM_templates' : monto_SFM_templates
-        # 'mensaje_SFM' : mensaje_SFM,
-        # 'mensaje_SS' : mensaje_SS,
-        # 'mensaje_SJ' : mensaje_SJ,
-        # 'mensaje_COS' : mensaje_COS,
-        # 'mensaje_PAPA' : mensaje_PAPA,
-        # 'mensaje_MIX' : mensaje_MIX,
-        # 'mensaje_IST' : mensaje_IST,
-
-
+        'monto_SFM_templates' : monto_SFM_templates,
+        'garantia_VC_templates' :  garantia_VC_templates, 
+        'garantia_IST_templates'  : garantia_IST_templates,  
+        'garantia_MIX_templates'  : garantia_MIX_templates,  
+        'garantia_PAPA_templates' : garantia_PAPA_templates, 
+        'garantia_COS_templates'  : garantia_COS_templates,  
+        'garantia_SJ_templates' : garantia_SJ_templates, 
+        'garantia_SS_templates' : garantia_SS_templates, 
+        'garantia_SFM_templates' : garantia_SFM_templates,
+        'beneficiarios_VC_T' : beneficiarios_VC_T,
+        'beneficiarios_IST_T' : beneficiarios_IST_T,
+        'beneficiarios_MIX_T' : beneficiarios_MIX_T,
+        'beneficiarios_PAPA_T' : beneficiarios_PAPA_T,
+        'beneficiarios_COS_T' : beneficiarios_COS_T,
+        'beneficiarios_SJ_T' : beneficiarios_SJ_T,
+        'beneficiarios_SS_T' : beneficiarios_SS_T,
+        'beneficiarios_SFM_T' : beneficiarios_SFM_T,
+        'E100_VC' : E100_VC,
+        'E100_IST' : E100_IST,
+        'E100_MIX' : E100_MIX,
+        'E100_PAPA' : E100_PAPA,
+        'E100_COS' : E100_COS,
+        'E100_SJ' : E100_SJ,
+        'E100_SS' : E100_SS,
+        'E100_SFM' : E100_SFM,
+        'PI_VC' : PI_VC,
+        'PI_IST' : PI_IST,
+        'PI_MIX' : PI_MIX,
+        'PI_PAPA' : PI_PAPA,
+        'PI_COS' : PI_COS,
+        'PI_SJ' : PI_SJ,
+        'PI_SS' : PI_SS, 
+        'PI_SFM' : PI_SFM,
+        'empleos_VC_T' :  empleos_VC_T,
+        'empleos_IST_T' : empleos_IST_T, 
+        'empleos_MIX_T' : empleos_MIX_T,
+        'empleos_PAPA_T' : empleos_PAPA_T,
+        'empleos_COS_T' :  empleos_COS_T,
+        'empleos_SJ_T' :  empleos_SJ_T,
+        'empleos_SS_T' : empleos_SS_T,
+        'empleos_SFM_T' :  empleos_SFM_T
 
 
         })

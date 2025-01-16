@@ -12,7 +12,7 @@
                     <th scope="col">Región</th>
                     <th scope="col">Cantidad de Proyectos</th>
                     <th scope="col">Monto de Financiamiento</th>
-                    <th scope="col">Garanías Liquidas</th>
+                    <th scope="col">Garantías Liquidas</th>
                     <th scope="col">Beneficiarios</th>
                     <th scope="col">Cantidad de Municipios</th>
                     <th scope="col">E-100</th>
@@ -30,11 +30,13 @@
                     {% endfor %} </td>
                    
                     <td> ${{ monto_VC_templates|floatformat:2 }} </td>
+                    <td>${{ garantia_VC_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_VC_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_VC }}</td>
+                    <td>{{ PI_VC }}</td>
+                    <td>{{ empleos_VC_T }}</td>
+
 
                   </tr>
                   <tr>
@@ -44,11 +46,13 @@
                     {% for region_IST in conteo_IST %} {{ region_IST.total }} 
                     {% endfor %}        </td>            
                     <td> $ {{ monto_IST_templates|floatformat:2 }} </td> 
+                    <td>$ {{ garantia_IST_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_IST_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_IST }}</td>
+                    <td>{{ PI_IST }}</td>
+                    <td>{{ empleos_IST_T }}</td>
+
                   </tr>
                   <tr>
                     <th scope="row">Costa</th>
@@ -58,11 +62,13 @@
                       {{ conteo_COS.total }} 
                     {% endfor %} </td>
                     <td>$ {{ monto_COS_templates|floatformat:2 }}</td>
+                    <td>$ {{ garantia_COS_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_IST_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_COS }}</td>
+                    <td>{{ PI_COS }}</td>
+                    <td>{{ empleos_COS_T }}</td>
+
                   </tr>
                   <tr>
                     <th scope="row">Papaloapan</th>
@@ -71,11 +77,13 @@
                       {{ conteo_PAPA.total }}
                     {% endfor %}   </td>
                     <td>$ {{ monto_PAPA_templates|floatformat:2 }}</td>
+                    <td>$ {{ garantia_PAPA_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_PAPA_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_PAPA }}</td>
+                    <td>{{ PI_PAPA }}</td>
+                    <td>{{ empleos_PAPA_T }}</td>
+
                   </tr>
                   <tr>
                     <th scope="row">Mixteca</th>
@@ -84,11 +92,12 @@
                      {{ conteo_MIX.total }} 
                     {% endfor %}  </td>
                     <td> $ {{ monto_MIX_templates|floatformat:2 }} </td>
+                    <td>$ {{ garantia_MIX_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_MIX_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_MIX }}</td>
+                    <td>{{ PI_MIX }}</td>
+                    <td>{{ empleos_MIX_T }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Sierra de Juarez</th>
@@ -97,11 +106,13 @@
                       {{ conteo_SJ.total }} 
                     {% endfor %}  </td>
                     <td>$ {{ monto_SJ_templates|floatformat:2 }} </td>
+                    <td>$ {{ garantia_SJ_templates|floatformat:2 }} </td>
+                    <td>{{ beneficiarios_SJ_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_SJ }}</td>
+                    <td>{{ PI_SJ }}</td>
+                    <td>{{ empleos_SJ_T }}</td>
+
                   </tr>
                   <tr>
                     <th scope="row">Sierra Sur</th>
@@ -110,11 +121,13 @@
                       {{ conteo_SS.total }}
                     {% endfor %}  </td>
                     <td>$ {{ monto_SS_templates|floatformat:2 }}</td>
+                    <td>$ {{ garantia_SS_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_SS_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_SS }}</td>
+                    <td>{{ PI_SS }}</td>
+                    <td>{{ empleos_SS_T }}</td>
+
                   </tr>
                   <tr>
                     <th scope="row">Sierra de Flores Magon</th>
@@ -123,11 +136,13 @@
                      {{ conteo_SFM.total }} 
                     {% endfor %} </td>
                     <td>$ {{ monto_SFM_templates|floatformat:2 }}</td>
+                    <td>$ {{ garantia_SFM_templates|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_SFM_T }}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ E100_SFM }}</td>
+                    <td>{{ PI_SFM }}</td>
+                    <td>{{ empleos_SFM_T }}</td>
+
                   </tr>
                 </tbody>
               </table>
