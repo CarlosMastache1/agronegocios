@@ -795,52 +795,68 @@ def get_chart2(request):
 
 @login_required
 def get_chart3(request):
+  monto_fira = (entidadesFinancieras2.objects.filter(intermediario_financiero='FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)').aggregate(sumatotal=Sum('monto_total')))
+  monto_acre = (entidadesFinancieras2.objects.filter(intermediario_financiero='COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').aggregate(sumatotal=Sum('monto_total')))
+  monto_finde = (entidadesFinancieras2.objects.filter(intermediario_financiero='FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE').aggregate(sumatotal=Sum('monto_total')))
+  monto_nea = (entidadesFinancieras2.objects.filter(intermediario_financiero='NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE').aggregate(sumatotal=Sum('monto_total')))
+  monto_csd = (entidadesFinancieras2.objects.filter(intermediario_financiero='CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').aggregate(sumatotal=Sum('monto_total')))
 
-    bh = entidadesFinancieras2.objects.aggregate(bhsuma=Sum('beneficiarios_hombres'))
-    bm = entidadesFinancieras2.objects.aggregate(bmsuma=Sum('beneficiarios_mujer'))
+  monto_fira_t = monto_fira['sumatotal'] 
+  monto_acre_t = monto_acre['sumatotal'] 
+  monto_finde_t = monto_finde['sumatotal'] 
+  monto_nea_t = monto_nea['sumatotal']
+  monto_csd_t = monto_csd['sumatotal'] 
 
-    bhtemplates = bh['bhsuma'] 
-    bmtemplates = bm['bmsuma']  
+  serie = [monto_fira_t, monto_acre_t, monto_finde_t, monto_nea_t, monto_csd_t]
 
-    chart = {
-
+  chart = {
     'tooltip': {
-    'trigger': 'item'
+    'trigger': 'axis',
+    'axisPointer': {
+      'type': 'shadow'
+    }
   },
-  'legend': {
-    'top': '5%',
-    'left': 'center'
+  'grid': {
+    'left': '3%',
+    'right': '4%',
+    'bottom': '3%',
+    'containLabel': 'true'
   },
-  'series': [
+  'xAxis': [
     {
-      'name': 'Proyectos por tipo de persona',
-      'type': 'pie',
-      'radius': ['40%', '70%'],
-      'avoidLabelOverlap': 'false',
-      'label': {
-        'show': 'false',
-        'position': 'center'
-      },
-      'emphasis': {
-        'label': {
-          'show': 'true',
-          'fontSize': '40',
-          'fontWeight': 'bold'
-        }
-      },
-      'labelLine': {
-        'show': 'false'
-      },
-      'data': [
-        { 'value': bhtemplates, 'name': 'Moral' },
-        { 'value': bmtemplates, 'name': 'Fisica' },
-      ]
+      'type': 'category',
+      'data': ['FIRA', 'ACREIMEX', 'FINDECA', 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA', 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC'],
+      'axisLabel': {
+                    'rotate': 30,                },
+      'axisTick': {
+        'alignWithLabel': 'true'
+      }
     }
-  ]
+  ],
+  'yAxis': [
+    {
+      'type': 'value'
+    }
+  ],
+    'series': [
+      {
+        'name': 'MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO',
+        'type': 'bar',
+        'barWidth': '60%',
+        'data': serie,
+        'color' : '#753232'
+      }
+    ]
 
     }
 
-    return JsonResponse(chart)
+  
+ 
+
+
+
+
+  return JsonResponse(chart)
 
 
 def delete_credit(request, credit_id):

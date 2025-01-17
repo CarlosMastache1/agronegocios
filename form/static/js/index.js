@@ -40,13 +40,13 @@ window.addEventListener("load", async()=>{
     await initChart2();
 
 });
+ 
 
 
 
-
-/* const getOptionChart3 = async () =>{
+const getOptionChart3 = async () =>{
     try{
-       const response = await fetch("http://127.0.0.1:8000/getcharts3/");
+       const response = await fetch("https://sefader-agronegocios.com/getcharts3/");
        return await response.json();
     } catch (ex) {
        alert(ex);
@@ -65,7 +65,7 @@ window.addEventListener("load", async()=>{
 
 });
 
-  */
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");
