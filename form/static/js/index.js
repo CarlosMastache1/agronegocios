@@ -43,7 +43,7 @@ window.addEventListener("load", async()=>{
 
 
 
-/* 
+
 const getOptionChart3 = async () =>{
     try{
        const response = await fetch("http://127.0.0.1:8000/getcharts3/");
@@ -65,7 +65,7 @@ window.addEventListener("load", async()=>{
 
 });
 
- */
+ 
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");
