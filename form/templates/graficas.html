@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<div
-    class="container">
+<div class="container">
     <div class="row g-2">
       <h1>REPORTE GENERAL</h1>
         <div class="col-sm-12 pt-2">
@@ -149,6 +148,21 @@
               </table>
         </div>
     </div>
+
+    <div class="row ">
+      <h2>MONTO DE FINANCIAMIENTO POR REGIÓN (Millones de pesos)</h2>
+          <div class="col-sm-12 col-md-10">
+              <div id="chart" class="chart"></div>
+          </div>
+      </div>
+
+      <div class="row my-4">
+        <h2>PROYECTOS POR TIPO DE PERSONA FISICA O MORAL</h2>
+        <div class="col-sm-12 col-md-6">
+            <div id="chart2" class="chart2"></div>
+        </div>
+    </div>
+  
 
 
     <div class="row g-2 pt-5">
@@ -296,29 +310,161 @@
               </table>
         </div>
     </div>
-    
-</div>
+
+    <div class="row g-2 pt-5">
+      <h1>REPORTE AÑO 2024</h1>
+        <div class="col-sm-12 pt-2">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Región</th>
+                    <th scope="col">Cantidad de Proyectos</th>
+                    <th scope="col">Monto de Financiamiento</th>
+                    <th scope="col">Garantías Liquidas</th>
+                    <th scope="col">Beneficiarios</th>
+                    <th scope="col">Cantidad de Municipios</th>
+                    <th scope="col">E-100</th>
+                    <th scope="col">Pueblos Indigenas</th>
+                    <th scope="col">Empleos Directos</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Valles Centrales</th>
+                    <td>  
+                    {% for region in conteo_VC_2024 %}
+                    {{ region.total }} 
+                    {% endfor %} </td>
+                   
+                    <td> ${{ monto_VC_templates_2024|floatformat:2 }} </td>
+                    <td>${{ garantia_VC_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_VC_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_VC_2024 }}</td>
+                    <td>{{ PI_VC_2024 }}</td>
+                    <td>{{ empleos_VC_T_2024 }}</td>
 
 
-<div class="container">
-    <div class="row my-4">
-        <div class="col-sm-12 col-md-6">
-            <div id="chart" class="chart"></div>
-        </div>
-        </div>
+                  </tr>
+                  <tr>
+                    <th scope="row">Istmo</th>
+                    
+                    <td>{{ mensaje_IST }} 
+                    {% for region_IST in conteo_IST_2024 %} {{ region_IST.total }} 
+                    {% endfor %}        </td>            
+                    <td> $ {{ monto_IST_templates_2024|floatformat:2 }} </td> 
+                    <td>$ {{ garantia_IST_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_IST_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_IST_2024 }}</td>
+                    <td>{{ PI_IST_2024 }}</td>
+                    <td>{{ empleos_IST_T_2024 }}</td>
 
-    <div class="row my-4">
-        <div class="col-sm-12 col-md-6">
-            <div id="chart2" class="chart2"></div>
+                  </tr>
+                  <tr>
+                    <th scope="row">Costa</th>
+                    
+                    <td>{{ mensaje_COS }} 
+                      {% for conteo_COS in conteo_COS_2024 %}
+                      {{ conteo_COS.total }} 
+                    {% endfor %} </td>
+                    <td>$ {{ monto_COS_templates_2024|floatformat:2 }}</td>
+                    <td>$ {{ garantia_COS_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_COS_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_COS_2024 }}</td>
+                    <td>{{ PI_COS_2024 }}</td>
+                    <td>{{ empleos_COS_T_2024 }}</td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">Papaloapan</th>
+                    <td> {{ mensaje_PAPA }}
+                      {% for conteo_PAPA in conteo_PAPA_2024 %}
+                      {{ conteo_PAPA.total }}
+                    {% endfor %}   </td>
+                    <td>$ {{ monto_PAPA_templates_2024|floatformat:2 }}</td>
+                    <td>$ {{ garantia_PAPA_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_PAPA_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_PAPA_2024 }}</td>
+                    <td>{{ PI_PAPA_2024 }}</td>
+                    <td>{{ empleos_PAPA_T_2024 }}</td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">Mixteca</th>
+                    <td> {{ mensaje_MIX }}
+                    {% for conteo_MIX in conteo_MIX_2024 %}
+                     {{ conteo_MIX.total }} 
+                    {% endfor %}  </td>
+                    <td> $ {{ monto_MIX_templates_2024|floatformat:2 }} </td>
+                    <td>$ {{ garantia_MIX_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_MIX_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_MIX_2024 }}</td>
+                    <td>{{ PI_MIX_2024 }}</td>
+                    <td>{{ empleos_MIX_T_2024 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Sierra de Juarez</th>
+                    <td>{{ mensaje_SJ }} 
+                      {% for conteo_SJ in conteo_SJ_2024 %}
+                      {{ conteo_SJ.total }} 
+                    {% endfor %}  </td>
+                    <td>$ {{ monto_SJ_templates_2024|floatformat:2 }} </td>
+                    <td>$ {{ garantia_SJ_templates_2024|floatformat:2 }} </td>
+                    <td>{{ beneficiarios_SJ_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_SJ_2024 }}</td>
+                    <td>{{ PI_SJ_2024 }}</td>
+                    <td>{{ empleos_SJ_T_2024 }}</td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">Sierra Sur</th>
+                    <td> {{ mensaje_SS }} 
+                      {% for conteo_SS in conteo_SS_2024 %}
+                      {{ conteo_SS.total }}
+                    {% endfor %}  </td>
+                    <td>$ {{ monto_SS_templates_2024|floatformat:2 }}</td>
+                    <td>$ {{ garantia_SS_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_SS_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_SS_2024 }}</td>
+                    <td>{{ PI_SS_2024 }}</td>
+                    <td>{{ empleos_SS_T_2024 }}</td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">Sierra de Flores Magon</th>
+                    <td>   {{ mensaje_SFM }}
+                    {% for conteo_SFM in conteo_SFM_2024 %}
+                     {{ conteo_SFM.total }} 
+                    {% endfor %} </td>
+                    <td>$ {{ monto_SFM_templates_2024|floatformat:2 }}</td>
+                    <td>$ {{ garantia_SFM_templates_2024|floatformat:2 }}</td>
+                    <td>{{ beneficiarios_SFM_T_2024 }}</td>
+                    <td></td>
+                    <td>{{ E100_SFM_2024 }}</td>
+                    <td>{{ PI_SFM_2024 }}</td>
+                    <td>{{ empleos_SFM_T_2024 }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
-
     
 </div>
+
 
 <div class="container">
 
 <div class="row my-4">
+  
+ 
     <div class="col-sm-12 col-md-6">
         <div id="chart3" class="chart3"></div>
     </div>
