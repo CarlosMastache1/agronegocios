@@ -11,7 +11,7 @@ from django.db.models import Sum, Count, Q
 from django.http.response import JsonResponse
 from random import randrange
 from django.contrib.auth.decorators import login_required
-from django.db.models.functions import ExtractYear
+from django.db.models.functions import ExtractYear, ExtractMonth
 
 
 # Create your views here.
@@ -850,11 +850,72 @@ def get_chart3(request):
 
     }
 
-  
- 
+@login_required
+def get_chart4(request):
+  mayo2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=5, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  junio2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=6, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  julio2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=7, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  agosto2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=8, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  septiembre2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=9, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  octubre2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=10, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  noviembre2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=11, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  diciembre2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=12, anio=2023).aggregate(sumatotal=Sum('monto_total')))
+  enero2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=1, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  febrero2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=2, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  marzo2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=3, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  abril2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=4, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  mayo2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=5, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  junio2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=6, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  julio2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=7, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  agosto2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=8, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  septiembre2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=9, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  octubre2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=10, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  noviembre2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=11, anio=2024).aggregate(sumatotal=Sum('monto_total')))
+  diciembre2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=12, anio=2024).aggregate(sumatotal=Sum('monto_total')))
 
 
+  serie = [mayo2023, junio2023, julio2023, agosto2023, septiembre2023, octubre2023, noviembre2023, diciembre2023, enero2024, febrero2024, marzo2024, abril2024, mayo2024, junio2024, julio2024, agosto2024, septiembre2024, octubre2024, noviembre2024, diciembre2024 ]
 
+  chart = {
+    'tooltip': {
+    'trigger': 'axis',
+    'axisPointer': {
+      'type': 'shadow'
+    }
+  },
+  'grid': {
+    'left': '3%',
+    'right': '4%',
+    'bottom': '3%',
+    'containLabel': 'true'
+  },
+  'xAxis': [
+    {
+      'type': 'category',
+      'data': ['MAYO 2023', 'JUNIO 2023', 'JULIO 2023', 'AGOSTO 2023', 'SEPTIEMBRE 2023', 'OCTUBRE 2023', 'NOVIEMBRE 2023', 'DICIEMBRE 2023', 'ENERO 2024', 'FEBRERO 2024', 'MARZO 2024', 'ABRIL 2024', 'MAYO 2024', 'JUNIO 2024', 'JULIO 2024', 'AGOSTO 2024', 'SEPTIEMBRE 2024', 'OCTUBRE 2024', 'NOVIEMBRE 2024', 'DICIEMBRE 2024'],
+      'axisLabel': {
+                    'rotate': 30,                },
+      'axisTick': {
+        'alignWithLabel': 'true'
+      }
+    }
+  ],
+  'yAxis': [
+    {
+      'type': 'value'
+    }
+  ],
+    'series': [
+      {
+        'name': 'HISTORIAL DE FINANCIAMIENTO',
+        'type': 'bar',
+        'barWidth': '60%',
+        'data': serie,
+        'color' : '#753232'
+      }
+    ]
+
+    }
 
   return JsonResponse(chart)
 
