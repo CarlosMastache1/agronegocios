@@ -505,6 +505,17 @@ def graficas(request):
       empleos_SS_T_2024 = empleos_SS_2024['sumatotal']
       empleos_SFM_T_2024 = empleos_SFM_2024['sumatotal']      
 
+
+      #CANTIDAD POR CONCEPTOS DE APOYO 
+
+      cantidad_ct = (entidadesFinancieras2.objects.filter(tipo_concepto='CAPITAL DE TRABAJO').count())
+      cantidad_eq = (entidadesFinancieras2.objects.filter(tipo_concepto='EQUIPAMIENTO').count())
+      cantidad_ieg = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROALIMENTARIA').count())
+      cantidad_ap = (entidadesFinancieras2.objects.filter(tipo_concepto='AGRICULTURA PROTEGIDA').count())
+      cantidad_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').count())
+      cantidad_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').count())
+
+
       return render(request, 'graficas.html',{
         'conteo_VC' : conteo_VC, 
         'conteo_IST' : conteo_IST, 
@@ -674,6 +685,12 @@ def graficas(request):
         'empleos_SJ_T_2024' :  empleos_SJ_T_2024,
         'empleos_SS_T_2024' : empleos_SS_T_2024,
         'empleos_SFM_T_2024' :  empleos_SFM_T_2024,
+        'cantidad_ct' : cantidad_ct,
+        'cantidad_eq' : cantidad_eq,
+        'cantidad_ieg' : cantidad_ieg,
+        'cantidad_ap' : cantidad_ap,
+        'cantidad_mec' : cantidad_mec,
+        'cantidad_re' : cantidad_re
 
 
         })
@@ -849,6 +866,8 @@ def get_chart3(request):
     ]
 
     }
+
+  return JsonResponse(chart)
 
 @login_required
 def get_chart4(request):

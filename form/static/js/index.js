@@ -89,8 +89,6 @@ window.addEventListener("load", async()=>{
 
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");
     const navLinks = document.getElementById("nav-links");
@@ -98,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuIcon.addEventListener("click", () => {
         navLinks.classList.toggle("show");
     });
-});
+}); 
 
 
  
