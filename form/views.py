@@ -510,10 +510,30 @@ def graficas(request):
 
       cantidad_ct = (entidadesFinancieras2.objects.filter(tipo_concepto='CAPITAL DE TRABAJO').count())
       cantidad_eq = (entidadesFinancieras2.objects.filter(tipo_concepto='EQUIPAMIENTO').count())
-      cantidad_ieg = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROALIMENTARIA').count())
+      cantidad_iaa = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROALIMENTARIA').count())
+      cantidad_iai = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROINDUSTRIAL').count())
       cantidad_ap = (entidadesFinancieras2.objects.filter(tipo_concepto='AGRICULTURA PROTEGIDA').count())
       cantidad_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').count())
       cantidad_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').count())
+
+
+      #MONTO DE FINANCIAMIENTO POR CONCEPTO DE APOYO
+      monto_ct = (entidadesFinancieras2.objects.filter(tipo_concepto='CAPITAL DE TRABAJO').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_eq = (entidadesFinancieras2.objects.filter(tipo_concepto='EQUIPAMIENTO').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_iaa = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROALIMENTARIA').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_iai = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROINDUSTRIAL').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_ap = (entidadesFinancieras2.objects.filter(tipo_concepto='AGRICULTURA PROTEGIDA').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+      monto_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
+
+      #GARANTIAS POR CONCEPTO DE APOYO
+      garantias_ct = (entidadesFinancieras2.objects.filter(tipo_concepto='CAPITAL DE TRABAJO').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_eq = (entidadesFinancieras2.objects.filter(tipo_concepto='EQUIPAMIENTO').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_iaa = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROALIMENTARIA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_iai = (entidadesFinancieras2.objects.filter(tipo_concepto='INFRAESTRUCTURA AGROINDUSTRIAL').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_ap = (entidadesFinancieras2.objects.filter(tipo_concepto='AGRICULTURA PROTEGIDA').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
+      garantias_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
 
 
       return render(request, 'graficas.html',{
@@ -687,11 +707,25 @@ def graficas(request):
         'empleos_SFM_T_2024' :  empleos_SFM_T_2024,
         'cantidad_ct' : cantidad_ct,
         'cantidad_eq' : cantidad_eq,
-        'cantidad_ieg' : cantidad_ieg,
+        'cantidad_iaa' : cantidad_iaa,
+        'cantidad_iai' : cantidad_iai,
         'cantidad_ap' : cantidad_ap,
         'cantidad_mec' : cantidad_mec,
-        'cantidad_re' : cantidad_re
-
+        'cantidad_re' : cantidad_re,
+        'monto_ct' : monto_ct,
+        'monto_eq' : monto_eq,
+        'monto_iaa' : monto_iaa,
+        'monto_iai' : monto_iai,
+        'monto_ap' : monto_ap,
+        'monto_mec' : monto_mec,
+        'monto_re' : monto_re,
+        'garantias_ct' : garantias_ct,
+        'garantias_eq' : garantias_eq,
+        'garantias_iaa' : garantias_iaa,
+        'garantias_iai' : garantias_iai,
+        'garantias_ap' : garantias_ap,
+        'garantias_mec' : garantias_mec,
+        'garantias_re' : garantias_re
 
         })
 
@@ -893,7 +927,29 @@ def get_chart4(request):
   diciembre2024 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=12, anio=2024).aggregate(sumatotal=Sum('monto_total')))
 
 
-  serie = [mayo2023, junio2023, julio2023, agosto2023, septiembre2023, octubre2023, noviembre2023, diciembre2023, enero2024, febrero2024, marzo2024, abril2024, mayo2024, junio2024, julio2024, agosto2024, septiembre2024, octubre2024, noviembre2024, diciembre2024 ]
+
+  mayo2023T = mayo2023['sumatotal'] 
+  junio2023T = junio2023['sumatotal']
+  julio2023T = julio2023['sumatotal']
+  agosto2023T = agosto2023['sumatotal']
+  septiembre2023T = septiembre2023['sumatotal']
+  octubre2023T = octubre2023['sumatotal']
+  noviembre2023T = noviembre2023['sumatotal']
+  diciembre2023T = diciembre2023['sumatotal']
+  enero2024T = enero2024['sumatotal']
+  febrero2024T = febrero2024['sumatotal']
+  marzo2024T = marzo2024['sumatotal']
+  abril2024T = abril2024['sumatotal']
+  mayo2024T = mayo2024['sumatotal']
+  junio2024T = junio2024['sumatotal']
+  julio2024T = julio2024['sumatotal']
+  agosto2024T = agosto2024['sumatotal']
+  septiembre2024T = septiembre2024['sumatotal']
+  octubre2024T = octubre2024['sumatotal']
+  noviembre2024T = noviembre2024['sumatotal']
+  diciembre2024T = diciembre2024['sumatotal']
+
+  serie = [mayo2023T, junio2023T, julio2023T, agosto2023T, septiembre2023T, octubre2023T, noviembre2023T, diciembre2023T, enero2024T, febrero2024T, marzo2024T, abril2024T, mayo2024T, junio2024T, julio2024T, agosto2024T, septiembre2024T, octubre2024T, noviembre2024T, diciembre2024T ]
 
   chart = {
     'tooltip': {

@@ -193,39 +193,45 @@
   <tbody>
     <tr>
       <th scope="row">CAPITAL DE TRABAJO</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{ cantidad_ct }}</td>
+      <td>${{ monto_ct|floatformat:2  }} </td>
+      <td>${{ garantias_ct|floatformat:2  }} </td>
     </tr>
     <tr>
       <th scope="row">EQUIPAMIENTO</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{ cantidad_eq }}</td>
+      <td>${{ monto_eq|floatformat:2  }}  </td>
+      <td>${{ garantias_eq|floatformat:2  }}</td>
     </tr>
     <tr>
-      <th scope="row">INFRAESTRUCTURA Y EQUIPAMIENTO AGROALIMENTARIO</th>
-      <td></td>
-      <td> </td>
-      <td></td>
+      <th scope="row">INFRAESTRUCTURA AGROALIMENTARIA</th>
+      <td>{{ cantidad_iaa }}</td>
+      <td>${{ monto_iaa|floatformat:2  }}</td>
+      <td>${{ garantias_iaa|floatformat:2  }}</td>
+    </tr>
+    <tr>
+      <th scope="row">INFRAESTRUCTURA AGROINDUSTRIAL</th>
+      <td>{{ cantidad_iai }}</td>
+      <td>${{ monto_iai|floatformat:2  }}</td>
+      <td>${{ garantias_iai|floatformat:2  }}</td>
     </tr>
     <tr>
       <th scope="row">AGRICULTURA PROTEGIDA</th>
-      <td></td>
-      <td> </td>
-      <td></td>
+      <td>{{ cantidad_ap }}</td>
+      <td>${{ monto_ap|floatformat:2  }}</td>
+      <td>${{ garantias_ap|floatformat:2  }}</td>
     </tr>
     <tr>
       <th scope="row">MECANIZACIÓN</th>
-      <td></td>
-      <td> </td>
-      <td></td>
+      <td>{{ cantidad_mec }}</td>
+      <td>${{ monto_mec|floatformat:2  }}</td>
+      <td>${{ garantias_mec|floatformat:2  }}</td>
     </tr>
     <tr>
       <th scope="row">REHABILITACIÓN</th>
-      <td></td>
-      <td> </td>
-      <td></td>
+      <td>{{ cantidad_re }}</td>
+      <td>${{ monto_re|floatformat:2  }} </td>
+      <td>${{ garantias_re|floatformat:2  }}</td>
     </tr>
   </tbody>
 </table>

@@ -64,7 +64,7 @@ window.addEventListener("load", async()=>{
     await initChart3();
 
 });
-
+ 
 
 const getOptionChart4 = async () =>{
     try{
