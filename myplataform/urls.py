@@ -17,6 +17,7 @@ urlpatterns = [
     path('getcharts2/', views.get_chart2, name='getcharts2'),
     path('getcharts3/', views.get_chart3, name='getcharts3'),
     path('getcharts4/', views.get_chart4, name='getcharts4'),
+    path('getcharts5/', views.get_chart5, name='getcharts5'),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
     path('credit/<int:credit_id>/update', views.creditUpdate, name='creditUpdate'),
     path('credit/<int:credit_id>/delete', views.delete_credit, name='delete_credit'),

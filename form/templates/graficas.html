@@ -180,7 +180,7 @@
   </div>
 </div>
 
-
+<h1>PROYECTOS POR CONCEPTO DE APOYO</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -233,6 +233,91 @@
       <td>${{ monto_re|floatformat:2  }} </td>
       <td>${{ garantias_re|floatformat:2  }}</td>
     </tr>
+  </tbody>
+</table>
+
+
+
+<div class="row my-4">
+  <div class="col-sm-12 col-md-12">
+    <h2>PROYECTOS DE INVERSIÓN POR SUBSECTOR </h2>
+      <div id="chart5" class="chart5"></div>
+  </div>
+</div>
+
+<h1>PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">SUBSECTOR</th>
+      <th scope="col">VALLES CENTRALES</th>
+      <th scope="col">ISTMO</th>
+      <th scope="col">COSTA</th>
+      <th scope="col">PAPALOAPAN</th>
+      <th scope="col">MIXTECA</th>
+      <th scope="col">SIERRA DE JUAREZ</th>
+      <th scope="col">SIERRA SUR</th>
+      <th scope="col">SIERRA DE FLORES MAGON</th>
+      <th scope="col">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">AGRICOLA</th>
+      <td>{{ valles_agri }} </td>
+      <td>{{ istmo_agri }}</td>
+      <td>{{ costa_agri }}</td>
+      <td>{{ papa_agri }}</td>
+      <td>{{ mix_agri }}</td>
+      <td>{{ sjua_agri }}</td>
+      <td>{{ ssur_agri }}</td>
+      <td>{{ sflm_agri }}</td>
+    </tr>
+    <tr>
+      <th scope="row">PECUARIO</th>
+      <td>{{ valles_pec }} </td>
+      <td>{{ istmo_pec }}</td>
+      <td>{{ costa_pec }}</td>
+      <td>{{ papa_pec }}</td>
+      <td>{{ mix_pec }}</td>
+      <td>{{ sjua_pec }}</td>
+      <td>{{ ssur_pec }}</td>
+      <td>{{ sflm_pec }}</td>
+    </tr>
+    <tr>
+      <th scope="row">ACUICOLA</th>
+      <td>{{ valles_acu }} </td>
+      <td>{{ istmo_acu }}</td>
+      <td>{{ costa_acu }}</td>
+      <td>{{ papa_acu }}</td>
+      <td>{{ mix_acu }}</td>
+      <td>{{ sjua_acu }}</td>
+      <td>{{ ssur_acu }}</td>
+      <td>{{ sflm_acu }}</td>
+    </tr>
+    <tr>
+      <th scope="row">PESQUERO</th>
+      <td>{{ valles_pes }} </td>
+      <td>{{ istmo_pes }}</td>
+      <td>{{ costa_pes }}</td>
+      <td>{{ papa_pes }}</td>
+      <td>{{ mix_pes }}</td>
+      <td>{{ sjua_pes }}</td>
+      <td>{{ ssur_pes }}</td>
+      <td>{{ sflm_pes }}</td>
+    </tr>
+    <tr>
+      <th scope="row">FORESTAL</th>
+      <td>{{ valles_for }} </td>
+      <td>{{ istmo_for }}</td>
+      <td>{{ costa_for }}</td>
+      <td>{{ papa_for }}</td>
+      <td>{{ mix_for }}</td>
+      <td>{{ sjua_for }}</td>
+      <td>{{ ssur_for }}</td>
+      <td>{{ sflm_for }}</td>
+    </tr>
+
   </tbody>
 </table>
 

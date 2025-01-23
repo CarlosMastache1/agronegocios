@@ -535,6 +535,52 @@ def graficas(request):
       garantias_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
       garantias_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').aggregate(sumatotal=Sum('monto_garantiasLiquidasVigente')))['sumatotal']
 
+      #PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION
+      valles_agri = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Agricola').count())
+      istmo_agri = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Agricola').count())
+      costa_agri = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', subsector='Agricola').count())
+      papa_agri = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', subsector='Agricola').count())
+      mix_agri = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', subsector='Agricola').count())
+      sjua_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Agricola').count())
+      ssur_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Agricola').count())
+      sflm_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Agricola').count())
+
+      valles_pec = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Pecuario').count())
+      istmo_pec = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Pecuario').count())
+      costa_pec = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', subsector='Pecuario').count())
+      papa_pec = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', subsector='Pecuario').count())
+      mix_pec = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', subsector='Pecuario').count())
+      sjua_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Pecuario').count())
+      ssur_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Pecuario').count())
+      sflm_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Pecuario').count())
+
+      valles_acu = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Acuicola').count())
+      istmo_acu = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Acuicola').count())
+      costa_acu = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', subsector='Acuicola').count())
+      papa_acu = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', subsector='Acuicola').count())
+      mix_acu = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', subsector='Acuicola').count())
+      sjua_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Acuicola').count())
+      ssur_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Acuicola').count())
+      sflm_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Acuicola').count())
+
+
+      valles_pes = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Pesquero').count())
+      istmo_pes = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Pesquero').count())
+      costa_pes = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', subsector='Pesquero').count())
+      papa_pes = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', subsector='Pesquero').count())
+      mix_pes = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', subsector='Pesquero').count())
+      sjua_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Pesquero').count())
+      ssur_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Pesquero').count())
+      sflm_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Pesquero').count())
+
+      valles_for = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Forestal').count())
+      istmo_for = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Forestal').count())
+      costa_for = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', subsector='Forestal').count())
+      papa_for = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', subsector='Forestal').count())
+      mix_for = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', subsector='Forestal').count())
+      sjua_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Forestal').count())
+      ssur_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Forestal').count())
+      sflm_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Forestal').count())
 
       return render(request, 'graficas.html',{
         'conteo_VC' : conteo_VC, 
@@ -725,7 +771,47 @@ def graficas(request):
         'garantias_iai' : garantias_iai,
         'garantias_ap' : garantias_ap,
         'garantias_mec' : garantias_mec,
-        'garantias_re' : garantias_re
+        'garantias_re' : garantias_re,
+        'valles_agri' : valles_agri,
+        'istmo_agri' : istmo_agri,
+        'costa_agri' : costa_agri,
+        'papa_agri' : papa_agri,
+        'mix_agri' : mix_agri,
+        'sjua_agri' : sjua_agri,
+        'ssur_agri' : ssur_agri,
+        'sflm_agri' : sflm_agri,
+        'valles_pec' : valles_pec,
+        'istmo_pec' : istmo_pec,
+        'costa_pec' : costa_pec,
+        'papa_pec' : papa_pec,
+        'mix_pec' : mix_pec,
+        'sjua_pec' : sjua_pec,
+        'ssur_pec' : ssur_pec,
+        'sflm_pec' : sflm_pec,
+        'valles_acu' : valles_acu,
+        'istmo_acu' : istmo_acu,
+        'costa_acu' : costa_acu,
+        'papa_acu' : papa_acu,
+        'mix_acu' : mix_acu,
+        'sjua_acu' : sjua_acu,
+        'ssur_acu' : ssur_acu,
+        'sflm_acu' : sflm_acu,
+        'valles_pes' : valles_pes,
+        'istmo_pes' : istmo_pes,
+        'costa_pes' : costa_pes,
+        'papa_pes' : papa_pes,
+        'mix_pes' : mix_pes,
+        'sjua_pes' : sjua_pes,
+        'ssur_pes' : ssur_pes,
+        'sflm_pes' : sflm_pes,
+        'valles_for' : valles_for,
+        'istmo_for' : istmo_for,
+        'costa_for' : costa_for,
+        'papa_for' : papa_for,
+        'mix_for' : mix_for,
+        'sjua_for' : sjua_for,
+        'ssur_for' : ssur_for,
+        'sflm_for' : sflm_for,
 
         })
 
@@ -1001,6 +1087,94 @@ def delete_credit(request, credit_id):
     credit.delete()
     messages.success(request, 'Registro eliminado en la base de datos')
     return redirect('home')
+
+
+@login_required
+def get_chart5(request):
+
+#PROYECTOS DE INVERSIÓN POR SUBSECTOR
+
+  sub_agricola = (entidadesFinancieras2.objects.filter(subsector='Agricola').count())
+  sub_pecuario = (entidadesFinancieras2.objects.filter(subsector='Pecuario').count())
+  sub_acuicola = (entidadesFinancieras2.objects.filter(subsector='Acuicola').count())
+  sub_pesquero = (entidadesFinancieras2.objects.filter(subsector='Pesquero').count())
+  sub_forestal = (entidadesFinancieras2.objects.filter(subsector='Forestal').count())
+
+
+  chart = {
+    'tooltip': {
+    'trigger': 'item'
+  },
+  'legend': {
+    'top': '5%',
+    'left': 'center'
+  },
+  'series': [
+    {
+      'name': 'PROYECTOS DE INVERSIÓN POR SUBSECTOR',
+      'type': 'pie',
+      'radius': ['40%', '60%'],
+      'avoidLabelOverlap': 'false',
+      'emphasis': {
+        'label': {
+          'show': 'true',
+          'fontSize': '40',
+          'fontWeight': 'bold'
+        }
+      },
+      'labelLine': {
+        'show': 'false'
+      },
+      'data': [
+        { 'value': sub_agricola, 'name': 'Agricola' },
+        { 'value': sub_pecuario, 'name': 'Pecuario' },
+        { 'value': sub_acuicola, 'name': 'Acuicola' },
+        { 'value': sub_pesquero, 'name': 'Pesquero' },
+        { 'value': sub_forestal, 'name': 'Forestal' }
+      ]
+    }
+  ]
+  }
+
+  return JsonResponse(chart)
+  
+  #   'tooltip': {
+  #   'trigger': 'item'
+  # },
+  # 'legend': {
+  #   'top': '5%',
+  #   'left': 'center'
+  # },
+  # 'series': [
+  #   {
+  #     'name': 'PROYECTOS DE INVERSIÓN POR SUBSECTOR',
+  #     'type': 'pie',
+  #     'radius': ['40%', '70%'],
+  #     'avoidLabelOverlap': 'false',
+  #     'label': {
+  #       'show': 'false',
+  #       'position': 'center'
+  #     },
+  #     'emphasis': {
+  #       'label': {
+  #         'show': 'true',
+  #         'fontSize': '40',
+  #         'fontWeight': 'bold'
+  #       }
+  #     },
+  #     'labelLine': {
+  #       'show': 'false'
+  #     },
+  #     'data': [
+  #       { 'value': sub_forestal, 'name': 'FORESTAL'},
+  #       { 'value': sub_agricola, 'name': 'AGRICOLA'},
+  #       { 'value': sub_pecuario, 'name': 'PECUARIO'},
+  #       { 'value': sub_acuicola, 'name': 'ACUICOLA'},
+  #       { 'value': sub_pesquero, 'name': 'PESQUERO'}
+  #     ]
+  #   }
+  # ]
+
 
 
 

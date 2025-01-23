@@ -89,6 +89,31 @@ window.addEventListener("load", async()=>{
 
 
 
+
+ 
+
+const getOptionChart5 = async () =>{
+    try{
+       const response = await fetch("https://sefader-agronegocios.com/getcharts5/");
+       return await response.json();
+    } catch (ex) {
+       alert(ex);
+    }
+};
+
+
+const initChart5 = async()=>{
+    const myChart =echarts.init(document.getElementById("chart5"));
+    myChart.setOption(await getOptionChart5());
+    myChart.resize();
+};
+
+window.addEventListener("load", async()=>{
+    await initChart5();
+
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");
     const navLinks = document.getElementById("nav-links");
