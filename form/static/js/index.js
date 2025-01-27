@@ -111,7 +111,7 @@ const initChart5 = async()=>{
 window.addEventListener("load", async()=>{
     await initChart5();
 
-});
+}); 
  
 
 document.addEventListener("DOMContentLoaded", () => {
