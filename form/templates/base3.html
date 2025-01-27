@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--Meta Informations-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<!--Site Title-->
+	<title>AGRONEGOCIOS</title>
+	<!--Favicons-->		
+	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!--Style Assets-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/fontawesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/owl/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'font/css/all.css' %}">
+	<link rel="stylesheet" href="{% static 'estilos/estilo_animacion.css' %}">
+	<!--Theme Style-->
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'estilos/anima.css' %}">
+</head>
+<body>
+	<div id="loading">
+        <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
+    </div>
+	
+<div id="page" class="site row">
+
+
+<header id="header" class="site-header">
+	
+	<nav class="navbar navbar-defatult navbar-fixed-top fluid-navbar navbar-style1">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'assets/images/logo.png' %}" alt="" class="logo-img"></a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+					<span class="sr-only">Nav Opener</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="main-nav">
+				
+				<ul class="navbar-nav nav navbar-right">
+  <li class="active"><a href="index.html">Inicio</a></li>
+  <li><a href="https://sefader-agronegocios.com/login/"target="_blank">Desempeño de Garantías Líquidas</a></li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estadísticas del Sector Agroalimentario <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/agricola">Agrícola</a></li>
+      <li><a href="sector_pecuario.html">Pecuario</a></li>
+      <li><a href="estadisticas_pesca.html">Pesca y Acuícola</a></li>
+    </ul>
+  </li>
+  <li><a href="tienda/index.html" target="_blank">Desarrollo de Mercado</a></li>
+</ul>
+
+			</div>			
+		</div>
+	</nav>
+	
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+
+
+<!--Footer-->
+<footer id="footer" class="site-footer">
+    <!--Footer Top-->
+    <section class="row site-footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="media">
+                    <div class="col-sm-3 media-left">
+                    </div>
+                    <div class="col-sm-9 media-body">
+                    	<img src="{% static 'assets/images/logo.png' %}" alt="Oaxaca para el mundo">
+                        <p>AGRONEGOCIOS 2024-2025 <a href="#"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Footer Bottom-->
+    
+</footer>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'vendors/jquery-2.2.0.min.js' %}"></script>
+<script src="{% static 'vendors/owl/owl.carousel.min.js' %}"></script>
+<script src="{% static 'vendors/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'vendors/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendors/imagesloaded.pkgd.min.js' %}"></script>
+<!--Theme JS-->
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/hostpro.js' %}"></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+</html>

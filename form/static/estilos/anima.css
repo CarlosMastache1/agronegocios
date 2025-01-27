@@ -1,0 +1,77 @@
+/* Contenedor de la imagen */
+.image-container {
+    position: relative;
+    display: inline;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Imagen base */
+.image-conta img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto zoom con movimiento */
+.image-container:hover img {
+    transform: scale(1.1) translate(5px, -5px);
+}
+
+/* Glitch effect */
+.image-container:hover::before,
+.image-container:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    opacity: 0.8;
+    mix-blend-mode: difference;
+    animation: glitch 0.5s infinite linear;
+}
+
+/* Glitch layers */
+.image-container:hover::before {
+    transform: translate(-5px, -5px);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+}
+
+.image-container:hover::after {
+    transform: translate(5px, 5px);
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+/* Animación bounce */
+.image-container:hover img {
+    animation: bounce 1s infinite ease-in-out;
+}
+
+/* Bounce Keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Glitch Keyframes */
+@keyframes glitch {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+        transform: translate(5px, -5px);
+    }
+    50% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+        transform: translate(-5px, 5px);
+    }
+    100% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+        transform: translate(0, 0);
+    }
+}

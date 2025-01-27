@@ -1,0 +1,130 @@
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      padding: 0 50px;
+      background-color: #f8fcfd;
+      color: #647482;
+      text-decoration: none;
+      border: 1px solid #dce6eb;
+      border-left: 1px solid #dbe3e7;
+      line-height: 58px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a i {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #eef5f9;
+      color: #212529;
+    }
+
+    nav a:hover i {
+      transform: scale(1.2);
+    }
+
+    nav a.active {
+      border: none;
+      background: #fff;
+      font-weight: bold;
+      color: #36424d;
+      border-left: 1px solid #dbe3e7;
+      border-right: 1px solid #dbe3e7;
+      border-top: 1px solid #dbe3e7;
+    }
+
+    /* Secciones */
+    section {
+ 
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      display: none;
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+
+    /* Navs internos */
+    .section-nav {
+      display: flex;
+      justify-content: space-around;
+      
+      width: 100%;
+      
+      font-size: 14px;
+    }
+
+    .section-nav:first-of-type {
+      background-color: #ffecb3; /* Amarillo suave */
+    }
+
+    .section-nav:last-of-type {
+      background-color: #b3e5fc; /* Azul claro */
+    }
+
+    .section-nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .section-nav a:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Diseño responsivo */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .section-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }

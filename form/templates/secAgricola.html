@@ -1,0 +1,65 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<main id="contents" class="site-contnts">
+	
+	<!--Slider-->
+	<div class="home-slider">
+		<div class="item" data-slide="{% static 'assets/images/17.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7">
+						<h2 class="slide-title">Estadisticas <strong>del Sector Agrícola</strong>  <h3>Explora los 16 productos</h3> 
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" data-slide="{% static 'assets/images/17.png' %}">
+			<div class="container">
+				<div class="row">
+					
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+    
+    <!--Clients-->
+    <section class="row client-logos">
+        <div class="container">            
+            <div class="row section-title text-center">
+				<h2>ESTADISTICAS DEL SECTOR AGRÍCOLA</h2>
+			</div>
+            <div class="row">
+                <div class="col-sm-2 client-logo"><a href="{% url 'agave' %}" data-toggle="tooltip" data-placement="top" title="AGAVE"><img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="AJONJOLI"><img src="{% static 'imagenesSA/2.png' %}" alt="AJONJOLI"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="CAFÉ"><img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="CALABACITA"><img src="{% static 'imagenesSA/4.png' %}" alt="CALABACITA"></a></div>
+                <br><br><br><br><br><br><br><br><br><br>
+                <div class="col-sm-2 client-logo"><a href="" data-toggle="tooltip" data-placement="top" title="JENGIBRE"><img src="{% static 'imagenesSA/5.png' %}" alt="JENGIBRE"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="LIMÓN"><img src="{% static 'imagenesSA/6.png' %}" alt="LIMÓN"></a></div>
+				<div class="col-sm-2 client-logo"><a href="" data-toggle="tooltip" data-placement="top" title="LITCHI"><img src="{% static 'imagenesSA/7.png' %}" alt="LITCHI"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="MANGO"><img src="{% static 'imagenesSA/8.png' %}" alt="MANGO"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="MELÓN"><img src="{% static 'imagenesSA/9.png' %}" alt="MELÓN"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="PAPAYA"><img src="{% static 'imagenesSA/10.png' %}" alt="PAPAYA"></a></div>
+                <br><br><br><br><br><br><br><br><br><br>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="PEPINO"><img src="{% static 'imagenesSA/11.png' %}" alt="PEPINO"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="PIÑA"><img src="{% static 'imagenesSA/12.png' %}" alt="PIÑA"></a></div>
+ 				<div class="col-sm-2 client-logo"><a href="" data-toggle="tooltip" data-placement="top" title="PLATANO"><img src="{% static 'imagenesSA/13.png' %}" alt="PLATANO"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="SANDIA"><img src="{% static 'imagenesSA/14.png' %}" alt="SANDIA"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="TOMATE"><img src="{% static 'imagenesSA/15.png' %}" alt=">"></a></div>
+                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="VAINILLA"><img src="{% static 'imagenesSA/16.png' %}" alt="VAINILLA"></a></div>
+            </div>
+        </div>
+    </section>
+	
+</main>
+
+{% endblock %}

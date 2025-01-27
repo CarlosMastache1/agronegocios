@@ -1,0 +1,28 @@
+
+
+/* Estilos para la pantalla de carga */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+/* Tamaño del GIF */
+#loading img {
+    width: 200px;
+    height: auto;
+}
+
+/* Ocultar el contenido inicialmente */
+#content {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}

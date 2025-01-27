@@ -18,3 +18,38 @@ $(document).ready(function () {
     })
     
 })
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable2',{
+      
+    })
+    
+})
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable3',{
+      
+    })
+    
+})
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable4',{
+       
+    })
+    
+})
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable5',{
+       
+    })
+    
+})
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable6',{
+       
+    })
+    
+})

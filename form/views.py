@@ -88,6 +88,13 @@ def creditDetail(request, credit_id):
   })
 
 
+def indSec(request):
+  return render(request, 'index.html')
+
+def sectorAgri(request):
+  return render(request, 'secAgricola.html')
+
+
 
 def creditUpdate(request, credit_id):
   if request.method == 'GET':

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Dinámica con Filtros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+       }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .table-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 100%;
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .filters input, .filters select {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    .filters input:focus, .filters select:focus {
+      box-shadow: 0 2px 8px rgba(157, 36, 73, 0.5);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    thead {
+      background-color: #9d2449;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #f6c4d2;
+      transform: scale(1.01);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    tfoot {
+      background-color: #9d2449;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .filters {
+        flex-direction: column;
+      }
+
+      th, td {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+ <p>Cierre Agricola 2022</p>
+
+  <div class="table-container">
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Buscar por país">
+      <select id="filterSelect">
+        <option value="">Filtrar por producto</option>
+        <option value="Tequila y Mezcal">Tequila y Mezcal</option>
+        <option value="Probiótico constituido por fructanos">Probiótico constituido por fructanos</option>
+        <option value="Agace azul, Tequila">Agace azul, Tequila</option>
+        <option value="Chawarmisqui">Chawarmisqui</option>
+        <option value="Mezcal">Mezcal</option>
+      </select>
+    </div>
+
+    <table id="rankingTable">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>País</th>
+          <th>Superficie cosechada (Ha)</th>
+          <th>Producto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Colombia</td>
+          <td>19,207</td>
+          <td>Tequila y Mezcal</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>México</td>
+          <td>13,601</td>
+          <td>Tequila y Mezcal</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Cuba</td>
+          <td>8,103</td>
+          <td>Probiótico constituido por fructanos</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Nicaragua</td>
+          <td>5,769</td>
+          <td>Agace azul, Tequila</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Filipinas</td>
+          <td>3,989</td>
+          <td>Tequila y Mezcal</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>El Salvador</td>
+          <td>3,899</td>
+          <td>Tequila y Mezcal</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Ecuador</td>
+          <td>3,326</td>
+          <td>Chawarmisqui</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Guatemala</td>
+          <td>199</td>
+          <td>Mezcal</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">TOTAL</td>
+          <td>58,093</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const filterSelect = document.getElementById('filterSelect');
+    const rows = document.querySelectorAll('#rankingTable tbody tr');
+
+    function filterTable() {
+      const searchValue = searchInput.value.toLowerCase();
+      const filterValue = filterSelect.value;
+
+      rows.forEach(row => {
+        const country = row.cells[1].textContent.toLowerCase();
+        const product = row.cells[3].textContent;
+
+        const matchesSearch = country.includes(searchValue);
+        const matchesFilter = filterValue === '' || product === filterValue;
+
+        if (matchesSearch && matchesFilter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    searchInput.addEventListener('keyup', filterTable);
+    filterSelect.addEventListener('change', filterTable);
+  </script>
+</body>
+</html>
