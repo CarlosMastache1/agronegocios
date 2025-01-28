@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Dinámica y Responsiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+     
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 16px;
+      text-align: left;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+      background-color: #9d2449;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+      background-color: #f7d4e0;
+      transition: background-color 0.3s ease;
+    }
+
+    tfoot {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    /* Diseño responsivo para pantallas pequeñas */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tbody tr {
+        margin-bottom: 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      td:last-child {
+        border-bottom: none;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #9d2449;
+        text-transform: uppercase;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Región</th>
+        <th>Volumen de producción (Ton)</th>
+        <th>Superficie Sembrada (Ha)</th>
+        <th>Rendimiento (Ton/Ha)</th>
+        <th>Valor de la producción ($)</th>
+        <th>Cantidad de Municipios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Región">Istmo</td>
+        <td data-label="Volumen de producción (Ton)">4,828</td>
+        <td data-label="Superficie Sembrada (Ha)">6,158</td>
+        <td data-label="Rendimiento (Ton/Ha)">0.79</td>
+        <td data-label="Valor de la producción ($)">177,046,476</td>
+        <td data-label="Cantidad de Municipios">29</td>
+      </tr>
+      <tr>
+        <td data-label="Región">Costa</td>
+        <td data-label="Volumen de producción (Ton)">1,611</td>
+        <td data-label="Superficie Sembrada (Ha)">1,940</td>
+        <td data-label="Rendimiento (Ton/Ha)">0.80</td>
+        <td data-label="Valor de la producción ($)">52,632,994</td>
+        <td data-label="Cantidad de Municipios">23</td>
+      </tr>
+      <tr>
+        <td data-label="Región">Sierra Sur</td>
+        <td data-label="Volumen de producción (Ton)">64</td>
+        <td data-label="Superficie Sembrada (Ha)">90</td>
+        <td data-label="Rendimiento (Ton/Ha)">0.72</td>
+        <td data-label="Valor de la producción ($)">2,317,780</td>
+        <td data-label="Cantidad de Municipios">2</td>
+      </tr>
+      <tr>
+        <td data-label="Región">Papaloapan</td>
+        <td data-label="Volumen de producción (Ton)">40</td>
+        <td data-label="Superficie Sembrada (Ha)">54</td>
+        <td data-label="Rendimiento (Ton/Ha)">0.72</td>
+        <td data-label="Valor de la producción ($)">608,206</td>
+        <td data-label="Cantidad de Municipios">1</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td data-label="Región">Estatal</td>
+        <td data-label="Volumen de producción (Ton)">6,543</td>
+        <td data-label="Superficie Sembrada (Ha)">8,242</td>
+        <td data-label="Rendimiento (Ton/Ha)">0.79</td>
+        <td data-label="Valor de la producción ($)">232,605,456</td>
+        <td data-label="Cantidad de Municipios">55</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

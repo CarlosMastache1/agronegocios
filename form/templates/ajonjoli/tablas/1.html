@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datatables@1.13.6/media/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables@1.13.6/media/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            background-color: #fff;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            background-color: #fff;
+        }
+        thead {
+            background-color: #9d2449;
+            color: white;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+        }
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:hover {
+            background-color: #fce4ec; /* Hover color pink */
+        }
+        .highlight-row {
+            background-color: #d7ffd9; /* Highlighted row (e.g., México) */
+        }
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <p>CIERRE AGRÍCOLA 2022</p>
+        <table id="dynamicTable">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>País</th>
+                    <th>Superficie cosechada (Ha)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Sudán</td>
+                    <td>4,151,896</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>India</td>
+                    <td>1,627,040</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Myanmar</td>
+                    <td>1,538,252</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>República Unida de Tanzania</td>
+                    <td>970,000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Sudán del Sur</td>
+                    <td>615,059</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Burkina Faso</td>
+                    <td>396,151</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Chad</td>
+                    <td>389,069</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Nigeria</td>
+                    <td>365,000</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Brasil</td>
+                    <td>307,000</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>China</td>
+                    <td>267,364</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>China, Continental</td>
+                    <td>265,000</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Pakistán</td>
+                    <td>259,896</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Etiopía</td>
+                    <td>250,000</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Uganda</td>
+                    <td>215,000</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Níger</td>
+                    <td>214,652</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Mozambique</td>
+                    <td>164,000</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Malí</td>
+                    <td>91,983</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>18</td>
+                    <td>México</td>
+                    <td>81,368</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Otros</td>
+                    <td>935,410</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>TOTAL</strong></td>
+                    <td><strong>13,104,140</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#dynamicTable').DataTable({
+                paging: true,
+                searching: true,
+                order: [[2, 'desc']],
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros por página",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    infoFiltered: "(filtrado de _MAX_ registros totales)",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -37,7 +37,14 @@ urlpatterns = [
     path('tablas8/', TemplateView.as_view(template_name="agave/tablas/8.html"), name='tablas8'),
     path('iframeAgave/', TemplateView.as_view(template_name="agave/iframe_de_todo.html"), name='iframeAgave'),
     path('agave/', TemplateView.as_view(template_name="agave/estadisticas_agave.html"), name='agave'),
-    path('mapa/', TemplateView.as_view(template_name="agave/mapa.html"), name='mapa')
+    path('mapa/', TemplateView.as_view(template_name="agave/mapa.html"), name='mapa'),
+    path('descripcion_ajonjoli/', TemplateView.as_view(template_name="ajonjoli/descripcion_ajonjoli.html"), name='descripcion_ajonjoli'),
+    path('tablas1Aj/', TemplateView.as_view(template_name="ajonjoli/tablas/1.html"), name='tablas1Aj'),
+    path('tablas2Aj/', TemplateView.as_view(template_name="ajonjoli/tablas/2.html"), name='tablas2Aj'),
+    path('tablas3Aj/', TemplateView.as_view(template_name="ajonjoli/tablas/3.html"), name='tablas3Aj'),
+    path('tablas4Aj/', TemplateView.as_view(template_name="ajonjoli/tablas/4.html"), name='tablas4Aj'),
+    path('graficas1Aj/', TemplateView.as_view(template_name="ajonjoli/graficas/1.html"), name='graficas1Aj'),
+
 
 
 

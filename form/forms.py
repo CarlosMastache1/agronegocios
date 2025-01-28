@@ -17,6 +17,7 @@ class financieras(forms.ModelForm):
     'empleos_directos', 
     'empleos_indirectos', 
     'intermediario_financiero',
+    'intermediario_financiero_FIRA',
     'producto_tipoCredito', 
     'monto_total', 
     'monto_garantiasLiquidasVigente', 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadisticas Agave</title>
+    <!-- Enlace al CSS de Swiper -->
+    <link rel="stylesheet" href="{% static 'estilos/estilo_swiper.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilon.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_fuente.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_mapas.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_textos.css' %}">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper {
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .swiper-slide {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    /* Coloca los botones de navegación en la parte superior */
+    .swiper-button-next, .swiper-button-prev {
+        top: 120px;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+    .swiper-button-next {
+        right: 10px;
+    }
+    .swiper-button-prev {
+        left: 10px;
+    }
+    /* Coloca la paginación en la parte superior */
+    .swiper-pagination {
+        top: 200px;
+        bottom: auto;
+        z-index: 10;
+        text-align: center;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <div class="swiper">
+       <!-- Paginación -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper">
+            <!-- Slide 1: Un iframe -->
+            <div class="swiper-slide">
+                
+                <iframe src="{% url 'descripcion_ajonjoli' %}" width="100%" height="990px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+              
+
+
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <h3>PRODUCCIÓN  <strong>MUNDIAL</strong> <strong>DE AJONJOLI</strong></h3>
+              <iframe src="{% url 'tablas1Aj' %}" width="100%" height="990px" scrolling="no" frameborder="0" allowtransparency="true"></iframe><p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO 2022</p>
+              <div class="mapa-container"><img src="{% static 'agricola/ajonjoli/imagenes/mapa1.jpg' %}"></div>
+                
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+               <h3>PRODUCCIÓN <strong> NACIONAL DE AJONJOLI</strong> </h3>
+              <iframe src="{% url 'tablas2Aj' %}" width="100%" height="700PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe><p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+               <div class="mapa-container"><img src="{% static 'agricola/ajonjoli/imagenes/mapa2.jpg' %}"></div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <h3>BALANZA COMERCIAL <strong>DE AGAVE</strong> </h3>
+              <iframe src="{% url 'tablas3Aj' %}" width="100%" height="780PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+              <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DEL BANCO DE MÉXICO (BANXICO)</p>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <h3>DESTINO DE LA EXPORTACIÓN 2023 POR REGIÓN</h3>
+                  <iframe src="{% url 'tablas4Aj' %}" width="100%" height="420px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                  <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DEL BANCO DE MÉXICO (BANXICO)</p>
+                   <br><br><h3>PRODUCCIÓN HISTÓRICA DE AGAVE EN OAXACA </h3>
+                     <iframe src="{% url 'graficas1Aj' %}" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                     <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</p>    
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <h3>PRODUCCIÓN DE <strong>AGAVE EN OAXACA</strong></h3>
+              <h4>CIERRE AGRÍCOLA 2023</h4>
+                <iframe src="tablas/6.html" width="100%" height="450px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023
+                  INSTITUTO NACIONAL DE LOS PUEBLOS INDÍGENAS (INPI)</p>
+                   <iframe src="graficas/grafica2.html" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                     <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023
+                  INSTITUTO NACIONAL DE LOS PUEBLOS INDÍGENAS (INPI)</p>
+            </div>
+
+             <!-- Slide 7 -->
+            <div class="swiper-slide">
+             <h3>ESTACIONALIDAD <strong>DE LA PRODUCCIÓN EN OAXACA</strong></h3>
+                <br><br> <p class="texto">La estacionalidad de la producción hace referencia a la frecuencia de meses
+                donde se produce agave en el estado de Oaxaca, medido a través del índice de
+                volumen físico, es decir, el mes de marzo es cuando se cosecha más agave
+                alcanzando 399 puntos de dicho índice.</p>
+                <iframe src="graficas/grafica3.html" width="100%" height="450px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+                
+            </div>
+
+             <!-- Slide 8 -->
+            <div class="swiper-slide">
+              <h3>MUNICIPIOS QUE PRODUCEN AGAVE EN OAXACA</h3>
+                     <iframe src="tablas/8.html" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                       <iframe src="imagenes/mapa.html" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe><p align="center" class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+            </div>
+
+
+
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+       
+    </div>
+
+    <!-- Enlace al JavaScript de Swiper -->
+    <script src="{% static 'agricola/agave/js/script.js' %}"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true,
+        });
+    </script>
+</body>
+</html>

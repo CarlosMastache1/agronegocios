@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datatables@1.13.6/media/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables@1.13.6/media/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: auto;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        thead {
+            background-color: #9d2449;
+            color: white;
+        }
+        th, td {
+            text-align: center;
+            padding: 12px 16px;
+        }
+        tbody tr:hover {
+            background-color: #fce4ec; /* Hover color pink */
+        }
+        tfoot td {
+            font-weight: bold;
+            background-color: #f5f5f5;
+        }
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table id="dynamicTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Exportaciones<br>Valor (USD)</th>
+                    <th>Importaciones<br>Valor (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total</td>
+                    <td>229,945</td>
+                    <td>329,423</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#dynamicTable').DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                order: [[1, 'desc']],
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros por página",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

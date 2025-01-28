@@ -112,7 +112,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="mayus(this);" type="number" name="num_credito" placeholder="NÚMERO DE CRÉDITO" class="form-control"  step=".0001">
+                          <input onkeyup="mayus(this);" type="text" name="num_credito" placeholder="NÚMERO DE CRÉDITO" class="form-control"  step=".0001">
                             </div>
                           </div>
                         </div>
@@ -243,7 +243,7 @@
                             <div class=" selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                            <select name="intermediario_financiero" class="form-control selectpicker" >
+                            <select name="intermediario_financiero" id="credito" class="form-control selectpicker" >
                               <option value="" >SELECCIONA EL INTERMEDIARIO FINANCIERO</option>
                               <option value="COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO">COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRÉSTAMO</option>
                               <option value="FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE">"FINDECA", SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE</option>
@@ -253,6 +253,20 @@
                             </select>
                           </div>
                         </div>
+                        </div>
+                      </div>
+                    
+                      
+                      <div class="col-6" id="input_fira" >
+                        <div class="form-group">
+                          <label class="control-label" > INTERMEDIARIO FINANCIERO DE FIRA</label> 
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input onkeyup="mayus(this);"  name="intermediario_financiero_FIRA"  placeholder="INTERMEDIARIO FINANCIERO DE FIRA" class="form-control"  type="text">
+                          <span></span>
+                            </div>
+                          </div>
                         </div>
                       </div>
 

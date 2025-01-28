@@ -16,12 +16,12 @@ class entidadesFinancieras2(models.Model):
     tipo_tenencia = models.CharField(max_length=50,blank=True, null=True) 
     # personas = (('PERSONA FISICA', 'PERSONA FISICA'), ('PERSONA MORAL', 'PERSONA MORAL'))
     tipo_persona = models.CharField(max_length=30, blank=True, null=True) 
-    num_credito = models.IntegerField(blank=True, null=True) 
+    num_credito = models.CharField(max_length=30, null=True) 
     num_cliente = models.IntegerField(blank=True, null=True) 
     nombre_cliente = models.CharField(max_length=200, blank=True, null=True) 
     representante_legal = models.CharField(max_length=40, blank=True, null=True) 
     telefono = models.CharField(max_length=12, blank=True, null=True) 
-    producto_tipoCredito = models.CharField(max_length=40, blank=True, null=True) 
+    producto_tipoCredito = models.CharField(max_length=80, blank=True, null=True) 
     monto_total = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True) 
     fecha_inicio = models.DateField(blank=True, null=True) 
     fecha_termino = models.DateField(blank=True, null=True) 
@@ -36,6 +36,7 @@ class entidadesFinancieras2(models.Model):
     inclumplimiento_credito = models.CharField(max_length= 100, blank=True, null=True)
     #financieras = (('COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', 'COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO'), ('FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE', 'FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE'), ('NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE', 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE'), ('FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)', 'FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)'), ('CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO'))
     intermediario_financiero = models.CharField(max_length= 150, blank=True, null=True)
+    intermediario_financiero_FIRA =  models.CharField(max_length= 150, blank=True, null=True)
     #conceptos = (('INFRAESTRUCTURA AGROALIMENTARIA', 'INFRAESTRUCTURA AGROALIMENTARIA'), ()) 
     tipo_concepto = models.CharField(max_length= 30, blank=True, null=True) 
     descripcion_concepto = models.TextField(blank=True, null=True) 
@@ -63,8 +64,6 @@ class entidadesFinancieras2(models.Model):
     rfc = models.CharField(max_length=20,  blank=True, null=True)
     aportacion_productor = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True)
 
-
-    
     
      
 
