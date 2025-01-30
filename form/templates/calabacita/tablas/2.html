@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #9d2449;
+            color: white;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f8d7da;
+            color: #9d2449;
+        }
+
+        table.dataTable {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            background: #9d2449;
+            color: white !important;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #f8d7da;
+            color: #9d2449 !important;
+        }
+
+        th.sorting, th.sorting_asc, th.sorting_desc {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        th.sorting:hover, th.sorting_asc:hover, th.sorting_desc:hover {
+            background-color: #c25972;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="tablaDinamica" class="display">
+        <thead>
+            <tr>
+                <th>Ranking</th>
+                <th>Entidad Federativa</th>
+                <th>Volumen de producción (Ton)</th>
+                <th>Superficie Sembrada (Ha)</th>
+                <th>Rendimiento (Ton/Ha)</th>
+                <th>Valor de la producción ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Sonora</td><td>165,704</td><td>6,099</td><td>22.65</td><td>1,103,951,520</td></tr>
+            <tr><td>2</td><td>Puebla</td><td>71,148</td><td>4,080</td><td>16.75</td><td>382,094,599</td></tr>
+            <tr><td>3</td><td>Sinaloa</td><td>55,646</td><td>2,027</td><td>24.29</td><td>391,017,819</td></tr>
+            <tr><td>4</td><td>Michoacán</td><td>44,156</td><td>2,027</td><td>20.84</td><td>331,253,924</td></tr>
+            <tr><td>5</td><td>Hidalgo</td><td>28,712</td><td>1,541</td><td>14.94</td><td>147,108,286</td></tr>
+            <tr><td>6</td><td>Jalisco</td><td>25,817</td><td>1,150</td><td>21.73</td><td>171,972,032</td></tr>
+            <tr><td>7</td><td>Zacatecas</td><td>20,425</td><td>785</td><td>23.44</td><td>99,933,242</td></tr>
+            <tr><td>8</td><td>Morelos</td><td>18,625</td><td>1,279</td><td>14.68</td><td>86,305,609</td></tr>
+            <tr><td>9</td><td>Yucatán</td><td>17,123</td><td>1,027</td><td>14.07</td><td>120,347,279</td></tr>
+            <tr><td>10</td><td>México</td><td>14,350</td><td>950</td><td>14.19</td><td>90,286,761</td></tr>
+            <tr><td>11</td><td>Guanajuato</td><td>13,970</td><td>805</td><td>16.06</td><td>74,999,431</td></tr>
+            <tr><td>12</td><td>Oaxaca</td><td>12,012</td><td>535</td><td>18.48</td><td>76,207,510</td></tr>
+            <tr><td>13</td><td>Baja California Sur</td><td>10,067</td><td>303</td><td>27.64</td><td>62,269,063</td></tr>
+            <tr><td>14</td><td>San Luis Potosí</td><td>7,769</td><td>351</td><td>21.65</td><td>60,339,488</td></tr>
+            <tr><td>15</td><td>Guerrero</td><td>7,382</td><td>698</td><td>9.42</td><td>44,772,501</td></tr>
+            <tr><td>16</td><td>Aguascalientes</td><td>6,798</td><td>260</td><td>21.41</td><td>31,105,736</td></tr>
+            <tr><td>17</td><td>Coahuila</td><td>5,572</td><td>314</td><td>19.33</td><td>36,420,972</td></tr>
+            <tr><td>18</td><td>Baja California</td><td>4,997</td><td>186</td><td>20.27</td><td>41,882,676</td></tr>
+            <tr><td>19</td><td>Nuevo León</td><td>4,698</td><td>142</td><td>33.33</td><td>41,994,926</td></tr>
+            <tr><td>20</td><td>Chihuahua</td><td>3,820</td><td>226</td><td>21.48</td><td>31,435,562</td></tr>
+            <tr><td>21</td><td>Veracruz</td><td>3,504</td><td>315</td><td>10.67</td><td>20,762,712</td></tr>
+            <tr><td>22</td><td>Quintana Roo</td><td>2,669</td><td>411</td><td>9.42</td><td>15,828,768</td></tr>
+            <tr><td>23</td><td>Durango</td><td>2,662</td><td>90</td><td>21.84</td><td>17,765,744</td></tr>
+            <tr><td>24</td><td>Querétaro</td><td>1,406</td><td>97</td><td>16.55</td><td>9,655,217</td></tr>
+            <tr><td>25</td><td>Campeche</td><td>1,173</td><td>121</td><td>10.52</td><td>11,476,392</td></tr>
+            <tr><td>26</td><td>Nayarit</td><td>990</td><td>84</td><td>11.26</td><td>5,319,565</td></tr>
+            <tr><td>27</td><td>Ciudad de México</td><td>855</td><td>84</td><td>9.78</td><td>7,660,914</td></tr>
+            <tr><td>28</td><td>Tamaulipas</td><td>840</td><td>53</td><td>15.91</td><td>8,727,288</td></tr>
+            <tr><td>29</td><td>Tlaxcala</td><td>378</td><td>27</td><td>13.78</td><td>2,190,407</td></tr>
+            <tr><td>30</td><td>Colima</td><td>85</td><td>6</td><td>15.88</td><td>535,083</td></tr>
+            <tr><td>Total</td><td></td><td>553,352</td><td>26,073</td><td>17.20</td><td>3,525,621,023</td></tr>
+        </tbody>
+    </table>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tablaDinamica').DataTable({
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

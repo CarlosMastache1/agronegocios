@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <style>
+        /* Personalización de la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #9d2449;
+            color: white;
+            text-align: left;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f7c8d7;
+            transition: background-color 0.3s ease;
+        }
+
+        table.dataTable {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table.dataTable thead th {
+            border-bottom: 2px solid #ddd;
+        }
+    </style>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+
+<table id="tabla-dinamica" class="display">
+    <thead>
+        <tr>
+            <th>2023</th>
+            <th>Región</th>
+            <th>Cantidad de Municipios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2023</td>
+            <td>Papaloapan</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>2023</td>
+            <td>Sierra de Juárez</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>2023</td>
+            <td>Istmo</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2023</td>
+            <td>Estatal</td>
+            <td>15</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#tabla-dinamica').DataTable({
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+            },
+            paging: true,
+            searching: true,
+            ordering: true
+        });
+    });
+</script>
+
+</body>
+</html>

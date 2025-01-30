@@ -38,7 +38,7 @@ class entidadesFinancieras2(models.Model):
     intermediario_financiero = models.CharField(max_length= 150, blank=True, null=True)
     intermediario_financiero_FIRA =  models.CharField(max_length= 150, blank=True, null=True)
     #conceptos = (('INFRAESTRUCTURA AGROALIMENTARIA', 'INFRAESTRUCTURA AGROALIMENTARIA'), ()) 
-    tipo_concepto = models.CharField(max_length= 30, blank=True, null=True) 
+    tipo_concepto = models.CharField(max_length=50, blank=True, null=True) 
     descripcion_concepto = models.TextField(blank=True, null=True) 
     beneficiarios_hombres = models.IntegerField(blank=True, null=True) 
     beneficiarios_mujer = models.IntegerField(blank=True, null=True) 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Lineal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="grafica-comercializacion" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('grafica-comercializacion').getContext('2d');
+    const data = {
+        labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+        datasets: [
+            {
+                label: 'Exportaciones',
+                data: [120000, 140000, 180000, 160000, 130000, 110000, 120000, 125000, 130000, 128000, 123000, 137310, 137310],
+                borderColor: '#9d2449',
+                backgroundColor: 'rgba(157, 36, 73, 0.2)',
+                borderWidth: 2,
+                tension: 0.4,
+            },
+            {
+                label: 'Importaciones',
+                data: [20000, 22000, 24000, 40000, 60000, 80000, 70000, 60000, 50000, 45000, 40000, 36000, 32627],
+                borderColor: '#f39c12',
+                backgroundColor: 'rgba(243, 156, 18, 0.2)',
+                borderWidth: 2,
+                tension: 0.4,
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Volumen de Comercialización (TON)'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value.toLocaleString(); // Formato numérico
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const graficaComercializacion = new Chart(ctx, config);
+</script>
+</body>
+</html>
+

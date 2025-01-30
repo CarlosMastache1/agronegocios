@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Lineal - Papaloapan</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 400px; /* Tamaño de la gráfica */
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+    <p align="center">VOLUMEN DE PRODUCCIÓN POR REGIÓN (TON)</p>
+
+    <div class="chart-container">
+        <canvas id="papaloapanChart"></canvas>
+    </div>
+
+    <script>
+        // Datos de la gráfica
+        const labels = ["2022", "2023"];
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Producción (Ton)",
+                    data: [713.4, 331.8],
+                    borderColor: "#9d2449",
+                    backgroundColor: "rgba(157, 36, 73, 0.5)",
+                    pointBackgroundColor: "#9d2449",
+                    pointBorderColor: "#fff",
+                    pointHoverRadius: 8,
+                    pointHoverBackgroundColor: "#9d2449",
+                    pointHoverBorderColor: "#fff",
+                    tension: 0.3, // Suaviza la curva
+                },
+            ],
+        };
+
+        // Configuración de la gráfica
+        const config = {
+            type: "line", // Gráfica de líneas
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "top",
+                        labels: {
+                            font: {
+                                size: 14,
+                            },
+                        },
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw.toLocaleString()} Ton`;
+                            },
+                        },
+                    },
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: "Año",
+                            font: {
+                                size: 16,
+                            },
+                        },
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: "Producción (Ton)",
+                            font: {
+                                size: 16,
+                            },
+                        },
+                        beginAtZero: true,
+                    },
+                },
+            },
+        };
+
+        // Renderizar la gráfica
+        const papaloapanChart = new Chart(
+            document.getElementById("papaloapanChart"),
+            config
+        );
+    </script>
+
+</body>
+</html>

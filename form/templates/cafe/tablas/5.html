@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #9d2449;
+            color: white;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f8d7da;
+            color: #9d2449;
+        }
+
+        table.dataTable {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            background: #9d2449;
+            color: white !important;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #f8d7da;
+            color: #9d2449 !important;
+        }
+
+        th.sorting, th.sorting_asc, th.sorting_desc {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        th.sorting:hover, th.sorting_asc:hover, th.sorting_desc:hover {
+            background-color: #c25972;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="tablaDinamica" class="display">
+        <thead>
+            <tr>
+                <th>Región</th>
+                <th>Cantidad de Municipios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sierra de Juárez</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Sierra Sur</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Costa</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>Sierra de Flores Magón</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>Papaloapan</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Istmo</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>Mixteca</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>151</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tablaDinamica').DataTable({
+                paging: true,
+                searching: true,
+                ordering: true,
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ entradas",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                    paginate: {
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

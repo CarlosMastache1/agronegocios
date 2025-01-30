@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen de Producción por Pueblo Indígena</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 500px;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="chart-container">
+        <canvas id="indigenousProductionChart"></canvas>
+    </div>
+
+    <script>
+        const labels = [
+            "No pertenece a ningún pueblo indígena", 
+            "Chinanteco", 
+            "Mixe", 
+            "Nahua"
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Volumen de Producción (Ton)",
+                    data: [9, 1116, 453, 10],
+                    backgroundColor: [
+                        "#9d2449", 
+                        "#24659d", 
+                        "#16a085", 
+                        "#f39c12"
+                    ],
+                    borderColor: [
+                        "#9d2449", 
+                        "#24659d", 
+                        "#16a085", 
+                        "#f39c12"
+                    ],
+                    borderWidth: 1,
+                    hoverBackgroundColor: [
+                        "#f06a91", 
+                        "#3d7bbd", 
+                        "#1ba87f", 
+                        "#f5b342"
+                    ],
+                    hoverBorderColor: [
+                        "#9d2449", 
+                        "#24659d", 
+                        "#16a085", 
+                        "#f39c12"
+                    ]
+                }
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y', // Configuración para barras horizontales
+                plugins: {
+                    legend: {
+                        display: false // Oculta la leyenda
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.raw.toLocaleString()} Ton`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Volumen de Producción (Ton)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function(value) {
+                                return value.toLocaleString();
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Pueblo Indígena',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const indigenousProductionChart = new Chart(
+            document.getElementById('indigenousProductionChart'),
+            config
+        );
+    </script>
+
+</body>
+</html>

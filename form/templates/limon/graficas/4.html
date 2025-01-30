@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionalidad del Limón en Oaxaca</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 500px;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+   
+
+    <div class="chart-container">
+        <canvas id="seasonalityChart"></canvas>
+    </div>
+
+    <script>
+        // Datos de la gráfica
+        const labels = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
+            "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Limón (Ton)",
+                    data: [140, 170, 125, 150, 158, 175, 162, 158, 148, 156, 142, 161],
+                    backgroundColor: "#9d2449", // Color de las barras
+                    borderColor: "#9d2449", // Color del borde de las barras
+                    borderWidth: 1,
+                    hoverBackgroundColor: "#f06a91", // Color al pasar el cursor
+                    hoverBorderColor: "#9d2449",
+                },
+            ],
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "top",
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw} Ton`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Mes',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Volumen de Producción (Ton)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString(); // Formato numérico con comas
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const seasonalityChart = new Chart(
+            document.getElementById('seasonalityChart'),
+            config
+        );
+    </script>
+
+</body>
+</html>

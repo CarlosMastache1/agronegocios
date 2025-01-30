@@ -1,0 +1,35 @@
+
+{% extends 'base3.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="contents" class="site-contnts">
+	<!--BANNER-->
+	<div class="home-slider">
+		<div class="item" data-slide="{% static 'agricola/calabacita/imagenes/5.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="item" data-slide="{% static 'agricola/calabacita/imagenes/6.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	
+<!--Primer seccion-->
+<iframe src="{% url 'iframeCalabacita' %}" width="100%" height="1600px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+
+
+
+
+{% endblock %}

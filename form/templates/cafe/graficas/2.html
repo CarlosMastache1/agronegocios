@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Lineal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="lineChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        const data = {
+            labels: [
+                '2010', '2011', '2012', '2013', '2014', '2015', '2016', 
+                '2017', '2018', '2019', '2020', '2021', '2022', '2023'
+            ],
+            datasets: [
+                {
+                    label: 'Cañada',
+                    data: [35391.83, 37692.23, 21149.6, 19336.88, 17121.99, 11555.92, 15063.49, 13911.05, 15560.87, 15637.39, 15855.39, 15991.31, 15234.53, 15960.83],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Costa',
+                    data: [13228.8, 13059.75, 19872.85, 24235.65, 19302.01, 13328.78, 7119.59, 6762.61, 8274.85, 10069.05, 12606.63, 14112.14, 15416.59, 15413.4],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Istmo',
+                    data: [21076.69, 23002.99, 14277.82, 12723.94, 12226.66, 8010.87, 6061.85, 6306.28, 6568.42, 6914.76, 6163.92, 6974.43, 7105.73, 7566.48],
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Mixteca',
+                    data: [2500, 2813, 2855, 2636.7, 1864.9, 1408.2, 1429, 1273.9, 1327, 1373.5, 1330.96, 1346.82, 1400.46, 1322.07],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Papaloapan',
+                    data: [30524.92, 28460.38, 20778.75, 21378.75, 20995.65, 13990.4, 9781.84, 8469.68, 8850.32, 10180.19, 13399.09, 12790.91, 14353.25, 12990.93],
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Sierra Norte',
+                    data: [38132.13, 36901.87, 23626.16, 29813.48, 37988.44, 18457.23, 16562.53, 19033.34, 18957.68, 19673.7, 21362.23, 20004.61, 19956.88, 19089.53],
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Sierra Sur',
+                    data: [13741.02, 15010.87, 14879.64, 19630.61, 20281.54, 15761.16, 10432.89, 10331.84, 10914.87, 11980.64, 14963.04, 14683.47, 15609.62, 15350.76],
+                    borderColor: 'rgba(0, 128, 128, 1)',
+                    backgroundColor: 'rgba(0, 128, 128, 0.2)',
+                    tension: 0.4
+                }
+            ]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'VOLUMEN DE PRODUCCIÓN POR REGIÓN (TON)'
+                }
+            },
+            animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'easeInOutQuart',
+                    from: 0.5,
+                    to: 0,
+                    loop: true
+                }
+            }
+        };
+
+        new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

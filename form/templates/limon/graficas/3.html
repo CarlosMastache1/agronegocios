@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen de Producción por Pueblo Indígena</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 500px;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="chart-container">
+        <canvas id="productionChart"></canvas>
+    </div>
+
+    <script>
+        const labels = [
+            "No pertenece a ningún pueblo indígena", 
+            "Chinanteco", 
+            "Mixe", 
+            "Mazateco", 
+            "Mixteco", 
+            "Zapoteco", 
+            "Cuicateco", 
+            "Nahua", 
+            "Chatino", 
+            "Zoque"
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Volumen de Producción (Ton)",
+                    data: [62570, 115535, 76050, 24834, 13721, 3533, 2340, 988, 474, 264],
+                    backgroundColor: "#9d2449", // Color de las barras
+                    borderColor: "#9d2449", // Color del borde de las barras
+                    borderWidth: 1,
+                    hoverBackgroundColor: "#f06a91", // Color al pasar el cursor
+                    hoverBorderColor: "#9d2449",
+                },
+            ],
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "top",
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw.toLocaleString()} Ton`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Pueblo Indígena',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 90,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Volumen de Producción (Ton)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString(); // Formato numérico con comas
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const productionChart = new Chart(
+            document.getElementById('productionChart'),
+            config
+        );
+    </script>
+
+</body>
+</html>

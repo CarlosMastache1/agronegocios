@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportación 2023</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        table th {
+            background-color: #9d2449;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #ffe6ec;
+            color: #9d2449;
+        }
+
+        table td {
+            font-size: 14px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 2px solid #9d2449;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-container input[type="text"]:focus {
+            outline: none;
+            border-color: #f06a91;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        th.sortable:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exportación 2023</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar en la tabla..." onkeyup="filterTable()">
+    </div>
+
+    <div class="table-container">
+        <table id="exportTable">
+            <thead>
+                <tr>
+                    <th class="sortable" onclick="sortTable(0)">NUM</th>
+                    <th class="sortable" onclick="sortTable(1)">REGIÓN</th>
+                    <th class="sortable" onclick="sortTable(2)">VALOR (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>*América del Norte</td><td>792,791,852</td></tr>
+                <tr><td>2</td><td>**Europa</td><td>5,253,772</td></tr>
+                <tr><td>3</td><td>***Asia</td><td>2,855,879</td></tr>
+                <tr><td>4</td><td>****Latinoamérica y Antillas</td><td>415,006</td></tr>
+                <tr><td>Total</td><td></td><td>801,316,509</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Función para filtrar la tabla
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("exportTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j] && cells[j].innerText.toLowerCase().includes(filter)) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? "" : "none";
+            }
+        }
+
+        // Función para ordenar la tabla
+        function sortTable(n) {
+            const table = document.getElementById("exportTable");
+            const rows = Array.from(table.rows).slice(1);
+            const isNumeric = !isNaN(rows[0].cells[n].innerText.trim().replace(',', ''));
+            const isAscending = table.rows[0].cells[n].classList.toggle("sorted-asc");
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[n].innerText.trim();
+                const cellB = rowB.cells[n].innerText.trim();
+
+                if (isNumeric) {
+                    return isAscending
+                        ? parseFloat(cellA.replace(',', '')) - parseFloat(cellB.replace(',', ''))
+                        : parseFloat(cellB.replace(',', '')) - parseFloat(cellA.replace(',', ''));
+                } else {
+                    return isAscending
+                        ? cellA.localeCompare(cellB)
+                        : cellB.localeCompare(cellA);
+                }
+            });
+
+            rows.forEach(row => table.appendChild(row));
+            table.rows[0].cells[n].classList.toggle("sorted-desc", !isAscending);
+        }
+    </script>
+
+</body>
+</html>

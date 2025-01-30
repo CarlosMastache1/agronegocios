@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Barras Horizontal - Volumen de Producción</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            height: 400px; /* Tamaño de la gráfica */
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+ <p align="center"> Volumen de Producción
+por Pueblo Indígena (Ton)</p>
+
+    <div class="chart-container">
+        <canvas id="productionChart"></canvas>
+    </div>
+
+    <script>
+        // Datos de la gráfica
+        const labels = ["Chinanteco"];
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Volumen de Producción (Ton)",
+                    data: [332],
+                    backgroundColor: "rgba(157, 36, 73, 0.7)", // Color de las barras
+                    borderColor: "#9d2449", // Color del borde
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(157, 36, 73, 0.9)", // Color al pasar el cursor
+                    hoverBorderColor: "#9d2449",
+                },
+            ],
+        };
+
+        // Configuración de la gráfica
+        const config = {
+            type: "bar", // Gráfica de barras
+            data: data,
+            options: {
+                indexAxis: 'y', // Cambia la orientación a horizontal
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false, // Oculta la leyenda si hay una sola barra
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw.toLocaleString()} Ton`;
+                            },
+                        },
+                    },
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: "Volumen de Producción (Ton)",
+                            font: {
+                                size: 16,
+                            },
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 50,
+                        },
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: "Pueblo Indígena",
+                            font: {
+                                size: 16,
+                            },
+                        },
+                    },
+                },
+            },
+        };
+
+        // Renderizar la gráfica
+        const productionChart = new Chart(
+            document.getElementById("productionChart"),
+            config
+        );
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Lineal - Producción por Región</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #9D2449;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+       
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('lineChart').getContext('2d');
+
+        // Datos para la gráfica
+        const data = {
+            labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [
+                {
+                    label: 'Cañada',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 822.47, 1054.93, 814.2, 836.96, 799.89, 575.12],
+                    borderColor: '#FF5733',
+                    backgroundColor: 'rgba(255, 87, 51, 0.2)',
+                    tension: 0.3,
+                    fill: true,
+                },
+                {
+                    label: 'Mixteca',
+                    data: [9340.3, 9336.4, 9317.9, 8024.5, 7532.4, 9274.57, 10295.67, 10109.5, 7845.75, 10137.33, 10429.36, 9154.77, 8421.82, 9395.23],
+                    borderColor: '#9D2449',
+                    backgroundColor: 'rgba(157, 36, 73, 0.2)',
+                    tension: 0.3,
+                    fill: true,
+                },
+                {
+                    label: 'Sierra Sur',
+                    data: [64.8, 63, 50, 70.27, 49.35, 74.48, 82.86, 83.58, 82.18, 122.4, 151.23, 138.08, 131.25, 130.82],
+                    borderColor: '#FFC107',
+                    backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    tension: 0.3,
+                    fill: true,
+                },
+                {
+                    label: 'Valles Centrales',
+                    data: [1324.24, 1299.45, 1177.27, 1180.18, 1177.72, 1299.06, 1332.49, 1567.88, 1570, 1935.44, 2047.38, 1799.43, 1821.57, 1910.38],
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                    tension: 0.3,
+                    fill: true,
+                }
+            ]
+        };
+
+        // Configuración de la gráfica
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Producción por Región (2010-2023)'
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Año'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Producción (Toneladas)'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Inicializar la gráfica
+        new Chart(ctx, config);
+    </script>
+
+</body>
+</html>
