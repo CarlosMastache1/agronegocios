@@ -106,6 +106,18 @@ urlpatterns = [
     path('tablas4Lt/', TemplateView.as_view(template_name="litchi/tablas/4.html"), name='tablas4Lt'),
     path('iframeLitchi/', TemplateView.as_view(template_name="litchi/iframe_de_todo.html"), name='iframeLitchi'),
     path('litchi/', TemplateView.as_view(template_name="litchi/estadisticas_litchi.html"), name='litchi'),
+    path('descripcion_mango/', TemplateView.as_view(template_name="mango/descripcion_mango.html"), name='descripcion_mango'),
+    path('tablas1Man/', TemplateView.as_view(template_name="mango/tablas/1.html"), name='tablas1Man'),
+    path('tablas2Man/', TemplateView.as_view(template_name="mango/tablas/2.html"), name='tablas2Man'),
+    path('tablas3Man/', TemplateView.as_view(template_name="mango/tablas/3.html"), name='tablas3Man'),
+    path('graficas1Man/', TemplateView.as_view(template_name="mango/graficas/1.html"), name='graficas1Man'),
+    path('graficas2Man/', TemplateView.as_view(template_name="mango/graficas/2.html"), name='graficas2Man'),
+    path('tablas5Man/', TemplateView.as_view(template_name="mango/tablas/5.html"), name='tablas5Man'),
+    path('graficas3Man/', TemplateView.as_view(template_name="mango/graficas/3.html"), name='graficas3Man'),
+    path('graficas4Man/', TemplateView.as_view(template_name="mango/graficas/4.html"), name='graficas4Man'),
+    path('tablas6Man/', TemplateView.as_view(template_name="mango/tablas/6.html"), name='tablas6Man'),
+    path('iframeMango/', TemplateView.as_view(template_name="mango/iframe_de_todo.html"), name='iframeMango'),
+    path('mango/', TemplateView.as_view(template_name="mango/estadisticas_mango.html"), name='mango'),
 
 
 ]

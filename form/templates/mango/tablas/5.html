@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción de Mango en Oaxaca</title>
+    <script src="https://cdn.jsdelivr.net/npm/datatables.net/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-dt/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d2449;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #9d2449;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #ffe6ec;
+            color: #9d2449;
+        }
+
+        table td {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <div class="table-container">
+        <table id="mangoTable" class="display">
+            <thead>
+                <tr>
+                    <th>Región</th>
+                    <th>Volumen de Producción (Ton)</th>
+                    <th>Superficie Sembrada (Ha)</th>
+                    <th>Rendimiento (Ton/Ha)</th>
+                    <th>Valor de la Producción ($)</th>
+                    <th>Cantidad de Municipios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Istmo</td>
+                    <td>189,388</td>
+                    <td>16,429</td>
+                    <td>10.01</td>
+                    <td>959,021,903</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Costa</td>
+                    <td>20,199</td>
+                    <td>1,756</td>
+                    <td>11.38</td>
+                    <td>83,563,366</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>Sierra de Flores Magón</td>
+                    <td>3,307</td>
+                    <td>684</td>
+                    <td>4.73</td>
+                    <td>18,641,343</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Sierra Sur</td>
+                    <td>1,085</td>
+                    <td>181</td>
+                    <td>6.26</td>
+                    <td>6,300,812</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Papaloapan</td>
+                    <td>862</td>
+                    <td>329</td>
+                    <td>2.65</td>
+                    <td>2,772,044</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Mixteca</td>
+                    <td>74</td>
+                    <td>14</td>
+                    <td>5.36</td>
+                    <td>364,702</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Estatal</td>
+                    <td>214,915</td>
+                    <td>19,392</td>
+                    <td>8.96</td>
+                    <td>1,070,664,171</td>
+                    <td>60</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#mangoTable').DataTable({
+                paging: true,
+                searching: true,
+                order: [[1, 'desc']], // Ordena por "Volumen de Producción" de manera descendente
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    },
+                    zeroRecords: "No se encontraron coincidencias",
+                    infoFiltered: "(filtrado de _MAX_ registros totales)"
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

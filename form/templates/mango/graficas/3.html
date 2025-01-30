@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen de Producción por Pueblo Indígena</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        canvas {
+            max-width: 800px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="indigenousProductionChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('indigenousProductionChart').getContext('2d');
+        const indigenousProductionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'No pertenece a ningún pueblo indígena',
+                    'Zapoteco',
+                    'Zoque',
+                    'Mixteco',
+                    'Cuicateco',
+                    'Huave',
+                    'Mixe',
+                    'Chinanteco',
+                    'Mazateco',
+                    'Chatino',
+                    'Nahua',
+                    'Chontal De Oaxaca',
+                    'Amuzgo',
+                    'Triqui'
+                ],
+                datasets: [{
+                    label: 'Volumen de Producción (Ton)',
+                    data: [13440, 153578, 30943, 9066, 2554, 1801, 1457, 610, 531, 319, 291, 165, 148, 12],
+                    backgroundColor: '#9d2449', // Color de las barras
+                    borderColor: 'rgba(157, 36, 73, 0.8)', // Color del borde
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Volumen (Ton)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Pueblo Indígena'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
