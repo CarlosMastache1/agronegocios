@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción Mensual de Piña</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9D2449;
+        }
+
+        #chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const data = {
+            labels: [
+                'ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'
+            ],
+            datasets: [{
+                label: 'Producción de Piña (Ton)',
+                data: [66, 67, 229, 401, 279, 163, 193, 153, 39, 43, 185, 177],
+                backgroundColor: '#9D2449',
+                hoverBackgroundColor: 'pink',
+                borderColor: '#9D2449',
+                borderWidth: 1
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.raw.toLocaleString() + ' Ton';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Mes'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Producción (Ton)'
+                    }
+                }
+            }
+        };
+
+        const barChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

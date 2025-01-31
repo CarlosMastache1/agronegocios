@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Barras Horizontal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        canvas {
+            max-width: 60%;
+            height: 600px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+ 
+    <canvas id="barChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+
+        // Datos
+        const labels = [
+            'No pertenece a ningún pueblo indígena',
+            'Mixteco',
+            'Zapoteco',
+            'Chatino',
+            'Chontal De Oaxaca',
+            'Mazateco',
+            'Zoque',
+            'Mixe',
+            'Cuicateco',
+            'Nahua'
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Volumen de Producción (Ton)',
+                    data: [149463, 124421, 30756, 6426, 3872, 1011, 880, 769, 400, 325],
+                    backgroundColor: '#9d2449',
+                    borderColor: '#9d2449',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Configuración
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y', // Gráfica horizontal
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Volumen de Producción (Ton)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Pueblos Indígenas'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Renderizar el gráfico
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>

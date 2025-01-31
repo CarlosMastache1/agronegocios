@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción Mundial de Piña</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: rgba(255, 182, 193, 0.2);
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="pineappleTable" class="display">
+        <thead>
+            <tr>
+                <th>Ranking</th>
+                <th>País</th>
+                <th>Superficie Cosechada (Ha)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Nigeria</td><td>193,290</td></tr>
+            <tr><td>2</td><td>India</td><td>108,000</td></tr>
+            <tr><td>3</td><td>China</td><td>76,723</td></tr>
+            <tr><td>4</td><td>Tailandia</td><td>71,518</td></tr>
+            <tr><td>5</td><td>China, Continental</td><td>69,000</td></tr>
+            <tr><td>6</td><td>Filipinas</td><td>67,722</td></tr>
+            <tr><td>7</td><td>Brasil</td><td>64,147</td></tr>
+            <tr><td>8</td><td>Costa Rica</td><td>40,000</td></tr>
+            <tr><td>9</td><td>Viet Nam</td><td>39,647</td></tr>
+            <tr><td>10</td><td>Angola</td><td>36,946</td></tr>
+            <tr><td>11</td><td>México</td><td>25,626</td></tr>
+            <tr><td>12</td><td>Indonesia</td><td>24,327</td></tr>
+            <tr><td>13</td><td>Colombia</td><td>22,870</td></tr>
+            <tr><td>14</td><td>Venezuela</td><td>22,173</td></tr>
+            <tr><td>15</td><td>Perú</td><td>16,830</td></tr>
+            <tr><td>-</td><td>Otros</td><td>257,109</td></tr>
+            <tr><td>-</td><td>Total</td><td>1,135,928</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#pineappleTable').DataTable({
+                responsive: true,
+                language: {
+                    search: "Buscar:",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                },
+                order: [[2, 'desc']],
+                columnDefs: [
+                    { targets: 0, className: 'dt-center' },
+                    { targets: 1, className: 'dt-left' },
+                    { targets: 2, className: 'dt-right' }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

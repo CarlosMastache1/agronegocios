@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportaciones e Importaciones</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9D2449;
+        }
+
+        #chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="chart-container">
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('lineChart').getContext('2d');
+        const data = {
+            labels: [
+                2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+            ],
+            datasets: [
+                {
+                    label: 'Exportaciones',
+                    data: [
+                        53648, 38069, 56405, 56997, 41271, 76987, 86267, 87476, 75217, 60748, 41517, 27233, 27241
+                    ],
+                    borderColor: '#9D2449',
+                    backgroundColor: 'rgba(157, 36, 73, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                    pointHoverBackgroundColor: 'pink',
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Importaciones',
+                    data: [
+                        368, 685, 1019, 1035, 760, 511, 1258, 263, 494, 422, 0, 0, 56
+                    ],
+                    borderColor: '#FF6384',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                    pointHoverBackgroundColor: 'pink',
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Total General',
+                    data: [
+                        54016, 38754, 57424, 58032, 42030, 77497, 87525, 87739, 75711, 61170, 41517, 27233, 27297
+                    ],
+                    borderColor: '#36A2EB',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                    pointHoverBackgroundColor: 'pink',
+                    pointHoverRadius: 6
+                }
+            ]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Año'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Cantidad (en miles)'
+                    },
+                    beginAtZero: true
+                }
+            }
+        };
+
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

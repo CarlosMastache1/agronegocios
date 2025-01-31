@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica Vertical de Barras</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        canvas {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .chartjs-render-monitor:hover {
+            background-color: rgba(255, 182, 193, 0.2) !important;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const data = {
+            labels: [
+                "ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"
+            ],
+            datasets: [
+                {
+                    label: 'Producción de Pepino (Ton)',
+                    data: [27, 0, 345, 846, 545, 147, 0, 0, 0, 73, 288, 295],
+                    backgroundColor: '#9d2449',
+                    hoverBackgroundColor: 'rgba(255, 182, 193, 0.8)',
+                }
+            ]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Meses'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Producción (Ton)'
+                    },
+                    beginAtZero: true
+                }
+            }
+        };
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

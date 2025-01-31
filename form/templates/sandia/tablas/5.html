@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        thead {
+            background-color: #9d2449;
+            color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        tbody tr:hover {
+            background-color: #f5c7d3;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: calc(100% - 10px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+<input type="text" id="searchInput" placeholder="Buscar en la tabla...">
+<table id="dynamicTable">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0)">Región</th>
+            <th onclick="sortTable(1)">Cantidad de Municipios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Sierra Sur</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Costa</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Istmo</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>Papaloapan</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Sierra de Juárez</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Valles Centrales</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Estatal</td>
+            <td>41</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    // Filtro de búsqueda
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#dynamicTable tbody tr');
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
+        });
+    });
+
+    // Ordenar tabla
+    function sortTable(columnIndex) {
+        const table = document.getElementById('dynamicTable');
+        const rows = Array.from(table.querySelectorAll('tbody tr'));
+        const isNumeric = !isNaN(rows[0].cells[columnIndex].textContent.replace(/,/g, ''));
+
+        rows.sort((a, b) => {
+            const aText = a.cells[columnIndex].textContent.trim().replace(/,/g, '');
+            const bText = b.cells[columnIndex].textContent.trim().replace(/,/g, '');
+
+            return isNumeric ? aText - bText : aText.localeCompare(bText);
+        });
+
+        rows.forEach(row => table.querySelector('tbody').appendChild(row));
+    }
+</script>
+
+</body>
+</html>

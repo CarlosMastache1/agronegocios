@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfica Lineal - Producción por Región</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #4a5568;
+    }
+
+    #chart-container {
+      width: 900px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="chart-container">
+    <canvas id="lineChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('lineChart').getContext('2d');
+    const lineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 
+          2017, 2018, 2019, 2020, 2021, 2022, 2023
+        ],
+        datasets: [
+          {
+            label: 'Mixteca',
+            data: [470.7, 470.7, 472.6, 501.1, 419.6, 405.5, 338.55, 271.99, 234.62, 281.17, 235.45, 191.21, 206.8, 223.51],
+            borderColor: '#FF5733',
+            backgroundColor: 'rgba(255, 87, 51, 0.2)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'Sierra Sur',
+            data: [60.3, 144, 174.02, 165, 168, 184.4, 212.45, 201.42, 185.57, 246.74, 275.36, 189.44, 192.06, 179.38],
+            borderColor: '#33FF57',
+            backgroundColor: 'rgba(51, 255, 87, 0.2)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'Valles Centrales',
+            data: [211.22, 208.95, 238.53, 249.87, 231.4, 252.49, 233.52, 196.41, 210.52, 289.4, 317.15, 242.07, 280.08, 1801.32],
+            borderColor: '#3357FF',
+            backgroundColor: 'rgba(51, 87, 255, 0.2)',
+            tension: 0.4,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: false, // Set to false to respect the fixed size
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function (tooltipItem) {
+                return tooltipItem.dataset.label + ': ' + tooltipItem.raw.toFixed(2);
+              }
+            }
+          }
+        },
+        interaction: {
+          mode: 'nearest',
+          axis: 'x',
+          intersect: false
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Año'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Producción (Ton)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Volumen de Producción por Región</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        canvas {
+            max-width: 800px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="productionChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('productionChart').getContext('2d');
+        const productionChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+                datasets: [
+                    {
+                        label: 'Costa',
+                        data: [20544.8, 15407.93, 17119.48, 19654.5, 19150.09, 21429.5, 22316.3, 21037.15, 22794, 28784.56, 24671.17, 24237.47, 28744.95, 29650.08],
+                        borderColor: '#9d2449',
+                        backgroundColor: 'rgba(157, 36, 73, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Mixteca',
+                        data: [249.86, 258.61, 253.1, 253, 235.05, 215, 981, 919, 841.5, 757.55, 695.8, 738.18, 750.2, 755.84],
+                        borderColor: '#36a2eb',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Papaloapan',
+                        data: [30002.9, 31419.47, 39893.4, 46803.5, 47245.81, 40610.2, 41865.56, 42251.19, 36300.32, 46733.54, 49381.55, 52994.3, 50671.25, 49865.09],
+                        borderColor: '#ffce56',
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Sierra Norte',
+                        data: [0, 312, 292.65, 411, 375, 381, 384, 364, 432, 503.54, 528.5, 512.16, 497.55, 474.6],
+                        borderColor: '#4bc0c0',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Sierra Sur',
+                        data: [2821.03, 2692.94, 2352.82, 2018.02, 1793.65, 1754.55, 1699.31, 1805.07, 1943.31, 2044.97, 1931.99, 1953.84, 1929.6, 1867.75],
+                        borderColor: '#ff6384',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Volumen (Ton)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Año'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

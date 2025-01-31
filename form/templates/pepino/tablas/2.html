@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producción Nacional de Pepino</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #9d2449;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    table thead {
+      background-color: #9d2449;
+      color: #fff;
+    }
+
+    table tbody tr:hover {
+      background-color: #e0f7fa;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  
+  <table id="pepinoTable" class="display">
+    <thead>
+      <tr>
+        <th>Ranking</th>
+        <th>Entidad Federativa</th>
+        <th>Volumen de Producción (Ton)</th>
+        <th>Superficie Sembrada (Ha)</th>
+        <th>Rendimiento (Ton/Ha)</th>
+        <th>Valor de la Producción ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Sinaloa</td><td>262,530</td><td>3,381</td><td>61.16</td><td>2,052,254,990</td></tr>
+      <tr><td>2</td><td>Sonora</td><td>198,103</td><td>2,102</td><td>91.28</td><td>1,664,424,824</td></tr>
+      <tr><td>3</td><td>Michoacán</td><td>98,923</td><td>3,505</td><td>33.51</td><td>680,563,383</td></tr>
+      <tr><td>4</td><td>Guanajuato</td><td>64,100</td><td>1,484</td><td>76.55</td><td>651,047,542</td></tr>
+      <tr><td>5</td><td>Morelos</td><td>61,999</td><td>1,699</td><td>76.67</td><td>368,122,925</td></tr>
+      <tr><td>6</td><td>Baja California</td><td>42,780</td><td>478</td><td>71.56</td><td>865,333,622</td></tr>
+      <tr><td>7</td><td>Yucatán</td><td>41,516</td><td>862</td><td>16.34</td><td>348,735,951</td></tr>
+      <tr><td>8</td><td>Coahuila</td><td>33,939</td><td>295</td><td>117.27</td><td>324,243,495</td></tr>
+      <tr><td>9</td><td>Colima</td><td>32,742</td><td>902</td><td>32.64</td><td>184,374,213</td></tr>
+      <tr><td>10</td><td>San Luis Potosí</td><td>28,152</td><td>188</td><td>86.63</td><td>365,308,781</td></tr>
+      <tr><td>11</td><td>Baja California Sur</td><td>27,128</td><td>309</td><td>53.36</td><td>209,907,605</td></tr>
+      <tr><td>12</td><td>Jalisco</td><td>27,032</td><td>1,028</td><td>30.03</td><td>190,637,979</td></tr>
+      <tr><td>13</td><td>Zacatecas</td><td>18,639</td><td>220</td><td>85.20</td><td>112,675,872</td></tr>
+      <tr><td>14</td><td>Tamaulipas</td><td>13,880</td><td>290</td><td>47.86</td><td>146,074,689</td></tr>
+      <tr><td>15</td><td>Veracruz</td><td>13,835</td><td>501</td><td>25.19</td><td>62,250,402</td></tr>
+      <tr><td>16</td><td>Querétaro</td><td>13,434</td><td>50</td><td>248.01</td><td>215,796,695</td></tr>
+      <tr><td>17</td><td>México</td><td>10,296</td><td>639</td><td>41.25</td><td>60,919,768</td></tr>
+      <tr><td>18</td><td>Puebla</td><td>9,203</td><td>359</td><td>27.62</td><td>64,867,558</td></tr>
+      <tr><td>19</td><td>Quintana Roo</td><td>7,597</td><td>107</td><td>65.46</td><td>156,073,500</td></tr>
+      <tr><td>20</td><td>Nayarit</td><td>7,309</td><td>387</td><td>15.86</td><td>34,486,791</td></tr>
+      <!-- Más filas aquí -->
+      <tr><td></td><td><strong>Total</strong></td><td>1,036,717</td><td>19,488</td><td>46.68</td><td>8,889,235,281</td></tr>
+    </tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#pepinoTable').DataTable({
+        paging: true,
+        searching: true,
+        order: [[0, 'asc']],
+        responsive: true,
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.13.5/i18n/es-MX.json"
+        }
+      });
+    });
+  </script>
+</body>
+</html>

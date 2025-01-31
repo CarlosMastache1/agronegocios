@@ -1,0 +1,31 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="contents" class="site-contnts">
+	<!--BANNER-->
+	<div class="home-slider">
+		<div class="item" data-slide="{% static 'agricola/platano/imagenes/23.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="item" data-slide="{% static 'agricola/platano/imagenes/24.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	
+<!--Primer seccion-->
+<iframe src="{% url 'iframePla' %}" width="100%" height="1600px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+
+{% endblock %}

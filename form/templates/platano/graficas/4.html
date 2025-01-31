@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionalidad de Plátano en Oaxaca</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        canvas {
+            max-width: 800px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bananaSeasonalityChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('bananaSeasonalityChart').getContext('2d');
+        const bananaSeasonalityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Enero', 'Febrero', 'Marzo', 'Abril', 
+                    'Mayo', 'Junio', 'Julio', 'Agosto', 
+                    'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                ],
+                datasets: [{
+                    label: 'Producción de Plátano (Ton)',
+                    data: [107, 114, 90, 118, 105, 96, 200, 106, 147, 108, 110, 121],
+                    backgroundColor: '#9d2449', // Color de las barras
+                    borderColor: 'rgba(157, 36, 73, 0.8)', // Color del borde
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Producción (Ton)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Mes'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

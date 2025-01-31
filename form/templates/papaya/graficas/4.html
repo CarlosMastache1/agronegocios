@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfica de Barras Estacionalidad de Papaya</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #9d2449;
+    }
+
+    canvas {
+      max-width: 100%;
+      margin: 0 auto;
+      height: 400px;
+    }
+
+    /* Glitch effect */
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      25% {
+        transform: translate(-2px, 2px);
+      }
+      50% {
+        transform: translate(2px, -2px);
+      }
+      75% {
+        transform: translate(-2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    .glitch {
+      animation: glitch 1s infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="barChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('barChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
+        datasets: [
+          {
+            label: 'Papaya (Ton)',
+            data: [93, 121, 152, 102, 140, 102, 156, 146, 293, 152, 167, 168],
+            backgroundColor: [
+              'rgba(157, 36, 73, 0.8)',
+              'rgba(157, 36, 73, 0.7)',
+              'rgba(157, 36, 73, 0.6)',
+              'rgba(157, 36, 73, 0.8)',
+              'rgba(157, 36, 73, 0.7)',
+              'rgba(157, 36, 73, 0.6)',
+              'rgba(157, 36, 73, 0.8)',
+              'rgba(157, 36, 73, 0.7)',
+              'rgba(157, 36, 73, 0.6)',
+              'rgba(157, 36, 73, 0.8)',
+              'rgba(157, 36, 73, 0.7)',
+              'rgba(157, 36, 73, 0.6)'
+            ],
+            borderColor: 'rgba(157, 36, 73, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            titleColor: '#fff',
+            bodyColor: '#fff'
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Meses',
+              color: '#9d2449'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Producción (Ton)',
+              color: '#9d2449'
+            }
+          }
+        },
+        animation: {
+          duration: 1500,
+          easing: 'easeInOutBounce'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen de Producción por Pueblo Indígena</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9D2449;
+        }
+
+        #chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const data = {
+            labels: [
+                'No pertenece a ningún pueblo indígena',
+                'Chinanteco',
+                'Zapoteco'
+            ],
+            datasets: [{
+                label: 'Volumen de Producción (Ton)',
+                data: [81, 177564, 271],
+                backgroundColor: '#9D2449',
+                hoverBackgroundColor: 'pink',
+                borderColor: '#9D2449',
+                borderWidth: 1
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.raw.toLocaleString() + ' Ton';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Volumen de Producción (Ton)'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Pueblo Indígena'
+                    }
+                }
+            }
+        };
+
+        const barChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

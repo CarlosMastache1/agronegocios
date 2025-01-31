@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfica Lineal Compacta</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: 300px; /* Ajustamos la altura de la gráfica */
+    }
+
+    h2 {
+      font-size: 1rem; /* Reducimos el tamaño del título */
+    }
+  </style>
+</head>
+<body>
+  
+  <canvas id="lineChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('lineChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+          2018, 2019, 2020, 2021, 2022, 2023
+        ],
+        datasets: [
+          {
+            label: 'Cañada',
+            data: [642.3, 605.85, 976.93, 830.13, 2698.46, 2190.38, 808.06, 882.16, 1005.85, 1032.41, 1007.52, 1224.29, 1033.72, 1229.1],
+            borderColor: '#9d2449',
+            backgroundColor: 'rgba(157, 36, 73, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Costa',
+            data: [102245.05, 101491.5, 112635.4, 199746.23, 259379.68, 260114, 307403.2, 275888.5, 299325.92, 308227.87, 334219.24, 337487.21, 350195.05, 301009.35],
+            borderColor: '#24499d',
+            backgroundColor: 'rgba(36, 73, 157, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Istmo',
+            data: [8795.72, 7955.1, 4622.85, 9793.52, 8848.7, 9993.05, 10507.47, 9441.76, 11888.64, 12225.87, 12014.28, 12421.02, 13369.68, 13513.68],
+            borderColor: '#9d9b24',
+            backgroundColor: 'rgba(157, 155, 36, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Mixteca',
+            data: [743.2, 666, 760, 520, 402, 290.5, null, null, null, null, null, null, null, null],
+            borderColor: '#49a123',
+            backgroundColor: 'rgba(73, 161, 35, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Papaloapan',
+            data: [930, null, 487.5, 547.5, 252, 259, 514, 612, 620.3, 490.4, 371.4, 517.31, 604.69, 545.63],
+            borderColor: '#a1239d',
+            backgroundColor: 'rgba(161, 35, 157, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Sierra Sur',
+            data: [1215.5, 1181.8, 2614, 997.52, 968.99, 942.94, 1154.05, 645, 1236.5, 1081.3, 1249.73, 1521.67, 1523.44, 1529.14],
+            borderColor: '#9d4924',
+            backgroundColor: 'rgba(157, 73, 36, 0.2)',
+            tension: 0.3
+          },
+          {
+            label: 'Valles Centrales',
+            data: [2385.84, 1805, 594.07, 731.85, 730.63, 735.53, 791.1, 690.18, 636.28, 556.58, 647.07, 536.53, 426.61, 495.79],
+            borderColor: '#24a19d',
+            backgroundColor: 'rgba(36, 161, 157, 0.2)',
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              font: {
+                size: 10 /* Ajustamos el tamaño de la fuente de la leyenda */
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            bodyFont: {
+              size: 12 /* Reducimos el tamaño del tooltip */
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Año'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Producción'
+            },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
