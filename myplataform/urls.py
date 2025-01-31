@@ -118,6 +118,19 @@ urlpatterns = [
     path('tablas6Man/', TemplateView.as_view(template_name="mango/tablas/6.html"), name='tablas6Man'),
     path('iframeMango/', TemplateView.as_view(template_name="mango/iframe_de_todo.html"), name='iframeMango'),
     path('mango/', TemplateView.as_view(template_name="mango/estadisticas_mango.html"), name='mango'),
+    path('descripcion_melon/', TemplateView.as_view(template_name="melon/descripcion_melon.html"), name='descripcion_melon'),
+    path('tablas1Me/', TemplateView.as_view(template_name="melon/tablas/1.html"), name='tablas1Me'),
+    path('tablas2Me/', TemplateView.as_view(template_name="melon/tablas/2.html"), name='tablas2Me'),
+    path('tablas3Me/', TemplateView.as_view(template_name="melon/tablas/3.html"), name='tablas3Me'),
+    path('tablas4Me/', TemplateView.as_view(template_name="melon/tablas/4.html"), name='tablas4Me'),
+    path('graficas1Me/', TemplateView.as_view(template_name="melon/graficas/1.html"), name='graficas1Me'),
+    path('graficas2Me/', TemplateView.as_view(template_name="melon/graficas/2.html"), name='graficas2Me'),
+    path('tablas5Me/', TemplateView.as_view(template_name="melon/tablas/5.html"), name='tablas5Me'),
+    path('graficas3Me/', TemplateView.as_view(template_name="melon/graficas/3.html"), name='graficas3Me'),
+    path('graficas4Me/', TemplateView.as_view(template_name="melon/graficas/4.html"), name='graficas4Me'),
+    path('tablas6Me/', TemplateView.as_view(template_name="melon/tablas/6.html"), name='tablas6Me'),
+    path('iframeMe/', TemplateView.as_view(template_name="melon/iframe_de_todo.html"), name='iframeMe'),
+    path('melon/', TemplateView.as_view(template_name="melon/estadisticas_melon.html"), name='melon'),
 
 
 ]

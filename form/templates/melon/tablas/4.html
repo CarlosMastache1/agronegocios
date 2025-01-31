@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destino de la Exportación 2023 por Región</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        table {
+            transition: transform 0.2s ease-in-out;
+            border: 2px solid #9D2449;
+        }
+        table:hover {
+            transform: scale(1.02);
+            border-color: pink;
+        }
+        thead {
+            background-color: #9D2449;
+            color: white;
+        }
+        th {
+            cursor: pointer;
+        }
+        tbody tr:hover {
+            background-color: #ffe6f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+   
+        <table id="exportTable" class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Región</th>
+                    <th>Valor (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>*América del Norte</td><td>60,924,694</td></tr>
+                <tr><td>2</td><td>**Asia</td><td>638,368</td></tr>
+                <tr><td>3</td><td>***Latinoamérica y Antillas</td><td>15,571</td></tr>
+                <tr class="table-primary"><td colspan="2">Total</td><td>61,578,634</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add sorting functionality
+            $('#exportTable').on('click', 'th', function () {
+                const column = $(this).index();
+                const rows = $('#exportTable tbody tr').toArray();
+
+                rows.sort((a, b) => {
+                    const aText = $(a).find('td').eq(column).text();
+                    const bText = $(b).find('td').eq(column).text();
+
+                    return $.isNumeric(aText.replace(/,/g, '')) && $.isNumeric(bText.replace(/,/g, ''))
+                        ? parseFloat(aText.replace(/,/g, '')) - parseFloat(bText.replace(/,/g, ''))
+                        : aText.localeCompare(bText);
+                });
+
+                $('#exportTable tbody').append(rows);
+            });
+
+            // Add search filter
+            const filterInput = $('<input>').attr({
+                type: 'text',
+                id: 'tableFilter',
+                class: 'form-control mb-3',
+                placeholder: 'Filtrar resultados...'
+            });
+
+            $('#exportTable').before(filterInput);
+
+            filterInput.on('input', function () {
+                const searchTerm = $(this).val().toLowerCase();
+                $('#exportTable tbody tr').each(function () {
+                    const rowText = $(this).text().toLowerCase();
+                    $(this).toggle(rowText.indexOf(searchTerm) > -1);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

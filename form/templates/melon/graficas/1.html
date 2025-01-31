@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Exportaciones e Importaciones</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 60vh;
+            width: 80vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+
+        <div class="chart-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('lineChart').getContext('2d');
+
+            const data = {
+                labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+                datasets: [
+                    {
+                        label: 'Exportaciones (USD)',
+                        data: [150816, 146437, 134574, 145688, 142146, 147705, 157070, 142199, 132744, 105054, 106368, 97383, 120074],
+                        borderColor: 'rgba(157, 36, 73, 1)',
+                        backgroundColor: 'rgba(157, 36, 73, 0.2)',
+                        tension: 0.3,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Importaciones (USD)',
+                        data: [30567, 38142, 18750, 16105, 31311, 18454, 29319, 32265, 44096, 27069, 10619, 8832, 11243],
+                        borderColor: 'rgba(36, 73, 157, 1)',
+                        backgroundColor: 'rgba(36, 73, 157, 0.2)',
+                        tension: 0.3,
+                        borderWidth: 2
+                    }
+                ]
+            };
+
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true,
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Años'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Valor (USD)'
+                        }
+                    }
+                },
+                animations: {
+                    tension: {
+                        duration: 1000,
+                        easing: 'easeInOutBounce',
+                        from: 0.5,
+                        to: 0,
+                        loop: true
+                    }
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: options
+            });
+        });
+    </script>
+</body>
+</html>
