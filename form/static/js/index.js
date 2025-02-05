@@ -112,7 +112,7 @@ window.addEventListener("load", async()=>{
     await initChart5();
 
 }); 
- 
+  
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");

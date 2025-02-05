@@ -48,6 +48,7 @@ class financieras(forms.ModelForm):
     'tipo_mercado', 
     'producto_comercializa', 
     'status',
+    'tecnico',
         ]
         widgets={
             'nombre_proyecto': forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);' }),
