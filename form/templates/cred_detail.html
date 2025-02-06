@@ -2,15 +2,45 @@
 
 {% block content %}
 
+  
+<div class="body-card">
+<div class="news-card">
+    <img src="https://www.larepublica.net/storage/images/2022/06/20/20220620175233.agro.x2.jpg" alt="AGRONEGOCIOS">
+    <div class="news-content">
+        <h5 style="color:  #9d2449;">{{credito.nombre_proyecto}}</h5>
+        <div class="news-meta">
+            <i class="bi bi-house-door-fill"></i> {{credito.municipio.nombre_municipio}} - {{credito.localidad}}
+        </div>
+        <div class="news-meta">
+            <i class="bi bi-postcard-fill"></i> TIPO DE TENENCIA:  {{credito.tipo_tenencia}}
+            <i class="bi bi-person-video" style="padding-left: 20px;"></i> TIPO DE PERSONA:  {{credito.tipo_tenencia}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-list-ol"></i> NUMERO DE CREDITO:  {{credito.num_credito}}
+
+        </div>
+        <div class="news-meta">
+            <i class="bi bi-person-lines-fill"></i> NUMERO DE CLIENTE:  {{credito.num_cliente}}
+            <i class="bi bi-person-circle" style="padding-left: 20px;"></i> NOMBRE DEL CLIENTE:  {{credito.nombre_cliente}}
+
+        </div>
+
+
+    </div>
+</div>
+</div>
 
 
 
 
-  <section id="gallery">
+
+  
     <div class="container " >
-        <h1 style="text-align: center; color: rgb(7, 29, 70); font-weight: bold;">DETALLES DEL CREDITO</h1>
 
-      <div class="row justify-content-center"  >
+
+  <!--     <div class="row justify-content-center"  >
       <div class="col-auto col-md-12" >
       <div class="card">
         <div class="card-body">
@@ -226,9 +256,9 @@
         </div>
        </div>
       </div>
-    </div>
+    </div> -->
   </div>
-  </section>
+  
   
 
 
