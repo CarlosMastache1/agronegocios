@@ -3,17 +3,23 @@
 {% block content %}
 
   
-<div class="body-card">
+<div class="body-card pt-2">
 <div class="news-card">
-    <img src="https://www.larepublica.net/storage/images/2022/06/20/20220620175233.agro.x2.jpg" alt="AGRONEGOCIOS">
+    <img src="https://www.brasilagro.com.br/uploads/conteudo/conteudo/2021/03/2omXH/milharal-getty-images-F39Bvd_918x474.jpg" alt="AGRONEGOCIOS">
     <div class="news-content">
-        <h5 style="color:  #9d2449;">{{credito.nombre_proyecto}}</h5>
+        <h3 style="color:  #9d2449; text-align: center;">{{credito.nombre_proyecto}}</h3>
         <div class="news-meta">
             <i class="bi bi-house-door-fill"></i> {{credito.municipio.nombre_municipio}} - {{credito.localidad}}
         </div>
         <div class="news-meta">
+            <i class="bi bi-person-lines-fill"></i> NUMERO DE CLIENTE:  {{credito.num_cliente}}
+            <i class="bi bi-person-circle" style="padding-left: 20px;"></i> NOMBRE DEL CLIENTE:  {{credito.nombre_cliente}}
+            <i class="bi bi-telephone-fill" style="padding-left: 20px;"></i> TELEFONO: {{credito.telefono}}
+
+        </div>
+        <div class="news-meta">
             <i class="bi bi-postcard-fill"></i> TIPO DE TENENCIA:  {{credito.tipo_tenencia}}
-            <i class="bi bi-person-video" style="padding-left: 20px;"></i> TIPO DE PERSONA:  {{credito.tipo_tenencia}}
+            <i class="bi bi-person-video" style="padding-left: 20px;"></i> TIPO DE PERSONA:  {{credito.tipo_tenencia}}  {{credito.representante_legal}}
 
         </div>
 
@@ -21,11 +27,94 @@
             <i class="bi bi-list-ol"></i> NUMERO DE CREDITO:  {{credito.num_credito}}
 
         </div>
+
         <div class="news-meta">
-            <i class="bi bi-person-lines-fill"></i> NUMERO DE CLIENTE:  {{credito.num_cliente}}
-            <i class="bi bi-person-circle" style="padding-left: 20px;"></i> NOMBRE DEL CLIENTE:  {{credito.nombre_cliente}}
+            <i class="bi bi-wallet2"></i>PRODUCTO O TIPO DE CREDITO:  {{credito.producto_tipoCredito}}
+            <i class="bi bi-currency-dollar" style="padding-left: 20px;"></i>MONTO TOTAL:  ${{credito.monto_total}}
 
         </div>
+
+        
+        <div class="news-meta">
+            <i class="bi bi-calendar-check-fill"></i>FECHA DE INICIO:  {{credito.fecha_inicio}}
+            <i class="bi bi-calendar-minus-fill" style="padding-left: 20px;"></i>FECHA DE TERMINO:  {{credito.fecha_termino}}
+
+        </div>
+        <div class="news-meta">
+            <i class="bi bi-clock-fill"></i>PERIODO DE PAGO:  {{credito.periodo_pago}}
+            <i class="bi bi-percent" style="padding-left: 20px;"></i>TASA DE INTERES:  {{credito.tasa_interes}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-cash"></i>GARANTIAS LIQUIDAS VIGENTES:  ${{credito.monto_garantiasLiquidasVigente}}
+            <i class="bi bi-cash" style="padding-left: 20px;"></i>GARANTIAS LIQUIDAS EJERCIDAS:  ${{credito.monto_garantiaLiquidaEjercida}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-percent"></i>PORCENTAJE DE LAS GARANTIAS LIQUIDAS:  {{credito.porcentaje_garantias}} %
+            <i class="bi bi-cash" style="padding-left: 20px;"></i>SALDO DISPONIBLE DEL FONDO DE GARANTIAS LIQUIDAS:  ${{credito.saldo_disponible}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-bank"></i> INTERMEDIARIO FINANCIERO:  {{credito.intermediario_financiero}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-cash-stack"></i> MONTO RECUPERADO DE LOS CREDITOS OTORGADOS:  ${{credito.monto_recuperado}}
+            <i class="bi bi-exclamation-triangle-fill" style="padding-left: 20px;"></i> INCUMPLIMIENTO DEL CREDITO POR VENCIMIENTO U OTRA COSA:  {{credito.inclumplimiento_credito}}
+        </div>
+
+
+
+        <div class="news-meta">
+            <i class="bi bi-info-circle-fill"></i> TIPO DE CONCEPTO SOLCITADO:  {{credito.tipo_concepto}}
+            <i class="bi bi-card-text" style="padding-left: 20px;"></i> DESCRIPCION DEL CONCEPTO:  {{credito.descripcion_concepto}}
+        </div>
+
+        
+        <div class="news-meta">
+            <i class="bi bi-person-standing"></i> BENEFICIARIOS HOMBRES:  {{credito.beneficiarios_hombres}}
+            <i class="bi bi-person-standing-dress" style="padding-left: 20px;"></i> BENEFICIARIOS MUJERES:  {{credito.beneficiarios_mujer}}
+            <i class="bi bi-people-fill" style="padding-left: 20px;"></i> TOTAL DE BENEFICIARIOS:  {{credito.total_beneficiarios}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-suitcase-lg-fill"></i> EMPLEOS DIRECTOS:  {{credito.empleos_directos}}
+            <i class="bi bi-person-workspace" style="padding-left: 20px;"></i>EMPLEOS INDIRECTOS:  {{credito.empleos_indirectos}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-info-square-fill"></i> SUBSECTOR:  {{credito.subsector}}
+            <i class="fa-solid fa-cow" style="padding-left: 20px;"></i> ESPECIE:  {{credito.especie}}
+             VARIEDAD:  {{credito.variedad}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-feather2"></i> CULTIVO:  {{credito.cultivo}}
+            <i class="bi bi-box-seam-fill" style="padding-left: 20px;" ></i> VOLUMEN DE PRODUCCION ANUAL:  {{credito.volumen_produccion_anual}}
+            <i class="bi bi-cart-fill" style="padding-left: 20px;"></i> TIPO DE MERCADO:  {{credito.tipo_mercado}}
+
+        </div>
+
+        <div class="news-meta">
+            <i class="bi bi-basket2"></i> PRODUCTO QUE COMERCIALIZA:  {{credito.producto_comercializa}}
+            <i class="bi bi-grid-3x3-gap-fill" style="padding-left: 20px;"></i> SUPERFICIE:  {{credito.superficie}}
+
+        </div>
+
+        
+        <div class="news-meta">
+            <i class="bi bi-wrench"></i> TECNICO ASIGNADO AL PROYECTO:  {{credito.tecnico}}
+
+        </div>
+
 
 
     </div>
