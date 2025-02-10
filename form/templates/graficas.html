@@ -3,461 +3,452 @@
 {% block content %}
 
 <div class="container">
-  <div class="row justify-content-center align-items-center g-2" >
-    <div class="col-sm-12 col-md-12 pt-4">
-      <div class="card" style="">
-        <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-        </div>
-        <div class="card-body " style="background-color: #ffe3ecfd; color: #460317;">
+  <ul class="nav nav-pills mb-3 pt-5" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active"  id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">REPORTE GENERAL</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link"  id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">REPORTE 2023</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link"   id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">REPORTE 2024</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <h1 style="color: #9d2449;">REPORTE GENERAL</h1>
+      <table class="table table-responsive  text-center" id="myTable2">
+        <thead>
+          <tr >
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Proyectos</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Monto de Financiamiento</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Garantías Liquidas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
+            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
 
-          <div class="tabs pt-3">
-            <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
-            <label class="label" for="tab-1">REPORTE GENERAL</label>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Valles Centrales</th>
+            <td>  
+            {% for region in conteo_VC %}
+            {{ region.total }} 
+            {% endfor %} </td>
+           
+            <td> ${{ monto_VC_templates|floatformat:2 }} </td>
+            <td>${{ garantia_VC_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_VC_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_VC }}</td>
+            <td>{{ PI_VC }}</td>
+            <td>{{ empleos_VC_T }}</td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">Istmo</th>
             
-            <div class="panel">
-              <h1 style="color: #9d2449;">REPORTE GENERAL</h1>
-              <table class="table table-striped mb-0  text-center" id="myTable2">
-                <thead>
-                  <tr >
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Proyectos</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Monto de Financiamiento</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Garantías Liquidas</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-                    <!-- <th scope="col">Cantidad de Municipios</th> -->
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
-                    <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
-        
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Valles Centrales</th>
-                    <td>  
-                    {% for region in conteo_VC %}
-                    {{ region.total }} 
-                    {% endfor %} </td>
-                   
-                    <td> ${{ monto_VC_templates|floatformat:2 }} </td>
-                    <td>${{ garantia_VC_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_VC_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_VC }}</td>
-                    <td>{{ PI_VC }}</td>
-                    <td>{{ empleos_VC_T }}</td>
-        
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Istmo</th>
-                    
-                    <td>{{ mensaje_IST }} 
-                    {% for region_IST in conteo_IST %} {{ region_IST.total }} 
-                    {% endfor %}        </td>            
-                    <td> $ {{ monto_IST_templates|floatformat:2 }} </td> 
-                    <td>$ {{ garantia_IST_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_IST_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_IST }}</td>
-                    <td>{{ PI_IST }}</td>
-                    <td>{{ empleos_IST_T }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Costa</th>
-                    
-                    <td>{{ mensaje_COS }} 
-                      {% for conteo_COS in conteo_COS %}
-                      {{ conteo_COS.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_COS_templates|floatformat:2 }}</td>
-                    <td>$ {{ garantia_COS_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_IST_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_COS }}</td>
-                    <td>{{ PI_COS }}</td>
-                    <td>{{ empleos_COS_T }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Papaloapan</th>
-                    <td> {{ mensaje_PAPA }}
-                      {% for conteo_PAPA in conteo_PAPA %}
-                      {{ conteo_PAPA.total }}
-                    {% endfor %}   </td>
-                    <td>$ {{ monto_PAPA_templates|floatformat:2 }}</td>
-                    <td>$ {{ garantia_PAPA_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_PAPA_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_PAPA }}</td>
-                    <td>{{ PI_PAPA }}</td>
-                    <td>{{ empleos_PAPA_T }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Mixteca</th>
-                    <td> {{ mensaje_MIX }}
-                    {% for conteo_MIX in conteo_MIX %}
-                     {{ conteo_MIX.total }} 
-                    {% endfor %}  </td>
-                    <td> $ {{ monto_MIX_templates|floatformat:2 }} </td>
-                    <td>$ {{ garantia_MIX_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_MIX_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_MIX }}</td>
-                    <td>{{ PI_MIX }}</td>
-                    <td>{{ empleos_MIX_T }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Juarez</th>
-                    <td>{{ mensaje_SJ }} 
-                      {% for conteo_SJ in conteo_SJ %}
-                      {{ conteo_SJ.total }} 
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SJ_templates|floatformat:2 }} </td>
-                    <td>$ {{ garantia_SJ_templates|floatformat:2 }} </td>
-                    <td>{{ beneficiarios_SJ_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SJ }}</td>
-                    <td>{{ PI_SJ }}</td>
-                    <td>{{ empleos_SJ_T }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra Sur</th>
-                    <td> {{ mensaje_SS }} 
-                      {% for conteo_SS in conteo_SS %}
-                      {{ conteo_SS.total }}
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SS_templates|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SS_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SS_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SS }}</td>
-                    <td>{{ PI_SS }}</td>
-                    <td>{{ empleos_SS_T }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Flores Magon</th>
-                    <td>   {{ mensaje_SFM }}
-                    {% for conteo_SFM in conteo_SFM %}
-                     {{ conteo_SFM.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_SFM_templates|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SFM_templates|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SFM_T }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SFM }}</td>
-                    <td>{{ PI_SFM }}</td>
-                    <td>{{ empleos_SFM_T }}</td>
-        
-                  </tr>
-                </tbody>
-              </table>
-        
-            </div>
-          
-            <input class="input" name="tabs" type="radio" id="tab-2"/>
-            <label class="label" for="tab-2">REPORTE AÑO 2023</label>
-            <div class="panel">
-              <h1 style="color: #9d2449;">REPORTE AÑO 2023</h1>
-              <table class="table  text-center" id="myTable3">
-                <thead>
-                  <tr>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Región</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Cantidad de Proyectos</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Monto de Financiamiento</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Garantías Liquidas</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Beneficiarios</th>
-                    <!-- <th scope="col">Cantidad de Municipios</th> -->
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">E-100</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Pueblos Indigenas</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Empleos Directos</th>
-        
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Valles Centrales</th>
-                    <td>  
-                    {% for region in conteo_VC_2023 %}
-                    {{ region.total }} 
-                    {% endfor %} </td>
-                   
-                    <td> ${{ monto_VC_templates_2023|floatformat:2 }} </td>
-                    <td>${{ garantia_VC_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_VC_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_VC_2023 }}</td>
-                    <td>{{ PI_VC_2023 }}</td>
-                    <td>{{ empleos_VC_T_2023 }}</td>
-        
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Istmo</th>
-                    
-                    <td>{{ mensaje_IST }} 
-                    {% for region_IST in conteo_IST_2023 %} {{ region_IST.total }} 
-                    {% endfor %}        </td>            
-                    <td> $ {{ monto_IST_templates_2023|floatformat:2 }} </td> 
-                    <td>$ {{ garantia_IST_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_IST_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_IST_2023 }}</td>
-                    <td>{{ PI_IST_2023 }}</td>
-                    <td>{{ empleos_IST_T_2023 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Costa</th>
-                    
-                    <td>{{ mensaje_COS }} 
-                      {% for conteo_COS in conteo_COS_2023 %}
-                      {{ conteo_COS.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_COS_templates_2023|floatformat:2 }}</td>
-                    <td>$ {{ garantia_COS_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_COS_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_COS_2023 }}</td>
-                    <td>{{ PI_COS_2023 }}</td>
-                    <td>{{ empleos_COS_T_2023 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Papaloapan</th>
-                    <td> {{ mensaje_PAPA }}
-                      {% for conteo_PAPA in conteo_PAPA_2023 %}
-                      {{ conteo_PAPA.total }}
-                    {% endfor %}   </td>
-                    <td>$ {{ monto_PAPA_templates_2023|floatformat:2 }}</td>
-                    <td>$ {{ garantia_PAPA_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_PAPA_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_PAPA_2023 }}</td>
-                    <td>{{ PI_PAPA_2023 }}</td>
-                    <td>{{ empleos_PAPA_T_2023 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Mixteca</th>
-                    <td> {{ mensaje_MIX }}
-                    {% for conteo_MIX in conteo_MIX_2023 %}
-                     {{ conteo_MIX.total }} 
-                    {% endfor %}  </td>
-                    <td> $ {{ monto_MIX_templates_2023|floatformat:2 }} </td>
-                    <td>$ {{ garantia_MIX_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_MIX_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_MIX_2023 }}</td>
-                    <td>{{ PI_MIX_2023 }}</td>
-                    <td>{{ empleos_MIX_T_2023 }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Juarez</th>
-                    <td>{{ mensaje_SJ }} 
-                      {% for conteo_SJ in conteo_SJ_2023 %}
-                      {{ conteo_SJ.total }} 
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SJ_templates_2023|floatformat:2 }} </td>
-                    <td>$ {{ garantia_SJ_templates_2023|floatformat:2 }} </td>
-                    <td>{{ beneficiarios_SJ_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SJ_2023 }}</td>
-                    <td>{{ PI_SJ_2023 }}</td>
-                    <td>{{ empleos_SJ_T_2023 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra Sur</th>
-                    <td> {{ mensaje_SS }} 
-                      {% for conteo_SS in conteo_SS_2023 %}
-                      {{ conteo_SS.total }}
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SS_templates_2023|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SS_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SS_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SS_2023 }}</td>
-                    <td>{{ PI_SS_2023 }}</td>
-                    <td>{{ empleos_SS_T_2023 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Flores Magon</th>
-                    <td>   {{ mensaje_SFM }}
-                    {% for conteo_SFM in conteo_SFM_2023 %}
-                     {{ conteo_SFM.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_SFM_templates_2023|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SFM_templates_2023|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SFM_T_2023 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SFM_2023 }}</td>
-                    <td>{{ PI_SFM_2023 }}</td>
-                    <td>{{ empleos_SFM_T_2023 }}</td>
-        
-                  </tr>
-                </tbody>
-              </table>
-              
-            </div>
-            <input class="input" name="tabs" type="radio" id="tab-3"/>
-            <label class="label" for="tab-3">REPORTE AÑO 2024</label>
-            <div class="panel">
-              <h1 style="color: #9d2449;">REPORTE AÑO 2024</h1>
-              <table class="table  text-center" id="myTable4">
-                <thead>
-                  <tr>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Región</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Cantidad de Proyectos</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Monto de Financiamiento</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Garantías Liquidas</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Beneficiarios</th>
-                    <!-- <th scope="col">Cantidad de Municipios</th> -->
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">E-100</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Pueblos Indigenas</th>
-                    <th scope="col" style="background-color: #9d2449; text-align: center; color: white;">Empleos Directos</th>
-        
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Valles Centrales</th>
-                    <td>  
-                    {% for region in conteo_VC_2024 %}
-                    {{ region.total }} 
-                    {% endfor %} </td>
-                   
-                    <td> ${{ monto_VC_templates_2024|floatformat:2 }} </td>
-                    <td>${{ garantia_VC_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_VC_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_VC_2024 }}</td>
-                    <td>{{ PI_VC_2024 }}</td>
-                    <td>{{ empleos_VC_T_2024 }}</td>
-        
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Istmo</th>
-                    
-                    <td>{{ mensaje_IST }} 
-                    {% for region_IST in conteo_IST_2024 %} {{ region_IST.total }} 
-                    {% endfor %}        </td>            
-                    <td> $ {{ monto_IST_templates_2024|floatformat:2 }} </td> 
-                    <td>$ {{ garantia_IST_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_IST_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_IST_2024 }}</td>
-                    <td>{{ PI_IST_2024 }}</td>
-                    <td>{{ empleos_IST_T_2024 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Costa</th>
-                    
-                    <td>{{ mensaje_COS }} 
-                      {% for conteo_COS in conteo_COS_2024 %}
-                      {{ conteo_COS.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_COS_templates_2024|floatformat:2 }}</td>
-                    <td>$ {{ garantia_COS_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_COS_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_COS_2024 }}</td>
-                    <td>{{ PI_COS_2024 }}</td>
-                    <td>{{ empleos_COS_T_2024 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Papaloapan</th>
-                    <td> {{ mensaje_PAPA }}
-                      {% for conteo_PAPA in conteo_PAPA_2024 %}
-                      {{ conteo_PAPA.total }}
-                    {% endfor %}   </td>
-                    <td>$ {{ monto_PAPA_templates_2024|floatformat:2 }}</td>
-                    <td>$ {{ garantia_PAPA_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_PAPA_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_PAPA_2024 }}</td>
-                    <td>{{ PI_PAPA_2024 }}</td>
-                    <td>{{ empleos_PAPA_T_2024 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Mixteca</th>
-                    <td> {{ mensaje_MIX }}
-                    {% for conteo_MIX in conteo_MIX_2024 %}
-                     {{ conteo_MIX.total }} 
-                    {% endfor %}  </td>
-                    <td> $ {{ monto_MIX_templates_2024|floatformat:2 }} </td>
-                    <td>$ {{ garantia_MIX_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_MIX_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_MIX_2024 }}</td>
-                    <td>{{ PI_MIX_2024 }}</td>
-                    <td>{{ empleos_MIX_T_2024 }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Juarez</th>
-                    <td>{{ mensaje_SJ }} 
-                      {% for conteo_SJ in conteo_SJ_2024 %}
-                      {{ conteo_SJ.total }} 
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SJ_templates_2024|floatformat:2 }} </td>
-                    <td>$ {{ garantia_SJ_templates_2024|floatformat:2 }} </td>
-                    <td>{{ beneficiarios_SJ_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SJ_2024 }}</td>
-                    <td>{{ PI_SJ_2024 }}</td>
-                    <td>{{ empleos_SJ_T_2024 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra Sur</th>
-                    <td> {{ mensaje_SS }} 
-                      {% for conteo_SS in conteo_SS_2024 %}
-                      {{ conteo_SS.total }}
-                    {% endfor %}  </td>
-                    <td>$ {{ monto_SS_templates_2024|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SS_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SS_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SS_2024 }}</td>
-                    <td>{{ PI_SS_2024 }}</td>
-                    <td>{{ empleos_SS_T_2024 }}</td>
-        
-                  </tr>
-                  <tr>
-                    <th scope="row">Sierra de Flores Magon</th>
-                    <td>   {{ mensaje_SFM }}
-                    {% for conteo_SFM in conteo_SFM_2024 %}
-                     {{ conteo_SFM.total }} 
-                    {% endfor %} </td>
-                    <td>$ {{ monto_SFM_templates_2024|floatformat:2 }}</td>
-                    <td>$ {{ garantia_SFM_templates_2024|floatformat:2 }}</td>
-                    <td>{{ beneficiarios_SFM_T_2024 }}</td>
-                    <!-- <td></td> -->
-                    <td>{{ E100_SFM_2024 }}</td>
-                    <td>{{ PI_SFM_2024 }}</td>
-                    <td>{{ empleos_SFM_T_2024 }}</td>
-        
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        
+            <td>{{ mensaje_IST }} 
+            {% for region_IST in conteo_IST %} {{ region_IST.total }} 
+            {% endfor %}        </td>            
+            <td> $ {{ monto_IST_templates|floatformat:2 }} </td> 
+            <td>$ {{ garantia_IST_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_IST_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_IST }}</td>
+            <td>{{ PI_IST }}</td>
+            <td>{{ empleos_IST_T }}</td>
 
-        </div>
-      </div>
+          </tr>
+          <tr>
+            <th scope="row">Costa</th>
+            
+            <td>{{ mensaje_COS }} 
+              {% for conteo_COS in conteo_COS %}
+              {{ conteo_COS.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_COS_templates|floatformat:2 }}</td>
+            <td>$ {{ garantia_COS_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_IST_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_COS }}</td>
+            <td>{{ PI_COS }}</td>
+            <td>{{ empleos_COS_T }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Papaloapan</th>
+            <td> {{ mensaje_PAPA }}
+              {% for conteo_PAPA in conteo_PAPA %}
+              {{ conteo_PAPA.total }}
+            {% endfor %}   </td>
+            <td>$ {{ monto_PAPA_templates|floatformat:2 }}</td>
+            <td>$ {{ garantia_PAPA_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_PAPA_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_PAPA }}</td>
+            <td>{{ PI_PAPA }}</td>
+            <td>{{ empleos_PAPA_T }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Mixteca</th>
+            <td> {{ mensaje_MIX }}
+            {% for conteo_MIX in conteo_MIX %}
+             {{ conteo_MIX.total }} 
+            {% endfor %}  </td>
+            <td> $ {{ monto_MIX_templates|floatformat:2 }} </td>
+            <td>$ {{ garantia_MIX_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_MIX_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_MIX }}</td>
+            <td>{{ PI_MIX }}</td>
+            <td>{{ empleos_MIX_T }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Juarez</th>
+            <td>{{ mensaje_SJ }} 
+              {% for conteo_SJ in conteo_SJ %}
+              {{ conteo_SJ.total }} 
+            {% endfor %}  </td>
+            <td>$ {{ monto_SJ_templates|floatformat:2 }} </td>
+            <td>$ {{ garantia_SJ_templates|floatformat:2 }} </td>
+            <td>{{ beneficiarios_SJ_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SJ }}</td>
+            <td>{{ PI_SJ }}</td>
+            <td>{{ empleos_SJ_T }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra Sur</th>
+            <td> {{ mensaje_SS }} 
+              {% for conteo_SS in conteo_SS %}
+              {{ conteo_SS.total }}
+            {% endfor %}  </td>
+            <td>$ {{ monto_SS_templates|floatformat:2 }}</td>
+            <td>$ {{ garantia_SS_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SS_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SS }}</td>
+            <td>{{ PI_SS }}</td>
+            <td>{{ empleos_SS_T }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Flores Magon</th>
+            <td>   {{ mensaje_SFM }}
+            {% for conteo_SFM in conteo_SFM %}
+             {{ conteo_SFM.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_SFM_templates|floatformat:2 }}</td>
+            <td>$ {{ garantia_SFM_templates|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SFM_T }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SFM }}</td>
+            <td>{{ PI_SFM }}</td>
+            <td>{{ empleos_SFM_T }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <h1 style="color: #9d2449;">REPORTE AÑO 2023</h1>
+      <table class="table table-responsive text-center" id="myTable3">
+        <thead>
+          <tr>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col">Cantidad de Proyectos</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Monto de Financiamiento</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Garantías Liquidas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
+            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Valles Centrales</th>
+            <td>  
+            {% for region in conteo_VC_2023 %}
+            {{ region.total }} 
+            {% endfor %} </td>
+           
+            <td> ${{ monto_VC_templates_2023|floatformat:2 }} </td>
+            <td>${{ garantia_VC_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_VC_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_VC_2023 }}</td>
+            <td>{{ PI_VC_2023 }}</td>
+            <td>{{ empleos_VC_T_2023 }}</td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">Istmo</th>
+            
+            <td>{{ mensaje_IST }} 
+            {% for region_IST in conteo_IST_2023 %} {{ region_IST.total }} 
+            {% endfor %}        </td>            
+            <td> $ {{ monto_IST_templates_2023|floatformat:2 }} </td> 
+            <td>$ {{ garantia_IST_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_IST_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_IST_2023 }}</td>
+            <td>{{ PI_IST_2023 }}</td>
+            <td>{{ empleos_IST_T_2023 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Costa</th>
+            
+            <td>{{ mensaje_COS }} 
+              {% for conteo_COS in conteo_COS_2023 %}
+              {{ conteo_COS.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_COS_templates_2023|floatformat:2 }}</td>
+            <td>$ {{ garantia_COS_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_COS_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_COS_2023 }}</td>
+            <td>{{ PI_COS_2023 }}</td>
+            <td>{{ empleos_COS_T_2023 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Papaloapan</th>
+            <td> {{ mensaje_PAPA }}
+              {% for conteo_PAPA in conteo_PAPA_2023 %}
+              {{ conteo_PAPA.total }}
+            {% endfor %}   </td>
+            <td>$ {{ monto_PAPA_templates_2023|floatformat:2 }}</td>
+            <td>$ {{ garantia_PAPA_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_PAPA_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_PAPA_2023 }}</td>
+            <td>{{ PI_PAPA_2023 }}</td>
+            <td>{{ empleos_PAPA_T_2023 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Mixteca</th>
+            <td> {{ mensaje_MIX }}
+            {% for conteo_MIX in conteo_MIX_2023 %}
+             {{ conteo_MIX.total }} 
+            {% endfor %}  </td>
+            <td> $ {{ monto_MIX_templates_2023|floatformat:2 }} </td>
+            <td>$ {{ garantia_MIX_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_MIX_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_MIX_2023 }}</td>
+            <td>{{ PI_MIX_2023 }}</td>
+            <td>{{ empleos_MIX_T_2023 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Juarez</th>
+            <td>{{ mensaje_SJ }} 
+              {% for conteo_SJ in conteo_SJ_2023 %}
+              {{ conteo_SJ.total }} 
+            {% endfor %}  </td>
+            <td>$ {{ monto_SJ_templates_2023|floatformat:2 }} </td>
+            <td>$ {{ garantia_SJ_templates_2023|floatformat:2 }} </td>
+            <td>{{ beneficiarios_SJ_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SJ_2023 }}</td>
+            <td>{{ PI_SJ_2023 }}</td>
+            <td>{{ empleos_SJ_T_2023 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra Sur</th>
+            <td> {{ mensaje_SS }} 
+              {% for conteo_SS in conteo_SS_2023 %}
+              {{ conteo_SS.total }}
+            {% endfor %}  </td>
+            <td>$ {{ monto_SS_templates_2023|floatformat:2 }}</td>
+            <td>$ {{ garantia_SS_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SS_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SS_2023 }}</td>
+            <td>{{ PI_SS_2023 }}</td>
+            <td>{{ empleos_SS_T_2023 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Flores Magon</th>
+            <td>   {{ mensaje_SFM }}
+            {% for conteo_SFM in conteo_SFM_2023 %}
+             {{ conteo_SFM.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_SFM_templates_2023|floatformat:2 }}</td>
+            <td>$ {{ garantia_SFM_templates_2023|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SFM_T_2023 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SFM_2023 }}</td>
+            <td>{{ PI_SFM_2023 }}</td>
+            <td>{{ empleos_SFM_T_2023 }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <h1 style="color: #9d2449;">REPORTE AÑO 2024</h1>
+      <table class="table table-responsive text-center" id="myTable4">
+        <thead>
+          <tr>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col">Cantidad de Proyectos</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Monto de Financiamiento</th>
+            <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Garantías Liquidas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
+            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Valles Centrales</th>
+            <td>  
+            {% for region in conteo_VC_2024 %}
+            {{ region.total }} 
+            {% endfor %} </td>
+           
+            <td> ${{ monto_VC_templates_2024|floatformat:2 }} </td>
+            <td>${{ garantia_VC_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_VC_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_VC_2024 }}</td>
+            <td>{{ PI_VC_2024 }}</td>
+            <td>{{ empleos_VC_T_2024 }}</td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">Istmo</th>
+            
+            <td>{{ mensaje_IST }} 
+            {% for region_IST in conteo_IST_2024 %} {{ region_IST.total }} 
+            {% endfor %}        </td>            
+            <td> $ {{ monto_IST_templates_2024|floatformat:2 }} </td> 
+            <td>$ {{ garantia_IST_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_IST_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_IST_2024 }}</td>
+            <td>{{ PI_IST_2024 }}</td>
+            <td>{{ empleos_IST_T_2024 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Costa</th>
+            
+            <td>{{ mensaje_COS }} 
+              {% for conteo_COS in conteo_COS_2024 %}
+              {{ conteo_COS.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_COS_templates_2024|floatformat:2 }}</td>
+            <td>$ {{ garantia_COS_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_COS_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_COS_2024 }}</td>
+            <td>{{ PI_COS_2024 }}</td>
+            <td>{{ empleos_COS_T_2024 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Papaloapan</th>
+            <td> {{ mensaje_PAPA }}
+              {% for conteo_PAPA in conteo_PAPA_2024 %}
+              {{ conteo_PAPA.total }}
+            {% endfor %}   </td>
+            <td>$ {{ monto_PAPA_templates_2024|floatformat:2 }}</td>
+            <td>$ {{ garantia_PAPA_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_PAPA_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_PAPA_2024 }}</td>
+            <td>{{ PI_PAPA_2024 }}</td>
+            <td>{{ empleos_PAPA_T_2024 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Mixteca</th>
+            <td> {{ mensaje_MIX }}
+            {% for conteo_MIX in conteo_MIX_2024 %}
+             {{ conteo_MIX.total }} 
+            {% endfor %}  </td>
+            <td> $ {{ monto_MIX_templates_2024|floatformat:2 }} </td>
+            <td>$ {{ garantia_MIX_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_MIX_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_MIX_2024 }}</td>
+            <td>{{ PI_MIX_2024 }}</td>
+            <td>{{ empleos_MIX_T_2024 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Juarez</th>
+            <td>{{ mensaje_SJ }} 
+              {% for conteo_SJ in conteo_SJ_2024 %}
+              {{ conteo_SJ.total }} 
+            {% endfor %}  </td>
+            <td>$ {{ monto_SJ_templates_2024|floatformat:2 }} </td>
+            <td>$ {{ garantia_SJ_templates_2024|floatformat:2 }} </td>
+            <td>{{ beneficiarios_SJ_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SJ_2024 }}</td>
+            <td>{{ PI_SJ_2024 }}</td>
+            <td>{{ empleos_SJ_T_2024 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra Sur</th>
+            <td> {{ mensaje_SS }} 
+              {% for conteo_SS in conteo_SS_2024 %}
+              {{ conteo_SS.total }}
+            {% endfor %}  </td>
+            <td>$ {{ monto_SS_templates_2024|floatformat:2 }}</td>
+            <td>$ {{ garantia_SS_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SS_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SS_2024 }}</td>
+            <td>{{ PI_SS_2024 }}</td>
+            <td>{{ empleos_SS_T_2024 }}</td>
+
+          </tr>
+          <tr>
+            <th scope="row">Sierra de Flores Magon</th>
+            <td>   {{ mensaje_SFM }}
+            {% for conteo_SFM in conteo_SFM_2024 %}
+             {{ conteo_SFM.total }} 
+            {% endfor %} </td>
+            <td>$ {{ monto_SFM_templates_2024|floatformat:2 }}</td>
+            <td>$ {{ garantia_SFM_templates_2024|floatformat:2 }}</td>
+            <td>{{ beneficiarios_SFM_T_2024 }}</td>
+            <!-- <td></td> -->
+            <td>{{ E100_SFM_2024 }}</td>
+            <td>{{ PI_SFM_2024 }}</td>
+            <td>{{ empleos_SFM_T_2024 }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
-  
+
 
   <div class="row ">
     <div class="col-sm-12 col-md-12 pt-4">
@@ -465,53 +456,87 @@
         <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
           MONTO DE FINANCIAMIENTO POR REGIÓN 
         </div>
-        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
-          <h5 class="card-title">MONTO DE FINANCIAMIENTO POR REGIÓN </h5>
-          <div id="chart" class="chart"></div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://www.cronista.com/files/image/326/326941/6076efb80fdf8.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">MONTO DE FINANCIAMIENTO POR REGIÓN</h5>
+              <div id="chart" class="chart"></div>
 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-sm-12 col-md-12 pt-4">
-      <div class="card text-center">
-        <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-          PROYECTOS POR TIPO DE PERSONA FISICA O MORAL 
-        </div>
-        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
-          <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL</h5>
-          <div id="chart2" class="chart2"></div>
-
-        </div>
-      </div>
     </div>
 
 
     <div class="col-sm-12 col-md-12 pt-4">
       <div class="card text-center">
         <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-          MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO
-        </div>
-        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
-          <h5 class="card-title">MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO</h5>
-          <div id="chart3" class="chart3"></div>
+          PROYECTOS POR TIPO DE PERSONA FISICA O MORAL        </div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://mexico.quadratin.com.mx/www/wp-content/uploads/2020/07/Campo-mexicano-econom%C3%ADa-agricultura-campesinos-sembrar-siembra-paisaje-con-nuubes-lluvia-FOTO-SADER-200730-AGRICULTURA-INIFAP-FRIJOL-8-1160x700.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL</h5>
+              <div id="chart2" class="chart2"></div>
 
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
+
 
     <div class="col-sm-12 col-md-12 pt-4">
       <div class="card text-center">
         <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-          HISTORIAL DE FINANCIAMIENTO ($) 
-        </div>
-        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
-          <h5 class="card-title">HISTORIAL DE FINANCIAMIENTO ($) </h5>
-          <div id="chart4" class="chart4"></div>
+          MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO        </div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://lh3.googleusercontent.com/proxy/gDfH_R-JzvFiOEL9p4wRMgMMGg7dZlCVDsqjcdaOQgJ0zvJYfuCuNB4bRBbUfIzJVjbcvjme5-JWQ-7OSr9J_lUcA3xx4R3TpVvQVmLW8qbaljK9AeRkqH1my5HhwD_-PKyqqvS9tg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO</h5>
+              <div id="chart3" class="chart3"></div>
 
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
+ 
+
+    
+    <div class="col-sm-12 col-md-12 pt-4">
+      <div class="card text-center">
+        <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+          HISTORIAL DE FINANCIAMIENTO ($)        </div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://dinero.hn/wp-content/uploads/2018/12/pib-AGRO.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">HISTORIAL DE FINANCIAMIENTO ($)</h5>
+              <div id="chart4" class="chart4"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
 
     <div class="col-sm-12 col-md-12 pt-4">
       <div class="card text-center">
@@ -573,6 +598,15 @@
                 <td>${{ garantias_re|floatformat:2  }}</td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                  <th scope="row">Total</th>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+
+              </tr>
+          </tfoot>
           </table>
           
           
@@ -585,15 +619,25 @@
     <div class="col-sm-12 col-md-12 pt-4">
       <div class="card text-center">
         <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-          PROYECTOS DE INVERSIÓN POR SUBSECTOR
-        </div>
-        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
-          <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR </h5>
-          <div id="chart5" class="chart5"></div>
+          PROYECTOS DE INVERSIÓN POR SUBSECTOR        </div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://agroinfo.enae.es/wp-content/uploads/2017/06/cadena-alimentaria.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR</h5>
+              <div id="chart5" class="chart5"></div>
 
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
+
+
+
 
 
     <div class="col-sm-12 col-md-12 pt-4">
@@ -603,7 +647,7 @@
         </div>
         <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
           <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION</h5>
-          <table class="table" >
+          <table class="table" id="myTable6" >
             <thead>
               <tr>
                 <th scope="col">SUBSECTOR</th>
@@ -629,6 +673,8 @@
                 <td>{{ sjua_agri }}</td>
                 <td>{{ ssur_agri }}</td>
                 <td>{{ sflm_agri }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_agri }}</td>
+                
               </tr>
               <tr>
                 <th scope="row">PECUARIO</th>
@@ -640,6 +686,8 @@
                 <td>{{ sjua_pec }}</td>
                 <td>{{ ssur_pec }}</td>
                 <td>{{ sflm_pec }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pec }}</td>
+
               </tr>
               <tr>
                 <th scope="row">ACUICOLA</th>
@@ -651,6 +699,8 @@
                 <td>{{ sjua_acu }}</td>
                 <td>{{ ssur_acu }}</td>
                 <td>{{ sflm_acu }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_acu }}</td>
+
               </tr>
               <tr>
                 <th scope="row">PESQUERO</th>
@@ -662,6 +712,8 @@
                 <td>{{ sjua_pes }}</td>
                 <td>{{ ssur_pes }}</td>
                 <td>{{ sflm_pes }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pes }}</td>
+
               </tr>
               <tr>
                 <th scope="row">FORESTAL</th>
@@ -673,6 +725,8 @@
                 <td>{{ sjua_for }}</td>
                 <td>{{ ssur_for }}</td>
                 <td>{{ sflm_for }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_for }}</td>
+
               </tr>
           
             </tbody>

@@ -523,6 +523,9 @@ def graficas(request):
       cantidad_mec = (entidadesFinancieras2.objects.filter(tipo_concepto='MECANIZACION').count())
       cantidad_re = (entidadesFinancieras2.objects.filter(tipo_concepto='REHABILITACION').count())
 
+      total_concepto = cantidad_ct + cantidad_eq + cantidad_iaa + cantidad_iai + cantidad_ap + cantidad_mec + cantidad_re
+
+
 
       #MONTO DE FINANCIAMIENTO POR CONCEPTO DE APOYO
       monto_ct = (entidadesFinancieras2.objects.filter(tipo_concepto='CAPITAL DE TRABAJO').aggregate(sumatotal=Sum('monto_total')))['sumatotal']
@@ -551,6 +554,7 @@ def graficas(request):
       sjua_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Agricola').count())
       ssur_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Agricola').count())
       sflm_agri = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Agricola').count())
+      total_agri = (entidadesFinancieras2.objects.filter(subsector='Agricola').count())
 
       valles_pec = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Pecuario').count())
       istmo_pec = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Pecuario').count())
@@ -560,6 +564,7 @@ def graficas(request):
       sjua_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Pecuario').count())
       ssur_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Pecuario').count())
       sflm_pec = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Pecuario').count())
+      total_pec = (entidadesFinancieras2.objects.filter(subsector='Pecuario').count())
 
       valles_acu = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Acuicola').count())
       istmo_acu = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Acuicola').count())
@@ -569,6 +574,7 @@ def graficas(request):
       sjua_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Acuicola').count())
       ssur_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Acuicola').count())
       sflm_acu = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Acuicola').count())
+      total_acu = (entidadesFinancieras2.objects.filter(subsector='Acuicola').count())
 
 
       valles_pes = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Pesquero').count())
@@ -579,6 +585,7 @@ def graficas(request):
       sjua_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Pesquero').count())
       ssur_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Pesquero').count())
       sflm_pes = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Pesquero').count())
+      total_pes = (entidadesFinancieras2.objects.filter(subsector='Pesquero').count())
 
       valles_for = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', subsector='Forestal').count())
       istmo_for = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', subsector='Forestal').count())
@@ -588,6 +595,7 @@ def graficas(request):
       sjua_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', subsector='Forestal').count())
       ssur_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', subsector='Forestal').count())
       sflm_for = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Forestal').count())
+      total_for = (entidadesFinancieras2.objects.filter(subsector='Forestal').count())
 
       return render(request, 'graficas.html',{
         'conteo_VC' : conteo_VC, 
@@ -819,6 +827,13 @@ def graficas(request):
         'sjua_for' : sjua_for,
         'ssur_for' : ssur_for,
         'sflm_for' : sflm_for,
+        'total_agri' : total_agri,
+        'total_pec' : total_pec, 
+        'total_acu' : total_acu,
+        'total_pes' : total_pes,
+        'total_for' : total_for,
+        'total_concepto' : total_concepto
+
 
         })
 
