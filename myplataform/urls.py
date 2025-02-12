@@ -22,7 +22,7 @@ urlpatterns = [
     path('getcharts5/', views.get_chart5, name='getcharts5'),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
     path('credit/<int:credit_id>/update', views.creditUpdate, name='creditUpdate'),
-    path('credit/<int:credit_id>/delete', views.delete_credit, name='delete_credit'),
+    path('eliminar/<int:id>/', views.delete_credit, name='delete_credit'),
     path('', views.indSec, name='index' ),
     path('agricola/', views.sectorAgri, name='agricola'),
     path('descripcion_agave/', TemplateView.as_view(template_name="agave/descripcion_agave.html"), name='descripcion_agave'),

@@ -1103,12 +1103,11 @@ def get_chart4(request):
   return JsonResponse(chart)
 
 
-def delete_credit(request, credit_id):
-  credit = get_object_or_404(entidadesFinancieras2, pk= credit_id)
-  if request.method == 'POST':
-    credit.delete()
-    messages.success(request, 'Registro eliminado en la base de datos')
-    return redirect('home')
+def delete_credit(request, id):
+  credit = get_object_or_404(entidadesFinancieras2, pk= id)
+  credit.delete()
+  messages.success(request, 'Registro eliminado en la base de datos')
+  return redirect('home')
 
 
 @login_required
