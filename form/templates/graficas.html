@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load humanize %} 
+
 {% block content %}
 
 <div class="container">
@@ -32,127 +34,127 @@
 
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           <tr>
             <th scope="row">Valles Centrales</th>
-            <td>  
+            <td style="text-align: center;">  
             {% for region in conteo_VC %}
             {{ region.total }} 
             {% endfor %} </td>
            
-            <td> ${{ monto_VC_templates|floatformat:2 }} </td>
-            <td>${{ garantia_VC_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_VC_T }}</td>
+            <td style="text-align: center;"> ${{ monto_VC_templates|floatformat:2|intcomma }} </td>
+            <td style="text-align: center;">${{ garantia_VC_templates|floatformat:2|intcomma }}</td>
+            <td style="text-align: center;">{{ beneficiarios_VC_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_VC }}</td>
-            <td>{{ PI_VC }}</td>
-            <td>{{ empleos_VC_T }}</td>
+            <td style="text-align: center;">{{ E100_VC }}</td>
+            <td style="text-align: center;">{{ PI_VC }}</td>
+            <td style="text-align: center;">{{ empleos_VC_T }}</td>
 
 
           </tr>
           <tr>
             <th scope="row">Istmo</th>
             
-            <td>{{ mensaje_IST }} 
+            <td style="text-align: center;">{{ mensaje_IST }} 
             {% for region_IST in conteo_IST %} {{ region_IST.total }} 
             {% endfor %}        </td>            
-            <td> $ {{ monto_IST_templates|floatformat:2 }} </td> 
-            <td>$ {{ garantia_IST_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_IST_T }}</td>
+            <td style="text-align: center;"> $ {{ monto_IST_templates|floatformat:2|intcomma  }} </td> 
+            <td style="text-align: center;">$ {{ garantia_IST_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_IST_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_IST }}</td>
-            <td>{{ PI_IST }}</td>
-            <td>{{ empleos_IST_T }}</td>
+            <td style="text-align: center;">{{ E100_IST }}</td>
+            <td style="text-align: center;">{{ PI_IST }}</td>
+            <td style="text-align: center;">{{ empleos_IST_T }}</td>
 
           </tr>
           <tr>
             <th scope="row">Costa</th>
             
-            <td>{{ mensaje_COS }} 
+            <td style="text-align: center;">{{ mensaje_COS }} 
               {% for conteo_COS in conteo_COS %}
               {{ conteo_COS.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_COS_templates|floatformat:2 }}</td>
-            <td>$ {{ garantia_COS_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_IST_T }}</td>
+            <td style="text-align: center;">$ {{ monto_COS_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_COS_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_IST_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_COS }}</td>
-            <td>{{ PI_COS }}</td>
-            <td>{{ empleos_COS_T }}</td>
+            <td style="text-align: center;">{{ E100_COS }}</td>
+            <td style="text-align: center;">{{ PI_COS }}</td>
+            <td style="text-align: center;">{{ empleos_COS_T }}</td>
 
           </tr>
           <tr>
             <th scope="row">Papaloapan</th>
-            <td> {{ mensaje_PAPA }}
+            <td style="text-align: center;"> {{ mensaje_PAPA }}
               {% for conteo_PAPA in conteo_PAPA %}
               {{ conteo_PAPA.total }}
             {% endfor %}   </td>
-            <td>$ {{ monto_PAPA_templates|floatformat:2 }}</td>
-            <td>$ {{ garantia_PAPA_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_PAPA_T }}</td>
+            <td style="text-align: center;">$ {{ monto_PAPA_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_PAPA_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_PAPA_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_PAPA }}</td>
-            <td>{{ PI_PAPA }}</td>
-            <td>{{ empleos_PAPA_T }}</td>
+            <td style="text-align: center;">{{ E100_PAPA }}</td>
+            <td style="text-align: center;">{{ PI_PAPA }}</td>
+            <td style="text-align: center;">{{ empleos_PAPA_T }}</td>
 
           </tr>
           <tr>
             <th scope="row">Mixteca</th>
-            <td> {{ mensaje_MIX }}
+            <td style="text-align: center;"> {{ mensaje_MIX }}
             {% for conteo_MIX in conteo_MIX %}
              {{ conteo_MIX.total }} 
             {% endfor %}  </td>
-            <td> $ {{ monto_MIX_templates|floatformat:2 }} </td>
-            <td>$ {{ garantia_MIX_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_MIX_T }}</td>
+            <td style="text-align: center;"> $ {{ monto_MIX_templates|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_MIX_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_MIX_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_MIX }}</td>
-            <td>{{ PI_MIX }}</td>
-            <td>{{ empleos_MIX_T }}</td>
+            <td style="text-align: center;">{{ E100_MIX }}</td>
+            <td style="text-align: center;">{{ PI_MIX }}</td>
+            <td style="text-align: center;">{{ empleos_MIX_T }}</td>
           </tr>
           <tr>
             <th scope="row">Sierra de Juarez</th>
-            <td>{{ mensaje_SJ }} 
+            <td style="text-align: center;">{{ mensaje_SJ }} 
               {% for conteo_SJ in conteo_SJ %}
               {{ conteo_SJ.total }} 
             {% endfor %}  </td>
-            <td>$ {{ monto_SJ_templates|floatformat:2 }} </td>
-            <td>$ {{ garantia_SJ_templates|floatformat:2 }} </td>
-            <td>{{ beneficiarios_SJ_T }}</td>
+            <td style="text-align: center;">$ {{ monto_SJ_templates|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_SJ_templates|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">{{ beneficiarios_SJ_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SJ }}</td>
-            <td>{{ PI_SJ }}</td>
-            <td>{{ empleos_SJ_T }}</td>
+            <td style="text-align: center;">{{ E100_SJ }}</td>
+            <td style="text-align: center;">{{ PI_SJ }}</td>
+            <td style="text-align: center;">{{ empleos_SJ_T }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra Sur</th>
-            <td> {{ mensaje_SS }} 
+            <td style="text-align: center;"> {{ mensaje_SS }} 
               {% for conteo_SS in conteo_SS %}
               {{ conteo_SS.total }}
             {% endfor %}  </td>
-            <td>$ {{ monto_SS_templates|floatformat:2 }}</td>
-            <td>$ {{ garantia_SS_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SS_T }}</td>
+            <td style="text-align: center;">$ {{ monto_SS_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SS_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SS_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SS }}</td>
-            <td>{{ PI_SS }}</td>
-            <td>{{ empleos_SS_T }}</td>
+            <td style="text-align: center;">{{ E100_SS }}</td>
+            <td style="text-align: center;">{{ PI_SS }}</td>
+            <td style="text-align: center;">{{ empleos_SS_T }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra de Flores Magon</th>
-            <td>   {{ mensaje_SFM }}
+            <td style="text-align: center;">   {{ mensaje_SFM }}
             {% for conteo_SFM in conteo_SFM %}
              {{ conteo_SFM.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_SFM_templates|floatformat:2 }}</td>
-            <td>$ {{ garantia_SFM_templates|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SFM_T }}</td>
+            <td style="text-align: center;">$ {{ monto_SFM_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SFM_templates|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SFM_T }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SFM }}</td>
-            <td>{{ PI_SFM }}</td>
-            <td>{{ empleos_SFM_T }}</td>
+            <td style="text-align: center;">{{ E100_SFM }}</td>
+            <td style="text-align: center;">{{ PI_SFM }}</td>
+            <td style="text-align: center;">{{ empleos_SFM_T }}</td>
 
           </tr>
         </tbody>
@@ -179,124 +181,124 @@
         <tbody>
           <tr>
             <th scope="row">Valles Centrales</th>
-            <td>  
+            <td style="text-align: center;">  
             {% for region in conteo_VC_2023 %}
             {{ region.total }} 
             {% endfor %} </td>
            
-            <td> ${{ monto_VC_templates_2023|floatformat:2 }} </td>
-            <td>${{ garantia_VC_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_VC_T_2023 }}</td>
+            <td style="text-align: center;"> ${{ monto_VC_templates_2023|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">${{ garantia_VC_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_VC_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_VC_2023 }}</td>
-            <td>{{ PI_VC_2023 }}</td>
-            <td>{{ empleos_VC_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_VC_2023 }}</td>
+            <td style="text-align: center;">{{ PI_VC_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_VC_T_2023 }}</td>
 
 
           </tr>
           <tr>
             <th scope="row">Istmo</th>
             
-            <td>{{ mensaje_IST }} 
+            <td style="text-align: center;">{{ mensaje_IST }} 
             {% for region_IST in conteo_IST_2023 %} {{ region_IST.total }} 
             {% endfor %}        </td>            
-            <td> $ {{ monto_IST_templates_2023|floatformat:2 }} </td> 
-            <td>$ {{ garantia_IST_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_IST_T_2023 }}</td>
+            <td style="text-align: center;"> $ {{ monto_IST_templates_2023|floatformat:2|intcomma  }} </td> 
+            <td style="text-align: center;">$ {{ garantia_IST_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_IST_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_IST_2023 }}</td>
-            <td>{{ PI_IST_2023 }}</td>
-            <td>{{ empleos_IST_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_IST_2023 }}</td>
+            <td style="text-align: center;">{{ PI_IST_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_IST_T_2023 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Costa</th>
             
-            <td>{{ mensaje_COS }} 
+            <td style="text-align: center;">{{ mensaje_COS }} 
               {% for conteo_COS in conteo_COS_2023 %}
               {{ conteo_COS.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_COS_templates_2023|floatformat:2 }}</td>
-            <td>$ {{ garantia_COS_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_COS_T_2023 }}</td>
+            <td style="text-align: center;">$ {{ monto_COS_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_COS_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_COS_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_COS_2023 }}</td>
-            <td>{{ PI_COS_2023 }}</td>
-            <td>{{ empleos_COS_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_COS_2023 }}</td>
+            <td style="text-align: center;">{{ PI_COS_2023 }}</td>
+            <td  style="text-align: center;">{{ empleos_COS_T_2023 }}</td>
 
           </tr>
-          <tr>
+          <tr >
             <th scope="row">Papaloapan</th>
-            <td> {{ mensaje_PAPA }}
+            <td style="text-align: center;"> {{ mensaje_PAPA }}
               {% for conteo_PAPA in conteo_PAPA_2023 %}
               {{ conteo_PAPA.total }}
             {% endfor %}   </td>
-            <td>$ {{ monto_PAPA_templates_2023|floatformat:2 }}</td>
-            <td>$ {{ garantia_PAPA_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_PAPA_T_2023 }}</td>
+            <td style="text-align: center;">$ {{ monto_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_PAPA_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_PAPA_2023 }}</td>
-            <td>{{ PI_PAPA_2023 }}</td>
-            <td>{{ empleos_PAPA_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_PAPA_2023 }}</td>
+            <td style="text-align: center;">{{ PI_PAPA_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_PAPA_T_2023 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Mixteca</th>
-            <td> {{ mensaje_MIX }}
+            <td style="text-align: center;"> {{ mensaje_MIX }}
             {% for conteo_MIX in conteo_MIX_2023 %}
              {{ conteo_MIX.total }} 
             {% endfor %}  </td>
-            <td> $ {{ monto_MIX_templates_2023|floatformat:2 }} </td>
-            <td>$ {{ garantia_MIX_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_MIX_T_2023 }}</td>
+            <td style="text-align: center;"> $ {{ monto_MIX_templates_2023|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_MIX_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_MIX_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_MIX_2023 }}</td>
-            <td>{{ PI_MIX_2023 }}</td>
-            <td>{{ empleos_MIX_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_MIX_2023 }}</td>
+            <td style="text-align: center;">{{ PI_MIX_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_MIX_T_2023 }}</td>
           </tr>
           <tr>
             <th scope="row">Sierra de Juarez</th>
-            <td>{{ mensaje_SJ }} 
+            <td style="text-align: center;">{{ mensaje_SJ }} 
               {% for conteo_SJ in conteo_SJ_2023 %}
               {{ conteo_SJ.total }} 
             {% endfor %}  </td>
-            <td>$ {{ monto_SJ_templates_2023|floatformat:2 }} </td>
-            <td>$ {{ garantia_SJ_templates_2023|floatformat:2 }} </td>
-            <td>{{ beneficiarios_SJ_T_2023 }}</td>
+            <td style="text-align: center;">$ {{ monto_SJ_templates_2023|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_SJ_templates_2023|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">{{ beneficiarios_SJ_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SJ_2023 }}</td>
-            <td>{{ PI_SJ_2023 }}</td>
-            <td>{{ empleos_SJ_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_SJ_2023 }}</td>
+            <td style="text-align: center;">{{ PI_SJ_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_SJ_T_2023 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra Sur</th>
-            <td> {{ mensaje_SS }} 
+            <td style="text-align: center;"> {{ mensaje_SS }} 
               {% for conteo_SS in conteo_SS_2023 %}
               {{ conteo_SS.total }}
             {% endfor %}  </td>
-            <td>$ {{ monto_SS_templates_2023|floatformat:2 }}</td>
-            <td>$ {{ garantia_SS_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SS_T_2023 }}</td>
+            <td style="text-align: center;">$ {{ monto_SS_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SS_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SS_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SS_2023 }}</td>
-            <td>{{ PI_SS_2023 }}</td>
-            <td>{{ empleos_SS_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_SS_2023 }}</td>
+            <td style="text-align: center;">{{ PI_SS_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_SS_T_2023 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra de Flores Magon</th>
-            <td>   {{ mensaje_SFM }}
+            <td style="text-align: center;">   {{ mensaje_SFM }}
             {% for conteo_SFM in conteo_SFM_2023 %}
              {{ conteo_SFM.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_SFM_templates_2023|floatformat:2 }}</td>
-            <td>$ {{ garantia_SFM_templates_2023|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SFM_T_2023 }}</td>
+            <td style="text-align: center;">$ {{ monto_SFM_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SFM_templates_2023|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SFM_T_2023 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SFM_2023 }}</td>
-            <td>{{ PI_SFM_2023 }}</td>
-            <td>{{ empleos_SFM_T_2023 }}</td>
+            <td style="text-align: center;">{{ E100_SFM_2023 }}</td>
+            <td style="text-align: center;">{{ PI_SFM_2023 }}</td>
+            <td style="text-align: center;">{{ empleos_SFM_T_2023 }}</td>
 
           </tr>
         </tbody>
@@ -323,124 +325,124 @@
         <tbody>
           <tr>
             <th scope="row">Valles Centrales</th>
-            <td>  
+            <td style="text-align: center;">  
             {% for region in conteo_VC_2024 %}
             {{ region.total }} 
             {% endfor %} </td>
            
-            <td> ${{ monto_VC_templates_2024|floatformat:2 }} </td>
-            <td>${{ garantia_VC_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_VC_T_2024 }}</td>
+            <td style="text-align: center;"> ${{ monto_VC_templates_2024|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">${{ garantia_VC_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_VC_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_VC_2024 }}</td>
-            <td>{{ PI_VC_2024 }}</td>
-            <td>{{ empleos_VC_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_VC_2024 }}</td>
+            <td style="text-align: center;">{{ PI_VC_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_VC_T_2024 }}</td>
 
 
           </tr>
           <tr>
             <th scope="row">Istmo</th>
             
-            <td>{{ mensaje_IST }} 
+            <td style="text-align: center;">{{ mensaje_IST }} 
             {% for region_IST in conteo_IST_2024 %} {{ region_IST.total }} 
             {% endfor %}        </td>            
-            <td> $ {{ monto_IST_templates_2024|floatformat:2 }} </td> 
-            <td>$ {{ garantia_IST_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_IST_T_2024 }}</td>
+            <td style="text-align: center;"> $ {{ monto_IST_templates_2024|floatformat:2|intcomma  }} </td> 
+            <td style="text-align: center;">$ {{ garantia_IST_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_IST_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_IST_2024 }}</td>
-            <td>{{ PI_IST_2024 }}</td>
-            <td>{{ empleos_IST_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_IST_2024 }}</td>
+            <td style="text-align: center;">{{ PI_IST_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_IST_T_2024 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Costa</th>
             
-            <td>{{ mensaje_COS }} 
+            <td style="text-align: center;">{{ mensaje_COS }} 
               {% for conteo_COS in conteo_COS_2024 %}
               {{ conteo_COS.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_COS_templates_2024|floatformat:2 }}</td>
-            <td>$ {{ garantia_COS_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_COS_T_2024 }}</td>
+            <td style="text-align: center;">$ {{ monto_COS_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_COS_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_COS_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_COS_2024 }}</td>
-            <td>{{ PI_COS_2024 }}</td>
-            <td>{{ empleos_COS_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_COS_2024 }}</td>
+            <td style="text-align: center;">{{ PI_COS_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_COS_T_2024 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Papaloapan</th>
-            <td> {{ mensaje_PAPA }}
+            <td style="text-align: center;"> {{ mensaje_PAPA }}
               {% for conteo_PAPA in conteo_PAPA_2024 %}
               {{ conteo_PAPA.total }}
             {% endfor %}   </td>
-            <td>$ {{ monto_PAPA_templates_2024|floatformat:2 }}</td>
-            <td>$ {{ garantia_PAPA_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_PAPA_T_2024 }}</td>
+            <td style="text-align: center;">$ {{ monto_PAPA_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_PAPA_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_PAPA_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_PAPA_2024 }}</td>
-            <td>{{ PI_PAPA_2024 }}</td>
-            <td>{{ empleos_PAPA_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_PAPA_2024 }}</td>
+            <td style="text-align: center;">{{ PI_PAPA_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_PAPA_T_2024 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Mixteca</th>
-            <td> {{ mensaje_MIX }}
+            <td style="text-align: center;"> {{ mensaje_MIX }}
             {% for conteo_MIX in conteo_MIX_2024 %}
              {{ conteo_MIX.total }} 
             {% endfor %}  </td>
-            <td> $ {{ monto_MIX_templates_2024|floatformat:2 }} </td>
-            <td>$ {{ garantia_MIX_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_MIX_T_2024 }}</td>
+            <td style="text-align: center;"> $ {{ monto_MIX_templates_2024|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_MIX_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_MIX_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_MIX_2024 }}</td>
-            <td>{{ PI_MIX_2024 }}</td>
-            <td>{{ empleos_MIX_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_MIX_2024 }}</td>
+            <td style="text-align: center;">{{ PI_MIX_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_MIX_T_2024 }}</td>
           </tr>
           <tr>
             <th scope="row">Sierra de Juarez</th>
-            <td>{{ mensaje_SJ }} 
+            <td style="text-align: center;">{{ mensaje_SJ }} 
               {% for conteo_SJ in conteo_SJ_2024 %}
               {{ conteo_SJ.total }} 
             {% endfor %}  </td>
-            <td>$ {{ monto_SJ_templates_2024|floatformat:2 }} </td>
-            <td>$ {{ garantia_SJ_templates_2024|floatformat:2 }} </td>
-            <td>{{ beneficiarios_SJ_T_2024 }}</td>
+            <td style="text-align: center;">$ {{ monto_SJ_templates_2024|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">$ {{ garantia_SJ_templates_2024|floatformat:2|intcomma  }} </td>
+            <td style="text-align: center;">{{ beneficiarios_SJ_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SJ_2024 }}</td>
-            <td>{{ PI_SJ_2024 }}</td>
-            <td>{{ empleos_SJ_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_SJ_2024 }}</td>
+            <td style="text-align: center;">{{ PI_SJ_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_SJ_T_2024 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra Sur</th>
-            <td> {{ mensaje_SS }} 
+            <td style="text-align: center;"> {{ mensaje_SS }} 
               {% for conteo_SS in conteo_SS_2024 %}
               {{ conteo_SS.total }}
             {% endfor %}  </td>
-            <td>$ {{ monto_SS_templates_2024|floatformat:2 }}</td>
-            <td>$ {{ garantia_SS_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SS_T_2024 }}</td>
+            <td style="text-align: center;">$ {{ monto_SS_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SS_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SS_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SS_2024 }}</td>
-            <td>{{ PI_SS_2024 }}</td>
-            <td>{{ empleos_SS_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_SS_2024 }}</td>
+            <td style="text-align: center;">{{ PI_SS_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_SS_T_2024 }}</td>
 
           </tr>
           <tr>
             <th scope="row">Sierra de Flores Magon</th>
-            <td>   {{ mensaje_SFM }}
+            <td style="text-align: center;">   {{ mensaje_SFM }}
             {% for conteo_SFM in conteo_SFM_2024 %}
              {{ conteo_SFM.total }} 
             {% endfor %} </td>
-            <td>$ {{ monto_SFM_templates_2024|floatformat:2 }}</td>
-            <td>$ {{ garantia_SFM_templates_2024|floatformat:2 }}</td>
-            <td>{{ beneficiarios_SFM_T_2024 }}</td>
+            <td style="text-align: center;">$ {{ monto_SFM_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">$ {{ garantia_SFM_templates_2024|floatformat:2|intcomma  }}</td>
+            <td style="text-align: center;">{{ beneficiarios_SFM_T_2024 }}</td>
             <!-- <td></td> -->
-            <td>{{ E100_SFM_2024 }}</td>
-            <td>{{ PI_SFM_2024 }}</td>
-            <td>{{ empleos_SFM_T_2024 }}</td>
+            <td style="text-align: center;">{{ E100_SFM_2024 }}</td>
+            <td style="text-align: center;">{{ PI_SFM_2024 }}</td>
+            <td style="text-align: center;">{{ empleos_SFM_T_2024 }}</td>
 
           </tr>
         </tbody>
@@ -558,45 +560,45 @@
             <tbody>
               <tr>
                 <th scope="row">CAPITAL DE TRABAJO</th>
-                <td>{{ cantidad_ct }}</td>
-                <td>${{ monto_ct|floatformat:2  }} </td>
-                <td>${{ garantias_ct|floatformat:2  }} </td>
+                <td style="text-align: center;">{{ cantidad_ct }}</td>
+                <td style="text-align: center;">${{ monto_ct|floatformat:2|intcomma   }} </td>
+                <td style="text-align: center;">${{ garantias_ct|floatformat:2|intcomma   }} </td>
               </tr>
               <tr>
                 <th scope="row">EQUIPAMIENTO</th>
-                <td>{{ cantidad_eq }}</td>
-                <td>${{ monto_eq|floatformat:2  }}  </td>
-                <td>${{ garantias_eq|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_eq }}</td>
+                <td style="text-align: center;">${{ monto_eq|floatformat:2|intcomma   }}  </td>
+                <td style="text-align: center;">${{ garantias_eq|floatformat:2|intcomma   }}</td>
               </tr>
               <tr>
                 <th scope="row">INFRAESTRUCTURA AGROALIMENTARIA</th>
-                <td>{{ cantidad_iaa }}</td>
-                <td>${{ monto_iaa|floatformat:2  }}</td>
-                <td>${{ garantias_iaa|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_iaa }}</td>
+                <td style="text-align: center;">${{ monto_iaa|floatformat:2|intcomma   }}</td>
+                <td style="text-align: center;">${{ garantias_iaa|floatformat:2|intcomma   }}</td>
               </tr>
               <tr>
                 <th scope="row">INFRAESTRUCTURA AGROINDUSTRIAL</th>
-                <td>{{ cantidad_iai }}</td>
-                <td>${{ monto_iai|floatformat:2  }}</td>
-                <td>${{ garantias_iai|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_iai }}</td>
+                <td style="text-align: center;">${{ monto_iai|floatformat:2|intcomma   }}</td>
+                <td style="text-align: center;">${{ garantias_iai|floatformat:2|intcomma   }}</td>
               </tr>
               <tr>
                 <th scope="row">AGRICULTURA PROTEGIDA</th>
-                <td>{{ cantidad_ap }}</td>
-                <td>${{ monto_ap|floatformat:2  }}</td>
-                <td>${{ garantias_ap|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_ap }}</td>
+                <td style="text-align: center;">${{ monto_ap|floatformat:2|intcomma   }}</td>
+                <td style="text-align: center;">${{ garantias_ap|floatformat:2|intcomma   }}</td>
               </tr>
               <tr>
                 <th scope="row">MECANIZACIÓN</th>
-                <td>{{ cantidad_mec }}</td>
-                <td>${{ monto_mec|floatformat:2  }}</td>
-                <td>${{ garantias_mec|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_mec }}</td>
+                <td style="text-align: center;">${{ monto_mec|floatformat:2|intcomma   }}</td>
+                <td style="text-align: center;">${{ garantias_mec|floatformat:2|intcomma   }}</td>
               </tr>
               <tr>
                 <th scope="row">REHABILITACIÓN</th>
-                <td>{{ cantidad_re }}</td>
-                <td>${{ monto_re|floatformat:2  }} </td>
-                <td>${{ garantias_re|floatformat:2  }}</td>
+                <td style="text-align: center;">{{ cantidad_re }}</td>
+                <td style="text-align: center;">${{ monto_re|floatformat:2|intcomma   }} </td>
+                <td style="text-align: center;">${{ garantias_re|floatformat:2|intcomma   }}</td>
               </tr>
             </tbody>
         <!--     <tfoot style="text-align: center;">
@@ -667,66 +669,66 @@
             <tbody>
               <tr>
                 <th scope="row">AGRICOLA</th>
-                <td>{{ valles_agri }} </td>
-                <td>{{ istmo_agri }}</td>
-                <td>{{ costa_agri }}</td>
-                <td>{{ papa_agri }}</td>
-                <td>{{ mix_agri }}</td>
-                <td>{{ sjua_agri }}</td>
-                <td>{{ ssur_agri }}</td>
-                <td>{{ sflm_agri }}</td>
+                <td style="text-align: center;">{{ valles_agri }} </td>
+                <td style="text-align: center;">{{ istmo_agri }}</td>
+                <td style="text-align: center;">{{ costa_agri }}</td>
+                <td style="text-align: center;">{{ papa_agri }}</td>
+                <td style="text-align: center;">{{ mix_agri }}</td>
+                <td style="text-align: center;">{{ sjua_agri }}</td>
+                <td style="text-align: center;">{{ ssur_agri }}</td>
+                <td style="text-align: center;">{{ sflm_agri }}</td>
                 <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_agri }}</td>
                 
               </tr>
               <tr>
                 <th scope="row">PECUARIO</th>
-                <td>{{ valles_pec }} </td>
-                <td>{{ istmo_pec }}</td>
-                <td>{{ costa_pec }}</td>
-                <td>{{ papa_pec }}</td>
-                <td>{{ mix_pec }}</td>
-                <td>{{ sjua_pec }}</td>
-                <td>{{ ssur_pec }}</td>
-                <td>{{ sflm_pec }}</td>
+                <td style="text-align: center;">{{ valles_pec }} </td>
+                <td style="text-align: center;">{{ istmo_pec }}</td>
+                <td style="text-align: center;">{{ costa_pec }}</td>
+                <td style="text-align: center;">{{ papa_pec }}</td>
+                <td style="text-align: center;">{{ mix_pec }}</td>
+                <td style="text-align: center;">{{ sjua_pec }}</td>
+                <td style="text-align: center;">{{ ssur_pec }}</td>
+                <td style="text-align: center;">{{ sflm_pec }}</td>
                 <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pec }}</td>
 
               </tr>
               <tr>
                 <th scope="row">ACUICOLA</th>
-                <td>{{ valles_acu }} </td>
-                <td>{{ istmo_acu }}</td>
-                <td>{{ costa_acu }}</td>
-                <td>{{ papa_acu }}</td>
-                <td>{{ mix_acu }}</td>
-                <td>{{ sjua_acu }}</td>
-                <td>{{ ssur_acu }}</td>
-                <td>{{ sflm_acu }}</td>
+                <td style="text-align: center;">{{ valles_acu }} </td>
+                <td style="text-align: center;">{{ istmo_acu }}</td>
+                <td style="text-align: center;">{{ costa_acu }}</td>
+                <td style="text-align: center;">{{ papa_acu }}</td>
+                <td style="text-align: center;">{{ mix_acu }}</td>
+                <td style="text-align: center;">{{ sjua_acu }}</td>
+                <td style="text-align: center;">{{ ssur_acu }}</td>
+                <td style="text-align: center;">{{ sflm_acu }}</td>
                 <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_acu }}</td>
 
               </tr>
               <tr>
                 <th scope="row">PESQUERO</th>
-                <td>{{ valles_pes }} </td>
-                <td>{{ istmo_pes }}</td>
-                <td>{{ costa_pes }}</td>
-                <td>{{ papa_pes }}</td>
-                <td>{{ mix_pes }}</td>
-                <td>{{ sjua_pes }}</td>
-                <td>{{ ssur_pes }}</td>
-                <td>{{ sflm_pes }}</td>
+                <td style="text-align: center;">{{ valles_pes }} </td>
+                <td style="text-align: center;">{{ istmo_pes }}</td>
+                <td style="text-align: center;">{{ costa_pes }}</td>
+                <td style="text-align: center;">{{ papa_pes }}</td>
+                <td style="text-align: center;">{{ mix_pes }}</td>
+                <td style="text-align: center;">{{ sjua_pes }}</td>
+                <td style="text-align: center;">{{ ssur_pes }}</td>
+                <td style="text-align: center;">{{ sflm_pes }}</td>
                 <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pes }}</td>
 
               </tr>
               <tr>
                 <th scope="row">FORESTAL</th>
-                <td>{{ valles_for }} </td>
-                <td>{{ istmo_for }}</td>
-                <td>{{ costa_for }}</td>
-                <td>{{ papa_for }}</td>
-                <td>{{ mix_for }}</td>
-                <td>{{ sjua_for }}</td>
-                <td>{{ ssur_for }}</td>
-                <td>{{ sflm_for }}</td>
+                <td style="text-align: center;">{{ valles_for }} </td>
+                <td style="text-align: center;">{{ istmo_for }}</td>
+                <td style="text-align: center;">{{ costa_for }}</td>
+                <td style="text-align: center;">{{ papa_for }}</td>
+                <td style="text-align: center;">{{ mix_for }}</td>
+                <td style="text-align: center;">{{ sjua_for }}</td>
+                <td style="text-align: center;">{{ ssur_for }}</td>
+                <td style="text-align: center;">{{ sflm_for }}</td>
                 <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_for }}</td>
 
               </tr>

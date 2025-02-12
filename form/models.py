@@ -59,7 +59,7 @@ class entidadesFinancieras2(models.Model):
     peso_desembarcado_anual = models.CharField(max_length=50, blank=True, null=True)
     fin_zootecnico = models.CharField(max_length=50, blank=True, null=True)
     tipo_mercado = models.CharField(max_length=50, blank=True, null=True) 
-    producto_comercializa = models.CharField(max_length=50, blank=True, null=True) 
+    producto_comercializa = models.CharField(max_length=250, blank=True, null=True) 
     status = models.CharField(max_length=40,  blank=True, null=True)
     rfc = models.CharField(max_length=20,  blank=True, null=True)
     aportacion_productor = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True)

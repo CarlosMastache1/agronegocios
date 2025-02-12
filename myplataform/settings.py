@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic', 
-    'form'
+    'form',
+    'django.contrib.humanize'
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,27 +87,27 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 
 # BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-                                                    'default': {
-                                                     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                                                     'NAME': 'agronegocios',
-                                                     'USER': 'carlos',
-                                                     'PASSWORD': 'mastache123',
-                                                     'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-                                                     'PORT': '5432', 
-                                                }
-                                             }
+                                                     'default': {
+                                                      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                                                      'NAME': 'agronegocios',
+                                                      'USER': 'carlos',
+                                                      'PASSWORD': 'mastache123',
+                                                      'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+                                                      'PORT': '5432', 
+                                                 }
+                                              }
 
 # BASE DE DATOS PARA DESARROLLO
 # DATABASES = {
-#                                                    'default': {
-#                                                     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                     'NAME': 'developer',
-#                                                     'USER': 'postgres', 
-#                                                     'PASSWORD': 'mastache', 
-#                                                     'HOST': 'localhost',
-#                                                     'PORT': '5432'
-#                                                 }
-#                                              } 
+#                                                     'default': {
+#                                                      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                                                      'NAME': 'developer',
+#                                                      'USER': 'postgres', 
+#                                                      'PASSWORD': 'mastache', 
+#                                                      'HOST': 'localhost',
+#                                                      'PORT': '5432'
+#                                                  }
+#                                               } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -128,7 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+USE_L10N = True
+
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
