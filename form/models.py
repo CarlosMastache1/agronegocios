@@ -64,6 +64,7 @@ class entidadesFinancieras2(models.Model):
     rfc = models.CharField(max_length=20,  blank=True, null=True)
     aportacion_productor = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True)
     tecnico = models.CharField(max_length=100,  blank=True, null=True)
+    observaciones = models.CharField(max_length=200, blank=True, null=True)
 
     
      
