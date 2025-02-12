@@ -25,7 +25,7 @@ class entidadesFinancieras2(models.Model):
     monto_total = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True) 
     fecha_inicio = models.DateField(blank=True, null=True) 
     fecha_termino = models.DateField(blank=True, null=True) 
-    tasa_interes = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True) 
+    tasa_interes = models.DecimalField(max_digits = 19, decimal_places=6, blank=True, null=True) 
     #periodos = (('MENSUAL', 'MENSUAL'), ('BIMESTRAL', 'BIMESTRAL'), ('TRIMESTRAL', 'TRIMESTRAL'), ('CUATRIMESTRAL', 'CUATRIMESTRAL'), ('SEMESTRAL', 'SEMESTRAL'), ('ANUAL', 'ANUAL'), ('AL VENCIMIENTO', 'AL VENCIMIENTO'))
     periodo_pago = models.CharField(max_length=50, blank=True, null=True) 
     monto_garantiasLiquidasVigente = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True) 

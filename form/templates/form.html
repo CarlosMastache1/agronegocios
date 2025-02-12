@@ -45,8 +45,8 @@
                           <label class="control-label" >MUNICIPIO</label> 
                           <div class=" selectContainer">
                             <div class="input-group">
-                            <select class="form-control" name="municipio" id="js-example-basic-single" >
-                              <option value=" " >POR FAVOR SELECCIONA EL MUNICIPIO</option>
+                            <select class="form-control" name="municipio" id="miSelect"   style="width: 100%">
+                              <option value=" " >POR FAVOR SELECCIONA EL MUNICIPIO</option> 
                               {% for mun in muni %}
                               <option value="{{mun.id}}">{{mun.nombre_municipio}}</option>
                               {% endfor %}
@@ -429,7 +429,7 @@
                             <div class="inputGroupContainer">
                             <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input onkeyup="mayus(this);" name="tasa_interes" placeholder="TASA DE INTERES ANUAL" class="form-control"  type="number">
+                          <input  name="tasa_interes" onkeydown="return decimal5(event, this);"  placeholder="TASA DE INTERES ANUAL" class="form-control"  type="text">
                           <span></span>
                             </div>
                           </div>
@@ -900,11 +900,7 @@
 </div>
 
 
-<script>
-  $(document).ready(function() {
-    $('#js-example-basic-single').select2();
-});
-</script>
+
 
 
 
