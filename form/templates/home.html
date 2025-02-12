@@ -36,10 +36,10 @@
                 <td>{{fin.intermediario_financiero}}</td>
                 <td>{{fin.tipo_mercado}}</td>
                 <td><a href="{% url 'creditDetail' fin.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
-                    <form action="{% url 'delete_credit' fin.id %}" method="POST">
-                        {% csrf_token  %}
-                        <button style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
-                    </form>
+                    <!-- <form action="{% url 'delete_credit' fin.id %}" method="POST">
+                        {% csrf_token  %} -->
+                        <button onclick="confirmarEliminacion('{{ fin.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                    <!-- </form> -->
                     <a href="{% url 'creditUpdate' fin.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
                 </td>
             </tr>

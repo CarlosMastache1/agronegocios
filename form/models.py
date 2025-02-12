@@ -11,7 +11,7 @@ class municipios(models.Model):
 
 class entidadesFinancieras2(models.Model):
     nombre_proyecto = models.CharField(max_length = 200) 
-    municipio = models.ForeignKey(municipios, on_delete=models.CASCADE, related_name='entidades') 
+    municipio = models.ForeignKey(municipios, on_delete=models.CASCADE, related_name='entidades', blank=True, null=True) 
     localidad = models.CharField(max_length=100, blank=True, null=True) 
     tipo_tenencia = models.CharField(max_length=50,blank=True, null=True) 
     # personas = (('PERSONA FISICA', 'PERSONA FISICA'), ('PERSONA MORAL', 'PERSONA MORAL'))
