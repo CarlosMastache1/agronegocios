@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,30 +38,25 @@
 
 </head>
 <body>
+  {% if user|has_group:"acreimex" or user|has_group:"cajaSolidaria" or user|has_group:"fideicomisos" or user|has_group:"findeca" or user|has_group:"negocios" or user|has_group:"ucepco" %}
 
   <header>
     <!-- Logo y título -->
-   <div class="header-top">
-       
-       
-      
-   </div>
+
    <!-- Menú de navegación -->
 
    <nav class="navbar">
        <div class="logo">
+        
            <h3>AGRONEGOCIOS</h3>
            
        </div>
        <div class="menu-icon" id="menu-icon">
            &#9776;
        </div>
-       <ul class="nav-links" id="nav-links">
-           <li><a href="/home"><i class="fas fa-home"></i> Inicio</a></li>
+       <ul class="nav-links" style="padding-left: 200px;" id="nav-links">
+           <li><a href="/home"><i  class="fas fa-home"></i> Inicio</a></li>
            <li><a href="/form"><i class="fas fa-book"></i> Nuevo Registro</a></li>
-           <li><a href="/grafica"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
-           <li><a href="/signup"><i class="fas fa-users"></i> Dar de Alta Usuarios</a></li>
-           <li><a href="/reporte"><i class="fas fa-file-alt"></i> Reporte</a></li>
        </ul>
        {% if user.is_authenticated %}
        <a type="button" class="d-flex btn btn-danger" href="/logout">Salir</a>
@@ -69,6 +65,41 @@
        {% endif %}
    </nav>
 </header>
+
+{% else %}
+<header>
+  <!-- Logo y título -->
+ <div class="header-top">
+     
+     
+    
+ </div>
+ <!-- Menú de navegación -->
+
+ <nav class="navbar">
+     <div class="logo">
+         <h3>AGRONEGOCIOS</h3>
+         
+     </div>
+     <div class="menu-icon" id="menu-icon">
+         &#9776;
+     </div>
+     <ul class="nav-links" id="nav-links">
+         <li><a href="/home"><i class="fas fa-home"></i> Inicio</a></li>
+         <li><a href="/form"><i class="fas fa-book"></i> Nuevo Registro</a></li>
+         <li><a href="/grafica"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
+         <li><a href="/signup"><i class="fas fa-users"></i> Dar de Alta Usuarios</a></li>
+         <li><a href="/reporte"><i class="fas fa-file-alt"></i> Reporte</a></li>
+     </ul>
+     {% if user.is_authenticated %}
+     <a type="button" class="d-flex btn btn-danger" href="/logout">Salir</a>
+     {% else %}
+     <a type="button" class="d-flex btn btn-primary" href="/login">Login</a>
+     {% endif %}
+ </nav>
+</header>
+{% endif %}
+
 
   
 

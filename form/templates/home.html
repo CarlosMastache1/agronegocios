@@ -5,9 +5,282 @@
 
 
 <div class="container">
-<div class="row justify-content-center align-items-center g-2">
-    <h1 style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS</h1>
+<div class="row justify-content-center align-items-center g-2 pt-5">
+    {% if user.groups.all.0.name == "acreimex" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO</p>
+    </div>
+    {% elif user.groups.all.0.name == "findeca" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE</p>
+    </div>
+    {% elif user.groups.all.0.name == "fideicomisos" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)</p>
+    </div>
+    {% elif user.groups.all.0.name == "negocios" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE</p>
+    </div>
+    {% elif user.groups.all.0.name == "cajaSolidaria" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO</p>
+    </div>
+    {% elif user.groups.all.0.name == "ucepco" %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">CREDITOS OTORGADOS POR UNION DE CREDITO ESTATAL DE PRODUCTORES DE CAFE DE OAXACA, S.A. DE C.V.</p>
+    </div>
+    {% else %}
+    <div class="alert alert-danger " role="alert">
+        <p style="text-align: center; color: #9d2449;">TODOS LOS CREDITOS OTORGADOS</p>
+    </div>
+    {% endif %}
 
+
+    {% if user.groups.all.0.name == "acreimex" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finAcri in finanAcri %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finAcri.nombre_proyecto}}</td>
+                    <td>{{finAcri.producto_comercializa}}</td>
+                    <td>{{finAcri.nombre_cliente}}</td>
+                    <td>{{finAcri.monto_total}}</td>
+                    <td>{{finAcri.intermediario_financiero}}</td>
+                    <td>{{finAcri.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finAcri.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finAcri.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finAcri.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+
+    {% elif user.groups.all.0.name == "findeca" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finFind in finanFind %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finFind.nombre_proyecto}}</td>
+                    <td>{{finFind.producto_comercializa}}</td>
+                    <td>{{finFind.nombre_cliente}}</td>
+                    <td>{{finFind.monto_total}}</td>
+                    <td>{{finFind.intermediario_financiero}}</td>
+                    <td>{{finFind.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finFind.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finFind.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finFind.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+
+    {% elif user.groups.all.0.name == "fideicomisos" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finFira in finanFira %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finFira.nombre_proyecto}}</td>
+                    <td>{{finFira.producto_comercializa}}</td>
+                    <td>{{finFira.nombre_cliente}}</td>
+                    <td>{{finFira.monto_total}}</td>
+                    <td>{{finFira.intermediario_financiero}}</td>
+                    <td>{{finFira.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finFira.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finFira.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finFira.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+    {% elif user.groups.all.0.name == "negocios" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finNego in finanNego %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finNego.nombre_proyecto}}</td>
+                    <td>{{finNego.producto_comercializa}}</td>
+                    <td>{{finNego.nombre_cliente}}</td>
+                    <td>{{finNego.monto_total}}</td>
+                    <td>{{finNego.intermediario_financiero}}</td>
+                    <td>{{finNego.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finNego.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finNego.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finNego.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+    {% elif user.groups.all.0.name == "cajaSolidaria" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finCaja in finanCaja %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finCaja.nombre_proyecto}}</td>
+                    <td>{{finCaja.producto_comercializa}}</td>
+                    <td>{{finCaja.nombre_cliente}}</td>
+                    <td>{{finCaja.monto_total}}</td>
+                    <td>{{finCaja.intermediario_financiero}}</td>
+                    <td>{{finCaja.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finCaja.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finCaja.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finCaja.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+    {% elif user.groups.all.0.name == "ucepco" %}
+    <div class="table-responsive" >
+        <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
+            <thead class="table-light">
+          
+                <tr>
+                    <th>NOMBRE DEL PORYECTO</th>
+                    <th>PRODUCTO QUE COMERCIALIZA</th>
+                    <th>NOMBRE DEL CLIENTE</th>
+                    <th>MONTO TOTAL</th>
+                    <th>FINANCIERA</th>
+                    <th>TIPO DE MERCADO</th>
+                    <th>OPCIONES</th>
+    
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                {% for finUcep in finanUcep %}
+    
+                <tr class="table-primary" >
+                    <td scope="row">{{finUcep.nombre_proyecto}}</td>
+                    <td>{{finUcep.producto_comercializa}}</td>
+                    <td>{{finUcep.nombre_cliente}}</td>
+                    <td>{{finUcep.monto_total}}</td>
+                    <td>{{finUcep.intermediario_financiero}}</td>
+                    <td>{{finUcep.tipo_mercado}}</td>
+                    <td><a href="{% url 'creditDetail' finUcep.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
+                        
+                            <button onclick="confirmarEliminacion('{{ finUcep.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar <i class="fas fa-trash"></i></button>
+                        
+                        <a href="{% url 'creditUpdate' finUcep.id %}" class="btn btn-primary" style="font-size: 12px; color: white;">Editar <i class="fas fa-pencil-alt"></i> </a>
+                    </td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+            
+        </table>    
+    </div>
+
+    {% else %}
 
 <div class="table-responsive" >
     <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable" style="width:100%; background-color:#9d2449 ;">
@@ -49,7 +322,8 @@
         
     </table>    
 </div>
-   
+    {% endif %}
+
 </div>
 </div>
 

@@ -18,7 +18,21 @@ from django.db.models.functions import ExtractYear, ExtractMonth
 @login_required
 def home(request):
     finan = entidadesFinancieras2.objects.all()
-    return render(request, 'home.html', {'finan' : finan})
+    finanAcri = entidadesFinancieras2.objects.filter(intermediario_financiero = 'COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO')
+    finanFind = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE')
+    finanFira = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)')
+    finanNego = entidadesFinancieras2.objects.filter(intermediario_financiero = 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE')
+    finanCaja = entidadesFinancieras2.objects.filter(intermediario_financiero = 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO')
+    finanUcep = entidadesFinancieras2.objects.filter(intermediario_financiero = 'UNION DE CREDITO ESTATAL DE PRODUCTORES DE CAFE DE OAXACA, S.A. DE C.V.')
+
+    return render(request, 'home.html', {
+      'finan' : finan,
+      'finanAcri' : finanAcri,
+      'finanFind' : finanFind,
+      'finanFira' : finanFira,
+      'finanNego': finanNego,
+      'finanCaja' : finanCaja,
+      'finanUcep' : finanUcep })
 
 def signin(request):
     if request.method == 'GET':
