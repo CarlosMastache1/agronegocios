@@ -51,7 +51,7 @@ class entidadesFinancieras2(models.Model):
     variedad = models.CharField(max_length=50, blank=True, null=True) 
     cultivo = models.CharField(max_length=40, blank=True, null=True)
     superficie = models.CharField(max_length=40, blank=True, null=True)
-    volumen_produccion_anual = models.CharField(max_length=20, blank=True, null=True) 
+    volumen_produccion_anual = models.CharField(max_length=50, blank=True, null=True) 
     volumen_produccion = models.CharField(max_length=50, blank=True, null=True)
     especie_forestal = models.CharField(max_length=50, blank=True, null=True)
     especie_captura = models.CharField(max_length=50, blank=True, null=True)
