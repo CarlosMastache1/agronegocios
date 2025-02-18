@@ -22,7 +22,7 @@ class entidadesFinancieras2(models.Model):
     representante_legal = models.CharField(max_length=40, blank=True, null=True) 
     telefono = models.CharField(max_length=12, blank=True, null=True) 
     producto_tipoCredito = models.CharField(max_length=80, blank=True, null=True) 
-    monto_total = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True) 
+    monto_total = models.DecimalField(max_digits = 50, decimal_places=5, blank=True, null=True) 
     fecha_inicio = models.DateField(blank=True, null=True) 
     fecha_termino = models.DateField(blank=True, null=True) 
     tasa_interes = models.DecimalField(max_digits = 19, decimal_places=6, blank=True, null=True) 
@@ -62,7 +62,7 @@ class entidadesFinancieras2(models.Model):
     producto_comercializa = models.CharField(max_length=250, blank=True, null=True) 
     status = models.CharField(max_length=40,  blank=True, null=True)
     rfc = models.CharField(max_length=20,  blank=True, null=True)
-    aportacion_productor = models.DecimalField(max_digits = 12, decimal_places=5, blank=True, null=True)
+    aportacion_productor = models.DecimalField(max_digits = 50, decimal_places=5, blank=True, null=True)
     tecnico = models.CharField(max_length=100,  blank=True, null=True)
     observaciones = models.CharField(max_length=200, blank=True, null=True)
 
