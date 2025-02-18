@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.db import IntegrityError
-from .forms import financieras 
+from .forms import financieras, Productos
 from django.contrib import messages
 from .models import entidadesFinancieras2, municipios
 from django.db.models import Sum, Count, Q
@@ -93,6 +93,22 @@ def form(request):
         new_finan.save()
         messages.success(request, 'Registro guardado en la base de datos')
         return redirect('home')
+
+def formProductos(request):
+    if request.method == 'GET':
+      muni = municipios.objects.all()
+      return render(request, 'formProductos.html', {
+          'form' : Productos,
+          'muni' : muni
+      })
+    else: 
+        form = Productos(request.POST)
+        new_prod = form.save(commit=False)
+        new_prod.save()
+        messages.success(request, 'Producto guardado')
+        return redirect('formProductos')
+
+
 
 @login_required
 def creditDetail(request, credit_id):
@@ -1209,7 +1225,6 @@ def get_chart5(request):
   #     ]
   #   }
   # ]
-
 
 
 

@@ -1,5 +1,5 @@
 from django import forms 
-from .models import entidadesFinancieras2
+from .models import entidadesFinancieras2, Productos
 
 class financieras(forms.ModelForm):
     class Meta:
@@ -99,6 +99,12 @@ class financieras(forms.ModelForm):
             'tipo_mercado' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
             'producto_comercializa' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
             'status' : forms.TextInput(attrs={'class' : 'form-control', 'onkeyup' : 'mayus(this);'}),
-            
-
         }
+
+
+class productos(forms.ModelForm):
+    class Meta:
+        model = Productos
+        fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'volumen_produccion', 'telefono', 'email', 'imagenProd', 'estado'
+    
+        ]

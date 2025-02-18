@@ -98,6 +98,20 @@ class cultivos(models.Model):
     region = models.CharField(max_length=40)
     puebloIndigena = models.CharField(max_length=40)
 
+class Productos(models.Model):
+    nombreProductor = models.CharField(max_length=50, blank=True, null=True) 
+    municipio = models.ForeignKey(municipios, on_delete=models.CASCADE, related_name='municipios', blank=True, null=True) 
+    localidad = models.CharField(max_length=100, blank=True, null=True) 
+    nombreProducto = models.CharField(max_length=100, blank=True, null=True) 
+    nombreMarca = models.CharField(max_length=100, blank=True, null=True) 
+    subsector = models.CharField(max_length=50, blank=True, null=True) 
+    volumen_produccion = models.CharField(max_length=50, blank=True, null=True)
+    telefono = models.CharField(max_length=12, blank=True, null=True) 
+    email = models.CharField(max_length=50, blank=True, null=True)
+    imagenProd = models.ImageField(upload_to='imagenes/', default='IMAGEN PRODUCTO')
+    estado = models.BooleanField(default=False)
+
+
 
 
 

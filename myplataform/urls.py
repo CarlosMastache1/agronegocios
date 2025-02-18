@@ -3,7 +3,8 @@ from django.contrib import admin
 from django.urls import path, include
 from form import views 
 from django.views.generic import TemplateView
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -20,6 +21,7 @@ urlpatterns = [
     path('getcharts3/', views.get_chart3, name='getcharts3'),
     path('getcharts4/', views.get_chart4, name='getcharts4'),
     path('getcharts5/', views.get_chart5, name='getcharts5'),
+    path('formProductos/', views.formProductos, name='formProductos' ),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
     path('credit/<int:credit_id>/update', views.creditUpdate, name='creditUpdate'),
     path('eliminar/<int:id>/', views.delete_credit, name='delete_credit'),
@@ -194,4 +196,4 @@ urlpatterns = [
     path('sandia/', TemplateView.as_view(template_name="sandia/estadisticas_sandia.html"), name='sandia'),
 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

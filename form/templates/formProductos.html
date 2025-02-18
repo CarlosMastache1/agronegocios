@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    <style>
+        body {
+            display: flex;
+           
+            justify-content: center;
+            align-items: center;
+            background: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .left-section {
+            flex: 1;
+            background: url("{% static 'images/fondoForm.jpg' %}") no-repeat center center;
+            background-size: cover;
+            min-height: 315px;
+        }
+        .right-section {
+            flex: 1.5;
+            padding: 40px;
+            background: white;
+            color: black;
+        }
+        h4 {
+            color: #9D2449;
+            text-align: center;
+        }
+        .input-field input, .input-field select, .file-path {
+            border-bottom: 2px solid #9D2449 !important;
+            color: black;
+        }
+        label {
+            color: black !important;
+        }
+        .btn {
+            background: #9D2449;
+            color: white;
+            width: 100%;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #B5305A;
+        }
+        .icon {
+            color: #9D2449;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="center-align">
+                <img src="{% static 'images/logoForm.png' %}" alt="Logo" width="300">
+            </div>
+            <h4>Registro</h4>
+            <form action="/formProductos/"  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="input-field">
+                    <input name="nombreProductor" type="text" id="nombre-productor" required>
+                    <label for="nombre-productor">NOMBRE DEL PRODUCTOR</label>
+                </div>
+                <div class="input-field">
+                    <select id="" required name="municipio">
+                        <option value="" disabled selected>ELIGE UNA OPCIÓN</option>
+                        {% for mun in muni %}
+                        <option value="{{mun.id}}">{{mun.nombre_municipio}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>MUNICIPIO</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="localidad" name="localidad" required>
+                    <label for="localidad">LOCALIDAD</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="nombreProducto"  id="nombre-producto" required>
+                    <label for="nombre-producto">NOMBRE DEL PRODUCTO</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="nombreMarca" id="nombre-marca" required>
+                    <label for="nombre-marca">NOMBRE DE LA MARCA</label>
+                </div>
+                <div class="input-field">
+                    <select name="subsector" id="subsector" required>
+                        <option value="" disabled selected>ELIGE UNA OPCIÓN</option>
+                        <option value="AGRICOLA">AGRICOLA</option>
+                        <option value="PECUARIO">PECUARIO</option>
+                        <option value="PESQUERO">PESQUERO</option>
+                        <option value="ACUICOLA">ACUICOLA</option>
+                        <option value="FORESTAL">FORESTAL</option>
+                    </select>
+                    <label>SUBSECTOR</label>
+                </div>
+                <div class="input-field">
+                    <input name="volumen_produccion" type="text" id="volumen" required>
+                    <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
+                </div>
+                <div class="input-field">
+                    <input name="telefono" type="tel" id="telefono" required>
+                    <label for="telefono">NÚMERO TELEFÓNICO</label>
+                </div>
+                <div class="input-field">
+                    <input name="email" type="email" id="email" required>
+                    <label for="email">CORREO ELECTRÓNICO</label>
+                </div>
+
+                <input name="estado"  value="0" hidden>
+
+
+                <!-- <div class="file-field input-field">
+                    <div class="btn">
+                        <span>SUBIR FOTO DEL PRODUCTO</span>
+                        <input type="file" name="imagenProd" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
+                    </div>
+                </div> -->
+                <button class="btn waves-effect waves-light">REGISTRAR PRODUCTO</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            M.FormSelect.init(document.querySelectorAll('select'));
+        });
+    </script>
+</body>
+</html>
