@@ -104,8 +104,8 @@
                     <label for="nombre-marca">NOMBRE DE LA MARCA</label>
                 </div>
                 <div class="input-field">
-                    <select name="subsector" id="subsector" required>
-                        <option value="" disabled selected>ELIGE UNA OPCIÓN</option>
+                    <select name="subsector" id="subsector2" required>
+                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="AGRICOLA">AGRICOLA</option>
                         <option value="PECUARIO">PECUARIO</option>
                         <option value="PESQUERO">PESQUERO</option>
@@ -116,6 +116,65 @@
                     </select>
                     <label>SUBSECTOR</label>
                 </div>
+                <div id="sub-AGRICOLA-2"  >
+                <div class="input-field" >
+                    <select name="categoria" required>
+                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                        <option value="AGUACATE">AGUACATE</option>
+                        <option value="AJONJOLI">AJONJOLI</option>
+                        <option value="CAFE">CAFE</option>
+                        <option value="JENGIBRE">JENGIBRE</option>
+                        <option value="LIMON">LIMON</option>
+                        <option value="MAIZ">MAIZ</option>
+                        <option value="MANGO">MANGO</option>
+                        <option value="PAPAYA">PAPAYA</option>
+                        <option value="PEPINO">PEPINO</option>
+                        <option value="TOMATE">TOMATE</option>
+                        <option value="OTRO">OTRO</option>
+                    </select>
+                    <label>CATEGORIA</label>
+                </div>
+                </div>
+                <div id="sub-PECUARIO-2"  >
+                    <div class="input-field" >
+                        <select name="categoria" required>
+                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                            <option value="APICOLA">APICOLA</option>
+                            <option value="AVICOLA">AVICOLA</option>
+                            <option value="BOVINO">BOVINO</option>
+                            <option value="CAPRINO">CAPRINO</option>
+                            <option value="PORCINO">PORCINO</option>
+
+                        </select>
+                        <label>CATEGORIA</label>
+                    </div>
+                </div>
+                <div id="sub-PESQUERO-2"  >
+                        <div class="input-field" >
+                            <select name="categoria" required>
+                                <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                                <option value="BARRILETE">BARRILETE</option>
+                                <option value="CAMARON CAFE">CAMARON CAFE</option>
+                                <option value="CAZON">CAZON</option>
+                                <option value="OTRO">OTRO</option>
+    
+                            </select>
+                            <label>CATEGORIA</label>
+                        </div>
+                </div>
+                <div id="sub-ACUICOLA-2"  >
+                    <div class="input-field" >
+                        <select name="categoria" required>
+                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                            <option value="TILAPIA">TILAPIA</option>
+                            <option value="CAMARON BLANCO">CAMARON BLANCO</option>
+                            <option value="TRUCHA ARCOIRIS">TRUCHA ARCOIRIS</option>
+                            <option value="OTRO">OTRO</option>
+
+                        </select>
+                        <label>CATEGORIA</label>
+                    </div>
+            </div>
                 <div class="input-field">
                     <input name="volumen_produccion" type="text" id="volumen" required>
                     <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
@@ -129,10 +188,9 @@
                     <label for="email">CORREO ELECTRÓNICO</label>
                 </div>
 
-                <input name="estado"  value="0" hidden>
 
 
-                <!-- <div class="file-field input-field">
+                <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR FOTO DEL PRODUCTO</span>
                         <input type="file" name="imagenProd" multiple>
@@ -140,7 +198,7 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
                     </div>
-                </div> -->
+                </div> 
                 <button class="btn waves-effect waves-light">REGISTRAR PRODUCTO</button>
             </form>
         </div>
@@ -150,5 +208,6 @@
             M.FormSelect.init(document.querySelectorAll('select'));
         });
     </script>
+    <script src="{% static 'js/select3.js' %}"></script>
 </body>
 </html>

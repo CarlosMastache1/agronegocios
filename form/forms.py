@@ -1,5 +1,5 @@
 from django import forms 
-from .models import entidadesFinancieras2, Productos
+from .models import entidadesFinancieras2, productos
 
 class financieras(forms.ModelForm):
     class Meta:
@@ -102,9 +102,8 @@ class financieras(forms.ModelForm):
         }
 
 
-class productos(forms.ModelForm):
+class productosForm(forms.ModelForm):
     class Meta:
-        model = Productos
-        fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'volumen_produccion', 'telefono', 'email', 'imagenProd', 'estado'
-    
+        model = productos
+        fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'categoria', 'volumen_produccion', 'telefono', 'email', 'imagenProd'
         ]

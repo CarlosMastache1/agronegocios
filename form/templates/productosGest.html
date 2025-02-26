@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load humanize %} 
+
+{% block content %}
+<div class="container">
+    <ul class="nav nav-pills mb-3 pt-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active"  id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">PRODUCTOS POR APROBAR</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link"  id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">PRODUCTOS APROBADOS</button>
+        </li>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                <div class="row justify-content-center align-items-center g-2 pt-5">
+                    <div class="alert alert-danger " role="alert">
+                        <p style="text-align: center; color: #9d2449;">LISTA DE PRODUCTOS QUE NESECITAN APROBACIÓN PARA SER PUBLICADOS EN LA PAGINA</p>
+                    </div>
+                    <div class="table-responsive" >
+                    <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable7" style="width:100%; background-color:#9d2449 ;">
+                        <thead class="table-light">
+                      
+                            <tr>
+                                <th>NOMBRE DEL PRODUCTOR </th>
+                                <th>NOMBRE DEL PRODUCTO</th>
+                                <th>NOMBRE DE LA MARCA</th>
+                                <th>SUBSECTOR</th>
+                                <th>CATEGORIA</th>
+                                <th>TELEFONO</th>
+                                <th>OPCIONES</th>
+                
+                            </tr>
+                        </thead>
+                
+                        <tbody class="table-group-divider">
+                            {% for prod in prod %}
+                
+                            <tr class="table-primary" >
+                                <td scope="row">{{prod.nombreProductor}}</td>
+                                <td>{{prod.nombreProducto}}</td>
+                                <td>{{prod.nombreMarca}}</td>
+                                <td>{{prod.subsector}}</td>
+                                <td>{{prod.categoria}}</td>
+                                <td>{{prod.telefono}}</td>
+                                <td>
+                                <form action="{% url 'productApproved' prod.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button  class="btn btn-success">
+                                    Aprobar producto <i class="fas fa-check-circle"></i>
+                                </button>
+                                </form>
+                                </td>
+            
+                            </tr>
+                            {% endfor %}
+                
+                        </tbody>
+                        
+                    </table>    
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row justify-content-center align-items-center g-2 pt-5">
+                    <div class="alert alert-danger " role="alert">
+                        <p style="text-align: center; color: #9d2449;">LISTA DE PRODUCTOS QUE ESTAN PUBLICADOS EN LA PAGINA</p>
+                    </div>
+                    <div class="table-responsive" >
+                    <table class="display table table-striped table-hover table-borderless table-primary align-middle" id="myTable8" style="width:100%; background-color:#9d2449 ;">
+                        <thead class="table-light">
+                      
+                            <tr>
+                                <th>NOMBRE DEL PRODUCTOR </th>
+                                <th>NOMBRE DEL PRODUCTO</th>
+                                <th>NOMBRE DE LA MARCA</th>
+                                <th>SUBSECTOR</th>
+                                <th>CATEGORIA</th>
+                                <th>TELEFONO</th>
+                                <th>OPCIONES</th>
+                
+                            </tr>
+                        </thead>
+                
+                        <tbody class="table-group-divider">
+                            {% for prodA in prodA %}
+                
+                            <tr class="table-primary" >
+                                <td scope="row">{{prodA.nombreProductor}}</td>
+                                <td>{{prodA.nombreProducto}}</td>
+                                <td>{{prodA.nombreMarca}}</td>
+                                <td>{{prodA.subsector}}</td>
+                                <td>{{prodA.categoria}}</td>
+                                <td>{{prodA.telefono}}</td>
+                                <td>
+                                <form action="{% url 'productDesapproved' prodA.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button  class="btn btn-danger">
+                                    Dar de baja producto <i class="bi bi-x-circle"></i>
+                                    
+                                </button>
+                                </form>
+                                </td>
+            
+                            </tr>
+                            {% endfor %}
+                
+                        </tbody>
+                        
+                    </table>    
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      </ul>
+
+</div>
+
+
+
+{% endblock %}

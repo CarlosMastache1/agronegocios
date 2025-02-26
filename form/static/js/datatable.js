@@ -53,3 +53,18 @@ $(document).ready(function () {
     })
     
 })
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable7',{
+       
+    })
+    
+})
+
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable8',{
+       
+    })
+    
+})

@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tienda/css/all.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>MERCADO AGRONEGOCIOS</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{% static 'tienda/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'tienda/css/style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'tienda/css/responsive.css' %}">
+    <!-- Custom CSS -->
+
+</head>
+
+<body>
+     
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                    
+                 
+                    <a class="navbar-brand" href="/"><img src="{% static 'tienda/images/sefader2.png' %}"  class="sefader2" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item"><a class="nav-link" href="/tiendaHome"><i class="fa-solid fa-house"></i></a></li>
+                        
+                        <li class="dropdown active">
+                            <a href="/categoriaAgricola" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-wheat-awn"></i> AGRICOLA </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="aguacate_categoria.html">AGUACATE</a></li>
+                                <li><a href="#">AJONJOLÍ</a></li>
+                                <li><a href="#">CAFÉ</a></li>
+                                <li><a href="#">JENGIBRE</a></li>
+                                <li><a href="#">LIMÓN</a></li>
+                                <li><a href="#">LITCHI</a></li>
+                                <li><a href="#">MAÍZ</a></li>
+                                <li><a href="#">MANGO</a></li>
+                                <li><a href="#">MELÓN</a></li>
+                                <li><a href="#">MEZCAL</a></li>
+                                <li><a href="#">PAPAYA</a></li>
+                                <li><a href="#">PEPINO</a></li>
+                                <li><a href="#">PIÑA</a></li>
+                                <li><a href="#">PLATANO</a></li>
+                                <li><a href="#">TOMATE</a></li>
+                                <li><a href="#">VAINILLA</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="/categoriaPecuario" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-cow"></i> PECUARIO</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">APICOLA</a></li>
+                                <li><a href="#">AVÍCOLA</a></li>
+                                <li><a href="#">BOVINO</a></li>
+                                <li><a href="#">CAPRINO</a></li>
+                                <li><a href="#">PORCINO</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="/categoriaPesquero" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-fish-fins"></i> PESQUERO</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">BARRILETE</a></li>
+                                <li><a href="#">CAMARÓN CAFÉ</a></li>
+                                <li><a href="#">CAZÓN</a></li>
+                                <li><a href="#">TIBURÓN SEDOSO</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="/categoriaAcuicola" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-earth-oceania"></i> ACUICOLA</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">CAMARÓN BLANCO</a></li>
+                                <li><a href="#">TILAPIA</a></li>
+                                <li><a href="#">TRUCHA ARCOIRIS</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="/categoriaForestal" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-tree"></i> FORESTAL</a>
+                        
+                        </li>
+
+
+                    </ul>
+
+                </div>
+                
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">Todos Los Derechos Reservados &copy; 2024-2025  <img src="{% static 'tienda/images/logo.png' %}" class="logo" alt=""></a> <a href="#"></a> 
+    </div>
+    <!-- End copyright  -->
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'tienda/js/jquery-3.2.1.min.js' %}" ></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'tienda/js/jquery.superslides.min.js' %}" ></script>
+    <script src="{% static 'tienda/js/custom.js' %}" ></script>
+
+    
+</body>
+
+</html> 
