@@ -62,6 +62,11 @@ def tiendaForestal(request):
   return render(request, 'forestalTienda.html',
   {'tiendaFor' : tiendaFor})
 
+def tiendaIndustrial(request):
+  tiendaInd = productos.objects.filter(subsector = 'AGROINDUSTRIAL', estado=True)
+  return render(request, 'industrialTienda.html',
+  {'tiendaInd' : tiendaInd})
+
 @login_required
 def gestProd(request):
     prod = productos.objects.filter(estado = False)
@@ -159,8 +164,8 @@ def formProductos(request):
         form = productosForm(request.POST, request.FILES)
         new_prod = form.save(commit=False)
         new_prod.save()
-        messages.success(request, 'Producto guardado')
-        return redirect('formProductos')
+        messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
+        return redirect('tiendaHome')
 
 
 

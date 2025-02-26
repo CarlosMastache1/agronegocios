@@ -29,6 +29,7 @@ urlpatterns = [
     path('categoriaPesquero/', views.tiendaPesquero, name='categoriaPesquero'),
     path('categoriaAcuicola/', views.tiendaAcuicola, name='categoriaAcuicola'),
     path('categoriaForestal/', views.tiendaForestal, name='categoriaForestal'),
+    path('categoriaAgroindustrial/', views.tiendaIndustrial, name='categoriaAgroindustrial'),
     path('detailProduct/<int:product_id>/', views.prodDetail, name='detailProduct'),
     path('formProductos/', views.formProductos, name='formProductos' ),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),

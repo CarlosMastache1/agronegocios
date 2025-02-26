@@ -102,6 +102,12 @@
                         
                         </li>
 
+                        <li class="dropdown active">
+                            <a href="/categoriaAgroindustrial" class="nav-link dropdown-toggle arrow" data-toggle="dropdown"><i class="fa-solid fa-industry"></i> AGROINDUSTRIAL</a>
+                        
+                        </li>
+
+
 
                     </ul>
 
@@ -129,8 +135,25 @@
     <!-- ALL PLUGINS -->
     <script src="{% static 'tienda/js/jquery.superslides.min.js' %}" ></script>
     <script src="{% static 'tienda/js/custom.js' %}" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    
+
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+      Swal.fire({
+        "title" :  "Hecho",
+        "text" : "{{message}}",
+        "icon" : "success",
+        showConfirmButton: false,
+          timer: 1200
+      })
+    </script>
+    {% endfor %}
+  {% endif %}
+
+
+
 </body>
 
 </html> 
