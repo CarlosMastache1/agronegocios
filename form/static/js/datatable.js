@@ -68,3 +68,11 @@ $(document).ready(function () {
     })
     
 })
+
+
+$(document).ready(function () {
+    var table = new DataTable('#myTable9',{
+       
+    })
+    
+})

@@ -27,7 +27,7 @@
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Monto de Financiamiento</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Garantías Liquidas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Municipios</th> 
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
@@ -45,7 +45,7 @@
             <td style="text-align: center;"> ${{ monto_VC_templates|floatformat:2|intcomma }} </td>
             <td style="text-align: center;">${{ garantia_VC_templates|floatformat:2|intcomma }}</td>
             <td style="text-align: center;">{{ beneficiarios_VC_T }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;"> {{ can_municipios_VC }} </td> 
             <td style="text-align: center;">{{ E100_VC }}</td>
             <td style="text-align: center;">{{ PI_VC }}</td>
             <td style="text-align: center;">{{ empleos_VC_T }}</td>
@@ -61,7 +61,7 @@
             <td style="text-align: center;"> $ {{ monto_IST_templates|floatformat:2|intcomma  }} </td> 
             <td style="text-align: center;">$ {{ garantia_IST_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_IST_T }}</td>
-            <!-- <td></td> -->
+             <td style="text-align: center;"> {{ can_municipios_IST }} </td> 
             <td style="text-align: center;">{{ E100_IST }}</td>
             <td style="text-align: center;">{{ PI_IST }}</td>
             <td style="text-align: center;">{{ empleos_IST_T }}</td>
@@ -76,8 +76,8 @@
             {% endfor %} </td>
             <td style="text-align: center;">$ {{ monto_COS_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_COS_templates|floatformat:2|intcomma  }}</td>
-            <td style="text-align: center;">{{ beneficiarios_IST_T }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ beneficiarios_COS_T }}</td>
+             <td style="text-align: center;">{{ can_municipios_COS }}</td> 
             <td style="text-align: center;">{{ E100_COS }}</td>
             <td style="text-align: center;">{{ PI_COS }}</td>
             <td style="text-align: center;">{{ empleos_COS_T }}</td>
@@ -92,7 +92,7 @@
             <td style="text-align: center;">$ {{ monto_PAPA_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_PAPA_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_PAPA_T }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_PAPA }}</td> 
             <td style="text-align: center;">{{ E100_PAPA }}</td>
             <td style="text-align: center;">{{ PI_PAPA }}</td>
             <td style="text-align: center;">{{ empleos_PAPA_T }}</td>
@@ -107,7 +107,7 @@
             <td style="text-align: center;"> $ {{ monto_MIX_templates|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_MIX_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_MIX_T }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_MIX }}</td> 
             <td style="text-align: center;">{{ E100_MIX }}</td>
             <td style="text-align: center;">{{ PI_MIX }}</td>
             <td style="text-align: center;">{{ empleos_MIX_T }}</td>
@@ -121,7 +121,7 @@
             <td style="text-align: center;">$ {{ monto_SJ_templates|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_SJ_templates|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">{{ beneficiarios_SJ_T }}</td>
-            <!-- <td></td> -->
+             <td style="text-align: center;">{{ can_municipios_SJ }}</td> 
             <td style="text-align: center;">{{ E100_SJ }}</td>
             <td style="text-align: center;">{{ PI_SJ }}</td>
             <td style="text-align: center;">{{ empleos_SJ_T }}</td>
@@ -136,7 +136,7 @@
             <td style="text-align: center;">$ {{ monto_SS_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SS_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SS_T }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_SS }}</td> 
             <td style="text-align: center;">{{ E100_SS }}</td>
             <td style="text-align: center;">{{ PI_SS }}</td>
             <td style="text-align: center;">{{ empleos_SS_T }}</td>
@@ -151,7 +151,7 @@
             <td style="text-align: center;">$ {{ monto_SFM_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SFM_templates|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SFM_T }}</td>
-            <!-- <td></td> -->
+             <td style="text-align: center;">{{ can_municipios_SFM }}</td>
             <td style="text-align: center;">{{ E100_SFM }}</td>
             <td style="text-align: center;">{{ PI_SFM }}</td>
             <td style="text-align: center;">{{ empleos_SFM_T }}</td>
@@ -171,7 +171,7 @@
             <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Monto de Financiamiento</th>
             <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Garantías Liquidas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Municipios</th> 
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
@@ -189,7 +189,7 @@
             <td style="text-align: center;"> ${{ monto_VC_templates_2023|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">${{ garantia_VC_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_VC_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_VC_2023 }}</td> 
             <td style="text-align: center;">{{ E100_VC_2023 }}</td>
             <td style="text-align: center;">{{ PI_VC_2023 }}</td>
             <td style="text-align: center;">{{ empleos_VC_T_2023 }}</td>
@@ -205,7 +205,7 @@
             <td style="text-align: center;"> $ {{ monto_IST_templates_2023|floatformat:2|intcomma  }} </td> 
             <td style="text-align: center;">$ {{ garantia_IST_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_IST_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;"> {{ can_municipios_IST_2023 }} </td> 
             <td style="text-align: center;">{{ E100_IST_2023 }}</td>
             <td style="text-align: center;">{{ PI_IST_2023 }}</td>
             <td style="text-align: center;">{{ empleos_IST_T_2023 }}</td>
@@ -221,7 +221,7 @@
             <td style="text-align: center;">$ {{ monto_COS_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_COS_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_COS_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;"> {{ can_municipios_COS_2023 }}  </td>
             <td style="text-align: center;">{{ E100_COS_2023 }}</td>
             <td style="text-align: center;">{{ PI_COS_2023 }}</td>
             <td  style="text-align: center;">{{ empleos_COS_T_2023 }}</td>
@@ -236,7 +236,7 @@
             <td style="text-align: center;">$ {{ monto_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_PAPA_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;"> {{ can_municipios_PAPA_2023 }}  </td> 
             <td style="text-align: center;">{{ E100_PAPA_2023 }}</td>
             <td style="text-align: center;">{{ PI_PAPA_2023 }}</td>
             <td style="text-align: center;">{{ empleos_PAPA_T_2023 }}</td>
@@ -251,7 +251,7 @@
             <td style="text-align: center;"> $ {{ monto_MIX_templates_2023|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_MIX_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_MIX_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_MIX_2023 }} </td> 
             <td style="text-align: center;">{{ E100_MIX_2023 }}</td>
             <td style="text-align: center;">{{ PI_MIX_2023 }}</td>
             <td style="text-align: center;">{{ empleos_MIX_T_2023 }}</td>
@@ -265,7 +265,7 @@
             <td style="text-align: center;">$ {{ monto_SJ_templates_2023|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_SJ_templates_2023|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">{{ beneficiarios_SJ_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td  style="text-align: center;">{{ can_municipios_SJ_2023 }} </td> 
             <td style="text-align: center;">{{ E100_SJ_2023 }}</td>
             <td style="text-align: center;">{{ PI_SJ_2023 }}</td>
             <td style="text-align: center;">{{ empleos_SJ_T_2023 }}</td>
@@ -280,7 +280,7 @@
             <td style="text-align: center;">$ {{ monto_SS_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SS_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SS_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_SS_2023 }} </td>
             <td style="text-align: center;">{{ E100_SS_2023 }}</td>
             <td style="text-align: center;">{{ PI_SS_2023 }}</td>
             <td style="text-align: center;">{{ empleos_SS_T_2023 }}</td>
@@ -295,7 +295,7 @@
             <td style="text-align: center;">$ {{ monto_SFM_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SFM_templates_2023|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SFM_T_2023 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_SFM_2023 }} </td> 
             <td style="text-align: center;">{{ E100_SFM_2023 }}</td>
             <td style="text-align: center;">{{ PI_SFM_2023 }}</td>
             <td style="text-align: center;">{{ empleos_SFM_T_2023 }}</td>
@@ -315,7 +315,7 @@
             <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Monto de Financiamiento</th>
             <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Garantías Liquidas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-            <!-- <th scope="col">Cantidad de Municipios</th> -->
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Municipios</th> 
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
             <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
@@ -333,7 +333,7 @@
             <td style="text-align: center;"> ${{ monto_VC_templates_2024|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">${{ garantia_VC_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_VC_T_2024 }}</td>
-            <!-- <td></td> -->
+             <td style="text-align: center;">{{ can_municipios_VC_2024 }}</td> 
             <td style="text-align: center;">{{ E100_VC_2024 }}</td>
             <td style="text-align: center;">{{ PI_VC_2024 }}</td>
             <td style="text-align: center;">{{ empleos_VC_T_2024 }}</td>
@@ -349,7 +349,7 @@
             <td style="text-align: center;"> $ {{ monto_IST_templates_2024|floatformat:2|intcomma  }} </td> 
             <td style="text-align: center;">$ {{ garantia_IST_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_IST_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_IST_2024 }}</td> 
             <td style="text-align: center;">{{ E100_IST_2024 }}</td>
             <td style="text-align: center;">{{ PI_IST_2024 }}</td>
             <td style="text-align: center;">{{ empleos_IST_T_2024 }}</td>
@@ -365,7 +365,7 @@
             <td style="text-align: center;">$ {{ monto_COS_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_COS_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_COS_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_COS_2024 }}</td> 
             <td style="text-align: center;">{{ E100_COS_2024 }}</td>
             <td style="text-align: center;">{{ PI_COS_2024 }}</td>
             <td style="text-align: center;">{{ empleos_COS_T_2024 }}</td>
@@ -380,7 +380,7 @@
             <td style="text-align: center;">$ {{ monto_PAPA_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_PAPA_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_PAPA_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_PAPA_2024 }}</td> 
             <td style="text-align: center;">{{ E100_PAPA_2024 }}</td>
             <td style="text-align: center;">{{ PI_PAPA_2024 }}</td>
             <td style="text-align: center;">{{ empleos_PAPA_T_2024 }}</td>
@@ -395,7 +395,7 @@
             <td style="text-align: center;"> $ {{ monto_MIX_templates_2024|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_MIX_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_MIX_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_MIX_2024 }}</td> 
             <td style="text-align: center;">{{ E100_MIX_2024 }}</td>
             <td style="text-align: center;">{{ PI_MIX_2024 }}</td>
             <td style="text-align: center;">{{ empleos_MIX_T_2024 }}</td>
@@ -409,7 +409,7 @@
             <td style="text-align: center;">$ {{ monto_SJ_templates_2024|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">$ {{ garantia_SJ_templates_2024|floatformat:2|intcomma  }} </td>
             <td style="text-align: center;">{{ beneficiarios_SJ_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_SJ_2024 }}</td>
             <td style="text-align: center;">{{ E100_SJ_2024 }}</td>
             <td style="text-align: center;">{{ PI_SJ_2024 }}</td>
             <td style="text-align: center;">{{ empleos_SJ_T_2024 }}</td>
@@ -424,7 +424,7 @@
             <td style="text-align: center;">$ {{ monto_SS_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SS_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SS_T_2024 }}</td>
-            <!-- <td></td> -->
+            <td style="text-align: center;">{{ can_municipios_SS_2024 }}</td> 
             <td style="text-align: center;">{{ E100_SS_2024 }}</td>
             <td style="text-align: center;">{{ PI_SS_2024 }}</td>
             <td style="text-align: center;">{{ empleos_SS_T_2024 }}</td>
@@ -439,7 +439,7 @@
             <td style="text-align: center;">$ {{ monto_SFM_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">$ {{ garantia_SFM_templates_2024|floatformat:2|intcomma  }}</td>
             <td style="text-align: center;">{{ beneficiarios_SFM_T_2024 }}</td>
-            <!-- <td></td> -->
+             <td style="text-align: center;">{{ can_municipios_SFM_2024 }}</td> 
             <td style="text-align: center;">{{ E100_SFM_2024 }}</td>
             <td style="text-align: center;">{{ PI_SFM_2024 }}</td>
             <td style="text-align: center;">{{ empleos_SFM_T_2024 }}</td>
@@ -742,6 +742,109 @@
         </div>
       </div>
     </div>
+
+
+
+    <div class="col-sm-12 col-md-12 pt-4">
+      <div class="card text-center">
+        <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+          PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION
+        </div>
+        <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+          <h5 class="card-title">MONTO TOTAL DE LOS CREDITOS POR SUBSECTOR Y POR REGION</h5>
+          <table class="table" id="myTable9" >
+            <thead>
+              <tr>
+                <th scope="col">SUBSECTOR</th>
+                <th scope="col">VALLES CENTRALES</th>
+                <th scope="col">ISTMO</th>
+                <th scope="col">COSTA</th>
+                <th scope="col">PAPALOAPAN</th>
+                <th scope="col">MIXTECA</th>
+                <th scope="col">SIERRA DE JUAREZ</th>
+                <th scope="col">SIERRA SUR</th>
+                <th scope="col">SIERRA DE FLORES MAGON</th>
+                <th scope="col">TOTAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">AGRICOLA</th>
+                <td style="text-align: center;">${{ valles_agri_monto|floatformat:2|intcomma }} </td>
+                <td style="text-align: center;">${{ istmo_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ costa_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ papa_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ mix_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sjua_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ ssur_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sflm_agri_monto|floatformat:2|intcomma }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_agri_monto|floatformat:2|intcomma }}</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">PECUARIO</th>
+                <td style="text-align: center;">${{ valles_pec_monto|floatformat:2|intcomma }} </td>
+                <td style="text-align: center;">${{ istmo_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ costa_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ papa_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ mix_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sjua_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ ssur_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sflm_pec_monto|floatformat:2|intcomma }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pec_monto|floatformat:2|intcomma }}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">ACUICOLA</th>
+                <td style="text-align: center;">${{ valles_acu_monto|floatformat:2|intcomma }} </td>
+                <td style="text-align: center;">${{ istmo_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ costa_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ papa_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ mix_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sjua_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ ssur_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sflm_acu_monto|floatformat:2|intcomma }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_acu_monto|floatformat:2|intcomma }}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">PESQUERO</th>
+                <td style="text-align: center;">${{ valles_pes_monto|floatformat:2|intcomma }} </td>
+                <td style="text-align: center;">${{ istmo_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ costa_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ papa_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ mix_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sjua_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ ssur_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sflm_pes_monto|floatformat:2|intcomma }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pes_monto|floatformat:2|intcomma }}</td>
+
+              </tr>
+              <tr>
+                <th scope="row">FORESTAL</th>
+                <td style="text-align: center;">${{ valles_for_monto|floatformat:2|intcomma }} </td>
+                <td style="text-align: center;">${{ istmo_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ costa_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ papa_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ mix_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sjua_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ ssur_for_monto|floatformat:2|intcomma }}</td>
+                <td style="text-align: center;">${{ sflm_for_monto|floatformat:2|intcomma }}</td>
+                <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_for_monto|floatformat:2|intcomma }}</td>
+
+              </tr>
+          
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
 </div>
     </div> 
 
