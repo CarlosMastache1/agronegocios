@@ -1092,7 +1092,7 @@ def graficas(request):
         })
 
 
-@login_required
+
 def get_chart(request):
       #MONTOS DE FINANCIAMIENTO
     monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES').aggregate(sumatotal=Sum('monto_total')))
@@ -1160,7 +1160,7 @@ def get_chart(request):
     return JsonResponse(chart)
 
 
-@login_required
+
 def get_chart2(request):
 
     persona_moral = (entidadesFinancieras2.objects.filter(tipo_persona='PERSONA MORAL').count())
@@ -1206,7 +1206,7 @@ def get_chart2(request):
     return JsonResponse(chart)
 
 
-@login_required
+
 def get_chart3(request):
   monto_fira = (entidadesFinancieras2.objects.filter(intermediario_financiero='FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)').aggregate(sumatotal=Sum('monto_total')))
   monto_acre = (entidadesFinancieras2.objects.filter(intermediario_financiero='COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').aggregate(sumatotal=Sum('monto_total')))
@@ -1265,7 +1265,7 @@ def get_chart3(request):
 
   return JsonResponse(chart)
 
-@login_required
+
 def get_chart4(request):
   mayo2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=5, anio=2023).aggregate(sumatotal=Sum('monto_total')))
   junio2023 = (entidadesFinancieras2.objects.annotate(mes=ExtractMonth('fecha_inicio'), anio=ExtractYear('fecha_inicio')).filter(mes=6, anio=2023).aggregate(sumatotal=Sum('monto_total')))
@@ -1364,7 +1364,7 @@ def delete_credit(request, id):
   return redirect('home')
 
 
-@login_required
+
 def get_chart5(request):
 
 #PROYECTOS DE INVERSIÓN POR SUBSECTOR
