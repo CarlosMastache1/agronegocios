@@ -291,6 +291,7 @@
                 <th>NOMBRE DEL PRODUCTOR</th>
                 <th>MUNICIPIO</th>
                 <th>REGIÓN</th>
+                <th>MONTO DEL CREDITO</th>
                 <th>FINANCIERA</th>
                 <th>SUBSECTOR</th>
                 <th>OPCIONES</th>
@@ -306,6 +307,7 @@
                 <td>{{fin.nombre_cliente}}</td>
                 <td>{{fin.municipio.nombre_municipio}}</td>
                 <td>{{fin.municipio.region}}</td>
+                <td>{{fin.monto_total}}</td>
                 <td>{{fin.intermediario_financiero}}</td>
                 <td>{{fin.subsector}}</td>
                 <td><a href="{% url 'creditDetail' fin.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>

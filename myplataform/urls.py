@@ -23,6 +23,7 @@ urlpatterns = [
     path('getcharts3/', views.get_chart3, name='getcharts3'),
     path('getcharts4/', views.get_chart4, name='getcharts4'),
     path('getcharts5/', views.get_chart5, name='getcharts5'),
+    path('get_chart_2023_1/', views.get_chart_2023_1, name='get_chart_2023_1'),
     path('tiendaHome/', views.tiendaIndex, name='tiendaHome'),
     path('categoriaAgricola/', views.tiendaAgricola, name='categoriaAgricola'),
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),

@@ -12,6 +12,7 @@ from django.http.response import JsonResponse
 from random import randrange
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import ExtractYear, ExtractMonth
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -164,6 +165,12 @@ def formProductos(request):
         form = productosForm(request.POST, request.FILES)
         new_prod = form.save(commit=False)
         new_prod.save()
+        # Enviar email de confirmación
+        subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
+        message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
+        from_email = "carlosmastache301@outlook.es"
+        recipient_list = [new_prod.email]
+        send_mail(subject, message, from_email, recipient_list)
         messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
         return redirect('tiendaHome')
 
@@ -1148,6 +1155,73 @@ def get_chart(request):
     'series': [
       {
         'name': 'MONTO DE FINANCIAMIENTO POR REGIÓN (Millones de pesos)',
+        'type': 'bar',
+        'barWidth': '60%',
+        'data': serie,
+        'color' : '#753232'
+      }
+    ]
+
+    }
+
+    return JsonResponse(chart)
+
+
+def get_chart_2023_1(request):
+      #MONTOS DE FINANCIAMIENTO 2023
+    monto_VC = (entidadesFinancieras2.objects.filter(municipio__region='VALLES CENTRALES', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_IST = (entidadesFinancieras2.objects.filter(municipio__region='ISTMO', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_MIX = (entidadesFinancieras2.objects.filter(municipio__region='MIXTECA', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_PAPA = (entidadesFinancieras2.objects.filter(municipio__region='PAPALOAPAN', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_COS = (entidadesFinancieras2.objects.filter(municipio__region='COSTA', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_SJ = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE JUAREZ', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_SS = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA SUR', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+    monto_SFM = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+
+    monto_VC_templates = monto_VC['sumatotal'] 
+    monto_IST_templates = monto_IST['sumatotal'] 
+    monto_MIX_templates = monto_MIX['sumatotal'] 
+    monto_PAPA_templates = monto_PAPA['sumatotal'] 
+    monto_COS_templates = monto_COS['sumatotal'] 
+    monto_SJ_templates = monto_SJ['sumatotal'] 
+    monto_SS_templates = monto_SS['sumatotal']
+    monto_SFM_templates = monto_SFM['sumatotal'] 
+
+    serie=[monto_VC_templates, monto_IST_templates, monto_MIX_templates, monto_PAPA_templates,
+    monto_COS_templates, monto_SJ_templates, monto_SS_templates, monto_SFM_templates]
+    
+    chart = {
+    'tooltip': {
+    'trigger': 'axis',
+    'axisPointer': {
+      'type': 'shadow'
+    }
+  },
+  'grid': {
+    'left': '3%',
+    'right': '4%',
+    'bottom': '3%',
+    'containLabel': 'true'
+  },
+  'xAxis': [
+    {
+      'type': 'category',
+      'data': ['VALLES CENTRALES', 'ISTMO', 'MIXTECA', 'PAPALOAPAN', 'COSTA', 'SIERRA JUAREZ', 'SIERRA SUR', 'SIERRA DE FLORES MAGON'],
+      'axisLabel': {
+                    'rotate': 30,                },
+      'axisTick': {
+        'alignWithLabel': 'true'
+      }
+    }
+  ],
+  'yAxis': [
+    {
+      'type': 'value'
+    }
+  ],
+    'series': [
+      {
+        'name': 'MONTO DE FINANCIAMIENTO POR REGIÓN EN 2023 (Millones de pesos)',
         'type': 'bar',
         'barWidth': '60%',
         'data': serie,

@@ -113,6 +113,27 @@ window.addEventListener("load", async()=>{
 
 });  
   
+//Primera grafica 2023
+const getOptionChart6 = async () =>{
+    try{
+       const response = await fetch("https://sefader-agronegocios.com/get_chart_2023_1/");
+       return await response.json();
+    } catch (ex) {
+       alert(ex);
+    }
+};
+
+
+const initChart6 = async()=>{
+    const myChart =echarts.init(document.getElementById("chart6"));
+    myChart.setOption(await getOptionChart6());
+    myChart.resize();
+};
+
+window.addEventListener("load", async()=>{
+    await initChart6();
+
+});  
 
 document.addEventListener("DOMContentLoaded", () => {
     const menuIcon = document.getElementById("menu-icon");

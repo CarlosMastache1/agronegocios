@@ -177,8 +177,24 @@
             </div>
                 <div class="input-field">
                     <input name="volumen_produccion" type="text" id="volumen" required>
-                    <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
+                    <label for="volumen">VOLUMEN DE PRODUCCIÓN (Toneladas)</label>
                 </div>
+
+                <div class="input-field">
+                    <select name="disponibilidad_entrega" required>
+                        <option value="0" disabled selected >ELIGE UNA OPCIÓN</option>
+                        <option value="SEMANAL">SEMANAL</option>
+                        <option value="MENSUAL">MENSUAL</option>
+                        <option value="BIMESTRAL">BIMESTRAL</option>
+                        <option value="TRIMESTRAL">TRIMESTRAL</option>
+                        <option value="CUATRIMESTRAL">CUATRIMESTRAL</option>
+                        <option value="SEMESTRAL">SEMESTRAL</option>
+                        <option value="ANUAL">ANUAL</option>
+
+                    </select>
+                    <label>DISPONIBILIDAD DE ENTREGA</label>
+                </div>
+
                 <div class="input-field">
                     <input name="telefono" type="tel" id="telefono" required>
                     <label for="telefono">NÚMERO TELEFÓNICO</label>

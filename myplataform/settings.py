@@ -87,27 +87,27 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 
 # BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-                                                            'default': {
-                                                             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                                                             'NAME': 'agronegocios',
-                                                             'USER': 'carlos',
-                                                             'PASSWORD': 'mastache123',
-                                                             'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-                                                             'PORT': '5432', 
-                                                        }
-                                                     }
+                                                             'default': {
+                                                              'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                                                              'NAME': 'agronegocios',
+                                                              'USER': 'carlos',
+                                                              'PASSWORD': 'mastache123',
+                                                              'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+                                                              'PORT': '5432', 
+                                                         }
+                                                      }
 
 # BASE DE DATOS PARA DESARROLLO
 # DATABASES = {
-#                                                            'default': {
-#                                                             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                             'NAME': 'developer',
-#                                                             'USER': 'postgres', 
-#                                                             'PASSWORD': 'mastache', 
-#                                                             'HOST': 'localhost',
-#                                                             'PORT': '5432'
-#                                                         }
-#                                                      } 
+#                                                             'default': {
+#                                                              'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                                                              'NAME': 'developer',
+#                                                              'USER': 'postgres', 
+#                                                              'PASSWORD': 'mastache', 
+#                                                              'HOST': 'localhost',
+#                                                              'PORT': '5432'
+#                                                          }
+#                                                       } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -164,3 +164,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-3fb5.up.railway.app', 'https://sefader-agronegocios.com']
+
+#PERMISO PARA MANDAR CORREO ELECTRONICO
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.office365.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+EMAIL_HOST_USER = "carlosmastache301@outlook.es"
+EMAIL_HOST_PASSWORD = "mastache123"

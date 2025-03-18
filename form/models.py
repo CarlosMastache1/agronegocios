@@ -107,6 +107,7 @@ class productos(models.Model):
     subsector = models.CharField(max_length=50, blank=True, null=True) 
     categoria = models.CharField(max_length=50, blank=True, null=True) 
     volumen_produccion = models.CharField(max_length=50, blank=True, null=True)
+    disponibilidad_entrega = models.CharField(max_length=50,  blank=True, null=True)
     telefono = models.CharField(max_length=12, blank=True, null=True) 
     email = models.CharField(max_length=50, blank=True, null=True)
     imagenProd = models.ImageField(upload_to='imagenes/', default='IMAGEN PRODUCTO')
