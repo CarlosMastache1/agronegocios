@@ -20,6 +20,7 @@ urlpatterns = [
     path('graficaPubli/', views.graficasPublicas, name='graficaPubli'),
     path('getcharts/', views.get_chart, name='getcharts'),
     path('getcharts2/', views.get_chart2, name='getcharts2'),
+    path('getcharts22023/', views.get_chart22023, name='getcharts22023'),
     path('getcharts3/', views.get_chart3, name='getcharts3'),
     path('getcharts4/', views.get_chart4, name='getcharts4'),
     path('getcharts5/', views.get_chart5, name='getcharts5'),

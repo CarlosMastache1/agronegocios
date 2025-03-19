@@ -700,6 +700,7 @@
       </table>
 
       <div class="row ">
+
         <div class="col-sm-12 col-md-12 pt-4">
           <div class="card text-center">
             <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
@@ -714,6 +715,29 @@
                 <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
                   <h5 class="card-title">MONTO DE FINANCIAMIENTO POR REGIÓN 2023</h5>
                   <div id="chart6" class="chart6"></div>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      
+   
+
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              PROYECTOS POR TIPO DE PERSONA FISICA O MORAL        </div>
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://mexico.quadratin.com.mx/www/wp-content/uploads/2020/07/Campo-mexicano-econom%C3%ADa-agricultura-campesinos-sembrar-siembra-paisaje-con-nuubes-lluvia-FOTO-SADER-200730-AGRICULTURA-INIFAP-FRIJOL-8-1160x700.jpg" class="card-img" alt="...">
+               <br> <br> <p style="color: #460317; text-align: justify;">Dentro de los proyectos con financiamiento otorgados se contempló el hecho de que fueran personas físicas o morales en el cual se realizo un dato cuantitativo de las mismas que se puede observar en el gráfico. </p>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                  <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL</h5>
+                  <div id="chart7" class="chart7"></div>
     
                 </div>
               </div>
@@ -721,6 +745,7 @@
           </div>
     
         </div>
+    
       </div>
 
       
@@ -873,10 +898,39 @@
 
 
 
+ 
+
     </div> 
 
 
 
+    <script>
+const getOptionChart2023 = async (url) => {
+    try {
+        const response = await fetch(url);
+        return await response.json();
+    } catch (ex) {
+        alert("Error al cargar los datos de la gráfica: " + ex);
+    }
+}
+
+
+const initChart2023 = async (chartId, url) => {
+    const myChart = echarts.init(document.getElementById(chartId));
+    const options = await getOptionChart2023(url);  // Usamos la URL pasada como parámetro
+    if (options) {
+        myChart.setOption(options);
+        myChart.resize(); // Redimensionamos para asegurarnos de que se ajuste al contenedor
+    }
+};
+
+window.addEventListener("load", () => {
+    // Cargar gráficas con URLs diferentes
+    initChart2023("chart6", "http://127.0.0.1:8000/get_chart_2023_1/");  // URL para la gráfica 1
+
+});
+      </script>
+      
 
 
   

@@ -1187,7 +1187,7 @@ def get_chart_2023_1(request):
     monto_SS_templates = monto_SS['sumatotal']
     monto_SFM_templates = monto_SFM['sumatotal'] 
 
-    serie=[monto_VC_templates, monto_IST_templates, monto_MIX_templates, monto_PAPA_templates,
+    serie12023=[monto_VC_templates, monto_IST_templates, monto_MIX_templates, monto_PAPA_templates,
     monto_COS_templates, monto_SJ_templates, monto_SS_templates, monto_SFM_templates]
     
     chart = {
@@ -1224,7 +1224,7 @@ def get_chart_2023_1(request):
         'name': 'MONTO DE FINANCIAMIENTO POR REGIÓN EN 2023 (Millones de pesos)',
         'type': 'bar',
         'barWidth': '60%',
-        'data': serie,
+        'data': serie12023,
         'color' : '#753232'
       }
     ]
@@ -1280,6 +1280,53 @@ def get_chart2(request):
     return JsonResponse(chart)
 
 
+#Grafica 2 2023
+def get_chart22023(request):
+
+    persona_moral = (entidadesFinancieras2.objects.filter(tipo_persona='PERSONA MORAL', fecha_inicio__year=2023).count())
+    persona_fisica = (entidadesFinancieras2.objects.filter(tipo_persona='PERSONA FISICA', fecha_inicio__year=2023).count())
+
+    chart = {
+    'tooltip': {
+    'trigger': 'item'
+  },
+  'legend': {
+    'top': '5%',
+    'left': 'center'
+  },
+  'series': [
+    {
+      'name': 'PROYECTOS POR TIPO DE PERSONA FISICA O MORAL',
+      'type': 'pie',
+      'radius': ['40%', '70%'],
+      'avoidLabelOverlap': 'false',
+      'label': {
+        'show': 'false',
+        'position': 'center'
+      },
+      'emphasis': {
+        'label': {
+          'show': 'true',
+          'fontSize': '40',
+          'fontWeight': 'bold'
+        }
+      },
+      'labelLine': {
+        'show': 'false'
+      },
+      'data': [
+        { 'value': persona_moral, 'name': 'Persona Moral' },
+        { 'value': persona_fisica, 'name': 'Persona Fisica'}
+      ]
+    }
+  ]
+
+    }
+
+    return JsonResponse(chart)
+
+
+
 
 def get_chart3(request):
   monto_fira = (entidadesFinancieras2.objects.filter(intermediario_financiero='FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)').aggregate(sumatotal=Sum('monto_total')))
@@ -1287,6 +1334,66 @@ def get_chart3(request):
   monto_finde = (entidadesFinancieras2.objects.filter(intermediario_financiero='FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE').aggregate(sumatotal=Sum('monto_total')))
   monto_nea = (entidadesFinancieras2.objects.filter(intermediario_financiero='NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE').aggregate(sumatotal=Sum('monto_total')))
   monto_csd = (entidadesFinancieras2.objects.filter(intermediario_financiero='CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').aggregate(sumatotal=Sum('monto_total')))
+
+  monto_fira_t = monto_fira['sumatotal'] 
+  monto_acre_t = monto_acre['sumatotal'] 
+  monto_finde_t = monto_finde['sumatotal'] 
+  monto_nea_t = monto_nea['sumatotal']
+  monto_csd_t = monto_csd['sumatotal'] 
+
+  serie = [monto_fira_t, monto_acre_t, monto_finde_t, monto_nea_t, monto_csd_t]
+
+  chart = {
+    'tooltip': {
+    'trigger': 'axis',
+    'axisPointer': {
+      'type': 'shadow'
+    }
+  },
+  'grid': {
+    'left': '3%',
+    'right': '4%',
+    'bottom': '3%',
+    'containLabel': 'true'
+  },
+  'xAxis': [
+    {
+      'type': 'category',
+      'data': ['FIRA', 'ACREIMEX', 'FINDECA', 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA', 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC'],
+      'axisLabel': {
+                    'rotate': 30,                },
+      'axisTick': {
+        'alignWithLabel': 'true'
+      }
+    }
+  ],
+  'yAxis': [
+    {
+      'type': 'value'
+    }
+  ],
+    'series': [
+      {
+        'name': 'MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO',
+        'type': 'bar',
+        'barWidth': '60%',
+        'data': serie,
+        'color' : '#753232'
+      }
+    ]
+
+    }
+
+  return JsonResponse(chart)
+
+
+#GRAFICA3 2023
+def get_chart32023(request):
+  monto_fira = (entidadesFinancieras2.objects.filter(intermediario_financiero='FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+  monto_acre = (entidadesFinancieras2.objects.filter(intermediario_financiero='COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+  monto_finde = (entidadesFinancieras2.objects.filter(intermediario_financiero='FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+  monto_nea = (entidadesFinancieras2.objects.filter(intermediario_financiero='NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
+  monto_csd = (entidadesFinancieras2.objects.filter(intermediario_financiero='CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO', fecha_inicio__year=2023).aggregate(sumatotal=Sum('monto_total')))
 
   monto_fira_t = monto_fira['sumatotal'] 
   monto_acre_t = monto_acre['sumatotal'] 

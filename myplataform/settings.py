@@ -174,4 +174,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 EMAIL_HOST_USER = "carlosmastache301@outlook.es"
-EMAIL_HOST_PASSWORD = "mastache123"
+EMAIL_HOST_PASSWORD = "hbtyzbognbtwdktm"
