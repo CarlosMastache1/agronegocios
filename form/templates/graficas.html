@@ -158,6 +158,20 @@
 
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Total</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCPG}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalMFG|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalGLG|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalBG}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCMG}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalE100G}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalPIG}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalEDG}}</th>
+
+          </tr>
+      </tfoot>
       </table>
 
       <div class="row ">
@@ -697,6 +711,21 @@
 
           </tr>
         </tbody>
+
+        <tfoot>
+          <tr>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Total</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCPG_2023}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalMFG_2023|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalGLG_2023|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalBG_2023}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCMG_2023}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalE100G_2023}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalPIG_2023}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalEDG_2023}}</th>
+
+          </tr>
+      </tfoot>
       </table>
 
       <div class="row ">
@@ -714,13 +743,11 @@
               <div class="col-md-8">
                 <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
                   <h5 class="card-title">MONTO DE FINANCIAMIENTO POR REGIÓN 2023</h5>
-                  <div id="chart6" class="chart6"></div>
-      
+                  <div id="chart6"  style="width: 100%; min-height: 400px;"></div>
                 </div>
               </div>
             </div>
           </div>
-      
         </div>
       
    
@@ -728,7 +755,7 @@
         <div class="col-sm-12 col-md-12 pt-4">
           <div class="card text-center">
             <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
-              PROYECTOS POR TIPO DE PERSONA FISICA O MORAL        </div>
+              PROYECTOS POR TIPO DE PERSONA FISICA O MORAL 2023        </div>
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="https://mexico.quadratin.com.mx/www/wp-content/uploads/2020/07/Campo-mexicano-econom%C3%ADa-agricultura-campesinos-sembrar-siembra-paisaje-con-nuubes-lluvia-FOTO-SADER-200730-AGRICULTURA-INIFAP-FRIJOL-8-1160x700.jpg" class="card-img" alt="...">
@@ -736,8 +763,28 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
-                  <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL</h5>
-                  <div id="chart7" class="chart7"></div>
+                  <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL 2023</h5>
+                  <div id="chart7" style="width: 100%; min-height: 400px;"></div>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO  2023      </div>
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://www.shutterstock.com/image-photo/smart-farm-digital-agriculture-inspect-600nw-2533080355.jpg" class="card-img" alt="...">
+                <p style="color: #460317; text-align: justify;"> La SEFADER cuenta con convenios con diferentes intermediarios financieros de primer y segundo piso, mediante análisis estadísticos podemos observar en la gráfica de barras los intermediarios con los montos de financiamiento otorgados. </p>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                  <h5 class="card-title">MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO 2023</h5>
+                  <div id="chart8" style="width: 100%; min-height: 400px;"></div>
     
                 </div>
               </div>
@@ -745,6 +792,303 @@
           </div>
     
         </div>
+
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              PROYECTOS POR CONCEPTO DE APOYO 2023
+            </div>
+            <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">PROYECTOS POR CONCEPTO DE APOYO 2023 </h5>
+              <table class="table" id="myTable5">
+                <thead >
+                  <tr>
+                    <th scope="col">CONCEPTOS DE APOYO</th>
+                    <th scope="col">CANTIDAD DE PROYECTOS</th>
+                    <th scope="col">MONTO DE FINANCIAMIENTO</th>
+                    <th scope="col">GARANTÍAS LÍQUIDAS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">CAPITAL DE TRABAJO</th>
+                    <td style="text-align: center;">{{ cantidad_ct_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_ct_2023|floatformat:2|intcomma   }} </td>
+                    <td style="text-align: center;">${{ garantias_ct_2023|floatformat:2|intcomma   }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EQUIPAMIENTO</th>
+                    <td style="text-align: center;">{{ cantidad_eq_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_eq_2023|floatformat:2|intcomma   }}  </td>
+                    <td style="text-align: center;">${{ garantias_eq_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">INFRAESTRUCTURA AGROALIMENTARIA</th>
+                    <td style="text-align: center;">{{ cantidad_iaa_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_iaa_2023|floatformat:2|intcomma   }}</td>
+                    <td style="text-align: center;">${{ garantias_iaa_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">INFRAESTRUCTURA AGROINDUSTRIAL</th>
+                    <td style="text-align: center;">{{ cantidad_iai_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_iai_2023|floatformat:2|intcomma   }}</td>
+                    <td style="text-align: center;">${{ garantias_iai_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">AGRICULTURA PROTEGIDA</th>
+                    <td style="text-align: center;">{{ cantidad_ap_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_ap_2023|floatformat:2|intcomma   }}</td>
+                    <td style="text-align: center;">${{ garantias_ap_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">MECANIZACIÓN</th>
+                    <td style="text-align: center;">{{ cantidad_mec_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_mec_2023|floatformat:2|intcomma   }}</td>
+                    <td style="text-align: center;">${{ garantias_mec_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">REHABILITACIÓN</th>
+                    <td style="text-align: center;">{{ cantidad_re_2023 }}</td>
+                    <td style="text-align: center;">${{ monto_re_2023|floatformat:2|intcomma   }} </td>
+                    <td style="text-align: center;">${{ garantias_re_2023|floatformat:2|intcomma   }}</td>
+                  </tr>
+                </tbody>
+            <!--     <tfoot style="text-align: center;">
+                  <tr>
+                      <th scope="row">Total</th>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+    
+                  </tr>
+              </tfoot> -->
+              </table>
+              
+              
+    
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              PROYECTOS DE INVERSIÓN POR SUBSECTOR 2023        </div>
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://agroinfo.enae.es/wp-content/uploads/2017/06/cadena-alimentaria.jpg" class="card-img" alt="...">
+               <br> <br> <p style="color: #460317; font-size: 17px; text-align: justify;">El programa de agronegocios tiene como cobertura apoyar al sector agroalimentario y agroindustrial. El diagrama ilustrado representa la distribución de los proyectos de inversión por subsector, en el cual se concentran los datos de los diferentes subsectores por cantidad de proyectos registrados. </p>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                  <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR 2023</h5>
+                  <div id="chart9" style="width: 100%; min-height: 400px;"></div>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+
+
+            
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2023
+            </div>
+            <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2023</h5>
+              <table class="table table-responsive  text-center" id="myTable6" >
+                <thead>
+                  <tr>
+                    <th scope="col">SUBSECTOR</th>
+                    <th scope="col">VALLES CENTRALES</th>
+                    <th scope="col">ISTMO</th>
+                    <th scope="col">COSTA</th>
+                    <th scope="col">PAPALOAPAN</th>
+                    <th scope="col">MIXTECA</th>
+                    <th scope="col">SIERRA DE JUAREZ</th>
+                    <th scope="col">SIERRA SUR</th>
+                    <th scope="col">SIERRA DE FLORES MAGON</th>
+                    <th scope="col">TOTAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">AGRICOLA</th>
+                    <td style="text-align: center;">{{ valles_agri_2023 }} </td>
+                    <td style="text-align: center;">{{ istmo_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ costa_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ papa_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ mix_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ sjua_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ ssur_agri_2023 }}</td>
+                    <td style="text-align: center;">{{ sflm_agri_2023 }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_agri_2023 }}</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">PECUARIO</th>
+                    <td style="text-align: center;">{{ valles_pec_2023 }} </td>
+                    <td style="text-align: center;">{{ istmo_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ costa_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ papa_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ mix_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ sjua_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ ssur_pec_2023 }}</td>
+                    <td style="text-align: center;">{{ sflm_pec_2023 }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pec_2023 }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">ACUICOLA</th>
+                    <td style="text-align: center;">{{ valles_acu_2023 }} </td>
+                    <td style="text-align: center;">{{ istmo_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ costa_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ papa_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ mix_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ sjua_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ ssur_acu_2023 }}</td>
+                    <td style="text-align: center;">{{ sflm_acu_2023 }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_acu_2023 }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">PESQUERO</th>
+                    <td style="text-align: center;">{{ valles_pes_2023 }} </td>
+                    <td style="text-align: center;">{{ istmo_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ costa_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ papa_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ mix_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ sjua_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ ssur_pes_2023 }}</td>
+                    <td style="text-align: center;">{{ sflm_pes_2023 }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pes_2023 }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">FORESTAL</th>
+                    <td style="text-align: center;">{{ valles_for_2023 }} </td>
+                    <td style="text-align: center;">{{ istmo_for_2023 }}</td>
+                    <td style="text-align: center;">{{ costa_for_2023 }}</td>
+                    <td style="text-align: center;">{{ papa_for_2023 }}</td>
+                    <td style="text-align: center;">{{ mix_for_2023 }}</td>
+                    <td style="text-align: center;">{{ sjua_for_2023 }}</td>
+                    <td style="text-align: center;">{{ ssur_for_2023 }}</td>
+                    <td style="text-align: center;">{{ sflm_for_2023 }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_for_2023 }}</td>
+    
+                  </tr>
+              
+                </tbody>
+              </table>
+    
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-12 pt-4">
+          <div class="card text-center">
+            <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+              PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2023
+            </div>
+            <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+              <h5 class="card-title">MONTO TOTAL DE LOS CREDITOS POR SUBSECTOR Y POR REGION 2023</h5>
+              <table class="table table-responsive  text-center" id="myTable9" >
+                <thead>
+                  <tr>
+                    <th scope="col">SUBSECTOR</th>
+                    <th scope="col">VALLES CENTRALES</th>
+                    <th scope="col">ISTMO</th>
+                    <th scope="col">COSTA</th>
+                    <th scope="col">PAPALOAPAN</th>
+                    <th scope="col">MIXTECA</th>
+                    <th scope="col">SIERRA DE JUAREZ</th>
+                    <th scope="col">SIERRA SUR</th>
+                    <th scope="col">SIERRA DE FLORES MAGON</th>
+                    <th scope="col">TOTAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">AGRICOLA</th>
+                    <td style="text-align: center;">${{ valles_agri_monto_2023|floatformat:2|intcomma }} </td>
+                    <td style="text-align: center;">${{ istmo_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ costa_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ papa_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ mix_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sjua_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ ssur_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sflm_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_agri_monto_2023|floatformat:2|intcomma }}</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">PECUARIO</th>
+                    <td style="text-align: center;">${{ valles_pec_monto_2023|floatformat:2|intcomma }} </td>
+                    <td style="text-align: center;">${{ istmo_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ costa_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ papa_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ mix_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sjua_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ ssur_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sflm_pec_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pec_monto_2023|floatformat:2|intcomma }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">ACUICOLA</th>
+                    <td style="text-align: center;">${{ valles_acu_monto_2023|floatformat:2|intcomma }} </td>
+                    <td style="text-align: center;">${{ istmo_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ costa_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ papa_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ mix_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sjua_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ ssur_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sflm_acu_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_acu_monto_2023|floatformat:2|intcomma }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">PESQUERO</th>
+                    <td style="text-align: center;">${{ valles_pes_monto_2023|floatformat:2|intcomma }} </td>
+                    <td style="text-align: center;">${{ istmo_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ costa_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ papa_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ mix_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sjua_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ ssur_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sflm_pes_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pes_monto_2023|floatformat:2|intcomma }}</td>
+    
+                  </tr>
+                  <tr>
+                    <th scope="row">FORESTAL</th>
+                    <td style="text-align: center;">${{ valles_for_monto_2023|floatformat:2|intcomma }} </td>
+                    <td style="text-align: center;">${{ istmo_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ costa_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ papa_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ mix_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sjua_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ ssur_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="text-align: center;">${{ sflm_for_monto_2023|floatformat:2|intcomma }}</td>
+                    <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_for_monto_2023|floatformat:2|intcomma }}</td>
+    
+                  </tr>
+              
+                </tbody>
+              </table>
+    
+            </div>
+          </div>
+        </div>
+    
+    
+     
+    
     
       </div>
 
@@ -891,7 +1235,380 @@
 
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Total</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCPG_2024}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalMFG_2024|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalGLG_2024|floatformat:2|intcomma }}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalBG_2024}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCMG_2024}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalE100G_2024}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalPIG_2024}}</th>
+            <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalEDG_2024}}</th>
+
+          </tr>
+      </tfoot>
       </table>
+
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            MONTO DE FINANCIAMIENTO POR REGIÓN  2024
+          </div>
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://www.cronista.com/files/image/326/326941/6076efb80fdf8.jpg" class="card-img" alt="...">
+              <p style="color: #460317;  text-align: justify;"> El grafico estadístico muestra el monto del financiamiento de los proyectos apoyados dentro del programa de agronegocios en las regiones que conforman el estado de Oaxaca en el año 2024. </p>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                <h5 class="card-title">MONTO DE FINANCIAMIENTO POR REGIÓN 2024</h5>
+                <div id="chart10"  style="width: 100%; min-height: 400px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            PROYECTOS POR TIPO DE PERSONA FISICA O MORAL  2024     </div>
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://mexico.quadratin.com.mx/www/wp-content/uploads/2020/07/Campo-mexicano-econom%C3%ADa-agricultura-campesinos-sembrar-siembra-paisaje-con-nuubes-lluvia-FOTO-SADER-200730-AGRICULTURA-INIFAP-FRIJOL-8-1160x700.jpg" class="card-img" alt="...">
+             <br> <br> <p style="color: #460317; text-align: justify;">Dentro de los proyectos con financiamiento otorgados se contempló el hecho de que fueran personas físicas o morales en el cual se realizo un dato cuantitativo de las mismas que se puede observar en el gráfico. </p>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                <h5 class="card-title">PROYECTOS POR TIPO DE PERSONA FISICA O MORAL 2024</h5>
+                <div id="chart11" style="width: 100%; min-height: 400px;"></div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO  2024      </div>
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://www.shutterstock.com/image-photo/smart-farm-digital-agriculture-inspect-600nw-2533080355.jpg" class="card-img" alt="...">
+              <p style="color: #460317; text-align: justify;"> La SEFADER cuenta con convenios con diferentes intermediarios financieros de primer y segundo piso, mediante análisis estadísticos podemos observar en la gráfica de barras los intermediarios con los montos de financiamiento otorgados. </p>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                <h5 class="card-title">MONTO DE FINANCIAMIENTO POR INTERMEDIARIO FINANCIERO 2024</h5>
+                <div id="chart12" style="width: 100%; min-height: 400px;"></div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            PROYECTOS POR CONCEPTO DE APOYO 2024
+          </div>
+          <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+            <h5 class="card-title">PROYECTOS POR CONCEPTO DE APOYO 2024 </h5>
+            <table class="table" id="myTable5">
+              <thead >
+                <tr>
+                  <th scope="col">CONCEPTOS DE APOYO</th>
+                  <th scope="col">CANTIDAD DE PROYECTOS</th>
+                  <th scope="col">MONTO DE FINANCIAMIENTO</th>
+                  <th scope="col">GARANTÍAS LÍQUIDAS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">CAPITAL DE TRABAJO</th>
+                  <td style="text-align: center;">{{ cantidad_ct_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_ct_2024|floatformat:2|intcomma   }} </td>
+                  <td style="text-align: center;">${{ garantias_ct_2024|floatformat:2|intcomma   }} </td>
+                </tr>
+                <tr>
+                  <th scope="row">EQUIPAMIENTO</th>
+                  <td style="text-align: center;">{{ cantidad_eq_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_eq_2024|floatformat:2|intcomma   }}  </td>
+                  <td style="text-align: center;">${{ garantias_eq_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">INFRAESTRUCTURA AGROALIMENTARIA</th>
+                  <td style="text-align: center;">{{ cantidad_iaa_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_iaa_2024|floatformat:2|intcomma   }}</td>
+                  <td style="text-align: center;">${{ garantias_iaa_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">INFRAESTRUCTURA AGROINDUSTRIAL</th>
+                  <td style="text-align: center;">{{ cantidad_iai_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_iai_2024|floatformat:2|intcomma   }}</td>
+                  <td style="text-align: center;">${{ garantias_iai_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">AGRICULTURA PROTEGIDA</th>
+                  <td style="text-align: center;">{{ cantidad_ap_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_ap_2024|floatformat:2|intcomma   }}</td>
+                  <td style="text-align: center;">${{ garantias_ap_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">MECANIZACIÓN</th>
+                  <td style="text-align: center;">{{ cantidad_mec_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_mec_2024|floatformat:2|intcomma   }}</td>
+                  <td style="text-align: center;">${{ garantias_mec_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">REHABILITACIÓN</th>
+                  <td style="text-align: center;">{{ cantidad_re_2024 }}</td>
+                  <td style="text-align: center;">${{ monto_re_2024|floatformat:2|intcomma   }} </td>
+                  <td style="text-align: center;">${{ garantias_re_2024|floatformat:2|intcomma   }}</td>
+                </tr>
+              </tbody>
+          <!--     <tfoot style="text-align: center;">
+                <tr>
+                    <th scope="row">Total</th>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+  
+                </tr>
+            </tfoot> -->
+            </table>
+            
+            
+  
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            PROYECTOS DE INVERSIÓN POR SUBSECTOR 2024        </div>
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://agroinfo.enae.es/wp-content/uploads/2017/06/cadena-alimentaria.jpg" class="card-img" alt="...">
+             <br> <br> <p style="color: #460317; font-size: 17px; text-align: justify;">El programa de agronegocios tiene como cobertura apoyar al sector agroalimentario y agroindustrial. El diagrama ilustrado representa la distribución de los proyectos de inversión por subsector, en el cual se concentran los datos de los diferentes subsectores por cantidad de proyectos registrados. </p>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body"  style="background-color: #ffe3ecfd; color: #460317;">
+                <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR 2024</h5>
+                <div id="chart13" style="width: 100%; min-height: 400px;"></div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+
+
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2024
+          </div>
+          <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+            <h5 class="card-title">PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2024</h5>
+            <table class="table table-responsive  text-center" id="myTable6" >
+              <thead>
+                <tr>
+                  <th scope="col">SUBSECTOR</th>
+                  <th scope="col">VALLES CENTRALES</th>
+                  <th scope="col">ISTMO</th>
+                  <th scope="col">COSTA</th>
+                  <th scope="col">PAPALOAPAN</th>
+                  <th scope="col">MIXTECA</th>
+                  <th scope="col">SIERRA DE JUAREZ</th>
+                  <th scope="col">SIERRA SUR</th>
+                  <th scope="col">SIERRA DE FLORES MAGON</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">AGRICOLA</th>
+                  <td style="text-align: center;">{{ valles_agri_2024 }} </td>
+                  <td style="text-align: center;">{{ istmo_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ costa_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ papa_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ mix_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ sjua_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ ssur_agri_2024 }}</td>
+                  <td style="text-align: center;">{{ sflm_agri_2024 }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_agri_2024 }}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">PECUARIO</th>
+                  <td style="text-align: center;">{{ valles_pec_2024 }} </td>
+                  <td style="text-align: center;">{{ istmo_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ costa_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ papa_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ mix_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ sjua_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ ssur_pec_2024 }}</td>
+                  <td style="text-align: center;">{{ sflm_pec_2024 }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pec_2024 }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">ACUICOLA</th>
+                  <td style="text-align: center;">{{ valles_acu_2024 }} </td>
+                  <td style="text-align: center;">{{ istmo_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ costa_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ papa_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ mix_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ sjua_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ ssur_acu_2024 }}</td>
+                  <td style="text-align: center;">{{ sflm_acu_2024 }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_acu_2024 }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">PESQUERO</th>
+                  <td style="text-align: center;">{{ valles_pes_2024 }} </td>
+                  <td style="text-align: center;">{{ istmo_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ costa_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ papa_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ mix_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ sjua_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ ssur_pes_2024 }}</td>
+                  <td style="text-align: center;">{{ sflm_pes_2024 }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_pes_2024 }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">FORESTAL</th>
+                  <td style="text-align: center;">{{ valles_for_2024 }} </td>
+                  <td style="text-align: center;">{{ istmo_for_2024 }}</td>
+                  <td style="text-align: center;">{{ costa_for_2024 }}</td>
+                  <td style="text-align: center;">{{ papa_for_2024 }}</td>
+                  <td style="text-align: center;">{{ mix_for_2024 }}</td>
+                  <td style="text-align: center;">{{ sjua_for_2024 }}</td>
+                  <td style="text-align: center;">{{ ssur_for_2024 }}</td>
+                  <td style="text-align: center;">{{ sflm_for_2024 }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">{{ total_for_2024 }}</td>
+  
+                </tr>
+            
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-12 col-md-12 pt-4">
+        <div class="card text-center">
+          <div class="card-header" style="background-color: #9d2449; color: white; font-weight: bold;">
+            PROYECTOS DE INVERSIÓN POR SUBSECTOR Y POR REGION 2024
+          </div>
+          <div class="card-body" style="background-color: #ffe3ecfd; color: #460317;">
+            <h5 class="card-title">MONTO TOTAL DE LOS CREDITOS POR SUBSECTOR Y POR REGION 2024</h5>
+            <table class="table table-responsive  text-center" id="myTable9" >
+              <thead>
+                <tr>
+                  <th scope="col">SUBSECTOR</th>
+                  <th scope="col">VALLES CENTRALES</th>
+                  <th scope="col">ISTMO</th>
+                  <th scope="col">COSTA</th>
+                  <th scope="col">PAPALOAPAN</th>
+                  <th scope="col">MIXTECA</th>
+                  <th scope="col">SIERRA DE JUAREZ</th>
+                  <th scope="col">SIERRA SUR</th>
+                  <th scope="col">SIERRA DE FLORES MAGON</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">AGRICOLA</th>
+                  <td style="text-align: center;">${{ valles_agri_monto_2024|floatformat:2|intcomma }} </td>
+                  <td style="text-align: center;">${{ istmo_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ costa_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ papa_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ mix_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sjua_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ ssur_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sflm_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_agri_monto_2024|floatformat:2|intcomma }}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">PECUARIO</th>
+                  <td style="text-align: center;">${{ valles_pec_monto_2024|floatformat:2|intcomma }} </td>
+                  <td style="text-align: center;">${{ istmo_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ costa_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ papa_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ mix_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sjua_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ ssur_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sflm_pec_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pec_monto_2024|floatformat:2|intcomma }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">ACUICOLA</th>
+                  <td style="text-align: center;">${{ valles_acu_monto_2024|floatformat:2|intcomma }} </td>
+                  <td style="text-align: center;">${{ istmo_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ costa_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ papa_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ mix_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sjua_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ ssur_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sflm_acu_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_acu_monto_2024|floatformat:2|intcomma }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">PESQUERO</th>
+                  <td style="text-align: center;">${{ valles_pes_monto_2024|floatformat:2|intcomma }} </td>
+                  <td style="text-align: center;">${{ istmo_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ costa_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ papa_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ mix_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sjua_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ ssur_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sflm_pes_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_pes_monto_2024|floatformat:2|intcomma }}</td>
+  
+                </tr>
+                <tr>
+                  <th scope="row">FORESTAL</th>
+                  <td style="text-align: center;">${{ valles_for_monto_2024|floatformat:2|intcomma }} </td>
+                  <td style="text-align: center;">${{ istmo_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ costa_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ papa_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ mix_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sjua_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ ssur_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="text-align: center;">${{ sflm_for_monto_2024|floatformat:2|intcomma }}</td>
+                  <td style="background-color: #9d2449; color: white; font-weight: bold;">${{ total_for_monto_2024|floatformat:2|intcomma }}</td>
+  
+                </tr>
+            
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+  
+  
 
     </div>
   </div>
@@ -902,35 +1619,73 @@
 
     </div> 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Función para inicializar una gráfica
+    const initChart2023 = async (chartId, url) => {
+        console.log(`Intentando inicializar ${chartId} desde ${url}`); // DEPURACIÓN
+        const chartElement = document.getElementById(chartId);
+        if (!chartElement) {
+            console.warn(`No se encontró el elemento ${chartId}`);
+            return;
+        }
+
+        const myChart = echarts.init(chartElement);
+        const options = await getOptionChart2023(url);
+
+        if (options) {
+            myChart.setOption(options);
+            myChart.resize();
+            console.log(`✅ Gráfica ${chartId} inicializada correctamente`);
+        } else {
+            console.error(`❌ Error al obtener datos para ${chartId}`);
+        }
+    };
+
+    // Función para obtener los datos de la API
+    const getOptionChart2023 = async (url) => {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+            return await response.json();
+        } catch (ex) {
+            console.error("Error al cargar datos:", ex);
+        }
+    };
 
 
-    <script>
-const getOptionChart2023 = async (url) => {
-    try {
-        const response = await fetch(url);
-        return await response.json();
-    } catch (ex) {
-        alert("Error al cargar los datos de la gráfica: " + ex);
-    }
-}
+
+    // Detectar cambio de tab en Bootstrap Pills
+    document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
+        tab.addEventListener("shown.bs.tab", function (event) {
+            const targetTab = event.target.getAttribute("data-bs-target"); // ID del tab activo
+            console.log(`➡ Tab activo: ${targetTab}`); // DEPURACIÓN
+
+            if (targetTab === "#pills-profile") { 
+                initChart2023("chart6", "https://sefader-agronegocios.com/get_chart_2023_1/");
+                initChart2023("chart7", "https://sefader-agronegocios.com/get_chart_2023_2/");
+                initChart2023("chart8", "https://sefader-agronegocios.com/get_chart_2023_3/");
+                initChart2023("chart9", "https://sefader-agronegocios.com/get_chart_2023_5/");
 
 
-const initChart2023 = async (chartId, url) => {
-    const myChart = echarts.init(document.getElementById(chartId));
-    const options = await getOptionChart2023(url);  // Usamos la URL pasada como parámetro
-    if (options) {
-        myChart.setOption(options);
-        myChart.resize(); // Redimensionamos para asegurarnos de que se ajuste al contenedor
-    }
-};
 
-window.addEventListener("load", () => {
-    // Cargar gráficas con URLs diferentes
-    initChart2023("chart6", "http://127.0.0.1:8000/get_chart_2023_1/");  // URL para la gráfica 1
+            }
+            if (targetTab === "#pills-contact") { 
+              initChart2023("chart10", "https://sefader-agronegocios.com/get_chart_2024_1/");
+              initChart2023("chart11", "https://sefader-agronegocios.com/get_chart_2024_2/");
+              initChart2023("chart12", "https://sefader-agronegocios.com/get_chart_2024_3/");
+              initChart2023("chart13", "https://sefader-agronegocios.com/get_chart_2024_5/");
 
+
+
+            }
+        });
+    });
 });
-      </script>
-      
+
+</script>
+
+
 
 
   

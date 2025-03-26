@@ -25,6 +25,15 @@ urlpatterns = [
     path('getcharts4/', views.get_chart4, name='getcharts4'),
     path('getcharts5/', views.get_chart5, name='getcharts5'),
     path('get_chart_2023_1/', views.get_chart_2023_1, name='get_chart_2023_1'),
+    path('get_chart_2024_1/', views.get_chart_2024_1, name='get_chart_2024_1'),
+    path('get_chart_2023_2/', views.get_chart22023, name='get_chart_2023_2'),
+    path('get_chart_2024_2/', views.get_chart22024, name='get_chart_2024_2'),
+    path('get_chart_2023_3/', views.get_chart32023, name='get_chart_2023_3'),
+    path('get_chart_2024_3/', views.get_chart32024, name='get_chart_2024_3'),
+
+    path('get_chart_2023_5/', views.get_chart52023, name='get_chart_2023_5'),
+    path('get_chart_2024_5/', views.get_chart52024, name='get_chart_2024_5'),
+
     path('tiendaHome/', views.tiendaIndex, name='tiendaHome'),
     path('categoriaAgricola/', views.tiendaAgricola, name='categoriaAgricola'),
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),
