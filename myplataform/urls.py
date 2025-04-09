@@ -218,6 +218,9 @@ urlpatterns = [
     path('tablas5San/', TemplateView.as_view(template_name="sandia/tablas/5.html"), name='tablas5San'),
     path('iframeSan/', TemplateView.as_view(template_name="sandia/iframe_de_todo.html"), name='iframeSan'),
     path('sandia/', TemplateView.as_view(template_name="sandia/estadisticas_sandia.html"), name='sandia'),
+    path('grafica-maiz/api/', views.corn_history_view, name='grafica_maiz_api'),
+    path('grafica-cafe/api/', views.coffee_price_view, name='grafica_cafe_api'),
+    path('grafica-maiz/', views.corn_chart, name='grafica_maiz'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

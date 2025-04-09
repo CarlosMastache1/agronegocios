@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load humanize %} 
+
+{% block content %}
+
+<h2>Precio del Maíz en Tiempo Real (USD)</h2>
+    <div id="chart" style="width: 80%; height: 400px;"></div>
+
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    var chartElement = document.getElementById('chart');
+    if (!chartElement) {
+        console.error("Error: El elemento #chart no existe en el DOM.");
+        return;
+    }
+
+    var chart = echarts.init(chartElement);
+    var data = [];
+    var labels = [];
+
+    function fetchCornPrice() {
+        fetch('/grafica-maiz/api/')
+            .then(response => response.json())
+            .then(priceData => {
+                let now = new Date().toLocaleTimeString();
+                labels.push(now);
+                data.push(priceData.current_price);
+
+                if (labels.length > 20) {
+                    labels.shift();
+                    data.shift();
+                }
+
+                var option = {
+                    title: { text: 'Precio del Maíz en USD' },
+                    tooltip: { trigger: 'axis' },
+                    xAxis: { type: 'category', data: labels },
+                    yAxis: { type: 'value' },
+                    series: [{
+                        data: data,
+                        type: 'line',
+                        smooth: true
+                    }]
+                };
+
+                chart.setOption(option);
+            })
+            .catch(error => console.error("Error al obtener datos:", error));
+    }
+
+    fetchCornPrice();
+    setInterval(fetchCornPrice, 10000);
+});
+
+    </script>
+
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.db import IntegrityError
 from .forms import financieras, productosForm
 from django.contrib import messages
@@ -13,9 +13,62 @@ from random import randrange
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import ExtractYear, ExtractMonth
 from django.core.mail import send_mail
+import time
 
+import requests
+from datetime import datetime, timedelta
+import urllib.parse
+from json import JSONDecodeError
+import json 
 
 # Create your views here.
+
+
+API_KEY = "cvio7u1r01qijvgjkl5gcvio7u1r01qijvgjkl60"
+SYMBOL = "CORN"  # Símbolo del maíz en la Bolsa de Chicago
+
+
+def get_corn_price():
+    url = f"https://finnhub.io/api/v1/quote?symbol={SYMBOL}&token={API_KEY}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        return {
+            "current_price": data.get("c", 0),
+            "open_price": data.get("o", 0),
+            "high_price": data.get("h", 0),
+            "low_price": data.get("l", 0)
+        }
+    return {"current_price": 0, "open_price": 0, "high_price": 0, "low_price": 0}
+
+def corn_history_view(request):
+    data = get_corn_price()
+    return JsonResponse(data)
+
+def corn_chart(request):
+    return render(request, 'graficasBV.html')
+
+
+def get_coffee_price():
+    url = f"https://finnhub.io/api/v1/quote?symbol=KC&token={API_KEY}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        return {
+            "current_price": data.get("c", 0),
+            "open_price": data.get("o", 0),
+            "high_price": data.get("h", 0),
+            "low_price": data.get("l", 0)
+        }
+    return {"current_price": 0, "open_price": 0, "high_price": 0, "low_price": 0}
+
+def coffee_price_view(request):
+    data = get_coffee_price()
+    return JsonResponse(data)
+
+
 @login_required
 def home(request):
     finan = entidadesFinancieras2.objects.all()
@@ -3925,5 +3978,5 @@ def graficasPublicas(request):
 
 
 
-       
+
 

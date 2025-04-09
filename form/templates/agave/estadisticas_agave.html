@@ -26,8 +26,35 @@
 	</div>
 </main>
 	
+
+  <!-- Cinta ticker -->
+  <div class="ticker">
+    <div class="ticker-content" id="ticker-content">
+      Cargando datos...
+    </div>
+  </div>
+
+
 <!--Primer seccion-->
-<iframe src="{% url 'iframeAgave' %}" width="100%" height="1400px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+<iframe class="content" src="{% url 'iframeAgave' %}" width="100%" height="1400px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+
+
+<script>
+    // Función para obtener y actualizar los datos en la cinta
+    function fetchTickerData() {
+      fetch('/grafica-maiz/api/')
+        .then(response => response.json())
+        .then(data => {
+          let tickerText = `Precio Actual: ${data.current_price} | Apertura: ${data.open_price} | Máximo: ${data.high_price} | Mínimo: ${data.low_price}`;
+          document.getElementById('ticker-content').innerText = tickerText;
+        })
+        .catch(error => console.error("Error al obtener datos:", error));
+    }
+
+    // Obtiene los datos inicialmente y actualiza cada 10 segundos
+    fetchTickerData();
+    setInterval(fetchTickerData, 10000);
+  </script>
 
 {% endblock %}
 
