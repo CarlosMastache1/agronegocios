@@ -219,11 +219,11 @@ def formProductos(request):
         new_prod = form.save(commit=False)
         new_prod.save()
         # Enviar email de confirmación
-        subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
-        message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
-        from_email = "carlosmastache301@outlook.es"
-        recipient_list = [new_prod.email]
-        send_mail(subject, message, from_email, recipient_list)
+        # subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
+        # message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
+        # from_email = "carlosmastache301@outlook.es"
+        # recipient_list = [new_prod.email]
+        # send_mail(subject, message, from_email, recipient_list)
         messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
         return redirect('tiendaHome')
 
