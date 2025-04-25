@@ -3979,4 +3979,14 @@ def graficasPublicas(request):
 
 
 
+def nosotros(request):
+  return render(request, 'nosotros.html')
+
+
+def directorio(request):
+  return render(request, 'directorio.html')
+
+
+def ubicacion(request):
+  return render(request, 'ubicacion.html')
 

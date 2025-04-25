@@ -221,6 +221,12 @@ urlpatterns = [
     path('grafica-maiz/api/', views.corn_history_view, name='grafica_maiz_api'),
     path('grafica-cafe/api/', views.coffee_price_view, name='grafica_cafe_api'),
     path('grafica-maiz/', views.corn_chart, name='grafica_maiz'),
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('directorio/', views.directorio, name='directorio'),
+    path('ubicacion/', views.ubicacion, name='ubicacion'),
+
+
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
