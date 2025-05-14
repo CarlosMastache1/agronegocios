@@ -1,61 +1,207 @@
-{% extends 'base.html' %}
+{% extends 'basegraficos.html' %}
 
-{% load humanize %} 
 
 {% block content %}
 
-<h2>Precio del Maíz en Tiempo Real (USD)</h2>
-    <div id="chart" style="width: 80%; height: 400px;"></div>
+<div class="container py-4">
+
+    <div class="row g-4">
+      <!-- Card 1: Gráfico -->
+      <div class="col-md-6">
+        <div class="card shadow-sm ">
+          <div class="card-body">
+            <h5 class="card-title">Historial de Precios del Maíz (ZC=F) </h5>
+            <p class="text-center">Rango: {{ rango_texto }}</p>
+
+            <div id="grafico"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Tabla -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Historial de Precios del Café (KC=F)</h5>
+            <div id="grafico-cafe"></div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Cacao -->
+  <div class="col-md-6"  style="padding-top: 15px;">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Historial de Precios del Cacao (CC=F) </h5>
+        <div id="grafico-cacao" style="height: 400px;"></div>
+      </div>
+    </div>
+  </div>
 
 
-    <script>
-     document.addEventListener("DOMContentLoaded", function () {
-    var chartElement = document.getElementById('chart');
-    if (!chartElement) {
-        console.error("Error: El elemento #chart no existe en el DOM.");
-        return;
-    }
+  <div class="col-md-6" style="padding-top: 15px;">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Historial de Precios del Arroz (ZR=F)</h5>
+        <div id="grafico-arroz" style="height: 400px;"></div>
+      </div>
+    </div>
+  </div>
 
-    var chart = echarts.init(chartElement);
-    var data = [];
-    var labels = [];
+  <div class="col-md-6" style="padding-top: 15px;">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Historial de Precios del Trigo</h5>
+        <div id="grafico-trigo" style="height: 400px;"></div>
+      </div>
+    </div>
+  </div>
 
-    function fetchCornPrice() {
-        fetch('/grafica-maiz/api/')
-            .then(response => response.json())
-            .then(priceData => {
-                let now = new Date().toLocaleTimeString();
-                labels.push(now);
-                data.push(priceData.current_price);
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Historial de Precios de Azúcar</h5>
+        <div id="grafico-azucar" style="height: 400px;"></div>
+      </div>
+    </div>
+  </div>
 
-                if (labels.length > 20) {
-                    labels.shift();
-                    data.shift();
+</div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<script>
+    const fechas = {{ fechas|safe }};
+    const datosVelas = {{ velas|safe }};
+    const fechas_cafe = {{ fechas_cafe|safe }};
+    const velas_cafe = {{ velas_cafe|safe }};
+    const fechas_cacao = {{ fechas_cacao|safe }};
+    const velas_cacao = {{ velas_cacao|safe }};
+    const fechas_arroz = {{ fechas_arroz|safe }};
+    const velas_arroz = {{ velas_arroz|safe }};
+    const fechas_trigo = {{ fechas_trigo|safe }};
+    const velas_trigo = {{ velas_trigo|safe }};
+    const fechas_azucar = {{ fechas_azucar|safe }};
+    const velas_azucar = {{ velas_azucar|safe }};
+
+        const grafico = echarts.init(document.getElementById('grafico'));
+        grafico.setOption({
+            title: { text: 'Últimos 3 meses de precios del maíz (ZC=F)' },
+            tooltip: { trigger: 'axis' },
+            xAxis: { data: fechas },
+            yAxis: { scale: true },
+            series: [{
+                type: 'candlestick',
+                data: datosVelas,
+                itemStyle: {
+                    color: '#00aa00',
+                    color0: '#ff0000',
+                    borderColor: '#00aa00',
+                    borderColor0: '#ff0000'
                 }
+            }]
+        });
 
-                var option = {
-                    title: { text: 'Precio del Maíz en USD' },
-                    tooltip: { trigger: 'axis' },
-                    xAxis: { type: 'category', data: labels },
-                    yAxis: { type: 'value' },
-                    series: [{
-                        data: data,
-                        type: 'line',
-                        smooth: true
-                    }]
-                };
 
-                chart.setOption(option);
-            })
-            .catch(error => console.error("Error al obtener datos:", error));
-    }
+       
+    // Gráfico para Café
+    const graficoCafe = echarts.init(document.getElementById('grafico-cafe'));
+    graficoCafe.setOption({
+      title: { text: 'Últimos 3 meses de precios del Café (KC=F)' },
+      tooltip: { trigger: 'axis' },
+      xAxis: { data: fechas_cafe },
+      yAxis: { scale: true },
+      series: [{
+        type: 'candlestick',
+        data: velas_cafe,
+        itemStyle: {
+          color: '#00aa00',
+          color0: '#ff0000',
+          borderColor: '#00aa00',
+          borderColor0: '#ff0000'
+        }
+      }]
+    });
 
-    fetchCornPrice();
-    setInterval(fetchCornPrice, 10000);
-});
 
-    </script>
+    echarts.init(document.getElementById('grafico-cacao')).setOption({
+    title: { text: 'Cacao (CC=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_cacao },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_cacao,
+        itemStyle: {
+          color: '#00aa00',
+          color0: '#ff0000',
+          borderColor: '#00aa00',
+          borderColor0: '#ff0000'
+        }
+    }]
+  });
 
+
+  echarts.init(document.getElementById('grafico-arroz')).setOption({
+    title: { text: 'Arroz (ZR=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_arroz },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_arroz,
+        itemStyle: {
+          color: '#00aa00',
+          color0: '#ff0000',
+          borderColor: '#00aa00',
+          borderColor0: '#ff0000'
+        }
+    }]
+  });
+
+
+  echarts.init(document.getElementById('grafico-trigo')).setOption({
+    title: { text: 'Trigo (ZW=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_trigo },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_trigo,
+        itemStyle: {
+          color: '#00aa00',
+          color0: '#ff0000',
+          borderColor: '#00aa00',
+          borderColor0: '#ff0000'
+        }
+    }]
+  });
+
+
+  echarts.init(document.getElementById('grafico-azucar')).setOption({
+    title: { text: 'Azúcar (SB=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_azucar },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_azucar,
+      itemStyle: {
+          color: '#00aa00',
+          color0: '#ff0000',
+          borderColor: '#00aa00',
+          borderColor0: '#ff0000'
+        }
+    }]
+  });
+</script>
 
 
 {% endblock %}

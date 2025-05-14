@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import ExtractYear, ExtractMonth
 from django.core.mail import send_mail
 import time
-
+import yfinance as yf
 import requests
 from datetime import datetime, timedelta
 import urllib.parse
@@ -24,49 +24,56 @@ import json
 # Create your views here.
 
 
-API_KEY = "cvio7u1r01qijvgjkl5gcvio7u1r01qijvgjkl60"
-SYMBOL = "CORN"  # Símbolo del maíz en la Bolsa de Chicago
+def precios_maiz(request):
+  hoy = datetime.today().date()
+  inicio = hoy - timedelta(days=90)
+
+  df = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+  df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+  df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+  df_arroz = yf.download("ZR=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+  df_trigo = yf.download("ZW=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+  df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
 
 
-def get_corn_price():
-    url = f"https://finnhub.io/api/v1/quote?symbol={SYMBOL}&token={API_KEY}"
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        data = response.json()
-        return {
-            "current_price": data.get("c", 0),
-            "open_price": data.get("o", 0),
-            "high_price": data.get("h", 0),
-            "low_price": data.get("l", 0)
-        }
-    return {"current_price": 0, "open_price": 0, "high_price": 0, "low_price": 0}
-
-def corn_history_view(request):
-    data = get_corn_price()
-    return JsonResponse(data)
-
-def corn_chart(request):
-    return render(request, 'graficasBV.html')
+  fechas = df['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas = df[['Open', 'Close', 'Low', 'High']].values.tolist()
 
 
-def get_coffee_price():
-    url = f"https://finnhub.io/api/v1/quote?symbol=KC&token={API_KEY}"
-    response = requests.get(url)
+  # Datos para Café
+  fechas_cafe = df_cafe['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas_cafe = df_cafe[['Open', 'Close', 'Low', 'High']].values.tolist()
 
-    if response.status_code == 200:
-        data = response.json()
-        return {
-            "current_price": data.get("c", 0),
-            "open_price": data.get("o", 0),
-            "high_price": data.get("h", 0),
-            "low_price": data.get("l", 0)
-        }
-    return {"current_price": 0, "open_price": 0, "high_price": 0, "low_price": 0}
 
-def coffee_price_view(request):
-    data = get_coffee_price()
-    return JsonResponse(data)
+  fechas_cacao = df_cacao['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas_cacao = df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+  fechas_arroz = df_arroz['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas_arroz = df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+  fechas_trigo = df_trigo['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas_trigo = df_trigo[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+  fechas_azucar = df_azucar['Date'].dt.strftime('%Y-%m-%d').tolist()
+  velas_azucar = df_azucar[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+  return render(request, 'graficasBV.html', {
+        'fechas': json.dumps(fechas),
+        'velas': json.dumps(velas),
+        'fechas_cafe': json.dumps(fechas_cafe),
+        'velas_cafe': json.dumps(velas_cafe),
+        'fechas_cacao': json.dumps(fechas_cacao),
+        'velas_cacao': json.dumps(velas_cacao),
+        'fechas_arroz': json.dumps(fechas_arroz),
+        'velas_arroz': json.dumps(velas_arroz),
+        'fechas_trigo': json.dumps(fechas_trigo),
+        'velas_trigo': json.dumps(velas_trigo),
+        'fechas_azucar': json.dumps(fechas_azucar),
+        'velas_azucar': json.dumps(velas_azucar),
+        'rango_texto': f"{inicio} → {hoy}"
+    })
+
+
 
 
 @login_required
