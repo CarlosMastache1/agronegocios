@@ -1,0 +1,354 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // Función que busca la información de un municipio por su ID
+    function getInfoMunicipio(munid) {
+        for (const region in regionesConMunicipios) {
+            const municipio = regionesConMunicipios[region].find(m => m.id === munid);
+            if (municipio) return municipio;
+        }
+        return null;
+    }
+
+    // Función que busca la información de un estado por su ID
+    function getInfoEstado(estid) {
+        for (const estado in estadosDatos) {
+            const estadosInfo = estadosDatos[estado].find(e => e.id == estid);
+            if (estadosInfo) return estadosInfo;
+        }
+    }
+
+    // Función que busca la información de un país por su ID
+    function getInfoPais(paisid) {
+        for (const pais in paisesDatos) {
+            const paisInfo = paisesDatos[pais].find(p => p.id == paisid);
+            if (paisInfo) return paisInfo;
+        }
+    }
+
+    // Ajuste de zoom inicial dependiendo del tamaño de la pantalla
+    let initialZoom = 7.5;
+
+    if (window.innerWidth < 768) {
+        initialZoom = 3; // Zoom más alejado para pantallas pequeñas
+    }
+
+    // ***Inicializa el mapa de Oaxaca
+    const mapOaxaca = L.map("mapa-oaxaca", {
+        center: [17.05, -96.72],
+        zoom: initialZoom,
+        dragging: true,
+        scrollWheelZoom: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+    });
+
+    // Pequeño ajuste para centrar mejor Oaxaca en pantalla
+    mapOaxaca.panBy([80, 0]);
+
+    // Carga la capa de imágenes satelitales
+    L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+        "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+            attribution: "Tiles &copy; Esri",
+            maxZoom: 18,
+        }
+    ).addTo(mapOaxaca);
+
+    // Almacena referencias a los layers por municipio
+    let capasPorMunicipio = {};
+
+    // Carga y renderiza los municipios de Oaxaca
+    fetch("{% static 'data/geojson/oaxaca_municipios.geojson' %}? v= {{timestamp}}")
+        .then(res => res.json())
+        .then(municipiosGeoJSON => {
+            let geoLayerOaxaca = L.geoJSON(municipiosGeoJSON, {
+                style: function (feature) {
+                    const munid = feature.properties["INEGI:MUNID"];
+                    const info = getInfoMunicipio(munid);
+                    return {
+                        color: "white",
+                        weight: 1,
+                        fillColor: info ? "#9D2449" : "transparent",
+                        fillOpacity: info ? 0.6 : 0
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    const munid = feature.properties["INEGI:MUNID"];
+                    const info = getInfoMunicipio(munid);
+                    layer._munid = munid;
+                    layer._nombre = feature.properties.name;
+                    layer._activo = true;
+
+                    if (info) {
+                        layer.on("mouseover", () => {
+                            if (layer._activo) {
+                                const name = feature.properties.name || "Sin nombre";
+                                // Se vincula un tooltip con información detallada del municipio
+                                layer.bindTooltip(`
+         <h2><strong>${name}</strong></h2>
+              <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha<br>
+              <strong>Volumen de producción:</strong> ${info.toneladas} Ton</h3>
+            `, {
+                                    permanent: false,       // No permanece fijo
+                                    direction: "top",       // Aparece arriba del cursor
+                                    sticky: true,           // Se mueve junto al cursor
+                                    className: "custom-tooltip" // Estilo personalizado
+                                }).openTooltip();           // Muestra el tooltip inmediatamente
+                            }
+                        });
+                        // Cierra el tooltip al salir del área del municipio
+                        layer.on("mouseout", () => {
+                            layer.closeTooltip();
+                        });
+                    }
+                    capasPorMunicipio[munid] = layer;
+                }
+            }).addTo(mapOaxaca);
+            mapOaxaca.fitBounds(geoLayerOaxaca.getBounds());
+        });
+    // Control de leyenda para filtrar por región
+    const legend = L.control({ position: "bottomright" });
+    legend.onAdd = function (mapOaxaca) {
+        const div = L.DomUtil.create("div", "legend");
+        div.innerHTML = `<strong>Regiones</strong><br>`;
+        div.innerHTML += `<label><input type="checkbox" id="check-todos" checked> Todos</label><br>`;
+        for (const region in regionesConMunicipios) {
+            const id = region.toLowerCase().replace(/\s+/g, "-");
+            div.innerHTML += `<label><input type="checkbox" class="region-checkbox" data-region="${region}" checked> ${region}</label><br>`;
+        }
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+    };
+
+    legend.addTo(mapOaxaca);
+
+    // ***Inicializa el mapa de México
+    const mapaMexico = L.map("mapa-mexico", {
+        center: [17.05, -96.72],
+        zoom: 5,
+        dragging: true,
+        scrollWheelZoom: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+    });
+
+
+    // Capa satelital
+    L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+        "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+            attribution: "Tiles &copy; Esri",
+            maxZoom: 18,
+        }
+    ).addTo(mapaMexico);
+
+
+    // Cargar el GeoJSON en Leaflet
+    fetch("{% static 'data/geojson/mexico_estados.geojson' %}? v= {{timestamp}}")
+        .then(response => response.json())
+        .then(data => {
+            let geoLayerMexico = L.geoJSON(data, {
+                style: function (feature) {
+                    const estadoid = feature.properties["state_code"];
+                    const info = getInfoEstado(estadoid);
+                    return {
+                        color: "white",
+                        weight: 1,
+                        fillColor: info ? estadoid == 20 ? "#9D2449" : "#c46924" : "transparent",
+                        fillOpacity: info ? 0.6 : 0
+                    }
+                }, onEachFeature: function (feature, layer) {
+                    const estid = feature.properties["state_code"];
+                    const info = getInfoEstado(estid);
+                    layer._estid = estid;
+                    layer._nombre = feature.properties.state_name;
+                    layer._activo = false;
+                    if (info) {
+                        layer._activo = true;
+
+                        layer.on("mouseover", () => {
+                            if (layer._activo) {
+                                const name = feature.properties.state_name || "Sin nombre";
+                                // Usa bindTooltip para mostrar datos de estados
+                                layer.bindTooltip(`<h2><strong>${name}</strong></h2>
+                                <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha<br>
+              <strong>Volumen de producción:</strong> ${info.toneladas} Ton</h3>
+            `, {
+                                    permanent: false,
+                                    direction: "top",
+                                    sticky: true,
+                                    className: "custom-tooltip"
+                                }).openTooltip();
+                            }
+                        });
+                        layer.on("mouseout", () => {
+                            layer.closeTooltip();
+                        });
+
+                    }
+                }
+            }).addTo(mapaMexico);
+            mapaMexico.fitBounds(geoLayerMexico.getBounds());
+
+        });
+
+
+    // ***Inicializa el mapa del mundo
+    const mapaMundo = L.map("mapa-mundo", {
+        center: [20, 0],
+        zoom: 2,
+        dragging: true,
+        scrollWheelZoom: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+    });
+
+    L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+        "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+            attribution: "Tiles &copy; Esri",
+            maxZoom: 18,
+            minZoom: 2
+        }
+    ).addTo(mapaMundo);
+
+    mapaMundo.panBy([30, 0]);
+
+
+    fetch("{% static 'data/geojson/mundo_paises.geojson' %}? v= {{timestamp}}")
+        .then(response => response.json())
+        .then(data => {
+            let geoLayerMundo = L.geoJSON(data, {
+                style: function (feature) {
+                    const paisid = feature.properties["ISO_A3"];
+                    const info = getInfoPais(paisid);
+                    return {
+                        color: "white",
+                        weight: 1,
+                        fillColor: info ? paisid == 'MEX' ? "#9D2449" : "#c46924" : "transparent",
+                        fillOpacity: info ? 0.6 : 0
+                    }
+                }, onEachFeature: function (feature, layer) {
+                    const paisid = feature.properties["ISO_A3"];
+                    const info = getInfoPais(paisid);
+                    layer._nombre = feature.properties.NAME_ES;
+                    if (info) {
+                        layer.on("mouseover", () => {
+                            // Vincula tooltips a países con datos disponibles
+                            layer.bindTooltip(`<h2><strong>${layer._nombre}</strong></h2>
+                                <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha</h3>
+            `, {
+                                permanent: false,
+                                direction: "top",
+                                sticky: true,
+                                className: "custom-tooltip"
+                            }).openTooltip();
+                        });
+                        layer.on("mouseout", () => {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+            }).addTo(mapaMundo);
+            mapaMundo.fitBounds(geoLayerMundo.getBounds());
+
+        });
+
+
+    // Evento que maneja el cambio en los checkboxes de región
+    document.addEventListener("change", function (event) {
+        if (event.target.classList.contains("region-checkbox")) {
+            const region = event.target.dataset.region;
+            const municipios = regionesConMunicipios[region] || [];
+
+            municipios.forEach(muni => {
+                const layer = capasPorMunicipio[muni.id];
+                if (layer) {
+                    if (event.target.checked) {
+                        layer.setStyle({
+                            fillColor: "red",
+                            fillOpacity: 0.6
+                        });
+                        layer._activo = true;
+
+                        // Se aplica bindTooltip nuevamente si el checkbox está activo
+                        layer.bindTooltip(
+                            `<h2>${layer._nombre}</h2><h3><strong>Superficie sembrada:</strong> ${muni.territorio} Ha<br><strong>Volumen de producción:</strong> ${muni.toneladas} Ton</h3>`,
+                            {
+                                permanent: false,
+                                direction: "top",
+                                sticky: true,
+                            }
+                        );
+                    } else {
+                        layer.setStyle({
+                            fillColor: "transparent",
+                            fillOpacity: 0
+                        });
+                        layer._activo = false;
+                        layer.unbindTooltip();
+                    }
+                }
+            });
+        }
+    });
+
+    // Checkbox general para activar/desactivar todos
+    document.getElementById("check-todos").addEventListener("change", function () {
+
+        const isChecked = this.checked;
+
+        document.querySelectorAll(".region-checkbox").forEach(cd => {
+            cd.checked = isChecked
+        })
+
+        for (const region in regionesConMunicipios) {
+            const municipios = regionesConMunicipios[region];
+            municipios.forEach(municipio => {
+                const layer = capasPorMunicipio[municipio.id];
+                if (layer) {
+                    if (isChecked) {
+                        layer.setStyle({
+                            fillColor: "red",
+                            fillOpacity: 0.6
+                        });
+
+                        layer._activo = true;
+
+                        // Vincula o desvincula el tooltip según estado del checkbox
+                        layer.bindTooltip(
+                            `<h2>${layer._nombre}</h2><h3><strong>Superficie sembrada:</strong> ${municipio.territorio} Ha<br><strong>Volumen de producción:</strong> ${municipio.toneladas} Ton</h3>`,
+                            {
+                                permanent: false,
+                                direction: "top",
+                                sticky: true,
+                            }
+                        );
+                    } else {
+                        layer.setStyle({
+                            fillColor: "transparent",
+                            fillOpacity: 0
+                        });
+                        layer._activo = false
+                        layer.unbindTooltip();
+
+                    }
+                }
+            });
+        }
+    });
+
+</script>
+
+</html>
