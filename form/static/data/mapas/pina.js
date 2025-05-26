@@ -1,13 +1,13 @@
 const regionesConMunicipios = {
   Papaloapan: [
-    { id: 20044, territorio: "1554", toneladas: "129,374.25" },
+    { id: 20044, territorio: "1,554", toneladas: "129,374" },
     { id: 20184, territorio: "610", toneladas: "48,190" },
   ],
-  Istmo: [{ id: 20198, territorio: "12.95", toneladas: "146.63" }],
+  Istmo: [{ id: 20198, territorio: "13", toneladas: "147" }],
   "Sierra Sur": [
-    { id: 20516, territorio: "4.55", toneladas: "81.28" },
-    { id: 20448, territorio: "4.3", toneladas: "71.58" },
-    { id: 20229, territorio: "3.2", toneladas: "52.78" },
+    { id: 20516, territorio: "5", toneladas: "81" },
+    { id: 20448, territorio: "4", toneladas: "72" },
+    { id: 20229, territorio: "3", toneladas: "53" },
   ],
 };
 
@@ -125,19 +125,40 @@ const estadosDatos = {
   ],
 };
 
+
 const paisesDatos = {
   Nigeria: [{ id: "NGA", territorio: "193,2900" }],
   India: [{ id: "IND", territorio: "108,000" }],
   China: [{ id: "CHN", territorio: "76,723" }],
-  Tailandia: [{ id: "THA", territorio: "71,518" }],
-  Filipinas: [{ id: "PHL", territorio: "67,722" }],
+  Tailandia: [
+    { id: "THA", territorio: "71,518" },
+  ],
+  Filipinas: [
+    { id: "PHL", territorio: "67,722" },
+  ],
   Brasil: [{ id: "BRA", territorio: "64,147" }],
-  "Costa Rica": [{ id: "CRI", territorio: "40,000" }],
-  Vietnam: [{ id: "VNM", territorio: "39,647" }],
-  Angola: [{ id: "AGO", territorio: "36,946" }],
-  México: [{ id: "MEX", territorio: "25,626" }],
-  Indonesia: [{ id: "IDN", territorio: "24,327" }],
-  Colombia: [{ id: "COL", territorio: "22,870" }],
-  Venezuela: [{ id: "VEN", territorio: "22,173" }],
-  Perú: [{ id: "PER", territorio: "16,830" }],
+  "Costa Rica": [
+    { id: "CRI", territorio: "40,000" },
+  ],
+  Vietnam: [
+    { id: "VNM", territorio: "39,647" },
+  ],
+  Angola: [
+    { id: "AGO", territorio: "36,946" },
+  ],
+  "México": [
+    { id: "MEX", territorio: "25,626" },
+  ],
+  Indonesia: [
+    { id: "IDN", territorio: "24,327" },
+  ],
+  Colombia: [
+    { id: "COL", territorio: "22,870" },
+  ],
+  Venezuela: [
+    { id: "VEN", territorio: "22,173" },
+  ],
+  "Perú": [
+    { id: "PER", territorio: "16,830" },
+  ],
 };
