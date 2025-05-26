@@ -1,0 +1,68 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Fuente sans-serif para una apariencia moderna */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+}
+
+/* Contenedor principal del carrusel */
+.carrusel-container {
+    max-width: 80%; /* El carrusel puede ocupar hasta el 80% del ancho de la pantalla */
+    margin: 2rem auto; /* Margen vertical de 2rem y centrado horizontalmente */
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    background: white; /* Fondo blanco */
+    overflow: hidden; /* Oculta cualquier contenido que se salga del contenedor */
+    padding: 1rem; /* Relleno interno de 1rem */
+}
+
+/* Encabezado del carrusel (donde están las flechas y el título, por ejemplo) */
+.carrusel-header {
+    display: flex; /* Usa flexbox para organizar los elementos en fila */
+    justify-content: space-between; /* Espacio entre los extremos del encabezado */
+    align-items: center; /* Centrado vertical de los elementos */
+    font-size: 1.2rem; /* Tamaño de fuente ligeramente grande */
+    margin-bottom: 0.5rem; /* Espacio debajo del encabezado */
+}
+
+/* Estilo para las flechas de navegación */
+.flecha {
+    cursor: pointer; /* El cursor cambia a mano al pasar el mouse */
+    font-size: 1.5rem; /* Flechas de tamaño grande */
+    user-select: none; /* Previene que el texto de las flechas se seleccione al hacer clic */
+    padding: 0 10px; /* Espacio horizontal alrededor de la flecha */
+}
+
+/* Cubos de navegación (pequeños indicadores rectangulares o circulares) */
+.cubmenu {
+    display: inline-block; /* Se comportan como elementos en línea pero permiten tamaño */
+    width: 20px;
+    height: 20px;
+    background-color: #808080; /* Color gris por defecto */
+    transition: background-color 0.3s ease; /* Transición suave del color al cambiar */
+    cursor: pointer; /* El cursor cambia al pasar el mouse */
+}
+
+/* Estilo del cubo cuando está seleccionado */
+.cubmenu.seleccionado {
+    background-color: #3c3b3b; /* Color más oscuro para resaltar el cubo activo */
+}
+
+/* Estilos por defecto para cada slide (pantalla del carrusel) */
+.slide {
+    position: absolute; /* Se posicionan unos sobre otros */
+    top: 0;
+    left: 0;
+    visibility: hidden; /* Ocultos por defecto */
+    opacity: 0; /* Completamente transparentes */
+    transition: opacity 0.3s ease; /* Transición suave al aparecer/desaparecer */
+    width: 100%; /* Ocupan todo el ancho del contenedor */
+}
+
+/* Estilo para el slide activo (visible) */
+.slide.active {
+    position: relative; /* Toma su lugar en el flujo del documento */
+    visibility: visible; /* Se vuelve visible */
+    opacity: 1; /* Totalmente opaco */
+    z-index: 1; /* Se asegura de que esté por encima de los demás */
+}

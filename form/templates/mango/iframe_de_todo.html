@@ -2,168 +2,144 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-   <!-- Enlace al CSS de Swiper -->
-   <link rel="stylesheet" href="{% static 'estilos/estilo_swiper.css' %}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilon.css' %}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_fuente.css' %}">
-   <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_mapas.css' %}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_textos.css' %}">
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper {
-        width: 80%;
-        height: 90%;
-        margin: auto;
-        margin-top: 50px;
-    }
-    .swiper-slide {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        background: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
-    /* Coloca los botones de navegación en la parte superior */
-    .swiper-button-next, .swiper-button-prev {
-        top: 120px;
-        transform: translateY(-50%);
-        z-index: 10;
-    }
-    .swiper-button-next {
-        right: 10px;
-    }
-    .swiper-button-prev {
-        left: 10px;
-    }
-    /* Coloca la paginación en la parte superior */
-    .swiper-pagination {
-        top: 200px;
-        bottom: auto;
-        z-index: 10;
-        text-align: center;
-    }
-</style>
-
+    <!-- Enlace al CSS de Swiper -->
+    <link rel="stylesheet" href="{% static 'estilos/estilo_swiper.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilon.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_fuente.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_mapas.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilo_textos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_carrusel.css' %}">
 </head>
 
 <body>
+    <script src="{% static 'data/mapas/mango.js' %}"></script>
 
-    <div class="swiper">
-       <!-- Paginación -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-wrapper">
-            <!-- 1.- Descripción -->
-            <div class="swiper-slide">
-                
-                <iframe src="{% url 'descripcion_mango' %}" width="100%" height="1150px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-              
+    <!-- Contenedor principal del carrusel -->
+    <div class="carrusel-container">
+        <!-- Encabezado del carrusel: contiene las flechas de navegación y los cubos de selección -->
+        <div class="carrusel-header">
+            <!-- Flecha para ir al slide anterior -->
+            <span class="flecha" onclick="cambiarSlide(-1)">&#8592;</span>
 
-
-            </div>
-            
-            <!-- Producción Mundial 2 -->
-            <div class="swiper-slide">
-              <h3>PRODUCCIÓN  <strong>MUNDIAL</strong> <strong>DE MANGO</strong></h3>
-              <iframe src="{% url 'tablas1Man' %}" width="100%" height="990px" scrolling="no" frameborder="0" allowtransparency="true"></iframe><p class="fuente">
-              <div class="mapa-container"><img src="{% static 'agricola/mango/imagenes/mapa1.jpg' %}"></div>
-              <p class="fuente">
-              FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO 2022</p>
-                
-            </div>
-            <!-- Producción Nacional 3 -->
-            <div class="swiper-slide">
-               <h3>PRODUCCIÓN <strong> NACIONAL DE MANGO</strong> </h3>
-              <iframe src="{% url 'tablas2Man' %}" width="100%" height="700PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-               <div class="mapa-container"><img src="{% static 'agricola/mango/imagenes/mapa2.jpg' %}"></div>
-               <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+            <!-- Cubos de navegación, uno por cada slide. Al hacer clic se salta directamente a ese slide -->
+            <div>
+                <span onclick="cambiarCub(0)" class="cubmenu seleccionado" id="cub0"></span>
+                <span onclick="cambiarCub(1)" class="cubmenu" id="cub1"></span>
+                <span onclick="cambiarCub(2)" class="cubmenu" id="cub2"></span>
+                <span onclick="cambiarCub(3)" class="cubmenu" id="cub3"></span>
+                <span onclick="cambiarCub(4)" class="cubmenu" id="cub4"></span>
+                <span onclick="cambiarCub(5)" class="cubmenu" id="cub5"></span>
+                <span onclick="cambiarCub(6)" class="cubmenu" id="cub6"></span>
+                <span onclick="cambiarCub(7)" class="cubmenu" id="cub7"></span>
             </div>
 
-            <!-- Balanza Comercial 4 -->
-            <div class="swiper-slide">
-              <h3>BALANZA COMERCIAL <strong>DE MANGO DE OAXACA</strong> </h3>
-              <p align="center">DESTINO DE LA EXPORTACIÓN 2023</p>
-              <iframe src="{% url 'tablas3Man' %}" width="100%" height="680PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-              <p align="center">VOLUMEN DE COMERCIALIZACIÓN (TON)</p><iframe src="{% url 'graficas1Man' %}" width="100%" height="820PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                                  <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE LA ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO) Y
-                    BANCO DE MÉXICO (BANXICO)</p>
+            <!-- Flecha para ir al siguiente slide -->
+            <span class="flecha" onclick="cambiarSlide(1)">&#8594;</span>
+        </div>
 
-                
+        <!-- Slide 0: Descripción -->
+        <div class="slide active" id="slide-descripcion">
+            <iframe src="{% url 'descripcion_mango' %}" width="100%" height="1150px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+        </div>
+
+        <!-- Slide 1: Producción Mundial -->
+        <div class="slide" id="slide-mundo">
+            <h3>PRODUCCIÓN <strong>MUNDIAL</strong> <strong>DE MANGO</strong></h3>
+            <iframe src="{% url 'tablas1Man' %}" width="100%" height="990px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <div class="map-container">
+                <div id="mapa-mundo" class="map"></div>
             </div>
+            <p class="fuente">
+                FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y
+                LA AGRICULTURA (FAO), AÑO 2022</p>
+        </div>
 
-            <!-- Produccion historica 5 -->
-            <div class="swiper-slide">
-              <h3>PRODUCCIÓN HISTORICA <strong>DE MANGO EN OAXACA</strong></h3><p align="center">VOLUMEN DE PRODUCCIÓN POR REGIÓN (TON)</p>
-                  <iframe src="{% url 'graficas2Man' %}" width="100%" height="850px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                  <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</p>
-                  
+        <!-- Slide 2: Producción Nacional -->
+        <div class="slide" id="slide-mexico">
+            <h3>PRODUCCIÓN <strong> NACIONAL DE MANGO</strong> </h3>
+            <iframe src="{% url 'tablas2Man' %}" width="100%" height="700PX" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <div class="map-container">
+                <div id="mapa-mexico" class="map"></div>
             </div>
+            <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+        </div>
 
-            <!-- Produccion en Oaxaca 6 -->
-            <div class="swiper-slide">
-              <h3>PRODUCCIÓN DE <strong>MANGO EN OAXACA</strong></h3>
-              <h4>CIERRE AGRÍCOLA 2023</h4>
-                <iframe src="{% url 'tablas5Man' %}" width="100%" height="600px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                
-                   <iframe src="{% url 'graficas3Man' %}" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                     <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
-            </div>
+        <!-- Slide 3: Balanza Comercial -->
+        <div class="slide" id="slide-balanza">
+            <h3>BALANZA COMERCIAL <strong>DE MANGO DE OAXACA</strong> </h3>
+            <p align="center">DESTINO DE LA EXPORTACIÓN 2023</p>
+            <iframe src="{% url 'tablas3Man' %}" width="100%" height="680PX" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <p align="center">VOLUMEN DE COMERCIALIZACIÓN (TON)</p><iframe src="{% url 'graficas1Man' %}" width="100%"
+                height="820PX" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+            <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE LA ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+                ALIMENTACIÓN Y LA AGRICULTURA (FAO) Y
+                BANCO DE MÉXICO (BANXICO)</p>
+        </div>
 
-             <!-- Estacionalidad de la Producción 7 -->
-            <div class="swiper-slide">
-             <h3>ESTACIONALIDAD <strong>DE LA PRODUCCIÓN EN OAXACA</strong></h3>
-                <br><br> <p class="texto">La
+        <!-- Slide 4: Producción Histórica -->
+        <div class="slide" id="slide-historica">
+            <h3>PRODUCCIÓN HISTORICA <strong>DE MANGO EN OAXACA</strong></h3>
+            <p align="center">VOLUMEN DE PRODUCCIÓN POR REGIÓN (TON)</p>
+            <iframe src="{% url 'graficas2Man' %}" width="100%" height="850px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</p>
+        </div>
+
+        <!-- Slide 5: Producción Actual -->
+        <div class="slide" id="slide-produccion">
+            <h3>PRODUCCIÓN DE <strong>MANGO EN OAXACA</strong></h3>
+            <h4>CIERRE AGRÍCOLA 2023</h4>
+            <iframe src="{% url 'tablas5Man' %}" width="100%" height="600px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+
+            <iframe src="{% url 'graficas3Man' %}" width="100%" height="550px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+        </div>
+
+        <!-- Slide 6: Estacionalidad -->
+        <div class="slide" id="slide-estadisticas">
+            <h3>ESTACIONALIDAD <strong>DE LA PRODUCCIÓN EN OAXACA</strong></h3>
+            <br><br>
+            <p class="texto">La
                 estacionalidad de la producción hace referencia a la frecuencia de meses
                 donde se produce mango en el estado de Oaxaca, medido a través del índice
                 de volumen físico, es decir, el mes de mayo es cuando se cosecha más mango
                 alcanzando 442 puntos de dicho índice.</p>
-                <BR><BR>
-                <h3>INDICE DE VOLUMEN FISICO (IVF)</h3>
-                <iframe src="{% url 'graficas4Man' %}" width="100%" height="850px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
-                
-            </div>
-
-             <!-- Municipios que producen.. 8 -->
-            <div class="swiper-slide">
-              <h3>MUNICIPIOS QUE PRODUCEN <strong>MANGO EN OAXACA</strong></h3>
-                     <iframe src="{% url 'tablas6Man' %}" width="100%" height="550px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-                      <div class="mapa-container"><img src="{% static 'agricola/mango/imagenes/mapa3.jpg' %}"></div><p align="center" class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
-            </div>
-
-
-
+            <BR><BR>
+            <h3>INDICE DE VOLUMEN FISICO (IVF)</h3>
+            <iframe src="{% url 'graficas4Man' %}" width="100%" height="850px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <p class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
         </div>
-        <!-- Botones de navegación -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-       
+
+        <!-- Slide 7: Municipios productores de piña -->
+        <div class="slide" id="slide-oaxaca">
+            <h3>MUNICIPIOS QUE PRODUCEN <strong>MANGO EN OAXACA</strong></h3>
+            <iframe src="{% url 'tablas6Man' %}" width="100%" height="550px" scrolling="no" frameborder="0"
+                allowtransparency="true"></iframe>
+            <div class="map-container">
+                <div id="mapa-oaxaca" class="map"></div>
+            </div>
+            <p align="center" class="fuente">FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</p>
+        </div>
     </div>
 
-    <!-- Enlace al JavaScript de Swiper -->
-    <script src="{% static 'agricola/agave/js/script.js' %}"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            loop: true,
-        });
-    </script>
+    <!-- Inclusión de fragmento HTML que contiene scripts/mapas adicionales -->
+    {% include 'includes/mapas.html' %}
+
+    <!-- Archivo JS adicional para controlar el menú de navegación -->
+    <script src="{% static 'js/control-menu.js' %}"></script>
+
 </body>
+
 </html>
