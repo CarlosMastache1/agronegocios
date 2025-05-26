@@ -4,111 +4,196 @@
 {% block content %}
 
 <div class="container py-4">
-    <h1 class="mb-4 text-center">Historial de Precios de Cultivos</h1>
-    <p class="text-center">Rango: {{ rango_texto }}</p>
-  
-    <div class="row g-4">
 
-        <!-- Maíz -->
-<div class="col-md-6">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Gráfico de Velas - Maíz</h5>
-        <div id="grafico-maiz" style="height: 400px;"></div>
-        <p class="mt-2 text-muted">Último precio en MXN: <strong>${{ precio_maiz_mxn }}</strong> por unidad</p>
+  <div class="alert alert-danger" role="alert">
+  <h1 class="mb-4 text-center">Historial de Precios de Cultivos</h1>
+  <p class="text-center">Rango: {{ rango_texto }}</p>  
+<p class="text-center" style="font-weight: bolder;">Precios expresados en Dolares</p>
+</div>
+
+
+  <div class="row g-4">
+      <!-- Maíz -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Gráfico de Velas - Maíz</h5>
+            <div id="grafico-maiz" style="height: 400px;"></div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Café -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Gráfico de Velas - Café</h5>
+            <div id="grafico-cafe" style="height: 400px;"></div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Cacao -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Gráfico de Velas - Cacao</h5>
+            <div id="grafico-cacao" style="height: 400px;"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+            <!-- ARROZ -->
+            <div class="col-md-6">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Gráfico de Velas - Arroz </h5>
+                  <div id="grafico-arroz" style="height: 400px;"></div>
+                </div>
+              </div>
+            </div>
+
+             <!-- SOYA -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Gráfico de Velas - SOYA </h5>
+          <div id="grafico-soya" style="height: 400px;"></div>
+        </div>
       </div>
     </div>
-  </div>
   
-  <!-- Café -->
-  <div class="col-md-6">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Gráfico de Velas - Café</h5>
-        <div id="grafico-cafe" style="height: 400px;"></div>
-        <p class="mt-2 text-muted">Último precio en MXN: <strong>${{ precio_cafe_mxn }}</strong> por unidad</p>
+
+    
+    <!-- SOYA -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Gráfico de Velas - AVENA </h5>
+          <div id="grafico-avena" style="height: 400px;"></div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Cacao -->
-  <div class="col-md-6">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Gráfico de Velas - Cacao</h5>
-        <div id="grafico-cacao" style="height: 400px;"></div>
-        <p class="mt-2 text-muted">Último precio en MXN: <strong>${{ precio_cacao_mxn }}</strong> por unidad</p>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Gráfico de Vela - AZUCAR </h5>
+          <div id="grafico-azucar" style="height: 400px;"></div>
+        </div>
       </div>
     </div>
-  </div>
 
 
-   
+
+
 
     </div>
-  </div>
-  
 
-  <script>
-    const fechas_maiz = {{ fechas_maiz|safe }};
-    const velas_maiz = {{ velas_maiz|safe }};
-    const fechas_cafe = {{ fechas_cafe|safe }};
-    const velas_cafe = {{ velas_cafe|safe }};
-    const fechas_cacao = {{ fechas_cacao|safe }};
-    const velas_cacao = {{ velas_cacao|safe }};
-    const fechas_arroz = {{ fechas_arroz|safe }};
-    const velas_arroz = {{ velas_arroz|safe }};
+</div>
 
 
-    console.log("Fechas café:", fechas_cafe);
-    console.log("Velas café:", velas_cafe);
-  
+<script>
+  const fechas_maiz = {{ fechas_maiz|safe }};
+  const velas_maiz = {{ velas_maiz|safe }};
+  const fechas_cafe = {{ fechas_cafe|safe }};
+  const velas_cafe = {{ velas_cafe|safe }};
+  const fechas_cacao = {{ fechas_cacao|safe }};
+  const velas_cacao = {{ velas_cacao|safe }};
+  const fechas_arroz = {{ fechas_arroz|safe }};
+  const velas_arroz = {{ velas_arroz|safe }};
+  const fechas_soya = {{ fechas_soya|safe }};
+  const velas_soya = {{ velas_soya|safe }};
+  const fechas_avena = {{ fechas_avena|safe }};
+  const velas_avena = {{ velas_avena|safe }};
+  const fechas_azucar = {{ fechas_azucar|safe }};
+  const velas_azucar = {{ velas_azucar|safe }};
 
-    echarts.init(document.getElementById('grafico-maiz')).setOption({
-    title: { text: 'Maíz (ZC=F)' },
+  console.log("Fechas café:", fechas_cafe);
+  console.log("Velas café:", velas_cafe);
+
+
+  echarts.init(document.getElementById('grafico-maiz')).setOption({
+  title: { text: 'Maíz (ZC=F)' },
+  tooltip: { trigger: 'axis' },
+  xAxis: { data: fechas_maiz },
+  yAxis: { scale: true },
+  series: [{
+    type: 'candlestick',
+    data: velas_maiz
+  }]
+});
+
+echarts.init(document.getElementById('grafico-cafe')).setOption({
+  title: { text: 'Café (KC=F)' },
+  tooltip: { trigger: 'axis' },
+  xAxis: { data: fechas_cafe },
+  yAxis: { scale: true },
+  series: [{
+    type: 'candlestick',
+    data: velas_cafe
+  }]
+});
+
+echarts.init(document.getElementById('grafico-cacao')).setOption({
+  title: { text: 'Cacao (CC=F)' },
+  tooltip: { trigger: 'axis' },
+  xAxis: { data: fechas_cacao },
+  yAxis: { scale: true },
+  series: [{
+    type: 'candlestick',
+    data: velas_cacao
+  }]
+});
+
+
+echarts.init(document.getElementById('grafico-arroz')).setOption({
+  title: { text: 'ARROZ ()' },
+  tooltip: { trigger: 'axis' },
+  xAxis: { data: fechas_arroz },
+  yAxis: { scale: true },
+  series: [{
+    type: 'candlestick',
+    data: velas_arroz
+  }]
+});
+
+echarts.init(document.getElementById('grafico-soya')).setOption({
+    title: { text: 'SOYA (ZS=F)' },
     tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_maiz },
+    xAxis: { data: fechas_soya },
     yAxis: { scale: true },
     series: [{
       type: 'candlestick',
-      data: velas_maiz
+      data: velas_soya
     }]
   });
 
-  echarts.init(document.getElementById('grafico-cafe')).setOption({
-    title: { text: 'Café (KC=F)' },
+  echarts.init(document.getElementById('grafico-avena')).setOption({
+    title: { text: 'AVENA (ZO=F)' },
     tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_cafe },
+    xAxis: { data: fechas_avena },
     yAxis: { scale: true },
     series: [{
       type: 'candlestick',
-      data: velas_cafe
+      data: velas_avena
     }]
   });
 
-  echarts.init(document.getElementById('grafico-cacao')).setOption({
-    title: { text: 'Cacao (CC=F)' },
+  echarts.init(document.getElementById('grafico-azucar')).setOption({
+    title: { text: 'AZUCAR (SB=F)' },
     tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_cacao },
+    xAxis: { data: fechas_azucar },
     yAxis: { scale: true },
     series: [{
       type: 'candlestick',
-      data: velas_cacao
+      data: velas_azucar
     }]
   });
 
-  echarts.init(document.getElementById('grafico-arroz')).setOption({
-    title: { text: 'Arroz (ZR=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_arroz },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_arroz
-    }]
-  });
+</script>
 
-
-  </script>
 
 {% endblock %}

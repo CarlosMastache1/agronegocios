@@ -27,33 +27,19 @@ from .utils import get_data
 
 # Create your views here.
 
-def obtener_precio_en_pesos(df, tipo_cambio):
-    df = df.dropna(subset=['Close'])  # Asegura datos válidos
-    if df.empty:
-        return None
-    ultimo = df.iloc[-1]
-    return round(ultimo['Close'] * tipo_cambio, 2)
 
 
 def precios_maiz(request):
     hoy = datetime.today().date()
     inicio = hoy - timedelta(days=90)
-    tipo_cambio_usdmxn = 19.5
 
     df_maiz = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_arroz = yf.download("ZR=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
-    
-
-    def limpiar_columnas(df):
-        columnas = ['Open', 'Close', 'Low', 'High']
-        return df.dropna(subset=[c for c in columnas if c in df.columns])
-
-    df_maiz = limpiar_columnas(df_maiz)
-    df_cafe = limpiar_columnas(df_cafe)
-    df_cacao = limpiar_columnas(df_cacao)
-    df_arroz = limpiar_columnas(df_arroz)
+    df_soya = yf.download("ZS=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_avena = yf.download("ZO=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
 
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_maiz = df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist()
@@ -67,16 +53,16 @@ def precios_maiz(request):
     fechas_arroz = df_arroz['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_arroz = df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist()
 
-    
-    fechas_cacao = df_cacao['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_cacao = df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist()
+    fechas_soya = df_soya['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_soya = df_soya[['Open', 'Close', 'Low', 'High']].values.tolist()
 
-       # Conversión a pesos mexicanos
-    def precio_en_pesos(df):
-        try:
-            return obtener_precio_en_pesos(df, tipo_cambio_usdmxn)
-        except:
-            return "No disponible"
+    fechas_avena = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_avena = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+    fechas_azucar = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_azucar = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+
 
 
     return render(request, 'graficasBV.html',  {
@@ -90,15 +76,15 @@ def precios_maiz(request):
         'velas_arroz': json.dumps(velas_arroz),
         'fechas_cacao': json.dumps(fechas_cacao),
         'velas_cacao': json.dumps(velas_cacao),
-        'precio_maiz_mxn': precio_en_pesos(df_maiz),
-        'precio_cafe_mxn': precio_en_pesos(df_cafe),
-        'precio_cacao_mxn': precio_en_pesos(df_cacao),
-        'precio_arroz_mxn': precio_en_pesos(df_arroz),
+        'fechas_soya': json.dumps(fechas_soya),
+        'velas_soya': json.dumps(velas_soya),
+        'fechas_avena': json.dumps(fechas_avena),
+        'velas_avena': json.dumps(velas_avena),
+        'fechas_azucar': json.dumps(fechas_azucar),
+        'velas_azucar': json.dumps(velas_azucar),
+
         'rango_texto': f"{inicio} → {hoy}",
     })
-
-
-
 
 @login_required
 def home(request):
