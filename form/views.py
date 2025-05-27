@@ -40,6 +40,11 @@ def precios_maiz(request):
     df_soya = yf.download("ZS=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_avena = yf.download("ZO=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_algodon = yf.download("CT=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gVacuno = yf.download("LE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+
 
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_maiz = df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist()
@@ -62,6 +67,19 @@ def precios_maiz(request):
     fechas_azucar = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_azucar = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
 
+    fechas_algodon = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_algodon = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+    fechas_gVacuno = df_gVacuno['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gVacuno = df_gVacuno[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+    fechas_gJoven = df_gJoven['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gJoven = df_gJoven[['Open', 'Close', 'Low', 'High']].values.tolist()
+
+    
+    fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cMagro = df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist()
+
 
 
 
@@ -82,6 +100,14 @@ def precios_maiz(request):
         'velas_avena': json.dumps(velas_avena),
         'fechas_azucar': json.dumps(fechas_azucar),
         'velas_azucar': json.dumps(velas_azucar),
+        'fechas_algodon': json.dumps(fechas_algodon),
+        'velas_algodon': json.dumps(velas_algodon),
+        'fechas_gVacuno' : json.dumps(fechas_gVacuno),
+        'velas_gVacuno' : json.dumps(velas_gVacuno),
+        'fechas_gJoven' : json.dumps(fechas_gJoven),
+        'velas_gJoven' : json.dumps(velas_gJoven),
+        'fechas_cMagro' : json.dumps(fechas_cMagro),
+        'velas_cMagro' : json.dumps(velas_cMagro),
 
         'rango_texto': f"{inicio} → {hoy}",
     })

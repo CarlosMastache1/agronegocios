@@ -86,6 +86,16 @@
       </div>
     </div>
 
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Gráfico de Vela - Algoodn </h5>
+          <div id="grafico-algodon" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+
 
 
 
@@ -110,6 +120,8 @@
   const velas_avena = {{ velas_avena|safe }};
   const fechas_azucar = {{ fechas_azucar|safe }};
   const velas_azucar = {{ velas_azucar|safe }};
+  const fechas_algodon = {{ fechas_algodon|safe }};
+  const velas_algodon = {{ velas_algodon|safe }};
 
   console.log("Fechas café:", fechas_cafe);
   console.log("Velas café:", velas_cafe);
@@ -190,6 +202,17 @@ echarts.init(document.getElementById('grafico-soya')).setOption({
     series: [{
       type: 'candlestick',
       data: velas_azucar
+    }]
+  });
+
+  echarts.init(document.getElementById('grafico-algodon')).setOption({
+    title: { text: 'ALGODON (CT=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_algodon },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_algodon
     }]
   });
 
