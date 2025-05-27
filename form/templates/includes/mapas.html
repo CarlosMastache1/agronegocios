@@ -80,6 +80,7 @@
                     };
                 },
                 onEachFeature: function (feature, layer) {
+
                     const munid = feature.properties["INEGI:MUNID"];
                     const info = getInfoMunicipio(munid);
                     layer._munid = munid;
@@ -89,6 +90,11 @@
                     if (info) {
                         layer.on("mouseover", () => {
                             if (layer._activo) {
+
+                                layer.setStyle({
+                                    fillColor: "transparent", // Color más claro o diferente
+                                    fillOpacity: 0
+                                });
                                 const name = feature.properties.name || "Sin nombre";
                                 // Se vincula un tooltip con información detallada del municipio
                                 layer.bindTooltip(`
@@ -105,6 +111,11 @@
                         });
                         // Cierra el tooltip al salir del área del municipio
                         layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: "#9D2449",
+                                fillOpacity: 0.6
+                            });
                             layer.closeTooltip();
                         });
                     }
@@ -264,8 +275,6 @@
             mapaMundo.fitBounds(geoLayerMundo.getBounds());
 
         });
-
-
     // Evento que maneja el cambio en los checkboxes de región
     document.addEventListener("change", function (event) {
         if (event.target.classList.contains("region-checkbox")) {
@@ -277,7 +286,7 @@
                 if (layer) {
                     if (event.target.checked) {
                         layer.setStyle({
-                            fillColor: "red",
+                            fillColor: "#9D2449",
                             fillOpacity: 0.6
                         });
                         layer._activo = true;
@@ -303,16 +312,12 @@
             });
         }
     });
-
     // Checkbox general para activar/desactivar todos
     document.getElementById("check-todos").addEventListener("change", function () {
-
         const isChecked = this.checked;
-
         document.querySelectorAll(".region-checkbox").forEach(cd => {
             cd.checked = isChecked
         })
-
         for (const region in regionesConMunicipios) {
             const municipios = regionesConMunicipios[region];
             municipios.forEach(municipio => {
@@ -320,7 +325,7 @@
                 if (layer) {
                     if (isChecked) {
                         layer.setStyle({
-                            fillColor: "red",
+                            fillColor: "#9D2449",
                             fillOpacity: 0.6
                         });
 
@@ -348,7 +353,5 @@
             });
         }
     });
-
 </script>
-
 </html>
