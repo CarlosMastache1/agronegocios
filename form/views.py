@@ -134,6 +134,9 @@ def home(request):
 def tiendaIndex(request):
   return render(request, 'tiendaHome.html')
 
+def catalogoProductos(request):
+   return render(request, "catalogoProductos.html")
+
 def tiendaAgricola(request):
   return render(request, 'agricolaTienda.html')
 

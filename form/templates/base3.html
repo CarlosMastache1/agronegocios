@@ -2,32 +2,33 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<!--Meta Informations-->
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<!--Site Title-->
-	    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
-	<title>AGRONEGOCIOS</title>
-	<!--Favicons-->		
-	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
-	<meta name="theme-color" content="#ffffff">
-	<!--Style Assets-->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'vendors/fontawesome/css/font-awesome.min.css' %}">
-	<link rel="stylesheet" href="{% static 'vendors/owl/owl.carousel.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'font/css/all.css' %}">
-	<link rel="stylesheet" href="{% static 'estilos/estilo_animacion.css' %}">
-	<!--Theme Style-->
-	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'estilos/anima.css' %}">
-	<style>
-		.ticker {
+<head>
+  <!--Meta Informations-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Site Title-->
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+  <title>AGRONEGOCIOS</title>
+  <!--Favicons-->
+  <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!--Style Assets-->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl/owl.carousel.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'font/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'estilos/estilo_animacion.css' %}">
+  <!--Theme Style-->
+  <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'estilos/anima.css' %}">
+  <style>
+    .ticker {
       background-color: #9d2449;
       color: #ffffff;
-	  font-weight: bolder;
+      font-weight: bolder;
       padding: 10px;
       white-space: nowrap;
       overflow: hidden;
@@ -36,131 +37,150 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-	  font-size: 15px;
+      font-size: 15px;
     }
+
     .ticker-content {
       display: inline-block;
       padding-left: 100%;
       animation: ticker 20s linear infinite;
     }
+
     @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
     }
+
     /* Para que el contenido no quede tapado por la cinta */
     .content {
-      margin-top: 60px; /* Ajusta este valor de acuerdo a la altura de la cinta */
+      margin-top: 60px;
+      /* Ajusta este valor de acuerdo a la altura de la cinta */
       padding: 20px;
     }
-	</style>
+  </style>
 </head>
+
 <body>
-	<div id="loading">
-        <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
-    </div>
-	
-<div id="page" class="site row">
+  <div id="loading">
+    <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
+  </div>
+
+  <div id="page" class="site row">
 
 
-<header id="header" class="site-header">
-	
-	<nav class="navbar navbar-defatult navbar-fixed-top fluid-navbar navbar-style1">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="/" class="navbar-brand"><img src="{% static 'assets/images/logo.png' %}" alt="" class="logo-img"></a>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
-					<span class="sr-only">Nav Opener</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse" id="main-nav">
-				
-				<ul class="navbar-nav nav navbar-right">
-  <li class="active dropdown"><a href="/" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 14px;">INICIO <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/" >INICIO</a></li> 
-      <li><a href="/nosotros" >NOSOTROS</a></li> 
-        <li><a href="/directorio" >DIRECTORIO</a></li> 
-        <li><a href="/ubicacion" >UBICACION</a></li> 
-      </ul>
-  
-  
-  </li>
-  <li class="dropdown">
-    <a href="/grafica" class="dropdown-toggle" data-toggle="dropdown">DESEMPEÑO DE GARANTIAS LIQUIDAS <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-		<li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li> 
-      <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li> 
+    <header id="header" class="site-header">
 
-    </ul>
-  </li>
+      <nav class="navbar navbar-defatult navbar-fixed-top fluid-navbar navbar-style1">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand"><img src="{% static 'assets/images/logo.png' %}" alt=""
+                class="logo-img"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav"
+              aria-expanded="false">
+              <span class="sr-only">Nav Opener</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="main-nav">
 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/agricola">AGRICOLA</a></li>
-      <!-- <li><a href="sector_pecuario.html">Pecuario</a></li>
+            <ul class="navbar-nav nav navbar-right">
+              <li class="active dropdown"><a href="/" class="dropdown-toggle" data-toggle="dropdown"
+                  style="font-size: 14px;">INICIO <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/">INICIO</a></li>
+                  <li><a href="/nosotros">NOSOTROS</a></li>
+                  <li><a href="/directorio">DIRECTORIO</a></li>
+                  <li><a href="/ubicacion">UBICACION</a></li>
+                </ul>
+
+
+              </li>
+              <li class="dropdown">
+                <a href="/grafica" class="dropdown-toggle" data-toggle="dropdown">DESEMPEÑO DE GARANTIAS LIQUIDAS <span
+                    class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
+                  <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span
+                    class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/agricola">AGRICOLA</a></li>
+                  <!-- <li><a href="sector_pecuario.html">Pecuario</a></li>
       <li><a href="estadisticas_pesca.html">Pesca y Acuícola</a></li> -->
-    </ul>
-  </li>
+                </ul>
+              </li>
 
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">DESARROLLO DE MERCADOS<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/tiendaHome"  target="_blank">VER PRODUCTOS REGISTRADOS</a></li>
-      <li><a href="/graficos-precios"  target="_blank">VER VALORES DE MERCADO </a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DESARROLLO DE MERCADOS<span
+                    class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tiendaHome" target="_blank">VER PRODUCTOS REGISTRADOS</a></li>
+                  <li><a href="/catalogo">CATALOGO DE PRODUCTOS</a></li>
 
-    </ul>
-  </li>
-</ul>
+                  <li><a href="/graficos-precios" target="_blank">VER VALORES DE MERCADO </a></li>
 
-			</div>			
-		</div>
-	</nav>
-	
-</header>
+                </ul>
+              </li>
+            </ul>
 
-{% block content %}
-
-{% endblock %}
-
-
-
-<!--Footer-->
-<footer id="footer" class="site-footer">
-    <!--Footer Top-->
-    <section class="row site-footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="media">
-                    <div class="col-sm-3 media-left">
-                    </div>
-                    <div class="col-sm-9 media-body">
-                    	<img src="{% static 'assets/images/logo.png' %}" alt="Oaxaca para el mundo">
-                        <p>AGRONEGOCIOS 2024-2025 <a href="#"></a></p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-    <!--Footer Bottom-->
-    
-</footer>
+      </nav>
 
-</div>
+    </header>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'vendors/jquery-2.2.0.min.js' %}"></script>
-<script src="{% static 'vendors/owl/owl.carousel.min.js' %}"></script>
-<script src="{% static 'vendors/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script src="{% static 'vendors/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'vendors/imagesloaded.pkgd.min.js' %}"></script>
-<!--Theme JS-->
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'assets/js/hostpro.js' %}"></script>
-<script src="{% static 'assets/js/custom.js' %}"></script>
+    {% block content %}
+
+    {% endblock %}
+
+
+
+    <!--Footer-->
+    <footer id="footer" class="site-footer">
+      <!--Footer Top-->
+      <section class="row site-footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="media">
+              <div class="col-sm-3 media-left">
+              </div>
+              <div class="col-sm-9 media-body">
+                <img src="{% static 'assets/images/logo.png' %}" alt="Oaxaca para el mundo">
+                <p>AGRONEGOCIOS 2024-2025 <a href="#"></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Footer Bottom-->
+
+    </footer>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'vendors/jquery-2.2.0.min.js' %}"></script>
+  <script src="{% static 'vendors/owl/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendors/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+  <script src="{% static 'vendors/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendors/imagesloaded.pkgd.min.js' %}"></script>
+  <!--Theme JS-->
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/hostpro.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
 
 </body>
+
 </html>
