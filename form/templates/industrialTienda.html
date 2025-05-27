@@ -5,57 +5,65 @@
 {% block content %}
 
 <div class="container">
-    <div class="row justify-content-center align-items-center g-2 pt-4" >
-        <div class="col-12"  style="padding-top: 60px;">
+    <div class="row justify-content-center align-items-center g-2 pt-4">
+        <div class="col-12" style="padding-top: 60px;">
             <div class="alert alert-danger " role="alert">
                 <h2 style="text-align: center; color: #9d2449; font-weight: bold"> PRODUCTOS AGROINDUSTRIALES </h2>
             </div>
         </div>
-     </div>     
+    </div>
 </div>
- 
 
-    <!-- Start Shop Page  -->
-    <div class="shop-box-inner">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12 shop-content-right">
-                    <div class="right-product-box">
 
-                        <div class="product-categorie-box">
-                                    <div class="row">
-                                        {% for tiendaInd in tiendaInd %}
+<!-- Start Shop Page  -->
+<div class="shop-box-inner">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12 shop-content-right">
+                <div class="right-product-box">
 
-                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                            <div class="products-single fix">
-                                                <div class="box-img-hover">
-                                                    <div class="type-lb">
-                                                        <p class="sale">Nuevos Productos</p>
-                                                    </div> 
-                                                    <img src="{{ tiendaInd.imagenProd.url }}" class="img-fluid" alt="Image">
-                                                    <div class="mask-icon">
+                    <div class="product-categorie-box">
+                        <div class="row">
+                            {% for tiendaInd in tiendaInd %}
 
-                                                        <a class="cart" href="{% url 'detailProduct' tiendaInd.id %}">Ver Detalles <i class="fas fa-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="why-text" style="align-items: center;">
-                                                    <h2 style="color: #9d2449; font-weight: bold;"> {{ tiendaInd.nombreProducto }} </h2>
-                                                    <h5> Productor:  {{ tiendaInd.nombreProductor }}  </h5>
-                                                    <h5>Telefono: <i class="fa-solid fa-phone"></i> {{ tiendaInd.telefono }}</h5>
-                                                </div>
-                                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                <div class="products-single fix">
+                                    <div class="box-img-hover">
+                                        <div class="type-lb">
+                                            <p class="sale">Nuevos Productos</p>
                                         </div>
+                                        {% if tiendaInd.imagenProd.url == '/media/IMAGEN%20PRODUCTO' %}
+                                        <img src="/media/imagenes/cultivo.png" class="img-fluid"
+                                            alt="Imagen alternativa">
+                                        {% else %}
+                                        <img src="{{ tiendaInd.imagenProd.url }}" class="img-fluid" alt="Image">
 
-                                        {% endfor %}
+                                        {% endif %}
+                                        <div class="mask-icon">
+
+                                            <a class="cart" href="{% url 'detailProduct' tiendaInd.id %}">Ver Detalles
+                                                <i class="fas fa-eye"></i></a>
+                                        </div>
                                     </div>
+                                    <div class="why-text" style="align-items: center;">
+                                        <h2 style="color: #9d2449; font-weight: bold;"> {{ tiendaInd.nombreProducto }}
+                                        </h2>
+                                        <h5> Productor: {{ tiendaInd.nombreProductor }} </h5>
+                                        <h5>Telefono: <i class="fa-solid fa-phone"></i> {{ tiendaInd.telefono }}</h5>
+                                    </div>
+                                </div>
+                            </div>
 
+                            {% endfor %}
                         </div>
+
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 
 
 

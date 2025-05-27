@@ -4,13 +4,45 @@
 
 {% block content %}
 
+<style>
+    .pdf-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
 
+    .pdf-frame {
+        width: 80%;
+        height: 90vh;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .pdf-frame:hover {
+        transform: scale(1.01);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+        .pdf-frame {
+            width: 95%;
+            height: 80vh;
+        }
+    }
+</style>
 <div class="all-title-box">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <h2> {{ product.categoria }} </h2>
-                
+
             </div>
         </div>
     </div>
@@ -21,31 +53,47 @@
             <div class="col-xl-5 col-lg-5 col-md-6">
                 <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active"> <img class="d-block w-100" src="{{ product.imagenProd.url }}" alt="First slide"> </div>
-                        
+
+                        {% if product.imagenProd.url == '/media/IMAGEN%20PRODUCTO' %}
+                        <img class="d-block w-100" src="/media/imagenes/cultivo.png" alt="Imagen alternativa">
+                        {% else %}
+                        <img class="d-block w-100" src="{{ product.imagenProd.url }}" alt="First slide">
+
+                        {% endif %}
+
+
                     </div>
-             
+
                 </div>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6">
                 <div class="single-product-details">
                     <h2>{{ product.nombreProducto }} </h2>
-                    <h5>  Volumen de producción: {{ product.volumen_produccion }} Toneladas </h5>
-                    <h5> <i class="fa-solid fa-clock"></i>  Disponibilidad de entrega: {{ product.disponibilidad_entrega }} </h5>
+                    <h5> Volumen de producción: {{ product.volumen_produccion }} Toneladas </h5>
+                    <h5> <i class="fa-solid fa-clock"></i> Disponibilidad de entrega: {{ product.disponibilidad_entrega }} </h5>
 
-                    <p class="available-stock"><span> Nombre del productor: {{ product.nombreProductor }}  <br> <a style="color: brown;"> Telefono: <i class="fa-solid fa-phone"></i>  {{ product.telefono }} </a></span><p>
+                    <p class="available-stock"><span> Nombre del productor: {{ product.nombreProductor }} <br> <a
+                                style="color: brown;"> Telefono: <i class="fa-solid fa-phone"></i> {{ product.telefono }} </a></span>
+                    <p>
                     <h4>Descripción:</h4>
- 
                     <p>Nombre de la marca: {{ product.nombreMarca }} <br> <i class="fa-solid fa-building-columns"></i> Municipio donde se produce: {{ product.municipio_id.nombre_municipio }} - Localidad: {{ product.localidad }} <br> 
                         <i class="fa-regular fa-envelope"></i> Email: {{ product.email }}  </p>
                     
+                    <p>Nombre de la marca: {{ product.nombreMarca }} <br> <i class="fa-solid fa-building-columns"></i>
+                        Municipio donde se produce: {{ product.municipio_id.nombre_municipio }} - {{ product.localidad }} <br>
+                        <i class="fa-regular fa-envelope"></i> Email: {{ product.email }}
+                    </p>
 
-           
+
+
 
                 </div>
             </div>
         </div>
-        
+
+        <div class="pdf-wrapper">
+            <iframe src="/media/pdf/archivo.pdf" class="pdf-frame"></iframe>
+        </div>
 
 
     </div>
@@ -56,6 +104,3 @@
 
 
 {% endblock %}
-
-
-

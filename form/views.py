@@ -135,14 +135,20 @@ def tiendaIndex(request):
   return render(request, 'tiendaHome.html')
 
 def tiendaAgricola(request):
-  tiendaAgri = productos.objects.filter(subsector = 'AGRICOLA', estado=True)
-  return render(request, 'agricolaTienda.html',
-  {'tiendaAgri' : tiendaAgri})
+  return render(request, 'agricolaTienda.html')
+
+def tiendaProducAgri(request, categoria):
+  tiendaAgri = productos.objects.filter(subsector = 'AGRICOLA', categoria = categoria, estado=True)
+  return render(request, 'productoAgricultura.html',
+  {'tiendaAgri' : tiendaAgri, 'categoria' : categoria})
 
 def tiendaPecuario(request):
-  tiendaPec = productos.objects.filter(subsector = 'PECUARIO', estado=True)
-  return render(request, 'pecuarioTienda.html',
-  {'tiendaPec' : tiendaPec})
+  return render(request, 'pecuarioTienda.html')
+
+def tiendaProducPecu(request, categoria):
+  tiendaPec = productos.objects.filter(subsector = 'PECUARIO',  categoria = categoria, estado=True)
+  return render(request, 'productoPecuario.html',
+  {'tiendaPec' : tiendaPec, 'categoria' : categoria})
 
 def tiendaPesquero(request):
   tiendaPes = productos.objects.filter(subsector = 'PESQUERO', estado=True)
