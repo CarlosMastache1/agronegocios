@@ -3,64 +3,107 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
 
-
-
-    <!-- Start Shop Page  -->
-     <div class="container">
-        <div class="row justify-content-center align-items-center g-2 pt-4" >
-            <div class="col-12" style="padding-top: 60px;">
-                <div class="alert alert-danger " role="alert" >
-                    <h2 style="text-align: center; color: #9d2449; font-weight: bold"> PRODUCTOS AGRICOLAS </h2>
-                </div>
-            </div>
-         </div>     
-    </div>
-     
-     
-     
-    <div class="shop-box-inner">
-        <div class="container">
-            <div class="row">
-               
-                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12 shop-content-right">
-                    <div class="right-product-box">
-
-                        <div class="product-categorie-box">
-                                    <div class="row">
-                                        {% for tiendaAgri in tiendaAgri %}
-
-                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                            <div class="products-single fix">
-                                                <div class="box-img-hover">
-                                                    <div class="type-lb">
-                                                        <p class="sale">Nuevos Productos</p>
-                                                    </div> 
-                                                    <img src="{{ tiendaAgri.imagenProd.url }}" class="img-fluid" alt="Image">
-                                                    <div class="mask-icon">
-
-                                                        <a class="cart" href="{% url 'detailProduct' tiendaAgri.id %}">Ver Detalles <i class="fas fa-eye"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="why-text" style="align-items: center;">
-                                                    <h2 style="color: #9d2449; font-weight: bold;"> {{ tiendaAgri.nombreProducto }} </h2>
-                                                    <h5> Productor:  {{ tiendaAgri.nombreProductor }}  </h5>
-                                                    <h5>Telefono: <i class="fa-solid fa-phone"></i> {{ tiendaAgri.telefono }}</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {% endfor %}
-                                    </div>
-
-                        </div>
-                    </div>
-                </div>
-
+<!-- Start Shop Page  -->
+<div class="container">
+    <div class="row justify-content-center align-items-center g-2 pt-4">
+        <div class="col-12" style="padding-top: 60px;">
+            <div class="alert alert-danger " role="alert">
+                <h2 style="text-align: center; color: #9d2449; font-weight: bold"> PRODUCTOS AGRICOLAS </h2>
             </div>
         </div>
     </div>
+</div>
 
+<!--Tarjetas -->
+<div class="body-card">
+    <div class="container">
+        <a href="{% url 'productosAgricola' 'AGAVE' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE">
+                <h3>AGAVE</h3>
+            </div>
+        </a>
 
-
+        <a href="{% url 'productosAgricola' 'AJONJOLI' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/2.png' %}" alt="AJONJOLI">
+                <h3>AJONJOLI</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'CAFE' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ">
+                <h3>CAFÉ</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'CALABACITA' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/4.png' %}" alt="CALABACITA">
+                <h3>CALABACITA</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'JENGIBRE' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/5.png' %}" alt="JENGIBRE">
+                <h3>JENGIBRE</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'LIMON' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/6.png' %}" alt="LIMÓN">
+                <h3>LIMÓN</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'LITCHI' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/7.png' %}" alt="LITCHI">
+                <h3>LITCHI</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'MANGO' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/8.png' %}" alt="MANGO">
+                <h3>MANGO</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'MELON' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/9.png' %}" alt="MELÓN">
+                <h3>MELÓN</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'PAPAYA' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/10.png' %}" alt="PAPAYA">
+                <h3>PAPAYA</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'PEPINO' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/11.png' %}" alt="PEPINO">
+                <h3>PEPINO</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'PIÑA' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/12.png' %}" alt="PIÑA">
+                <h3>PIÑA</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'PLATANO' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/13.png' %}" alt="PLATANO">
+                <h3>PLATANO</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAgricola' 'SANDIA' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/14.png' %}" alt="SANDIA">
+                <h3>SANDIA</h3>
+            </div>
+        </a>
+    </div>
+</div>
 {% endblock %}
