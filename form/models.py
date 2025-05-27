@@ -112,7 +112,6 @@ class productos(models.Model):
     email = models.CharField(max_length=50, blank=True, null=True)
     imagenProd = models.ImageField(upload_to='imagenes/', default='IMAGEN PRODUCTO')
     archivo_pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
-
     estado = models.BooleanField(default=False)
 
 
