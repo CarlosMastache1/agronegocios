@@ -1,5 +1,5 @@
  .navbar-layaout-new {
-      background: radial-gradient(#49535afb, #444c51e9);
+      background: radial-gradient(#49535a7e, #444c517c);
       border: none;
     }
 
@@ -46,7 +46,7 @@
     .navbar-nav>li>a:hover,
     .navbar-nav>.dropdown:hover>a {
       color: white !important;
-      background-color: #b51919 !important;
+      background-color: #a3596e !important;
     }
 
     .dropdown-menu {
