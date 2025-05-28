@@ -55,7 +55,7 @@
                     <div class="carousel-inner" role="listbox">
 
                         {% if product.imagenProd.url == '/media/IMAGEN%20PRODUCTO' %}
-                        <img class="d-block w-100" src="/media/imagenes/cultivo.png" alt="Imagen alternativa">
+                        <img class="d-block w-100" src="{% static 'imagenesSA/cultivo.png' %}" alt="Imagen alternativa">
                         {% else %}
                         <img class="d-block w-100" src="{{ product.imagenProd.url }}" alt="First slide">
 
@@ -75,12 +75,9 @@
                     <p class="available-stock"><span> Nombre del productor: {{ product.nombreProductor }} <br> <a
                                 style="color: brown;"> Telefono: <i class="fa-solid fa-phone"></i> {{ product.telefono }} </a></span>
                     <p>
-                    <h4>Descripción:</h4>
-                    <p>Nombre de la marca: {{ product.nombreMarca }} <br> <i class="fa-solid fa-building-columns"></i> Municipio donde se produce: {{ product.municipio_id.nombre_municipio }} - Localidad: {{ product.localidad }} <br> 
-                        <i class="fa-regular fa-envelope"></i> Email: {{ product.email }}  </p>
-                    
+                    <h4>Descripción:</h4>                    
                     <p>Nombre de la marca: {{ product.nombreMarca }} <br> <i class="fa-solid fa-building-columns"></i>
-                        Municipio donde se produce: {{ product.municipio_id.nombre_municipio }} - {{ product.localidad }} <br>
+                        Municipio donde se produce: {{ product.municipio.nombre_municipio }} - {{ product.localidad }} <br>
                         <i class="fa-regular fa-envelope"></i> Email: {{ product.email }}
                     </p>
 
@@ -90,11 +87,14 @@
                 </div>
             </div>
         </div>
-
+        {% if product.archivo_pdf %}
+<h1 style="text-align: center; color: #9d2449; font-weight: bold;">CERTIFICADO DEL PRODUCTOR </h1>
         <div class="pdf-wrapper">
-            <iframe src="/media/pdf/archivo.pdf" class="pdf-frame"></iframe>
+            <iframe src="{{ product.archivo_pdf.url }}" class="pdf-frame"></iframe>
         </div>
-
+        {% else %}
+        <p>Aun no se ha cargado el certificado en PDF.</p>
+    {% endif %}
 
     </div>
 </div>
