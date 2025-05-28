@@ -5,62 +5,141 @@
 
 {% block content %}
 <main id="contents" class="site-contnts">
-	
-	<!--Slider-->
-	<div class="home-slider">
-		<div class="item" data-slide="{% static 'assets/images/agricola2.jpg' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7">
-						<h2 class="slide-title">Estadisticas <strong>del Sector Agrícola</strong>  <h3>Explora los 16 productos</h3> 
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="item" data-slide="{% static 'assets/images/agricola.jpg' %}">
-			<div class="container">
-				<div class="row">
-					
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 
-    
-    <!--Clients-->
-    <section class="row client-logos">
-        <div class="container">            
-            <div class="row section-title text-center">
-				<h2>ESTADISTICAS DEL SECTOR AGRÍCOLA</h2>
-			</div>
-            <div class="row">
-                <div class="col-sm-2 client-logo"><a href="{% url 'agave' %}" data-toggle="tooltip" data-placement="top" title="AGAVE"><img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'ajonjoli' %}" data-toggle="tooltip" data-placement="top" title="AJONJOLI"><img src="{% static 'imagenesSA/2.png' %}" alt="AJONJOLI"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'cafe' %}" data-toggle="tooltip" data-placement="top" title="CAFÉ"><img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'calabacita' %}" data-toggle="tooltip" data-placement="top" title="CALABACITA"><img src="{% static 'imagenesSA/4.png' %}" alt="CALABACITA"></a></div>
-                <!-- <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="TOMATE"><img src="{% static 'imagenesSA/15.png' %}" alt=">"></a></div>
-                <div class="col-sm-2 client-logo"><a href="#" data-toggle="tooltip" data-placement="top" title="VAINILLA"><img src="{% static 'imagenesSA/16.png' %}" alt="VAINILLA"></a></div> -->
-                <br><br><br><br><br><br><br><br><br><br>
-                <div class="col-sm-2 client-logo"><a href="{% url 'jengibre' %}" data-toggle="tooltip" data-placement="top" title="JENGIBRE"><img src="{% static 'imagenesSA/5.png' %}" alt="JENGIBRE"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'limon' %}" data-toggle="tooltip" data-placement="top" title="LIMÓN"><img src="{% static 'imagenesSA/6.png' %}" alt="LIMÓN"></a></div>
-				<div class="col-sm-2 client-logo"><a href="{% url 'litchi' %}" data-toggle="tooltip" data-placement="top" title="LITCHI"><img src="{% static 'imagenesSA/7.png' %}" alt="LITCHI"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'mango' %}" data-toggle="tooltip" data-placement="top" title="MANGO"><img src="{% static 'imagenesSA/8.png' %}" alt="MANGO"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'melon' %}" data-toggle="tooltip" data-placement="top" title="MELÓN"><img src="{% static 'imagenesSA/9.png' %}" alt="MELÓN"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'papaya' %}" data-toggle="tooltip" data-placement="top" title="PAPAYA"><img src="{% static 'imagenesSA/10.png' %}" alt="PAPAYA"></a></div>
-                <br><br><br><br><br><br><br><br><br><br>
-                <div class="col-sm-2 client-logo"><a href="{% url 'pepino' %}" data-toggle="tooltip" data-placement="top" title="PEPINO"><img src="{% static 'imagenesSA/11.png' %}" alt="PEPINO"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'pina' %}" data-toggle="tooltip" data-placement="top" title="PIÑA"><img src="{% static 'imagenesSA/12.png' %}" alt="PIÑA"></a></div>
- 				<div class="col-sm-2 client-logo"><a href="{% url 'platano' %}" data-toggle="tooltip" data-placement="top" title="PLATANO"><img src="{% static 'imagenesSA/13.png' %}" alt="PLATANO"></a></div>
-                <div class="col-sm-2 client-logo"><a href="{% url 'sandia' %}" data-toggle="tooltip" data-placement="top" title="SANDIA"><img src="{% static 'imagenesSA/14.png' %}" alt="SANDIA"></a></div>
-               
+    <!--Slider-->
+    <div class="home-slider">
+        <div class="item" data-slide="{% static 'assets/images/agricola2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-8 col-lg-7">
+                        <h2 class="slide-title">Estadisticas <strong>del Sector Agrícola</strong>
+                            <h3>Explora los 16 productos</h3>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-	
+        <div class="item" data-slide="{% static 'assets/images/agricola.jpg' %}">
+            <div class="container">
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
+    <style>
+        .container-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .titulo-estilo {
+            color: #9D2449;
+            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+
+    <!--Tarjetas -->
+    <div class="body-card">
+        <h2 class="text-3xl font-bold text-center titulo-estilo">ESTADISTICAS DEL SECTOR AGRÍCOLA</h2>
+
+        <div class="container-card">
+            <a href="{% url 'agave' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE">
+                    <h3>AGAVE</h3>
+                </div>
+            </a>
+
+            <a href="{% url 'ajonjoli' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/2.png' %}" alt="AJONJOLI">
+                    <h3>AJONJOLI</h3>
+                </div>
+            </a>
+            <a href="{% url 'cafe' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ">
+                    <h3>CAFÉ</h3>
+                </div>
+            </a>
+            <a href="{% url 'calabacita' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/4.png' %}" alt="CALABACITA">
+                    <h3>CALABACITA</h3>
+                </div>
+            </a>
+            <a href="{% url 'jengibre' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/5.png' %}" alt="JENGIBRE">
+                    <h3>JENGIBRE</h3>
+                </div>
+            </a>
+            <a href="{% url 'limon' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/6.png' %}" alt="LIMÓN">
+                    <h3>LIMÓN</h3>
+                </div>
+            </a>
+            <a href="{% url 'litchi' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/7.png' %}" alt="LITCHI">
+                    <h3>LITCHI</h3>
+                </div>
+            </a>
+            <a href="{% url 'mango' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/8.png' %}" alt="MANGO">
+                    <h3>MANGO</h3>
+                </div>
+            </a>
+            <a href="{% url 'melon' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/9.png' %}" alt="MELÓN">
+                    <h3>MELÓN</h3>
+                </div>
+            </a>
+            <a href="{% url 'papaya' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/10.png' %}" alt="PAPAYA">
+                    <h3>PAPAYA</h3>
+                </div>
+            </a>
+            <a href="{% url 'pepino' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/11.png' %}" alt="PEPINO">
+                    <h3>PEPINO</h3>
+                </div>
+            </a>
+            <a href="{% url 'pina' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/12.png' %}" alt="PIÑA">
+                    <h3>PIÑA</h3>
+                </div>
+            </a>
+            <a href="{% url 'platano' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/13.png' %}" alt="PLATANO">
+                    <h3>PLATANO</h3>
+                </div>
+            </a>
+            <a href="{% url 'sandia' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/14.png' %}" alt="SANDIA">
+                    <h3>SANDIA</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
 </main>
 
 {% endblock %}
