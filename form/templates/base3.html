@@ -24,6 +24,8 @@
   <!--Theme Style-->
   <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'estilos/anima.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style-layout.css' %}">
+
   <style>
     .ticker {
       background-color: #9d2449;
@@ -70,59 +72,68 @@
     <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
   </div>
 
+  <style>
+
+  </style>
   <div id="page" class="site row">
-
-
-    <header id="header" class="site-header">
-
-      <nav class="navbar navbar-defatult navbar-fixed-top fluid-navbar navbar-style1">
+    <header class="site-header">
+      <!-- Navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top fluid-navbar navbar-layaout-new" id="navbar-new">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <a href="/" class="navbar-brand"><img src="{% static 'assets/images/logo.png' %}" alt=""
-                class="logo-img"></a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav"
-              aria-expanded="false">
-              <span class="sr-only">Nav Opener</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="main-nav">
 
-            <ul class="navbar-nav nav navbar-right">
-              <li class="active dropdown"><a href="/" class="dropdown-toggle" data-toggle="dropdown"
-                  style="font-size: 14px;">INICIO <span class="caret"></span></a>
+
+          <!-- Encabezado con botón toggle -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img src="{% static 'assets/images/logo.png' %}" alt="logo" height="40px">
+            </a>
+          </div>
+          <!-- Botón para colapsar menú -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsable">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="menu-colapsable">
+            <ul class="nav navbar-nav navbar-right">
+
+              <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-home"></span> INICIO <span
+                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a href="/">INICIO</a></li>
                   <li><a href="/nosotros">NOSOTROS</a></li>
                   <li><a href="/directorio">DIRECTORIO</a></li>
                   <li><a href="/ubicacion">UBICACION</a></li>
                 </ul>
-
-
               </li>
+
               <li class="dropdown">
-                <a href="/grafica" class="dropdown-toggle" data-toggle="dropdown">DESEMPEÑO DE GARANTIAS LIQUIDAS <span
-                    class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-lock"></span> DESEMPEÑO DE GARANTÍAS LÍQUIDAS <span
+                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
                   <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
-
                 </ul>
               </li>
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span
-                    class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-stats"></span> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span
+                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a href="/agricola">AGRICOLA</a></li>
-                  <!-- <li><a href="sector_pecuario.html">Pecuario</a></li>
-      <li><a href="estadisticas_pesca.html">Pesca y Acuícola</a></li> -->
                 </ul>
               </li>
 
-                <li class="dropdown">
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-road"></span> DESARROLLO DE MERCADO <span
                     class="glyphicon glyphicon-chevron-down pull-right"></span>
@@ -133,14 +144,68 @@
                   <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
                 </ul>
               </li>
-            </ul>
 
+            </ul>
           </div>
         </div>
       </nav>
 
+
     </header>
 
+    <!--
+<header id="header" class="site-header">
+	
+	<nav class="navbar navbar-defatult navbar-fixed-top fluid-navbar navbar-style1">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand"><img src="{% static 'assets/images/logo.png' %}" alt="" class="logo-img"></a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+					<span class="sr-only">Nav Opener</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="main-nav">
+				
+				<ul class="navbar-nav nav navbar-right">
+  <li class="active dropdown"><a href="/" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 14px;">INICIO <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/" >INICIO</a></li> 
+      <li><a href="/nosotros" >NOSOTROS</a></li> 
+        <li><a href="/directorio" >DIRECTORIO</a></li> 
+        <li><a href="/ubicacion" >UBICACION</a></li> 
+      </ul>
+  
+  
+  </li>
+  <li class="dropdown">
+    <a href="/grafica" class="dropdown-toggle" data-toggle="dropdown">DESEMPEÑO DE GARANTIAS LIQUIDAS <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+		<li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li> 
+      <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li> 
+
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="/agricola">AGRICOLA</a></li>
+       <li><a href="sector_pecuario.html">Pecuario</a></li>
+      <li><a href="estadisticas_pesca.html">Pesca y Acuícola</a></li> 
+    </ul>
+  </li>
+  <li><a href="/tiendaHome" target="_blank">DESARROLLO DE MERCADO</a></li>
+</ul>
+
+			</div>			
+		</div>
+	</nav>
+	
+</header>
+-->
     {% block content %}
 
     {% endblock %}
@@ -180,6 +245,23 @@
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'assets/js/hostpro.js' %}"></script>
   <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+  <script>
+    //navbar-layaout-new 
+    const navbar = document.getElementById('navbar-new');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('navbar-layaout-new');
+        navbar.classList.add('navbar-scroll');
+      } else {
+        navbar.classList.remove('navbar-scroll');
+        navbar.classList.add('navbar-layaout-new');
+      }
+    });
+
+  </script>
 
 </body>
 
