@@ -27,6 +27,39 @@ from .utils import get_data
 
 # Create your views here.
 
+def maiz_precioMXN(request):
+  maiz_futuros = yf.Ticker("ZC=F") 
+
+  # Obtener el último precio de cierre (en centavos por bushel)
+  ultimo_precio_centavos = maiz_futuros.history(period="1d")["Close"].iloc[-1]
+
+  # Parámetros de conversión
+  tipo_cambio = 19.30  # Pesos por dólar
+  bushels_por_contrato = 5000  # Un contrato representa 5000 bushels
+  kg_por_bushel = 25.40  # 1 bushel = 25.40 kg
+
+  # Conversión a dólares por bushel
+  ultimo_precio_dolares = ultimo_precio_centavos / 100
+
+  # Conversión a pesos por bushel
+  precio_pesos_bushel = ultimo_precio_dolares * tipo_cambio
+
+  # Conversión a pesos por contrato (5000 bushels)
+  precio_pesos_contrato = precio_pesos_bushel * bushels_por_contrato
+
+  # Conversión a pesos por kilogramo
+  precio_pesos_kg = precio_pesos_bushel / kg_por_bushel
+
+  # Mostrar resultados
+  print(f"Último precio de cierre: {ultimo_precio_centavos} centavos por bushel")
+  print(f"Precio en pesos por bushel: {precio_pesos_bushel:.2f} MXN")
+  print(f"Precio en pesos por contrato (5000 bushels): {precio_pesos_contrato:.2f} MXN")
+  print(f"Precio en pesos por kilogramo: {precio_pesos_kg:.2f} MXN")
+
+  return render(request,  'graficasBV.html')
+
+
+
 
 
 def precios_maiz(request):
@@ -81,6 +114,49 @@ def precios_maiz(request):
     velas_cMagro = df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist()
 
 
+    ###### BLOQUE DE CODIGO PARA OBTENER PRECIOS POR PESOS MEXICANOS
+
+    # Conversiones
+    kg_por_libra = 0.4536
+    kg_por_tonelada = 1000
+    kg_por_bushel_maiz = 25.4016
+
+    # Tickers
+    productos = {
+        "cafe": {"nombre": "Café", "ticker": "KC=F", "unidad": "libra"},
+        "cacao": {"nombre": "Cacao", "ticker": "CC=F", "unidad": "tonelada"},
+        "maiz": {"nombre": "Maíz", "ticker": "ZC=F", "unidad": "bushel"},
+    }
+
+    # Tipo de cambio
+    dolar = yf.Ticker("USDMXN=X")
+    datos_dolar = dolar.history(period="5d", interval="1h")
+    tipo_cambio = datos_dolar["Close"].iloc[-1]
+
+    # Variables individuales
+    cafe_precio_usd = cacao_precio_usd = maiz_precio_usd = None
+    cafe_precio_mxn_kg = cacao_precio_mxn_kg = maiz_precio_mxn_kg = None
+
+        # Procesar productos
+    for key, p in productos.items():
+        ticker = yf.Ticker(p["ticker"])
+        datos = ticker.history(period="5d", interval="4h")
+        ultimo_precio = datos["Close"].iloc[-1]
+
+        if key == "cafe":
+            cafe_precio_usd = round(ultimo_precio / 100, 2)
+            cafe_precio_mxn_kg = round((cafe_precio_usd * tipo_cambio) / kg_por_libra, 2)
+
+        elif key == "cacao":
+            cacao_precio_usd = round(ultimo_precio, 2)
+            cacao_precio_mxn_kg = round((ultimo_precio * tipo_cambio) / kg_por_tonelada, 2)
+
+        elif key == "maiz":
+            maiz_precio_usd = round(ultimo_precio, 2)
+            precio_usd_kg = ultimo_precio / 100
+            precio_mxn = precio_usd_kg * tipo_cambio
+            maiz_precio_mxn_kg = round(precio_mxn / kg_por_bushel_maiz, 2)
+
 
 
     return render(request, 'graficasBV.html',  {
@@ -108,8 +184,15 @@ def precios_maiz(request):
         'velas_gJoven' : json.dumps(velas_gJoven),
         'fechas_cMagro' : json.dumps(fechas_cMagro),
         'velas_cMagro' : json.dumps(velas_cMagro),
+        "cafe_precio_usd": cafe_precio_usd,
+        "cafe_precio_mxn_kg": cafe_precio_mxn_kg,
+        "cacao_precio_usd": cacao_precio_usd,
+        "cacao_precio_mxn_kg": cacao_precio_mxn_kg,
+        "maiz_precio_usd": maiz_precio_usd,
+        "maiz_precio_mxn_kg": maiz_precio_mxn_kg,
 
         'rango_texto': f"{inicio} → {hoy}",
+        'precio_pesos_kg' : round(precio_pesos_kg,2)
     })
 
 @login_required
