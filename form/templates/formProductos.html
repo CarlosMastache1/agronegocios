@@ -78,7 +78,7 @@
             margin-right: 10px;
         }
 
-        #aletar_pdf {
+        .alert-error {
             color: red;
             font-size: 10px;
         }
@@ -111,8 +111,7 @@
                     <label>MUNICIPIO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="localidad" name="localidad" 
-                        oninput="this.value = this.value.toUpperCase();">
+                    <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
                 <div class="input-field">
@@ -219,7 +218,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono" >
+                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
                 </div>
                 <div class="input-field">
@@ -232,11 +231,14 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR FOTO DEL PRODUCTO</span>
-                        <input type="file" name="imagenProd" multiple accept="image/png, image/jpeg">
+                        <input type="file" name="imagenProd" multiple accept="image/png, image/jpeg, image/jpg"
+                            id="img-file">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
                     </div>
+                    <span id="aletar_img" class="alert-error"></span>
+
                 </div>
 
 
@@ -249,7 +251,7 @@
                         <input class="file-path validate" type="text" placeholder="SUBIR CERTIFICADO PDF">
                     </div>
 
-                    <span id="aletar_pdf"></span>
+                    <span id="aletar_pdf" class="alert-error"></span>
                 </div>
 
                 <label>
@@ -288,21 +290,38 @@
         });
 
         const tamano_maximo = 100000000; // 100mb
+        const tamano_imag = 2000000; //2MB
 
         const spanAlert = document.getElementById("aletar_pdf");
 
         const inputFile = document.getElementById('archivo-pdf');
-        inputFile.addEventListener("change", function() {
-            if(this.files.length <= 0) return;
+        inputFile.addEventListener("change", function () {
+            if (this.files.length <= 0) return;
 
             const archvo = this.files[0];
 
-            if(archvo.size >=tamano_maximo){
+            if (archvo.size >= tamano_maximo) {
                 inputFile.value = "";
                 spanAlert.innerHTML = "El certificado es muy pesado; Asegurate de que el peso del arhivo no sea mayor a 100MB"
             }
 
         });
+
+        const spanAlert2 = document.getElementById("aletar_img")
+        const inputImag = document.getElementById('img-file');
+        inputImag.addEventListener("change", function () {
+            if (this.files.length <= 0) return;
+
+            const archvo = this.files[0];
+
+            if (archvo.size >= tamano_imag) {
+                inputImag.value = "";
+                spanAlert2.innerHTML = "La imagen es muy pesado; Asegurate de que el peso de la imagen no sea mayor a 2MB"
+            }
+
+        });
+
+
     </script>
 </body>
 
