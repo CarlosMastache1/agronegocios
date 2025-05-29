@@ -120,46 +120,52 @@ def precios_maiz(request):
     kg_por_libra = 0.4536
     kg_por_tonelada = 1000
     kg_por_bushel_maiz = 25.4016
-
-    # Tickers
-    productos = {
-        "cafe": {"nombre": "Café", "ticker": "KC=F", "unidad": "libra"},
-        "cacao": {"nombre": "Cacao", "ticker": "CC=F", "unidad": "tonelada"},
-        "maiz": {"nombre": "Maíz", "ticker": "ZC=F", "unidad": "bushel"},
-    }
+    kg_por_bushel_soya = 27.216
+    kg_por_bushel_avena = 17.014
+    kg_por_cwt_arroz = 45.3592
 
     # Tipo de cambio
     dolar = yf.Ticker("USDMXN=X")
     datos_dolar = dolar.history(period="5d", interval="1h")
     tipo_cambio = datos_dolar["Close"].iloc[-1]
 
-    # Variables individuales
-    cafe_precio_usd = cacao_precio_usd = maiz_precio_usd = None
-    cafe_precio_mxn_kg = cacao_precio_mxn_kg = maiz_precio_mxn_kg = None
+    # Café
+    cafe = yf.Ticker("KC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_cafe_mxn_kg = round((cafe / 100 * tipo_cambio) / kg_por_libra, 2)
 
-        # Procesar productos
-    for key, p in productos.items():
-        ticker = yf.Ticker(p["ticker"])
-        datos = ticker.history(period="5d", interval="4h")
-        ultimo_precio = datos["Close"].iloc[-1]
+    # Cacao
+    cacao = yf.Ticker("CC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_cacao_mxn_kg = round((cacao * tipo_cambio) / kg_por_tonelada, 2)
 
-        if key == "cafe":
-            cafe_precio_usd = round(ultimo_precio / 100, 2)
-            cafe_precio_mxn_kg = round((cafe_precio_usd * tipo_cambio) / kg_por_libra, 2)
+    # Maíz
+    maiz = yf.Ticker("ZC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_maiz_mxn_kg = round(((maiz / 100) * tipo_cambio) / kg_por_bushel_maiz, 2)
 
-        elif key == "cacao":
-            cacao_precio_usd = round(ultimo_precio, 2)
-            cacao_precio_mxn_kg = round((ultimo_precio * tipo_cambio) / kg_por_tonelada, 2)
+    # Soya
+    soya = yf.Ticker("ZS=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_soya_mxn_kg = round(((soya / 100) * tipo_cambio) / kg_por_bushel_soya, 2)
 
-        elif key == "maiz":
-            maiz_precio_usd = round(ultimo_precio, 2)
-            precio_usd_kg = ultimo_precio / 100
-            precio_mxn = precio_usd_kg * tipo_cambio
-            maiz_precio_mxn_kg = round(precio_mxn / kg_por_bushel_maiz, 2)
+    # Avena
+    avena = yf.Ticker("ZO=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_avena_mxn_kg = round(((avena / 100) * tipo_cambio) / kg_por_bushel_avena, 2)
+
+    # Arroz
+    arroz = yf.Ticker("ZR=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_arroz_mxn_kg = round(((arroz / 100) * tipo_cambio) / kg_por_cwt_arroz, 2)
+
+    # Azúcar
+    azucar = yf.Ticker("SB=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_azucar_mxn_kg = round((azucar / 100 * tipo_cambio) / kg_por_libra, 2)
+
+    # Algodón
+    algodon = yf.Ticker("CT=F").history(period="5d", interval="4h")["Close"].iloc[-1]
+    precio_algodon_mxn_kg = round((algodon / 100 * tipo_cambio) / kg_por_libra, 2)
 
 
 
-    return render(request, 'graficasBV.html',  {
+
+
+    return render(request, 'graficasBV.html', {
         'fechas_maiz': json.dumps(fechas_maiz),
         'velas_maiz': json.dumps(velas_maiz),
         'fechas_cafe': json.dumps(fechas_cafe),
@@ -184,15 +190,18 @@ def precios_maiz(request):
         'velas_gJoven' : json.dumps(velas_gJoven),
         'fechas_cMagro' : json.dumps(fechas_cMagro),
         'velas_cMagro' : json.dumps(velas_cMagro),
-        "cafe_precio_usd": cafe_precio_usd,
-        "cafe_precio_mxn_kg": cafe_precio_mxn_kg,
-        "cacao_precio_usd": cacao_precio_usd,
-        "cacao_precio_mxn_kg": cacao_precio_mxn_kg,
-        "maiz_precio_usd": maiz_precio_usd,
-        "maiz_precio_mxn_kg": maiz_precio_mxn_kg,
+
+        "precio_cafe_mxn_kg": precio_cafe_mxn_kg,
+        "precio_cacao_mxn_kg": precio_cacao_mxn_kg,
+        "precio_maiz_mxn_kg": precio_maiz_mxn_kg,
+        "precio_soya_mxn_kg": precio_soya_mxn_kg,
+        "precio_avena_mxn_kg": precio_avena_mxn_kg,
+        "precio_arroz_mxn_kg": precio_arroz_mxn_kg,
+        "precio_azucar_mxn_kg": precio_azucar_mxn_kg,
+        "precio_algodon_mxn_kg": precio_algodon_mxn_kg,
+
 
         'rango_texto': f"{inicio} → {hoy}",
-        'precio_pesos_kg' : round(precio_pesos_kg,2)
     })
 
 @login_required
