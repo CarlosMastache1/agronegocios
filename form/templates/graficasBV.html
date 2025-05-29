@@ -3,74 +3,95 @@
 
 {% block content %}
 
+<style>
+  .precio-old {
+    background-color: rgb(205, 6, 6);
+    border-radius: 6px;
+    color: white;
+    padding: 10px;
+    margin-left: 300px;
+    margin-top: 200px;
+  }
+</style>
+
 <div class="container py-4">
 
   <div class="alert alert-danger" role="alert">
-  <h1 class="mb-4 text-center">Historial de Precios de Cultivos</h1>
-  <p class="text-center">Rango: {{ rango_texto }}</p>  
-<p class="text-center" style="font-weight: bolder;">Precios expresados en Dolares</p>
-<p style="text-align: justify;">En esta sección podrá explorar los precios a nivel internacional de productos agrícolas y pecuarios que cotizan en los mercados de futuros de las principales bolsas de valores del mundo.
-  Los mercados de futuros consisten en la realización de contratos de compra o venta de ciertas materias primas en una fecha futura, pactando en el presente el precio, la cantidad y la fecha de vencimiento. Actualmente estas negociaciones se realizan en mercados organizados y especulativos. 
-  Desde estos mercados son fijados los precios de productos como el café, maíz, arroz, cacao, trigo, avena, azúcar, algodón y ganado bovino y porcino de acuerdo con la oferta y demanda a nivel internacional. 
-  Esta sección permitirá  conocer los precios al que cotizan los productos en tiempo real, evitando desfases en la entrega de la información con el fin de tomar mejores decisiones durante la comercialización. 
-  </p>
-</div>
-
+    <h1 class="mb-4 text-center">Historial de Precios de Cultivos</h1>
+    <p class="text-center">Rango: {{ rango_texto }}</p>
+    <p class="text-center" style="font-weight: bolder;">Precios expresados en Dolares</p>
+    <p style="text-align: justify;">En esta sección podrá explorar los precios a nivel internacional de productos
+      agrícolas y pecuarios que cotizan en los mercados de futuros de las principales bolsas de valores del mundo.
+      Los mercados de futuros consisten en la realización de contratos de compra o venta de ciertas materias primas en
+      una fecha futura, pactando en el presente el precio, la cantidad y la fecha de vencimiento. Actualmente estas
+      negociaciones se realizan en mercados organizados y especulativos.
+      Desde estos mercados son fijados los precios de productos como el café, maíz, arroz, cacao, trigo, avena, azúcar,
+      algodón y ganado bovino y porcino de acuerdo con la oferta y demanda a nivel internacional.
+      Esta sección permitirá conocer los precios al que cotizan los productos en tiempo real, evitando desfases en la
+      entrega de la información con el fin de tomar mejores decisiones durante la comercialización.
+    </p>
+  </div>
 
   <div class="row g-4">
-      <!-- Maíz -->
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <div id="grafico-maiz" style="height: 400px;"></div>
-          </div>
-        </div>
-      </div>
-    
-      <!-- Café -->
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <div id="grafico-cafe" style="height: 400px;"></div>
-          </div>
-        </div>
-      </div>
-    
-      <!-- Cacao -->
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <div id="grafico-cacao" style="height: 400px;"></div>
-          </div>
-        </div>
-      </div>
-
-
-
-            <!-- ARROZ -->
-            <div class="col-md-6">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <div id="grafico-arroz" style="height: 400px;"></div>
-                </div>
-              </div>
-            </div>
-
-             <!-- SOYA -->
+    <!-- Maíz -->
     <div class="col-md-6">
       <div class="card shadow-sm">
         <div class="card-body">
-          <div id="grafico-soya" style="height: 400px;"></div>
+          <span class="precio-old">Último precio: </span>
+          <div id="grafico-maiz" style="height: 400px;"></div>
         </div>
       </div>
     </div>
-  
 
-    
+    <!-- Café -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <span class="precio-old">Último precio: </span>
+          <div id="grafico-cafe" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cacao -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <span class="precio-old">Último precio: </span>
+          <div id="grafico-cacao" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ARROZ -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <span class="precio-old">Último precio: </span>
+          <div id="grafico-arroz" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- SOYA -->
     <div class="col-md-6">
       <div class="card shadow-sm">
         <div class="card-body">
+          <span class="precio-old">Último precio: </span>
+          <div id="grafico-soya" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- SOYA -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <span class="precio-old">Último precio: </span>
           <div id="grafico-avena" style="height: 400px;"></div>
         </div>
       </div>
@@ -79,6 +100,7 @@
     <div class="col-md-6">
       <div class="card shadow-sm">
         <div class="card-body">
+          <span class="precio-old">Último precio: </span>
           <div id="grafico-azucar" style="height: 400px;"></div>
         </div>
       </div>
@@ -87,6 +109,7 @@
     <div class="col-md-6">
       <div class="card shadow-sm">
         <div class="card-body">
+          <span class="precio-old">Último precio: </span>
           <div id="grafico-algodon" style="height: 400px;"></div>
         </div>
       </div>
@@ -97,79 +120,79 @@
 
 
 
-    </div>
+  </div>
 
 </div>
 
 
 <script>
-  const fechas_maiz = {{ fechas_maiz|safe }};
-  const velas_maiz = {{ velas_maiz|safe }};
-  const fechas_cafe = {{ fechas_cafe|safe }};
-  const velas_cafe = {{ velas_cafe|safe }};
-  const fechas_cacao = {{ fechas_cacao|safe }};
-  const velas_cacao = {{ velas_cacao|safe }};
-  const fechas_arroz = {{ fechas_arroz|safe }};
-  const velas_arroz = {{ velas_arroz|safe }};
-  const fechas_soya = {{ fechas_soya|safe }};
-  const velas_soya = {{ velas_soya|safe }};
-  const fechas_avena = {{ fechas_avena|safe }};
-  const velas_avena = {{ velas_avena|safe }};
-  const fechas_azucar = {{ fechas_azucar|safe }};
-  const velas_azucar = {{ velas_azucar|safe }};
-  const fechas_algodon = {{ fechas_algodon|safe }};
-  const velas_algodon = {{ velas_algodon|safe }};
+  const fechas_maiz = {{ fechas_maiz| safe }};
+  const velas_maiz = {{ velas_maiz| safe }};
+  const fechas_cafe = {{ fechas_cafe| safe }};
+  const velas_cafe = {{ velas_cafe| safe }};
+  const fechas_cacao = {{ fechas_cacao| safe }};
+  const velas_cacao = {{ velas_cacao| safe }};
+  const fechas_arroz = {{ fechas_arroz| safe }};
+  const velas_arroz = {{ velas_arroz| safe }};
+  const fechas_soya = {{ fechas_soya| safe }};
+  const velas_soya = {{ velas_soya| safe }};
+  const fechas_avena = {{ fechas_avena| safe }};
+  const velas_avena = {{ velas_avena| safe }};
+  const fechas_azucar = {{ fechas_azucar| safe }};
+  const velas_azucar = {{ velas_azucar| safe }};
+  const fechas_algodon = {{ fechas_algodon| safe }};
+  const velas_algodon = {{ velas_algodon| safe }};
 
   console.log("Fechas café:", fechas_cafe);
   console.log("Velas café:", velas_cafe);
 
 
   echarts.init(document.getElementById('grafico-maiz')).setOption({
-  title: { text: 'Maíz (ZC=F)' },
-  tooltip: { trigger: 'axis' },
-  xAxis: { data: fechas_maiz },
-  yAxis: { scale: true },
-  series: [{
-    type: 'candlestick',
-    data: velas_maiz
-  }]
-});
+    title: { text: 'Maíz (ZC=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_maiz },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_maiz
+    }]
+  });
 
-echarts.init(document.getElementById('grafico-cafe')).setOption({
-  title: { text: 'Café (KC=F)' },
-  tooltip: { trigger: 'axis' },
-  xAxis: { data: fechas_cafe },
-  yAxis: { scale: true },
-  series: [{
-    type: 'candlestick',
-    data: velas_cafe
-  }]
-});
+  echarts.init(document.getElementById('grafico-cafe')).setOption({
+    title: { text: 'Café (KC=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_cafe },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_cafe
+    }]
+  });
 
-echarts.init(document.getElementById('grafico-cacao')).setOption({
-  title: { text: 'Cacao (CC=F)' },
-  tooltip: { trigger: 'axis' },
-  xAxis: { data: fechas_cacao },
-  yAxis: { scale: true },
-  series: [{
-    type: 'candlestick',
-    data: velas_cacao
-  }]
-});
+  echarts.init(document.getElementById('grafico-cacao')).setOption({
+    title: { text: 'Cacao (CC=F)' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_cacao },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_cacao
+    }]
+  });
 
 
-echarts.init(document.getElementById('grafico-arroz')).setOption({
-  title: { text: 'ARROZ ()' },
-  tooltip: { trigger: 'axis' },
-  xAxis: { data: fechas_arroz },
-  yAxis: { scale: true },
-  series: [{
-    type: 'candlestick',
-    data: velas_arroz
-  }]
-});
+  echarts.init(document.getElementById('grafico-arroz')).setOption({
+    title: { text: 'ARROZ ()' },
+    tooltip: { trigger: 'axis' },
+    xAxis: { data: fechas_arroz },
+    yAxis: { scale: true },
+    series: [{
+      type: 'candlestick',
+      data: velas_arroz
+    }]
+  });
 
-echarts.init(document.getElementById('grafico-soya')).setOption({
+  echarts.init(document.getElementById('grafico-soya')).setOption({
     title: { text: 'SOYA (ZS=F)' },
     tooltip: { trigger: 'axis' },
     xAxis: { data: fechas_soya },
