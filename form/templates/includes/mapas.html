@@ -188,6 +188,10 @@
 
                         layer.on("mouseover", () => {
                             if (layer._activo) {
+                                layer.setStyle({
+                                    fillColor: "transparent", // Color más claro o diferente
+                                    fillOpacity: 0
+                                });
                                 const name = feature.properties.state_name || "Sin nombre";
                                 // Usa bindTooltip para mostrar datos de estados
                                 layer.bindTooltip(`<h2><strong>${name}</strong></h2>
@@ -202,6 +206,13 @@
                             }
                         });
                         layer.on("mouseout", () => {
+
+
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: estid == 20 ? "#9D2449" : "#c46924",
+                                fillOpacity: 0.6
+                            });
                             layer.closeTooltip();
                         });
 
@@ -256,6 +267,10 @@
                     layer._nombre = feature.properties.NAME_ES;
                     if (info) {
                         layer.on("mouseover", () => {
+                            layer.setStyle({
+                                fillColor: "transparent", // Color más claro o diferente
+                                fillOpacity: 0
+                            });
                             // Vincula tooltips a países con datos disponibles
                             layer.bindTooltip(`<h2><strong>${layer._nombre}</strong></h2>
                                 <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha</h3>
@@ -267,6 +282,11 @@
                             }).openTooltip();
                         });
                         layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: paisid == 'MEX' ? "#9D2449" : "#c46924",
+                                fillOpacity: 0.6
+                            });
                             layer.closeTooltip();
                         });
                     }
@@ -290,6 +310,15 @@
                             fillOpacity: 0.6
                         });
                         layer._activo = true;
+                         // Cierra el tooltip al salir del área del municipio
+                        layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: "#9D2449",
+                                fillOpacity: 0.6
+                            });
+                            layer.closeTooltip();
+                        });
 
                         // Se aplica bindTooltip nuevamente si el checkbox está activo
                         layer.bindTooltip(
@@ -306,6 +335,14 @@
                             fillOpacity: 0
                         });
                         layer._activo = false;
+                        layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: "transparent",
+                                fillOpacity: 0
+                            });
+                            layer.closeTooltip();
+                        });
                         layer.unbindTooltip();
                     }
                 }
@@ -330,6 +367,15 @@
                         });
 
                         layer._activo = true;
+                         // Cierra el tooltip al salir del área del municipio
+                        layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: "#9D2449",
+                                fillOpacity: 0.6
+                            });
+                            layer.closeTooltip();
+                        });
 
                         // Vincula o desvincula el tooltip según estado del checkbox
                         layer.bindTooltip(
@@ -345,6 +391,14 @@
                             fillColor: "transparent",
                             fillOpacity: 0
                         });
+                        layer.on("mouseout", () => {
+                            //Cambio de color 
+                            layer.setStyle({
+                                fillColor: "transparent",
+                                fillOpacity: 0
+                            });
+                            layer.closeTooltip();
+                        });
                         layer._activo = false
                         layer.unbindTooltip();
 
@@ -354,4 +408,5 @@
         }
     });
 </script>
+
 </html>
