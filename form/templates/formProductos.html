@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +14,13 @@
     <style>
         body {
             display: flex;
-           
+
             justify-content: center;
             align-items: center;
             background: white;
             font-family: 'Roboto', sans-serif;
         }
+
         .container {
             display: flex;
             width: 90%;
@@ -28,29 +30,37 @@
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
+
         .left-section {
             flex: 1;
             background: url("{% static 'images/fondoForm.jpg' %}") no-repeat center center;
             background-size: cover;
             min-height: 315px;
         }
+
         .right-section {
             flex: 1.5;
             padding: 40px;
             background: white;
             color: black;
         }
+
         h4 {
             color: #9D2449;
             text-align: center;
         }
-        .input-field input, .input-field select, .file-path {
+
+        .input-field input,
+        .input-field select,
+        .file-path {
             border-bottom: 2px solid #9D2449 !important;
             color: black;
         }
+
         label {
             color: black !important;
         }
+
         .btn {
             background: #9D2449;
             color: white;
@@ -58,16 +68,24 @@
             border-radius: 25px;
             transition: background 0.3s ease;
         }
+
         .btn:hover {
             background: #B5305A;
         }
+
         .icon {
             color: #9D2449;
             font-size: 24px;
             margin-right: 10px;
         }
+
+        #aletar_pdf {
+            color: red;
+            font-size: 10px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="left-section"></div>
@@ -76,11 +94,12 @@
                 <img src="{% static 'images/logoForm.png' %}" alt="Logo" width="300">
             </div>
             <h4>Registro</h4>
-            <form action="/formProductos/"  method="POST" enctype="multipart/form-data">
+            <form action="/formProductos/" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div class="input-field">
-                    <input name="nombreProductor" type="text" id="nombre-productor" required>
+                    <input name="nombreProductor" type="text" id="nombre-productor" required
+                        oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-productor">NOMBRE DEL PRODUCTOR</label>
                 </div>
                 <div class="input-field">
@@ -93,15 +112,18 @@
                     <label>MUNICIPIO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="localidad" name="localidad" required>
+                    <input type="text" id="localidad" name="localidad" 
+                        oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" name="nombreProducto"  id="nombre-producto" required>
+                    <input type="text" name="nombreProducto" id="nombre-producto" required
+                        oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-producto">NOMBRE DEL PRODUCTO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" name="nombreMarca" id="nombre-marca" required>
+                    <input type="text" name="nombreMarca" id="nombre-marca"
+                        oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-marca">NOMBRE DE LA MARCA</label>
                 </div>
                 <div class="input-field">
@@ -117,27 +139,27 @@
                     </select>
                     <label>SUBSECTOR</label>
                 </div>
-                <div id="sub-AGRICOLA-2"  >
-                <div class="input-field" >
-                    <select name="categoria" required>
-                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                        <option value="AGUACATE">AGUACATE</option>
-                        <option value="AJONJOLI">AJONJOLI</option>
-                        <option value="CAFE">CAFE</option>
-                        <option value="JENGIBRE">JENGIBRE</option>
-                        <option value="LIMON">LIMON</option>
-                        <option value="MAIZ">MAIZ</option>
-                        <option value="MANGO">MANGO</option>
-                        <option value="PAPAYA">PAPAYA</option>
-                        <option value="PEPINO">PEPINO</option>
-                        <option value="TOMATE">TOMATE</option>
-                        <option value="OTRO">OTRO</option>
-                    </select>
-                    <label>CATEGORIA</label>
+                <div id="sub-AGRICOLA-2">
+                    <div class="input-field">
+                        <select name="categoria" required>
+                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                            <option value="AGUACATE">AGUACATE</option>
+                            <option value="AJONJOLI">AJONJOLI</option>
+                            <option value="CAFE">CAFE</option>
+                            <option value="JENGIBRE">JENGIBRE</option>
+                            <option value="LIMON">LIMON</option>
+                            <option value="MAIZ">MAIZ</option>
+                            <option value="MANGO">MANGO</option>
+                            <option value="PAPAYA">PAPAYA</option>
+                            <option value="PEPINO">PEPINO</option>
+                            <option value="TOMATE">TOMATE</option>
+                            <option value="OTRO">OTRO</option>
+                        </select>
+                        <label>CATEGORIA</label>
+                    </div>
                 </div>
-                </div>
-                <div id="sub-PECUARIO-2"  >
-                    <div class="input-field" >
+                <div id="sub-PECUARIO-2">
+                    <div class="input-field">
                         <select name="categoria" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="APICOLA">APICOLA</option>
@@ -150,21 +172,21 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
-                <div id="sub-PESQUERO-2"  >
-                        <div class="input-field" >
-                            <select name="categoria" required>
-                                <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                                <option value="BARRILETE">BARRILETE</option>
-                                <option value="CAMARON CAFE">CAMARON CAFE</option>
-                                <option value="CAZON">CAZON</option>
-                                <option value="OTRO">OTRO</option>
-    
-                            </select>
-                            <label>CATEGORIA</label>
-                        </div>
+                <div id="sub-PESQUERO-2">
+                    <div class="input-field">
+                        <select name="categoria" required>
+                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                            <option value="BARRILETE">BARRILETE</option>
+                            <option value="CAMARON CAFE">CAMARON CAFE</option>
+                            <option value="CAZON">CAZON</option>
+                            <option value="OTRO">OTRO</option>
+
+                        </select>
+                        <label>CATEGORIA</label>
+                    </div>
                 </div>
-                <div id="sub-ACUICOLA-2"  >
-                    <div class="input-field" >
+                <div id="sub-ACUICOLA-2">
+                    <div class="input-field">
                         <select name="categoria" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="TILAPIA">TILAPIA</option>
@@ -175,15 +197,16 @@
                         </select>
                         <label>CATEGORIA</label>
                     </div>
-            </div>
+                </div>
                 <div class="input-field">
-                    <input name="volumen_produccion" type="text" id="volumen" required>
+                    <input name="volumen_produccion" type="text" id="volumen" required
+                        oninput="this.value = this.value.toUpperCase();">
                     <label for="volumen">VOLUMEN DE PRODUCCIÓN (Toneladas)</label>
                 </div>
 
                 <div class="input-field">
                     <select name="disponibilidad_entrega" required>
-                        <option value="0" disabled selected >ELIGE UNA OPCIÓN</option>
+                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="SEMANAL">SEMANAL</option>
                         <option value="MENSUAL">MENSUAL</option>
                         <option value="BIMESTRAL">BIMESTRAL</option>
@@ -197,7 +220,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input name="telefono" type="tel" id="telefono" required>
+                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono" >
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
                 </div>
                 <div class="input-field">
@@ -210,39 +233,78 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR FOTO DEL PRODUCTO</span>
-                        <input type="file" name="imagenProd" multiple>
+                        <input type="file" name="imagenProd" multiple accept="image/png, image/jpeg">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
                     </div>
-                </div> 
+                </div>
 
-                
+
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR CERTIFICADO PDF</span>
-                        <input type="file" name="archivo_pdf" accept="application/pdf">
+                        <input type="file" name="archivo_pdf" accept="application/pdf" id="archivo-pdf">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR CERTIFICADO PDF">
                     </div>
-                </div> 
 
-                <label >
-                    <input  type="checkbox" name="terminos" required />
-                    <span style="padding-bottom: 40px;">Acepto los <a href="/terminos-condiciones" target="_blank">términos y condiciones</a></span>
-                  </label>
+                    <span id="aletar_pdf"></span>
+                </div>
 
-            
-                <button class="btn waves-effect waves-light" >REGISTRAR PRODUCTO</button>
+                <label>
+                    <input type="checkbox" name="terminos" required />
+                    <span style="padding-bottom: 40px;">Acepto los <a href="/terminos-condiciones"
+                            target="_blank">términos y condiciones</a></span>
+                </label>
+
+
+                <button class="btn waves-effect waves-light">REGISTRAR PRODUCTO</button>
             </form>
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             M.FormSelect.init(document.querySelectorAll('select'));
         });
     </script>
     <script src="{% static 'js/select3.js' %}"></script>
+
+
+    <script>
+        const input = document.getElementById("volumen");
+        input.addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9.]/g, '');
+            // Evitar más de un punto decimal
+            const parts = this.value.split('.');
+            if (parts.length > 2) {
+                this.value = parts[0] + '.' + parts.slice(1).join('');
+            }
+        });
+
+        const phoneInput = document.getElementById("telefono");
+        phoneInput.addEventListener("input", function () {
+            this.value = this.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
+        });
+
+        const tamano_maximo = 100000000; // 100mb
+
+        const spanAlert = document.getElementById("aletar_pdf");
+
+        const inputFile = document.getElementById('archivo-pdf');
+        inputFile.addEventListener("change", function() {
+            if(this.files.length <= 0) return;
+
+            const archvo = this.files[0];
+
+            if(archvo.size >=tamano_maximo){
+                inputFile.value = "";
+                spanAlert.innerHTML = "El certificado es muy pesado; Asegurate de que el peso del arhivo no sea mayor a 100MB"
+            }
+
+        });
+    </script>
 </body>
+
 </html>
