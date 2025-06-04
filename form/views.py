@@ -125,7 +125,7 @@ def precios_maiz(request):
     kg_por_tonelada = 1000
     kg_por_bushel_maiz = 25.4016
     kg_por_bushel_soya = 27.216
-    kg_por_bushel_avena = 17.014
+    kg_por_bushel_avena = 14.52
     kg_por_cwt_arroz = 45.3592
 
     # Tipo de cambio
