@@ -9,9 +9,15 @@
     border-radius: 6px;
     color: rgb(255, 255, 255);
     padding: 10px;
-    margin-left: 150px;
+    margin-left: 170px;
     margin-top: 200px;
     font-weight: bold;
+  }
+
+    @media (max-width: 600px) {
+    .precio-old {
+      margin-left: 70px;
+    }
   }
 </style>
 
@@ -56,7 +62,7 @@
 
     <!-- Cacao -->
     <div class="col-md-6">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm pt-3">
         <div class="card-body">
           <span class="precio-old">Último precio: {{ precio_cacao_mxn_kg }} MXN/kg</span>
           <div id="grafico-cacao" style="height: 400px;"></div>
@@ -68,7 +74,7 @@
 
     <!-- ARROZ -->
     <div class="col-md-6">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm pt-3">
         <div class="card-body">
           <span class="precio-old">Último precio: {{ precio_arroz_mxn_kg }} MXN/kg</span>
           <div id="grafico-arroz" style="height: 400px;"></div>

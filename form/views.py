@@ -60,6 +60,9 @@ def maiz_precioMXN(request):
 
 
 
+def redondear_velas(velas):
+    return [[round(valor, 2) for valor in fila] for fila in velas]
+
 
 
 def precios_maiz(request):
@@ -79,39 +82,40 @@ def precios_maiz(request):
     df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
 
 
+
+    # Fechas y velas redondeadas
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_maiz = df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_maiz = redondear_velas(df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_cafe = df_cafe['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_cafe = df_cafe[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_cafe = redondear_velas(df_cafe[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_cacao = df_cacao['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_cacao = df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_cacao = redondear_velas(df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_arroz = df_arroz['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_arroz = df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_arroz = redondear_velas(df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_soya = df_soya['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_soya = df_soya[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_soya = redondear_velas(df_soya[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_avena = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_avena = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_avena = redondear_velas(df_avena[['Open', 'Close', 'Low', 'High']].values.tolist())
 
-    fechas_azucar = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_azucar = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+    fechas_azucar = df_azucar['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_azucar = redondear_velas(df_azucar[['Open', 'Close', 'Low', 'High']].values.tolist())
 
-    fechas_algodon = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_algodon = df_avena[['Open', 'Close', 'Low', 'High']].values.tolist()
+    fechas_algodon = df_algodon['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_algodon = redondear_velas(df_algodon[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_gVacuno = df_gVacuno['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_gVacuno = df_gVacuno[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_gVacuno = redondear_velas(df_gVacuno[['Open', 'Close', 'Low', 'High']].values.tolist())
 
     fechas_gJoven = df_gJoven['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_gJoven = df_gJoven[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_gJoven = redondear_velas(df_gJoven[['Open', 'Close', 'Low', 'High']].values.tolist())
 
-    
     fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
-    velas_cMagro = df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist()
+    velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
 
 
     ###### BLOQUE DE CODIGO PARA OBTENER PRECIOS POR PESOS MEXICANOS
@@ -191,14 +195,14 @@ def precios_maiz(request):
         'fechas_cMagro' : json.dumps(fechas_cMagro),
         'velas_cMagro' : json.dumps(velas_cMagro),
 
-        "precio_cafe_mxn_kg": precio_cafe_mxn_kg,
-        "precio_cacao_mxn_kg": precio_cacao_mxn_kg,
-        "precio_maiz_mxn_kg": precio_maiz_mxn_kg,
-        "precio_soya_mxn_kg": precio_soya_mxn_kg,
-        "precio_avena_mxn_kg": precio_avena_mxn_kg,
-        "precio_arroz_mxn_kg": precio_arroz_mxn_kg,
-        "precio_azucar_mxn_kg": precio_azucar_mxn_kg,
-        "precio_algodon_mxn_kg": precio_algodon_mxn_kg,
+        "precio_cafe_mxn_kg": "{:.2f}".format(precio_cafe_mxn_kg),
+        "precio_cacao_mxn_kg": "{:.2f}".format(precio_cacao_mxn_kg),
+        "precio_maiz_mxn_kg": "{:.2f}".format(precio_maiz_mxn_kg),
+        "precio_soya_mxn_kg": "{:.2f}".format(precio_soya_mxn_kg),
+        "precio_avena_mxn_kg": "{:.2f}".format(precio_avena_mxn_kg),
+        "precio_arroz_mxn_kg": "{:.2f}".format(precio_arroz_mxn_kg),
+        "precio_azucar_mxn_kg": "{:.2f}".format(precio_azucar_mxn_kg),
+        "precio_algodon_mxn_kg": "{:.2f}".format(precio_algodon_mxn_kg),
 
 
         'rango_texto': f"{inicio} → {hoy}",
