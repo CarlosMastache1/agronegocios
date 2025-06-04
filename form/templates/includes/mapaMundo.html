@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Mexico</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+    <div class="mapa_mundo"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // ***Inicializa el mapa del mundo
+        const mapa = L.map("mapa_mundo", {
+            center: [20, 0],
+            zoom: 2,
+            dragging: true,
+            scrollWheelZoom: true,
+            touchZoom: true,
+            doubleClickZoom: true,
+            boxZoom: true,
+        });
+
+        L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+            "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+                attribution: "Tiles &copy; Esri",
+                maxZoom: 18,
+                minZoom: 2
+            }
+        ).addTo(mapa);
+
+
+        function getInfoPais(paisid) {
+        for (const pais in paisesDatos) {
+            const paisInfo = paisesDatos[pais].find(p => p.id == paisid);
+            if (paisInfo) return paisInfo;
+        }
+    }
+
+    for(const pais in paisesDatos){
+        
+
+    }
+
+        fetch("{% static 'data/geojson/mundo_paises.geojson' %}? v= {{timestamp}}")
+            .then(response => response.json())
+            .then(data => {
+                let geoLayerMundo = L.geoJSON(data, {
+                    style: function (feature) {
+                        const paisid = feature.properties["ISO_A3"];
+                        const info = getInfoPais(paisid);
+                        return {
+                            color: "white",
+                            weight: 1,
+                            fillColor: info ? paisid == 'MEX' ? "#9D2449" : "#c46924" : "transparent",
+                            fillOpacity: info ? 0.6 : 0
+                        }
+                    }, onEachFeature: function (feature, layer) {
+                        const paisid = feature.properties["ISO_A3"];
+                        const info = getInfoPais(paisid);
+                        layer._nombre = feature.properties.NAME_ES;
+                        if (info) {
+                            layer.on("mouseover", () => {
+                                layer.setStyle({
+                                    fillColor: "transparent", // Color más claro o diferente
+                                    fillOpacity: 0
+                                });
+                                // Vincula tooltips a países con datos disponibles
+                                layer.bindTooltip(`<h2><strong>${layer._nombre}</strong></h2>
+                                <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha</h3>
+            `, {
+                                    permanent: false,
+                                    direction: "top",
+                                    sticky: true,
+                                    className: "custom-tooltip"
+                                }).openTooltip();
+                            });
+                            layer.on("mouseout", () => {
+                                //Cambio de color 
+                                layer.setStyle({
+                                    fillColor: paisid == 'MEX' ? "#9D2449" : "#c46924",
+                                    fillOpacity: 0.6
+                                });
+                                layer.closeTooltip();
+                            });
+                        }
+                    }
+                }).addTo(mapaMundo);
+                mapaMundo.fitBounds(geoLayerMundo.getBounds());
+
+            });
+    </script>
+
+</body>
+
+</html>
