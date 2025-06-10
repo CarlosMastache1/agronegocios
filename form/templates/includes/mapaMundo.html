@@ -1,102 +1,133 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Mexico</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 90vh;
+            width: 100%;
+
+        }
+
+        .cont_mapa {
+            border-radius: 16px;
+            /* Bordes redondeados */
+            border: solid 8px #9D2449;
+            /* Borde grueso con color vino */
+        }
+
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 250px;
+            background-color: rgba(11, 11, 11, 0.685);
+            color: white;
+            border: 1px solid #000000;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            pointer-events: none;
+            /* Para que no interfiera con el mapa */
+            display: none;
+            /* Oculto por defecto */
+        }
+    </style>
 </head>
 
 <body>
-    <div class="mapa_mundo"></div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <div class="cont_mapa">
+        <div id="info-panel" class="info-panel"></div>
+        <div id="map"></div>
+    </div>
 
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // ***Inicializa el mapa del mundo
-        const mapa = L.map("mapa_mundo", {
-            center: [20, 0],
-            zoom: 2,
-            dragging: true,
-            scrollWheelZoom: true,
-            touchZoom: true,
-            doubleClickZoom: true,
-            boxZoom: true,
-        });
+        window.addEventListener("message", function (event) {
+            // Puedes verificar el origen aquí: event.origin
+            const paisesDatos = event.data;
+            // Crear el mapa centrado en una ubicación (lat, lon) con un nivel de zoom
+            var mapa = L.map('map', {
+                center: [20, 0],
+                zoom: 2,
+                dragging: true,
+                scrollWheelZoom: true,
+                touchZoom: true,
+                doubleClickZoom: true,
+                boxZoom: true,
+            });
 
-        L.tileLayer(
-            "https://server.arcgisonline.com/ArcGIS/rest/services/" +
-            "World_Imagery/MapServer/tile/{z}/{y}/{x}",
-            {
-                attribution: "Tiles &copy; Esri",
+            // Capa satelital de Esri
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '&copy; SEFADER | Titulo: Mapa del mundo',
                 maxZoom: 18,
                 minZoom: 2
-            }
-        ).addTo(mapa);
+            }).addTo(mapa);
 
 
-        function getInfoPais(paisid) {
-        for (const pais in paisesDatos) {
-            const paisInfo = paisesDatos[pais].find(p => p.id == paisid);
-            if (paisInfo) return paisInfo;
-        }
-    }
 
-    for(const pais in paisesDatos){
-        
+            const staticBasePath = "{% static 'data/geojson/mundo/' %}";
+            const timestamp = "{{ timestamp }}";
+            paisesDatos.forEach(obj => {
+                const geojsonURL = `${staticBasePath}${obj.id}.geojson?v=${timestamp}`;
 
-    }
+                fetch(geojsonURL)
+                    .then(r => r.json())
+                    .then(data => {
+                        const capaEstados = L.geoJSON(data, {
+                            style: {
+                                color: "white",
+                                weight: 1,
+                                fillColor: obj.id == 'MEX' ? "#9D2449" : "#c46924",
+                                fillOpacity: 0.6
+                            }, onEachFeature: function (feature, layer) {
+                                const nombre = feature.properties.NAME_ES;
+                                layer._nombre = nombre;
+                                layer.on("mouseover", () => {
+                                    layer.setStyle({
+                                        fillColor: "transparent",
+                                        fillOpacity: 0
+                                    });
 
-        fetch("{% static 'data/geojson/mundo_paises.geojson' %}? v= {{timestamp}}")
-            .then(response => response.json())
-            .then(data => {
-                let geoLayerMundo = L.geoJSON(data, {
-                    style: function (feature) {
-                        const paisid = feature.properties["ISO_A3"];
-                        const info = getInfoPais(paisid);
-                        return {
-                            color: "white",
-                            weight: 1,
-                            fillColor: info ? paisid == 'MEX' ? "#9D2449" : "#c46924" : "transparent",
-                            fillOpacity: info ? 0.6 : 0
-                        }
-                    }, onEachFeature: function (feature, layer) {
-                        const paisid = feature.properties["ISO_A3"];
-                        const info = getInfoPais(paisid);
-                        layer._nombre = feature.properties.NAME_ES;
-                        if (info) {
-                            layer.on("mouseover", () => {
-                                layer.setStyle({
-                                    fillColor: "transparent", // Color más claro o diferente
-                                    fillOpacity: 0
+                                    // Mostrar info en el panel flotante
+                                    const panel = document.getElementById("info-panel");
+
+                                    let textPanel = `<h2><strong>${nombre}</strong></h2>`
+                                    textPanel += obj.territorio?`<p><strong>Superficie sembrada:</strong> ${obj.territorio} Ha</p>`:``;
+                                    textPanel += obj.toneladas?`<p><strong>Volumen de producción:</strong> ${obj.toneladas} Ton</p>`:``;
+
+                                    panel.innerHTML = textPanel;
+                                    panel.style.display = "block";
                                 });
-                                // Vincula tooltips a países con datos disponibles
-                                layer.bindTooltip(`<h2><strong>${layer._nombre}</strong></h2>
-                                <h3><strong>Superficie sembrada:</strong> ${info.territorio} Ha</h3>
-            `, {
-                                    permanent: false,
-                                    direction: "top",
-                                    sticky: true,
-                                    className: "custom-tooltip"
-                                }).openTooltip();
-                            });
-                            layer.on("mouseout", () => {
-                                //Cambio de color 
-                                layer.setStyle({
-                                    fillColor: paisid == 'MEX' ? "#9D2449" : "#c46924",
-                                    fillOpacity: 0.6
-                                });
-                                layer.closeTooltip();
-                            });
-                        }
-                    }
-                }).addTo(mapaMundo);
-                mapaMundo.fitBounds(geoLayerMundo.getBounds());
 
+                                layer.on("mouseout", () => {
+                                    layer.setStyle({
+                                        fillColor: obj.id == 'MEX' ? "#9D2449" : "#c46924",
+                                        fillOpacity: 0.6
+                                    });
+
+                                    // Ocultar el panel
+                                    const panel = document.getElementById("info-panel");
+                                    panel.style.display = "none";
+                                });
+
+                            }
+                        });
+                        mapa.addLayer(capaEstados);
+                    });
             });
+        });
+
+
+
     </script>
 
 </body>

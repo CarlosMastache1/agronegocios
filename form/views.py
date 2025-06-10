@@ -303,6 +303,8 @@ def indSec(request):
 def sectorAgri(request):
   return render(request, 'secAgricola.html')
 
+def sectorPecu(request):
+  return render(request, 'secPecuario.html')
 
 
 def creditUpdate(request, credit_id):

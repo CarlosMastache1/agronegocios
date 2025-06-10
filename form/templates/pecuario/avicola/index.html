@@ -1,0 +1,824 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<main id="contents" class="site-contnts">
+	<!--BANNER-->
+	<div class="home-slider">
+		<div class="item" data-slide="{% static 'pecuario/avicola/img/avi1.png' %}">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="item" data-slide="{% static 'pecuario/avicola/img/avi2.png' %}">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-11 col-md-8 col-lg-7"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<div>
+
+	<style>
+		#body_pag {
+			margin: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		section h1 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-size: 3rem;
+			padding: 1.5rem 0rem;
+		}
+
+		section h2 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			border-bottom: solid #9d2449 3px;
+			font-size: 2.5rem;
+			margin-top: 1rem;
+		}
+
+		section h3 {
+			text-align: right;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			border-bottom: solid #9d2449 3px;
+			margin-top: 1rem;
+			font-size: 2.5rem;
+		}
+
+		section h4 {
+			text-align: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			margin: 1rem 0rem;
+			font-size: 2.4rem;
+		}
+
+		/* Estilo de las secciones */
+		section {
+			border-bottom: 1px solid #ccc;
+			padding: 40px 100px;
+		}
+
+
+
+		.section:nth-child(even) {
+			background-color: #f0f0f0;
+		}
+
+		.section:nth-child(odd) {
+			background-color: #ffffff;
+		}
+
+		/* Barra de progreso vertical */
+		.progress-bar {
+			position: fixed;
+			top: 70%;
+			right: 20px;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			z-index: 1000;
+		}
+
+		.progress-circle {
+			width: 40px;
+			height: 40px;
+			margin: 10px 0;
+			border-radius: 50%;
+			background-color: #ccc;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-size: 16px;
+			color: white;
+		}
+
+		.progress-circle i {
+			color: #9D2449;
+		}
+
+		.progress-circle.active {
+			background-color: #9D2449;
+			/* Color activo */
+		}
+
+		.progress-circle.active i {
+			color: white;
+		}
+	</style>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
+
+	<div id="body_pag">
+
+		<!-- Secciones -->
+		<section id="section1" class="section">
+			<h1>DESCRIPCIÓN DEL SECTOR AVICOLA</h1>
+
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quibusdam eaque doloremque facilis. Distinctio sunt dicta laudantium assumenda saepe dolor recusandae expedita repellat voluptate iusto maxime voluptatum cumque, eligendi explicabo!
+			Iusto eius non veniam voluptatibus quis magnam aspernatur illum nulla quod. Dolore voluptas ipsam, veniam blanditiis sequi quod quasi ullam unde, assumenda sunt neque animi consequatur commodi quae, dignissimos aspernatur?
+			In deleniti quibusdam, quo minima sit laudantium laborum hic, error eaque voluptatem dignissimos perspiciatis cum impedit quam nobis sed architecto dicta ea quas iure sapiente nostrum suscipit? Temporibus, voluptatibus suscipit.
+			Facere dolor sapiente dolores corporis assumenda, fugit magnam cumque ipsa ex numquam excepturi rem accusamus perferendis incidunt minus reprehenderit esse, temporibus sed! Deleniti dolore et, sequi molestiae consequatur quis minus.
+			Voluptates atque, facilis saepe quaerat accusantium beatae odit provident, voluptatum inventore possimus ut perferendis iure voluptate earum necessitatibus aspernatur incidunt quidem vitae sint ullam. Esse cupiditate quam aspernatur quo corporis!
+			Porro fugiat modi autem exercitationem repudiandae iste culpa incidunt ad labore aspernatur at voluptate tempora, eos commodi ex, nulla cum qui in, optio odit. Nam similique earum odit facere accusamus!
+			Provident delectus tempore autem, quae aperiam, iste nisi culpa et, eum voluptatibus modi omnis repudiandae? Magnam ex alias, assumenda, nam iure ut, error aperiam necessitatibus perspiciatis molestiae consectetur dolor minima.
+			Aliquid sunt eligendi quas, perspiciatis praesentium sed incidunt quasi veritatis maiores at illo iste repellat tenetur similique quaerat repellendus, magni, itaque temporibus aperiam aut porro eos. Sed qui nostrum fugiat!
+			Dolorum minus eaque dolores cupiditate, fugiat error vitae nulla quod illum dolor architecto, mollitia at delectus ut? Modi ducimus fugit, itaque, dolores dicta quisquam sed facere laboriosam dolorum veniam maiores.
+			Harum modi illum deserunt illo, quisquam praesentium! Eaque corporis, reprehenderit consectetur quaerat dolore pariatur laborum iure nemo, sint dolores ratione id tenetur. Odit doloremque magni beatae natus optio repellendus adipisci!
+		</section>
+		<section id="section2" class="section">
+			<h1>PRODUCCION MUNDIAL DEL SECTOR AVICOLA</h1>
+
+			<H2>CARNE DE AVE</H2>
+			<div class="contenedor_col1">
+				<div class="columna1">
+					<table class="tabla-datos">
+						<thead>
+							<tr>
+								<th>RANKING</th>
+								<th>PAIS</th>
+								<th>VOLUMEN DE PRODUCCION (TON)</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Estados Unidos de América</td>
+								<td>19,599,212</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>China</td>
+								<td>14,998,714</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Brasil</td>
+								<td>14,524,000</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>China, Continental</td>
+								<td>14,300,000</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Federación de Rusia</td>
+								<td>5,308,201</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>India</td>
+								<td>4,906,817</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>Indonesia</td>
+								<td>4,040,989</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>México</td>
+								<td>3,781,735</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Egipto</td>
+								<td>2,523,466</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Turquía</td>
+								<td>2,417,995</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Japón</td>
+								<td>2,371,643</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Argentina</td>
+								<td>2,319,000</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>Polonia</td>
+								<td>2,231,610</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>otros </td>
+								<td>45,129,689</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Total:</th>
+								<th colspan="2"> 138,453,072 </th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</div>
+				<iframe id="frame_mundo" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
+			</div>
+
+			<H3>HUEVO DE GALLINA</H3>
+			<div class="contenedor_col2">
+				<iframe id="frame_mundo_huevo" src="{% url 'iframeMundo' %}" class="columna1" frameborder="0"></iframe>
+
+				<div class="columna2">
+					<table class="tabla-datos">
+						<thead>
+							<tr>
+								<th>RANKING</th>
+								<th>PAIS</th>
+								<th>VOLUMEN DE PRODUCCION (TON)</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>China</td>
+								<td>621,844,040</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>China, Continental</td>
+								<td>613,161,060</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Indonesia</td>
+								<td>137,976,993</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>India</td>
+								<td>126,048,497</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Estados Unidos de América</td>
+								<td>116,042,457</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Brasil</td>
+								<td>61,981,178</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>México</td>
+								<td>61,628,301</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>Federación de Rusia</td>
+								<td>48,276,871</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Japón</td>
+								<td>45,875,475</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Pakistán</td>
+								<td>23,570,064</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>Turquía</td>
+								<td>21,046,572</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Nigeria</td>
+								<td>17,253,832</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>Colombia</td>
+								<td>17,062,669</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>otros </td>
+								<td>412,457,884</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Total:</th>
+								<th colspan="2"> 2,324,225,893 </th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</div>
+			</div>
+		</section>
+		<section id="section3" class="section">
+			<h1>PRODUCCION NACIONAL AVICOLA</h1>
+
+			<H2>PRODUCCION NACIONAL DE CARNE DE AVE</H2>
+
+
+			<div class="controls">
+				<label>
+					Mostrar
+					<select id="rowsPerPage2">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+					registros
+				</label>
+
+				<input type="text" id="searchInput2" placeholder="Buscar...">
+			</div>
+
+			<table id="data2Table" class="tabla-datos">
+				<thead>
+					<tr>
+						<th>RANKING</th>
+						<th>ENTIDAD FEDERATIVA</th>
+						<th>VOLUMEN DE PRODUCCION (TON)</th>
+						<th>PESO (KG)</th>
+						<th>PRECIO ($/KG)</th>
+						<th>VALOR DE PRODUCCION ($)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Filas dinámicas -->
+				</tbody>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th>Total:</th>
+						<th>3,888,208</th>
+						<th>2</th>
+						<th>38</th>
+						<th>147,966,234,000</th>
+				</tfoot>
+			</table>
+
+			<div class="pagination">
+				<button id="prevBtn2">Anterior</button>
+				<span id="pageInfo2"></span>
+				<button id="nextBtn2">Siguiente</button>
+			</div>
+
+
+
+
+
+
+
+			<iframe id="iframe_mexico_carne" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+
+
+			<H3>PRODUCCION NACIONAL DE HUEVO DE GALLINA</H3>
+
+			<div class="controls">
+				<label>
+					Mostrar
+					<select id="rowsPerPage">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+					registros
+				</label>
+
+				<input type="text" id="searchInput" placeholder="Buscar...">
+			</div>
+
+			<table id="dataTable" class="tabla-datos">
+				<thead>
+					<tr>
+						<th>RANKING</th>
+						<th>ENTIDAD FEDERATIVA</th>
+						<th>VOLUMEN DE PRODUCCION (TON)</th>
+						<th>PRECIO ($/KG)</th>
+						<th>VALOR DE PRODUCCION ($)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Filas dinámicas -->
+				</tbody>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th>Total:</th>
+						<th>3,171,784</th>
+						<th>30</th>
+						<th>87,969,091,000</th>
+				</tfoot>
+			</table>
+
+			<div class="pagination">
+				<button id="prevBtn">Anterior</button>
+				<span id="pageInfo"></span>
+				<button id="nextBtn">Siguiente</button>
+			</div>
+			<iframe id="iframe_mexico_huevo" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+		</section>
+		<section id="section4" class="section">
+			<h1>BALANZA COMERCIAL DEL SECTOR AVICOLA DE MÉXICO</h1>
+			<h2>VOLUMEN DE COMERCIALIZACIÓN (TON)</h2>
+			<canvas id="lineChart"></canvas>
+		</section>
+		<section id="section5" class="section">
+			<h1>PRODUCCION HISTORICA DE CARNE DE AVE Y HUEVO DE GALLINA</h1>
+			<h2>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE CARNE DE AVE (TON)</h2>
+			<canvas id="lineChart2"></canvas>
+			<h3>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE HUEVO DE GALLINA (TON)</h3>
+
+			<canvas id="lineChart3"></canvas>
+
+		</section>
+		<section id="section6" class="section">
+			<h1>PRODUCCION DE CARNE DE AVE Y HUEVO DE GALLINA EN OAXACA</h1>
+
+			<h2>PRODUCCION DE CARNE DE AVE EN OAXACA</h2>
+
+			<table class="tabla-datos">
+				<thead>
+					<tr>
+						<th>REGION</th>
+						<th>VOLUMEN DE PRODUCCION (TON)</th>
+						<th>PESO (KG)</th>
+						<th>PRECIO ($/KG)</th>
+						<th>VALOR DE PRODUCCION ($)</th>
+						<th>CANTIDAD DE MUNICIPIOS</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>Sierra de Flores Magón</td>
+						<td>6,676</td>
+						<td>2</td>
+						<td>43</td>
+						<td>268,365,000</td>
+						<td>45</td>
+					</tr>
+					<tr>
+						<td>Valles Centrales</td>
+						<td>2,115</td>
+						<td>2</td>
+						<td>28</td>
+						<td>57,501,000</td>
+						<td>121</td>
+					</tr>
+					<tr>
+						<td>Mixteca</td>
+						<td>1,058</td>
+						<td>1</td>
+						<td>38</td>
+						<td>40,187,000</td>
+						<td>155</td>
+					</tr>
+					<tr>
+						<td>Papaloapan</td>
+						<td>991</td>
+						<td>2</td>
+						<td>40</td>
+						<td>40,079,000</td>
+						<td>20</td>
+					</tr>
+					<tr>
+						<td>Istmo</td>
+						<td>686</td>
+						<td>1</td>
+						<td>39</td>
+						<td>26,508,000</td>
+						<td>41</td>
+					</tr>
+					<tr>
+						<td>Costa</td>
+						<td>659</td>
+						<td>2</td>
+						<td>45</td>
+						<td>30,561,000</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>Sierra de Juárez</td>
+						<td>504</td>
+						<td>2</td>
+						<td>31</td>
+						<td>17,534,000</td>
+						<td>69</td>
+					</tr>
+					<tr>
+						<td>Sierra Sur</td>
+						<td>433</td>
+						<td>2</td>
+						<td>33</td>
+						<td>14,723,000</td>
+						<td>69</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>ESTATAL</th>
+						<th>13,122</th>
+						<th>2</th>
+						<th>35</th>
+						<th>495,459,000</th>
+						<th>570</th>
+					</tr>
+				</tfoot>
+			</table>
+
+
+			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+			</h4>
+
+			<canvas id="lineChart4"></canvas>
+
+			<h3>PRODUCCION DE HUEVO DE GALLINA EN OAXACA</h3>
+
+
+			<table class="tabla-datos">
+				<thead>
+					<tr>
+						<th>REGION</th>
+						<th>VOLUMEN DE PRODUCCION (TON)</th>
+						<th>PRECIO ($/KG)</th>
+						<th>VALOR DE PRODUCCION ($)</th>
+						<th>CANTIDAD DE MUNICIPIOS</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>Valles Centrales</td>
+						<td>1,957</td>
+						<td>26</td>
+						<td>49,953,000</td>
+						<td>121</td>
+					</tr>
+					<tr>
+						<td>Papaloapan</td>
+						<td>1,343</td>
+						<td>28</td>
+						<td>37,923,000</td>
+						<td>20</td>
+					</tr>
+					<tr>
+						<td>Istmo</td>
+						<td>973</td>
+						<td>30</td>
+						<td>28,532,000</td>
+						<td>41</td>
+					</tr>
+					<tr>
+						<td>Sierra de Juárez</td>
+						<td>669</td>
+						<td>32</td>
+						<td>20,642,000</td>
+						<td>69</td>
+					</tr>
+					<tr>
+						<td>Mixteca</td>
+						<td>596</td>
+						<td>26</td>
+						<td>15,822,000</td>
+						<td>155</td>
+					</tr>
+					<tr>
+						<td>Sierra Sur</td>
+						<td>551</td>
+						<td>27</td>
+						<td>15,076,000</td>
+						<td>69</td>
+					</tr>
+					<tr>
+						<td>Costa</td>
+						<td>434</td>
+						<td>36</td>
+						<td>15,901,000</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>Sierra de Flores Magón</td>
+						<td>355</td>
+						<td>29</td>
+						<td>10,154,000</td>
+						<td>45</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>ESTATAL</th>
+						<th>6,879</th>
+						<th>28</th>
+						<th>194,001,000</th>
+						<th>570</th>
+					</tr>
+				</tfoot>
+			</table>
+
+			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+			</h4>
+			<canvas id="lineChart5"></canvas>
+
+
+		</section>
+		<section id="section7" class="section">
+			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus obcaecati, autem expedita, eaque assumenda qui tempore vel quod facilis distinctio architecto iste voluptate quas recusandae reprehenderit amet, quia cum dolorem!
+			Illum rem aliquam consequatur magnam modi excepturi sunt tempora illo eveniet amet voluptatum, voluptates architecto labore aperiam a ea culpa possimus doloribus molestiae cum neque unde tenetur. Nam, delectus libero?
+			Voluptate, nam minima vero similique quia sint quaerat, ipsam voluptas quos nisi amet nihil inventore exercitationem autem ad doloremque perferendis accusamus error. Accusamus, odit quis odio ratione beatae modi molestiae!
+			Nulla quaerat eum doloribus dolorem incidunt, quas repudiandae libero minus nesciunt, dicta velit? Pariatur esse placeat, corrupti nobis maiores exercitationem? Illum, quidem. Totam impedit, aut ducimus sunt repellat dolor dicta?
+			Ab voluptatibus doloribus, earum repellat fuga cupiditate nemo. Corrupti cumque facere autem corporis facilis nisi odit nemo quo ducimus quisquam voluptatem consequuntur eligendi ullam illo, voluptas, aliquid dolorem explicabo a.
+			Porro laudantium, illum at quae unde sit sapiente fuga veritatis esse tempora vero facilis omnis officia numquam natus quos placeat ipsum corrupti adipisci assumenda temporibus consectetur odio quod! Nemo, perferendis?
+			Delectus voluptas voluptatum, distinctio nihil dolorem quo saepe similique cumque itaque nobis. Minus non laudantium voluptas et, fugiat pariatur alias reprehenderit repellat quos, qui consequuntur sapiente blanditiis quo, magnam libero!
+			Laboriosam nihil quo dolor delectus beatae ipsum placeat similique a deserunt ab necessitatibus, odit, soluta dolorum earum consequuntur nulla aliquam veniam. Reprehenderit aspernatur perferendis nobis, natus nam nulla doloribus quas?
+			Neque, ipsa voluptatibus. Veritatis obcaecati perspiciatis ut saepe odit labore perferendis, quis vel reprehenderit, nobis cumque iusto. Dicta error sapiente, ducimus laborum accusamus enim quam facere earum est, magni asperiores?
+			Ea doloremque perspiciatis modi eveniet, at neque vitae quos similique sint mollitia consequatur minus nesciunt necessitatibus atque, aut doloribus nihil? Corporis pariatur, quidem consequuntur itaque similique harum tempore doloremque atque!
+			Sunt maxime aspernatur deleniti illo ab sed, consequatur ullam culpa, fugit modi eaque, recusandae ea! In laudantium, repellat nulla, quis dignissimos odit ipsum ipsam, ducimus ipsa nesciunt ex ea neque.
+			Blanditiis illo sequi eos voluptates sint voluptatibus doloremque inventore voluptatem porro dolore architecto quas, earum similique ducimus possimus libero placeat reiciendis temporibus amet tempore. Fugiat laborum laudantium odit tenetur tempora.
+			A nulla dicta iusto? Unde ex labore porro earum necessitatibus minima quidem! Ipsa suscipit commodi voluptates autem repellat odio itaque, alias eligendi accusamus sunt assumenda eius voluptas eveniet nesciunt amet?
+			Delectus saepe provident odio non laudantium rem! Quibusdam illum blanditiis eum aliquid tempore iusto sequi excepturi quisquam, odio temporibus magni adipisci saepe aliquam eius vel atque iure dignissimos distinctio unde.
+			Voluptatem soluta maxime accusamus voluptas nisi ullam natus corrupti hic nesciunt quo vero tempora fuga distinctio aliquid quis, cumque earum officia! Deserunt ut labore esse perferendis a? Distinctio, sunt debitis.
+			Nesciunt suscipit blanditiis sequi ea accusantium nostrum saepe nulla dolorem nisi cupiditate excepturi sit et voluptate, perferendis omnis quis sed ad dolores. Officia ratione libero doloribus quod harum commodi mollitia!
+			Reiciendis assumenda molestiae praesentium quaerat odio tempore corrupti cupiditate voluptatum atque similique? Consequuntur id quae perspiciatis veniam expedita vitae, aperiam ratione qui nam fugit quis officiis dicta, sed, fugiat earum?
+			Voluptatem labore adipisci neque ipsa nihil cumque recusandae molestiae totam? Impedit molestiae placeat delectus quisquam ullam eius at ex fuga. Temporibus sit dolor impedit fugiat ut aliquid iusto quam autem.
+			Porro, minus a aspernatur provident esse nemo excepturi quasi sequi quaerat ut totam. Quisquam, culpa, ullam, sapiente ducimus quos corrupti sunt quis vitae ipsa facere ipsum nemo temporibus harum quasi?
+			Excepturi temporibus quas, rerum sequi et molestias exercitationem suscipit provident dolores repellat, fuga adipisci, voluptates libero nemo voluptatum veritatis laborum possimus molestiae blanditiis nostrum dicta dolorum voluptas quam. Accusantium, eos.
+		</section>
+		<section id="section8" class="section">
+			<h1>MUNICIPIOS QUE PRODUCEN CARNE Y HUEVO DE GALLINA EN OAXACA</h1>
+			<div class="contenedor_col1">
+				<div class="columna1">
+					<table class="tabla-datos">
+						<thead>
+							<tr>
+								<th>REGION</th>
+								<th>CANTIDAD DE MUNICIPIOS</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>Papaloapan</td>
+								<td>11</td>
+							</tr>
+							<tr>
+								<td>Sierra de Flores Magón</td>
+								<td>9</td>
+							</tr>
+							<tr>
+								<td>Istmo</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>Valles Centrales</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Sierra de Juárez</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Costa</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>Mixteca</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>Sierra Sur</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Total:</th>
+								<th>32</th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</div>
+				<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
+			</div>
+		</section>
+	</div>
+
+	<!-- Barra de progreso lateral -->
+	<div class="progress-bar">
+		<div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
+		<div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
+		<div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
+		<div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
+		<div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
+		<div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+		<div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+		<div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
+	</div>
+
+	<!-- Script -->
+	<script>
+		const circles = document.querySelectorAll('.progress-circle');
+		const sections = document.querySelectorAll('section');
+
+		// Scroll a la sección al hacer clic
+		circles.forEach(circle => {
+			circle.addEventListener('click', () => {
+				const targetId = circle.getAttribute('data-target');
+				const targetSection = document.getElementById(targetId);
+				targetSection.scrollIntoView({ behavior: 'smooth' });
+			});
+		});
+
+		// Detectar qué sección está en vista y activar el círculo correspondiente
+		window.addEventListener('scroll', () => {
+			let current = '';
+			sections.forEach(section => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.clientHeight;
+				if (pageYOffset >= sectionTop - sectionHeight / 3) {
+					current = section.getAttribute('id');
+				}
+			});
+
+			circles.forEach(circle => {
+				circle.classList.remove('active');
+				if (circle.getAttribute('data-target') === current) {
+					circle.classList.add('active');
+				}
+			});
+		});
+	</script>
+
+	<script src="{% static 'data/mapas/pecuario/avicolaHuevo.js' %}"></script>
+	<script src="{% static 'data/mapas/pecuario/avicolaCarne.js' %}"></script>
+	<script src="{% static 'pecuario/js/avicola_js.js' %}"></script>
+
+	<script>
+		const iframe = document.getElementById('frame_oaxaca');
+
+		iframe.onload = function () {
+			iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+		};
+
+		const mundo_carne = document.getElementById("frame_mundo");
+		mundo_carne.onload = function () {
+			mundo_carne.contentWindow.postMessage(paisesDatosCarne, "*");
+		}
+
+		const mundo_huevo = document.getElementById("frame_mundo_huevo");
+		mundo_huevo.onload = function () {
+			mundo_huevo.contentWindow.postMessage(paisesDatos, "*");
+		}
+
+		const mexico_huevo = document.getElementById("iframe_mexico_huevo");
+		mexico_huevo.onload = function () {
+			mexico_huevo.contentWindow.postMessage(estadosDatos, "*");
+		}
+
+		const mexico_carne = document.getElementById("iframe_mexico_carne");
+		mexico_carne.onload = function () {
+			mexico_carne.contentWindow.postMessage(estadosCarne, "*");
+		}
+	</script>
+
+</div>
+
+{% endblock %}

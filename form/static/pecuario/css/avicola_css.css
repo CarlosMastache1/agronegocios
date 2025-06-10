@@ -1,0 +1,130 @@
+.contenedor_col1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contenedor_col1 .columna1 {
+    width: 100%;
+}
+
+.contenedor_col1 .columna2 {
+    width: 100%;
+    height: 100vh;
+}
+
+.contenedor_col2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contenedor_col2 .columna1 {
+    width: 100%;
+    height: 100vh;
+}
+
+.contenedor_col2 .columna2 {
+    width: 100%;
+}
+
+
+/* A partir de 768px (pantallas medianas y grandes) */
+@media (min-width: 900px) {
+    .contenedor_col1 {
+        flex-direction: row;
+    }
+
+    .contenedor_col1 .columna1 {
+        width: 30%;
+    }
+
+    .contenedor_col1 .columna2 {
+        width: 70%;
+    }
+
+    .contenedor_col2 {
+        flex-direction: row;
+    }
+
+    .contenedor_col2 .columna1 {
+        width: 70%;
+    }
+
+    .contenedor_col2 .columna2 {
+        width: 30%;
+    }
+}
+
+.mapa_mexico_sty {
+    width: 100%;
+    height: 100vh;
+}
+
+.tabla-datos {
+    width: 100%;
+    margin: .5rem auto;
+    padding: .5rem;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.tabla-datos thead {
+    background-color: #711c36;
+    color: white;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: .3rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: #cbcbcb;
+}
+
+.tabla-datos td {
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+
+.pagination button{
+    background-color: white;
+    color: #333;
+    border: white;
+}
+
+.pagination button:hover{
+    background-color:#454E55;
+    color: white;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+canvas {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
