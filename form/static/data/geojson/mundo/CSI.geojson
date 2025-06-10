@@ -1,0 +1,3 @@
+{
+  "type": "FeatureCollection",
+  "features": [{"geometry": {"type": "Polygon", "coordinates": [[[154.39128665500002, -21.030043226999904], [154.388519727, -21.029066664999956], [154.39128665500002, -21.02874114399992], [154.39128665500002, -21.030043226999904]]]}, "type": "Feature", "properties": {"ISO_A3": "CSI", "ISO_A2": "CI", "NAME_ES": "Islas del Mar del Coral"}}]}

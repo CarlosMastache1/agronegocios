@@ -1,0 +1,36 @@
+-------------------------------------
+|   Clave	Descripción             |
+-------------------------------------
+|   AGS     Aguascalientes          |
+|   BCN     Baja California Norte   |
+|   BCS	    Baja California Sur	    |
+|   CAM 	Campeche	            |
+|   CDMX	Ciudad de México	    |
+|   CHI     Chihuahua               |
+|   CHS 	Chiapas	                |
+|   COA 	Coahuila	            |
+|   COL	    Colima	                |
+|   DGO	    Durango	                |
+|   EM	    Estado de México	    |
+|   GRO	    Guerrero	            |
+|   GTO	    Guanajuato	            |
+|   HGO 	Hidalgo	                |
+|   JAL	    Jalisco	                |
+|   MICH	Michoacán	            |
+|   MOR     Morelos                 |
+|   NAY     Nayarit                 |
+|   NL	    Nuevo León              |
+|   OAX	    Oaxaca                  |
+|   PUE	    Puebla                  |
+|   QR  	Quintana Roo            |
+|   QRO     Querétaro               |
+|   SIN	    Sinaloa                 |
+|   SLP	    San Luis Potosí         |
+|   SON	    Sonora                  |
+|   TAB	    Tabasco                 |
+|   TAMP	Tamaulipas              |
+|   TLAX	Tlaxcala                |
+|   VER     Veracruz                |
+|   YUC	    Yucatán                 |
+|   ZAC	    Zacatecas               |
+-------------------------------------

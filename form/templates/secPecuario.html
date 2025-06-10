@@ -1,0 +1,92 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<main id="contents" class="site-contnts">
+
+    <!--Slider-->
+    <div class="home-slider">
+        <div class="item" data-slide="{% static 'assets/images/pecuario2.png' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-8 col-lg-7">
+                        <h2 class="slide-title">Estadisticas <strong>del Sector Pecuario</strong>
+                            <h3>Explora los 5 productos</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" data-slide="{% static 'assets/images/PECUARIO.png' %}">
+            <div class="container">
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
+    <style>
+        .container-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .titulo-estilo {
+            color: #9D2449;
+            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+
+    <!--Tarjetas -->
+    <div class="body-card">
+        <h2 class="text-3xl font-bold text-center titulo-estilo">ESTADISTICAS DEL SECTOR PECUARIO</h2>
+
+        <div class="container-card">
+            <a href="{% url 'agave' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/APICOLA.png' %}" alt="AGAVE">
+                    <h3>APICOLA</h3>
+                </div>
+            </a>
+
+            <a href="{% url 'avicola' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/AVICOLA.png' %}" alt="AJONJOLI">
+                    <h3>AVICOLA</h3>
+                </div>
+            </a>
+            <a href="{% url 'cafe' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/BOVINO.png' %}" alt="CAFÉ">
+                    <h3>BOVINO</h3>
+                </div>
+            </a>
+            <a href="{% url 'calabacita' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/CAPRINO.png' %}" alt="CALABACITA">
+                    <h3>CAPRINO</h3>
+                </div>
+            </a>
+            <a href="{% url 'jengibre' %}">
+                <div class="card">
+                    <img src="{% static 'imagenesSA/PORCINO.png' %}" alt="JENGIBRE">
+                    <h3>PORCINO</h3>
+                </div>
+            </a>
+          
+        </div>
+    </div>
+
+
+</main>
+
+{% endblock %}

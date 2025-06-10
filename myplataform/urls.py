@@ -54,6 +54,7 @@ urlpatterns = [
     path('eliminar/<int:id>/', views.delete_credit, name='delete_credit'),
     path('', views.indSec, name='index' ),
     path('agricola/', views.sectorAgri, name='agricola'),
+    path('pecuario/', views.sectorPecu, name='pecuario'),
     path('descripcion_agave/', TemplateView.as_view(template_name="agave/descripcion_agave.html"), name='descripcion_agave'),
     path('tablas2/', TemplateView.as_view(template_name="agave/tablas/2.html"), name='tablas2'),
     path('tablas3/', TemplateView.as_view(template_name="agave/tablas/3.html"), name='tablas3'),
@@ -229,6 +230,16 @@ urlpatterns = [
 
 
 
+    path('iframeMundo/', TemplateView.as_view(template_name="includes/mapaMundo.html"), name='iframeMundo'),
+    path('iframeMexico/', TemplateView.as_view(template_name="includes/mapaMexico.html"), name='iframeMexico'),
+    path('iframeOaxaca/', TemplateView.as_view(template_name="includes/mapaOaxaca.html"), name='iframeOaxaca'),
+
+    
+
+
+    path('avicola/', TemplateView.as_view(template_name="pecuario/avicola/index.html"), name='avicola'),
+
+    path('framavicola/', TemplateView.as_view(template_name="pecuario/avicola/datos.html"), name='framavicola'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

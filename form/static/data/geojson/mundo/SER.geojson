@@ -1,0 +1,1 @@
+{"type": "FeatureCollection",  "features": [{"geometry": {"type": "Polygon", "coordinates": [[[-78.63707434799993, 15.862087307000076], [-78.64041093699988, 15.863999742000084], [-78.63687089799991, 15.867295640000064], [-78.63707434799993, 15.862087307000076]]]}, "type": "Feature", "properties": {"ISO_A3": "SER", "ISO_A2": "SE", "NAME_ES": "Isla Serranilla"}}]}

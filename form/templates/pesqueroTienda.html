@@ -43,7 +43,7 @@
                                             <p class="sale">Nuevos Productos</p>
                                         </div>
                                         {% if tiendaPes.imagenProd.url == '/media/IMAGEN%20PRODUCTO' %}
-                                         <img src="/media/imagenes/cultivo.png" class="img-fluid"
+                                         <img src="{% static 'imagenesSA/cultivo.png' %}" class="img-fluid"
                                             alt="Imagen alternativa" >
                                         {% else %}
                                          <img src="{{ tiendaPes.imagenProd.url }}" class="img-fluid" alt="Image">

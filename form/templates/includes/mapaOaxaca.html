@@ -1,0 +1,321 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 90vh;
+            width: 100%;
+
+        }
+
+        .cont_mapa {
+            border-radius: 16px;
+            /* Bordes redondeados */
+            border: solid 8px #9D2449;
+            /* Borde grueso con color vino */
+        }
+
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 250px;
+            background-color: rgba(11, 11, 11, 0.685);
+            color: white;
+            border: 1px solid #000000;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            pointer-events: none;
+            /* Para que no interfiera con el mapa */
+            display: none;
+            /* Oculto por defecto */
+        }
+
+        /* Estilo para la leyenda del mapa */
+        .legend {
+            position: absolute;
+            /* Posicionamiento absoluto dentro de su contenedor más cercano con posición relativa */
+            bottom: 20px;
+            /* Separado 20 píxeles del borde inferior */
+            right: 20px;
+            /* Separado 20 píxeles del borde derecho */
+            background-color: rgba(30, 30, 30, 0.8);
+            /* Fondo gris oscuro con un 80% de opacidad */
+            color: white;
+            /* Texto en color blanco */
+            padding: 12px 16px;
+            /* Espaciado interno: 12px arriba/abajo y 16px izquierda/derecha */
+            border-radius: 8px;
+            /* Bordes redondeados con un radio de 8 píxeles */
+            font-size: 14px;
+            /* Tamaño de fuente de 14 píxeles */
+            z-index: 1000;
+            /* Se asegura de estar por encima de la mayoría de los elementos en el apilamiento visual */
+            width: 200px;
+            /* Ancho fijo de 120 píxeles */
+            max-width: 800px;
+            /* Ancho máximo permitido: 800 píxeles (útil si el contenido crece) */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont_mapa">
+        <div id="info-panel" class="info-panel"></div>
+        <div id="map"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+
+        window.addEventListener("message", function (event) {
+            // Puedes verificar el origen aquí: event.origin
+            const regionesConMunicipios = event.data;
+            // Función que busca la información de un municipio por su ID
+            function getInfoMunicipio(munid) {
+                for (const region in regionesConMunicipios) {
+                    const municipio = regionesConMunicipios[region].find(m => m.id === munid);
+                    if (municipio) return municipio;
+                }
+                return null;
+            }
+
+            // Ajuste de zoom inicial dependiendo del tamaño de la pantalla
+            let initialZoom = 7.5;
+
+            if (window.innerWidth < 768) {
+                initialZoom = 3; // Zoom más alejado para pantallas pequeñas
+            }
+            // ***Inicializa el mapa de Oaxaca
+            const mapOaxaca = L.map("map", {
+                center: [17.05, -96.72],
+                zoom: initialZoom,
+                dragging: true,
+                scrollWheelZoom: true,
+                touchZoom: true,
+                doubleClickZoom: true,
+                boxZoom: true,
+            });
+
+            // Pequeño ajuste para centrar mejor Oaxaca en pantalla
+            mapOaxaca.panBy([80, 0]);
+
+            // Carga la capa de imágenes satelitales
+            L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/" +
+                "World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+                    attribution: "SEFADER &copy; Mapa de Oaxaca",
+                    maxZoom: 18,
+                    minZoom: 8
+                }
+            ).addTo(mapOaxaca);
+
+            // Almacena referencias a los layers por municipio
+            let capasPorMunicipio = {};
+
+            // Carga y renderiza los municipios de Oaxaca
+            fetch("{% static 'data/geojson/oaxaca_municipios.geojson' %}? v= {{timestamp}}")
+                .then(res => res.json())
+                .then(municipiosGeoJSON => {
+                    let geoLayerOaxaca = L.geoJSON(municipiosGeoJSON, {
+                        style: function (feature) {
+                            const munid = feature.properties["INEGI:MUNID"];
+                            const info = getInfoMunicipio(munid);
+                            return {
+                                color: "white",
+                                weight: 1,
+                                fillColor: info ? "#9D2449" : "transparent",
+                                fillOpacity: info ? 0.6 : 0
+                            };
+                        },
+                        onEachFeature: function (feature, layer) {
+
+                            const munid = feature.properties["INEGI:MUNID"];
+                            const info = getInfoMunicipio(munid);
+                            layer._munid = munid;
+                            layer._nombre = feature.properties.name;
+                            layer._activo = true;
+
+                            if (info) {
+                                layer.on("mouseover", () => {
+                                    if (layer._activo) {
+                                        layer.setStyle({
+                                            fillColor: "transparent", // Color más claro o diferente
+                                            fillOpacity: 0
+                                        });
+                                        const name = feature.properties.name || "Sin nombre";
+
+                                        // Mostrar info en el panel flotante
+                                        const panel = document.getElementById("info-panel");
+                                        let textPanel = `<h2><strong>${name}</strong></h2>`
+                                    textPanel += info.territorio?`<p><strong>Superficie sembrada:</strong> ${info.territorio} Ha</p>`:``;
+                                    textPanel += info.toneladas?`<p><strong>Volumen de producción:</strong> ${info.toneladas} Ton</p>`:``;
+
+                                        panel.innerHTML = textPanel;
+                                        panel.style.display = "block";
+                                    }
+                                });
+                                // Cierra el tooltip al salir del área del municipio
+                                layer.on("mouseout", () => {
+                                    //Cambio de color 
+                                    layer.setStyle({
+                                        fillColor: "#9D2449",
+                                        fillOpacity: 0.6
+                                    });
+                                    // Ocultar el panel
+                                    const panel = document.getElementById("info-panel");
+                                    panel.style.display = "none";
+                                });
+                            }
+                            capasPorMunicipio[munid] = layer;
+                        }
+                    }).addTo(mapOaxaca);
+                    mapOaxaca.fitBounds(geoLayerOaxaca.getBounds());
+                });
+            // Control de leyenda para filtrar por región
+            const legend = L.control({ position: "bottomright" });
+            legend.onAdd = function (mapOaxaca) {
+                const div = L.DomUtil.create("div", "legend");
+                div.innerHTML = `<strong>Regiones</strong><br>`;
+                div.innerHTML += `<label><input type="checkbox" id="check-todos" checked> Todos</label><br>`;
+                for (const region in regionesConMunicipios) {
+                    const id = region.toLowerCase().replace(/\s+/g, "-");
+                    div.innerHTML += `<label><input type="checkbox" class="region-checkbox" data-region="${region}" checked> ${region}</label><br>`;
+                }
+                L.DomEvent.disableClickPropagation(div);
+                return div;
+            };
+
+            legend.addTo(mapOaxaca);
+
+
+            // Evento que maneja el cambio en los checkboxes de región
+            document.addEventListener("change", function (event) {
+                if (event.target.classList.contains("region-checkbox")) {
+                    const region = event.target.dataset.region;
+                    const municipios = regionesConMunicipios[region] || [];
+
+
+                    municipios.forEach(muni => {
+
+
+                        const layer = capasPorMunicipio[muni.id];
+                        if (layer) {
+                            if (event.target.checked) {
+                                layer.setStyle({
+                                    fillColor: "#9D2449",
+                                    fillOpacity: 0.6
+                                });
+
+                                layer._activo = true;
+
+                                // Cierra el tooltip al salir del área del municipio
+                                layer.on("mouseout", () => {
+                                    //Cambio de color 
+                                    layer.setStyle({
+                                        fillColor: "#9D2449",
+                                        fillOpacity: 0.6
+                                    });
+                                    const panel = document.getElementById("info-panel");
+                                    panel.style.display = "none";
+                                });
+
+                            } else {
+                                layer.setStyle({
+                                    fillColor: "transparent",
+                                    fillOpacity: 0
+                                });
+
+                                // Cierra el tooltip al salir del área del municipio
+                                layer.on("mouseout", () => {
+                                    //Cambio de color 
+                                    layer.setStyle({
+                                        fillColor: "transparent",
+                                        fillOpacity: 0
+                                    });
+                                });
+                                layer._activo = false;
+                            }
+                        }
+
+
+                    });
+                }
+            });
+            // Checkbox general para activar/desactivar todos
+            document.getElementById("check-todos").addEventListener("change", function () {
+                const isChecked = this.checked;
+                document.querySelectorAll(".region-checkbox").forEach(cd => {
+                    cd.checked = isChecked
+                })
+                for (const region in regionesConMunicipios) {
+                    const municipios = regionesConMunicipios[region];
+                    municipios.forEach(municipio => {
+                        const layer = capasPorMunicipio[municipio.id];
+                        if (layer) {
+                            if (isChecked) {
+                                layer.setStyle({
+                                    fillColor: "#9D2449",
+                                    fillOpacity: 0.6
+                                });
+
+                                layer._activo = true;
+
+                                // Cierra el tooltip al salir del área del municipio
+                                layer.on("mouseout", () => {
+                                    //Cambio de color 
+                                    layer.setStyle({
+                                        fillColor: "#9D2449",
+                                        fillOpacity: 0.6
+                                    });
+                                    const panel = document.getElementById("info-panel");
+                                    panel.style.display = "none";
+                                });
+
+                                // Mostrar info en el panel flotante
+                                const panel = document.getElementById("info-panel");
+
+                                panel.innerHTML = `
+                                    <h2><strong>${layer._nombre}</strong></h2><p><strong>Superficie sembrada:</strong> ${municipio.territorio} Ha<br>
+              <strong>Volumen de producción:</strong> ${municipio.toneladas} Ton</p>
+                                    `;
+                                panel.style.display = "block";
+
+                            } else {
+                                layer.setStyle({
+                                    fillColor: "transparent",
+                                    fillOpacity: 0
+                                });
+                                layer.on("mouseout", () => {
+                                    //Cambio de color 
+                                    layer.setStyle({
+                                        fillColor: "transparent",
+                                        fillOpacity: 0
+                                    });
+                                    const panel = document.getElementById("info-panel");
+                                    panel.style.display = "none";
+                                });
+                                layer._activo = false;
+
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
