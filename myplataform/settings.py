@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os 
 
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'form',
     'django.contrib.humanize',
     'corsheaders',  
+    'storages',
+
 ]
 
 
@@ -93,27 +96,27 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 
 # BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-                      'default': {
-                          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                          'NAME': 'agronegocios',
-                          'USER': 'carlos',
-                          'PASSWORD': 'mastache123',
-                          'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-                          'PORT': '5432', 
-                                      }
-                      }
+                       'default': {
+                           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                           'NAME': 'agronegocios',
+                           'USER': 'carlos',
+                           'PASSWORD': 'mastache123',
+                           'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+                           'PORT': '5432', 
+                                       }
+                       }
 
 # BASE DE DATOS PARA DESARROLLO
 # DATABASES = {
-#                                                                         'default': {
-#                                                                          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                                          'NAME': 'developer',
-#                                                                          'USER': 'postgres', 
-#                                                                          'PASSWORD': 'mastache', 
-#                                                                          'HOST': 'localhost',
-#                                                                          'PORT': '5432'
-#                                                                      }
-#                                                                   } 
+#                                                                          'default': {
+#                                                                           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                                                                           'NAME': 'developer',
+#                                                                           'USER': 'postgres', 
+#                                                                           'PASSWORD': 'mastache', 
+#                                                                           'HOST': 'localhost',
+#                                                                           'PORT': '5432'
+#                                                                       }
+#                                                                    } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -179,3 +182,17 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER ='agronegociossefader@gmail.com'
 EMAIL_HOST_PASSWORD = 'peaqkmlhefsiujws'
 EMAIL_USE_TLS = True
+
+
+
+# AWS S3
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
+
+# Static and media files
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
