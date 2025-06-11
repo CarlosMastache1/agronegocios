@@ -96,27 +96,27 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 
 # BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-                       'default': {
-                           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                           'NAME': 'agronegocios',
-                           'USER': 'carlos',
-                           'PASSWORD': 'mastache123',
-                           'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-                           'PORT': '5432', 
-                                       }
-                       }
+                        'default': {
+                            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                            'NAME': 'agronegocios',
+                            'USER': 'carlos',
+                            'PASSWORD': 'mastache123',
+                            'HOST': 'db-agonegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+                            'PORT': '5432', 
+                                        }
+                        }
 
 # BASE DE DATOS PARA DESARROLLO
-# DATABASES = {
-#                                                                          'default': {
-#                                                                           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                                           'NAME': 'developer',
-#                                                                           'USER': 'postgres', 
-#                                                                           'PASSWORD': 'mastache', 
-#                                                                           'HOST': 'localhost',
-#                                                                           'PORT': '5432'
-#                                                                       }
-#                                                                    } 
+#DATABASES = {
+                                                                    #       'default': {
+                                                                    #        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                                                                    #        'NAME': 'developer',
+                                                                    #        'USER': 'postgres', 
+                                                                    #        'PASSWORD': 'mastache', 
+                                                                    #        'HOST': 'localhost',
+                                                                    #        'PORT': '5432'
+                                                                    #    }
+                                                                    # } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -183,15 +183,17 @@ EMAIL_HOST_PASSWORD = 'peaqkmlhefsiujws'
 EMAIL_USE_TLS = True
 
 
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
-# AWS S3
-AWS_ACCESS_KEY_ID = 'AKIAYF5S6EP2TPZD5KXG'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME= 'agronegocios-media'
-AWS_S3_REGION_NAME= 'us-east-1' 
-AWS_S3_CUSTOM_DOMAIN=f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-# Static and media files
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+
+AWS_S3_REGION_NAME = 'us-east-1' 
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+
+
