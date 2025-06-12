@@ -54,7 +54,7 @@
                 <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
 
-                        {% if product.imagenProd.url == '/media/IMAGEN%20PRODUCTO' %}
+                        {% if product.imagenProd.url == 'https://agronegocios-media.s3.amazonaws.com/IMAGEN%20PRODUCTO' %}
                         <img class="d-block w-100" src="{% static 'imagenesSA/cultivo.png' %}" alt="Imagen alternativa">
                         {% else %}
                         <img class="d-block w-100" src="{{ product.imagenProd.url }}" alt="First slide">
