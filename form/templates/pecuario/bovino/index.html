@@ -1,0 +1,459 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
+<link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
+
+<main id="contents" class="site-contnts">
+    <!--BANNER-->
+    <div class="home-slider">
+        <div class="item" data-slide="{% static 'pecuario/bovino/img/bov1.png' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-8 col-lg-7"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item" data-slide="{% static 'pecuario/bovino/img/bov2.png' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-8 col-lg-7"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div>
+    <div id="body_pag">
+        <!-- Secciones -->
+        <section id="section1" class="section">
+            <h1>DESCRIPCIÓN DEL SECTOR BOVINO</h1>
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+                Oaxaca cuenta con <strong>539 municipios que producen carne</strong> de bovino y <strong>537 municipios
+                    con producción de leche</strong> de vaca, se encuentra en el <strong>13° lugar</strong> a nivel
+                nacional en producción de carne de bovino mientras que en producción de leche de vaca ocupa el
+                <strong>17° lugar</strong>, con <strong>14 pueblos indígenas</strong> productores de este sector.
+            </p>
+
+
+            <div class="descripcion">
+                <div class="container">
+
+                    <div class="card">
+                        <h2>📊 Lugar a nivel mundial</h2>
+                        <p>
+                            México ocupa el <strong>6° lugar</strong> a nivel mundial en la producción de carne de
+                            bovino y el <strong>15° lugar</strong> en producción de leche de bovino.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2>📍 Municipios en Oaxaca</h2>
+                        <p>
+                            En Oaxaca hay <strong>539 municipios</strong> que producen carne de bovino y <strong>537
+                                municipios</strong> con producción de leche.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2>🇲🇽 Lugar a nivel nacional</h2>
+                        <p>Oaxaca ocupa el <strong>13º lugar</strong> nacional en producción de carne de bovino mientras
+                            que en producción de leche de vaca ocupa el <strong>17° lugar</strong>.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2>📈 Región con mayor producción</h2>
+                        <p>
+                            La región de la <strong>Costa</strong> se encuentra con la mayor producción de carne de
+                            bovino en producción.
+                            El <strong>Istmo</strong> es la región con mayor producción de leche de vaca.
+
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
+                        <p>Un total de <strong>14 pueblos indígenas</strong> se encuentran dentro de la producción de
+                            carne de bovino y de leche de vaca.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="section2" class="section">
+            <h1>PRODUCCION MUNDIAL DEL SECTOR BOVINO</h1>
+            <!-- Carne es el produccto principal del sector bovino -->
+            <H2>CARNE DE BOVINO</H2>
+            <div class="contenedor_col1">
+                <div class="columna1">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>RANKING</th>
+                                <th>PAIS</th>
+                                <th>VOLUMEN DE PRODUCCION (TON)</th>
+                            </tr>
+                        </thead>
+                        <!-- Contenido datos de los paises del producto principal -->
+                        <tbody id="tab_cuerpo_pais_pro">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total:</th>
+                                <th colspan="2" id="total_tabla1"> 138,453,072 </th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+                <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
+            </div>
+
+            <!-- Sub producto leche de bovino -->
+            <H3>LECHE DE BOVINO</H3>
+            <div class="contenedor_col2">
+                <iframe id="frame_mundo_sub_prod" src="{% url 'iframeMundo' %}" class="columna1" frameborder="0"></iframe>
+
+                <div class="columna2">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>RANKING</th>
+                                <th>PAIS</th>
+                                <th>VOLUMEN DE PRODUCCION (TON)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tab_cuerpo_pais_sub_pro">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total:</th>
+                                <th colspan="2" id="total_tabla2"></th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="section3" class="section">
+            <h1>PRODUCCION NACIONAL DEL SECTOR BOVINO</h1>
+
+            <H2>PRODUCCION NACIONAL DE CARNE DE BOVINO</H2>
+
+            <div class="controls">
+                <label>
+                    Mostrar
+                    <select id="rowsPerPage">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    registros
+                </label>
+
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+
+            <table id="dataTable" class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>RANKING</th>
+                        <th>ENTIDAD FEDERATIVA</th>
+                        <th>VOLUMEN DE PRODUCCION (TON)</th>
+                        <th>PESO (KG)</th>
+                        <th>PRECIO ($/KG)</th>
+                        <th>VALOR DE PRODUCCION ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas dinámicas -->
+                </tbody>
+                <tfoot>
+                    <tr id="total_datos_tab1">
+
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="pagination">
+                <button id="prevBtn">Anterior</button>
+                <span id="pageInfo"></span>
+                <button id="nextBtn">Siguiente</button>
+            </div>
+
+            <iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+
+
+            <H3>PRODUCCION NACIONAL DE LECHE DE BOVINO</H3>
+
+
+            <div class="controls">
+                <label>
+                    Mostrar
+                    <select id="rowsPerPage2">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    registros
+                </label>
+
+                <input type="text" id="searchInput2" placeholder="Buscar...">
+            </div>
+            <table id="data2Table" class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>RANKING</th>
+                        <th>ENTIDAD FEDERATIVA</th>
+                        <th>VOLUMEN DE PRODUCCION (TON)</th>
+                        <th>PRECIO ($/KG)</th>
+                        <th>VALOR DE PRODUCCION ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas dinámicas -->
+                </tbody>
+                <tfoot>
+                    <tr id="total_datos_tab2"></tr>
+                </tfoot>
+            </table>
+
+            <div class="pagination">
+                <button id="prevBtn2">Anterior</button>
+                <span id="pageInfo2"></span>
+                <button id="nextBtn2">Siguiente</button>
+            </div>
+            <iframe id="iframe_mexico_sub_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+        </section>
+
+        <!-- BALANZA COMERCIAL DEL SECTOR BOVINO EN MEXICO	 -->
+        <!-- <section id="section4" class="section">
+            <h1>BALANZA COMERCIAL DEL SECTOR BOVINO DE MEXICO</h1>
+            <h2>VOLUMEN DE COMERCIALIZACIÓN (TON)</h2>
+            <div class="chart-container">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </section> -->
+        <section id="section5" class="section">
+            <h1>PRODUCCION HISTORICA DE CARNE Y LECHE BOVINA EN OAXACA</h1>
+            <h2>PRODUCCION HISTORICA DE CARNE DE BOVINO EN OAXACA (TON)</h2>
+            <div class="chart-container">
+                <canvas id="lineChart2"></canvas>
+            </div>
+            <h3>PRODUCCION HISTORICA DE LECHE DE VACA EN OAXACA</h3>
+
+            <div class="chart-container">
+                <canvas id="lineChart3"></canvas>
+            </div>
+
+        </section>
+        <section id="section6" class="section">
+            <h1>PRODUCCION DE CARNE Y LECHE DEL SECTOR BOVINO EN OAXACA</h1>
+
+            <h2>PRODUCCION  DE CARNE DE BOVINO EN OAXACA</h2>
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>REGION</th>
+                        <th>VOLUMEN DE PRODUCCION (TON)</th>
+                        <th>PESO (KG)</th>
+                        <th>PRECIO ($/KG)</th>
+                        <th>VALOR DE PRODUCCION ($)</th>
+                        <th>CANTIDAD DE MUNICIPIOS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla_produccion_prod_oax">
+
+                </tbody>
+                <tfoot>
+                    <tr id="total_tab_pro_miel_oax">
+                    </tr>
+                </tfoot>
+            </table>
+
+
+            <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+            </h4>
+
+            <div class="chart-container">
+                <canvas id="lineChart4"></canvas>
+            </div>
+
+            <h3>PRODUCCION DE LECHE DE VACA EN OAXACA</h3>
+
+
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>REGION</th>
+                        <th>VOLUMEN DE PRODUCCION (TON)</th>
+                        <th>PRECIO ($/KG)</th>
+                        <th>VALOR DE PRODUCCION ($)</th>
+                        <th>CANTIDAD DE MUNICIPIOS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla_produccion_sub_prod_oax">
+
+                </tbody>
+                <tfoot>
+                    <tr id="total_tb_pro_cera_oax">
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+            </h4>
+            <div class="chart-container">
+                <canvas id="lineChart5"></canvas>
+            </div>
+
+
+        </section>
+        <section id="section7" class="section">
+            <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la producción se
+                refiere a la variación en la frecuencia mensual con la que se
+                produce carne y leche de bovinos en el estado de Oaxaca. Esta variación se mide mediante el
+                Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
+                acuerdo con este indicador, <strong>Octubre</strong> se posiciona como el mes con la mayor producción
+                de carne,
+                alcanzando un valor de <strong>160 puntos</strong> en el índice, y <strong>Noviembre</strong> se posiciona como el mes con la mayor producción
+                de leceh,
+                alcanzando un valor de <strong>114.2 puntos</strong> en el índice.</p>
+            <h2>Producción de Carne de Bovino</h2>
+            <div class="chart-container">
+                <canvas id="lineChart6"></canvas>
+            </div>
+
+            <h3>Producción de Leche de Bovino</h3>
+            <div class="chart-container">
+                <canvas id="lineChart7"></canvas>
+            </div>
+
+
+        </section>
+        <section id="section8" class="section">
+            <h1>MUNICIPIOS QUE PRODUCEN CARNE DE BOVINO EN OAXACA</h1>
+            <div class="contenedor_col1">
+                <div class="columna1">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>REGION</th>
+                                <th>CANTIDAD DE MUNICIPIOS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tb_mun_producto_oax">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total:</th>
+                                <th id="total_mun_producto_oax"></th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+                <iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- Barra de progreso lateral -->
+    <div class="progress-bar">
+        <div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
+        <div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
+        <div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
+        <!-- <div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div> -->
+        <div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
+        <div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    const circles = document.querySelectorAll('.progress-circle');
+    const sections = document.querySelectorAll('section');
+
+    // Scroll a la sección al hacer clic
+    circles.forEach(circle => {
+        circle.addEventListener('click', () => {
+            const targetId = circle.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Detectar qué sección está en vista y activar el círculo correspondiente
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        circles.forEach(circle => {
+            circle.classList.remove('active');
+            if (circle.getAttribute('data-target') === current) {
+                circle.classList.add('active');
+            }
+        });
+    });
+</script>
+
+<script src="{% static 'data/mapas/pecuario/bovinos.js' %}"></script>
+<script src="{% static 'pecuario/js/bovinos_js.js' %}"></script>
+
+<script>
+    const iframe = document.getElementById('frame_oaxaca');
+
+    iframe.onload = function () {
+        iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+    };
+
+    const mundo_producto = document.getElementById("frame_mundo_prod");
+    mundo_producto.onload = function () {
+        mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");
+    }
+
+    const mundo_sub_producto = document.getElementById("frame_mundo_sub_prod");
+    mundo_sub_producto.onload = function () {
+        mundo_sub_producto.contentWindow.postMessage(paises_datos_sub_pro, "*");
+    }
+
+    const mexico_sub_producto = document.getElementById("iframe_mexico_sub_prod");
+    mexico_sub_producto.onload = function () {
+        mexico_sub_producto.contentWindow.postMessage(estados_datos_sub_pro, "*");
+    }
+
+    const mexico_producto = document.getElementById("iframe_mexico_prod");
+    mexico_producto.onload = function () {
+        mexico_producto.contentWindow.postMessage(estados_datos_pro, "*");
+    }
+</script>
+{% endblock %}

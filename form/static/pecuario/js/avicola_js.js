@@ -462,11 +462,13 @@ const datos = {
   datasets: [
     {
       label: "Exportaciones (USA)",
+
       data: [
         13397, 20685, 9378, 3941, 7424, 4900, 2038, 3771, 8187, 0, 0, 911, 251,
       ],
       borderColor: "rgba(142, 68, 173, 1)",
-      backgroundColor: "rgba(142, 68, 173, 2)",
+      backgroundColor: "rgba(142, 68, 173, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: true,
     },
@@ -476,8 +478,9 @@ const datos = {
         543062, 575777, 626482, 737515, 762886, 832650, 843843, 845402, 849991,
         1018164, 924900, 1112933, 1111869,
       ],
-      borderColor: "rgba(22, 160, 133, 1)",
-      backgroundColor: "rgba(22, 160, 133, 0.2)",
+      borderColor: "rgba(29, 152, 126, 1)",
+      backgroundColor: "rgba(29, 152, 126, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: true,
     },
@@ -488,11 +491,14 @@ const config = {
   type: "line",
   data: datos,
   options: {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: "Exportaciones e Importaciones (2010 - 2022)",
+        font: {
+          size: 22,
+        },
       },
       legend: {
         position: "top",
@@ -512,6 +518,9 @@ const config = {
         title: {
           display: true,
           text: "Valor (USA)",
+          font: {
+            size: 18,
+          },
         },
         beginAtZero: true,
       },
@@ -519,6 +528,9 @@ const config = {
         title: {
           display: true,
           text: "Año",
+          font: {
+            size: 18,
+          },
         },
       },
     },
@@ -541,8 +553,9 @@ const datos2 = {
         3397, 3523, 6259, 6306, 6412, 6407, 6298, 6125, 6515, 6530, 6562, 6484,
         6441, 6676,
       ],
-      borderColor: "rgba(255, 99, 132, 0.7)",
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(178, 0, 0, 1)",
+      backgroundColor: "rgba(178, 0, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -551,8 +564,9 @@ const datos2 = {
       data: [
         571, 588, 592, 567, 574, 601, 600, 626, 633, 622, 619, 643, 626, 659,
       ],
-      borderColor: "rgba(54, 162, 235, 0.7)",
-      backgroundColor: "rgba(54, 162, 235, 0.2)",
+      borderColor: "rgba(0, 0, 178, 1)",
+      backgroundColor: "rgba(0, 0, 178, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -561,8 +575,9 @@ const datos2 = {
       data: [
         791, 818, 565, 563, 568, 581, 603, 614, 633, 646, 660, 668, 678, 686,
       ],
-      borderColor: "rgba(255, 206, 86, 0.7)",
-      backgroundColor: "rgba(255, 206, 86, 0.2)",
+      borderColor: "rgba(204, 204, 0, 1)",
+      backgroundColor: "rgba(204, 204, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -572,8 +587,9 @@ const datos2 = {
         1739, 1802, 1323, 1259, 1282, 1177, 1150, 1103, 1066, 1043, 1097, 1068,
         1075, 1058,
       ],
-      borderColor: "rgba(75, 192, 192, 0.7)",
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(102, 0, 153, 1)",
+      backgroundColor: "rgba(102, 0, 153, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -583,8 +599,9 @@ const datos2 = {
         970, 1004, 923, 946, 946, 958, 970, 979, 1012, 1034, 1035, 1037, 1040,
         991,
       ],
-      borderColor: "rgba(153, 102, 255, 0.7)",
-      backgroundColor: "rgba(153, 102, 255, 0.2)",
+      borderColor: "rgba(204, 102, 0, 1)",
+      backgroundColor: "rgba(204, 102, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -593,16 +610,18 @@ const datos2 = {
       data: [
         218, 219, 431, 436, 430, 436, 447, 443, 468, 465, 479, 485, 491, 504,
       ],
-      borderColor: "rgba(255, 159, 64, 0.7)",
-      backgroundColor: "rgba(255, 159, 64, 0.2)",
+      borderColor: "rgba(0, 102, 0, 1)",
+      backgroundColor: "rgba(0, 102, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
     {
       label: "Sierra Sur",
       data: [, , 350, 348, 377, 374, 379, 380, 380, 388, 425, 425, 437, 433],
-      borderColor: "rgba(100, 200, 100, 0.7)",
-      backgroundColor: "rgba(100, 200, 100, 0.2)",
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -612,8 +631,9 @@ const datos2 = {
         1689, 1750, 1582, 1554, 1559, 1490, 1546, 1693, 1659, 1906, 1955, 2030,
         2078, 2115,
       ],
-      borderColor: "rgba(199, 199, 199, 0.7)",
-      backgroundColor: "rgba(199, 199, 199, 0.2)",
+      borderColor: "rgba(36, 113, 163, 1)",
+      backgroundColor: "rgba(36, 113, 163, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -624,11 +644,14 @@ const config2 = {
   type: "line",
   data: datos2,
   options: {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: "Volumen de producción por Región (2010 - 2023)",
+        font: {
+          size: 22,
+        },
       },
       legend: {
         position: "top",
@@ -648,6 +671,9 @@ const config2 = {
         title: {
           display: true,
           text: "Volumen (TON)",
+          font: {
+            size: 18,
+          },
         },
         beginAtZero: true,
       },
@@ -655,6 +681,9 @@ const config2 = {
         title: {
           display: true,
           text: "Año",
+          font: {
+            size: 18,
+          },
         },
       },
     },
@@ -676,8 +705,9 @@ const datos3 = {
       data: [
         312, 318, 325, 331, 335, 337, 341, 344, 351, 349, 360, 355, 355, 355,
       ],
-      borderColor: "rgba(255, 99, 132, 0.7)",
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(178, 0, 0, 1)",
+      backgroundColor: "rgba(178, 0, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -686,8 +716,10 @@ const datos3 = {
       data: [
         363, 368, 380, 365, 367, 391, 394, 400, 415, 420, 409, 419, 412, 434,
       ],
-      borderColor: "rgba(54, 162, 235, 0.7)",
-      backgroundColor: "rgba(54, 162, 235, 0.2)",
+      borderColor: "rgba(0, 0, 178, 1)",
+      backgroundColor: "rgba(0, 0, 178, 0.2)",
+      borderWidth: 4,
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -696,8 +728,9 @@ const datos3 = {
       data: [
         1412, 1442, 898, 904, 900, 911, 926, 936, 958, 939, 957, 972, 961, 973,
       ],
-      borderColor: "rgba(255, 206, 86, 0.7)",
-      backgroundColor: "rgba(255, 206, 86, 0.2)",
+      borderColor: "rgba(204, 204, 0, 1)",
+      backgroundColor: "rgba(204, 204, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -707,8 +740,9 @@ const datos3 = {
         2018, 2060, 1586, 1532, 1007, 866, 833, 808, 751, 710, 584, 582, 590,
         596,
       ],
-      borderColor: "rgba(75, 192, 192, 0.7)",
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(102, 0, 153, 1)",
+      backgroundColor: "rgba(102, 0, 153, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -718,8 +752,9 @@ const datos3 = {
         1250, 1285, 1188, 1182, 1154, 1148, 1157, 1185, 1242, 1408, 1382, 1366,
         1369, 1343,
       ],
-      borderColor: "rgba(153, 102, 255, 0.7)",
-      backgroundColor: "rgba(153, 102, 255, 0.2)",
+      borderColor: "rgba(204, 102, 0, 1)",
+      backgroundColor: "rgba(204, 102, 0, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -728,16 +763,18 @@ const datos3 = {
       data: [
         405, 416, 669, 668, 651, 655, 670, 662, 659, 645, 650, 667, 651, 669,
       ],
-      borderColor: "rgba(255, 159, 64, 0.7)",
-      backgroundColor: "rgba(255, 159, 64, 0.2)",
+      borderColor: "rgba(0, 102, 0, 1)",
+      backgroundColor: "rgba(0, 102, 0, 0.2)",
       tension: 0.3,
+      borderWidth: 4,
       fill: false,
     },
     {
       label: "Sierra Sur",
       data: [, , 479, 469, 490, 486, 493, 495, 507, 517, 526, 533, 551, 551],
-      borderColor: "rgba(100, 200, 100, 0.7)",
-      backgroundColor: "rgba(100, 200, 100, 0.2)",
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -747,8 +784,9 @@ const datos3 = {
         2002, 2013, 1768, 1696, 1678, 1544, 1645, 1633, 1699, 1703, 1777, 1820,
         1897, 1957,
       ],
-      borderColor: "rgba(199, 199, 199, 0.7)",
-      backgroundColor: "rgba(199, 199, 199, 0.2)",
+      borderColor: "rgba(36, 113, 163, 1)",
+      backgroundColor: "rgba(36, 113, 163, 0.2)",
+      borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
@@ -759,11 +797,14 @@ const config3 = {
   type: "line",
   data: datos3,
   options: {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: "Volumen de producción por Región (2010 - 2023)",
+        font: {
+          size: 22,
+        },
       },
       legend: {
         position: "top",
@@ -783,6 +824,9 @@ const config3 = {
         title: {
           display: true,
           text: "Volumen (TON)",
+          font: {
+            size: 18,
+          },
         },
         beginAtZero: true,
       },
@@ -790,6 +834,9 @@ const config3 = {
         title: {
           display: true,
           text: "Año",
+          font: {
+            size: 18,
+          },
         },
       },
     },
@@ -823,10 +870,10 @@ const datos4 = {
     {
       label: "Producción (Ton)",
       data: [
-        2166, 3385, 2266, 1766, 1413, 966, 455, 403, 102, 62, 55, 37, 23, 12, 9
+        2166, 3385, 2266, 1766, 1413, 966, 455, 403, 102, 62, 55, 37, 23, 12, 9,
       ],
-      borderColor: "rgba(255, 99, 132, 0.7)",
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -837,7 +884,7 @@ const config4 = {
   type: "bar",
   data: datos4,
   options: {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -884,8 +931,8 @@ const datos5 = {
       data: [
         1810, 1857, 1175, 679, 533, 392, 91, 90, 87, 51, 45, 44, 13, 10, 3,
       ],
-      borderColor: "rgba(255, 99, 132, 0.7)",
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -896,7 +943,7 @@ const config5 = {
   type: "bar",
   data: datos5,
   options: {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -916,6 +963,113 @@ const config5 = {
 
 new Chart(ctx5, config5);
 
+/* Grafica 6*/
+const ctx6 = document.getElementById("lineChart6").getContext("2d");
+
+const datos6 = {
+  labels: [
+    "ENERO",
+    "FEBRERO",
+    "MARZO",
+    "ABRIL",
+    "MAYO",
+    "JUNIO",
+    "JULIO",
+    "AGOSTO",
+    "SEPTIEMBRE",
+    "OCTUBRE",
+    "NOVIEMBRE",
+    "DICIEMBRE",
+  ],
+  datasets: [
+    {
+      label: "Carne en canal de pollo y gallina",
+      data: [95, 93, 114, 80, 103, 106, 117, 113, 115, 123, 126, 127],
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, .8)",
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config6 = {
+  type: "bar",
+  data: datos6,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  },
+};
+
+new Chart(ctx6, config6);
+
+/* Grafica 7*/
+const ctx7 = document.getElementById("lineChart7").getContext("2d");
+
+const datos7 = {
+  labels: [
+    "ENERO",
+    "FEBRERO",
+    "MARZO",
+    "ABRIL",
+    "MAYO",
+    "JUNIO",
+    "JULIO",
+    "AGOSTO",
+    "SEPTIEMBRE",
+    "OCTUBRE",
+    "NOVIEMBRE",
+    "DICIEMBRE",
+  ],
+  datasets: [
+    {
+      label: "Huevo de gallina",
+      data: [77, 79, 94, 89, 104, 127, 125, 88, 134, 82, 74, 80],
+      borderColor: "rgba(85, 85, 85, 1)",
+      backgroundColor: "rgba(85, 85, 85, .8)",
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config7 = {
+  type: "bar",
+  data: datos7,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      tooltip: {
+        mode: "index",
+        intersect: false,
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  },
+};
+
+new Chart(ctx7, config7);
 /* Tabla produccion de carne de gallina */
 
 const data3 = [

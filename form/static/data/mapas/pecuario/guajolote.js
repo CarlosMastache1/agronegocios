@@ -191,78 +191,104 @@ const estadosDatos = [
     toneladas: "2,213",
   }, //México
   {
-    id: "",
+    id: "VER",
     territorio: "",
     toneladas: "1,417",
   }, //Veracruz
   {
-    id: "",
+    id: "TAB",
     territorio: "",
     toneladas: "1,233",
   }, //Tabasco
   {
-    id: "",
+    id: "CHS",
     territorio: "",
     toneladas: "1,021",
   }, //Chiapas
   {
-    id: "",
+    id: "GRO",
     territorio: "",
     toneladas: "1,011",
   }, //Guerrero
   {
-    id: "",
+    id: "HGO",
     territorio: "",
     toneladas: "974",
   }, //Hidalgo
   {
-    id: "",
+    id: "CAM",
     territorio: "",
     toneladas: "774",
   }, //Campeche
   {
-    id: "",
+    id: "CHI",
     territorio: "",
     toneladas: "758",
   }, //Chihuahua
   {
-    id: "",
+    id: "OAX",
     territorio: "",
     toneladas: "601",
   }, //Oaxaca
   {
-    id: "",
+    id: "TLAX",
     territorio: "",
     toneladas: "349",
   }, //Tlaxcala
   {
-    id: "",
+    id: "MICH",
     territorio: "",
     toneladas: "140",
   }, //Michoacán
   {
-    id: "",
+    id: "QR",
     territorio: "",
     toneladas: "136",
   }, //Quintana Roo
   {
-    id: "",
+    id: "SLP",
     territorio: "",
     toneladas: "131",
   }, //San Luis Potosí
   {
-    id: "",
+    id: "QRO",
     territorio: "",
     toneladas: "76",
   }, //Querétaro
   {
-    id: "",
+    id: "ZAC",
     territorio: "",
     toneladas: "33",
   }, //Zacatecas
   {
-    id: "",
+    id: "COL",
     territorio: "",
     toneladas: "4",
   }, //Colima
+];
+
+const paisesDatos = [
+  //22
+  { id: "USA", toneladas: "2,368,797" }, //Estados Unidos de América
+  { id: "POL", toneladas: "409,170" }, //Polonia
+  { id: "DEU", toneladas: "406,000" }, //Alemania
+  { id: "FRA", toneladas: "244,920" }, //Francia
+  { id: "ESP", toneladas: "231,590" }, //España
+  { id: "ITA", toneladas: "211,130" }, //Italia
+  { id: "BRA", toneladas: "162,270" }, //Brasil
+  { id: "CAN", toneladas: "150,210" }, //Canadá
+  { id: "MAR", toneladas: "120,000" }, //Marruecos
+  { id: "GBR", toneladas: "117,000" }, //Reino Unido de Gran Bretaña e Irlanda del Norte
+  { id: "TUN", toneladas: "89,257" }, //Túnez
+  { id: "ISR", toneladas: "87,959" }, //Israel
+  { id: "CHL", toneladas: "76,312" }, //Chile
+  { id: "HUN", toneladas: "63,910" }, //Hungría
+  { id: "TUR", toneladas: "53,646" }, //Turquía
+  { id: "PRT", toneladas: "45,650" }, //Portugal
+  { id: "ARG", toneladas: "31,646" }, //Argentina
+  { id: "EGY", toneladas: "24,735" }, //Egipto
+  { id: "UKR", toneladas: "23,400" }, //Ucrania
+  { id: "AUS", toneladas: "18,928" }, //Australia
+  { id: "MEX", toneladas: "18,216" }, //México
+  { id: "IRL", toneladas: "14,720" }, //Irlanda
 ];
