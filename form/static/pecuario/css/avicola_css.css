@@ -1,4 +1,5 @@
-.contenedor_col1 {
+.contenedor_col1,
+.contenedor_col2 {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -14,12 +15,6 @@
     height: 100vh;
 }
 
-.contenedor_col2 {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
 
 .contenedor_col2 .columna1 {
     width: 100%;
@@ -32,7 +27,7 @@
 
 
 /* A partir de 768px (pantallas medianas y grandes) */
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
     .contenedor_col1 {
         flex-direction: row;
     }
@@ -58,6 +53,41 @@
     }
 }
 
+
+@media (max-width: 900px) {
+
+    table,
+    thead,
+    tbody,
+    tfoot,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td::before {
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+        /* Usa atributos data-label */
+    }
+}
+
+
 .mapa_mexico_sty {
     width: 100%;
     height: 100vh;
@@ -77,7 +107,7 @@
 }
 
 .tabla-datos thead {
-    background-color: #711c36;
+    background-color: #7a1b38;
     color: white;
 }
 
@@ -89,7 +119,7 @@
 }
 
 .tabla-datos tbody tr:hover {
-    background-color: #cbcbcb;
+    background-color: #f1f1f1;
 }
 
 .tabla-datos td {
@@ -107,14 +137,14 @@
     font-size: 1.6rem;
 }
 
-.pagination button{
+.pagination button {
     background-color: white;
     color: #333;
     border: white;
 }
 
-.pagination button:hover{
-    background-color:#454E55;
+.pagination button:hover {
+    background-color: #454E55;
     color: white;
 }
 
@@ -127,4 +157,79 @@ canvas {
     background: #fff;
     border: 1px solid #ccc;
     padding: 10px;
+}
+
+.chart-container {
+    position: relative;
+    width: 95%;
+    height: 50vh;
+    margin: 30px 0px;
+}
+
+@media (min-width: 900px) {
+    .chart-container {
+        height: 80vh;
+    }
+}
+
+.elemento_descripcion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.elemento_descripcion p {
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+.descripcion .container {
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.descripcion .card {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+}
+
+.descripcion .card:hover {
+    transform: translateY(-5px);
+}
+
+.descripcion .card h2 {
+    margin-top: 0;
+    font-size: 2.3rem;
+    color: #5f0f0f;
+}
+
+.descripcion .icon {
+    font-size: 2rem;
+    margin-right: 8px;
+    color: #4a5568;
+}
+
+
+
+@media (max-width: 600px) {
+    .descripcion .info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

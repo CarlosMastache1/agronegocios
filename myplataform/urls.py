@@ -238,8 +238,11 @@ urlpatterns = [
 
 
     path('avicola/', TemplateView.as_view(template_name="pecuario/avicola/index.html"), name='avicola'),
+    path('apicola/', TemplateView.as_view(template_name="pecuario/apicola/index.html"), name='apicola'),
+    path('bovino/', TemplateView.as_view(template_name="pecuario/bovino/index.html"), name='bovino'),
+    path('caprino/', TemplateView.as_view(template_name="pecuario/caprino/index.html"), name='caprino'),
+    path('porcino/', TemplateView.as_view(template_name="pecuario/porcino/index.html"), name='porcino'),
 
-    path('framavicola/', TemplateView.as_view(template_name="pecuario/avicola/datos.html"), name='framavicola'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
