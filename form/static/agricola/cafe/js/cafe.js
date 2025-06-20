@@ -1,60 +1,7 @@
-/* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
-const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
-const total_tab1 = document.getElementById("total_tabla1");
-let suma_total1 = 0;
-
-for (let i = 0; i < tabla_paises_prod.length; i++) {
-  const fila = document.createElement("tr");
-
-  const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = tabla_paises_prod[i].ranking;
-
-  const celdaPais = document.createElement("td");
-  celdaPais.textContent = tabla_paises_prod[i].pais;
-
-  const celdaVolumen = document.createElement("td");
-  celdaVolumen.textContent =
-    tabla_paises_prod[i].volumen.toLocaleString("es-MX");
-
-  fila.appendChild(celdaRanking);
-  fila.appendChild(celdaPais);
-  fila.appendChild(celdaVolumen);
-
-  tabla_pais_pro.appendChild(fila);
-  suma_total1 += tabla_paises_prod[i].volumen;
-}
-total_tab1.innerHTML = suma_total1.toLocaleString("es-MX");
-
-/* Preparación de la segunda tabla, datos de la producción de leche a nivel internacional.  */
-const tabla_pais_sub_pro = document.getElementById("tab_cuerpo_pais_sub_pro");
-const total_tab2 = document.getElementById("total_tabla2");
-let suma_total2 = 0;
-for (let i = 0; i < tabla_paises_sub_prod.length; i++) {
-  const fila = document.createElement("tr");
-
-  const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = tabla_paises_sub_prod[i].ranking;
-
-  const celdaPais = document.createElement("td");
-  celdaPais.textContent = tabla_paises_sub_prod[i].pais;
-
-  const celdaVolumen = document.createElement("td");
-  celdaVolumen.textContent =
-    tabla_paises_sub_prod[i].volumen.toLocaleString("es-MX");
-
-  fila.appendChild(celdaRanking);
-  fila.appendChild(celdaPais);
-  fila.appendChild(celdaVolumen);
-
-  tabla_pais_sub_pro.appendChild(fila);
-  suma_total2 += tabla_paises_sub_prod[i].volumen;
-}
-total_tab2.innerHTML = suma_total2.toLocaleString("es-MX");
-
-/* Tabla 3 PRODUCCION NACIONAL DEL SECTOR BOVINO CARNE DE BOVINO */
+/* Tabla 3 PRODUCCION NACIONAL DEL SECTOR PORCINO CARNE DE PORCINO */
 let currentPage = 1;
 let rowsPerPage = 10;
-let filteredData = [...tab_mex_pro];
+let filteredData = [...tab_pro_mundial];
 const tableBody = document.querySelector("#dataTable tbody");
 const searchInput = document.getElementById("searchInput");
 const rowsSelect = document.getElementById("rowsPerPage");
@@ -71,15 +18,10 @@ function renderTable() {
   for (const row of pageData) {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${row.ranking}</td><td>${
-      row.entidad
-    }</td><td>${row.volumen.toLocaleString(
+      row.pais
+    }</td><td>${row.superficie.toLocaleString(
       "es-MX"
-    )}</td><td>${row.peso.toLocaleString(
-      "es-MX"
-    )}</td><td>${row.precio.toLocaleString(
-      "es-MX"
-    )}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
-    console.log();
+    )}</td>`;
     tableBody.appendChild(tr);
   }
 
@@ -91,10 +33,11 @@ function renderTable() {
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase();
-  filteredData = tab_mex_pro.filter(
+  filteredData = tab_pro_mundial.filter(
     (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+      item.pais.toLowerCase().includes(query) ||
+      item.ranking.toLowerCase().includes(query) |
+        String(item.ranking).includes(query)
   );
   currentPage = 1;
   renderTable();
@@ -125,33 +68,23 @@ nextBtn.addEventListener("click", () => {
 // Inicializar
 renderTable();
 
-let sumaVolumen = 0;
-let sumaValor = 0;
-let sumaPrecio = 0;
-let sumaPeso = 0;
+let sumaSuperficie = 0;
 
-for (let i = 0; i < tab_mex_pro.length; i++) {
-  const item = tab_mex_pro[i];
-  sumaVolumen += item.volumen;
-  sumaValor += item.valor;
-  sumaPrecio += item.precio;
-  sumaPeso += item.peso;
+for (let i = 0; i < tab_pro_mundial.length; i++) {
+  const item = tab_pro_mundial[i];
+  sumaSuperficie += item.superficie;
 }
-const promedio_peso = sumaPeso / tab_mex_pro.length;
-const promedio_precio = sumaPrecio / tab_mex_pro.length;
 
 const total_datos_tab1 = document.getElementById("total_datos_tab1");
 
-total_datos_tab1.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen.toLocaleString(
+total_datos_tab1.innerHTML = `<th></th><th>Total:</th><th>${sumaSuperficie.toLocaleString(
   "es-MX"
-)}</th><th>${/* promedio_peso.toFixed(0) */ 227}</th><th>${
-  /* promedio_precio.toFixed(0 )*/ 73
-}</th><th>${sumaValor.toLocaleString("es-MX")}</th> `;
+)}</th><th></th>`;
 
-/* Tabla 4 Sub Producto Bovino leche  */
+/* TABLA 2 PRODUCCIÓN NACIONAL DE AGAVE */
 let currentPage2 = 1;
 let rowsPerPage2 = 10;
-let rfilteredData2 = [...tab_mex_sub_pro];
+let rfilteredData2 = [...tab_pro_nacional];
 
 const tableBody2 = document.querySelector("#data2Table tbody");
 const searchInput2 = document.getElementById("searchInput2");
@@ -172,9 +105,11 @@ function renderTable2() {
       row.entidad
     }</td><td>${row.volumen.toLocaleString(
       "es-MX"
-    )}</td><td>${row.precio.toLocaleString(
+    )}</td><td>${row.superficie.toLocaleString(
       "es-MX"
-    )}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
+    )}</td><td>${row.rendimiento.toFixed(2)}</td><td>${row.valor.toLocaleString(
+      "es-MX"
+    )}</td>`;
     tableBody2.appendChild(tr);
   }
 
@@ -186,7 +121,7 @@ function renderTable2() {
 
 function applyFilters2() {
   const query = searchInput2.value.toLowerCase();
-  rfilteredData2 = tab_mex_sub_pro.filter(
+  rfilteredData2 = tab_pro_nacional.filter(
     (item) =>
       item.entidad.toLowerCase().includes(query) ||
       String(item.id).includes(query)
@@ -219,30 +154,105 @@ nextBtn2.addEventListener("click", () => {
 
 // Inicializar
 renderTable2();
+/* 
+let sumavolumennacional = 0;
+let sumasuperficienacional = 0;
+let sumarendimientonacional = 0;
+let sumavalornacional = 0;
 
-let sumaVolumen2 = 0;
-let sumaValor2 = 0;
-let sumaPrecioPonderado2 = 0;
+for (let i = 0; i < tab_pro_nacional.length; i++) {
+  const item = tab_pro_nacional[i];
 
-for (let i = 0; i < tab_mex_sub_pro.length; i++) {
-  const item = tab_mex_sub_pro[i];
-  sumaVolumen2 += item.volumen;
-  sumaValor2 += item.valor;
-  sumaPrecioPonderado2 += item.precio * item.volumen;
+  sumavolumennacional += item.volumen;
+  sumasuperficienacional += item.superficie;
+  sumarendimientonacional += item.rendimiento;
+  sumavalornacional += item.valor;
 }
 
-const promedioPrecio2 = sumaPrecioPonderado2 / sumaVolumen2;
+const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.length; */
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen2.toLocaleString(
-  "es-MX"
-)}</th><th>${promedioPrecio2.toFixed(0)}</th><th>${sumaValor2.toLocaleString(
-  "es-MX"
-)}</th> `;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>1,058,862</th><th>699,506</th><th>1.50</th><th>7,122,498,470</th>`;
 
-/* Primera Gráfica de línea para muestra la balanza comercial */
-/* const ctx = document.getElementById("lineChart").getContext("2d");
+/* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
+let currentPageDesExp = 1;
+let rowsPerPageDesExp = 10;
+let rfilteredDataDesExp = [...tab_destino_exportacion];
+
+const tableBodyDesExp = document.querySelector("#dataTableDesExp tbody");
+const searchInputDesExp = document.getElementById("searchInputDesExp");
+const rowsSelectDesExp = document.getElementById("rowsPerPageDesExp");
+const prevBtnDesExp = document.getElementById("prevBtnDesExp");
+const nextBtnDesExp = document.getElementById("nextBtnDesExp");
+const pageInfoDesExp = document.getElementById("pageInfoDesExp");
+
+function renderTableDesExp() {
+  tableBodyDesExp.innerHTML = "";
+  const start = (currentPageDesExp - 1) * rowsPerPageDesExp;
+  const end = start + rowsPerPageDesExp;
+  const pageData = rfilteredDataDesExp.slice(start, end);
+
+  for (const row of pageData) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${row.num}</td><td>${
+      row.pais
+    }</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
+    tableBodyDesExp.appendChild(tr);
+  }
+
+  const totalPagesDesExp = Math.ceil(
+    rfilteredDataDesExp.length / rowsPerPageDesExp
+  );
+  pageInfoDesExp.textContent = `Página ${currentPageDesExp} de ${totalPagesDesExp}`;
+  prevBtnDesExp.disabled = currentPageDesExp === 1;
+  nextBtnDesExp.disabled = currentPageDesExp === totalPagesDesExp;
+}
+
+function applyFiltersDesExp() {
+  const query = searchInputDesExp.value.toLowerCase();
+  rfilteredDataDesExp = tab_destino_exportacion.filter(
+    (item) =>
+      item.entidad.toLowerCase().includes(query) ||
+      String(item.id).includes(query)
+  );
+  currentPageDesExp = 1;
+  renderTableDesExp();
+}
+
+searchInputDesExp.addEventListener("input", applyFiltersDesExp);
+rowsSelectDesExp.addEventListener("change", () => {
+  rowsPerPageDesExp = parseInt(rowsSelectDesExp.value);
+  currentPageDesExp = 1;
+  renderTableDesExp();
+});
+
+prevBtnDesExp.addEventListener("click", () => {
+  if (currentPageDesExp > 1) {
+    currentPageDesExp--;
+    renderTableDesExp();
+  }
+});
+
+nextBtnDesExp.addEventListener("click", () => {
+  const totalPagesDesExp = Math.ceil(
+    rfilteredDataDesExp.length / rowsPerPageDesExp
+  );
+  if (currentPageDesExp < totalPagesDesExp) {
+    currentPageDesExp++;
+    renderTableDesExp();
+  }
+});
+
+// Inicializar
+renderTableDesExp();
+
+const total_datos_tabDesExp = document.getElementById("total_datos_tabDesExp");
+
+total_datos_tabDesExp.innerHTML = `<th></th><th>Total:</th><th>  388,032,382 </th>`;
+
+/* Grafica 1 Balanza comercial */
+const ctx = document.getElementById("lineChart").getContext("2d");
 
 const datos = {
   labels: labels_balanza,
@@ -344,9 +354,9 @@ const config = {
   },
 };
 
-new Chart(ctx, config); */
+new Chart(ctx, config);
 
-/* Grafica 2 PRODUCCION HISTORICA DE LECHE DE VACA EN OAXACA */
+/* Producción histórica de Café en Oaxaca */
 const ctx2 = document.getElementById("lineChart2").getContext("2d");
 
 const datos2 = {
@@ -388,7 +398,7 @@ const datos2 = {
       tension: 0.3,
       fill: false,
     },
-    {
+     {
       label: produccion_historica_producto[4].nom,
       data: produccion_historica_producto[4].fila,
       borderColor: "rgba(204, 102, 0, 1)",
@@ -415,18 +425,8 @@ const datos2 = {
       tension: 0.3,
       fill: false,
     },
-    {
-      label: produccion_historica_producto[7].nom,
-      data: produccion_historica_producto[7].fila,
-      borderColor: "rgba(36, 113, 163, 1)",
-      backgroundColor: "rgba(36, 113, 163, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
   ],
 };
-
 const config2 = {
   type: "line",
   data: datos2,
@@ -506,15 +506,16 @@ const config2 = {
 
 new Chart(ctx2, config2);
 
-/* Grafica 3 PRODUCCION HISTORICA DE LECHE DE VACA EN OAXACA	*/
-const ctx3 = document.getElementById("lineChart3").getContext("2d");
 
-const datos3 = {
-  labels: labels_historica_sub_producto,
+/* GRAFICA LIENA BALANZA DE AGAVE */
+/* const ctx = document.getElementById("lineChart").getContext("2d");
+
+const datos = {
+  labels: labels_historica_producto,
   datasets: [
     {
-      label: produccion_historica_sub_producto[0].nom,
-      data: produccion_historica_sub_producto[0].fila,
+      label: produccion_historica_producto[0].nom,
+      data: produccion_historica_producto[0].fila,
       borderColor: "rgba(178, 0, 0, 1)",
       backgroundColor: "rgba(178, 0, 0, 0.2)",
       borderWidth: 4,
@@ -522,18 +523,17 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_sub_producto[1].nom,
-      data: produccion_historica_sub_producto[1].fila,
+      label: produccion_historica_producto[1].nom,
+      data: produccion_historica_producto[1].fila,
       borderColor: "rgba(0, 0, 178, 1)",
       backgroundColor: "rgba(0, 0, 178, 0.2)",
-      borderWidth: 4,
       borderWidth: 4,
       tension: 0.3,
       fill: false,
     },
     {
-      label: produccion_historica_sub_producto[2].nom,
-      data: produccion_historica_sub_producto[2].fila,
+      label: produccion_historica_producto[2].nom,
+      data: produccion_historica_producto[2].fila,
       borderColor: "rgba(204, 204, 0, 1)",
       backgroundColor: "rgba(204, 204, 0, 0.2)",
       borderWidth: 4,
@@ -541,8 +541,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_sub_producto[3].nom,
-      data: produccion_historica_sub_producto[3].fila,
+      label: produccion_historica_producto[3].nom,
+      data: produccion_historica_producto[3].fila,
       borderColor: "rgba(102, 0, 153, 1)",
       backgroundColor: "rgba(102, 0, 153, 0.2)",
       borderWidth: 4,
@@ -550,37 +550,10 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_sub_producto[4].nom,
-      data: produccion_historica_sub_producto[4].fila,
+      label: produccion_historica_producto[4].nom,
+      data: produccion_historica_producto[4].fila,
       borderColor: "rgba(204, 102, 0, 1)",
       backgroundColor: "rgba(204, 102, 0, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
-    {
-      label: produccion_historica_sub_producto[5].nom,
-      data: produccion_historica_sub_producto[5].fila,
-      borderColor: "rgba(0, 102, 0, 1)",
-      backgroundColor: "rgba(0, 102, 0, 0.2)",
-      tension: 0.3,
-      borderWidth: 4,
-      fill: false,
-    },
-    {
-      label: produccion_historica_sub_producto[6].nom,
-      data: produccion_historica_sub_producto[6].fila,
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
-    {
-      label: produccion_historica_sub_producto[7].nom,
-      data: produccion_historica_sub_producto[7].fila,
-      borderColor: "rgba(36, 113, 163, 1)",
-      backgroundColor: "rgba(36, 113, 163, 0.2)",
       borderWidth: 4,
       tension: 0.3,
       fill: false,
@@ -588,20 +561,18 @@ const datos3 = {
   ],
 };
 
-const config3 = {
+const config = {
   type: "line",
-  data: datos3,
+  data: datos,
   options: {
     maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: `Volumen de producción por Región (${
-          labels_historica_sub_producto[0]
+          labels_historica_producto[0]
         } - ${
-          labels_historica_sub_producto[
-            labels_historica_sub_producto.length - 1
-          ]
+          labels_historica_producto[labels_historica_producto.length - 1]
         })`,
         font: {
           size: 22,
@@ -667,22 +638,22 @@ const config3 = {
   },
 };
 
-new Chart(ctx3, config3);
+new Chart(ctx, config); */
 
-/* TABLA PRODUCCION  DE CARNE DE BOVINO EN OAXACA	*/
+/* TABLA PRODUCCION  DE AGAVE EN OAXACA	*/
 const tab_pro_miel_oax = document.getElementById("tabla_produccion_prod_oax");
 let volumen_producto = 0;
-let precio_producto = 0;
-let peso_producto = 0;
+let superficie_producto = 0;
+let rendimiento_producto = 0;
 let valor_producto = 0;
-let municipios_producto = 0;
+let cantidad_producto = 0;
 
 for (let i = 0; i < tabla_produccion_producto.length; i++) {
   volumen_producto += tabla_produccion_producto[i].volumen;
-  precio_producto += tabla_produccion_producto[i].precio;
-  peso_producto += tabla_produccion_producto[i].peso;
+  superficie_producto += tabla_produccion_producto[i].superficie;
+  rendimiento_producto += tabla_produccion_producto[i].rendimiento;
   valor_producto += tabla_produccion_producto[i].valor;
-  municipios_producto += tabla_produccion_producto[i].municipios;
+  cantidad_producto += tabla_produccion_producto[i].cantidad;
 
   const fila = document.createElement("tr");
 
@@ -693,28 +664,28 @@ for (let i = 0; i < tabla_produccion_producto.length; i++) {
   celdaVolumen.textContent =
     tabla_produccion_producto[i].volumen.toLocaleString("es-MX");
 
-  const celdaPeso = document.createElement("td");
-  celdaPeso.textContent =
-    tabla_produccion_producto[i].peso.toLocaleString("es-MX");
+  const celdaSuperficie = document.createElement("td");
+  celdaSuperficie.textContent =
+    tabla_produccion_producto[i].superficie.toLocaleString("es-MX");
 
-  const celdaPrecio = document.createElement("td");
-  celdaPrecio.textContent =
-    tabla_produccion_producto[i].precio.toLocaleString("es-MX");
+  const celdaRendimeinto = document.createElement("td");
+  celdaRendimeinto.textContent =
+    tabla_produccion_producto[i].rendimiento.toLocaleString("es-MX");
 
   const celdaValor = document.createElement("td");
   celdaValor.textContent =
     tabla_produccion_producto[i].valor.toLocaleString("es-MX");
 
-  const celdaMunicipio = document.createElement("td");
-  celdaMunicipio.textContent =
-    tabla_produccion_producto[i].municipios.toLocaleString("es-MX");
+  const celdaCantidad = document.createElement("td");
+  celdaCantidad.textContent =
+    tabla_produccion_producto[i].cantidad.toLocaleString("es-MX");
 
   fila.appendChild(celdaRegion);
   fila.appendChild(celdaVolumen);
-  fila.appendChild(celdaPeso);
-  fila.appendChild(celdaPrecio);
+  fila.appendChild(celdaSuperficie);
+  fila.appendChild(celdaRendimeinto);
   fila.appendChild(celdaValor);
-  fila.appendChild(celdaMunicipio);
+  fila.appendChild(celdaCantidad);
 
   tab_pro_miel_oax.appendChild(fila);
 }
@@ -722,33 +693,164 @@ for (let i = 0; i < tabla_produccion_producto.length; i++) {
 const total_tab_pro_miel_oax = document.getElementById(
   "total_tab_pro_miel_oax"
 );
-total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${
-  /* volumen_producto.toLocaleString(
+total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLocaleString(
   "es-MX"
-) */ "67,156"
-}</th><th>${(peso_producto / tabla_produccion_producto.length).toFixed(
-  0
-)}</th><th>${
-  /* (precio_producto / tabla_produccion_producto.length).toFixed(
-  0
-) */ 64
-}</th><th>${
-  /* valor_producto.toLocaleString(
+)}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-) */ "4,887,111,000"
-}</th><th>${municipios_producto.toLocaleString("es-MX")}</th>`;
+)}</th><th>${0.80}</th><th>${valor_producto.toLocaleString(
+  "es-MX"
+)}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 
-
-
-/* Grafica 4 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
-const ctx4 = document.getElementById("lineChart4").getContext("2d");
-console.log(pub_indigenas_producto)
-const datos4 = {
+/* Grafica 2 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
+/* const ctx2 = document.getElementById("lineChart2").getContext("2d");
+const datos2 = {
   labels: pub_indigenas_producto[0],
   datasets: [
     {
       label: "Producción (Ton)",
       data: pub_indigenas_producto[1],
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config2 = {
+  type: "bar",
+  data: datos2,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
+      },
+      tooltip: {
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  },
+  plugins: [ChartDataLabels],
+};
+
+new Chart(ctx2, config2); */
+
+/* GRAFICA 3 */
+const ctx3 = document.getElementById("lineChart3").getContext("2d");
+const datos3 = {
+  labels: pub_indigenas_producto[0],
+  datasets: [
+    {
+      label: "Producción (Ton)",
+      data: pub_indigenas_producto[1],
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config3 = {
+  type: "bar",
+  data: datos3,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
+      },
+      tooltip: {
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  },
+  plugins: [ChartDataLabels],
+};
+
+new Chart(ctx3, config3);
+
+
+const ctx4 = document.getElementById("lineChart4").getContext("2d");
+
+const datos4 = {
+  labels: [
+    "ENERO",
+    "FEBRERO",
+    "MARZO",
+    "ABRIL",
+    "MAYO",
+    "JUNIO",
+    "JULIO",
+    "AGOSTO",
+    "SEPTIEMBRE",
+    "OCTUBRE",
+    "NOVIEMBRE",
+    "DICIEMBRE",
+  ],
+  datasets: [
+    {
+      label: "Café",
+      data: estacionalidad_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -805,290 +907,11 @@ const config4 = {
 
 new Chart(ctx4, config4);
 
-
-
-/* Tabla PRODUCCION  DE LECHE DE VACA EN OAXACA	 */
-const tabla_produccion_sub_prod_oax = document.getElementById("tabla_produccion_sub_prod_oax");
-
-let volumen_pro_cera = 0;
-let precio_sub_producto = 0;
-let valor_pro_cera = 0;
-let municipios_sub_producto = 0;
-
-for (let i = 0; i < tabla_produccion_sub_producto.length; i++) {
-  volumen_pro_cera += tabla_produccion_sub_producto[i].volumen;
-  precio_sub_producto += tabla_produccion_sub_producto[i].precio;
-  valor_pro_cera += tabla_produccion_sub_producto[i].valor;
-  municipios_sub_producto += tabla_produccion_sub_producto[i].municipios;
-  const fila = document.createElement("tr");
-
-  const celdaRegion = document.createElement("td");
-  celdaRegion.textContent = tabla_produccion_sub_producto[i].region;
-
-  const celdaVolumen = document.createElement("td");
-  celdaVolumen.textContent =
-    tabla_produccion_sub_producto[i].volumen.toLocaleString("es-MX");
-
-  const celdaPrecio = document.createElement("td");
-  celdaPrecio.textContent =
-    tabla_produccion_sub_producto[i].precio.toLocaleString("es-MX");
-
-  const celdaValor = document.createElement("td");
-  celdaValor.textContent =
-    tabla_produccion_sub_producto[i].valor.toLocaleString("es-MX");
-
-  const celdaMunicipio = document.createElement("td");
-  celdaMunicipio.textContent =
-    tabla_produccion_sub_producto[i].municipios.toLocaleString("es-MX");
-
-  fila.appendChild(celdaRegion);
-  fila.appendChild(celdaVolumen);
-  fila.appendChild(celdaPrecio);
-  fila.appendChild(celdaValor);
-  fila.appendChild(celdaMunicipio);
-
-  tabla_produccion_sub_prod_oax.appendChild(fila);
-}
-const total_tb_pro_cera_oax = document.getElementById("total_tb_pro_cera_oax");
-total_tb_pro_cera_oax.innerHTML = `
-<th>Estatal</th>
-<th>${/* volumen_pro_cera.toLocaleString("es-MX") */ '151,659,000'}</th>
-<th>${(precio_sub_producto / tabla_produccion_sub_producto.length).toFixed(0)}</th>
-<th>${/* valor_pro_cera.toLocaleString("es-MX") */ "1,161,156,000"}</th>
-<th>${municipios_sub_producto}</th>`;
-
-/* Grafica 5 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	LECHE*/
-const ctx5 = document.getElementById("lineChart5").getContext("2d");
-
-const datos5 = {
-  labels: pub_indigenas_sub_producto[0],
-  datasets: [
-    {
-      label: "Producción (Ton)",
-      data: pub_indigenas_sub_producto[1],
-      borderColor: "rgb(208, 122, 0)",
-      backgroundColor: "rgb(208, 122, .8)",
-      tension: 0.3,
-      fill: false,
-    },
-  ],
-};
-
-const config5 = {
-  type: "bar",
-  data: datos5,
-  options: {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          font: {
-            size: 19,
-          },
-          color: "black",
-        },
-      },
-      tooltip: {
-        backgroundColor: "white",
-        titleColor: "#333",
-        bodyColor: "#333",
-        titleFont: {
-          size: 17,
-          weight: "bold",
-        },
-        bodyFont: {
-          size: 16,
-        },
-        padding: 10,
-        cornerRadius: 8,
-      },
-      datalabels: {
-        color: "black",
-        font: {
-          weight: "bold",
-          size: 18,
-        },
-      },
-    },
-    interaction: {
-      mode: "nearest",
-      axis: "x",
-      intersect: false,
-    },
-  },
-  plugins: [ChartDataLabels],
-};
-
-new Chart(ctx5, config5);
-
-/* Grafica 6 ESTACIONALIDAD DE LA PRODUCCION EN OAXACA*/
-const ctx6 = document.getElementById("lineChart6").getContext("2d");
-
-const datos6 = {
-  labels: [
-    "ENERO",
-    "FEBRERO",
-    "MARZO",
-    "ABRIL",
-    "MAYO",
-    "JUNIO",
-    "JULIO",
-    "AGOSTO",
-    "SEPTIEMBRE",
-    "OCTUBRE",
-    "NOVIEMBRE",
-    "DICIEMBRE",
-  ],
-  datasets: [
-    {
-      label: "Carne en canal de bovino",
-      data: estacionalidad_producto,
-      borderColor: "rgb(208, 122, 0)",
-      backgroundColor: "rgb(208, 122, .8)",
-      tension: 0.3,
-      fill: false,
-    },
-  ],
-};
-
-const config6 = {
-  type: "bar",
-  data: datos6,
-  options: {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          font: {
-            size: 19,
-          },
-          color: "black",
-        },
-      },
-      tooltip: {
-        backgroundColor: "white",
-        titleColor: "#333",
-        bodyColor: "#333",
-        titleFont: {
-          size: 17,
-          weight: "bold",
-        },
-        bodyFont: {
-          size: 16,
-        },
-        padding: 10,
-        cornerRadius: 8,
-      },
-      datalabels: {
-        color: "black",
-        font: {
-          weight: "bold",
-          size: 18,
-        },
-      },
-    },
-    interaction: {
-      mode: "nearest",
-      axis: "x",
-      intersect: false,
-    },
-  },
-  plugins: [ChartDataLabels],
-};
-
-new Chart(ctx6, config6);
-
-
-/* Grafica 7 ESTACIONALIDAD DE LA PRODUCCION EN OAXACA LECHE*/
-const ctx7 = document.getElementById("lineChart7").getContext("2d");
-
-const datos7 = {
-  labels: [
-    "ENERO",
-    "FEBRERO",
-    "MARZO",
-    "ABRIL",
-    "MAYO",
-    "JUNIO",
-    "JULIO",
-    "AGOSTO",
-    "SEPTIEMBRE",
-    "OCTUBRE",
-    "NOVIEMBRE",
-    "DICIEMBRE",
-  ],
-  datasets: [
-    {
-      label: "Leche de bovino",
-      data: estacionalidad_sub_producto,
-      borderColor: "rgb(208, 122, 0)",
-      backgroundColor: "rgb(208, 122, .8)",
-      tension: 0.3,
-      fill: false,
-    },
-  ],
-};
-
-const config7 = {
-  type: "bar",
-  data: datos7,
-  options: {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          font: {
-            size: 19,
-          },
-          color: "black",
-        },
-      },
-      tooltip: {
-        backgroundColor: "white",
-        titleColor: "#333",
-        bodyColor: "#333",
-        titleFont: {
-          size: 17,
-          weight: "bold",
-        },
-        bodyFont: {
-          size: 16,
-        },
-        padding: 10,
-        cornerRadius: 8,
-      },
-      datalabels: {
-        color: "black",
-        font: {
-          weight: "bold",
-          size: 18,
-        },
-      },
-    },
-    interaction: {
-      mode: "nearest",
-      axis: "x",
-      intersect: false,
-    },
-  },
-  plugins: [ChartDataLabels],
-};
-
-new Chart(ctx7, config7);
-
-
-
-
-
-
-/* Tabla MUNICIPIOS QUE PRODUCEN CARNE DE BOVINO EN OAXACA */
+/* Tabla MUNICIPIOS QUE PRODUCEN CARNE DE PORCINO EN OAXACA */
 const tb_mun_producto_oax = document.getElementById("tb_mun_producto_oax");
 let total_mun_producto_oax = 0;
 for (let i = 0; i < tab_mun_producto_oax.length; i++) {
-  console.log(tab_mun_producto_oax[i].nom)
+  console.log(tab_mun_producto_oax[i].nom);
   const fila = document.createElement("tr");
 
   const region = document.createElement("td");

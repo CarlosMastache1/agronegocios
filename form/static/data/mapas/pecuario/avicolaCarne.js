@@ -41,7 +41,7 @@ const estadosCarne = [
     toneladas: "151,625",
   }, //Sinaloa
   {
-    id: "CDMX",
+    id: "EM",
     toneladas: "115,914",
   }, //México
   {

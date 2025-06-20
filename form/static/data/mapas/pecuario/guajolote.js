@@ -186,7 +186,7 @@ const estadosDatos = [
     toneladas: "2,718",
   }, //Puebla
   {
-    id: "CDMX",
+    id: "EM",
     territorio: "",
     toneladas: "2,213",
   }, //México
