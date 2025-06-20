@@ -4,6 +4,9 @@
 
 {% block content %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
+
+
 <div class="container">
     <div class="row justify-content-center align-items-center g-2 pt-4">
         <div class="col-12" style="padding-top: 60px;">
@@ -15,8 +18,23 @@
 </div>
 
 
+<div class="body-card">
+    <div class="container">
+        <a href="{% url 'productosAgricola' 'AGAVE' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE">
+                <h3>Mezcal</h3>
+            </div>
+        </a> 
+
+
+
+    </div>
+</div>
+
+
 <!-- Start Shop Page  -->
-<div class="shop-box-inner">
+<!-- <div class="shop-box-inner">
     <div class="container">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12 shop-content-right">
@@ -63,7 +81,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
 
