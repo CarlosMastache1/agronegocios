@@ -502,10 +502,33 @@ const config = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -655,10 +678,33 @@ const config2 = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -808,10 +854,33 @@ const config3 = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -872,8 +941,8 @@ const datos4 = {
       data: [
         2166, 3385, 2266, 1766, 1413, 966, 455, 403, 102, 62, 55, 37, 23, 12, 9,
       ],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -888,10 +957,33 @@ const config4 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -931,8 +1023,8 @@ const datos5 = {
       data: [
         1810, 1857, 1175, 679, 533, 392, 91, 90, 87, 51, 45, 44, 13, 10, 3,
       ],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -947,10 +1039,33 @@ const config5 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -959,6 +1074,7 @@ const config5 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx5, config5);
@@ -985,8 +1101,8 @@ const datos6 = {
     {
       label: "Carne en canal de pollo y gallina",
       data: [95, 93, 114, 80, 103, 106, 117, 113, 115, 123, 126, 127],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -1001,10 +1117,33 @@ const config6 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -1013,6 +1152,7 @@ const config6 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx6, config6);
@@ -1039,8 +1179,8 @@ const datos7 = {
     {
       label: "Huevo de gallina",
       data: [77, 79, 94, 89, 104, 127, 125, 88, 134, 82, 74, 80],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -1055,10 +1195,33 @@ const config7 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -1067,6 +1230,7 @@ const config7 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx7, config7);

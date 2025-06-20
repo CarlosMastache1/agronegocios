@@ -266,7 +266,7 @@ const estadosDatos = [
     toneladas: "17,550",
   },//Veracruz
   {
-    id: "CDMX",
+    id: "EM",
     territorio: "",
     toneladas: "15,731",
   },//México

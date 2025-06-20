@@ -215,11 +215,11 @@ const promedioPrecio2 = sumaPrecioPonderado2 / sumaVolumen2;
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen2.toLocaleString(
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen2?.toLocaleString(
   "es-MX"
-)}</th><th>${promedioPrecio2.toFixed(0)}</th><th>${sumaValor2.toLocaleString(
+) || "0" }</th><th>${promedioPrecio2.toFixed(0)}</th><th>${sumaValor2?.toLocaleString(
   "es-MX"
-)}</th> `;
+) || "0"}</th> `;
 
 const ctx = document.getElementById("lineChart").getContext("2d");
 
@@ -265,10 +265,33 @@ const config = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -400,10 +423,33 @@ const config2 = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -536,10 +582,33 @@ const config3 = {
       },
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -635,8 +704,8 @@ const datos4 = {
     {
       label: "Producción (Ton)",
       data: api_miel_ind[1],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -651,10 +720,33 @@ const config4 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -663,6 +755,7 @@ const config4 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx4, config4);
@@ -726,8 +819,8 @@ const datos5 = {
     {
       label: "Producción (Ton)",
       data: api_cera_ind[1],
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -742,10 +835,33 @@ const config5 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -754,6 +870,7 @@ const config5 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx5, config5);
@@ -781,8 +898,8 @@ const datos6 = {
     {
       label: "Miel de abeja",
       data: estacionalidad_miel,
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, .8)",
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
       fill: false,
     },
@@ -797,10 +914,33 @@ const config6 = {
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
       },
       tooltip: {
-        mode: "index",
-        intersect: false,
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
       },
     },
     interaction: {
@@ -809,6 +949,7 @@ const config6 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx6, config6);

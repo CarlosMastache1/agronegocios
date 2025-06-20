@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
     <title>Registro de Productor</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -195,8 +195,7 @@
                     <label>MUNICIPIO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="localidad" name="localidad" 
-                        oninput="this.value = this.value.toUpperCase();">
+                    <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
                 <div class="input-field">
@@ -282,7 +281,8 @@
                     </div>
                 </div>
                 <div class="input-field">
-                    <input name="volumen_produccion" type="text" id="volumen" required
+                    <input type="text" id="numero" oninput="formatearNumero(this)" />
+                    <input name="volumen_produccion" type="hidden" id="volumen" required
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="volumen">VOLUMEN DE PRODUCCIÓN (Toneladas)</label>
                 </div>
@@ -303,7 +303,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono" >
+                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
                 </div>
                 <div class="input-field">
@@ -395,17 +395,27 @@
         const spanAlert = document.getElementById("aletar_pdf");
 
         const inputFile = document.getElementById('archivo-pdf');
-        inputFile.addEventListener("change", function() {
-            if(this.files.length <= 0) return;
+        inputFile.addEventListener("change", function () {
+            if (this.files.length <= 0) return;
 
             const archvo = this.files[0];
 
-            if(archvo.size >=tamano_maximo){
+            if (archvo.size >= tamano_maximo) {
                 inputFile.value = "";
                 spanAlert.innerHTML = "El certificado es muy pesado; Asegurate de que el peso del arhivo no sea mayor a 100MB"
             }
 
         });
+    </script>
+
+
+    <script>
+        function formatearNumero(input) {
+            let valor = input.value.replace(/[^0-9]/g, '');
+
+            document.getElementById('volumen').value = valor;
+            input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
     </script>
 </body>
 

@@ -294,7 +294,7 @@ const estadosDatosLana = [
     toneladas: "578",
   }, //Zacatecas
   {
-    id: "CDMX",
+    id: "EM",
     territorio: "",
     toneladas: "418",
   }, //México
@@ -360,7 +360,7 @@ const estadosDatosCarne = [
   //12
 
   {
-    id: "CDMX",
+    id: "EM",
     territorio: "",
     toneladas: "9,447",
   }, //México
