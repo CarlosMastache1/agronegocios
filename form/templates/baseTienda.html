@@ -111,49 +111,98 @@
 
  <!-- Navbar transparente -->
  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark navbar-transparent">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand" href="/">
-        <img src="{% static 'assets/images/logo.png' %}" alt="Logo" height="40">
-      </a>
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'assets/images/logo.png' %}" alt="Logo" height="40">
+    </a>
 
-      <!-- Toggler button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Toggler button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- Enlaces de la Navbar -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" style="background-color: white; color: black; font-weight: 600;" href="/tiendaHome"> <i class="fa-solid fa-house"></i> INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaAgricola" style="font-weight: 600;"><i class="fa-solid fa-wheat-awn"></i> AGRICOLA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaPecuario" style="font-weight: 600;"><i class="fa-solid fa-cow"></i> PECUARIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaPesquero" style="font-weight: 600;"> <i class="fa-solid fa-fish-fins"></i> PESQUERO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaAcuicola" style="font-weight: 600;"><i class="fa-solid fa-earth-oceania"></i> ACUICOLA</a>
-          </li>
-          <!-- Desactivado temporal
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaForestal" style="font-weight: 600;"><i class="fa-solid fa-tree"></i> FORESTAL</a>
-          </li>
-          -->
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/categoriaAgroindustrial" style="font-weight: 600;"><i class="fa-solid fa-industry"></i> AGROINDUSTRIAL</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Enlaces de la Navbar -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+       <!-- Dropdown Categorías -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+            <i class="fa-solid fa-house"></i> INICIO
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/"> INICIO</a></li>
+            <li><a class="dropdown-item" href="/nosotros">NOSOTROS</a></li>
+            <li><a class="dropdown-item" href="/directorio"> DIRECTORIO</a></li>
+            <li><a class="dropdown-item" href="/ubicacion"> UBICACION</a></li>
+            <!-- Desactivado temporalmente
+            <li><a class="dropdown-item" href="/categoriaForestal"><i class="fa-solid fa-tree"></i> Forestal</a></li>
+            -->
+          </ul>
+        </li>
+
+
+               <!-- Dropdown Categorías -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+            <i class="fa-solid fa-lock"></i> DESEMPEÑO DE GARANTIAS LIQUIDAS
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/graficaPubli" target="_blank"> VER DESEMPEÑO DEL FONDO</a></li>
+            <li><a class="dropdown-item" href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
+
+          </ul>
+        </li>
+
+
+               <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+            <i class="fa-solid fa-chart-bar"></i> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO 
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/agricola" target="_blank">AGRICOLA</a></li>
+            <li><a class="dropdown-item" href="/pecuario" target="_blank">PECUARIO</a></li>
+
+          </ul>
+        </li>
+
+
+        
+               <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+            <i class="fa-solid fa-road"></i> DESARROLLO DE MERCADO
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/tiendaHome" target="_blank">REGISTRA TU PRODUCTO</a></li>
+            <li><a class="dropdown-item" href="/graficos-precios" target="_blank">COTIZACIÓN DE PRECIOS</a></li>
+
+          </ul>
+        </li>
+
+
+
+        <!-- Dropdown Categorías -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
+            <i class="fa-solid fa-seedling"></i> CATEGORÍAS
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/categoriaAgricola"><i class="fa-solid fa-wheat-awn"></i> Agrícola</a></li>
+            <li><a class="dropdown-item" href="/categoriaPecuario"><i class="fa-solid fa-cow"></i> Pecuario</a></li>
+            <li><a class="dropdown-item" href="/categoriaPesquero"><i class="fa-solid fa-fish-fins"></i> Pesquero</a></li>
+            <li><a class="dropdown-item" href="/categoriaAcuicola"><i class="fa-solid fa-earth-oceania"></i> Acuícola</a></li>
+            <!-- Desactivado temporalmente
+            <li><a class="dropdown-item" href="/categoriaForestal"><i class="fa-solid fa-tree"></i> Forestal</a></li>
+            -->
+            <li><a class="dropdown-item" href="/categoriaAgroindustrial"><i class="fa-solid fa-industry"></i> Agroindustrial</a></li>
+          </ul>
+        </li>
+
+      </ul>
     </div>
-  </nav>
-
-
+  </div>
+</nav>
 
 
 

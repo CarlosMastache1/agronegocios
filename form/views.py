@@ -72,7 +72,7 @@ def precios_maiz(request):
     df_maiz = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
-    df_arroz = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_arroz = yf.download("ZR=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_soya = yf.download("ZS=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_avena = yf.download("ZO=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
