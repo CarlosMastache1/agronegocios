@@ -106,12 +106,14 @@ class productos(models.Model):
     nombreMarca = models.CharField(max_length=100, blank=True, null=True) 
     subsector = models.CharField(max_length=50, blank=True, null=True) 
     categoria = models.CharField(max_length=50, blank=True, null=True) 
+    unidad_medidad = models.CharField(max_length=50, blank=True, null=True) 
     volumen_produccion = models.CharField(max_length=50, blank=True, null=True)
     disponibilidad_entrega = models.CharField(max_length=50,  blank=True, null=True)
     telefono = models.CharField(max_length=12, blank=True, null=True) 
     email = models.CharField(max_length=50, blank=True, null=True)
     imagenProd = models.ImageField(upload_to='imagenes/', default='IMAGEN PRODUCTO')
     archivo_pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    comentarios = models.TextField(max_length=1000, blank=True, null=True) 
     estado = models.BooleanField(default=False)
 
 

@@ -230,6 +230,10 @@ def home(request):
 def tiendaIndex(request):
   return render(request, 'tiendaHome.html')
 
+
+def tiendaCategorias(request):
+  return render(request, 'categoriasTiendas.html')
+
 def catalogoProductos(request):
    return render(request, "catalogoProductos.html")
 

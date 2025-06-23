@@ -280,11 +280,23 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
+                                <div class="input-field" style="padding-top: 10px;">
+                    <select name="unidad_medidad" required >
+                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
+                        <option value="TONELADA">TONELADA</option>
+                        <option value="KILOGRAMOS">KILOGRAMOS</option>
+                        <option value="LITROS">LITROS</option>
+                        <option value="PIEZAS">PIEZAS</option>
+
+
+                    </select>
+                    <label style="padding-top: 10px;">UNIDAD DE MEDIDA</label>
+                </div>
                 <div class="input-field">
                     <input type="text" id="numero" oninput="formatearNumero(this)" />
                     <input name="volumen_produccion" type="hidden" id="volumen" required
                         oninput="this.value = this.value.toUpperCase();">
-                    <label for="volumen">VOLUMEN DE PRODUCCIÓN (Toneladas)</label>
+                    <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
                 </div>
 
                 <div class="input-field">
@@ -335,6 +347,11 @@
 
                     <span id="aletar_pdf"></span>
                 </div>
+
+    <div class="input-field">
+  <textarea id="mensaje" class="materialize-textarea" name="comentarios"></textarea>
+  <label for="comentarios">COMENTARIOS</label>
+</div>
 
                 <label>
                     <input type="checkbox" name="terminos" required />

@@ -105,5 +105,5 @@ class financieras(forms.ModelForm):
 class productosForm(forms.ModelForm):
     class Meta:
         model = productos
-        fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'categoria', 'volumen_produccion', 'disponibilidad_entrega', 'telefono', 'email', 'imagenProd', 'archivo_pdf'
+        fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'categoria', 'unidad_medidad', 'volumen_produccion', 'disponibilidad_entrega', 'telefono', 'email', 'imagenProd', 'archivo_pdf', 'comentarios'
         ]

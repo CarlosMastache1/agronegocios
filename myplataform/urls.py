@@ -35,6 +35,9 @@ urlpatterns = [
     path('get_chart_2024_5/', views.get_chart52024, name='get_chart_2024_5'),
 
     path('tiendaHome/', views.tiendaIndex, name='tiendaHome'),
+    path('tiendaCategorias/', views.tiendaCategorias, name='tiendaCategorias'),
+    
+    
     path('catalogo/', views.catalogoProductos, name='catalogoProductos'),
     path('categoriaAgricola/', views.tiendaAgricola, name='categoriaAgricola'),
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),
