@@ -1,3 +1,4 @@
+// Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
   //4
   Istmo: [
@@ -289,71 +290,72 @@ const regionesConMunicipios = {
   ],
 };
 
-const estados_datos_pro =
+// Datos agregados por entidad federativa (estado) a nivel nacional
+const estados_datos_pro = [
   //12
-  [
-    {
-      id: "GRO",
-      territorio: "15,831",
-      toneladas: "13,322",
-    },
-    {
-      id: "SIN",
-      territorio: "23,874",
-      toneladas: "12,803",
-    },
-    {
-      id: "MICH",
-      territorio: "10,750",
-      toneladas: "8,745",
-    },
-    {
-      id: "OAX",
-      territorio: "8,242",
-      toneladas: "6,543",
-    },
-    {
-      id: "SON",
-      territorio: "3,695",
-      toneladas: "4,505",
-    },
-    {
-      id: "CHS",
-      territorio: "7,725",
-      toneladas: "3,969",
-    },
-    {
-      id: "VER",
-      territorio: "464",
-      toneladas: "635",
-    },
-    {
-      id: "PUE",
-      territorio: "88",
-      toneladas: "143",
-    },
-    {
-      id: "JAL",
-      territorio: "322",
-      toneladas: "100",
-    },
-    {
-      id: "NAY",
-      territorio: "39",
-      toneladas: "22",
-    },
-    {
-      id: "TAMP",
-      territorio: "40",
-      toneladas: "17",
-    },
-    {
-      id: "COL",
-      territorio: "8",
-      toneladas: "9",
-    },
-  ];
+  {
+    id: "GRO",
+    territorio: "15,831",
+    toneladas: "13,322",
+  },
+  {
+    id: "SIN",
+    territorio: "23,874",
+    toneladas: "12,803",
+  },
+  {
+    id: "MICH",
+    territorio: "10,750",
+    toneladas: "8,745",
+  },
+  {
+    id: "OAX",
+    territorio: "8,242",
+    toneladas: "6,543",
+  },
+  {
+    id: "SON",
+    territorio: "3,695",
+    toneladas: "4,505",
+  },
+  {
+    id: "CHS",
+    territorio: "7,725",
+    toneladas: "3,969",
+  },
+  {
+    id: "VER",
+    territorio: "464",
+    toneladas: "635",
+  },
+  {
+    id: "PUE",
+    territorio: "88",
+    toneladas: "143",
+  },
+  {
+    id: "JAL",
+    territorio: "322",
+    toneladas: "100",
+  },
+  {
+    id: "NAY",
+    territorio: "39",
+    toneladas: "22",
+  },
+  {
+    id: "TAMP",
+    territorio: "40",
+    toneladas: "17",
+  },
+  {
+    id: "COL",
+    territorio: "8",
+    toneladas: "9",
+  },
+];
 
+//Datos por país: superficie cosechada
 const paises_datos_pro = [
   {
     id: "SDN",
@@ -425,7 +427,7 @@ const paises_datos_pro = [
   },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de ajonjolí (2022) */
+//Ranking mundial de países por superficie sembrada (en hectáreas)
 const tab_pro_mundial = [
   { ranking: 1, pais: "Sudán", superficie: 4151896 },
   { ranking: 2, pais: "India", superficie: 1627040 },
@@ -448,7 +450,9 @@ const tab_pro_mundial = [
   { ranking: "", pais: "Otros", superficie: 935410 },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de agave (2022) */
+// Tabla de producción estatal
+// Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
+// rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
   {
     ranking: 1,
@@ -547,61 +551,34 @@ const tab_pro_nacional = [
     valor: 148368,
   },
 ];
-/* Datos de la grafica balanza  */
-/* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
+
+// Años de referencia para los datos de balanza comercial
 const labels_balanza = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
 ];
-/* Importaciones que del sector porcino */
+
+// Valores anuales de importación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las importaciones del producto
 const importacion_balanza = [
   11861, 19169, 16318, 16019, 20115, 19956, 23674, 28908, 42095, 24306, 12357,
   7249, 7802,
 ];
 
-/* Exportaciones del sector porcino */
+// Valores anuales de exportación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las exportaciones del producto
 const exportacion_balanza = [
   8673, 6785, 5859, 7781, 7409, 9463, 10481, 10166, 12080, 5016, 2474, 3970,
   2087,
 ];
-/* DATOS DE LA TABLA DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
-/* const tab_destino_exportacion = [
-  { num: 1, pais: "Estados Unidos", valor: 99707865 },
-  { num: 2, pais: "España", valor: 4846189 },
-  { num: 3, pais: " Alemania", valor: 4131996 },
-  { num: 4, pais: "Países Bajos", valor: 3588465 },
-  { num: 5, pais: "Reino Unido", valor: 2293829 },
-  { num: 6, pais: "Canadá", valor: 2096590 },
-  { num: 7, pais: "Italia", valor: 737905 },
-  { num: 8, pais: "Japón", valor: 398903 },
-  { num: 9, pais: "Francia", valor: 383196 },
-  { num: 10, pais: "Australia", valor: 266066 },
-  { num: 11, pais: "Puerto Rico", valor: 240822 },
-  { num: 12, pais: "Colombia", valor: 144476 },
-  { num: 13, pais: "India", valor: 131799 },
-  { num: 14, pais: "China", valor: 126848 },
-  { num: 15, pais: "Guatemala", valor: 98344 },
-  { num: 16, pais: "Sudáfrica", valor: 88385 },
-  { num: 17, pais: "Costa Rica", valor: 60766 },
-  { num: 18, pais: " Filipinas", valor: 53159 },
-  { num: 19, pais: "El salvador", valor: 27718 },
-  { num: 20, pais: "Bélgica", valor: 27715 },
-  { num: 21, pais: " Panamá", valor: 25678 },
-  { num: 22, pais: "Perú", valor: 19831 },
-];
 
-const tab_region_exportacion = [
-  { num: 1, region: "América del Norte", valor: 113029602 },
-  { num: 2, region: "Europa", valor: 26036134 },
-  { num: 3, region: "Latinoamérica y Antillas", valor: 4718294 },
-  { num: 4, region: "Asia", valor: 3221253 },
-  { num: 5, region: "África y Oceanía", valor: 956749 },
-]; */
-
+// Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
+// Producción histórica (en toneladas) por región desde 2010 hasta 2023
+// Cada objeto contiene el nombre de una region('nom') y arreglo ('fila')
 const produccion_historica_producto = [
   {
     nom: "Costa",
@@ -630,7 +607,13 @@ const produccion_historica_producto = [
   },
 ];
 
-/* DATO DE LA TABLA PRODUCCION  DE AGAVE EN OAXACA	 */
+// Tabla resumen de producción por región
+// Cada objeto representa una región con sus datos agregados:
+// - volumen: toneladas producidas
+// - superficie: hectáreas sembradas
+// - rendimiento: toneladas por hectárea
+// - valor: valor total de la producción (en pesos)
+// - cantidad: número de municipios o unidades productivas consideradas
 const tabla_produccion_producto = [
   {
     region: "Istmo",
@@ -666,7 +649,9 @@ const tabla_produccion_producto = [
   },
 ];
 
-/* Datos grafica VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA AGAVE */
+// Datos de producción por grupo indígena
+// Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
+// Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
   [
     "NO PUEBLO INDIGENA",
@@ -682,10 +667,13 @@ const pub_indigenas_producto = [
   [1068, 3769, 507, 437, 319, 264, 78, 60, 40],
 ];
 
-/* Datos grafica Estacionalidad de agave en Oaxaca */
+// Datos de estacionalidad del producto por mes
+// Cada número representa una medida relativa o índice de producción o actividad para cada mes del año,
+// probablemente de enero (índice 0) a diciembre (índice 11)
 const estacionalidad_producto = [42, 0, 6, 78, 0, 0, 0, 0, 0, 0, 1151, 974];
 
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN DE AGAVE EN OAXACA */
+// Número de municipios productores por región en Oaxaca
+// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
 const tab_mun_producto_oax = [
   { nom: "Istmo", num: 29 },
   { nom: "Costa", num: 23 },

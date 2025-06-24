@@ -1,4 +1,4 @@
-//Revisar Datos
+// Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
   //151
   //35
@@ -175,6 +175,7 @@ const regionesConMunicipios = {
   ],
 };
 
+// Datos agregados por entidad federativa (estado) a nivel nacional
 const estados_datos_pro = [
   //14
   {
@@ -249,6 +250,7 @@ const estados_datos_pro = [
   },
 ];
 
+//Datos por país: superficie cosechada
 const paises_datos_pro = [
   {
     id: "BRA",
@@ -312,7 +314,7 @@ const paises_datos_pro = [
   },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de café (2022) */
+//Ranking mundial de países por superficie sembrada (en hectáreas)
 const tab_pro_mundial = [
   { ranking: 1, pais: "Brasil", superficie: 1872511 },
   { ranking: 2, pais: "Indonesia", superficie: 1285778 },
@@ -332,9 +334,10 @@ const tab_pro_mundial = [
   { ranking: "", pais: "Otros", superficie: 1751 },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de café (2022) */
+// Tabla de producción estatal
+// Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
+// rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
-
   {
     ranking: 1,
     entidad: "Chiapas",
@@ -449,24 +452,27 @@ const tab_pro_nacional = [
   },
 ];
 
-/* Datos de la grafica balanza  */
-/* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
+// Años de referencia para los datos de balanza comercial
 const labels_balanza = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
 ];
-/* Importaciones que del sector porcino */
+
+// Valores anuales de importación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las importaciones del producto
 const importacion_balanza = [
   20000, 22000, 24000, 40000, 60000, 80000, 70000, 60000, 50000, 45000, 40000,
   36000, 32627,
 ];
 
-/* Exportaciones del sector porcino */
+// Valores anuales de exportación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las exportaciones del producto
 const exportacion_balanza = [
   120000, 140000, 180000, 160000, 130000, 110000, 120000, 125000, 130000,
   128000, 123000, 137310, 137310,
 ];
 
-/* DATOS DE LA TABLA DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
+// Tabla de los principales destinos de exportación
+// Cada objeto representa un país y el valor (en USD) de exportaciones realizadas hacia ese país
 const tab_destino_exportacion = [
   { num: 1, pais: "Estados Unidos", valor: 295137249 },
   { num: 2, pais: "Bélgica", valor: 21650554 },
@@ -485,14 +491,14 @@ const tab_destino_exportacion = [
   { num: 15, pais: "Rusia", valor: 649617 },
 ];
 
-/* Datos grafica de la produccion historica */
-/* etiquetas de tiempo  */
+// Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
-/* Valores de la produccion por region */
+// Producción histórica (en toneladas) por región desde 2010 hasta 2023
+// Cada objeto contiene el nombre de una region('nom') y arreglo ('fila')
 const produccion_historica_producto = [
   {
     nom: "Sierra de Flores Magón",
@@ -530,7 +536,7 @@ const produccion_historica_producto = [
     ],
   },
   {
-    nom: "Sierra Norte",
+    nom: "Sierra de Juárez",
     fila: [
       38132.13, 36901.87, 23626.16, 29813.48, 37988.44, 18457.23, 16562.53,
       19033.34, 18957.68, 19673.7, 21362.23, 20004.61, 19956.88, 19089.53,
@@ -545,7 +551,13 @@ const produccion_historica_producto = [
   },
 ];
 
-/* DATO DE LA TABLA PRODUCCION  DE CAFÉ EN OAXACA	 */
+// Tabla resumen de producción por región
+// Cada objeto representa una región con sus datos agregados:
+// - volumen: toneladas producidas
+// - superficie: hectáreas sembradas
+// - rendimiento: toneladas por hectárea
+// - valor: valor total de la producción (en pesos)
+// - cantidad: número de municipios o unidades productivas consideradas
 const tabla_produccion_producto = [
   {
     region: "Sierra de Juárez",
@@ -605,7 +617,9 @@ const tabla_produccion_producto = [
   },
 ];
 
-/* Datos grafica VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA AGAVE */
+// Datos de producción por grupo indígena
+// Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
+// Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
   [
     "NO PUEBLO INDIGENA",
@@ -623,14 +637,17 @@ const pub_indigenas_producto = [
   [8748, 23918, 14739, 14058, 13002, 7633, 3850, 898, 485, 337, 26],
 ];
 
-/* Datos grafica Estacionalidad de cafe en Oaxaca */
+// Datos de estacionalidad del producto por mes
+// Cada número representa una medida relativa o índice de producción o actividad para cada mes del año,
+// probablemente de enero (índice 0) a diciembre (índice 11)
 const estacionalidad_producto = [232, 197, 23, 24, 0, 0, 0, 0, 0, 0, 112, 350];
 
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN DE CAFÉ EN OAXACA */
+// Número de municipios productores por región en Oaxaca
+// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
 const tab_mun_producto_oax = [
   { nom: "Sierra de Juárez", num: 35 },
   { nom: "Sierra Sur", num: 24 },
-  { nom: "Costa", num: 23 },
+  { nom: "Costa", num: 34 },
   { nom: "Sierra de Flores Magón", num: 28 },
   { nom: "Papaloapan", num: 18 },
   { nom: "Istmo", num: 9 },

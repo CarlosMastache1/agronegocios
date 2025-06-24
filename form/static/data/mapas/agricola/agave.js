@@ -1,3 +1,4 @@
+// Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
   "Sierra Sur": [
     //34
@@ -691,6 +692,7 @@ const regionesConMunicipios = {
   ],
 };
 
+// Datos agregados por entidad federativa (estado) a nivel nacional
 const estados_datos_pro = [
   //12
   {
@@ -785,6 +787,7 @@ const estados_datos_pro = [
   },
 ];
 
+//Datos por país: superficie cosechada
 const paises_datos_pro = [
   { id: "COL", territorio: "19,207" },
   { id: "MEX", territorio: "13,601" },
@@ -796,7 +799,7 @@ const paises_datos_pro = [
   { id: "GTM", territorio: "199" },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de agave (2022) */
+//Ranking mundial de países por superficie sembrada (en hectáreas)
 const tab_pro_mundial = [
   {
     ranking: 1,
@@ -838,7 +841,9 @@ const tab_pro_mundial = [
   { ranking: 8, pais: "Guatemala", superficie: 199, producto: "Mezcal" },
 ];
 
-/* DATOS DE LA TABLA Producción mundial de agave (2022) */
+// Tabla de producción estatal
+// Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
+// rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
   {
     ranking: 1,
@@ -986,7 +991,8 @@ const tab_pro_nacional = [
   },
 ];
 
-/* DATOS DE LA TABLA DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
+// Tabla de los principales destinos de exportación
+// Cada objeto representa un país y el valor (en USD) de exportaciones realizadas hacia ese país
 const tab_destino_exportacion = [
   { num: 1, pais: "Estados Unidos", valor: 99707865 },
   { num: 2, pais: "España", valor: 4846189 },
@@ -1020,11 +1026,14 @@ const tab_region_exportacion = [
   { num: 5, region: "África y Oceanía", valor: 956749 },
 ];
 
+// Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
+// Producción histórica (en toneladas) por región desde 2010 hasta 2023
+// Cada objeto contiene el nombre de una region('nom') y arreglo ('fila')
 const produccion_historica_producto = [
   {
     nom: "Istmo",
@@ -1075,7 +1084,13 @@ const produccion_historica_producto = [
   },
 ];
 
-/* DATO DE LA TABLA PRODUCCION  DE AGAVE EN OAXACA	 */
+// Tabla resumen de producción por región
+// Cada objeto representa una región con sus datos agregados:
+// - volumen: toneladas producidas
+// - superficie: hectáreas sembradas
+// - rendimiento: toneladas por hectárea
+// - valor: valor total de la producción (en pesos)
+// - cantidad: número de municipios o unidades productivas consideradas
 const tabla_produccion_producto = [
   {
     region: "Sierra Sur",
@@ -1119,7 +1134,9 @@ const tabla_produccion_producto = [
   },
 ];
 
-/* Datos grafica VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA AGAVE */
+// Datos de producción por grupo indígena
+// Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
+// Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
   [
     "NO PUEBLO INDIGENA",
@@ -1132,12 +1149,15 @@ const pub_indigenas_producto = [
   [75720, 140903, 37170, 1787, 969, 0],
 ];
 
-/* Datos grafica Estacionalidad de agave en Oaxaca */
+// Datos de estacionalidad del producto por mes
+// Cada número representa una medida relativa o índice de producción o actividad para cada mes del año,
+// probablemente de enero (índice 0) a diciembre (índice 11)
 const estacionalidad_producto = [
   130, 226, 399, 344, 322, 154, 323, 57, 58, 74, 174, 66,
 ];
 
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN DE AGAVE EN OAXACA */
+// Número de municipios productores por región en Oaxaca
+// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
 const tab_mun_producto_oax = [
   { nom: "Sierra Sur", num: 34 },
   { nom: "Valles Centrales", num: 81 },
