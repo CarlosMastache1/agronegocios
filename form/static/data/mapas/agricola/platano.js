@@ -391,12 +391,12 @@ const tab_pro_nacional = [
 
 // Años de referencia para los datos de balanza comercial
 const labels_balanza = [
-  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+   2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
 ];
 
 // Valores anuales de importación en dólares (USD) por año correspondiente en `labels_balanza`
 // Representan el valor de las importaciones del producto
-const importacion_balanza = [4181, 0, 17, 2, 0, 0];
+const importacion_balanza = [4181, 0, 17, 2, 0.41, 0.1, , , , , 4201];
 
 // Valores anuales de exportación en dólares (USD) por año correspondiente en `labels_balanza`
 // Representan el valor de las exportaciones del producto

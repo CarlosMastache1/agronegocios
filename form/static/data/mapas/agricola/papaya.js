@@ -232,7 +232,7 @@ const tab_pro_mundial = [
   { ranking: 72, pais: "Túnez", superficie: 0 },
 ];
 
-// Tabla de producción estatal 
+// Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
 // rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
@@ -455,7 +455,7 @@ const produccion_historica_producto = [
     ],
   },
   {
-    nom: "Sierra de Juárez",
+    nom: "Sierra Sur",
     fila: [
       1215.5, 1181.8, 2614, 997.52, 968.99, 942.94, 1154.05, 645, 1236.5,
       1081.3, 1249.73, 1521.67, 1523.44, 1529.14,

@@ -173,16 +173,16 @@ const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
 total_datos_tab2.innerHTML = `<th></th><th>Total:</th>
 <th>  
-  2,299,983
+  648,541
 </th>
 <th>  
-  222,643 
+  19,759 
 </th>
 <th>
-  10.19
+  22.95
 </th>
 <th>
-  13,322,560,761 
+  4,715,233,994 
 </th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
@@ -261,7 +261,7 @@ const total_datos_tabDesExp = document.getElementById("total_datos_tabDesExp");
 
 total_datos_tabDesExp.innerHTML = `<th></th><th>Total:</th>
 <th>
-  81,755,305 
+  280,689 
 </th>`;
 
 /* Grafica 1 Balanza comercial */
@@ -430,6 +430,7 @@ const datos2 = {
       tension: 0.3,
       fill: false,
     },
+    
   ],
 };
 const config2 = {
@@ -568,9 +569,9 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${8.96}</th><th>${/* valor_producto.toLocaleString(
+)}</th><th>${18.12}</th><th>${/* valor_producto.toLocaleString(
   "es-MX"
-) */'1,070,664,171'}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
+) */'122,358,248'}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 
 /* Grafica 2 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
 /* const ctx2 = document.getElementById("lineChart2").getContext("2d");
@@ -719,7 +720,7 @@ const datos4 = {
   ],
   datasets: [
     {
-      label: "calabacita",
+      label: "melon",
       data: estacionalidad_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",

@@ -542,11 +542,7 @@ const exportacion_balanza = [
 // Tabla de los principales destinos de exportación
 // Cada objeto representa un país y el valor (en USD) de exportaciones realizadas hacia ese país
 const tab_destino_exportacion = [
-  { num: 1, pais: "Estados Unidos", valor: 116990100 },
-  { num: 2, pais: "Japón", valor: 38140683 },
-  { num: 3, pais: "Canadá", valor: 377077 },
-  { num: 4, pais: "Países Bajos", valor: 299097 },
-  { num: 5, pais: "Alemania", valor: 59004 },
+  { num: 1, pais: "Estados Unidos", valor:   330318615  },
 ];
 
 // Años de refeencia para los datos de producción historica

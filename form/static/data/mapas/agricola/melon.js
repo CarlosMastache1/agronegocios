@@ -1,3 +1,4 @@
+// Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
   Istmo: [
     //11
@@ -159,6 +160,7 @@ const regionesConMunicipios = {
   ],
 };
 
+// Datos agregados por entidad federativa (estado) a nivel nacional
 const estados_datos_pro = [
   { id: "MICH", territorio: "3,532", toneladas: "144,825" },
   { id: "SON", territorio: "3,573", toneladas: "133,075" },
@@ -185,6 +187,7 @@ const estados_datos_pro = [
   { id: "TAMP", territorio: "3", toneladas: "38" },
 ];
 
+//Datos por país: superficie cosechada
 const paises_datos_pro = [
   //14
   { id: "CHN", territorio: "779,580" },
@@ -203,6 +206,7 @@ const paises_datos_pro = [
   { id: "MAR", territorio: "14,698" },
 ];
 
+//Ranking mundial de países por superficie sembrada (en hectáreas)
 const tab_pro_mundial = [
   { ranking: 1, pais: "China", superficie: 391783 },
   { ranking: 2, pais: "China, Continental", superficie: 387797 },
@@ -222,6 +226,9 @@ const tab_pro_mundial = [
   { ranking: "", pais: "Otros", superficie: 208340 },
 ];
 
+// Tabla de producción estatal
+// Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
+// rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
   {
     ranking: 1,
@@ -417,32 +424,40 @@ const tab_pro_nacional = [
   },
 ];
 
-/* Datos de la grafica balanza  */
-/* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
+// Años de referencia para los datos de balanza comercial
 const labels_balanza = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
 ];
-/* Importaciones  */
+
+// Valores anuales de importación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las importaciones del producto
 const importacion_balanza = [
   30567, 38142, 18750, 16105, 31311, 18454, 29319, 32265, 44096, 27069, 10619,
   8832, 11243,
 ];
-/* Exportaciones  */
+
+// Valores anuales de exportación en dólares (USD) por año correspondiente en `labels_balanza`
+// Representan el valor de las exportaciones del producto
 const exportacion_balanza = [
   150816, 146437, 134574, 145688, 142146, 147705, 157070, 142199, 132744,
   105054, 106368, 97383, 120074,
 ];
 
+// Tabla de los principales destinos de exportación
+// Cada objeto representa un país y el valor (en USD) de exportaciones realizadas hacia ese país
 const tab_destino_exportacion = [
   { num: 1, pais: "Japón", valor: 276751 },
   { num: 2, pais: "Belice", valor: 3938 },
 ];
 
+// Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
+// Producción histórica (en toneladas) por región desde 2010 hasta 2023
+// Cada objeto contiene el nombre de una region('nom') y arreglo ('fila')
 const produccion_historica_producto = [
   {
     nom: "Sierra de Flores Magón",
@@ -473,7 +488,7 @@ const produccion_historica_producto = [
     ],
   },
   {
-    nom: "Sierra de Juárez",
+    nom: "Sierra Sur",
     fila: [
       540, 682.67, 800, 580, 483, 388.96, 540, 425.5, 448.8, 463.05, 511.92,
       520.03, 539.79, 551.58,
@@ -488,6 +503,13 @@ const produccion_historica_producto = [
   },
 ];
 
+// Tabla resumen de producción por región
+// Cada objeto representa una región con sus datos agregados:
+// - volumen: toneladas producidas
+// - superficie: hectáreas sembradas
+// - rendimiento: toneladas por hectárea
+// - valor: valor total de la producción (en pesos)
+// - cantidad: número de municipios o unidades productivas consideradas
 const tabla_produccion_producto = [
   {
     region: "Istmo",
@@ -506,7 +528,7 @@ const tabla_produccion_producto = [
     cantidad: 4,
   },
   {
-    region: "Cañada",
+    region: "Sierra de Flores Magón",
     volumen: 1795,
     superficie: 91,
     rendimiento: 19.87,
@@ -539,7 +561,9 @@ const tabla_produccion_producto = [
   },
 ];
 
-/* Datos grafica VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA AGAVE */
+// Datos de producción por grupo indígena
+// Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
+// Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
   [
     "No es pueblo indigena",
@@ -555,10 +579,13 @@ const pub_indigenas_producto = [
   [4388, 7653, 1751, 1349, 1271, 818, 605, 359, 265],
 ];
 
-/* Datos grafica Estacionalidad en Oaxaca */
+// Datos de estacionalidad del producto por mes
+// Cada número representa una medida relativa o índice de producción o actividad para cada mes del año,
+// probablemente de enero (índice 0) a diciembre (índice 11)
 const estacionalidad_producto = [90, 622, 272, 163, 96, 22, 0, 0, 0, 13, 40, 4];
 
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN DE CALABACITA EN OAXACA */
+// Número de municipios productores por región en Oaxaca
+// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
 const tab_mun_producto_oax = [
   { nom: "Istmo", num: 11 },
   { nom: "Costa", num: 4 },

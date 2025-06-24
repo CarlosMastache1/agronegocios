@@ -171,7 +171,19 @@ const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.len
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>  3,239,915  </th><th>  222,643 </th><th>    11.60  </th><th>    31,201,428,468  </th>`;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th>
+<th>  
+  2,642,338 
+</th>
+<th>  
+  87,091 
+</th>
+<th>
+  19.54 
+</th>
+<th>
+  11,145,067,397 
+</th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
 let currentPageDesExp = 1;
@@ -247,7 +259,10 @@ renderTableDesExp();
 
 const total_datos_tabDesExp = document.getElementById("total_datos_tabDesExp");
 
-total_datos_tabDesExp.innerHTML = `<th></th><th>Total:</th><th>  364,117,494 </th>`;
+total_datos_tabDesExp.innerHTML = `<th></th><th>Total:</th>
+<th>
+  155,865,961 
+</th>`;
 
 /* Grafica 1 Balanza comercial */
 const ctx = document.getElementById("lineChart").getContext("2d");
@@ -405,34 +420,7 @@ const datos2 = {
       borderWidth: 4,
       tension: 0.3,
       fill: false,
-    },
-    {
-      label: produccion_historica_producto[5].nom,
-      data: produccion_historica_producto[5].fila,
-      borderColor: "rgba(0, 102, 0, 1)",
-      backgroundColor: "rgba(0, 102, 0, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
-    {
-      label: produccion_historica_producto[6].nom,
-      data: produccion_historica_producto[6].fila,
-      borderColor: "rgba(85, 85, 85, 1)",
-      backgroundColor: "rgba(85, 85, 85, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
-    {
-      label: produccion_historica_producto[7].nom,
-      data: produccion_historica_producto[7].fila,
-      borderColor: "rgba(36, 113, 163, 1)",
-      backgroundColor: "rgba(36, 113, 163, 0.2)",
-      borderWidth: 4,
-      tension: 0.3,
-      fill: false,
-    },
+    }
   ],
 };
 const config2 = {
@@ -571,9 +559,9 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${  11.02 }</th><th>${valor_producto.toLocaleString(
+)}</th><th>${18.16}</th><th>${/* valor_producto.toLocaleString(
   "es-MX"
-)}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
+) */'518,097,491'}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 
 /* Grafica 2 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
 /* const ctx2 = document.getElementById("lineChart2").getContext("2d");
@@ -722,7 +710,7 @@ const datos4 = {
   ],
   datasets: [
     {
-      label: "limon",
+      label: "platano",
       data: estacionalidad_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",

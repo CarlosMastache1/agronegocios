@@ -5,6 +5,15 @@
 {% block content %}
 
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
+<link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
+
 <main id="contents" class="site-contnts">
 	<!--BANNER-->
 	<div class="home-slider">
@@ -15,7 +24,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="item" data-slide="{% static 'agricola/pina/imagenes/22.JPG' %}">
 			<div class="container">
 				<div class="row">
@@ -25,9 +34,399 @@
 		</div>
 	</div>
 </main>
-	
-<!--Primer seccion-->
-<iframe src="{% url 'iframePin' %}" width="100%" height="1600px" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
 
+<!-- Cinta ticker -->
+<div class="ticker">
+	<div class="ticker-content" id="ticker-content">
+		Cargando datos...
+	</div>
+</div>
+
+<div>
+	<div id="body_pag">
+		<!-- Secciones -->
+		<section id="section1" class="section">
+			<h1>DESCRIPCIÓN DEL <strong>PIÑA</strong></h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+				Este cultivo es perenne por lo que su ciclo de vida es de <strong>12 a 23 meses</strong>, Oaxaca tiene <strong>6 Municipios</strong> productores de piña, se encuentra en el <strong>2° lugar</strong> en producción a nivel nacional, con <strong>2 pueblos indígenas</strong> productores de este cultivo.
+			</p>
+
+
+			<div class="descripcion">
+				<div class="container">
+
+					<div class="card">
+						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Perenne</h2>
+						<p>
+							Ciclo de vida de <strong>12 a 23 meses</strong>.
+						</p>
+					</div>
+
+					<div class="card">
+						<h2>📊 Lugar a nivel mundial</h2>
+						<p>
+							México ocupa el <strong>11° lugar</strong> a nivel mundial en la producción de piña; con
+							una superficie para su cosecha de <strong>25,626 Ha</strong>.
+						</p>
+					</div>
+
+					<div class="card">
+						<h2>📍 Municipios en Oaxaca</h2>
+						<p>
+							En Oaxaca hay <strong>6 municipios</strong> que están dedicados al cultivo de piña.
+						</p>
+					</div>
+
+					<div class="card">
+						<h2>🇲🇽 Lugar a nivel nacional</h2>
+						<p>Oaxaca ocupa el <strong>2º lugar</strong> nacional en producción de piña. Con un volumen
+							de
+							producción de <strong>177,917 Ton</strong>, una superficie de <strong>2,189 Ha</strong>,
+							con un rendimeinto de <strong>47.16 Ton/Ha</strong> y un valor de
+							<strong>$1,584,329,629</strong>.
+						</p>
+					</div>
+
+					<div class="card">
+						<h2>📈 Región con mayor producción</h2>
+						<p>
+							La región de <strong>Papaloapan</strong> es la region con mayor
+							producción de piña en el estado de Oaxaca contando con <strong>2 Municipios</strong> de
+							producción. Con un volumen de producción de <strong>177,564 Ton</strong>, una superficie de
+							<strong>2,164 Ha</strong>, con un rendimeinto de <strong>81.52 Ton/Ha</strong> y un valor
+							de <strong>$1,582,455,090</strong>.
+
+						</p>
+					</div>
+
+					<div class="card">
+						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
+						<p>Un total de <strong>2 pueblos indígenas</strong> se encuentran dentro de la producción de
+							piña.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="section2" class="section">
+			<h1>PRODUCCIÓN MUNDIAL DE PIÑA</h1>
+
+			<H2>Cierre Agricola 2022</H2>
+			<div class="contenedor_col1">
+				<div class="columna1">
+
+
+					<div class="controls">
+						<label>
+							Mostrar
+							<select id="rowsPerPage">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+							</select>
+							registros
+						</label>
+
+						<input type="text" id="searchInput" placeholder="Buscar...">
+					</div>
+
+					<table id="dataTable" class="tabla-datos">
+						<thead>
+							<tr>
+								<th>RANKING</th>
+								<th>PAÍS</th>
+								<th>SUPERFICIE COSECHADA (HA)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Filas dinámicas -->
+						</tbody>
+						<tfoot>
+							<tr id="total_datos_tab1">
+
+							</tr>
+						</tfoot>
+					</table>
+
+					<div class="pagination">
+						<button id="prevBtn">Anterior</button>
+						<span id="pageInfo"></span>
+						<button id="nextBtn">Siguiente</button>
+					</div>
+
+
+
+				</div>
+				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
+			</div>
+
+		</section>
+
+		<section id="section3" class="section">
+			<h1>PRODUCCIÓN NACIONAL DE PIÑA</h1>
+
+			<H2>Cierre Agricola 2022</H2>
+
+			<div class="controls">
+				<label>
+					Mostrar
+					<select id="rowsPerPage2">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+					registros
+				</label>
+
+				<input type="text" id="searchInput2" placeholder="Buscar...">
+			</div>
+			<table id="data2Table" class="tabla-datos">
+				<thead>
+					<tr>
+						<th>RANKING</th>
+						<th>ENTIDAD FEDERATIVA</th>
+						<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+						<th>SUPERFICIE SEMBRADA (HA)</th>
+						<th>RENDIMIENTO (TON/HA)</th>
+						<th>VALOR DE LA PRODUCCIÓN ($)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Filas dinámicas -->
+				</tbody>
+				<tfoot>
+					<tr id="total_datos_tab2"></tr>
+				</tfoot>
+			</table>
+
+			<div class="pagination">
+				<button id="prevBtn2">Anterior</button>
+				<span id="pageInfo2"></span>
+				<button id="nextBtn2">Siguiente</button>
+			</div>
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+		</section>
+
+		<section id="section4" class="section">
+			<h1>BALANZA COMERCIAL DE PIÑA EN MÉXICO</h1>
+
+			<div class="chart-container">
+				<canvas id="lineChart"></canvas>
+			</div>
+
+
+			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
+
+			<div class="controls">
+				<label>
+					Mostrar
+					<select id="rowsPerPageDesExp">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+					registros
+				</label>
+
+				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
+			</div>
+			<table id="dataTableDesExp" class="tabla-datos">
+				<thead>
+					<tr>
+						<th>NUM</th>
+						<th>PAÍS</th>
+						<th>VALOR (USD)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Filas dinámicas -->
+				</tbody>
+				<tfoot>
+					<tr id="total_datos_tabDesExp"></tr>
+				</tfoot>
+			</table>
+
+			<div class="pagination">
+				<button id="prevBtnDesExp">Anterior</button>
+				<span id="pageInfoDesExp"></span>
+				<button id="nextBtnDesExp">Siguiente</button>
+			</div>
+
+		</section>
+
+		<section id="section5" class="section">
+			<h1>PRODUCCIÓN HISTÓRICA DE PIÑA EN OAXACA</h1>
+			<div class="chart-container">
+				<canvas id="lineChart2"></canvas>
+			</div>
+		</section>
+
+
+		<section id="section6" class="section">
+			<h1>PRODUCCIÓN DE PIÑA EN OAXACA</h1>
+			<table class="tabla-datos">
+				<thead>
+					<tr>
+						<th>REGION</th>
+						<th>VOLUMEN DE PRODUCCION (TON)</th>
+						<th>SUPERFICIE SEMBRADA (HA)</th>
+						<th>RENDIMIENTO (TON/HA)</th>
+						<th>VALOR DE LA PRODUCCIÓN ($)</th>
+						<th>CANTIDAD DE MUNICIPIOS</th>
+					</tr>
+				</thead>
+
+				<tbody id="tabla_produccion_prod_oax">
+
+				</tbody>
+				<tfoot>
+					<tr id="total_tab_pro_miel_oax">
+					</tr>
+				</tfoot>
+			</table>
+
+			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+			</h4>
+
+			<div class="chart-container">
+				<canvas id="lineChart3"></canvas>
+			</div>
+		</section>
+
+		<section id="section7" class="section">
+			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce piña en
+				el estado
+				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>abril</strong>
+				es
+				cuando se
+				cosecha más piña alcanzando <strong>401 puntos</strong> de dicho índice.
+			</p>
+			<h2>INDICE DE VOLUMEN FISICO (IVF)</h2>
+			<div class="chart-container">
+				<canvas id="lineChart4"></canvas>
+			</div>
+
+		</section>
+
+
+		<section id="section8" class="section">
+			<h1>MUNICIPIOS QUE PRODUCEN DE PIÑA EN OAXACA</h1>
+			<div class="contenedor_col1">
+				<div class="columna1">
+					<table class="tabla-datos">
+						<thead>
+							<tr>
+								<th>REGION</th>
+								<th>CANTIDAD DE MUNICIPIOS</th>
+							</tr>
+						</thead>
+
+						<tbody id="tb_mun_producto_oax">
+
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Total:</th>
+								<th id="total_mun_producto_oax"></th>
+							</tr>
+						</tfoot>
+
+					</table>
+				</div>
+				<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
+			</div>
+		</section>
+	</div>
+
+	<!-- Barra de progreso lateral -->
+	<div class="progress-bar">
+		<div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
+		<div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
+		<div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
+		<div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
+		<div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
+		<div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+		<div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+		<div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
+	</div>
+</div>
+
+<!-- Script -->
+<script>
+	const circles = document.querySelectorAll('.progress-circle');
+	const sections = document.querySelectorAll('section');
+
+	// Scroll a la sección al hacer clic
+	circles.forEach(circle => {
+		circle.addEventListener('click', () => {
+			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Detectar qué sección está en vista y activar el círculo correspondiente
+	window.addEventListener('scroll', () => {
+		let current = '';
+		sections.forEach(section => {
+			const sectionTop = section.offsetTop;
+			const sectionHeight = section.clientHeight;
+			if (pageYOffset >= sectionTop - sectionHeight / 3) {
+				current = section.getAttribute('id');
+			}
+		});
+
+		circles.forEach(circle => {
+			circle.classList.remove('active');
+			if (circle.getAttribute('data-target') === current) {
+				circle.classList.add('active');
+			}
+		});
+	});
+</script>
+
+<script src="{% static 'data/mapas/agricola/pina.js' %}"></script>
+<script src="{% static 'agricola/pina/js/pina.js' %}"></script>
+
+<script>
+
+	const mundo_producto = document.getElementById("frame_mundo_prod");
+	mundo_producto.onload = function () {
+		mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");
+	}
+
+	const mexico_producto = document.getElementById("iframe_mexico_prod");
+	mexico_producto.onload = function () {
+		mexico_producto.contentWindow.postMessage(estados_datos_pro, "*");
+	}
+
+	const iframe = document.getElementById('frame_oaxaca');
+	iframe.onload = function () {
+		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+	};
+</script>
+
+<script>
+	// Función para obtener y actualizar los datos en la cinta
+	function fetchTickerData() {
+		fetch('/grafica-maiz/api/')
+			.then(response => response.json())
+			.then(data => {
+				let tickerText = `Precio Actual: ${data.current_price} | Apertura: ${data.open_price} | Máximo: ${data.high_price} | Mínimo: ${data.low_price}`;
+				document.getElementById('ticker-content').innerText = tickerText;
+			})
+			.catch(error => console.error("Error al obtener datos:", error));
+	}
+
+	// Obtiene los datos inicialmente y actualiza cada 10 segundos
+	fetchTickerData();
+	setInterval(fetchTickerData, 10000);
+</script>
 
 {% endblock %}

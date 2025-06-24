@@ -719,7 +719,7 @@ const datos4 = {
   ],
   datasets: [
     {
-      label: "calabacita",
+      label: "mango",
       data: estacionalidad_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
