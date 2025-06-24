@@ -8,6 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGRONEGOCIOS</title>
     {% load static %}
+
+    <style>
+  .custom-navbar {
+    background-color: #9D2449; /* Color personalizado */
+    color: white;
+  }
+</style>
     
     <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}">
@@ -38,64 +45,102 @@
 <body>
   {% if user|has_group:"acreimex" or user|has_group:"cajaSolidaria" or user|has_group:"fideicomisos" or user|has_group:"findeca" or user|has_group:"negocios" or user|has_group:"ucepco" %}
 
-  <header>
-    <!-- Logo y título -->
+nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container-fluid">
 
-   <!-- Menú de navegación -->
-
-   <nav class="navbar">
-       <div class="logo">
-        
-           <h3>AGRONEGOCIOS</h3>
-           
-       </div>
-       <div class="menu-icon" id="menu-icon">
-           &#9776;
-       </div>
-       <ul class="nav-links" style="padding-left: 200px;" id="nav-links">
-           <li><a href="/home"><i  class="fas fa-home"></i> Inicio</a></li>
-           <li><a href="/form"><i class="fas fa-book"></i> Nuevo Registro</a></li>
-       </ul>
-       {% if user.is_authenticated %}
-       <a type="button" class="d-flex btn btn-danger" href="/logout">Salir</a>
-       {% else %}
-       <a type="button" class="d-flex btn btn-primary" href="/login">Login</a>
-       {% endif %}
-   </nav>
-</header>
-
-{% else %}
-<header>
-  <!-- Logo y título -->
- <div class="header-top">
+    <!-- Logo a la izquierda -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+       AGRONEGOCIOS
+      <img src="{% static 'imagenes/logo.png' %}" alt="Logo" height="30" class="me-2">
      
-     
-    
- </div>
- <!-- Menú de navegación -->
+    </a>
 
- <nav class="navbar">
-     <div class="logo">
-         <h3>AGRONEGOCIOS</h3>
-         
-     </div>
-     <div class="menu-icon" id="menu-icon">
-         &#9776;
-     </div>
-     <ul class="nav-links" id="nav-links">
-         <li><a href="/home"><i class="fas fa-home"></i> Inicio</a></li>
-         <li><a href="/form"><i class="fas fa-book"></i> Nuevo Registro</a></li>
-         <li><a href="/grafica"><i class="fas fa-chart-line"></i> Estadísticas</a></li>
-         <li><a href="/signup"><i class="fas fa-users"></i> Dar de Alta Usuarios</a></li>
-         <li><a href="/gestionProductos"><i class="fas fa-file-alt"></i>Gestión de productos</a></li>
-     </ul>
-     {% if user.is_authenticated %}
-     <a type="button" class="d-flex btn btn-danger" href="/logout">Salir</a>
-     {% else %}
+    <!-- Botón para colapsar en pantallas pequeñas -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenido del navbar -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      
+      <!-- Menú a la izquierda -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="fas fa-home"></i>  Inicio</a>
+        </li>
+        <li class="nav-item">
+                   <a href="/form" class="nav-link"><i class="fas fa-book"></i> Nuevo Registro</a>
+
+        </li>
+      </ul>
+
+           {% if user.is_authenticated %}
+        <a type="button" class="btn btn-danger d-flex align-items-center" href="/logout">
+          Cerrar sesión
+        </a>
+             {% else %}
      <a type="button" class="d-flex btn btn-primary" href="/login">Login</a>
      {% endif %}
- </nav>
-</header>
+    
+    </div>
+  </div>
+</nav>
+
+
+{% else %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container-fluid">
+
+    <!-- Logo a la izquierda -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+       AGRONEGOCIOS
+      <img src="{% static 'imagenes/logo.png' %}" alt="Logo" height="30" class="me-2">
+     
+    </a>
+
+    <!-- Botón para colapsar en pantallas pequeñas -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenido del navbar -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      
+      <!-- Menú a la izquierda -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="fas fa-home"></i>  Inicio</a>
+        </li>
+        <li class="nav-item">
+                   <a href="/form" class="nav-link"><i class="fas fa-book"></i> Nuevo Registro</a>
+
+        </li>
+        <li class="nav-item">
+                   <a href="/grafica" class="nav-link"><i class="fas fa-chart-line"></i>Estadísticas</a>
+        </li>
+
+        <li class="nav-item"><a href="/signup" class="nav-link"><i class="fas fa-users"></i> Dar de Alta Usuarios</a></li>
+         <li class="nav-item"><a href="/gestionProductos" class="nav-link"><i class="fas fa-file-alt"></i>Gestión de productos</a></li>
+
+      </ul>
+
+
+           {% if user.is_authenticated %}
+
+        <a type="button" class="btn btn-danger d-flex align-items-center" href="/logout">
+          Cerrar sesión
+        </a>
+             {% else %}
+     <a type="button" class="d-flex btn btn-primary" href="/login">Login</a>
+     {% endif %}
+    
+    </div>
+  </div>
+</nav>
+
+
 {% endif %}
 
 
