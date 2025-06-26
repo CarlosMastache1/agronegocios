@@ -245,6 +245,7 @@ urlpatterns = [
     path('bovino/', TemplateView.as_view(template_name="pecuario/bovino/index.html"), name='bovino'),
     path('caprino/', TemplateView.as_view(template_name="pecuario/caprino/index.html"), name='caprino'),
     path('porcino/', TemplateView.as_view(template_name="pecuario/porcino/index.html"), name='porcino'),
+    path('ovino/', TemplateView.as_view(template_name="pecuario/ovino/index.html"), name='ovino'),
 
 
 

@@ -3,16 +3,21 @@
 {% load static %}
 
 {% block content %}
+<!-- Carga de estilos y librerías externas -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+<!-- Librerías para gráficos -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<!-- Estilos propios del proyecto -->
 <link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
 <link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
 
 <main id="contents" class="site-contnts">
-    <!--BANNER-->
+    <!-- BANNER con imágenes deslizables -->
     <div class="home-slider">
+        <!-- Primer slide con imagen api1.png -->
         <div class="item" data-slide="{% static 'pecuario/apicola/img/api1.png' %}">
             <div class="container">
                 <div class="row">
@@ -21,6 +26,7 @@
             </div>
         </div>
 
+        <!-- Segundo slide con imagen api2.png -->
         <div class="item" data-slide="{% static 'pecuario/apicola/img/api2.png' %}">
 
             <div class="container">
@@ -34,7 +40,7 @@
 
 <div>
     <div id="body_pag">
-        <!-- Secciones -->
+        <!-- Sección 1: Descripción general del sector apícola -->
         <section id="section1" class="section">
             <h1>DESCRIPCIÓN DEL SECTOR APICOLA</h1>
             <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
@@ -43,14 +49,15 @@
                 con <strong>12 pueblos indígenas</STRong> productores de este sector.
             </p>
 
-
             <div class="descripcion">
                 <div class="container">
 
                     <div class="card">
                         <h2>📊 Lugar a nivel mundial</h2>
-                        <p>México ocupa el <strong>8º lugar</strong> mundial en producción de miel de abeja y el
-                            <strong>11º lugar</strong> en producción de cera de abeja.
+                        <p>México ocupa el <strong>8º lugar</strong> mundial en producción de miel de abeja, con un
+                            volumen de producción de <strong>64,320 Ton</strong> y el
+                            <strong>11º lugar</strong> en producción de cera de abeja, con un volumen de producción de
+                            <strong>1,533 Ton</strong>.
                         </p>
                     </div>
 
@@ -63,14 +70,21 @@
 
                     <div class="card">
                         <h2>🇲🇽 Lugar a nivel nacional</h2>
-                        <p>Oaxaca ocupa el <strong>5º lugar</strong> nacional en producción de miel de abeja y el
-                            <strong>4º lugar</strong> en producción de cera de abeja.
+                        <p>Oaxaca ocupa el <strong>5º lugar</strong> nacional en producción de miel de abeja con un
+                            volumen de producción de <strong>4,795 Ton</strong> y un precio de <strong>43 $/KG</strong>
+                            teniendo un valor de producción de <strong>$212,493,000</strong>. Oaxaca tiene el
+                            <strong>4º lugar</strong> en producción de cera de abeja con un volumen de producción de
+                            <strong>132 Ton</strong> y un precio de <strong>74 $/KG</strong> teniendo un valor de
+                            producción de <strong>$9,823,000</strong>.
                         </p>
                     </div>
 
                     <div class="card">
                         <h2>📈 Región con mayor producción</h2>
-                        <p>La región con mayor producción de miel y cera de abeja es la <strong>Costa</strong>.</p>
+                        <p>La región con mayor producción de miel y cera de abeja es la <strong>Costa</strong> con 39
+                            municipios, teniendo un volumen de producción de <strong>2,189 Ton</strong>, un precio de
+                            <strong>48 $/KG</strong> y un valor de producción de <strong>$101,216,000</strong>.
+                        </p>
                     </div>
 
                     <div class="card">
@@ -80,257 +94,338 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Botones para filtrar entre Producto y Subproducto -->
+            <div class="container-buttons">
+                <!-- Botón para ver Producto (Miel) -->
+                <a class="btn h-button active" data-text="Ver Producto" aria-label="Thanks" onclick="mostrarProducto()">
+                    <svg width="277" height="62" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="grad1">
+                                <stop offset="0%" stop-color="#7a1433" />
+                                <stop offset="100%" stop-color="#c95885" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                    </svg>
+                    <!-- Texto con efecto animado letra a letra -->
+                    <span>M</span>
+                    <span>i</span>
+                    <span>e</span>
+                    <span>l</span>
+                </a>
+
+                <!-- Botón para ver SubProducto (Cera) -->
+                <a class="btn h-button" data-text="Ver SubProducto" aria-label="Thanks" onclick="mostrarSubProducto()">
+                    <svg width="277" height="62" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="grad2">
+                                <stop offset="0%" stop-color="#7a1433" />
+                                <stop offset="100%" stop-color="#c95885" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad2)" width="266" height="50"></rect>
+                    </svg>
+                    <span>C</span>
+                    <span>e</span>
+                    <span>r</span>
+                    <span>a</span>
+                </a>
+            </div>
+
+            <div class="espacio-estilo"></div>
         </section>
+
+        <!-- Sección 2: Producción mundial del sector apícola -->
         <section id="section2" class="section">
-            <h1>PRODUCCION MUNDIAL DEL SECTOR APICOLA</h1>
+            <h1>PRODUCCIÓN MUNDIAL DEL SECTOR APICOLA</h1>
+            <div class="bloque-producto">
+                <H2>MIEL DE ABEJA</H2>
+                <div class="contenedor_col1">
+                    <div class="columna1">
+                        <!-- Tabla con datos de producción mundial de miel -->
+                        <table class="tabla-datos">
+                            <thead>
+                                <tr>
+                                    <th>RANKING</th>
+                                    <th>PAIS</th>
+                                    <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab_cuerpo_pais_miel">
+                                <!-- Datos dinámicos -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total:</th>
+                                    <th colspan="2" id="total_tabla1"> 138,453,072 </th>
+                                </tr>
+                            </tfoot>
 
-            <H2>MIEL DE ABEJA</H2>
-            <div class="contenedor_col1">
-                <div class="columna1">
-                    <table class="tabla-datos">
-                        <thead>
-                            <tr>
-                                <th>RANKING</th>
-                                <th>PAIS</th>
-                                <th>VOLUMEN DE PRODUCCION (TON)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tab_cuerpo_pais_miel">
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Total:</th>
-                                <th colspan="2" id="total_tabla1"> 138,453,072 </th>
-                            </tr>
-                        </tfoot>
-
-                    </table>
+                        </table>
+                    </div>
+                    <!-- Mapa mundial en iframe -->
+                    <iframe id="frame_mundo_miel" src="{% url 'iframeMundo' %}" class="columna2"
+                        frameborder="0"></iframe>
                 </div>
-                <iframe id="frame_mundo_miel" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
             </div>
 
-            <H3>CERA DE ABEJA</H3>
-            <div class="contenedor_col2">
-                <iframe id="frame_mundo_cera" src="{% url 'iframeMundo' %}" class="columna1" frameborder="0"></iframe>
+            <div class="bloque-subproducto">
+                <H3>CERA DE ABEJA</H3>
+                <div class="contenedor_col2">
+                    <!-- Mapa mundial para cera en iframe -->
+                    <iframe id="frame_mundo_cera" src="{% url 'iframeMundo' %}" class="columna1"
+                        frameborder="0"></iframe>
+                    <!-- Tabla con datos de producción mundial de cera -->
+                    <div class="columna2">
+                        <table class="tabla-datos">
+                            <thead>
+                                <tr>
+                                    <th>RANKING</th>
+                                    <th>PAIS</th>
+                                    <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                                </tr>
+                            </thead>
 
-                <div class="columna2">
-                    <table class="tabla-datos">
-                        <thead>
-                            <tr>
-                                <th>RANKING</th>
-                                <th>PAIS</th>
-                                <th>VOLUMEN DE PRODUCCION (TON)</th>
-                            </tr>
-                        </thead>
+                            <tbody id="tab_cuerpo_pais_cera">
+                                <!-- Datos dinámicos -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total:</th>
+                                    <th colspan="2" id="total_tabla2"></th>
+                                </tr>
+                            </tfoot>
 
-                        <tbody id="tab_cuerpo_pais_cera">
-
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Total:</th>
-                                <th colspan="2" id="total_tabla2"></th>
-                            </tr>
-                        </tfoot>
-
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Sección 3: Producción nacional apícola -->
         <section id="section3" class="section">
-            <h1>PRODUCCION NACIONAL APICOLA</h1>
+            <h1>PRODUCCIÓN NACIONAL APICOLA</h1>
+            <!-- Bloque de producción de miel -->
+            <div class="bloque-producto">
+                <H2>PRODUCCIÓN NACIONAL DE MIEL</H2>
 
-            <H2>PRODUCCION NACIONAL DE MIEL</H2>
+                <!-- Controles para paginación y búsqueda -->
+                <div class="controls">
+                    <label>
+                        Mostrar
+                        <select id="rowsPerPage">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        registros
+                    </label>
 
-            <div class="controls">
-                <label>
-                    Mostrar
-                    <select id="rowsPerPage">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    registros
-                </label>
+                    <input type="text" id="searchInput" placeholder="Buscar...">
+                </div>
 
-                <input type="text" id="searchInput" placeholder="Buscar...">
+                <!-- Tabla con datos nacionales de miel -->
+                <table id="dataTable" class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>RANKING</th>
+                            <th>ENTIDAD FEDERATIVA</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas generadas dinámicamente -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_datos_tab1">
+                            <!-- Totales calculados -->
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button id="prevBtn">Anterior</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextBtn">Siguiente</button>
+                </div>
+
+                <!-- Mapa México para miel -->
+                <iframe id="iframe_mexico_miel" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+                    frameborder="0"></iframe>
             </div>
+            <!-- Bloque de producción de cera -->
+            <div class="bloque-subproducto">
+                <H3>PRODUCCIÓN NACIONAL DE CERA</H3>
 
-            <table id="dataTable" class="tabla-datos">
-                <thead>
-                    <tr>
-                        <th>RANKING</th>
-                        <th>ENTIDAD FEDERATIVA</th>
-                        <th>VOLUMEN DE PRODUCCION (TON)</th>
-                        <th>PRECIO ($/KG)</th>
-                        <th>VALOR DE PRODUCCION ($)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Filas dinámicas -->
-                </tbody>
-                <tfoot>
-                    <tr id="total_datos_tab1">
+                <!-- Controles para paginación y búsqueda -->
+                <div class="controls">
+                    <label>
+                        Mostrar
+                        <select id="rowsPerPage2">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        registros
+                    </label>
 
-                    </tr>
-                </tfoot>
-            </table>
+                    <input type="text" id="searchInput2" placeholder="Buscar...">
+                </div>
+                <!-- Tabla con datos nacionales de cera -->
+                <table id="data2Table" class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>RANKING</th>
+                            <th>ENTIDAD FEDERATIVA</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas generadas dinámicamente -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_datos_tab2"></tr>
+                    </tfoot>
+                </table>
 
-            <div class="pagination">
-                <button id="prevBtn">Anterior</button>
-                <span id="pageInfo"></span>
-                <button id="nextBtn">Siguiente</button>
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button id="prevBtn2">Anterior</button>
+                    <span id="pageInfo2"></span>
+                    <button id="nextBtn2">Siguiente</button>
+                </div>
+
+                <!-- Mapa México para cera -->
+                <iframe id="iframe_mexico_cera" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+                    frameborder="0"></iframe>
             </div>
-
-            <iframe id="iframe_mexico_miel" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-                frameborder="0"></iframe>
-
-
-            <H3>PRODUCCION NACIONAL DE CERA</H3>
-
-
-            <div class="controls">
-                <label>
-                    Mostrar
-                    <select id="rowsPerPage2">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    registros
-                </label>
-
-                <input type="text" id="searchInput2" placeholder="Buscar...">
-            </div>
-            <table id="data2Table" class="tabla-datos">
-                <thead>
-                    <tr>
-                        <th>RANKING</th>
-                        <th>ENTIDAD FEDERATIVA</th>
-                        <th>VOLUMEN DE PRODUCCION (TON)</th>
-                        <th>PRECIO ($/KG)</th>
-                        <th>VALOR DE PRODUCCION ($)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Filas dinámicas -->
-                </tbody>
-                <tfoot>
-                    <tr id="total_datos_tab2"></tr>
-                </tfoot>
-            </table>
-
-            <div class="pagination">
-                <button id="prevBtn2">Anterior</button>
-                <span id="pageInfo2"></span>
-                <button id="nextBtn2">Siguiente</button>
-            </div>
-            <iframe id="iframe_mexico_cera" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-                frameborder="0"></iframe>
         </section>
+
+        <!-- Sección 4: Balanza comercial del sector apícola -->
         <section id="section4" class="section">
             <h1>BALANZA COMERCIAL DEL SECTOR APICOLA DE MEXICO</h1>
             <h2>VOLUMEN DE COMERCIALIZACIÓN (TON)</h2>
             <div class="chart-container">
-                <canvas id="lineChart"></canvas>
+                <canvas id="lineChart"></canvas><!-- Gráfico de línea -->
             </div>
         </section>
+
+        <!-- Sección 5: Producción histórica de miel y cera en Oaxaca -->
         <section id="section5" class="section">
-            <h1>PRODUCCION HISTORICA DE MIEL Y CERA DE ABEJA EN OAXACA</h1>
-            <h2>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE MIEL DE ABEJA (TON)</h2>
-            <div class="chart-container">
-                <canvas id="lineChart2"></canvas>
+            <h1>PRODUCCIÓN HISTORICA DE MIEL Y CERA DE ABEJA EN OAXACA</h1>
+            <div class="bloque-producto">
+                <h2>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE MIEL DE ABEJA (TON)</h2>
+                <div class="chart-container">
+                    <canvas id="lineChart2"></canvas>
+                </div>
             </div>
-            <h3>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE CERA DE ABEJA (TON)</h3>
+            <div class="bloque-subproducto">
+                <h3>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE CERA DE ABEJA (TON)</h3>
 
-            <div class="chart-container">
-                <canvas id="lineChart3"></canvas>
+                <div class="chart-container">
+                    <canvas id="lineChart3"></canvas><!-- Gráfico línea cera -->
+                </div>
             </div>
-
         </section>
+
+        <!-- Sección 6: Producción de miel y cera en Oaxaca por región -->
         <section id="section6" class="section">
-            <h1>PRODUCCION DE MIEL Y CERA DE ABEJA EN OAXACA</h1>
+            <h1>PRODUCCIÓN DE MIEL Y CERA DE ABEJA EN OAXACA</h1>
 
-            <h2>PRODUCCION DE MIEL DE ABEJA EN OAXACA</h2>
+            <div class="bloque-producto">
+                <h2>PRODUCCIÓN DE MIEL DE ABEJA EN OAXACA</h2>
 
-            <table class="tabla-datos">
-                <thead>
-                    <tr>
-                        <th>REGION</th>
-                        <th>VOLUMEN DE PRODUCCION (TON)</th>
-                        <th>PRECIO ($/KG)</th>
-                        <th>VALOR DE PRODUCCION ($)</th>
-                        <th>CANTIDAD DE MUNICIPIOS</th>
-                    </tr>
-                </thead>
+                <!-- Tabla con datos por región -->
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>REGION</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                            <th>CANTIDAD DE MUNICIPIOS</th>
+                        </tr>
+                    </thead>
 
-                <tbody id="tabla_produccion_miel_oax">
-                   
-                </tbody>
-                <tfoot>
-                    <tr id="total_tab_pro_miel_oax">
-                    </tr>
-                </tfoot>
-            </table>
+                    <tbody id="tabla_produccion_miel_oax">
+                        <!-- Datos dinámicos -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_tab_pro_miel_oax">
+                            <!-- Totales -->
+                        </tr>
+                    </tfoot>
+                </table>
 
+                <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
+                </h4>
 
-            <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
-            </h4>
-
-            <div class="chart-container">
-                <canvas id="lineChart4"></canvas>
+                <div class="chart-container">
+                    <canvas id="lineChart4"></canvas><!-- Gráfico pueblos indígenas miel -->
+                </div>
             </div>
+            <div class="bloque-subproducto">
+                <h3>PRODUCCIÓN DE CERA DE ABEJA EN OAXACA</h3>
 
-            <h3>PRODUCCION DE CERA DE ABEJA EN OAXACA</h3>
+                <!-- Tabla con datos por región -->
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>REGION</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                            <th>CANTIDAD DE MUNICIPIOS</th>
+                        </tr>
+                    </thead>
 
+                    <tbody id="tb_pro_cera_oax">
+                        <!-- Datos dinámicos -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_tb_pro_cera_oax">
+                            <!-- Totales -->
+                        </tr>
+                    </tfoot>
+                </table>
 
-            <table class="tabla-datos">
-                <thead>
-                    <tr>
-                        <th>REGION</th>
-                        <th>VOLUMEN DE PRODUCCION (TON)</th>
-                        <th>PRECIO ($/KG)</th>
-                        <th>VALOR DE PRODUCCION ($)</th>
-                        <th>CANTIDAD DE MUNICIPIOS</th>
-                    </tr>
-                </thead>
-
-                <tbody  id="tb_pro_cera_oax">
-                    
-                </tbody>
-                <tfoot>
-                    <tr id="total_tb_pro_cera_oax">
-                    </tr>
-                </tfoot>
-            </table>
-
-            <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
-            </h4>
-            <div class="chart-container">
-                <canvas id="lineChart5"></canvas>
+                <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
+                </h4>
+                <div class="chart-container">
+                    <canvas id="lineChart5"></canvas><!-- Gráfico pueblos indígenas cera -->
+                </div>
             </div>
-
-
         </section>
-        <section id="section7" class="section">
+
+        <!-- Sección 7: Estacionalidad de la producción en Oaxaca -->
+        <section id="section7" class="section bloque-producto">
             <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
             <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la producción se
                 refiere a la variación en la frecuencia mensual con la que se
                 produce miel de abeja en el estado de Oaxaca. Esta variación se mide mediante el
                 Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
-                acuerdo con este indicador, <strong>Noviembre</strong> se posiciona como el mes con la mayor producción de miel,
+                acuerdo con este indicador, <strong>Noviembre</strong> se posiciona como el mes con la mayor producción
+                de miel,
                 alcanzando un valor de <strong>471 puntos</strong> en el índice.</p>
             <h2>Producción de Miel de Abeja</h2>
             <div class="chart-container">
-                <canvas id="lineChart6"></canvas>
+                <canvas id="lineChart6"></canvas><!-- Gráfico línea estacionalidad -->
             </div>
-            
         </section>
+        
+        <!-- Sección 8: Municipios que producen miel y cera en Oaxaca -->
         <section id="section8" class="section">
             <h1>MUNICIPIOS QUE PRODUCEN MIEL Y CERA DE ABEJA EN OAXACA</h1>
-            <div class="contenedor_col1">
+            <div class="contenedor_col1">  
+                <!-- Tabla con municipios por región -->
                 <div class="columna1">
                     <table class="tabla-datos">
                         <thead>
@@ -339,9 +434,8 @@
                                 <th>CANTIDAD DE MUNICIPIOS</th>
                             </tr>
                         </thead>
-
                         <tbody id="tb_mun_miel_oax">
-                           
+<!-- Datos dinámicos -->
                         </tbody>
                         <tfoot>
                             <tr>
@@ -352,12 +446,14 @@
 
                     </table>
                 </div>
+
+                <!-- Mapa Oaxaca en iframe -->
                 <iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
             </div>
         </section>
     </div>
 
-    <!-- Barra de progreso lateral -->
+    <!-- Barra lateral de progreso para navegación entre secciones -->
     <div class="progress-bar">
         <div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
         <div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
@@ -365,17 +461,27 @@
         <div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
         <div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
         <div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
-        <div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="bloque-producto">
+            <div class="progress-circle " data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+
+        </div>
         <div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
     </div>
 </div>
 
-<!-- Script -->
+<!-- Importa archivo JavaScript con datos o funciones para el mapa de apicultura -->
+<script src="{% static 'data/mapas/pecuario/apicultura.js' %}"></script>
+<!-- Importa archivo JavaScript con funciones específicas para la página apícola -->
+<script src="{% static 'pecuario/js/apicola_js.js' %}"></script>
+
+<!-- Script para la barra de progreso lateral y navegación entre secciones -->
 <script>
+    // Selecciona todos los elementos con clase 'progress-circle' (círculos de la barra lateral)
     const circles = document.querySelectorAll('.progress-circle');
+    // Selecciona todas las secciones del documento
     const sections = document.querySelectorAll('section');
 
-    // Scroll a la sección al hacer clic
+    // Añade evento click a cada círculo para hacer scroll suave a la sección correspondiente
     circles.forEach(circle => {
         circle.addEventListener('click', () => {
             const targetId = circle.getAttribute('data-target');
@@ -387,14 +493,17 @@
     // Detectar qué sección está en vista y activar el círculo correspondiente
     window.addEventListener('scroll', () => {
         let current = '';
+        // Recorre todas las secciones para detectar cuál está visible en pantalla
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
+            // Si el scroll vertical está dentro del rango de esta sección
             if (pageYOffset >= sectionTop - sectionHeight / 3) {
                 current = section.getAttribute('id');
             }
         });
 
+        // Para cada círculo elimina la clase 'active' y la asigna sólo al círculo de la sección visible
         circles.forEach(circle => {
             circle.classList.remove('active');
             if (circle.getAttribute('data-target') === current) {
@@ -404,34 +513,82 @@
     });
 </script>
 
-<script src="{% static 'data/mapas/pecuario/apicultura.js' %}"></script>
-<script src="{% static 'pecuario/js/apicola_js.js' %}"></script>
-
+<!-- Script para enviar datos a los iframes cuando cargan -->
 <script>
+    // Obtiene el iframe del mapa de Oaxaca
     const iframe = document.getElementById('frame_oaxaca');
 
+    // Cuando el iframe haya cargado, envía los datos de regiones con municipios al iframe
     iframe.onload = function () {
         iframe.contentWindow.postMessage(regionesConMunicipios, "*");
     };
 
+    // Similar para el iframe del mapa mundial de producción de miel
     const mundo_miel = document.getElementById("frame_mundo_miel");
     mundo_miel.onload = function () {
         mundo_miel.contentWindow.postMessage(paisesDatosMiel, "*");
     }
 
+    // Similar para el iframe del mapa mundial de producción de cera
     const mundo_cera = document.getElementById("frame_mundo_cera");
     mundo_cera.onload = function () {
         mundo_cera.contentWindow.postMessage(paisesDatosCera, "*");
     }
 
+    // Similar para el iframe del mapa nacional de producción de cera
     const mexico_cera = document.getElementById("iframe_mexico_cera");
     mexico_cera.onload = function () {
         mexico_cera.contentWindow.postMessage(estadosDatosCera, "*");
     }
 
+    // Similar para el iframe del mapa nacional de producción de miel
     const mexico_miel = document.getElementById("iframe_mexico_miel");
     mexico_miel.onload = function () {
         mexico_miel.contentWindow.postMessage(estadosDatosMiel, "*");
     }
 </script>
+
+<!-- Script para mostrar/ocultar bloques según el botón seleccionado y manejar estilos de botones -->
+<script>
+    // Función para mostrar los bloques de producto (miel) y ocultar subproductos (cera)
+    function mostrarProducto() {
+        document.querySelectorAll('.bloque-producto').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.bloque-subproducto').forEach(el => el.style.display = 'none');
+
+        // Recarga los iframes de mapa para miel para refrescar datos o visualización
+        document.getElementById('frame_mundo_miel').contentWindow.location.reload();
+        document.getElementById('iframe_mexico_miel').contentWindow.location.reload();
+
+    }
+    
+    // Función para mostrar los bloques de subproducto (cera) y ocultar productos (miel)
+    function mostrarSubProducto() {
+        document.querySelectorAll('.bloque-producto').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.bloque-subproducto').forEach(el => el.style.display = 'block');
+
+        // Recarga los iframes de mapa para cera para refrescar datos o visualización
+        document.getElementById('frame_mundo_cera').contentWindow.location.reload();
+        document.getElementById('iframe_mexico_cera').contentWindow.location.reload()
+    }
+
+    // Al cargar el documento, por defecto muestra la vista de producto (miel)
+    document.addEventListener('DOMContentLoaded', () => {
+        mostrarProducto();
+    });
+
+    // Añade funcionalidad a los botones de filtro para alternar clases 'active'
+    const buttons = document.querySelectorAll('.container-buttons .btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault(); // opcional, si no quieres que el enlace navegue
+
+            // Quita clase 'active' de todos los botones
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Añade clase 'active' sólo al botón clickeado
+            btn.classList.add('active');
+        });
+    });
+</script>
+
 {% endblock %}
