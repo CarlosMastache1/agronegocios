@@ -79,7 +79,7 @@ function renderTable() {
     )}</td><td>${row.precio.toLocaleString(
       "es-MX"
     )}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
-    console.log();
+
     tableBody.appendChild(tr);
   }
 
@@ -742,7 +742,7 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${
 
 /* Grafica 4 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
 const ctx4 = document.getElementById("lineChart4").getContext("2d");
-console.log(pub_indigenas_producto)
+
 const datos4 = {
   labels: pub_indigenas_producto[0],
   datasets: [
@@ -1088,7 +1088,7 @@ new Chart(ctx7, config7);
 const tb_mun_producto_oax = document.getElementById("tb_mun_producto_oax");
 let total_mun_producto_oax = 0;
 for (let i = 0; i < tab_mun_producto_oax.length; i++) {
-  console.log(tab_mun_producto_oax[i].nom)
+
   const fila = document.createElement("tr");
 
   const region = document.createElement("td");
