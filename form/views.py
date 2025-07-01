@@ -24,6 +24,7 @@ import pandas as pd
 import numpy as np
 from decimal import Decimal
 from .utils import get_data
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -241,9 +242,14 @@ def tiendaAgricola(request):
   return render(request, 'agricolaTienda.html')
 
 def tiendaProducAgri(request, categoria):
-  tiendaAgri = productos.objects.filter(subsector = 'AGRICOLA', categoria = categoria, estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA', categoria = categoria, estado=True)
+
+  paginator = Paginator(productos_filtrados, 10)  # 6 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'productoAgricultura.html',
-  {'tiendaAgri' : tiendaAgri, 'categoria' : categoria})
+  {'page_obj': page_obj, 'categoria' : categoria})
 
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
