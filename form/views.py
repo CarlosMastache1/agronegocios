@@ -244,7 +244,7 @@ def tiendaAgricola(request):
 def tiendaProducAgri(request, categoria):
   productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA', categoria = categoria, estado=True)
 
-  paginator = Paginator(productos_filtrados, 10)  # 6 productos por página
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
@@ -255,29 +255,54 @@ def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
 
 def tiendaProducPecu(request, categoria):
-  tiendaPec = productos.objects.filter(subsector = 'PECUARIO',  categoria = categoria, estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'PECUARIO',  categoria = categoria, estado=True)
+
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'productoPecuario.html',
-  {'tiendaPec' : tiendaPec, 'categoria' : categoria})
+  {'page_obj': page_obj, 'categoria' : categoria})
 
 def tiendaPesquero(request):
-  tiendaPes = productos.objects.filter(subsector = 'PESQUERO', estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'PESQUERO', estado=True)
+
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'pesqueroTienda.html',
-  {'tiendaPes' : tiendaPes})
+  {'page_obj': page_obj, 'tiendaPes' : tiendaPes})
 
 def tiendaAcuicola(request):
-  tiendaAcu = productos.objects.filter(subsector = 'ACUICOLA', estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'ACUICOLA', estado=True)
+
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'acuicolaTienda.html',
-  {'tiendaAcu' : tiendaAcu})
+  {'page_obj': page_obj, 'tiendaAcu' : tiendaAcu})
 
 def tiendaForestal(request):
-  tiendaFor = productos.objects.filter(subsector = 'FORESTAL', estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'FORESTAL', estado=True)
+
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'forestalTienda.html',
-  {'tiendaFor' : tiendaFor})
+  {'page_obj': page_obj, 'tiendaFor' : tiendaFor})
 
 def tiendaIndustrial(request):
-  tiendaInd = productos.objects.filter(subsector = 'AGROINDUSTRIAL', estado=True)
+  productos_filtrados = productos.objects.filter(subsector = 'AGROINDUSTRIAL', estado=True)
+
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
   return render(request, 'industrialTienda.html',
-  {'tiendaInd' : tiendaInd})
+  {'page_obj': page_obj, 'tiendaInd' : tiendaInd})
 
 @login_required
 def gestProd(request):
