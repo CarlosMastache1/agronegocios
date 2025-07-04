@@ -2,8 +2,8 @@ const regionesConMunicipios = {
   Papaloapan: [
     {
       id: 20136,
-      territorio: "42",
-      toneladas: "332",
+      superficie: "42",
+      volumen: "332",
     }, //San Felipe Usila
   ],
 };
@@ -12,22 +12,22 @@ const estadosDatos = {
   Puebla: [
     {
       id: 21,
-      territorio: "195",
-      toneladas: "2,369",
+      superficie: "195",
+      volumen: "2,369",
     },
   ],
   Oaxaca: [
     {
       id: 20,
-      territorio: "42",
-      toneladas: "332",
+      superficie: "42",
+      volumen: "332",
     },
   ],
   Guerrero: [
     {
       id: 12,
-      territorio: "1",
-      toneladas: "5",
+      superficie: "1",
+      volumen: "5",
     },
   ],
 };
@@ -36,133 +36,133 @@ const paisesDatos = {
   India: [
     {
       id: "IND",
-      territorio: "193,000"
+      superficie: "193,000"
     },
   ],
   Nigeria: [
     {
       id: "NGA",
-      territorio: "96,120"
+      superficie: "96,120"
     },
   ],
   China: [
     {
       id: "CHN",
-      territorio: "125,770"
+      superficie: "125,770"
     },
   ],
   Nepal: [
     {
       id: "NPL",
-      territorio: "22,441"
+      superficie: "22,441"
     },
   ],
   Bangladesh: [
     {
       id: "BGD",
-      territorio: "10,429"
+      superficie: "10,429"
     },
   ],
   Indonesia: [
     {
       id: "IDN",
-      territorio: "10,409"
+      superficie: "10,409"
     },
   ],
   Tailandia: [
     {
       id: "THA",
-      territorio: "10,269"
+      superficie: "10,269"
     },
   ],
   "Perú": [
     {
       id: "PER",
-      territorio: "8,001"
+      superficie: "8,001"
     },
   ],
   "Sri Lanka": [
     {
       id: "LKA",
-      territorio: "6,736"
+      superficie: "6,736"
     },
   ],
   "Camerún": [
     {
       id: "CMR",
-      territorio: "5,087"
+      superficie: "5,087"
     },
   ],
   Filipinas: [
     {
       id: "PHL",
-      territorio: "4,057"
+      superficie: "4,057"
     },
   ],
   Guyana: [
     {
       id: "GUY",
-      territorio: "3,877"
+      superficie: "3,877"
     },
   ],
   "Etiopía": [
     {
       id: "ETH",
-      territorio: "3,657"
+      superficie: "3,657"
     },
   ],
   "República de Corea": [
     {
       id: "KOR",
-      territorio: "3,455"
+      superficie: "3,455"
     },
   ],
   "Malí": [
     {
       id: "MLI",
-      territorio: "3,121"
+      superficie: "3,121"
     },
   ],
   "Japón": [
     {
       id: "JPN",
-      territorio: "1,830"
+      superficie: "1,830"
     },
   ],
   "Taiwán": [
     {
       id: "TWN",
-      territorio: "854"
+      superficie: "854"
     },
   ],
   "Bután": [
     {
       id: "BTN",
-      territorio: "800"
+      superficie: "800"
     },
   ],
   "Panamá": [
     {
       id: "PAN",
-      territorio: "650"
+      superficie: "650"
     },
   ],
   Fiji: [
     {
       id: "FJI",
-      territorio: "563"
+      superficie: "563"
     },
   ],
   "Costa de Marfil": [
     {
       id: "CIV",
-      territorio: "536"
+      superficie: "536"
     },
   ],
   "México": [
     {
       id: "MEX",
-      territorio: "433"
+      superficie: "433"
     },
   ],
 };

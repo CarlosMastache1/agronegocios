@@ -1,3 +1,5 @@
+document.getElementById("descripcion").innerHTML = `<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">Con una historia de más de <strong>100 años</strong> de cultivo de café, Oaxaca tiene <strong>151 Municipios</strong> productores de café, se encuentra en el <strong>4to lugar</strong> en producción a nivel nacional, con <strong>10 pueblos indígenas</strong> productores de este cultivo.</p>`;
+
 /* Tabla 3 PRODUCCION NACIONAL DEL SECTOR PORCINO CARNE DE PORCINO */
 let currentPage = 1;
 let rowsPerPage = 10;
@@ -19,9 +21,7 @@ function renderTable() {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${row.ranking}</td><td>${
       row.pais
-    }</td><td>${row.superficie.toLocaleString(
-      "es-MX"
-    )}</td>`;
+    }</td><td>${row.superficie.toLocaleString("es-MX")}</td>`;
     tableBody.appendChild(tr);
   }
 
@@ -398,7 +398,7 @@ const datos2 = {
       tension: 0.3,
       fill: false,
     },
-     {
+    {
       label: produccion_historica_producto[4].nom,
       data: produccion_historica_producto[4].fila,
       borderColor: "rgba(204, 102, 0, 1)",
@@ -505,7 +505,6 @@ const config2 = {
 };
 
 new Chart(ctx2, config2);
-
 
 /* GRAFICA LIENA BALANZA DE AGAVE */
 /* const ctx = document.getElementById("lineChart").getContext("2d");
@@ -697,7 +696,7 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${0.80}</th><th>${valor_producto.toLocaleString(
+)}</th><th>${0.8}</th><th>${valor_producto.toLocaleString(
   "es-MX"
 )}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 
@@ -829,7 +828,6 @@ const config3 = {
 
 new Chart(ctx3, config3);
 
-
 const ctx4 = document.getElementById("lineChart4").getContext("2d");
 
 const datos4 = {
@@ -907,25 +905,135 @@ const config4 = {
 
 new Chart(ctx4, config4);
 
-/* Tabla MUNICIPIOS QUE PRODUCEN CARNE DE PORCINO EN OAXACA */
-const tb_mun_producto_oax = document.getElementById("tb_mun_producto_oax");
-let total_mun_producto_oax = 0;
-for (let i = 0; i < tab_mun_producto_oax.length; i++) {
-  console.log(tab_mun_producto_oax[i].nom);
-  const fila = document.createElement("tr");
+const contenedor_botones = document.getElementById("botones");
+const contenedor_tabla = document.getElementById("tabla");
+const titulo_regmun = document.getElementById("titulo_regmun");
 
-  const region = document.createElement("td");
-  region.textContent = tab_mun_producto_oax[i].nom;
+let pagina_actual = 1;
+const items_por_pagina = 15;
+let municipios_actuales = [];
 
-  total_mun_producto_oax += tab_mun_producto_oax[i].num;
-
-  const cantidad = document.createElement("td");
-  cantidad.textContent = tab_mun_producto_oax[i].num;
-  fila.appendChild(region);
-  fila.appendChild(cantidad);
-
-  tb_mun_producto_oax.appendChild(fila);
+for (const region in regionesConMunicipios) {
+  const boton = document.createElement("button");
+  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
+  boton.addEventListener("click", () => mostrar_tabla(region, 1));
+  contenedor_botones.appendChild(boton);
 }
 
-document.getElementById("total_mun_producto_oax").textContent =
-  total_mun_producto_oax;
+function mostrar_tabla(region, pagina) {
+  municipios_actuales = regionesConMunicipios[region];
+  pagina_actual = pagina;
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  const inicio = (pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Territorio (Ha)</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.superficie.toLocaleString("es-MX")}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  if (municipios_actuales.length > items_por_pagina) {
+    html += `<div class="pagination_mun">`;
+
+    if (pagina > 1) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina - 1
+      })">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= total_paginas; i++) {
+      if (i === pagina) {
+        html += `<button style="font-weight:bold;">${i}</button>`;
+      } else {
+        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+      }
+    }
+
+    if (pagina < total_paginas) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina + 1
+      })">Siguiente</button>`;
+    }
+
+    html += `</div>`;
+  }
+
+  contenedor_tabla.innerHTML = html;
+}
+
+function cambiar_pagina(nueva_pagina) {
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  if (nueva_pagina < 1) nueva_pagina = 1;
+  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
+
+  const inicio = (nueva_pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Territorio (Ha)</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.superficie.toLocaleString("es-MX")}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+
+  html += `<div class="pagination_mun">`;
+
+  if (nueva_pagina > 1) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina - 1
+    })">Anterior</button>`;
+  }
+
+  for (let i = 1; i <= total_paginas; i++) {
+    if (i === nueva_pagina) {
+      html += `<button style="font-weight:bold;">${i}</button>`;
+    } else {
+      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+    }
+  }
+
+  if (nueva_pagina < total_paginas) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina + 1
+    })">Siguiente</button>`;
+  }
+
+  html += `</div>`;
+
+  contenedor_tabla.innerHTML = html;
+  pagina_actual = nueva_pagina;
+}

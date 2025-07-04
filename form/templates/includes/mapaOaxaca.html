@@ -158,8 +158,8 @@
                                         // Mostrar info en el panel flotante
                                         const panel = document.getElementById("info-panel");
                                         let textPanel = `<h2><strong>${name}</strong></h2>`
-                                    textPanel += info.territorio?`<p><strong>Superficie sembrada:</strong> ${info.territorio} Ha</p>`:``;
-                                    textPanel += info.toneladas?`<p><strong>Volumen de producción:</strong> ${info.toneladas} Ton</p>`:``;
+                                        textPanel += info.superficie ? `<p><strong>Superficie sembrada:</strong> ${info.superficie.toLocaleString("es-MX")} Ha</p>` : ``;
+                                        textPanel += info.volumen ? `<p><strong>Volumen de producción:</strong> ${info.volumen.toLocaleString("es-MX")} Ton</p>` : ``;
 
                                         panel.innerHTML = textPanel;
                                         panel.style.display = "block";
@@ -186,12 +186,14 @@
             const legend = L.control({ position: "bottomright" });
             legend.onAdd = function (mapOaxaca) {
                 const div = L.DomUtil.create("div", "legend");
-                div.innerHTML = `<strong>Regiones</strong><br>`;
-                div.innerHTML += `<label><input type="checkbox" id="check-todos" checked> Todos</label><br>`;
+                let totalmunicipiosreg = 0;
+                div.innerHTML = ``;
                 for (const region in regionesConMunicipios) {
+                    totalmunicipiosreg += regionesConMunicipios[region].length;
                     const id = region.toLowerCase().replace(/\s+/g, "-");
-                    div.innerHTML += `<label><input type="checkbox" class="region-checkbox" data-region="${region}" checked> ${region}</label><br>`;
+                    div.innerHTML += `<label><input type="checkbox" class="region-checkbox" data-region="${region}" checked> ${region}  [${regionesConMunicipios[region].length}]</label><br>`;
                 }
+                div.innerHTML = `<strong>Regiones</strong><br><label><input type="checkbox" id="check-todos" checked> Todos [${totalmunicipiosreg}]</label><br>` + div.innerHTML;
                 L.DomEvent.disableClickPropagation(div);
                 return div;
             };
@@ -287,7 +289,7 @@
 
                                 panel.innerHTML = `
                                     <h2><strong>${layer._nombre}</strong></h2><p><strong>Superficie sembrada:</strong> ${municipio.territorio} Ha<br>
-              <strong>Volumen de producción:</strong> ${municipio.toneladas} Ton</p>
+              <strong>Volumen de producción:</strong> ${municipio.volumen.toLocaleString("es-MX")} Ton</p>
                                     `;
                                 panel.style.display = "block";
 

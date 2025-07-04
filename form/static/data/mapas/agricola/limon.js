@@ -3,162 +3,368 @@ const regionesConMunicipios = {
   //55
   "Sierra de Flores Magón": [
     //7
-    { id: 20206, territorio: "360", toneladas: "2,797" }, // "San Juan de Los Cués"
-    { id: 20244, territorio: "353", toneladas: "2,499" }, // "San Martín Toxpalan"
-    { id: 20431, territorio: "415", toneladas: "2,975" }, // "Santa María Tecomavaca"
-    { id: 20545, territorio: "190", toneladas: "988" }, // "Teotitlán de Flores Magón"
-    { id: 20027, territorio: "387", toneladas: "2,409" }, // "Chiquihuitlán de Benito Juárez"
-    { id: 20177, territorio: "339", toneladas: "2,340" }, // "San Juan Bautista Cuicatlán"
-    { id: 20558, territorio: "59", toneladas: "350" }, // "Valerio Trujano"
+    {
+      id: 20206,
+      superficie: 360,
+      volumen: 2797,
+      nombre: "San Juan de Los Cués",
+    },
+    {
+      id: 20244,
+      superficie: 353,
+      volumen: 2499,
+      nombre: "San Martín Toxpalan",
+    },
+    {
+      id: 20431,
+      superficie: 415,
+      volumen: 2975,
+      nombre: "Santa María Tecomavaca",
+    },
+    {
+      id: 20545,
+      superficie: 190,
+      volumen: 988,
+      nombre: "Teotitlán de Flores Magón",
+    },
+    {
+      id: 20027,
+      superficie: 387,
+      volumen: 2409,
+      nombre: "Chiquihuitlán de Benito Juárez",
+    },
+    {
+      id: 20177,
+      superficie: 339,
+      volumen: 2340,
+      nombre: "San Juan Bautista Cuicatlán",
+    },
+    {
+      id: 20558,
+      superficie: 59,
+      volumen: 350,
+
+      nombre: "Valerio Trujano",
+    },
   ],
   Costa: [
     //6
-    { id: 20090, territorio: "28", toneladas: "397" }, // "San Andrés Huaxpaltepec"
-    { id: 20414, territorio: "68", toneladas: "817" }, // "Santa María Huazolotitlán"
-    { id: 20467, territorio: "574", toneladas: "8,119" }, // "Santiago Jamiltepec"
-    { id: 20482, territorio: "261", toneladas: "3,260" }, // "Santiago Pinotepa Nacional"
-    { id: 20319, territorio: "35", toneladas: "474" }, // "San Pedro Mixtepec"
-    { id: 20334, territorio: "3,599", toneladas: "57,282" }, // "Villa de Tututepec de Melchor Ocampo"
+    {
+      id: 20090,
+      superficie: 28,
+      volumen: 397,
+      nombre: "San Andrés Huaxpaltepec",
+    },
+    {
+      id: 20414,
+      superficie: 68,
+      volumen: 817,
+      nombre: "Santa María Huazolotitlán",
+    },
+    {
+      id: 20467,
+      superficie: 574,
+      volumen: 8119,
+      nombre: "Santiago Jamiltepec",
+    },
+    {
+      id: 20482,
+      superficie: 261,
+      volumen: 3260,
+      nombre: "Santiago Pinotepa Nacional",
+    },
+    {
+      id: 20319,
+      superficie: 35,
+      volumen: 474,
+      nombre: "San Pedro Mixtepec",
+    },
+    {
+      id: 20334,
+      superficie: 3599,
+      volumen: 57282,
+      nombre: "Villa de Tututepec de Melchor Ocampo",
+    },
   ],
   Istmo: [
     //15
-    { id: 20025, territorio: "17", toneladas: "159" }, // "Chahuites"
-    { id: 20075, territorio: "6", toneladas: "19" }, // "Reforma de Pineda"
-    { id: 20143, territorio: "27", toneladas: "136" }, // "San Francisco Ixhuatán"
-    { id: 20327, territorio: "61", toneladas: "536" }, // "San Pedro Tapanatepec"
-    { id: 20525, territorio: "33", toneladas: "264" }, // "Santo Domingo Zanatepec"
-    { id: 20057, territorio: "347", toneladas: "4,959" }, // "Matías Romero Avendaño"
-    { id: 20198, territorio: "99", toneladas: "1,458" }, // "San Juan Guichicovi"
-    { id: 20030, territorio: "3", toneladas: "21" }, // "El Espinal"
-    { id: 20053, territorio: "4", toneladas: "31" }, // "Magdalena Tlacotepec"
-    { id: 20124, territorio: "6", toneladas: "58" }, // "San Blas Atempa"
-    { id: 20418, territorio: "40", toneladas: "362" }, // "Santa María Jalapa del Marqués"
-    { id: 20472, territorio: "9", toneladas: "81" }, // "Santiago Laollaga"
-    { id: 20508, territorio: "8", toneladas: "67" }, // "Santo Domingo Chihuitán"
-    { id: 20515, territorio: "9", toneladas: "83" }, // "Santo Domingo Tehuantepec"
-    { id: 20052, territorio: "131", toneladas: "1,615" }, // "Magdalena Tequisistlán"
+    {
+      id: 20025,
+      superficie: 17,
+      volumen: 159,
+      nombre: "Chahuites",
+    },
+    {
+      id: 20075,
+      superficie: 6,
+      volumen: 19,
+      nombre: "Reforma de Pineda",
+    },
+    {
+      id: 20143,
+      superficie: 27,
+      volumen: 136,
+      nombre: "San Francisco Ixhuatán",
+    },
+    {
+      id: 20327,
+      superficie: 61,
+      volumen: 536,
+      nombre: "San Pedro Tapanatepec",
+    },
+    {
+      id: 20525,
+      superficie: 33,
+      volumen: 264,
+      nombre: "Santo Domingo Zanatepec",
+    },
+    {
+      id: 20057,
+      superficie: 347,
+      volumen: 4959,
+      nombre: "Matías Romero Avendaño",
+    },
+    {
+      id: 20198,
+      superficie: 99,
+      volumen: 1458,
+      nombre: "San Juan Guichicovi",
+    },
+    {
+      id: 20030,
+      superficie: 3,
+      volumen: 21,
+      nombre: "El Espinal",
+    },
+    {
+      id: 20053,
+      superficie: 4,
+      volumen: 31,
+      nombre: "Magdalena Tlacotepec",
+    },
+    {
+      id: 20124,
+      superficie: 6,
+      volumen: 58,
+      nombre: "San Blas Atempa",
+    },
+    {
+      id: 20418,
+      superficie: 40,
+      volumen: 362,
+      nombre: "Santa María Jalapa del Marqués",
+    },
+    {
+      id: 20472,
+      superficie: 9,
+      volumen: 81,
+      nombre: "Santiago Laollaga",
+    },
+    {
+      id: 20508,
+      superficie: 8,
+      volumen: 67,
+      nombre: "Santo Domingo Chihuitán",
+    },
+    {
+      id: 20515,
+      superficie: 9,
+      volumen: 83,
+      nombre: "Santo Domingo Tehuantepec",
+    },
+    {
+      id: 20052,
+      superficie: 131,
+      volumen: 1615,
+      nombre: "Magdalena Tequisistlán",
+    },
   ],
   Mixteca: [
     //8
-    { id: 20039, territorio: "5", toneladas: "54" }, // "Heroica Ciudad de Huajuapan de León"
-    { id: 20081, territorio: "2", toneladas: "19" }, // "San Agustín Atenango"
-    { id: 20237, territorio: "1", toneladas: "10" }, // "San Marcos Arteaga"
-    { id: 20462, territorio: "4", toneladas: "29" }, // "Santiago Huajolotitlán"
-    { id: 20469, territorio: "4", toneladas: "33" }, // "Santiago Juxtlahuaca"
-    { id: 20520, territorio: "3", toneladas: "32" }, // "Santo Domingo Tonalá"
-    { id: 20537, territorio: "7", toneladas: "73" }, // "Silacayoápam"
-    { id: 20549, territorio: "10", toneladas: "89" }, // "Heroica Villa Tezoatlán de Segura y Luna, Cuna de la Independencia de Oaxaca"
+    {
+      id: 20039,
+      superficie: 5,
+      volumen: 54,
+      nombre: "Heroica Ciudad de Huajuapan de León",
+    },
+    {
+      id: 20081,
+      superficie: 2,
+      volumen: 19,
+      nombre: "San Agustín Atenango",
+    },
+    {
+      id: 20237,
+      superficie: 1,
+      volumen: 10,
+      nombre: "San Marcos Arteaga",
+    },
+    {
+      id: 20462,
+      superficie: 4,
+      volumen: 29,
+      nombre: "Santiago Huajolotitlán",
+    },
+    {
+      id: 20469,
+      superficie: 4,
+      volumen: 33,
+      nombre: "Santiago Juxtlahuaca",
+    },
+    {
+      id: 20520,
+      superficie: 3,
+      volumen: 32,
+      nombre: "Santo Domingo Tonalá",
+    },
+    {
+      id: 20537,
+      superficie: 7,
+      volumen: 73,
+      nombre: "Silacayoápam",
+    },
+    {
+      id: 20549,
+      superficie: 10,
+      volumen: 89,
+      nombre:
+        "Heroica Villa Tezoatlán de Segura y Luna, Cuna de la Independencia de Oaxaca",
+    },
   ],
   Papaloapan: [
     //6
-    { id: 20044, territorio: "30", toneladas: "360" }, // "Loma Bonita"
-    { id: 20184, territorio: "931", toneladas: "13,702" }, // "San Juan Bautista Tuxtepec"
-    { id: 20232, territorio: "16", toneladas: "141" }, // "San Lucas Ojitlán"
-    { id: 20002, territorio: "1,044", toneladas: "14,154" }, // "Acatlán de Pérez Figueroa"
-    { id: 20278, territorio: "510", toneladas: "6,895" }, // "San Miguel Soyaltepec"
-    { id: 20498, territorio: "7,642", toneladas: "94,436" }, // "Santiago Yaveo"
+    {
+      id: 20044,
+      superficie: 30,
+      volumen: 360,
+      nombre: "Loma Bonita",
+    },
+    {
+      id: 20184,
+      superficie: 931,
+      volumen: 13702,
+      nombre: "San Juan Bautista Tuxtepec",
+    },
+    {
+      id: 20232,
+      superficie: 16,
+      volumen: 141,
+      nombre: "San Lucas Ojitlán",
+    },
+    {
+      id: 20002,
+      superficie: 1044,
+      volumen: 14154,
+      nombre: "Acatlán de Pérez Figueroa",
+    },
+    {
+      id: 20278,
+      superficie: 510,
+      volumen: 6895,
+      nombre: "San Miguel Soyaltepec",
+    },
+    {
+      id: 20498,
+      superficie: 7642,
+      volumen: 94436,
+      nombre: "Santiago Yaveo",
+    },
   ],
   "Sierra de Juárez": [
     //2
-    { id: 20207, territorio: "2,149", toneladas: "26,770" }, // "San Juan Mazatlán"
-    { id: 20190, territorio: "3,984", toneladas: "47,664" }, // "San Juan Cotzocón"
+    {
+      id: 20207,
+      superficie: 2149,
+      volumen: 26770,
+      nombre: "San Juan Mazatlán",
+    },
+    {
+      id: 20190,
+      superficie: 3984,
+      volumen: 47664,
+      nombre: "San Juan Cotzocón",
+    },
   ],
   "Sierra Sur": [
     //5
-    { id: 20088, territorio: "18", toneladas: "63" }, // "San Andrés Cabecera Nueva"
-    { id: 20377, territorio: "65", toneladas: "307" }, // "Santa Cruz Itundujia"
-    { id: 20392, territorio: "10", toneladas: "40" }, // "Santa Lucía Monteverde"
-    { id: 20447, territorio: "11", toneladas: "132" }, // "Santa María Zacatepec"
-    { id: 20064, territorio: "37", toneladas: "468" }, // "Nejapa de Madero"
+    {
+      id: 20088,
+      superficie: 18,
+      volumen: 63,
+      nombre: "San Andrés Cabecera Nueva",
+    },
+    {
+      id: 20377,
+      superficie: 65,
+      volumen: 307,
+      nombre: "Santa Cruz Itundujia",
+    },
+    {
+      id: 20392,
+      superficie: 10,
+      volumen: 40,
+      nombre: "Santa Lucía Monteverde",
+    },
+    {
+      id: 20447,
+      superficie: 11,
+      volumen: 132,
+      nombre: "Santa María Zacatepec",
+    },
+    {
+      id: 20064,
+      superficie: 37,
+      volumen: 468,
+      nombre: "Nejapa de Madero",
+    },
   ],
   "Valles Centrales": [
     //6
-    { id: 20007, territorio: "1", toneladas: "8" }, // "Asunción Ocotlán"
-    { id: 20132, territorio: "7", toneladas: "41" }, // "San Dionisio Ocotlán"
-    { id: 20301, territorio: "5", toneladas: "41" }, // "San Pedro Apóstol"
-    { id: 20333, territorio: "22", toneladas: "133" }, // "San Pedro Totolápam"
-    { id: 20449, territorio: "9", toneladas: "43" }, // "Santa María Zoquitlán"
-    { id: 20551, territorio: "4", toneladas: "17" }, // "Tlacolula de Matamoros"
+    {
+      id: 20007,
+      superficie: 1,
+      volumen: 8,
+      nombre: "Asunción Ocotlán",
+    },
+    {
+      id: 20132,
+      superficie: 7,
+      volumen: 41,
+      nombre: "San Dionisio Ocotlán",
+    },
+    {
+      id: 20301,
+      superficie: 5,
+      volumen: 41,
+      nombre: "San Pedro Apóstol",
+    },
+    {
+      id: 20333,
+      superficie: 22,
+      volumen: 133,
+      nombre: "San Pedro Totolápam",
+    },
+    {
+      id: 20449,
+      superficie: 9,
+      volumen: 43,
+      nombre: "Santa María Zoquitlán",
+    },
+    {
+      id: 20551,
+      superficie: 4,
+      volumen: 17,
+      nombre: "Tlacolula de Matamoros",
+    },
   ],
 };
-
-// Datos agregados por entidad federativa (estado) a nivel nacional
-const estados_datos_pro = [
-  // 28
-  { id: "MICH", territorio: "953652", toneladas: "63396" },
-  { id: "VER", territorio: "867916", toneladas: "52924" },
-  { id: "COL", territorio: "312047", toneladas: "21832" },
-  { id: "OAX", territorio: "300310", toneladas: "23993" },
-  { id: "TAMP", territorio: "135886", toneladas: "8508" },
-  { id: "YUC", territorio: "110132", toneladas: "5999" },
-  { id: "JAL", territorio: "108797", toneladas: "6967" },
-  { id: "TAB", territorio: "90381", toneladas: "7237" },
-  { id: "GRO", territorio: "71731", toneladas: "6995" },
-  { id: "SLP", territorio: "46299", toneladas: "1759" },
-  { id: "PUE", territorio: "44328", toneladas: "3166" },
-  { id: "QR", territorio: "42141", toneladas: "4702" },
-  { id: "CHS", territorio: "34590", toneladas: "3115" },
-  { id: "NAY", territorio: "34050", toneladas: "3206" },
-  { id: "SIN", territorio: "27656", toneladas: "1784" },
-  { id: "CAM", territorio: "16650", toneladas: "1873" },
-  { id: "ZAC", territorio: "11338", toneladas: "761" },
-  { id: "SON", territorio: "9646", toneladas: "1215" },
-  { id: "AGS", territorio: "5271", toneladas: "600" },
-  { id: "NL", territorio: "5171", toneladas: "1081" },
-  { id: "MOR", territorio: "4807", toneladas: "422" },
-  { id: "BCN", territorio: "2692", toneladas: "209" },
-  { id: "HGO", territorio: "1463", toneladas: "239" },
-  { id: "EM", territorio: "1180", toneladas: "150" },
-  { id: "GTO", territorio: "971", toneladas: "169" },
-  { id: "DGO", territorio: "526", toneladas: "263" },
-  { id: "BCS", territorio: "254", toneladas: "75" },
-  { id: "QRO", territorio: "30", toneladas: "8" },
-];
-
-//Datos por país: superficie cosechada
-const paises_datos_pro = [
-  //15
-  { id: "IND", toneladas: "313000" },
-  { id: "MEX", toneladas: "201998" },
-  { id: "CHN", toneladas: "209392" },
-  { id: "BRA", toneladas: "62867" },
-  { id: "BGD", toneladas: "55744" },
-  { id: "TUR", toneladas: "55246" },
-  { id: "ARG", toneladas: "53742" },
-  { id: "ESP", toneladas: "52570" },
-  { id: "ZAF", toneladas: "35273" },
-  { id: "DOM", toneladas: "34124" },
-  { id: "SDN", toneladas: "32772" },
-  { id: "IRN", toneladas: "28636" },
-  { id: "PER", toneladas: "28121" },
-  { id: "ITA", toneladas: "24560" },
-];
-
-//Ranking mundial de países por superficie sembrada (en hectáreas)
-const tab_pro_mundial = [
-  { ranking: 1, pais: "India", superficie: 313000 },
-  { ranking: 2, pais: "México", superficie: 201998 },
-  { ranking: 3, pais: "China", superficie: 105923 },
-  { ranking: 4, pais: "China, Continental", superficie: 103469 },
-  { ranking: 5, pais: "Brasil", superficie: 62867 },
-  { ranking: 6, pais: "Bangladesh", superficie: 55744 },
-  { ranking: 7, pais: "Turquía", superficie: 55246 },
-  { ranking: 8, pais: "Argentina", superficie: 53742 },
-  { ranking: 9, pais: "España", superficie: 52570 },
-  { ranking: 10, pais: "Sudáfrica", superficie: 35273 },
-  { ranking: 11, pais: "República Dominicana", superficie: 34124 },
-  { ranking: 12, pais: "Sudán", superficie: 32772 },
-  { ranking: 13, pais: "Irán", superficie: 28636 },
-  { ranking: 14, pais: "Perú", superficie: 28121 },
-  { ranking: 15, pais: "Italia", superficie: 24560 },
-  { ranking: "", pais: "Otros", superficie: 252135 },
-];
 
 // Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
 // rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
   {
+    id: "MICH",
     ranking: 1,
     entidad: "Michoacán",
     volumen: 953652,
@@ -167,6 +373,7 @@ const tab_pro_nacional = [
     valor: 11743911310,
   },
   {
+    id: "VER",
     ranking: 2,
     entidad: "Veracruz",
     volumen: 867916,
@@ -175,6 +382,7 @@ const tab_pro_nacional = [
     valor: 6273388787,
   },
   {
+    id: "COL",
     ranking: 3,
     entidad: "Colima",
     volumen: 312047,
@@ -183,6 +391,7 @@ const tab_pro_nacional = [
     valor: 4448390240,
   },
   {
+    id: "OAX",
     ranking: 4,
     entidad: "Oaxaca",
     volumen: 300310,
@@ -191,6 +400,7 @@ const tab_pro_nacional = [
     valor: 1938092136,
   },
   {
+    id: "TAMP",
     ranking: 5,
     entidad: "Tamaulipas",
     volumen: 135886,
@@ -199,6 +409,7 @@ const tab_pro_nacional = [
     valor: 1149923988,
   },
   {
+    id: "YUC",
     ranking: 6,
     entidad: "Yucatán",
     volumen: 110132,
@@ -207,6 +418,7 @@ const tab_pro_nacional = [
     valor: 773818419,
   },
   {
+    id: "JAL",
     ranking: 7,
     entidad: "Jalisco",
     volumen: 108797,
@@ -215,6 +427,7 @@ const tab_pro_nacional = [
     valor: 1118804930,
   },
   {
+    id: "TAB",
     ranking: 8,
     entidad: "Tabasco",
     volumen: 90381,
@@ -223,6 +436,7 @@ const tab_pro_nacional = [
     valor: 430462978,
   },
   {
+    id: "GRO",
     ranking: 9,
     entidad: "Guerrero",
     volumen: 71731,
@@ -231,6 +445,7 @@ const tab_pro_nacional = [
     valor: 464078257,
   },
   {
+    id: "SLP",
     ranking: 10,
     entidad: "San Luis Potosí",
     volumen: 46299,
@@ -239,6 +454,7 @@ const tab_pro_nacional = [
     valor: 668442875,
   },
   {
+    id: "PUE",
     ranking: 11,
     entidad: "Puebla",
     volumen: 44328,
@@ -247,6 +463,7 @@ const tab_pro_nacional = [
     valor: 452469759,
   },
   {
+    id: "QR",
     ranking: 12,
     entidad: "Quintana Roo",
     volumen: 42141,
@@ -255,6 +472,7 @@ const tab_pro_nacional = [
     valor: 435898944,
   },
   {
+    id: "CHS",
     ranking: 13,
     entidad: "Chiapas",
     volumen: 34590,
@@ -263,6 +481,7 @@ const tab_pro_nacional = [
     valor: 104259280,
   },
   {
+    id: "NAY",
     ranking: 14,
     entidad: "Nayarit",
     volumen: 34050,
@@ -271,6 +490,7 @@ const tab_pro_nacional = [
     valor: 328674336,
   },
   {
+    id: "SIN",
     ranking: 15,
     entidad: "Sinaloa",
     volumen: 27656,
@@ -279,6 +499,7 @@ const tab_pro_nacional = [
     valor: 293677103,
   },
   {
+    id: "CAM",
     ranking: 16,
     entidad: "Campeche",
     volumen: 16650,
@@ -287,6 +508,7 @@ const tab_pro_nacional = [
     valor: 187799789,
   },
   {
+    id: "ZAC",
     ranking: 17,
     entidad: "Zacatecas",
     volumen: 11338,
@@ -295,6 +517,7 @@ const tab_pro_nacional = [
     valor: 125749498,
   },
   {
+    id: "SON",
     ranking: 18,
     entidad: "Sonora",
     volumen: 9646,
@@ -303,6 +526,7 @@ const tab_pro_nacional = [
     valor: 76605739,
   },
   {
+    id: "AGS",
     ranking: 19,
     entidad: "Aguascalientes",
     volumen: 5271,
@@ -311,6 +535,7 @@ const tab_pro_nacional = [
     valor: 32507469,
   },
   {
+    id: "NL",
     ranking: 20,
     entidad: "Nuevo León",
     volumen: 5171,
@@ -319,6 +544,7 @@ const tab_pro_nacional = [
     valor: 40370026,
   },
   {
+    id: "MOR",
     ranking: 21,
     entidad: "Morelos",
     volumen: 4807,
@@ -327,6 +553,7 @@ const tab_pro_nacional = [
     valor: 50423087,
   },
   {
+    id: "BCN",
     ranking: 22,
     entidad: "Baja California",
     volumen: 2692,
@@ -335,6 +562,7 @@ const tab_pro_nacional = [
     valor: 30953531,
   },
   {
+    id: "HGO",
     ranking: 23,
     entidad: "Hidalgo",
     volumen: 1463,
@@ -343,6 +571,7 @@ const tab_pro_nacional = [
     valor: 6809825,
   },
   {
+    id: "EM",
     ranking: 24,
     entidad: "México",
     volumen: 1180,
@@ -351,6 +580,7 @@ const tab_pro_nacional = [
     valor: 10707503,
   },
   {
+    id: "GTO",
     ranking: 25,
     entidad: "Guanajuato",
     volumen: 971,
@@ -359,6 +589,7 @@ const tab_pro_nacional = [
     valor: 9606882,
   },
   {
+    id: "DGO",
     ranking: 26,
     entidad: "Durango",
     volumen: 526,
@@ -367,6 +598,7 @@ const tab_pro_nacional = [
     valor: 3229693,
   },
   {
+    id: "BCS",
     ranking: 27,
     entidad: "Baja California Sur",
     volumen: 254,
@@ -375,6 +607,7 @@ const tab_pro_nacional = [
     valor: 2114635,
   },
   {
+    id: "QRO",
     ranking: 28,
     entidad: "Querétaro",
     volumen: 30,
@@ -383,6 +616,45 @@ const tab_pro_nacional = [
     valor: 257450,
   },
 ];
+
+//Ranking mundial de países por superficie sembrada (en hectáreas)
+const tab_pro_mundial = [
+  { id: "IND", ranking: 1, pais: "India", superficie: 313000 },
+  { id: "MEX", ranking: 2, pais: "México", superficie: 201998 },
+  { id: "CHN", ranking: 3, pais: "China", superficie: 105923 },
+  { id: "CHN", ranking: 4, pais: "China, Continental", superficie: 103469 },
+  { id: "BRA", ranking: 5, pais: "Brasil", superficie: 62867 },
+  { id: "BGD", ranking: 6, pais: "Bangladesh", superficie: 55744 },
+  { id: "TUR", ranking: 7, pais: "Turquía", superficie: 55246 },
+  { id: "ARG", ranking: 8, pais: "Argentina", superficie: 53742 },
+  { id: "ESP", ranking: 9, pais: "España", superficie: 52570 },
+  { id: "ZAF", ranking: 10, pais: "Sudáfrica", superficie: 35273 },
+  { id: "DOM", ranking: 11, pais: "República Dominicana", superficie: 34124 },
+  { id: "SDN", ranking: 12, pais: "Sudán", superficie: 32772 },
+  { id: "IRN", ranking: 13, pais: "Irán", superficie: 28636 },
+  { id: "PER", ranking: 14, pais: "Perú", superficie: 28121 },
+  { id: "ITA", ranking: 15, pais: "Italia", superficie: 24560 },
+  { ranking: "", pais: "Otros", superficie: 252135 },
+];
+
+const agrupado = {};
+
+tab_pro_mundial.forEach((item) => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 // Años de referencia para los datos de balanza comercial
 const labels_balanza = [
@@ -565,16 +837,4 @@ const pub_indigenas_producto = [
 /* Datos grafica Estacionalidad de calabacita en Oaxaca */
 const estacionalidad_producto = [
   140, 170, 125, 150, 158, 175, 162, 158, 148, 156, 142, 161,
-];
-
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN DE CALABACITA EN OAXACA */
-const tab_mun_producto_oax = [
-  { nom: "Papaloapan", num: 6 },
-  { nom: "Sierra de Juárez", num: 2 },
-  { nom: "Costa", num: 6 },
-  { nom: "Sierra de Flores Magón", num: 7 },
-  { nom: "Istmo", num: 15 },
-  { nom: "Sierra Sur", num: 5 },
-  { nom: "Mixteca", num: 8 },
-  { nom: "Valles Centrales", num: 6 },
 ];

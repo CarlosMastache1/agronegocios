@@ -4,105 +4,104 @@ const regionesConMunicipios = {
     //12
     {
       id: 20417,
-      territorio: "103",
-      toneladas: "328",
-    }, //Santa María Jacatepec
+      superficie: 103,
+      volumen: 328,
+      nombre: "Santa María Jacatepec",
+    },
     {
       id: 20498,
-      territorio: "144",
-      toneladas: "392",
-    }, //Santiago Yaveo
+      superficie: 144,
+      volumen: 392,
+      nombre: "Santiago Yaveo",
+    },
     {
       id: 20166,
-      territorio: "60",
-      toneladas: "187",
-    }, //San José Chiltepec
+      superficie: 60,
+      volumen: 187,
+      nombre: "San José Chiltepec",
+    },
     {
       id: 20044,
-      territorio: "42",
-      toneladas: "130",
-    }, //Loma Bonita
+      superficie: 42,
+      volumen: 130,
+      nombre: "Loma Bonita",
+    },
     {
       id: 20184,
-      territorio: "8",
-      toneladas: "21",
-    }, //San Juan Bautista Tuxtepec
+      superficie: 8,
+      volumen: 21,
+      nombre: "San Juan Bautista Tuxtepec",
+    },
     {
       id: 20136,
-      territorio: "10",
-      toneladas: "19",
-    }, //San Felipe Usila
+      superficie: 10,
+      volumen: 19,
+      nombre: "San Felipe Usila",
+    },
     {
       id: 20559,
-      territorio: "5",
-      toneladas: "14",
-    }, //San Juan Bautista Valle Nacional
+      superficie: 5,
+      volumen: 14,
+      nombre: "San Juan Bautista Valle Nacional",
+    },
     {
       id: 20205,
-      territorio: "11",
-      toneladas: "13",
-    }, //San Juan Lalana
+      superficie: 11,
+      volumen: 13,
+      nombre: "San Juan Lalana",
+    },
     {
       id: 20021,
-      territorio: "8",
-      toneladas: "10",
-    }, //Cosolapa
+      superficie: 8,
+      volumen: 10,
+      nombre: "Cosolapa",
+    },
     {
       id: 20232,
-      territorio: "7",
-      toneladas: "9",
-    }, //San Lucas Ojitlán
+      superficie: 7,
+      volumen: 9,
+      nombre: "San Lucas Ojitlán",
+    },
     {
       id: 20468,
-      territorio: "2",
-      toneladas: "2",
-    }, //Santiago Jocotepec
+      superficie: 2,
+      volumen: 2,
+      nombre: "Santiago Jocotepec",
+    },
     {
       id: 20278,
-      territorio: "2",
-      toneladas: "2",
-    }, //San Miguel Soyaltepec
+      superficie: 2,
+      volumen: 2,
+      nombre: "San Miguel Soyaltepec",
+    },
   ],
 
   "Sierra de Juárez": [
     //2
     {
       id: 20190,
-      territorio: "183",
-      toneladas: "409",
-    }, //San Juan Cotzocón
+      superficie: 183,
+      volumen: 409,
+      nombre: "San Juan Cotzocón",
+    },
     {
       id: 20207,
-      territorio: "31",
-      toneladas: "43",
-    }, //San Juan Mazatlán
+      superficie: 31,
+      volumen: 43,
+      nombre: "San Juan Mazatlán",
+    },
   ],
 
   Istmo: [
     //1
     {
       id: 20057,
-      territorio: "6",
-      toneladas: "9",
-    }, //Matías Romero Avendaño
+      superficie: 6,
+      volumen: 9,
+      nombre: "Matías Romero Avendaño",
+    },
   ],
 };
-
-// Datos agregados por entidad federativa (estado) a nivel nacional
-const estados_datos_pro = [
-  { id: "VER", territorio: "1,392", toneladas: "11,789" },
-  { id: "PUE", territorio: "638", toneladas: "8,397" },
-  { id: "SLP", territorio: "748", toneladas: "2,068" },
-  { id: "OAX", territorio: "622", toneladas: "1,588" },
-  { id: "SIN", territorio: "240", toneladas: "1,039" },
-  { id: "NAY", territorio: "199", toneladas: "833" },
-  { id: "HGO", territorio: "65", toneladas: "211" },
-  { id: "MICH", territorio: "15", toneladas: "125" },
-  { id: "MOR", territorio: "5", toneladas: "32" },
-  { id: "JAL", territorio: "6", toneladas: "28" },
-  { id: "BCS", territorio: "1", toneladas: "5" },
-  { id: "TAMP", territorio: "6", toneladas: "-" },
-];
 
 // Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
@@ -110,6 +109,7 @@ const estados_datos_pro = [
 const tab_pro_nacional = [
   {
     ranking: 1,
+    id: "VER",
     entidad: "Veracruz",
     volumen: 11789,
     superficie: 1392,
@@ -118,6 +118,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 2,
+    id: "PUE",
     entidad: "Puebla",
     volumen: 8397,
     superficie: 638,
@@ -126,6 +127,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 3,
+    id: "SLP",
     entidad: "San Luis Potosí",
     volumen: 2068,
     superficie: 748,
@@ -134,6 +136,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 4,
+    id: "OAX",
     entidad: "Oaxaca",
     volumen: 1588,
     superficie: 622,
@@ -142,6 +145,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 5,
+    id: "SIN",
     entidad: "Sinaloa",
     volumen: 1039,
     superficie: 240,
@@ -150,6 +154,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 6,
+    id: "NAY",
     entidad: "Nayarit",
     volumen: 833,
     superficie: 199,
@@ -158,6 +163,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 7,
+    id: "HGO",
     entidad: "Hidalgo",
     volumen: 211,
     superficie: 65,
@@ -166,6 +172,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 8,
+    id: "MICH",
     entidad: "Michoacán",
     volumen: 125,
     superficie: 15,
@@ -174,6 +181,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 9,
+    id: "MOR",
     entidad: "Morelos",
     volumen: 32,
     superficie: 5,
@@ -182,6 +190,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 10,
+    id: "JAL",
     entidad: "Jalisco",
     volumen: 28,
     superficie: 6,
@@ -190,6 +199,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 11,
+    id: "BCS",
     entidad: "Baja California Sur",
     volumen: 5,
     superficie: 1,
@@ -198,6 +208,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 12,
+    id: "TAMP",
     entidad: "Tamaulipas",
     volumen: 0,
     superficie: 6,
@@ -275,12 +286,4 @@ const tabla_produccion_producto = [
 const pub_indigenas_producto = [
   ["NO PUEBLO INDIGENA", "Chinanteco", "Mixe", "Nahua"],
   [9, 1116, 453, 10],
-];
-
-// Número de municipios productores por región en Oaxaca
-// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
-const tab_mun_producto_oax = [
-  { nom: "Papaloapan", num: 12 },
-  { nom: "Sierra de Juárez", num: 2 },
-  { nom: "Istmo", num: 1 },
 ];

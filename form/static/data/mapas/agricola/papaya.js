@@ -2,235 +2,216 @@
 const regionesConMunicipios = {
   Costa: [
     // Cada objeto representa un municipio de la región Costa con sus datos
-    { id: 20334, territorio: "1,228", toneladas: "130,297" }, //Villa de Tututepec de Melchor Ocampo
-    { id: 20482, territorio: "422", toneladas: "54,252" }, //Santiago Pinotepa Nacional
-    { id: 20467, territorio: "342", toneladas: "42,379" }, //Santiago Jamiltepec
-    { id: 20414, territorio: "164", toneladas: "21,149" }, //Santa María Huazolotitlán
-    { id: 20413, territorio: "66", toneladas: "8,699" }, //Santa María Huatulco
-    { id: 20439, territorio: "130", toneladas: "14,392" }, //Santa María Tonameca
-    { id: 20319, territorio: "69", toneladas: "6,426" }, //San Pedro Mixtepec
-    { id: 20401, territorio: "60", toneladas: "5,691" }, //Santa María Colotepec
-    { id: 20090, territorio: "56", toneladas: "4,899" }, //San Andrés Huaxpaltepec
-    { id: 20474, territorio: "35", toneladas: "3,613" }, //Santiago Llano Grande
-    { id: 20266, territorio: "29", toneladas: "3,465" }, //San Miguel del Puerto
-    { id: 20367, territorio: "31", toneladas: "1,702" }, //Santa Catarina Mechoacán
-    { id: 20509, territorio: "21", toneladas: "1,397" }, //Santo Domingo de Morelos
-    { id: 20180, territorio: "17", toneladas: "1,374" }, //San Juan Bautista Lo de Soto
-    { id: 20485, territorio: "12", toneladas: "1,274" }, //Santiago Tapextla
+    {
+      id: 20334,
+      superficie: 1228,
+      volumen: 130297,
+      nombre: "Villa de Tututepec de Melchor Ocampo",
+    },
+    {
+      id: 20482,
+      superficie: 422,
+      volumen: 54252,
+      nombre: "Santiago Pinotepa Nacional",
+    },
+    {
+      id: 20467,
+      superficie: 342,
+      volumen: 42379,
+      nombre: "Santiago Jamiltepec",
+    },
+    {
+      id: 20414,
+      superficie: 164,
+      volumen: 21149,
+      nombre: "Santa María Huazolotitlán",
+    },
+    {
+      id: 20413,
+      superficie: 66,
+      volumen: 8699,
+      nombre: "Santa María Huatulco",
+    },
+    {
+      id: 20439,
+      superficie: 130,
+      volumen: 14392,
+      nombre: "Santa María Tonameca",
+    },
+    {
+      id: 20319,
+      superficie: 69,
+      volumen: 6426,
+      nombre: "San Pedro Mixtepec",
+    },
+    {
+      id: 20401,
+      superficie: 60,
+      volumen: 5691,
+      nombre: "Santa María Colotepec",
+    },
+    {
+      id: 20090,
+      superficie: 56,
+      volumen: 4899,
+      nombre: "San Andrés Huaxpaltepec",
+    },
+    {
+      id: 20474,
+      superficie: 35,
+      volumen: 3613,
+      nombre: "Santiago Llano Grande",
+    },
+    {
+      id: 20266,
+      superficie: 29,
+      volumen: 3465,
+      nombre: "San Miguel del Puerto",
+    },
+    {
+      id: 20367,
+      superficie: 31,
+      volumen: 1702,
+      nombre: "Santa Catarina Mechoacán",
+    },
+    {
+      id: 20509,
+      superficie: 21,
+      volumen: 1397,
+      nombre: "Santo Domingo de Morelos",
+    },
+    {
+      id: 20180,
+      superficie: 17,
+      volumen: 1374,
+      nombre: "San Juan Bautista Lo de Soto",
+    },
+    {
+      id: 20485,
+      superficie: 12,
+      volumen: 1274,
+      nombre: "Santiago Tapextla",
+    },
   ],
   Istmo: [
     // Municipios de la región del Istmo con datos de producción
-    { id: 20418, territorio: "40", toneladas: "3,766" }, //Santa María Jalapa del Marqués
-    { id: 20421, territorio: "30", toneladas: "2,840" }, //Santa María Mixtequilla
-    { id: 20307, territorio: "22", toneladas: "2,080" }, //San Pedro Huamelula
-    { id: 20453, territorio: "19", toneladas: "1,792" }, //Santiago Astata
-    { id: 20515, territorio: "13", toneladas: "1,131" }, //Santo Domingo Tehuantepec
-    { id: 20525, territorio: "14", toneladas: "880" }, //Santo Domingo Zanatepec
-    { id: 20052, territorio: "14", toneladas: "769" }, //Magdalena Tequisistlán
-    { id: 20005, territorio: "4", toneladas: "257" }, //Asunción Ixtaltepec
+    {
+      id: 20418,
+      superficie: 40,
+      volumen: 3766,
+      nombre: "Santa María Jalapa del Marqués",
+    },
+    {
+      id: 20421,
+      superficie: 30,
+      volumen: 2840,
+      nombre: "Santa María Mixtequilla",
+    },
+    {
+      id: 20307,
+      superficie: 22,
+      volumen: 2080,
+      nombre: "San Pedro Huamelula",
+    },
+    {
+      id: 20453,
+      superficie: 19,
+      volumen: 1792,
+      nombre: "Santiago Astata",
+    },
+    {
+      id: 20515,
+      superficie: 13,
+      volumen: 1131,
+      nombre: "Santo Domingo Tehuantepec",
+    },
+    {
+      id: 20525,
+      superficie: 14,
+      volumen: 880,
+      nombre: "Santo Domingo Zanatepec",
+    },
+    {
+      id: 20052,
+      superficie: 14,
+      volumen: 769,
+      nombre: "Magdalena Tequisistlán",
+    },
+    {
+      id: 20005,
+      superficie: 4,
+      volumen: 257,
+      nombre: "Asunción Ixtaltepec",
+    },
   ],
   "Sierra Sur": [
     // Municipios de la región Sierra Sur
-    { id: 20008, territorio: "12", toneladas: "598" }, //Asunción Tlacolulita
-    { id: 20064, territorio: "9", toneladas: "492" }, //Nejapa de Madero
-    { id: 20357, territorio: "9", toneladas: "440" }, //Santa Ana Tavela
+    {
+      id: 20008,
+      superficie: 12,
+      volumen: 598,
+      nombre: "Asunción Tlacolulita",
+    },
+    {
+      id: 20064,
+      superficie: 9,
+      volumen: 492,
+      nombre: "Nejapa de Madero",
+    },
+    {
+      id: 20357,
+      superficie: 9,
+      volumen: 440,
+      nombre: "Santa Ana Tavela",
+    },
   ],
   "Sierra de Flores Magón": [
     // Municipios de la región Sierra de Flores Magón
-    { id: 20177, territorio: "10", toneladas: "400" }, //San Juan Bautista Cuicatlán
-    { id: 20545, territorio: "9", toneladas: "325" }, //Teotitlán de Flores Magón
-    { id: 20431, territorio: "8", toneladas: "306" }, //Santa María Tecomavaca
-    { id: 20206, territorio: "4", toneladas: "159" }, //San Juan de Los Cués
-    { id: 20558, territorio: "1", toneladas: "39" }, //Valerio Trujano
+    {
+      id: 20177,
+      superficie: 10,
+      volumen: 400,
+      nombre: "San Juan Bautista Cuicatlán",
+    },
+    {
+      id: 20545,
+      superficie: 9,
+      volumen: 325,
+      nombre: "Teotitlán de Flores Magón",
+    },
+    {
+      id: 20431,
+      superficie: 8,
+      volumen: 306,
+      nombre: "Santa María Tecomavaca",
+    },
+    {
+      id: 20206,
+      superficie: 4,
+      volumen: 159,
+      nombre: "San Juan de Los Cués",
+    },
+    {
+      id: 20558,
+      superficie: 1,
+      volumen: 39,
+      nombre: "Valerio Trujano",
+    },
   ],
   Papaloapan: [
     // Un solo municipio reportado en esta región
-    { id: 20002, territorio: "11", toneladas: "546" }, //Acatlán de Pérez Figueroa
+    {
+      id: 20002,
+      superficie: 11,
+      volumen: 546,
+      nombre: "Acatlán de Pérez Figueroa",
+    },
   ],
   "Valles Centrales": [
-    { id: 20449, territorio: "8", toneladas: "330" }, //Santa María Zoquitlán
-    { id: 20333, territorio: "6", toneladas: "166" }, //San Pedro Totolápam
+    { id: 20449, superficie: 8, volumen: 330, nombre: "Santa María Zoquitlán" },
+    { id: 20333, superficie: 6, volumen: 166, nombre: "San Pedro Totolápam" },
   ],
 };
-
-// Datos agregados por entidad federativa (estado) a nivel nacional
-const estados_datos_pro = [
-  { id: "OAX", territorio: "2,923", toneladas: "318,323" },
-  { id: "COL", territorio: "3,706", toneladas: "204,924" },
-  { id: "CHS", territorio: "2,078", toneladas: "160,252" },
-  { id: "MICH", territorio: "3,585", toneladas: "122,421" },
-  { id: "VER", territorio: "3,800", toneladas: "121,628" },
-  { id: "GRO", territorio: "1,625", toneladas: "53,721" },
-  { id: "JAL", territorio: "581", toneladas: "34,071" },
-  { id: "SLP", territorio: "472", toneladas: "32,708" },
-  { id: "TAMP", territorio: "385", toneladas: "24,999" },
-  { id: "CAM", territorio: "319", toneladas: "15,233" },
-  { id: "NAY", territorio: "350", toneladas: "12,755" },
-  { id: "YUC", territorio: "206", toneladas: "12,039" },
-  { id: "SIN", territorio: "424", toneladas: "11,086" },
-  { id: "TAB", territorio: "142", toneladas: "7,795" },
-  { id: "PUE", territorio: "188", toneladas: "6,582" },
-  { id: "QR", territorio: "94", toneladas: "5,930" },
-  { id: "MOR", territorio: "104", toneladas: "3,528" },
-  { id: "BCS", territorio: "15", toneladas: "320" },
-  { id: "EM", territorio: "21", toneladas: "233" },
-];
-
-//Datos por país: superficie cosechada
-const paises_datos_pro = [
-  //total de entradas
-  { id: "NGA", territorio: "193,2900", toneladas: "" },
-  { id: "IND", territorio: "150,000", toneladas: "" },
-  { id: "BGD", territorio: "49,770", toneladas: "" },
-  { id: "BRA", territorio: "26,431", toneladas: "" },
-  { id: "MEX", territorio: "19,613", toneladas: "" },
-  { id: "PER", territorio: "14,368", toneladas: "" },
-  { id: "COD", territorio: "12,355", toneladas: "" },
-  { id: "IDN", territorio: "11,208", toneladas: "" },
-  { id: "CHN", territorio: "18,531", toneladas: "" },
-  { id: "DOM", territorio: "10,022", toneladas: "" },
-  { id: "VNM", territorio: "8,733", toneladas: "" },
-  { id: "VEN", territorio: "8,453", toneladas: "" },
-  { id: "PHL", territorio: "7,554", toneladas: "" },
-  { id: "COL", territorio: "6,794", toneladas: "" },
-  { id: "ETH", territorio: "6,078", toneladas: "" },
-  { id: "KEN", territorio: "6,052", toneladas: "" },
-  { id: "CIV", territorio: "5,925", toneladas: "" },
-  { id: "MWI", territorio: "5,757", toneladas: "" },
-  { id: "Cuba", territorio: "4,796", toneladas: "" },
-  { id: "MLI", territorio: "4,495", toneladas: "" },
-  { id: "MOZ", territorio: "4,312", toneladas: "" },
-  { id: "THA", territorio: "4,135", toneladas: "" },
-  { id: "ECU", territorio: "3,804", toneladas: "" },
-  { id: "GTM", territorio: "2,906", toneladas: "" },
-  { id: "LAO", territorio: "2,620", toneladas: "" },
-  { id: "TWN", territorio: "2,531", toneladas: "" },
-  { id: "BOL", territorio: "2,339", toneladas: "" },
-  { id: "MYS", territorio: "2,255", toneladas: "" },
-  { id: "PAK", territorio: "1,677", toneladas: "" },
-  { id: "GHA", territorio: "1,619", toneladas: "" },
-  { id: "YEM", territorio: "1,610", toneladas: "" },
-  { id: "HTI", territorio: "1,440", toneladas: "" },
-  { id: "NPL", territorio: "1,325", toneladas: "" },
-  { id: "PRY", territorio: "1,115", toneladas: "" },
-  { id: "CRI", territorio: "1,010", toneladas: "" },
-  { id: "ZAF", territorio: "913", toneladas: "" },
-  { id: "AUS", territorio: "904", toneladas: "" },
-  { id: "FJI", territorio: "898", toneladas: "" },
-  { id: "PAN", territorio: "577", toneladas: "" },
-  { id: "JAM", territorio: "568", toneladas: "" },
-  { id: "GNB", territorio: "327", toneladas: "" },
-  { id: "GUY", territorio: "305", toneladas: "" },
-  { id: "OMN", territorio: "395", toneladas: "" },
-  { id: "ISR", territorio: "267", toneladas: "" },
-  { id: "WSM", territorio: "12", toneladas: "" },
-  { id: "PRI", territorio: "228", toneladas: "" },
-  { id: "COG", territorio: "225", toneladas: "" },
-  { id: "SAU", territorio: "220", toneladas: "" },
-  { id: "USA", territorio: "202", toneladas: "" },
-  { id: "ARG", territorio: "201", toneladas: "" },
-  { id: "CHL", territorio: "136", toneladas: "" },
-  { id: "TLS", territorio: "95", toneladas: "" },
-  { id: "SLV", territorio: "74", toneladas: "" },
-  { id: "COK", territorio: "70", toneladas: "" },
-  { id: "TTO", territorio: "64", toneladas: "" },
-  { id: "RWA", territorio: "57", toneladas: "" },
-  { id: "MAR", territorio: "55", toneladas: "" },
-  { id: "BHS", territorio: "37", toneladas: "" },
-  { id: "BTN", territorio: "32", toneladas: "" },
-  { id: "IRN", territorio: "28", toneladas: "" },
-  { id: "BLZ", territorio: "23", toneladas: "" },
-  { id: "SUR", territorio: "15", toneladas: "" },
-  { id: "MDV", territorio: "13", toneladas: "" },
-  { id: "ZWE", territorio: "13", toneladas: "" },
-  { id: "HND", territorio: "12", toneladas: "" },
-  { id: "DOM", territorio: "6", toneladas: "" },
-  { id: "GRD", territorio: "0", toneladas: "" },
-  { id: "NRU", territorio: "0", toneladas: "" },
-  { id: "SGP", territorio: "0", toneladas: "" },
-  { id: "CMR", territorio: "0", toneladas: "" },
-  { id: "TUN", territorio: "0", toneladas: "" },
-];
-
-//Ranking mundial de países por superficie sembrada (en hectáreas)
-const tab_pro_mundial = [
-  { ranking: 1, pais: "India", superficie: 150000 },
-  { ranking: 2, pais: "Nigeria", superficie: 95052 },
-  { ranking: 3, pais: "Bangladesh", superficie: 49770 },
-  { ranking: 4, pais: "Brasil", superficie: 26431 },
-  { ranking: 5, pais: "México", superficie: 19613 },
-  { ranking: 6, pais: "Perú", superficie: 14368 },
-  { ranking: 7, pais: "República Democrática del Congo", superficie: 12355 },
-  { ranking: 8, pais: "Indonesia", superficie: 11208 },
-  { ranking: 9, pais: "China", superficie: 10531 },
-  { ranking: 10, pais: "República Dominicana", superficie: 10022 },
-  { ranking: 11, pais: "Viet Nam", superficie: 8733 },
-  {
-    ranking: 12,
-    pais: "Venezuela (República Bolivariana de)",
-    superficie: 8453,
-  },
-  { ranking: 13, pais: "China, Continental", superficie: 8000 },
-  { ranking: 14, pais: "Filipinas", superficie: 7554 },
-  { ranking: 15, pais: "Colombia", superficie: 6794 },
-  { ranking: 16, pais: "Etiopía", superficie: 6078 },
-  { ranking: 17, pais: "Kenya", superficie: 6052 },
-  { ranking: 18, pais: "Côte d'Ivoire", superficie: 5925 },
-  { ranking: 19, pais: "Malawi", superficie: 5757 },
-  { ranking: 20, pais: "Cuba", superficie: 4796 },
-  { ranking: 21, pais: "Malí", superficie: 4495 },
-  { ranking: 22, pais: "Mozambique", superficie: 4312 },
-  { ranking: 23, pais: "Tailandia", superficie: 4135 },
-  { ranking: 24, pais: "Ecuador", superficie: 3804 },
-  { ranking: 25, pais: "Guatemala", superficie: 2906 },
-  { ranking: 26, pais: "República Democrática Popular Lao", superficie: 2620 },
-  { ranking: 27, pais: "China, Taiwán provincia de", superficie: 2531 },
-  { ranking: 28, pais: "Bolivia (Estado Plurinacional de)", superficie: 2339 },
-  { ranking: 29, pais: "Malasia", superficie: 2255 },
-  { ranking: 30, pais: "Pakistán", superficie: 1677 },
-  { ranking: 31, pais: "Ghana", superficie: 1619 },
-  { ranking: 32, pais: "Yemen", superficie: 1610 },
-  { ranking: 33, pais: "Haití", superficie: 1440 },
-  { ranking: 34, pais: "Nepal", superficie: 1325 },
-  { ranking: 35, pais: "Paraguay", superficie: 1115 },
-  { ranking: 36, pais: "Costa Rica", superficie: 1010 },
-  { ranking: 37, pais: "Sudáfrica", superficie: 913 },
-  { ranking: 38, pais: "Australia", superficie: 904 },
-  { ranking: 39, pais: "Fiji", superficie: 898 },
-  { ranking: 40, pais: "Panamá", superficie: 577 },
-  { ranking: 41, pais: "Jamaica", superficie: 568 },
-  { ranking: 42, pais: "Guinea-Bissau", superficie: 327 },
-  { ranking: 43, pais: "Guyana", superficie: 305 },
-  { ranking: 44, pais: "Omán", superficie: 295 },
-  { ranking: 45, pais: "Israel", superficie: 267 },
-  { ranking: 46, pais: "Samoa", superficie: 241 },
-  { ranking: 47, pais: "Puerto Rico", superficie: 228 },
-  { ranking: 48, pais: "Congo", superficie: 225 },
-  { ranking: 49, pais: "Arabia Saudita", superficie: 220 },
-  { ranking: 50, pais: "Estados Unidos de América", superficie: 202 },
-  { ranking: 51, pais: "Argentina", superficie: 201 },
-  { ranking: 52, pais: "Chile", superficie: 136 },
-  { ranking: 53, pais: "Timor-Leste", superficie: 95 },
-  { ranking: 54, pais: "El Salvador", superficie: 74 },
-  { ranking: 55, pais: "Islas Cook", superficie: 70 },
-  { ranking: 56, pais: "Trinidad y Tabago", superficie: 64 },
-  { ranking: 57, pais: "Rwanda", superficie: 57 },
-  { ranking: 58, pais: "Marruecos", superficie: 55 },
-  { ranking: 59, pais: "Bahamas", superficie: 37 },
-  { ranking: 60, pais: "Bután", superficie: 32 },
-  { ranking: 61, pais: "Irán (República Islámica del)", superficie: 28 },
-  { ranking: 62, pais: "Belice", superficie: 23 },
-  { ranking: 63, pais: "Suriname", superficie: 15 },
-  { ranking: 64, pais: "Maldivas", superficie: 13 },
-  { ranking: 65, pais: "Zimbabwe", superficie: 13 },
-  { ranking: 66, pais: "Honduras", superficie: 12 },
-  { ranking: 67, pais: "Dominica", superficie: 6 },
-  { ranking: 68, pais: "Granada", superficie: 0 },
-  { ranking: 69, pais: "Nauru", superficie: 0 },
-  { ranking: 70, pais: "Singapur", superficie: 0 },
-  { ranking: 71, pais: "Camerún", superficie: 0 },
-  { ranking: 72, pais: "Túnez", superficie: 0 },
-];
 
 // Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
@@ -238,6 +219,7 @@ const tab_pro_mundial = [
 const tab_pro_nacional = [
   {
     ranking: 1,
+    id: "OAX",
     entidad: "Oaxaca",
     volumen: 318323,
     superficie: 2923,
@@ -246,6 +228,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 2,
+    id: "COL",
     entidad: "Colima",
     volumen: 204924,
     superficie: 3706,
@@ -254,6 +237,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 3,
+    id: "CHS",
     entidad: "Chiapas",
     volumen: 160252,
     superficie: 2078,
@@ -262,6 +246,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 4,
+    id: "MICH",
     entidad: "Michoacán",
     volumen: 122421,
     superficie: 3585,
@@ -270,6 +255,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 5,
+    id: "VER",
     entidad: "Veracruz",
     volumen: 121628,
     superficie: 3800,
@@ -278,6 +264,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 6,
+    id: "GRO",
     entidad: "Guerrero",
     volumen: 53721,
     superficie: 1625,
@@ -286,6 +273,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 7,
+    id: "JAL",
     entidad: "Jalisco",
     volumen: 34071,
     superficie: 581,
@@ -294,6 +282,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 8,
+    id: "SLP",
     entidad: "San Luis Potosí",
     volumen: 32708,
     superficie: 472,
@@ -302,6 +291,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 9,
+    id: "TAMP",
     entidad: "Tamaulipas",
     volumen: 24999,
     superficie: 385,
@@ -310,6 +300,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 10,
+    id: "CAM",
     entidad: "Campeche",
     volumen: 15233,
     superficie: 319,
@@ -318,6 +309,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 11,
+    id: "NAY",
     entidad: "Nayarit",
     volumen: 12755,
     superficie: 350,
@@ -326,6 +318,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 12,
+    id: "YUC",
     entidad: "Yucatán",
     volumen: 12039,
     superficie: 206,
@@ -334,6 +327,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 13,
+    id: "SIN",
     entidad: "Sinaloa",
     volumen: 11086,
     superficie: 424,
@@ -342,6 +336,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 14,
+    id: "TAB",
     entidad: "Tabasco",
     volumen: 7795,
     superficie: 142,
@@ -350,6 +345,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 15,
+    id: "PUE",
     entidad: "Puebla",
     volumen: 6582,
     superficie: 188,
@@ -358,6 +354,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 16,
+    id: "QR",
     entidad: "Quintana Roo",
     volumen: 5930,
     superficie: 94,
@@ -366,6 +363,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 17,
+    id: "MOR",
     entidad: "Morelos",
     volumen: 3528,
     superficie: 104,
@@ -374,6 +372,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 18,
+    id: "BCS",
     entidad: "Baja California Sur",
     volumen: 320,
     superficie: 15,
@@ -382,6 +381,7 @@ const tab_pro_nacional = [
   },
   {
     ranking: 19,
+    id: "EM",
     entidad: "México",
     volumen: 233,
     superficie: 21,
@@ -389,6 +389,101 @@ const tab_pro_nacional = [
     valor: 1994185,
   },
 ];
+
+//Ranking mundial de países por superficie sembrada (en hectáreas)
+const tab_pro_mundial = [
+  { id: "IND", ranking: 1, pais: "India", superficie: 150000 },
+  { id: "NGA", ranking: 2, pais: "Nigeria", superficie: 95052 },
+  { id: "BGD", ranking: 3, pais: "Bangladesh", superficie: 49770 },
+  { id: "BRA", ranking: 4, pais: "Brasil", superficie: 26431 },
+  { id: "MEX", ranking: 5, pais: "México", superficie: 19613 },
+  { id: "PER", ranking: 6, pais: "Perú", superficie: 14368 },
+  { id: "COD", ranking: 7, pais: "República Democrática del Congo", superficie: 12355 },
+  { id: "IDN", ranking: 8, pais: "Indonesia", superficie: 11208 },
+  { id: "CHN", ranking: 9, pais: "China", superficie: 10531 },
+  { id: "DOM", ranking: 10, pais: "República Dominicana", superficie: 10022 },
+  { id: "VNM", ranking: 11, pais: "Viet Nam", superficie: 8733 },
+  { id: "VEN", ranking: 12,  pais: "Venezuela (República Bolivariana de)", superficie: 8453, },
+  { id: "CHN", ranking: 13, pais: "China, Continental", superficie: 8000 },
+  { id: "PHL", ranking: 14, pais: "Filipinas", superficie: 7554 },
+  { id: "COL", ranking: 15, pais: "Colombia", superficie: 6794 },
+  { id: "ETH", ranking: 16, pais: "Etiopía", superficie: 6078 },
+  { id: "KEN", ranking: 17, pais: "Kenya", superficie: 6052 },
+  { id: "CIV", ranking: 18, pais: "Côte d'Ivoire", superficie: 5925 },
+  { id: "MWI", ranking: 19, pais: "Malawi", superficie: 5757 },
+  { id: "CUB", ranking: 20, pais: "Cuba", superficie: 4796 },
+  { id: "MLI", ranking: 21, pais: "Malí", superficie: 4495 },
+  { id: "MOZ", ranking: 22, pais: "Mozambique", superficie: 4312 },
+  { id: "THA", ranking: 23, pais: "Tailandia", superficie: 4135 },
+  { id: "ECU", ranking: 24, pais: "Ecuador", superficie: 3804 },
+  { id: "GTM", ranking: 25, pais: "Guatemala", superficie: 2906 },
+  { id: "LAO", ranking: 26, pais: "República Democrática Popular Lao", superficie: 2620 },
+  { id: "TWN", ranking: 27, pais: "China, Taiwán provincia de", superficie: 2531 },
+  { id: "BOL", ranking: 28, pais: "Bolivia (Estado Plurinacional de)", superficie: 2339 },
+  { id: "MYS", ranking: 29, pais: "Malasia", superficie: 2255 },
+  { id: "PAK", ranking: 30, pais: "Pakistán", superficie: 1677 },
+  { id: "GHA", ranking: 31, pais: "Ghana", superficie: 1619 },
+  { id: "YEM", ranking: 32, pais: "Yemen", superficie: 1610 },
+  { id: "HTI", ranking: 33, pais: "Haití", superficie: 1440 },
+  { id: "NPL", ranking: 34, pais: "Nepal", superficie: 1325 },
+  { id: "PRY", ranking: 35, pais: "Paraguay", superficie: 1115 },
+  { id: "CRI", ranking: 36, pais: "Costa Rica", superficie: 1010 },
+  { id: "ZAF", ranking: 37, pais: "Sudáfrica", superficie: 913 },
+  { id: "AUS", ranking: 38, pais: "Australia", superficie: 904 },
+  { id: "FJI", ranking: 39, pais: "Fiji", superficie: 898 },
+  { id: "PAN", ranking: 40, pais: "Panamá", superficie: 577 },
+  { id: "JAM", ranking: 41, pais: "Jamaica", superficie: 568 },
+  { id: "GNB", ranking: 42, pais: "Guinea-Bissau", superficie: 327 },
+  { id: "GUY", ranking: 43, pais: "Guyana", superficie: 305 },
+  { id: "OMN", ranking: 44, pais: "Omán", superficie: 295 },
+  { id: "ISR", ranking: 45, pais: "Israel", superficie: 267 },
+  { id: "WSM", ranking: 46, pais: "Samoa", superficie: 241 },
+  { id: "PRI", ranking: 47, pais: "Puerto Rico", superficie: 228 },
+  { id: "COG", ranking: 48, pais: "Congo", superficie: 225 },
+  { id: "SAU", ranking: 49, pais: "Arabia Saudita", superficie: 220 },
+  { id: "USA", ranking: 50, pais: "Estados Unidos de América", superficie: 202 },
+  { id: "ARG", ranking: 51, pais: "Argentina", superficie: 201 },
+  { id: "CHL", ranking: 52, pais: "Chile", superficie: 136 },
+  { id: "TLS", ranking: 53, pais: "Timor-Leste", superficie: 95 },
+  { id: "SLV", ranking: 54, pais: "El Salvador", superficie: 74 },
+  { id: "COK", ranking: 55, pais: "Islas Cook", superficie: 70 },
+  { id: "TTO", ranking: 56, pais: "Trinidad y Tabago", superficie: 64 },
+  { id: "RWA", ranking: 57, pais: "Rwanda", superficie: 57 },
+  { id: "MAR", ranking: 58, pais: "Marruecos", superficie: 55 },
+  { id: "BHS", ranking: 59, pais: "Bahamas", superficie: 37 },
+  { id: "BTN", ranking: 60, pais: "Bután", superficie: 32 },
+  { id: "IRN", ranking: 61, pais: "Irán (República Islámica del)", superficie: 28 },
+  { id: "BLZ", ranking: 62, pais: "Belice", superficie: 23 },
+  { id: "SUR", ranking: 63, pais: "Suriname", superficie: 15 },
+  { id: "MDV", ranking: 64, pais: "Maldivas", superficie: 13 },
+  { id: "ZWE", ranking: 65, pais: "Zimbabwe", superficie: 13 },
+  { id: "HND", ranking: 66, pais: "Honduras", superficie: 12 },
+  { id: "DOM", ranking: 67, pais: "Dominica", superficie: 6 },
+  { id: "GRD", ranking: 68, pais: "Granada", superficie: 0 },
+  { id: "NRU", ranking: 69, pais: "Nauru", superficie: 0 },
+  { id: "SGP", ranking: 70, pais: "Singapur", superficie: 0 },
+  { id: "CMR", ranking: 71, pais: "Camerún", superficie: 0 },
+  { id: "TUN", ranking: 72, pais: "Túnez", superficie: 0 },
+];
+
+const agrupado = {};
+
+tab_pro_mundial.forEach((item) => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 // Años de referencia para los datos de balanza comercial
 const labels_balanza = [
@@ -574,15 +669,4 @@ const estacionalidad_producto = [
   152, // Octubre
   167, // Noviembre
   168, // Diciembre
-];
-
-// Número de municipios productores por región en Oaxaca
-// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
-const tab_mun_producto_oax = [
-  { nom: "Costa", num: 16 }, // 16 municipios productores en la región Costa
-  { nom: "Istmo", num: 8 }, // 8 municipios productores en la región Istmo
-  { nom: "Sierra Sur", num: 3 }, // 3 municipios productores en Sierra Sur
-  { nom: "Sierra de Flores Magón", num: 5 }, // 5 municipios productores en Sierra de Flores Magón
-  { nom: "Papaloapan", num: 1 }, // 1 municipio productor en Papaloapan
-  { nom: "Valles Centrales", num: 2 }, // 2 municipios productores en Valles Centrales
 ];

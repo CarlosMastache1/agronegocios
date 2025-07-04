@@ -1,3 +1,14 @@
+ :root {
+     --vino-intenso: #7A1B38;
+     --vino-rosado: #9d2449;
+     --gris-oscuro: #333333;
+     --marfil: #F8F4F0;
+     --rosa-palo: #D9A5B3;
+     --gris-claro: #CCCCCC;
+     --gris-azul: #454E55;
+ }
+
+
 #body_pag {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -11,7 +22,7 @@ section h1 {
 
 section h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border-bottom: solid #9d2449 3px;
+    border-bottom: solid var(--vino-rosado) 3px;
     font-size: 2.4rem;
     margin-top: 1rem;
 }
@@ -19,7 +30,7 @@ section h2 {
 section h3 {
     text-align: right;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border-bottom: solid #9d2449 3px;
+    border-bottom: solid var(--vino-rosado) 3px;
     margin-top: 1rem;
     font-size: 2.5rem;
 }
@@ -33,7 +44,7 @@ section h4 {
 
 /* Estilo de las secciones */
 section {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--gris-claro);
     padding: 10px 50px;
 
 }
@@ -71,7 +82,7 @@ section {
     height: 40px;
     margin: 10px 0;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--gris-claro);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,11 +93,11 @@ section {
 }
 
 .progress-circle i {
-    color: #9D2449;
+    color: var(--vino-rosado);
 }
 
 .progress-circle.active {
-    background-color: #9D2449;
+    background-color: var(--vino-rosado);
     /* Color activo */
 }
 
@@ -175,7 +186,7 @@ section {
     font-size: 17px;
     font-weight: 900;
     letter-spacing: 0.045em;
-    color: #961c41;
+    color: var(--vino-rosado);
     /* para el primer botón */
     position: relative;
     z-index: 2;
@@ -206,7 +217,7 @@ section {
     text-transform: uppercase;
     letter-spacing: 3.5px;
     opacity: 1;
-    color: #333;
+    color: var(--gris-oscuro);
     -webkit-text-stroke: 0;
     background: none;
     -webkit-background-clip: unset;

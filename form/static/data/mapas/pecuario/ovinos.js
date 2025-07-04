@@ -4,495 +4,396 @@ const regionesConMunicipios = {
     //20
     {
       id: 20026,
-      territorio: "",
-      toneladas: "57",
-    }, //Chalcatongo de Hidalgo
+      volumen: 57,
+      nombre: "Chalcatongo de Hidalgo"
+    }, 
     {
       id: 20500,
-      territorio: "",
-      toneladas: "48",
-    }, //Santiago Yosondúa
+      volumen: 48,
+      nombre: "Santiago Yosondúa"
+    }, 
     {
       id: 20397,
-      territorio: "",
-      toneladas: "40",
-    }, //Heroica Ciudad de Tlaxiaco
+      volumen: 40,
+      nombre: "Heroica Ciudad de Tlaxiaco"
+    }, 
     {
       id: 20417,
-      territorio: "",
-      toneladas: "34",
-    }, //San Juan Mixtepec
+      volumen: 34,
+      nombre: "San Juan Mixtepec"
+    }, 
     {
       id: 20486,
-      territorio: "",
-      toneladas: "30",
-    }, //Villa Tejúpam de La Unión
+      volumen: 30,
+      nombre: "Villa Tejúpam de La Unión"
+    }, 
     {
       id: 20540,
-      territorio: "",
-      toneladas: "26",
-    }, //Villa de Tamazulápam del Progreso
+      volumen: 26,
+      nombre: "Villa de Tamazulápam del Progreso"
+    }, 
     {
       id: 20006,
-      territorio: "",
-      toneladas: "25",
-    }, //Asunción Nochixtlán
+      volumen: 25,
+      nombre: "Asunción Nochixtlán"
+    }, 
     {
       id: 20548,
-      territorio: "",
-      toneladas: "24",
-    }, //Tepelmeme Villa de Morelos
+      volumen: 24,
+      nombre: "Tepelmeme Villa de Morelos"
+    }, 
     {
       id: 20176,
-      territorio: "",
-      toneladas: "21",
-    }, //San Juan Bautista Coixtlahuaca
+      volumen: 21,
+      nombre: "San Juan Bautista Coixtlahuaca"
+    }, 
     {
       id: 20547,
-      territorio: "",
-      toneladas: "21",
-    }, //Teotongo
+      volumen: 21,
+      nombre: "Teotongo"
+    }, 
     {
       id: 20210,
-      territorio: "",
-      toneladas: "18",
-    }, //San Juan Ñumí
+      volumen: 18,
+      nombre: "San Juan Ñumí"
+    }, 
     {
       id: 20239,
-      territorio: "",
-      toneladas: "17",
-    }, //San Martín Huamelúlpam
+      volumen: 17,
+      nombre: "San Martín Huamelúlpam"
+    }, 
     {
       id: 20464,
-      territorio: "",
-      toneladas: "15",
-    }, //Santiago Ihuitlán Plumas
+      volumen: 15,
+      nombre: "Santiago Ihuitlán Plumas"
+    }, 
     {
       id: 20532,
-      territorio: "",
-      toneladas: "12",
-    }, //Santo Tomás Ocotepec
+      volumen: 12,
+      nombre: "Santo Tomás Ocotepec"
+    }, 
     {
       id: 20046,
-      territorio: "",
-      toneladas: "12",
-    }, //Magdalena Jaltepec
+      volumen: 12,
+      nombre: "Magdalena Jaltepec"
+    }, 
     {
       id: 20339,
-      territorio: "",
-      toneladas: "12",
-    }, //San Pedro Y San Pablo Teposcolula
+      volumen: 12,
+      nombre: "San Pedro Y San Pablo Teposcolula"
+    }, 
     {
       id: 20346,
-      territorio: "",
-      toneladas: "11",
-    }, //San Sebastián Nicananduta
+      volumen: 11,
+      nombre: "San Sebastián Nicananduta"
+    }, 
     {
       id: 20370,
-      territorio: "",
-      toneladas: "10",
-    }, //Santa Catarina Tayata
+      volumen: 10,
+      nombre: "Santa Catarina Tayata"
+    }, 
     {
       id: 20321,
-      territorio: "",
-      toneladas: "10",
-    }, //San Pedro Nopala
+      volumen: 10,
+      nombre: "San Pedro Nopala"
+    }, 
     {
       id: 20569,
-      territorio: "",
-      toneladas: "10",
-    }, //Santa Inés de Zaragoza
+      volumen: 10,
+      nombre: "Santa Inés de Zaragoza"
+    }, 
   ],
   "Valles Centrales ": [
     //17
     {
       id: 20570,
-      territorio: "",
-      toneladas: "38",
-    }, //Zimatlán de Álvarez
+      volumen: 38,
+      nombre: "Zimatlán de Álvarez"
+    }, 
     {
       id: 20068,
-      territorio: "",
-      toneladas: "36",
-    }, //Ocotlán de Morelos
+      volumen: 36,
+      nombre: "Ocotlán de Morelos"
+    }, 
     {
       id: 20028,
-      territorio: "",
-      toneladas: "34",
-    }, //Heroica Ciudad de Ejutla de Crespo
+      volumen: 34,
+      nombre: "Heroica Ciudad de Ejutla de Crespo"
+    }, 
     {
       id: 20565,
-      territorio: "",
-      toneladas: "26",
-    }, //Villa de Zaachila
+      volumen: 26,
+      nombre: "Villa de Zaachila"
+    }, 
     {
       id: 20398,
-      territorio: "",
-      toneladas: "22",
-    }, //Ayoquezco de Aldama
+      volumen: 22,
+      nombre: "Ayoquezco de Aldama"
+    }, 
     {
       id: 20387,
-      territorio: "",
-      toneladas: "20",
-    }, //Santa Gertrudis
+      volumen: 20,
+      nombre: "Santa Gertrudis"
+    }, 
     {
       id: 20295,
-      territorio: "",
-      toneladas: "19",
-    }, //San Pablo Huixtepec
+      volumen: 19,
+      nombre: "San Pablo Huixtepec"
+    }, 
     {
       id: 200072,
-      territorio: "",
-      toneladas: "18",
-    }, //San José del Progreso
+      volumen: 18,
+      nombre: "San José del Progreso"
+    }, 
     {
       id: 20013,
-      territorio: "",
-      toneladas: "17",
-    }, //Ciénega de Zimatlán
+      volumen: 17,
+      nombre: "Ciénega de Zimatlán"
+    }, 
     {
       id: 20555,
-      territorio: "",
-      toneladas: "16",
-    }, //Trinidad Zaachila
+      volumen: 16,
+      nombre: "Trinidad Zaachila"
+    }, 
     {
       id: 20494,
-      territorio: "",
-      toneladas: "15",
-    }, //Santiago Tlazoyaltepec
+      volumen: 15,
+      nombre: "Santiago Tlazoyaltepec"
+    }, 
     {
       id: 20360,
-      territorio: "",
-      toneladas: "14",
-    }, //Santa Ana Zegache
+      volumen: 14,
+      nombre: "Santa Ana Zegache"
+    }, 
     {
       id: 20023,
-      territorio: "",
-      toneladas: "14",
-    }, //Cuilápam de Guerrero
+      volumen: 14,
+      nombre: "Cuilápam de Guerrero"
+    }, 
     {
       id: 20551,
-      territorio: "",
-      toneladas: "14",
-    }, //Tlacolula de Matamoros
+      volumen: 14,
+      nombre: "Tlacolula de Matamoros"
+    }, 
     {
       id: 20550,
-      territorio: "",
-      toneladas: "11",
-    }, //San Jerónimo Tlacochahuaya
+      volumen: 11,
+      nombre: "San Jerónimo Tlacochahuaya"
+    }, 
     {
       id: 20197,
-      territorio: "",
-      toneladas: "10",
-    }, //San Juan Guelavía
+      volumen: 10,
+      nombre: "San Juan Guelavía"
+    }, 
     {
       id: 20475,
-      territorio: "",
-      toneladas: "10",
-    }, //Santiago Matatlán
+      volumen: 10,
+      nombre: "Santiago Matatlán"
+    }, 
   ],
   Papaloapan: [
     //8
     {
       id: 20184,
-      territorio: "",
-      toneladas: "140",
-    }, //San Juan Bautista Tuxtepec
+      volumen: 140,
+      nombre: "San Juan Bautista Tuxtepec"
+    }, 
     {
       id: 20044,
-      territorio: "",
-      toneladas: "75",
-    }, //Loma Bonita
+      volumen: 75,
+      nombre: "Loma Bonita"
+    }, 
     {
       id: 20417,
-      territorio: "",
-      toneladas: "57",
-    }, //Santa María Jacatepec
+      volumen: 57,
+      nombre: "Santa María Jacatepec"
+    }, 
     {
       id: 20278,
-      territorio: "",
-      toneladas: "53",
-    }, //San Miguel Soyaltepec
+      volumen: 53,
+      nombre: "San Miguel Soyaltepec"
+    }, 
     {
       id: 20002,
-      territorio: "",
-      toneladas: "45",
-    }, //Acatlán de Pérez Figueroa
+      volumen: 45,
+      nombre: "Acatlán de Pérez Figueroa"
+    }, 
     {
       id: 20559,
-      territorio: "",
-      toneladas: "45",
-    }, //San Juan Bautista Valle Nacional
+      volumen: 45,
+      nombre: "San Juan Bautista Valle Nacional"
+    }, 
     {
       id: 20166,
-      territorio: "",
-      toneladas: "36",
-    }, //San José Chiltepec
+      volumen: 36,
+      nombre: "San José Chiltepec"
+    }, 
     {
       id: 20169,
-      territorio: "",
-      toneladas: "10",
-    }, //San José Independencia
+      volumen: 10,
+      nombre: "San José Independencia"
+    }, 
   ],
   Istmo: [
     //3
     {
       id: 20057,
-      territorio: "",
-      toneladas: "72",
-    }, //Matías Romero Avendaño
+      volumen: 72,
+      nombre: "Matías Romero Avendaño"
+    }, 
     {
       id: 20010,
-      territorio: "",
-      toneladas: "31",
-    }, //El Barrio de la Soledad
+      volumen: 31,
+      nombre: "El Barrio de la Soledad"
+    }, 
     {
       id: 20515,
-      territorio: "",
-      toneladas: "21",
-    }, //Santo Domingo Tehuantepec
+      volumen: 21,
+      nombre: "Santo Domingo Tehuantepec"
+    }, 
   ],
   "Sierra Sur": [
     //3
     {
       id: 20059,
-      territorio: "",
-      toneladas: "41",
-    }, //Miahuatlán de Porfirio Díaz
+      volumen: 41,
+      nombre: "Miahuatlán de Porfirio Díaz"
+    }, 
     {
       id: 20277,
-      territorio: "",
-      toneladas: "15",
-    }, //Villa Sola de Vega
+      volumen: 15,
+      nombre: "Villa Sola de Vega"
+    }, 
     {
       id: 20377,
-      territorio: "",
-      toneladas: "15",
-    }, //Santa Cruz Itundujia
+      volumen: 15,
+      nombre: "Santa Cruz Itundujia"
+    }, 
   ],
   "Sierra de Juárez": [
     //1
     {
       id: 20207,
-      territorio: "",
-      toneladas: "14",
-    }, //San Juan Mazatlán
+      volumen: 14,
+      nombre: "San Juan Mazatlán"
+    }, 
   ],
 };
 
-/* PRODUCCION NACIONAL DE LANA DE OVINO */
-const estados_datos_sub_pro = [
-  //14
+/* LANA  DE  OVINO */
+const tab_mex_sub_pro = [
   {
+    ranking: 1,
     id: "HGO",
-    territorio: "",
-    toneladas: "1,530",
-  }, //Hidalgo
+    entidad: "Hidalgo",
+    volumen: 1530,
+    precio: 3,
+    valor: 4809000,
+  },
   {
+    ranking: 2,
     id: "ZAC",
-    territorio: "",
-    toneladas: "578",
-  }, //Zacatecas
+    entidad: "Zacatecas",
+    volumen: 578,
+    precio: 7,
+    valor: 3906000,
+  },
   {
+    ranking: 3,
     id: "EM",
-    territorio: "",
-    toneladas: "418",
-  }, //México
+    entidad: "México",
+    volumen: 418,
+    precio: 2,
+    valor: 1015000,
+  },
   {
+    ranking: 4,
     id: "SLP",
-    territorio: "",
-    toneladas: "407",
-  }, //San Luis Potosí
+    entidad: "San Luis Potosí",
+    volumen: 407,
+    precio: 7,
+    valor: 3232000,
+  },
   {
+    ranking: 5,
     id: "TLAX",
-    territorio: "",
-    toneladas: "215",
-  }, //Tlaxcala
+    entidad: "Tlaxcala",
+    volumen: 215,
+    precio: 2,
+    valor: 454000,
+  },
   {
+    ranking: 6,
     id: "PUE",
-    territorio: "",
-    toneladas: "191",
-  }, //Puebla
+    entidad: "Puebla",
+    volumen: 191,
+    precio: 8,
+    valor: 1097000,
+  },
   {
+    ranking: 7,
     id: "OAX",
-    territorio: "",
-    toneladas: "130",
-  }, //Oaxaca
+    entidad: "Oaxaca",
+    volumen: 130,
+    precio: 7,
+    valor: 1033000,
+  },
   {
+    ranking: 8,
     id: "CHS",
-    territorio: "",
-    toneladas: "106",
-  }, //Chiapas
+    entidad: "Chiapas",
+    volumen: 106,
+    precio: 45,
+    valor: 4966000,
+  },
   {
+    ranking: 9,
     id: "MICH",
-    territorio: "",
-    toneladas: "72",
-  }, //Michoacán
+    entidad: "Michoacán",
+    volumen: 72,
+    precio: 13,
+    valor: 939000,
+  },
   {
+    ranking: 10,
     id: "VER",
-    territorio: "",
-    toneladas: "61",
-  }, //Veracruz
+    entidad: "Veracruz",
+    volumen: 61,
+    precio: 3,
+    valor: 208000,
+  },
   {
+    ranking: 11,
     id: "DGO",
-    territorio: "",
-    toneladas: "57",
-  }, //Durango
+    entidad: "Durango",
+    volumen: 57,
+    precio: 4,
+    valor: 238000,
+  },
   {
+    ranking: 12,
     id: "COA",
-    territorio: "",
-    toneladas: "18",
-  }, //Coahuila
+    entidad: "Coahuila",
+    volumen: 18,
+    precio: 7,
+    valor: 131000,
+  },
   {
+    ranking: 13,
     id: "GTO",
-    territorio: "",
-    toneladas: "4",
-  }, //Guanajuato
+    entidad: "Guanajuato",
+    volumen: 4,
+    precio: 7,
+    valor: 27000,
+  },
   {
+    ranking: 14,
     id: "CHI",
-    territorio: "",
-    toneladas: "4",
-  }, //Chihuahua
-];
-
-/* PRODUCCION NACIONAL DE CARNE DE OVINO */
-const estados_datos_pro = [
-  //12
-
-  {
-    id: "EM",
-    territorio: "",
-    toneladas: "9,447",
-  }, //México
-  {
-    id: "HGO",
-    territorio: "",
-    toneladas: "6,853",
-  }, //Hidalgo
-  {
-    id: "VER",
-    territorio: "",
-    toneladas: "6,030",
-  }, //Veracruz
-  {
-    id: "JAL",
-    territorio: "",
-    toneladas: "5,200",
-  }, //Jalisco
-  {
-    id: "PUE",
-    territorio: "",
-    toneladas: "4,516",
-  }, //Puebla
-  {
-    id: "ZAC",
-    territorio: "",
-    toneladas: "4,460",
-  }, //Zacatecas
-  {
-    id: "TLAX",
-    territorio: "",
-    toneladas: "3,226",
-  }, //Tlaxcala
-  {
-    id: "SLP",
-    territorio: "",
-    toneladas: "3,008",
-  }, //San Luis Potosí
-  {
-    id: "OAX",
-    territorio: "",
-    toneladas: "2,554",
-  }, //Oaxaca
-  {
-    id: "GTO",
-    territorio: "",
-    toneladas: "2,422",
-  }, //Guanajuato
-  {
-    id: "CHS",
-    territorio: "",
-    toneladas: "1,931",
-  }, //Chiapas
-  {
-    id: "MICH",
-    territorio: "",
-    toneladas: "1,918",
-  }, //Michoacán
-];
-
-/* LANA DE OVINO */
-const paises_datos_sub_pro = [
-  //41
-  { id: "CHN", toneladas: "712,386" }, //China, Continental
-  { id: "AUS", toneladas: "328,000" }, //Australia
-  { id: "NZL", toneladas: "126,880" }, //Nueva Zelandia
-  { id: "TUR", toneladas: "84,885" }, //Turquía
-  { id: "", toneladas: "" }, //FALTAN
-  { id: "TZA", toneladas: "7,712" }, //República Unida de Tanzania
-  { id: "TJK", toneladas: "7,654" }, //Tayikistán
-  { id: "ETH", toneladas: "7,307" }, //Etiopía
-  { id: "CHL", toneladas: "6,626" }, //Chile
-  { id: "JOR", toneladas: "4,623" }, //Jordania
-  { id: "COL", toneladas: "4,429" }, //Colombia
-  { id: "MEX", toneladas: "3,786" }, //México
-  { id: "LSO", toneladas: "3,622" }, //Lesotho
-];
-
-/* CARNE DE OVINO */
-const paises_datos_pro = [
-  //33
-  { id: "CHN", toneladas: "5,356,984" }, //China, Continental
-  { id: "AUS", toneladas: "706,905" }, //Australia
-  { id: "TUR", toneladas: "489,354" }, //Turquía
-  { id: "NZL", toneladas: "436,975" }, //Nueva Zelandia
-  { id: "", toneladas: "" }, //
-  { id: "AFG", toneladas: "102,000" }, //Afganistán
-  { id: "AZE", toneladas: "89,055" }, //Azerbaiyán
-  { id: "TJK", toneladas: "83,297" }, //Tayikistán
-  { id: "FRA", toneladas: "79,200" }, //Francia
-  { id: "KGZ", toneladas: "76,038" }, //Kirguistán
-  { id: "IRL", toneladas: "68,220" }, //Irlanda
-  { id: "MEX", toneladas: "67,249" }, //México
-  { id: "YEM ", toneladas: "64,000" }, //Yemen
-];
-
-/* Datos para la primera tabla sobre la producción de carne de vaca a nivel mundial */
-const tabla_paises_prod = [
-  //33
-  { ranking: 1, pais: "China", volumen: 2678492 },
-  { ranking: 2, pais: "China, Continental", volumen: 2678492 },
-  { ranking: 3, pais: "Australia", volumen: 706905 },
-  { ranking: 4, pais: "Turquía", volumen: 489354 },
-  { ranking: 5, pais: "Nueva Zelandia", volumen: 436975 },
-  { ranking: 26, pais: "Afganistán", volumen: 102000 },
-  { ranking: 27, pais: "Azerbaiyán", volumen: 89055 },
-  { ranking: 28, pais: "Tayikistán", volumen: 83297 },
-  { ranking: 29, pais: "Francia", volumen: 79200 },
-  { ranking: 30, pais: "Kirguistán", volumen: 76038 },
-  { ranking: 31, pais: "Irlanda", volumen: 68220 },
-  { ranking: 32, pais: "México", volumen: 67249 },
-  { ranking: 33, pais: "Yemen", volumen: 64000 },
-  { ranking: "", pais: "otros", volumen: 1490875 },
-];
-
-/* Datos para la segunda tabla sobre la producción de leche de vaca a nivel mundial */
-const tabla_paises_sub_prod = [
-  //41
-  { ranking: 1, pais: "China", volumen: 356193 },
-  { ranking: 2, pais: "China, Continental", volumen: 356193 },
-  { ranking: 3, pais: "Australia", volumen: 328000 },
-  { ranking: 4, pais: "Nueva Zelandia", volumen: 126880 },
-  { ranking: 5, pais: "Turquía", volumen: 84885 },
-  { ranking: 34, pais: "República Unida de Tanzania", volumen: 7712 },
-  { ranking: 35, pais: "Tayikistán", volumen: 7654 },
-  { ranking: 36, pais: "Etiopía", volumen: 7307 },
-  { ranking: 37, pais: "Chile", volumen: 6626 },
-  { ranking: 38, pais: "Jordania", volumen: 4623 },
-  { ranking: 39, pais: "Colombia", volumen: 4429 },
-  { ranking: 40, pais: "México", volumen: 3786 },
-  { ranking: 41, pais: "Lesotho", volumen: 3622 },
-  { ranking: "", pais: "otros ", volumen: 43808 },
+    entidad: "Chihuahua",
+    volumen: 4,
+    precio: 8,
+    valor: 32000,
+  },
 ];
 
 /* PRODUCCION NACIONAL DEL SECTOR OVINO */
@@ -500,6 +401,7 @@ const tabla_paises_sub_prod = [
 const tab_mex_pro = [
   {
     ranking: 1,
+    id: "EM",
     entidad: "México",
     volumen: 9447,
     peso: 21,
@@ -508,6 +410,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 2,
+    id: "HGO",
     entidad: "Hidalgo",
     volumen: 6853,
     peso: 21,
@@ -516,6 +419,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 3,
+    id: "VER",
     entidad: "Veracruz",
     volumen: 6030,
     peso: 20,
@@ -524,6 +428,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 4,
+    id: "JAL",
     entidad: "Jalisco",
     volumen: 5200,
     peso: 24,
@@ -532,6 +437,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 5,
+    id: "PUE",
     entidad: "Puebla",
     volumen: 4516,
     peso: 21,
@@ -540,6 +446,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 6,
+    id: "ZAC",
     entidad: "Zacatecas",
     volumen: 4460,
     peso: 21,
@@ -548,6 +455,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 7,
+    id: "TLAX",
     entidad: "Tlaxcala",
     volumen: 3226,
     peso: 23,
@@ -556,6 +464,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 8,
+    id: "SLP",
     entidad: "San Luis Potosí",
     volumen: 3008,
     peso: 22,
@@ -564,6 +473,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 9,
+    id: "OAX",
     entidad: "Oaxaca",
     volumen: 2554,
     peso: 18,
@@ -572,6 +482,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 10,
+    id: "GTO",
     entidad: "Guanajuato",
     volumen: 2422,
     peso: 21,
@@ -580,6 +491,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 11,
+    id: "CHS",
     entidad: "Chiapas",
     volumen: 1931,
     peso: 20,
@@ -588,6 +500,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 12,
+    id: "MICH",
     entidad: "Michoacán",
     volumen: 1918,
     peso: 20,
@@ -604,107 +517,81 @@ const tab_mex_pro = [
   },
 ];
 
-/* LANA  DE  OVINO */
-const tab_mex_sub_pro = [
-  {
-    ranking: 1,
-    entidad: "Hidalgo",
-    volumen: 1530,
-    precio: 3,
-    valor: 4809000,
-  },
-  {
-    ranking: 2,
-    entidad: "Zacatecas",
-    volumen: 578,
-    precio: 7,
-    valor: 3906000,
-  },
-  {
-    ranking: 3,
-    entidad: "México",
-    volumen: 418,
-    precio: 2,
-    valor: 1015000,
-  },
-  {
-    ranking: 4,
-    entidad: "San Luis Potosí",
-    volumen: 407,
-    precio: 7,
-    valor: 3232000,
-  },
-  {
-    ranking: 5,
-    entidad: "Tlaxcala",
-    volumen: 215,
-    precio: 2,
-    valor: 454000,
-  },
-  {
-    ranking: 6,
-    entidad: "Puebla",
-    volumen: 191,
-    precio: 8,
-    valor: 1097000,
-  },
-  {
-    ranking: 7,
-    entidad: "Oaxaca",
-    volumen: 130,
-    precio: 7,
-    valor: 1033000,
-  },
-  {
-    ranking: 8,
-    entidad: "Chiapas",
-    volumen: 106,
-    precio: 45,
-    valor: 4966000,
-  },
-  {
-    ranking: 9,
-    entidad: "Michoacán",
-    volumen: 72,
-    precio: 13,
-    valor: 939000,
-  },
-  {
-    ranking: 10,
-    entidad: "Veracruz",
-    volumen: 61,
-    precio: 3,
-    valor: 208000,
-  },
-  {
-    ranking: 11,
-    entidad: "Durango",
-    volumen: 57,
-    precio: 4,
-    valor: 238000,
-  },
-  {
-    ranking: 12,
-    entidad: "Coahuila",
-    volumen: 18,
-    precio: 7,
-    valor: 131000,
-  },
-  {
-    ranking: 13,
-    entidad: "Guanajuato",
-    volumen: 4,
-    precio: 7,
-    valor: 27000,
-  },
-  {
-    ranking: 14,
-    entidad: "Chihuahua",
-    volumen: 4,
-    precio: 8,
-    valor: 32000,
-  },
+/* Datos para la segunda tabla sobre la producción de leche de vaca a nivel mundial */
+const tabla_paises_sub_prod = [
+  //41
+  { id: "CHN", ranking: 1, pais: "China", volumen: 356193 },
+  { id: "CHN", ranking: 2, pais: "China, Continental", volumen: 356193 },
+  { id: "AUS", ranking: 3, pais: "Australia", volumen: 328000 },
+  { id: "NZL", ranking: 4, pais: "Nueva Zelandia", volumen: 126880 },
+  { id: "TUR", ranking: 5, pais: "Turquía", volumen: 84885 },
+  { id: "TZA", ranking: 34, pais: "República Unida de Tanzania", volumen: 7712 },
+  { id: "TJK", ranking: 35, pais: "Tayikistán", volumen: 7654 },
+  { id: "ETH", ranking: 36, pais: "Etiopía", volumen: 7307 },
+  { id: "CHL", ranking: 37, pais: "Chile", volumen: 6626 },
+  { id: "JOR", ranking: 38, pais: "Jordania", volumen: 4623 },
+  { id: "COL", ranking: 39, pais: "Colombia", volumen: 4429 },
+  { id: "MEX", ranking: 40, pais: "México", volumen: 3786 },
+  { id: "LSO", ranking: 41, pais: "Lesotho", volumen: 3622 },
+  { ranking: "", pais: "otros ", volumen: 43808 },
 ];
+
+const agrupado = {};
+
+tabla_paises_sub_prod.forEach((item) => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_sub_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
+
+/* Datos para la primera tabla sobre la producción de carne de vaca a nivel mundial */
+const tabla_paises_prod = [
+  //33
+  { id: "CHN", ranking: 1, pais: "China", volumen: 2678492 },
+  { id: "CHN", ranking: 2, pais: "China, Continental", volumen: 2678492 },
+  { id: "AUS", ranking: 3, pais: "Australia", volumen: 706905 },
+  { id: "TUR", ranking: 4, pais: "Turquía", volumen: 489354 },
+  { id: "NZL", ranking: 5, pais: "Nueva Zelandia", volumen: 436975 },
+  { id: "AFG", ranking: 26, pais: "Afganistán", volumen: 102000 },
+  { id: "AZE", ranking: 27, pais: "Azerbaiyán", volumen: 89055 },
+  { id: "TJK", ranking: 28, pais: "Tayikistán", volumen: 83297 },
+  { id: "FRA", ranking: 29, pais: "Francia", volumen: 79200 },
+  { id: "KGZ", ranking: 30, pais: "Kirguistán", volumen: 76038 },
+  { id: "IRL", ranking: 31, pais: "Irlanda", volumen: 68220 },
+  { id: "MEX", ranking: 32, pais: "México", volumen: 67249 },
+  { id: "YEM ",ranking: 33, pais: "Yemen", volumen: 64000 },
+  { ranking: "", pais: "otros", volumen: 1490875 },
+];
+
+const agrupado2 = {};
+
+tabla_paises_prod.forEach((item) => {
+  if (!agrupado2[item.id]) {
+    agrupado2[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado2[item.id].superficie += item.superficie;
+
+    agrupado2[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado2).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 /* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
 const labels_balanza = [
@@ -946,14 +833,4 @@ const pub_indigenas_sub_producto = [
 /* Datos Grafica ESTACIONALIDAD DE LA PRODUCCION EN OAXACA CARNE */
 const estacionalidad_producto = [
   109, 107, 109, 121, 117, 123, 130, 141, 141, 149, 150, 135,
-];
-
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN CARNE DE OVINO EN OAXACA */
-const tab_mun_producto_oax = [
-  { nom: "Mixteca", num: 20 },
-  { nom: "Valles Centrales ", num: 17 },
-  { nom: "Papaloapan", num: 8 },
-  { nom: "Istmo", num: 3 },
-  { nom: "Sierra Sur", num: 3 },
-  { nom: "Sierra de Juárez", num: 1 },
 ];

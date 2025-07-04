@@ -56,8 +56,6 @@
         tiene <strong>135 Municipios</strong> productores de agave, se encuentra en el <strong>4to lugar</strong> en
         producción a nivel nacional, con <strong>5 pueblos indígenas</strong> productores de este cultivo.
       </p>
-
-
       <div class="descripcion">
         <div class="container">
 
@@ -71,7 +69,7 @@
           <div class="card">
             <h2>📊 Lugar a nivel mundial</h2>
             <p>
-              México ocupa el <strong>2° lugar</strong> a nivel mundial en la producción de agave.
+              México ocupa el <strong>2° lugar</strong> a nivel mundial en la producción de agave, produciendo principalmente tequila y mezcal y contando; Con una superficie de cosecha de <strong>13,601 Ha</strong>.
             </p>
           </div>
 
@@ -84,15 +82,15 @@
 
           <div class="card">
             <h2>🇲🇽 Lugar a nivel nacional</h2>
-            <p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de agave.
+            <p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de agave, con un volumen de producción de <strong>256,549 Ton</strong> con una superficie de producción de <strong>11,736 Ha</strong>, la cual presenta un rendimiento de <strong>51.91 Ton/Ha</strong>, y un valor de producción de <strong>$982,328,853</strong>.
             </p>
           </div>
 
           <div class="card">
             <h2>📈 Región con mayor producción</h2>
             <p>
-              La región de <strong>Valles Centrales</strong> es la region con mayor
-              producción de agave en el estado de Oaxaca.
+              La región de <strong>Sierra Sur</strong> es la region con mayor
+              producción de agave en el estado de Oaxaca, contando con  <strong>34 municipios</strong>, teniendo un volumen de producción de <strong>190,162 Ton</strong>, una superficie sembrada de <strong>5,535 Ha</strong>, con un rendimiento de <strong>63.05 Ton/Ha</strong>, y contando con un valor de producción de <strong>$724,298,264</strong>.
 
             </p>
           </div>
@@ -321,30 +319,10 @@
 
     <section id="section8" class="section">
       <h1>MUNICIPIOS QUE PRODUCEN AGAVE EN OAXACA</h1>
-      <div class="contenedor_col1">
-        <div class="columna1">
-          <table class="tabla-datos">
-            <thead>
-              <tr>
-                <th>REGION</th>
-                <th>CANTIDAD DE MUNICIPIOS</th>
-              </tr>
-            </thead>
-
-            <tbody id="tb_mun_producto_oax">
-
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Total:</th>
-                <th id="total_mun_producto_oax"></th>
-              </tr>
-            </tfoot>
-
-          </table>
-        </div>
-        <iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
-      </div>
+      <iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+      <div id="botones"></div>
+      <div id="titulo_regmun"></div>
+      <div id="tabla"></div>
     </section>
   </div>
 
@@ -402,18 +380,18 @@
 
   const mundo_producto = document.getElementById("frame_mundo_prod");
   mundo_producto.onload = function () {
-    mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");
+    mundo_producto.contentWindow.postMessage(tab_pro_mundial, "*");
   }
 
   const mexico_producto = document.getElementById("iframe_mexico_prod");
   mexico_producto.onload = function () {
-    mexico_producto.contentWindow.postMessage(estados_datos_pro, "*");
+    mexico_producto.contentWindow.postMessage(tab_pro_nacional, "*");
   }
 
   const iframe = document.getElementById('frame_oaxaca');
-   iframe.onload = function () {
-     iframe.contentWindow.postMessage(regionesConMunicipios, "*");
-   };
+  iframe.onload = function () {
+    iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+  };
 </script>
 
 <script>
