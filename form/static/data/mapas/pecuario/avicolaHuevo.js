@@ -4,186 +4,186 @@ const regionesConMunicipios = {
     //2
     {
       id: 20067,
-      superficie: "",
-      volumen: "1,981",
-    }, //Oaxaca de Juárez
+      volumen: 1981,
+      nombre: "Oaxaca de Juárez"
+    }, 
     {
       id: 20068,
-      superficie: "",
-      volumen: "1,111",
-    }, //Ocotlán de Morelos
+      volumen: 1111,
+      nombre: "Ocotlán de Morelos"
+    }, 
   ],
   'Papaloapan': [
     //11
     {
       id: 20559,
-      superficie: "",
-      volumen: "227",
-    }, //San Juan Bautista Valle Nacional
+      volumen: 227,
+      nombre: "San Juan Bautista Valle Nacional"
+    }, 
     {
       id: 20417,
-      superficie: "",
-      volumen: "204",
-    }, //Santa María Jacatepec
+      volumen: 204,
+      nombre: "Santa María Jacatepec"
+    }, 
     {
       id: 20184,
-      superficie: "",
-      volumen: "202",
-    }, //San Juan Bautista Tuxtepec
+      volumen: 202,
+      nombre: "San Juan Bautista Tuxtepec"
+    }, 
     {
       id: 20278,
-      superficie: "",
-      volumen: "178",
-    }, //San Miguel Soyaltepec
+      volumen: 178,
+      nombre: "San Miguel Soyaltepec"
+    }, 
     {
       id: 20044,
-      superficie: "",
-      volumen: "143",
-    }, //Loma Bonita
+      volumen: 143,
+      nombre: "Loma Bonita"
+    }, 
     {
       id: 20002,
-      superficie: "",
-      volumen: "140",
-    }, //Acatlán de Pérez Figueroa
+      volumen: 140,
+      nombre: "Acatlán de Pérez Figueroa"
+    }, 
     {
       id: 20498,
-      superficie: "",
-      volumen: "136",
-    }, //Santiago Yaveo
+      volumen: 136,
+      nombre: "Santiago Yaveo"
+    }, 
     {
       id: 20232,
-      superficie: "",
-      volumen: "128",
-    }, //San Lucas Ojitlán
+      volumen: 128,
+      nombre: "San Lucas Ojitlán"
+    }, 
     {
       id: 20205,
-      superficie: "",
-      volumen: "118",
-    }, //San Juan Lalana
+      volumen: 118,
+      nombre: "San Juan Lalana"
+    }, 
     {
       id: 20468,
-      superficie: "",
-      volumen: "117",
-    }, //Santiago Jocotepec
+      volumen: 117,
+      nombre: "Santiago Jocotepec"
+    }, 
     {
       id: 20166,
-      superficie: "",
-      volumen: "116",
-    }, //San José Chiltepec
+      volumen: 116,
+      nombre: "San José Chiltepec"
+    }, 
   ],
   'Istmo': [
     //4
     {
       id: 20057,
-      superficie: "",
-      volumen: "257",
-    }, //Matías Romero Avendaño
+      volumen: 257,
+      nombre: "Matías Romero Avendaño"
+    }, 
     {
       id: 20198,
-      superficie: "",
-      volumen: "231",
-    }, //San Juan Guichicovi
+      volumen: 231,
+      nombre: "San Juan Guichicovi"
+    }, 
     {
       id: 20005,
-      superficie: "",
-      volumen: "134",
-    }, //Asunción Ixtaltepec
+      volumen: 134,
+      nombre: "Asunción Ixtaltepec"
+    }, 
     {
       id: 20427,
-      superficie: "",
-      volumen: "110",
-    }, //Santa María Petapa
+      volumen: 110,
+      nombre: "Santa María Petapa"
+    }, 
   ],
   "Sierra de Juárez": [
     //2
     {
       id: 20190,
-      superficie: "",
-      volumen: "296",
-    }, //San Juan Cotzocón
+      volumen: 296,
+      nombre: "San Juan Cotzocón"
+    }, 
     {
       id: 20207,
-      superficie: "",
-      volumen: "209",
-    }, //San Juan Mazatlán
+      volumen: 209,
+      nombre: "San Juan Mazatlán"
+    }, 
   ],
   'Mixteca': [
     //1
     {
       id: 20209,
-      superficie: "",
-      volumen: "104",
-    }, //San Juan Mixtepec
+      volumen: 104,
+      nombre: "San Juan Mixtepec"
+    }, 
   ],
   "Sierra Sur": [
     //1
     {
       id: 20125,
-      superficie: "",
-      volumen: "107",
-    }, //San Carlos Yautepec
+      volumen: 107,
+      nombre: "San Carlos Yautepec"
+    }, 
   ],
   'Costa': [
     //2
     {
       id: 20509,
-      superficie: "",
-      volumen: "104",
-    }, //Santo Domingo de Morelos
+      volumen: 104,
+      nombre: "Santo Domingo de Morelos"
+    }, 
 
     {
       id: 20334,
-      superficie: "",
-      volumen: "116",
-    }, //Villa de Tututepec de Melchor Ocampo
+      volumen: 116,
+      nombre: "Villa de Tututepec de Melchor Ocampo"
+    }, 
   ],
   "Sierra de Flores Magón": [
     //9
     {
       id: 20406,
-      superficie: "",
-      volumen: "306",
-    }, //Santa María Chilchotla
+      volumen: 306,
+      nombre: "Santa María Chilchotla"
+    }, 
     {
       id: 20041,
-      superficie: "",
-      volumen: "295",
-    }, //Huautla de Jiménez
+      volumen: 295,
+      nombre: "Huautla de Jiménez"
+    }, 
     {
       id: 20058,
-      superficie: "",
-      volumen: "278",
-    }, //Mazatlán Villa de Flores
+      volumen: 278,
+      nombre: "Mazatlán Villa de Flores"
+    }, 
     {
       id: 20171,
-      superficie: "",
-      volumen: "263",
-    }, //San José Tenango
+      volumen: 263,
+      nombre: "San José Tenango"
+    }, 
     {
       id: 20244,
-      superficie: "",
-      volumen: "137",
-    }, //San Martín Toxpalan
+      volumen: 137,
+      nombre: "San Martín Toxpalan"
+    }, 
     {
       id: 20490,
-      superficie: "",
-      volumen: "135",
-    }, //Santiago Texcalcingo
+      volumen: 135,
+      nombre: "Santiago Texcalcingo"
+    }, 
     {
       id: 20434,
-      superficie: "",
-      volumen: "131",
-    }, //Santa María Teopoxco
+      volumen: 131,
+      nombre: "Santa María Teopoxco"
+    }, 
     {
       id: 20177,
-      superficie: "",
-      volumen: "112",
-    }, //San Juan Bautista Cuicatlán
+      volumen: 112,
+      nombre: "San Juan Bautista Cuicatlán"
+    }, 
     {
       id: 20545,
-      superficie: "",
-      volumen: "3,123",
-    }, //Teotitlán de Flores Magón
+      volumen: 3123,
+      nombre: "Teotitlán de Flores Magón"
+    }, 
   ],
 };
 

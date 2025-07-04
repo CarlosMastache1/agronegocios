@@ -599,6 +599,7 @@ const config6 = {
 
 new Chart(ctx6, config6);
 
+
 const contenedor_botones = document.getElementById("botones");
 const contenedor_tabla = document.getElementById("tabla");
 const titulo_regmun = document.getElementById("titulo_regmun");
@@ -629,7 +630,6 @@ function mostrar_tabla(region, pagina) {
     <thead>
       <tr>
         <th>Municipio</th>
-        <th>Territorio (Ha)</th>
         <th>Toneladas (Ton)</th>
       </tr>
     </thead>
@@ -638,7 +638,6 @@ function mostrar_tabla(region, pagina) {
   municipios_pagina.forEach((m) => {
     html += `<tr>
       <td>${m.nombre}</td>
-      <td>${m.superficie.toLocaleString("es-MX")}</td>
       <td>${m.volumen.toLocaleString("es-MX")}</td>
     </tr>`;
   });
@@ -688,7 +687,6 @@ function cambiar_pagina(nueva_pagina) {
     <thead>
       <tr>
         <th>Municipio</th>
-        <th>Territorio (Ha)</th>
         <th>Toneladas (Ton)</th>
       </tr>
     </thead>
@@ -697,7 +695,6 @@ function cambiar_pagina(nueva_pagina) {
   municipios_pagina.forEach((m) => {
     html += `<tr>
       <td>${m.nombre}</td>
-      <td>${m.superficie.toLocaleString("es-MX")}</td>
       <td>${m.volumen.toLocaleString("es-MX")}</td>
     </tr>`;
   });

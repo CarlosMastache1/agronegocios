@@ -1079,8 +1079,6 @@ const config7 = {
 
 new Chart(ctx7, config7);
 
-
-
 const contenedor_botones = document.getElementById("botones");
 const contenedor_tabla = document.getElementById("tabla");
 const titulo_regmun = document.getElementById("titulo_regmun");
@@ -1209,4 +1207,3 @@ function cambiar_pagina(nueva_pagina) {
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
 }
-

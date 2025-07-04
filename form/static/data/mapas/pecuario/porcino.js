@@ -2,270 +2,174 @@ const regionesConMunicipios = {
   //27
   Istmo: [
     //9
-    //
     {
       id: 20515,
-      superficie: "",
-      volumen: "470",
-    }, //Santo Domingo Tehuantepec
+      volumen: 470,
+      nombre: "Santo Domingo Tehuantepec"
+    },
     {
       id: 20043,
-      superficie: "",
-      volumen: "329",
-    }, //Heroica Ciudad de Juchitán de Zaragoza
+      volumen: 329,
+      nombre: "Heroica Ciudad de Juchitán de Zaragoza"
+    },
     {
       id: 20130,
-      superficie: "",
-      volumen: "293",
-    }, //San Dionisio del Mar
+      volumen: 293,
+      nombre: "San Dionisio del Mar"
+    },
     {
       id: 20057,
-      superficie: "",
-      volumen: "944",
-    }, //Matías Romero Avendaño
+      volumen: 944,
+      nombre: "Matías Romero Avendaño"
+    },
     {
       id: 20525,
-      superficie: "",
-      volumen: "261",
-    }, //Santo Domingo Zanatepec
+      volumen: 261,
+      nombre: "Santo Domingo Zanatepec"
+    },
     {
       id: 20141,
-      superficie: "",
-      volumen: "256",
-    }, //San Francisco del Mar
+      volumen: 256,
+      nombre: "San Francisco del Mar"
+    },
     {
       id: 20427,
-      superficie: "",
-      volumen: "247",
-    }, //Santa María Petapa
+      volumen: 247,
+      nombre: "Santa María Petapa"
+    },
     {
       id: 20066,
-      superficie: "",
-      volumen: "245",
-    }, //Santiago Niltepec
+      volumen: 245,
+      nombre: "Santiago Niltepec"
+    },
     {
       id: 20005,
-      superficie: "",
-      volumen: "225",
-    }, //Asunción Ixtaltepec
+      volumen: 225,
+      nombre: "Asunción Ixtaltepec"
+    },
   ],
   Papaloapa: [
     //6
     //
     {
       id: 20559,
-      superficie: "",
-      volumen: "1,188",
-    }, //San Juan Bautista Valle Nacional
+      volumen: 1188,
+      nombre: "San Juan Bautista Valle Nacional"
+    },
     {
       id: 20166,
-      superficie: "",
-      volumen: "499",
-    }, //San José Chiltepec
+      volumen: 499,
+      nombre: "San José Chiltepec"
+    },
     {
       id: 20417,
-      superficie: "",
-      volumen: "495",
-    }, //Santa María Jacatepec
+      volumen: 495,
+      nombre: "Santa María Jacatepec"
+    },
     {
       id: 20002,
-      superficie: "",
-      volumen: "294",
-    }, //Acatlán de Pérez Figueroa
+      volumen: 294,
+      nombre: "Acatlán de Pérez Figueroa"
+    },
     {
       id: 20184,
-      superficie: "",
-      volumen: "289",
-    }, //San Juan Bautista Tuxtepec
+      volumen: 289,
+      nombre: "San Juan Bautista Tuxtepec"
+    },
     {
       id: 20232,
-      superficie: "",
-      volumen: "286",
-    }, //San Lucas Ojitlán
+      volumen: 286,
+      nombre: "San Lucas Ojitlán"
+    },
   ],
   "Valles Centrales": [
     //4
     //
     {
       id: 20067,
-      superficie: "",
-      volumen: "1,961",
-    }, //Oaxaca de Juárez
+      volumen: 1961,
+      nombre: "Oaxaca de Juárez"
+    },
     {
       id: 20068,
-      superficie: "",
-      volumen: "580",
-    }, //Ocotlán de Morelos
+      volumen: 580,
+      nombre: "Ocotlán de Morelos"
+    },
     {
       id: 20023,
-      superficie: "",
-      volumen: "278",
-    }, //Cuilápam de Guerrero
+      volumen: 278,
+      nombre: "Cuilápam de Guerrero"
+    },
     {
       id: 20028,
-      superficie: "",
-      volumen: "200",
-    }, //Heroica Ciudad de Ejutla de Crespo
+      volumen: 200,
+      nombre: "Heroica Ciudad de Ejutla de Crespo"
+    },
   ],
   Mixteca: [
     //4
     //
     {
       id: 20039,
-      superficie: "",
-      volumen: "321",
-    }, //Heroica Ciudad de Huajuapan de León
+      volumen: 321,
+      nombre: "Heroica Ciudad de Huajuapan de León"
+    },
     {
       id: 20549,
-      superficie: "",
-      volumen: "274",
-    }, //H. V. Tezoatlán de Segura y Luna, C. de la I.de O.
+      volumen: 274,
+      nombre: "H. V. Tezoatlán de Segura y Luna, C. de la I.de O."
+    },
     {
       id: 20006,
-      superficie: "",
-      volumen: "238",
-    }, //Asunción Nochixtlán
+      volumen: 238,
+      nombre: "Asunción Nochixtlán"
+    },
     {
       id: 20469,
-      superficie: "",
-      volumen: "207",
-    }, //Santiago Juxtlahuaca
+      volumen: 207,
+      nombre: "Santiago Juxtlahuaca"
+    },
   ],
   Costa: [
     //2
     //
     {
       id: 20482,
-      superficie: "",
-      volumen: "1,633",
-    }, //Santiago Pinotepa Nacional
+      volumen: 1633,
+      nombre: "Santiago Pinotepa Nacional"
+    },
     {
       id: 20467,
-      superficie: "",
-      volumen: "382",
-    }, //Santiago Jamiltepec
+      volumen: 382,
+      nombre: "Santiago Jamiltepec"
+    },
   ],
   "Sierra de Flores Magón": [
     //1
     //
     {
       id: 20406,
-      superficie: "",
-      volumen: "212",
-    }, //Santa María Chilchotla
+      volumen: 212,
+      nombre: "Santa María Chilchotla"
+    },
   ],
   "Sierra Sur": [
     //1
     //
     {
       id: 20386,
-      superficie: "",
-      volumen: "455",
-    }, //Santa Cruz Zenzontepec
+      volumen: 455,
+      nombre: "Santa Cruz Zenzontepec"
+    },
   ],
 };
-
-/* PRODUCCION NACIONAL DE CARNE DE PORCINO	 */
-const estados_datos_pro = [
-  //11
-  {
-    id: "JAL",
-    superficie: "",
-    volumen: "411,681",
-  }, //Jalisco
-  {
-    id: "SON",
-    superficie: "",
-    volumen: "314,096",
-  }, //Sonora
-  {
-    id: "PUE",
-    superficie: "",
-    volumen: "187,936",
-  }, //Puebla
-  {
-    id: "YUC",
-    superficie: "",
-    volumen: "166,132",
-  }, //Yucatán
-  {
-    id: "VER",
-    superficie: "",
-    volumen: "161,911",
-  }, //Veracruz
-  {
-    id: "GTO",
-    superficie: "",
-    volumen: "140,169",
-  }, //Guanajuato
-  {
-    id: "MICH",
-    superficie: "",
-    volumen: "53,140",
-  }, //Michoacán
-  {
-    id: "CHS",
-    superficie: "",
-    volumen: "32,546",
-  }, //Chiapas
-  {
-    id: "OAX",
-    superficie: "",
-    volumen: "29,567",
-  }, //Oaxaca
-  {
-    id: "QRO",
-    superficie: "",
-    volumen: "27,676",
-  }, //Querétaro
-  {
-    id: "SLP",
-    superficie: "",
-    volumen: "26,070",
-  }, //San Luis Potosí
-];
-
-/* PRODUCCION MUNDIAL DEL SECTOR PORCINO */
-const paises_datos_pro = [
-  //13
-  { id: "CHN", volumen: "111,731,097" }, //China, Continental
-  { id: "USA", volumen: "12,251,984" }, //Estados Unidos de América
-  { id: "BRA", volumen: "5,186,303" }, //Brasil
-  { id: "ESP", volumen: "5,066,350" }, //España
-  { id: "RUS", volumen: "4,532,147" }, //Federación de Rusia
-  { id: "DEU", volumen: "4,491,710" }, //Alemania
-  { id: "VNM", volumen: "3,102,000" }, //VietNam
-  { id: "CAN", volumen: "2,262,744" }, //Canadá
-  { id: "FRA", volumen: "2,152,260" }, //Francia
-  { id: "POL", volumen: "1,804,960" }, //Polonia
-  { id: "MEX", volumen: "1,730,051" }, //México
-  { id: "NLD", volumen: "1,683,580" }, //Países Bajos (Reino de los)
-];
-
-/* Datos para la primera tabla sobre la producción de carne de porcino a nivel mundial */
-const tabla_paises_prod = [
-  //13
-  { ranking: 1, pais: "China", volumen: 56321097 },
-  { ranking: 2, pais: "China, Continental", volumen: 55410000 },
-  { ranking: 3, pais: "Estados Unidos de América", volumen: 12251984 },
-  { ranking: 4, pais: "Brasil", volumen: 5186303 },
-  { ranking: 5, pais: "España", volumen: 5066350 },
-  { ranking: 6, pais: "Federación de Rusia", volumen: 4532147 },
-  { ranking: 7, pais: "Alemania", volumen: 4491710 },
-  { ranking: 8, pais: "VietNam", volumen: 3102000 },
-  { ranking: 9, pais: "Canadá", volumen: 2262744 },
-  { ranking: 10, pais: "Francia", volumen: 2152260 },
-  { ranking: 11, pais: "Polonia", volumen: 1804960 },
-  { ranking: 12, pais: "México", volumen: 1730051 },
-  { ranking: 13, pais: "Países Bajos (Reino de los)", volumen: 1683580 },
-  { pais: "otros", volumen: 22911308 },
-];
 
 /* PRODUCCION NACIONAL DEL SECTOR PORCINO */
 /* CARNE DE PORCINO */
 const tab_mex_pro = [
   {
     ranking: 1,
+    id: "JAL",
     entidad: "Jalisco",
     volumen: 411681,
     peso: 85,
@@ -274,6 +178,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 2,
+    id: "SON",
     entidad: "Sonora",
     volumen: 314096,
     peso: 97,
@@ -282,6 +187,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 3,
+    id: "PUE",
     entidad: "Puebla",
     volumen: 187936,
     peso: 81,
@@ -290,6 +196,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 4,
+    id: "YUC",
     entidad: "Yucatán",
     volumen: 166132,
     peso: 82,
@@ -298,6 +205,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 5,
+    id: "VER",
     entidad: "Veracruz",
     volumen: 161911,
     peso: 83,
@@ -306,6 +214,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 6,
+    id: "GTO",
     entidad: "Guanajuato",
     volumen: 140169,
     peso: 84,
@@ -314,6 +223,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 7,
+    id: "MICH",
     entidad: "Michoacán",
     volumen: 53140,
     peso: 77,
@@ -322,6 +232,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 8,
+    id: "CHS",
     entidad: "Chiapas",
     volumen: 32546,
     peso: 77,
@@ -330,6 +241,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 9,
+    id: "OAX",
     entidad: "Oaxaca",
     volumen: 29567,
     peso: 64,
@@ -338,6 +250,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 10,
+    id: "QRO",
     entidad: "Querétaro",
     volumen: 27676,
     peso: 83,
@@ -346,6 +259,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 11,
+    id: "SLP",
     entidad: "San Luis Potosí",
     volumen: 26070,
     peso: 78,
@@ -361,6 +275,44 @@ const tab_mex_pro = [
     valor: 11327842000,
   },
 ];
+
+/* Datos para la primera tabla sobre la producción de carne de porcino a nivel mundial */
+const tabla_paises_prod = [
+  //13
+  { id: "CHN", ranking: 1, pais: "China", volumen: 56321097 },
+  { id: "CHN", ranking: 2, pais: "China, Continental", volumen: 55410000 },
+  { id: "USA", ranking: 3, pais: "Estados Unidos de América", volumen: 12251984 },
+  { id: "BRA", ranking: 4, pais: "Brasil", volumen: 5186303 },
+  { id: "ESP", ranking: 5, pais: "España", volumen: 5066350 },
+  { id: "RUS", ranking: 6, pais: "Federación de Rusia", volumen: 4532147 },
+  { id: "DEU", ranking: 7, pais: "Alemania", volumen: 4491710 },
+  { id: "VNM", ranking: 8, pais: "VietNam", volumen: 3102000 },
+  { id: "CAN", ranking: 9, pais: "Canadá", volumen: 2262744 },
+  { id: "FRA", ranking: 10, pais: "Francia", volumen: 2152260 },
+  { id: "POL", ranking: 11, pais: "Polonia", volumen: 1804960 },
+  { id: "MEX", ranking: 12, pais: "México", volumen: 1730051 },
+  { id: "NLD", ranking: 13, pais: "Países Bajos (Reino de los)", volumen: 1683580 },
+  { pais: "otros", volumen: 22911308 },
+];
+
+const agrupado2 = {};
+
+tabla_paises_prod.forEach((item) => {
+  if (!agrupado2[item.id]) {
+    agrupado2[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado2[item.id].superficie += item.superficie;
+
+    agrupado2[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado2).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 /* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
 const labels_balanza = [
@@ -549,15 +501,4 @@ const pub_indigenas_producto = [
 /* Datos Grafica ESTACIONALIDAD DE LA PRODUCCION EN OAXACA CARNE */
 const estacionalidad_producto = [
   86, 83, 91, 94, 93, 96, 99, 113, 120, 122, 125, 109,
-];
-
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN CARNE DE CAPRINO EN OAXACA */
-const tab_mun_producto_oax = [
-  { nom: "Istmo", num: 9 },
-  { nom: "Papaloapan", num: 6 },
-  { nom: "Valles Centrales ", num: 4 },
-  { nom: "Mixteca", num: 4 },
-  { nom: "Costa", num: 2 },
-  { nom: "Sierra De Flores Magón ", num: 1 },
-  { nom: "Sierra Sur", num: 1 },
 ];
