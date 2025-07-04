@@ -242,14 +242,30 @@ def tiendaAgricola(request):
   return render(request, 'agricolaTienda.html')
 
 def tiendaProducAgri(request, categoria):
-  productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA', categoria = categoria, estado=True)
-
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  productos_filtrados = productos.objects.filter(
+        subsector__iexact='AGRICOLA',
+        categoria__iexact='CAFE',
+        estado=True
+    ).values(
+        'nombreProductor',  # si también lo quieres mostrar
+        'telefono',
+        'email'
+    ).distinct()
+  paginator = Paginator(productos_filtrados, 15)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
   return render(request, 'productoAgricultura.html',
   {'page_obj': page_obj, 'categoria' : categoria})
+
+def productorProductorAgri(request, categoria, nombre):
+  productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA',  categoria = categoria, nombreProductor = nombre, estado=True)
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+  return render(request, 'productosProductorAgri.html',
+  {'page_obj': page_obj, 'categoria' : categoria})
+
 
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
