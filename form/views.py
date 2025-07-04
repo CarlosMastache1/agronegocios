@@ -242,21 +242,41 @@ def tiendaAgricola(request):
   return render(request, 'agricolaTienda.html')
 
 def tiendaProducAgri(request, categoria):
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
   productos_filtrados = productos.objects.filter(
-        subsector__iexact='AGRICOLA',
-        categoria__iexact=categoria,
-        estado=True
-    ).values(
-        'nombreProductor',  # si también lo quieres mostrar
-        'telefono',
-        'email'
-    ).distinct()
+       subsector__iexact='AGRICOLA',
+       categoria__iexact=categoria,
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
   paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
   return render(request, 'productoAgricultura.html',
-  {'page_obj': page_obj, 'categoria' : categoria})
+  {
+     'page_obj': page_obj, 
+     'categoria' : categoria,
+     'municipios': todos_los_municipios
+     })
 
 def productorProductorAgri(request, categoria, nombre):
   productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA',  categoria = categoria, nombreProductor = nombre, estado=True)
