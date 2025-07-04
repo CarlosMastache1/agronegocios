@@ -258,7 +258,7 @@ def tiendaProducAgri(request, categoria):
        productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
   if volumen:
        productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
-  if volumen:
+  if unidad:
        productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
   if municipio_id:
        productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)

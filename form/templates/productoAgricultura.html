@@ -132,6 +132,7 @@
             <input type="number" name="volumen" placeholder="Volumen" value="{{ request.GET.volumen }}"    min="0"
                 style="border: none; padding: 10px 12px; width: 100px; outline: none;">
             <select name="unidad" style="border: none; padding: 10px 12px; background-color: #f5f5f5; outline: none;">
+                <option value="">Unidad</option>
                 <option value="TONELADA" {% if request.GET.unidad == "TONELADA" %}selected{% endif %}>TON</option>
                 <option value="KILOGRAMOS" {% if request.GET.unidad == "KILOGRAMOS" %}selected{% endif %}>KG</option>
                 <option value="LITROS" {% if request.GET.unidad == "LITROS" %}selected{% endif %}>L</option>
@@ -140,7 +141,7 @@
         </div>
 
         <select name="municipio"
-            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px;">
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px; max-width: 210px;">
             <option value="">-- Municipio --</option>
             {% for m in municipios %}
             <option value="{{ m.id }}" {% if request.GET.municipio == m.id|stringformat:"s" %}selected{% endif %}>
@@ -158,6 +159,7 @@
         {% with request.GET.busqueda as busqueda %}
         {% with request.GET.disponibilidad as disponibilidad %}
         {% with request.GET.volumen as volumen %}
+        {% with request.GET.unidad as unidad %}
         {% with request.GET.municipio as municipio %}
         {% if busqueda or disponibilidad or volumen or unidad or municipio %}
         <!-- Botón activo -->
@@ -172,6 +174,7 @@
             Borrar filtros
         </span>
         {% endif %}
+        {% endwith %}
         {% endwith %}
         {% endwith %}
         {% endwith %}
