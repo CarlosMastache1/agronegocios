@@ -244,14 +244,14 @@ def tiendaAgricola(request):
 def tiendaProducAgri(request, categoria):
   productos_filtrados = productos.objects.filter(
         subsector__iexact='AGRICOLA',
-        categoria__iexact='CAFE',
+        categoria__iexact=categoria,
         estado=True
     ).values(
         'nombreProductor',  # si también lo quieres mostrar
         'telefono',
         'email'
     ).distinct()
-  paginator = Paginator(productos_filtrados, 15)  # 9 productos por página
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
