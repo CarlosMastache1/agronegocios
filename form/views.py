@@ -264,7 +264,7 @@ def productorProductorAgri(request, categoria, nombre):
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
   return render(request, 'productosProductorAgri.html',
-  {'page_obj': page_obj, 'categoria' : categoria})
+  {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
 
 
 def tiendaPecuario(request):
