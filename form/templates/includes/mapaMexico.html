@@ -119,8 +119,8 @@
                                     // Mostrar info en el panel flotante
                                     const panel = document.getElementById("info-panel");
                                     let textpanel = `<h2><strong>${nombre}</strong></h2>`;
-                                    textpanel += obj.territorio?`<p><strong>Superficie sembrada:</strong> ${obj.territorio} Ha<br>`:``;
-                                    textpanel += obj.toneladas?`<strong>Volumen de producción:</strong> ${obj.toneladas} Ton</p>`:``;
+                                    textpanel += obj.superficie?`<p><strong>Superficie sembrada:</strong> ${obj.superficie.toLocaleString("es-MX")} Ha<br>`:``;
+                                    textpanel += obj.volumen?`<strong>Volumen de producción:</strong> ${obj.volumen.toLocaleString("es-MX")} Ton</p>`:``;
                                     panel.innerHTML = textpanel;
                                     panel.style.display = "block";
                                 });

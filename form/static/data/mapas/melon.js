@@ -3,158 +3,158 @@ const regionesConMunicipios = {
     //11
     {
       id: 20143,
-      territorio: "208",
-      toneladas: "3,059",
+      superficie: "208",
+      volumen: "3,059",
     }, //San Francisco Ixhuatán
     {
       id: 20075,
-      territorio: "178",
-      toneladas: "2,517",
+      superficie: "178",
+      volumen: "2,517",
     }, //Reforma de Pineda
     {
       id: 20327,
-      territorio: "130",
-      toneladas: "1,774",
+      superficie: "130",
+      volumen: "1,774",
     }, //San Pedro Tapanatepec
     {
       id: 20525,
-      territorio: "128",
-      toneladas: "1,751",
+      superficie: "128",
+      volumen: "1,751",
     }, //Santo Domingo Zanatepec
     {
       id: 20141,
-      territorio: "96",
-      toneladas: "1,349",
+      superficie: "96",
+      volumen: "1,349",
     }, //San Francisco del Mar
     {
       id: 20066,
-      territorio: "65",
-      toneladas: "882",
+      superficie: "65",
+      volumen: "882",
     }, //Santiago Niltepec
     {
       id: 20025,
-      territorio: "60",
-      toneladas: "811",
+      superficie: "60",
+      volumen: "811",
     }, //Chahuites
     {
       id: 20052,
-      territorio: "31",
-      toneladas: "605",
+      superficie: "31",
+      volumen: "605",
     }, //Magdalena Tequisistlán
     {
       id: 20515,
-      territorio: "15",
-      toneladas: "181",
+      superficie: "15",
+      volumen: "181",
     }, //Santo Domingo Tehuantepec
     {
       id: 20421,
-      territorio: "14",
-      toneladas: "167",
+      superficie: "14",
+      volumen: "167",
     }, //Santa María Mixtequilla
     {
       id: 20124,
-      territorio: "10",
-      toneladas: "121",
+      superficie: "10",
+      volumen: "121",
     }, //San Blas Atempa
   ],
   Costa: [
     //4
     {
       id: 20439,
-      territorio: "33",
-      toneladas: "941",
+      superficie: "33",
+      volumen: "941",
     }, //Santa María Tonameca
     {
       id: 20414,
-      territorio: "28",
-      toneladas: "653",
+      superficie: "28",
+      volumen: "653",
     }, //Santa María Huazolotitlán
     {
       id: 20467,
-      territorio: "25",
-      toneladas: "565",
+      superficie: "25",
+      volumen: "565",
     }, //Santiago Jamiltepec
     {
       id: 20413,
-      territorio: "10",
-      toneladas: "273",
+      superficie: "10",
+      volumen: "273",
     }, //Santa María Huatulco
   ],
   "Sierra de Flores Magón": [
     //6
     {
       id: 20431,
-      territorio: "23",
-      toneladas: "458",
+      superficie: "23",
+      volumen: "458",
     }, //Santa María Tecomavaca
     {
       id: 20109,
-      territorio: "16",
-      toneladas: "300",
+      superficie: "16",
+      volumen: "300",
     }, //San Antonio Nanahuatípam
     {
       id: 20206,
-      territorio: "18",
-      toneladas: "361",
+      superficie: "18",
+      volumen: "361",
     }, //San Juan de Los Cués
     {
       id: 20177,
-      territorio: "18",
-      toneladas: "358",
+      superficie: "18",
+      volumen: "358",
     }, //San Juan Bautista Cuicatlán
     {
       id: 20545,
-      territorio: "13",
-      toneladas: "265",
+      superficie: "13",
+      volumen: "265",
     }, //Teotitlán de Flores Magón
     {
       id: 20558,
-      territorio: "3",
-      toneladas: "54",
+      superficie: "3",
+      volumen: "54",
     }, //Valerio Trujano
   ],
   "Sierra Sur": [
     //1
     {
       id: 20064,
-      territorio: "29",
-      toneladas: "552",
+      superficie: "29",
+      volumen: "552",
     }, //Nejapa de Madero
   ],
   "Valles Centrales": [
     //3
     {
       id: 20028,
-      territorio: "8",
-      toneladas: "161",
+      superficie: "8",
+      volumen: "161",
     }, //Heroica Ciudad de Ejutla de Crespo
     {
       id: 20449,
-      territorio: "6",
-      toneladas: "145",
+      superficie: "6",
+      volumen: "145",
     }, //Santa María Zoquitlán
     {
       id: 20068,
-      territorio: "3",
-      toneladas: "56",
+      superficie: "3",
+      volumen: "56",
     }, //Ocotlán de Morelos
   ],
   Mixteca: [
     //3
     {
       id: 20381,
-      territorio: "5",
-      toneladas: "55",
+      superficie: "5",
+      volumen: "55",
     }, //Santa Cruz Tacache de Mina
     {
       id: 20290,
-      territorio: "3",
-      toneladas: "31",
+      superficie: "3",
+      volumen: "31",
     }, //San Nicolás Hidalgo
     {
       id: 20055,
-      territorio: "2",
-      toneladas: "18",
+      superficie: "2",
+      volumen: "18",
     }, //Mariscala de Juárez
   ],
 };
@@ -163,162 +163,162 @@ const estadosDatos = {
   Michoacán: [
     {
       id: 16,
-      territorio: "3,532",
-      toneladas: "144,825",
+      superficie: "3,532",
+      volumen: "144,825",
     },
   ],
   Sonora: [
     {
       id: 26,
-      territorio: "3,573",
-      toneladas: "133,075",
+      superficie: "3,573",
+      volumen: "133,075",
     },
   ],
   Coahuila: [
     {
       id: 5,
-      territorio: "3,376",
-      toneladas: "114,684",
+      superficie: "3,376",
+      volumen: "114,684",
     },
   ],
   Guerrero: [
     {
       id: 12,
-      territorio: "3,583",
-      toneladas: "104,671",
+      superficie: "3,583",
+      volumen: "104,671",
     },
   ],
   Durango: [
     {
       id: 10,
-      territorio: "1,245",
-      toneladas: "45,783",
+      superficie: "1,245",
+      volumen: "45,783",
     },
   ],
   Chihuahua: [
     {
       id: 8,
-      territorio: "1,522",
-      toneladas: "38,177",
+      superficie: "1,522",
+      volumen: "38,177",
     },
   ],
   Colima: [
     {
       id: 6,
-      territorio: "457",
-      toneladas: "21,806",
+      superficie: "457",
+      volumen: "21,806",
     },
   ],
   Oaxaca: [
     {
       id: 20,
-      territorio: "1,173",
-      toneladas: "18,460",
+      superficie: "1,173",
+      volumen: "18,460",
     },
   ],
   Guanajuato: [
     {
       id: 11,
-      territorio: "209",
-      toneladas: "5,045",
+      superficie: "209",
+      volumen: "5,045",
     },
   ],
   "Baja California Sur": [
     {
       id: 3,
-      territorio: "185",
-      toneladas: "4,682",
+      superficie: "185",
+      volumen: "4,682",
     },
   ],
   Jalisco: [
     {
       id: 14,
-      territorio: "180",
-      toneladas: "4,362",
+      superficie: "180",
+      volumen: "4,362",
     },
   ],
   Nayarit: [
     {
       id: 18,
-      territorio: "196",
-      toneladas: "3,806",
+      superficie: "196",
+      volumen: "3,806",
     },
   ],
   "San Luis Potosí": [
     {
       id: 24,
-      territorio: "92",
-      toneladas: "2,647",
+      superficie: "92",
+      volumen: "2,647",
     },
   ],
   Tabasco: [
     {
       id: 27,
-      territorio: "202",
-      toneladas: "1,827",
+      superficie: "202",
+      volumen: "1,827",
     },
   ],
   "Baja California": [
     {
       id: 2,
-      territorio: "81",
-      toneladas: "1,765",
+      superficie: "81",
+      volumen: "1,765",
     },
   ],
   Chiapas: [
     {
       id: 7,
-      territorio: "44",
-      toneladas: "580",
+      superficie: "44",
+      volumen: "580",
     },
   ],
   Veracruz: [
     {
       id: 30,
-      territorio: "23",
-      toneladas: "514",
+      superficie: "23",
+      volumen: "514",
     },
   ],
   Puebla: [
     {
       id: 21,
-      territorio: "22",
-      toneladas: "480",
+      superficie: "22",
+      volumen: "480",
     },
   ],
   Zacatecas: [
     {
       id: 32,
-      territorio: "14",
-      toneladas: "412",
+      superficie: "14",
+      volumen: "412",
     },
   ],
   "Nuevo León": [
     {
       id: 19,
-      territorio: "18",
-      toneladas: "372",
+      superficie: "18",
+      volumen: "372",
     },
   ],
   Sinaloa: [
     {
       id: 25,
-      territorio: "9",
-      toneladas: "200",
+      superficie: "9",
+      volumen: "200",
     },
   ],
   México: [
     {
       id: 15,
-      territorio: "5",
-      toneladas: "94",
+      superficie: "5",
+      volumen: "94",
     },
   ],
   Tamaulipas: [
     {
       id: 28,
-      territorio: "3",
-      toneladas: "38",
+      superficie: "3",
+      volumen: "38",
     },
   ],
 };
@@ -327,85 +327,85 @@ const paisesDatos = {
   China: [
     {
       id: "CHN",
-      territorio: "779,580"
+      superficie: "779,580"
     },
   ],
   Afganistán: [
     {
       id: "AFG",
-      territorio: "75,884"
+      superficie: "75,884"
     },
   ],
   India: [
     {
       id: "IND",
-      territorio: "68,000"
+      superficie: "68,000"
     },
   ],
   Turquía: [
     {
       id: "TUR",
-      territorio: "62,724"
+      superficie: "62,724"
     },
   ],
   Kazajistán: [
     {
       id: "KAZ",
-      territorio: "49,383"
+      superficie: "49,383"
     },
   ],
   Guatemala: [
     {
       id: "GTM",
-      territorio: "33,437"
+      superficie: "33,437"
     },
   ],
   Irán: [
     {
       id: "IRN",
-      territorio: "32,000"
+      superficie: "32,000"
     },
   ],
   Bangladesh: [
     {
       id: "BGD",
-      territorio: "27,570"
+      superficie: "27,570"
     },
   ],
   Brasil: [
     {
       id: "BRA",
-      territorio: "27,457"
+      superficie: "27,457"
     },
   ],
   Italia: [
     {
       id: "ITA",
-      territorio: "22,890"
+      superficie: "22,890"
     },
   ],
   "Estados Unidos": [
     {
       id: "USA",
-      territorio: "18,211"
+      superficie: "18,211"
     },
   ],
   México: [
     {
       id: "MEX",
-      territorio: "17,886"
+      superficie: "17,886"
     },
   ],
   España: [
     {
       id: "ESP",
-      territorio: "16,220"
+      superficie: "16,220"
     },
   ],
   Marruecos: [
     {
       id: "MAR",
-      territorio: "14,698"
+      superficie: "14,698"
     },
   ],
 };

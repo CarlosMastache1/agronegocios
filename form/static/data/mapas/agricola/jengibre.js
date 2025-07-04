@@ -3,145 +3,19 @@ const regionesConMunicipios = {
   Papaloapan: [
     {
       id: 20136,
-      territorio: "42",
-      toneladas: "332",
-    }, //San Felipe Usila
+      superficie: 42,
+      volumen: 332,
+      nombre: "San Felipe Usila",
+    },
   ],
 };
-
-// Datos agregados por entidad federativa (estado) a nivel nacional
-const estados_datos_pro = [
-  { id: "PUE", territorio: "195", toneladas: "2,369" },
-  { id: "OAX", territorio: "42", toneladas: "332" },
-  { id: "GRO", territorio: "1", toneladas: "5" },
-];
-
-//Datos por país: superficie cosechada
-const paises_datos_pro = [
-  //23
-  {
-    id: "IND",
-    territorio: "193,000",
-  },
-  {
-    id: "NGA",
-    territorio: "96,120",
-  },
-  {
-    id: "CHN",
-    territorio: "125,770",
-  },
-  {
-    id: "NPL",
-    territorio: "22,441",
-  },
-  {
-    id: "BGD",
-    territorio: "10,429",
-  },
-  {
-    id: "IDN",
-    territorio: "10,409",
-  },
-  {
-    id: "THA",
-    territorio: "10,269",
-  },
-  {
-    id: "PER",
-    territorio: "8,001",
-  },
-  {
-    id: "LKA",
-    territorio: "6,736",
-  },
-  {
-    id: "CMR",
-    territorio: "5,087",
-  },
-  {
-    id: "PHL",
-    territorio: "4,057",
-  },
-  {
-    id: "GUY",
-    territorio: "3,877",
-  },
-  {
-    id: "ETH",
-    territorio: "3,657",
-  },
-  {
-    id: "KOR",
-    territorio: "3,455",
-  },
-  {
-    id: "MLI",
-    territorio: "3,121",
-  },
-  {
-    id: "JPN",
-    territorio: "1,830",
-  },
-  {
-    id: "TWN",
-    territorio: "854",
-  },
-  {
-    id: "BTN",
-    territorio: "800",
-  },
-  {
-    id: "PAN",
-    territorio: "650",
-  },
-  {
-    id: "FJI",
-    territorio: "563",
-  },
-  {
-    id: "CIV",
-    territorio: "536",
-  },
-  {
-    id: "MEX",
-    territorio: "433",
-  },
-];
-
-//Ranking mundial de países por superficie sembrada (en hectáreas)
-const tab_pro_mundial = [
-  { ranking: 1, pais: "India", superficie: 193000 },
-  { ranking: 2, pais: "Nigeria", superficie: 96120 },
-  { ranking: 3, pais: "China", superficie: 63312 },
-  { ranking: 4, pais: "China, Continental", superficie: 62458 },
-  { ranking: 5, pais: "Nepal", superficie: 22441 },
-  { ranking: 6, pais: "Bangladesh", superficie: 10429 },
-  { ranking: 7, pais: "Indonesia", superficie: 10409 },
-  { ranking: 8, pais: "Tailandia", superficie: 10269 },
-  { ranking: 9, pais: "Perú", superficie: 8001 },
-  { ranking: 10, pais: "Sri Lanka", superficie: 6736 },
-  { ranking: 11, pais: "Camerún", superficie: 5087 },
-  { ranking: 12, pais: "Filipinas", superficie: 4057 },
-  { ranking: 13, pais: "Guyana", superficie: 3877 },
-  { ranking: 14, pais: "Etiopía", superficie: 3657 },
-  { ranking: 15, pais: "República de Corea", superficie: 3455 },
-  { ranking: 16, pais: "Malí", superficie: 3121 },
-  { ranking: 17, pais: "Japón", superficie: 1830 },
-  { ranking: 18, pais: "China, Taiwán", superficie: 854 },
-  { ranking: 19, pais: "Bhután", superficie: 800 },
-  { ranking: 20, pais: "Panamá", superficie: 650 },
-  { ranking: 21, pais: "Fiji", superficie: 563 },
-  { ranking: 22, pais: "Côte d'Ivoire", superficie: 536 },
-  { ranking: 23, pais: "México", superficie: 433 },
-  { ranking: "", pais: "Otros", superficie: 1863 },
-];
 
 // Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
 // rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
   {
+    id: "PUE",
     ranking: 1,
     entidad: "Puebla",
     volumen: 2369,
@@ -150,6 +24,7 @@ const tab_pro_nacional = [
     valor: 49171129,
   },
   {
+    id: "OAX",
     ranking: 2,
     entidad: "Oaxaca",
     volumen: 332,
@@ -158,6 +33,7 @@ const tab_pro_nacional = [
     valor: 4635263,
   },
   {
+    id: "GRO",
     ranking: 3,
     entidad: "Guerrero",
     volumen: 5,
@@ -166,6 +42,53 @@ const tab_pro_nacional = [
     valor: 92084,
   },
 ];
+
+//Ranking mundial de países por superficie sembrada (en hectáreas)
+const tab_pro_mundial = [
+  { id: "IND", ranking: 1, pais: "India", superficie: 193000 },
+  { id: "NGA", ranking: 2, pais: "Nigeria", superficie: 96120 },
+  { id: "CHN", ranking: 3, pais: "China", superficie: 63312 },
+  { id: "CHN", ranking: 4, pais: "China, Continental", superficie: 62458 },
+  { id: "NPL", ranking: 5, pais: "Nepal", superficie: 22441 },
+  { id: "BGD", ranking: 6, pais: "Bangladesh", superficie: 10429 },
+  { id: "IDN", ranking: 7, pais: "Indonesia", superficie: 10409 },
+  { id: "THA", ranking: 8, pais: "Tailandia", superficie: 10269 },
+  { id: "PER", ranking: 9, pais: "Perú", superficie: 8001 },
+  { id: "LKA", ranking: 10, pais: "Sri Lanka", superficie: 6736 },
+  { id: "CMR", ranking: 11, pais: "Camerún", superficie: 5087 },
+  { id: "PHL", ranking: 12, pais: "Filipinas", superficie: 4057 },
+  { id: "GUY", ranking: 13, pais: "Guyana", superficie: 3877 },
+  { id: "ETH", ranking: 14, pais: "Etiopía", superficie: 3657 },
+  { id: "KOR", ranking: 15, pais: "República de Corea", superficie: 3455 },
+  { id: "MLI", ranking: 16, pais: "Malí", superficie: 3121 },
+  { id: "JPN", ranking: 17, pais: "Japón", superficie: 1830 },
+  { id: "TWN", ranking: 18, pais: "China, Taiwán", superficie: 854 },
+  { id: "BTN", ranking: 19, pais: "Bhután", superficie: 800 },
+  { id: "PAN", ranking: 20, pais: "Panamá", superficie: 650 },
+  { id: "FJI", ranking: 21, pais: "Fiji", superficie: 563 },
+  { id: "CIV", ranking: 22, pais: "Côte d'Ivoire", superficie: 536 },
+  { id: "MEX", ranking: 23, pais: "México", superficie: 433 },
+  { ranking: "", pais: "Otros", superficie: 1863 },
+];
+
+const agrupado = {};
+
+tab_pro_mundial.forEach(item => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 // Años de referencia para los datos de balanza comercial
 const labels_balanza = [
@@ -238,7 +161,3 @@ const tabla_produccion_producto = [
 // Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
 // Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [["Chinanteco"], [332]];
-
-// Número de municipios productores por región en Oaxaca
-// Cada objeto indica la región y la cantidad de municipios que participan en la producción del producto
-const tab_mun_producto_oax = [{ nom: "Papaloapan", num: 1 }];

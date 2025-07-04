@@ -101,8 +101,8 @@
                                     const panel = document.getElementById("info-panel");
 
                                     let textPanel = `<h2><strong>${nombre}</strong></h2>`
-                                    textPanel += obj.territorio?`<p><strong>Superficie sembrada:</strong> ${obj.territorio} Ha</p>`:``;
-                                    textPanel += obj.toneladas?`<p><strong>Volumen de producción:</strong> ${obj.toneladas} Ton</p>`:``;
+                                    textPanel += obj.superficie?`<p><strong>Superficie sembrada:</strong> ${obj.superficie.toLocaleString("es-MX")} Ha</p>`:``;
+                                    textPanel += obj.volumen?`<p><strong>Volumen de producción:</strong> ${obj.volumen.toLocaleString("es-MX")} Ton</p>`:``;
 
                                     panel.innerHTML = textPanel;
                                     panel.style.display = "block";

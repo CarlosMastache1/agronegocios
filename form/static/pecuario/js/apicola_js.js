@@ -5,53 +5,53 @@ const total_tab2 = document.getElementById("total_tabla2");
 let suma_total1 = 0;
 let suma_total2 = 0;
 
-for (let i = 0; i < datos_tabla_paises_miel.length; i++) {
+for (let i = 0; i < tabla_paises_prod.length; i++) {
   const fila = document.createElement("tr");
 
   const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = datos_tabla_paises_miel[i].ranking;
+  celdaRanking.textContent = tabla_paises_prod[i].ranking;
 
   const celdaPais = document.createElement("td");
-  celdaPais.textContent = datos_tabla_paises_miel[i].pais;
+  celdaPais.textContent = tabla_paises_prod[i].pais;
 
   const celdaVolumen = document.createElement("td");
   celdaVolumen.textContent =
-    datos_tabla_paises_miel[i].volumen.toLocaleString("es-MX");
+    tabla_paises_prod[i].volumen.toLocaleString("es-MX");
 
   fila.appendChild(celdaRanking);
   fila.appendChild(celdaPais);
   fila.appendChild(celdaVolumen);
 
   tab_cuerpo_pais_miel.appendChild(fila);
-  suma_total1 += datos_tabla_paises_miel[i].volumen;
+  suma_total1 += tabla_paises_prod[i].volumen;
 }
 total_tab1.innerHTML = suma_total1.toLocaleString("es-MX");
 
-for (let i = 0; i < datos_tabla_paises_cera.length; i++) {
+for (let i = 0; i < tabla_paises_sub_prod.length; i++) {
   const fila = document.createElement("tr");
 
   const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = datos_tabla_paises_cera[i].ranking;
+  celdaRanking.textContent = tabla_paises_sub_prod[i].ranking;
 
   const celdaPais = document.createElement("td");
-  celdaPais.textContent = datos_tabla_paises_cera[i].pais;
+  celdaPais.textContent = tabla_paises_sub_prod[i].pais;
 
   const celdaVolumen = document.createElement("td");
   celdaVolumen.textContent =
-    datos_tabla_paises_cera[i].volumen.toLocaleString("es-MX");
+    tabla_paises_sub_prod[i].volumen.toLocaleString("es-MX");
 
   fila.appendChild(celdaRanking);
   fila.appendChild(celdaPais);
   fila.appendChild(celdaVolumen);
 
   tab_cuerpo_pais_cera.appendChild(fila);
-  suma_total2 += datos_tabla_paises_cera[i].volumen;
+  suma_total2 += tabla_paises_sub_prod[i].volumen;
 }
 total_tab2.innerHTML = suma_total2.toLocaleString("es-MX");
 
 let currentPage = 1;
 let rowsPerPage = 10;
-let filteredData = [...datos_tabla_nacional_miel];
+let filteredData = [...tab_mex_pro];
 const tableBody = document.querySelector("#dataTable tbody");
 const searchInput = document.getElementById("searchInput");
 const rowsSelect = document.getElementById("rowsPerPage");
@@ -80,7 +80,7 @@ function renderTable() {
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase();
-  filteredData = datos_tabla_nacional_miel.filter(
+  filteredData = tab_mex_pro.filter(
     (item) =>
       item.entidad.toLowerCase().includes(query) ||
       String(item.id).includes(query)
@@ -118,8 +118,8 @@ let sumaVolumen = 0;
 let sumaValor = 0;
 let sumaPrecioPonderado = 0;
 
-for (let i = 0; i < datos_tabla_nacional_miel.length; i++) {
-  const item = datos_tabla_nacional_miel[i];
+for (let i = 0; i < tab_mex_pro.length; i++) {
+  const item = tab_mex_pro[i];
   sumaVolumen += item.volumen;
   sumaValor += item.valor;
   sumaPrecioPonderado += item.precio * item.volumen;
@@ -137,7 +137,7 @@ total_datos_tab1.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen.toLocale
 
 let currentPage2 = 1;
 let rowsPerPage2 = 10;
-let rfilteredData2 = [...datos_tabla_nacional_cera];
+let rfilteredData2 = [...tab_mex_sub_pro];
 
 const tableBody2 = document.querySelector("#data2Table tbody");
 const searchInput2 = document.getElementById("searchInput2");
@@ -166,7 +166,7 @@ function renderTable2() {
 
 function applyFilters2() {
   const query = searchInput2.value.toLowerCase();
-  rfilteredData2 = datos_tabla_nacional_cera.filter(
+  rfilteredData2 = tab_mex_sub_pro.filter(
     (item) =>
       item.entidad.toLowerCase().includes(query) ||
       String(item.id).includes(query)
@@ -204,8 +204,8 @@ let sumaVolumen2 = 0;
 let sumaValor2 = 0;
 let sumaPrecioPonderado2 = 0;
 
-for (let i = 0; i < datos_tabla_nacional_cera.length; i++) {
-  const item = datos_tabla_nacional_cera[i];
+for (let i = 0; i < tab_mex_sub_pro.length; i++) {
+  const item = tab_mex_sub_pro[i];
   sumaVolumen2 += item.volumen;
   sumaValor2 += item.valor;
   sumaPrecioPonderado2 += item.precio * item.volumen;
@@ -955,22 +955,131 @@ const config6 = {
 new Chart(ctx6, config6);
 
 
-const tb_mun_miel_oax = document.getElementById("tb_mun_miel_oax");
-let total_tf_mun_miel_oax = 0;
-for (let i = 0; i < tab_mun_pro_miel.length; i++) {
-  const fila = document.createElement("tr");
+const contenedor_botones = document.getElementById("botones");
+const contenedor_tabla = document.getElementById("tabla");
+const titulo_regmun = document.getElementById("titulo_regmun");
 
-  const region = document.createElement("td");
-  region.textContent = tab_mun_pro_miel[i].nom;
+let pagina_actual = 1;
+const items_por_pagina = 15;
+let municipios_actuales = [];
 
-  total_tf_mun_miel_oax += tab_mun_pro_miel[i].num;
-
-  const cantidad = document.createElement("td");
-  cantidad.textContent = tab_mun_pro_miel[i].num;
-  fila.appendChild(region);
-  fila.appendChild(cantidad);
-
-  tb_mun_miel_oax.appendChild(fila);
+for (const region in regionesConMunicipios) {
+  const boton = document.createElement("button");
+  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
+  boton.addEventListener("click", () => mostrar_tabla(region, 1));
+  contenedor_botones.appendChild(boton);
 }
 
-document.getElementById("total_tf_mun_miel_oax").textContent = total_tf_mun_miel_oax;
+function mostrar_tabla(region, pagina) {
+  municipios_actuales = regionesConMunicipios[region];
+  pagina_actual = pagina;
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  const inicio = (pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  if (municipios_actuales.length > items_por_pagina) {
+    html += `<div class="pagination_mun">`;
+
+    if (pagina > 1) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina - 1
+      })">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= total_paginas; i++) {
+      if (i === pagina) {
+        html += `<button style="font-weight:bold;">${i}</button>`;
+      } else {
+        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+      }
+    }
+
+    if (pagina < total_paginas) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina + 1
+      })">Siguiente</button>`;
+    }
+
+    html += `</div>`;
+  }
+
+  contenedor_tabla.innerHTML = html;
+}
+
+function cambiar_pagina(nueva_pagina) {
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  if (nueva_pagina < 1) nueva_pagina = 1;
+  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
+
+  const inicio = (nueva_pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+
+  html += `<div class="pagination_mun">`;
+
+  if (nueva_pagina > 1) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina - 1
+    })">Anterior</button>`;
+  }
+
+  for (let i = 1; i <= total_paginas; i++) {
+    if (i === nueva_pagina) {
+      html += `<button style="font-weight:bold;">${i}</button>`;
+    } else {
+      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+    }
+  }
+
+  if (nueva_pagina < total_paginas) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina + 1
+    })">Siguiente</button>`;
+  }
+
+  html += `</div>`;
+
+  contenedor_tabla.innerHTML = html;
+  pagina_actual = nueva_pagina;
+}

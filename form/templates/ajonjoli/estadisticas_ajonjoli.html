@@ -72,7 +72,7 @@
 					<div class="card">
 						<h2>📊 Lugar a nivel mundial</h2>
 						<p>
-							México ocupa el <strong>18° lugar</strong> a nivel mundial en la producción de ajonjolí.
+							México ocupa el <strong>18° lugar</strong> a nivel mundial en la producción de ajonjolí, con una superficie de producción de <strong>81,368 Ha</strong>.
 						</p>
 					</div>
 
@@ -85,7 +85,7 @@
 
 					<div class="card">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de ajonjolí.
+						<p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de ajonjolí, con un volumen de producción de <strong>6,543 Ton</strong>, una superficie de producción de <strong>8,242 Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de producción <strong>$232,605,456</strong>.
 						</p>
 					</div>
 
@@ -93,8 +93,7 @@
 						<h2>📈 Región con mayor producción</h2>
 						<p>
 							La región del <strong>Istmo</strong> es la region con mayor
-							producción de ajonjolí en el estado de Oaxaca.
-
+							producción de ajonjolí en el estado de Oaxaca, contando con <strong>29 municipios</strong>, un volumen de producción de <strong>4,828 Ton</strong>, una superficie de <strong>6,158 Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de producción de <strong>$177,046,476</strong>.
 						</p>
 					</div>
 
@@ -212,9 +211,9 @@
 		<section id="section4" class="section">
 			<h1>BALANZA COMERCIAL DE AJONJOLÍ EN MÉXICO</h1>
 
-            <div class="chart-container">
-                <canvas id="lineChart"></canvas>
-            </div>
+			<div class="chart-container">
+				<canvas id="lineChart"></canvas>
+			</div>
 		</section>
 
 		<section id="section5" class="section">
@@ -261,7 +260,8 @@
 			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
 				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce ajonjolí en
 				el estado
-				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>noviembre</strong> es
+				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>noviembre</strong>
+				es
 				cuando se
 				cosecha más ajonjolí alcanzando <strong>1,151 puntos</strong> de dicho índice.
 			</p>
@@ -275,30 +275,10 @@
 
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN DE AJONJOLÍ EN OAXACA</h1>
-			<div class="contenedor_col1">
-				<div class="columna1">
-					<table class="tabla-datos">
-						<thead>
-							<tr>
-								<th>REGION</th>
-								<th>CANTIDAD DE MUNICIPIOS</th>
-							</tr>
-						</thead>
-
-						<tbody id="tb_mun_producto_oax">
-
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>Total:</th>
-								<th id="total_mun_producto_oax"></th>
-							</tr>
-						</tfoot>
-
-					</table>
-				</div>
-				<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
-			</div>
+			<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+			<div id="botones"></div>
+			<div id="titulo_regmun"></div>
+			<div id="tabla"></div>
 		</section>
 	</div>
 
@@ -361,7 +341,7 @@
 
 	const mexico_producto = document.getElementById("iframe_mexico_prod");
 	mexico_producto.onload = function () {
-		mexico_producto.contentWindow.postMessage(estados_datos_pro, "*");
+		mexico_producto.contentWindow.postMessage(tab_pro_nacional, "*");
 	}
 
 	const iframe = document.getElementById('frame_oaxaca');

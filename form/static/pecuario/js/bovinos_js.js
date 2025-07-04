@@ -1081,28 +1081,132 @@ new Chart(ctx7, config7);
 
 
 
+const contenedor_botones = document.getElementById("botones");
+const contenedor_tabla = document.getElementById("tabla");
+const titulo_regmun = document.getElementById("titulo_regmun");
 
+let pagina_actual = 1;
+const items_por_pagina = 15;
+let municipios_actuales = [];
 
-
-/* Tabla MUNICIPIOS QUE PRODUCEN CARNE DE BOVINO EN OAXACA */
-const tb_mun_producto_oax = document.getElementById("tb_mun_producto_oax");
-let total_mun_producto_oax = 0;
-for (let i = 0; i < tab_mun_producto_oax.length; i++) {
-
-  const fila = document.createElement("tr");
-
-  const region = document.createElement("td");
-  region.textContent = tab_mun_producto_oax[i].nom;
-
-  total_mun_producto_oax += tab_mun_producto_oax[i].num;
-
-  const cantidad = document.createElement("td");
-  cantidad.textContent = tab_mun_producto_oax[i].num;
-  fila.appendChild(region);
-  fila.appendChild(cantidad);
-
-  tb_mun_producto_oax.appendChild(fila);
+for (const region in regionesConMunicipios) {
+  const boton = document.createElement("button");
+  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
+  boton.addEventListener("click", () => mostrar_tabla(region, 1));
+  contenedor_botones.appendChild(boton);
 }
 
-document.getElementById("total_mun_producto_oax").textContent =
-  total_mun_producto_oax;
+function mostrar_tabla(region, pagina) {
+  municipios_actuales = regionesConMunicipios[region];
+  pagina_actual = pagina;
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  const inicio = (pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  if (municipios_actuales.length > items_por_pagina) {
+    html += `<div class="pagination_mun">`;
+
+    if (pagina > 1) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina - 1
+      })">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= total_paginas; i++) {
+      if (i === pagina) {
+        html += `<button style="font-weight:bold;">${i}</button>`;
+      } else {
+        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+      }
+    }
+
+    if (pagina < total_paginas) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina + 1
+      })">Siguiente</button>`;
+    }
+
+    html += `</div>`;
+  }
+
+  contenedor_tabla.innerHTML = html;
+}
+
+function cambiar_pagina(nueva_pagina) {
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  if (nueva_pagina < 1) nueva_pagina = 1;
+  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
+
+  const inicio = (nueva_pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+
+  html += `<div class="pagination_mun">`;
+
+  if (nueva_pagina > 1) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina - 1
+    })">Anterior</button>`;
+  }
+
+  for (let i = 1; i <= total_paginas; i++) {
+    if (i === nueva_pagina) {
+      html += `<button style="font-weight:bold;">${i}</button>`;
+    } else {
+      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+    }
+  }
+
+  if (nueva_pagina < total_paginas) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina + 1
+    })">Siguiente</button>`;
+  }
+
+  html += `</div>`;
+
+  contenedor_tabla.innerHTML = html;
+  pagina_actual = nueva_pagina;
+}
+

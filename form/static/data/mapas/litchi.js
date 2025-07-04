@@ -3,63 +3,63 @@ const regionesConMunicipios = {
     //12
     {
       id: 20417,
-      territorio: "103",
-      toneladas: "328",
+      superficie: "103",
+      volumen: "328",
     }, //Santa María Jacatepec
     {
       id: 20498,
-      territorio: "144",
-      toneladas: "392",
+      superficie: "144",
+      volumen: "392",
     }, //Santiago Yaveo
     {
       id: 20166,
-      territorio: "60",
-      toneladas: "187",
+      superficie: "60",
+      volumen: "187",
     }, //San José Chiltepec
     {
       id: 20044,
-      territorio: "42",
-      toneladas: "130",
+      superficie: "42",
+      volumen: "130",
     }, //Loma Bonita
     {
       id: 20184,
-      territorio: "8",
-      toneladas: "21",
+      superficie: "8",
+      volumen: "21",
     }, //San Juan Bautista Tuxtepec
     {
       id: 20136,
-      territorio: "10",
-      toneladas: "19",
+      superficie: "10",
+      volumen: "19",
     }, //San Felipe Usila
     {
       id: 20559,
-      territorio: "5",
-      toneladas: "14",
+      superficie: "5",
+      volumen: "14",
     }, //San Juan Bautista Valle Nacional
     {
       id: 20205,
-      territorio: "11",
-      toneladas: "13",
+      superficie: "11",
+      volumen: "13",
     }, //San Juan Lalana
     {
       id: 20021,
-      territorio: "8",
-      toneladas: "10",
+      superficie: "8",
+      volumen: "10",
     }, //Cosolapa
     {
       id: 20232,
-      territorio: "7",
-      toneladas: "9",
+      superficie: "7",
+      volumen: "9",
     }, //San Lucas Ojitlán
     {
       id: 20468,
-      territorio: "2",
-      toneladas: "2",
+      superficie: "2",
+      volumen: "2",
     }, //Santiago Jocotepec
     {
       id: 20278,
-      territorio: "2",
-      toneladas: "2",
+      superficie: "2",
+      volumen: "2",
     }, //San Miguel Soyaltepec
   ],
 
@@ -67,13 +67,13 @@ const regionesConMunicipios = {
     //2
     {
       id: 20190,
-      territorio: "183",
-      toneladas: "409",
+      superficie: "183",
+      volumen: "409",
     }, //San Juan Cotzocón
     {
       id: 20207,
-      territorio: "31",
-      toneladas: "43",
+      superficie: "31",
+      volumen: "43",
     }, //San Juan Mazatlán
   ],
 
@@ -81,8 +81,8 @@ const regionesConMunicipios = {
     //1
     {
       id: 20057,
-      territorio: "6",
-      toneladas: "9",
+      superficie: "6",
+      volumen: "9",
     }, //Matías Romero Avendaño
   ],
 };
@@ -91,85 +91,85 @@ const estadosDatos = {
   Veracruz: [
     {
       id: 30,
-      territorio: "1,392",
-      toneladas: "11,789",
+      superficie: "1,392",
+      volumen: "11,789",
     },
   ],
   Puebla: [
     {
       id: 21,
-      territorio: "638",
-      toneladas: "8,397",
+      superficie: "638",
+      volumen: "8,397",
     },
   ],
   "San Luis Potosí": [
     {
       id: 24,
-      territorio: "748",
-      toneladas: "2,068",
+      superficie: "748",
+      volumen: "2,068",
     },
   ],
   Oaxaca: [
     {
       id: 20,
-      territorio: "622",
-      toneladas: "1,588",
+      superficie: "622",
+      volumen: "1,588",
     },
   ],
   Sinaloa: [
     {
       id: 25,
-      territorio: "240",
-      toneladas: "1,039",
+      superficie: "240",
+      volumen: "1,039",
     },
   ],
   Nayarit: [
     {
       id: 18,
-      territorio: "199",
-      toneladas: "833",
+      superficie: "199",
+      volumen: "833",
     },
   ],
   Hidalgo: [
     {
       id: 13,
-      territorio: "65",
-      toneladas: "211",
+      superficie: "65",
+      volumen: "211",
     },
   ],
   Michoacán: [
     {
       id: 16,
-      territorio: "15",
-      toneladas: "125",
+      superficie: "15",
+      volumen: "125",
     },
   ],
   Morelos: [
     {
       id: 17,
-      territorio: "5",
-      toneladas: "32",
+      superficie: "5",
+      volumen: "32",
     },
   ],
   Jalisco: [
     {
       id: 14,
-      territorio: "6",
-      toneladas: "28",
+      superficie: "6",
+      volumen: "28",
     },
   ],
   "Baja California Sur": [
     {
       id: 3,
-      territorio: "1",
-      toneladas: "5",
+      superficie: "1",
+      volumen: "5",
     },
   ],
   Tamaulipas: [
     {
       id: 28,
-      territorio: "6",
-      toneladas: "-",
+      superficie: "6",
+      volumen: "-",
     },
   ],
 };

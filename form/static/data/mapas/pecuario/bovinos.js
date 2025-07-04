@@ -4,651 +4,546 @@ const regionesConMunicipios = {
     //26
     {
       id: 20334,
-      territorio: "",
-      toneladas: "2,016",
-    }, //Villa de Tututepec de Melchor Ocampo
+      volumen: 2016,
+      nombre: "Villa de Tututepec de Melchor Ocampo",
+    },
     {
       id: 20482,
-      territorio: "",
-      toneladas: "1,568",
-    }, //Santiago Pinotepa Nacional
+      volumen: 1568,
+      nombre: "Santiago Pinotepa Nacional",
+    },
     {
       id: 20637,
-      territorio: "",
-      toneladas: "1,529",
-    }, //San Pedro Mixtepec
+      volumen: 1529,
+      nombre: "San Pedro Mixtepec",
+    },
     {
       id: 20467,
-      territorio: "",
-      toneladas: "1,159",
-    }, //Santiago Jamiltepec
+      volumen: 1159,
+      nombre: "Santiago Jamiltepec",
+    },
     {
       id: 20439,
-      territorio: "",
-      toneladas: "677",
-    }, //Santa María Tonameca
+      volumen: 677,
+      nombre: "Santa María Tonameca",
+    },
     {
       id: 20414,
-      territorio: "",
-      toneladas: "645",
-    }, //Santa María Huazolotitlán
+      volumen: 645,
+      nombre: "Santa María Huazolotitlán",
+    },
     {
       id: 20401,
-      territorio: "",
-      toneladas: "640",
-    }, //Santa María Colotepec
+      volumen: 640,
+      nombre: "Santa María Colotepec",
+    },
     {
       id: 20485,
-      territorio: "",
-      toneladas: "473",
-    }, //Santiago Tapextla
+      volumen: 473,
+      nombre: "Santiago Tapextla",
+    },
     {
       id: 20507,
-      territorio: "",
-      toneladas: "458",
-    }, //Santo Domingo Armenta
+      volumen: 458,
+      nombre: "Santo Domingo Armenta",
+    },
     {
       id: 20185,
-      territorio: "",
-      toneladas: "453",
-    }, //San Juan Cacahuatepec
+      volumen: 453,
+      nombre: "San Juan Cacahuatepec",
+    },
     {
       id: 20090,
-      territorio: "",
-      toneladas: "449",
-    }, //San Andrés Huaxpaltepec
+      volumen: 449,
+      nombre: "San Andrés Huaxpaltepec",
+    },
     {
       id: 20345,
-      territorio: "",
-      toneladas: "449",
-    }, //San Sebastián Ixcapa
+      volumen: 449,
+      nombre: "San Sebastián Ixcapa",
+    },
     {
       id: 20180,
-      territorio: "",
-      toneladas: "443",
-    }, //San Juan Bautista Lo de Soto
+      volumen: 443,
+      nombre: "San Juan Bautista Lo de Soto",
+    },
     {
       id: 20082,
-      territorio: "",
-      toneladas: "409",
-    }, //San Agustín Chayuco
+      volumen: 409,
+      nombre: "San Agustín Chayuco",
+    },
     {
       id: 20402,
-      territorio: "",
-      toneladas: "408",
-    }, //Santa María Cortijo
+      volumen: 408,
+      nombre: "Santa María Cortijo",
+    },
     {
       id: 20466,
-      territorio: "",
-      toneladas: "404",
-    }, //Santiago Ixtayutla
+      volumen: 404,
+      nombre: "Santiago Ixtayutla",
+    },
     {
       id: 20489,
-      territorio: "",
-      toneladas: "393",
-    }, //Santiago Tetepec
+      volumen: 393,
+      nombre: "Santiago Tetepec",
+    },
     {
       id: 20285,
-      territorio: "",
-      toneladas: "371",
-    }, //San Miguel Tlacamama
+      volumen: 371,
+      nombre: "San Miguel Tlacamama",
+    },
     {
       id: 20474,
-      territorio: "",
-      toneladas: "367",
-    }, //Santiago Llano Grande
+      volumen: 367,
+      nombre: "Santiago Llano Grande",
+    },
     {
       id: 20188,
-      territorio: "",
-      toneladas: "307",
-    }, //San Juan Colorado
+      volumen: 307,
+      nombre: "San Juan Colorado",
+    },
     {
       id: 20302,
-      territorio: "",
-      toneladas: "307",
-    }, //San Pedro Atoyac
+      volumen: 307,
+      nombre: "San Pedro Atoyac",
+    },
     {
       id: 20526,
-      territorio: "",
-      toneladas: "280",
-    }, //Santos Reyes Nopala
+      volumen: 280,
+      nombre: "Santos Reyes Nopala",
+    },
     {
       id: 20312,
-      territorio: "",
-      toneladas: "279",
-    }, //San Pedro Jicayán
+      volumen: 279,
+      nombre: "San Pedro Jicayán",
+    },
     {
       id: 20056,
-      territorio: "",
-      toneladas: "263",
-    }, //Mártires de Tacubaya
+      volumen: 263,
+      nombre: "Mártires de Tacubaya",
+    },
     {
       id: 20070,
-      territorio: "",
-      toneladas: "247",
-    }, //Pinotepa de Don Luis
+      volumen: 247,
+      nombre: "Pinotepa de Don Luis",
+    },
     {
       id: 20324,
-      territorio: "",
-      toneladas: "242",
-    }, //San Pedro Pochutla
+      volumen: 242,
+      nombre: "San Pedro Pochutla",
+    },
   ],
   Istmo: [
     //19
     {
       id: 20057,
-      territorio: "",
-      toneladas: "6,406",
-    }, //Matías Romero Avendaño
+      volumen: 6406,
+      nombre: "Matías Romero Avendaño",
+    },
     {
       id: 20043,
-      territorio: "",
-      toneladas: "1,541",
-    }, //Heroica Ciudad de Juchitán de Zaragoza
+      volumen: 1541,
+      nombre: "Heroica Ciudad de Juchitán de Zaragoza",
+    },
     {
       id: 20005,
-      territorio: "",
-      toneladas: "1,347",
-    }, //Asunción Ixtaltepec
+      volumen: 1347,
+      nombre: "Asunción Ixtaltepec",
+    },
     {
       id: 20198,
-      territorio: "",
-      toneladas: "722",
-    }, //San Juan Guichicovi
+      volumen: 722,
+      nombre: "San Juan Guichicovi",
+    },
     {
       id: 20525,
-      territorio: "",
-      toneladas: "570",
-    }, //Santo Domingo Zanatepec
+      volumen: 570,
+      nombre: "Santo Domingo Zanatepec",
+    },
     {
       id: 20407,
-      territorio: "",
-      toneladas: "435",
-    }, //Santa María Chimalapa
+      volumen: 435,
+      nombre: "Santa María Chimalapa",
+    },
     {
       id: 20066,
-      territorio: "",
-      toneladas: "416",
-    }, //Santiago Niltepec
+      volumen: 416,
+      nombre: "Santiago Niltepec",
+    },
     {
       id: 20030,
-      territorio: "",
-      toneladas: "375",
-    }, //El Espinal
+      volumen: 375,
+      nombre: "El Espinal",
+    },
     {
       id: 20515,
-      territorio: "",
-      toneladas: "358",
-    }, //Santo Domingo Tehuantepec
+      volumen: 358,
+      nombre: "Santo Domingo Tehuantepec",
+    },
     {
       id: 20010,
-      territorio: "",
-      toneladas: "354",
-    }, //El Barrio de la Soledad
+      volumen: 354,
+      nombre: "El Barrio de la Soledad",
+    },
     {
       id: 20327,
-      territorio: "",
-      toneladas: "311",
-    }, //San Pedro Tapanatepec
+      volumen: 311,
+      nombre: "San Pedro Tapanatepec",
+    },
     {
       id: 20557,
-      territorio: "",
-      toneladas: "299",
-    }, //Unión Hidalgo
+      volumen: 299,
+      nombre: "Unión Hidalgo",
+    },
     {
       id: 20265,
-      territorio: "",
-      toneladas: "295",
-    }, //San Miguel Chimalapa
+      volumen: 295,
+      nombre: "San Miguel Chimalapa",
+    },
     {
       id: 20427,
-      territorio: "",
-      toneladas: "289",
-    }, //Santa María Petapa
+      volumen: 289,
+      nombre: "Santa María Petapa",
+    },
     {
       id: 20141,
-      territorio: "",
-      toneladas: "275",
-    }, //San Francisco del Mar
+      volumen: 275,
+      nombre: "San Francisco del Mar",
+    },
     {
       id: 20143,
-      territorio: "",
-      toneladas: "267",
-    }, //San Francisco Ixhuatán
+      volumen: 267,
+      nombre: "San Francisco Ixhuatán",
+    },
     {
       id: 20124,
-      territorio: "",
-      toneladas: "238",
-    }, //San Blas Atempa
+      volumen: 238,
+      nombre: "San Blas Atempa",
+    },
     {
       id: 20505,
-      territorio: "",
-      toneladas: "234",
-    }, //Santo Domingo Ingenio
+      volumen: 234,
+      nombre: "Santo Domingo Ingenio",
+    },
     {
       id: 20513,
-      territorio: "",
-      toneladas: "216",
-    }, //Santo Domingo Petapa
+      volumen: 216,
+      nombre: "Santo Domingo Petapa",
+    },
   ],
   Papaloapan: [
     //15
     {
       id: 20184,
-      territorio: "",
-      toneladas: "2,045",
-    }, //San Juan Bautista Tuxtepec
+      volumen: 2045,
+      nombre: "San Juan Bautista Tuxtepec",
+    },
     {
       id: 20044,
-      territorio: "",
-      toneladas: "1,549",
-    }, //Loma Bonita
+      volumen: 1549,
+      nombre: "Loma Bonita",
+    },
     {
       id: 20498,
-      territorio: "",
-      toneladas: "1,456",
-    }, //Santiago Yaveo
+      volumen: 1456,
+      nombre: "Santiago Yaveo",
+    },
     {
       id: 20205,
-      territorio: "",
-      toneladas: "1,109",
-    }, //San Juan Lalana
+      volumen: 1109,
+      nombre: "San Juan Lalana",
+    },
     {
       id: 20002,
-      territorio: "",
-      toneladas: "1,007",
-    }, //Acatlán de Pérez Figueroa
+      volumen: 1007,
+      nombre: "Acatlán de Pérez Figueroa",
+    },
     {
       id: 20559,
-      territorio: "",
-      toneladas: "935",
-    }, //San Juan Bautista Valle Nacional
+      volumen: 935,
+      nombre: "San Juan Bautista Valle Nacional",
+    },
     {
       id: 20468,
-      territorio: "",
-      toneladas: "766",
-    }, //Santiago Jocotepec
+      volumen: 766,
+      nombre: "Santiago Jocotepec",
+    },
     {
       id: 20166,
-      territorio: "",
-      toneladas: "754",
-    }, //San José Chiltepec
+      volumen: 754,
+      nombre: "San José Chiltepec",
+    },
     {
       id: 20417,
-      territorio: "",
-      toneladas: "683",
-    }, //Santa María Jacatepec
+      volumen: 683,
+      nombre: "Santa María Jacatepec",
+    },
     {
       id: 20134,
-      territorio: "",
-      toneladas: "636",
-    }, //San Felipe Jalapa de Díaz
+      volumen: 636,
+      nombre: "San Felipe Jalapa de Díaz",
+    },
     {
       id: 20232,
-      territorio: "",
-      toneladas: "613",
-    }, //San Lucas Ojitlán
+      volumen: 613,
+      nombre: "San Lucas Ojitlán",
+    },
     {
       id: 20278,
-      territorio: "",
-      toneladas: "607",
-    }, //San Miguel Soyaltepec
+      volumen: 607,
+      nombre: "San Miguel Soyaltepec",
+    },
     {
       id: 20009,
-      territorio: "",
-      toneladas: "467",
-    }, //Ayotzintepec
+      volumen: 467,
+      nombre: "Ayotzintepec",
+    },
     {
       id: 20309,
-      territorio: "",
-      toneladas: "360",
-    }, //San Pedro Ixcatlán
+      volumen: 360,
+      nombre: "San Pedro Ixcatlán",
+    },
     {
       id: 20136,
-      territorio: "",
-      toneladas: "241",
-    }, //San Felipe Usila
+      volumen: 241,
+      nombre: "San Felipe Usila",
+    },
   ],
   "Sierra Sur": [
     //6
     {
       id: 20277,
-      territorio: "",
-      toneladas: "641",
-    }, //Villa Sola de Vega
+      volumen: 641,
+      nombre: "Villa Sola de Vega",
+    },
     {
       id: 20447,
-      territorio: "",
-      toneladas: "360",
-    }, //Santa María Zacatepec
+      volumen: 360,
+      nombre: "Santa María Zacatepec",
+    },
     {
       id: 20386,
-      territorio: "",
-      toneladas: "315",
-    }, //Santa Cruz Zenzontepec
+      volumen: 315,
+      nombre: "Santa Cruz Zenzontepec",
+    },
     {
       id: 20477,
-      territorio: "",
-      toneladas: "300",
-    }, //Santiago Minas
+      volumen: 300,
+      nombre: "Santiago Minas",
+    },
     {
       id: 20073,
-      territorio: "",
-      toneladas: "257",
-    }, //Putla Villa de Guerrero
+      volumen: 257,
+      nombre: "Putla Villa de Guerrero",
+    },
     {
       id: 20300,
-      territorio: "",
-      toneladas: "209",
-    }, //San Pedro Amuzgos
+      volumen: 209,
+      nombre: "San Pedro Amuzgos",
+    },
   ],
   "Sierra De Juárez": [
     //3
     {
       id: 20190,
-      territorio: "",
-      toneladas: "1,800",
-    }, //San Juan Cotzocón
+      volumen: 1800,
+      nombre: "San Juan Cotzocón",
+    },
     {
       id: 20207,
-      territorio: "",
-      toneladas: "755",
-    }, //San Juan Mazatlán
+      volumen: 755,
+      nombre: "San Juan Mazatlán",
+    },
     {
       id: 20200,
-      territorio: "",
-      toneladas: "246",
-    }, //San Juan Juquila Mixes
+      volumen: 246,
+      nombre: "San Juan Juquila Mixes",
+    },
   ],
   "Valles Centrales": [
     //2
     {
       id: 20449,
-      territorio: "",
-      toneladas: "296",
-    }, //Santa María Zoquitlán
+      volumen: 296,
+      nombre: "Santa María Zoquitlán",
+    },
     {
       id: 20295,
-      territorio: "",
-      toneladas: "203",
-    }, //San Pablo Huixtepec
+      volumen: 203,
+      nombre: "San Pablo Huixtepec",
+    },
   ],
   "Sierra De Flores Magón": [
     //1
     {
       id: 20406,
-      territorio: "",
-      toneladas: "482",
-    }, //Santa María Chilchotla
+      volumen: 482,
+      nombre: "Santa María Chilchotla",
+    },
   ],
   Mixteca: [
     //1
     {
       id: 20039,
-      territorio: "",
-      toneladas: "200",
-    }, //Heroica Ciudad de Huajuapan de León
+      volumen: 200,
+      nombre: "Heroica Ciudad de Huajuapan de León",
+    },
   ],
 };
 
-/* LECHE DE VACA */
-const estados_datos_sub_pro = [
-  //18
+/* LECH DE  BOVINO */
+const tab_mex_sub_pro = [
   {
+    ranking: 1,
     id: "JAL",
-    territorio: "",
-    toneladas: "2,799,041,000",
-  }, //Jalisco
+    entidad: "Jalisco",
+    volumen: 2799041000,
+    precio: 8,
+    valor: 23763846000,
+  },
   {
+    ranking: 2,
     id: "COA",
-    territorio: "",
-    toneladas: "1,537,748,000",
-  }, //Coahuila
+    entidad: "Coahuila",
+    volumen: 1537748000,
+    precio: 8,
+    valor: 13108912000,
+  },
   {
+    ranking: 3,
     id: "DGO",
-    territorio: "",
-    toneladas: "1,515,250,000",
-  }, //Durango
+    entidad: "Durango",
+    volumen: 1515250000,
+    precio: 8,
+    valor: 13039810000,
+  },
   {
+    ranking: 4,
     id: "CHI",
-    territorio: "",
-    toneladas: "1,262,218,000",
-  }, //Chihuahua
+    entidad: "Chihuahua",
+    volumen: 1262218000,
+    precio: 9,
+    valor: 11829683000,
+  },
   {
+    ranking: 5,
     id: "GTO",
-    territorio: "",
-    toneladas: "912,848,000",
-  }, //Guanajuato
+    entidad: "Guanajuato",
+    volumen: 912848000,
+    precio: 8,
+    valor: 7587141000,
+  },
   {
+    ranking: 6,
     id: "VER",
-    territorio: "",
-    toneladas: "807,075,000",
-  }, //Veracruz
+    entidad: "Veracruz",
+    volumen: 807075000,
+    precio: 8,
+    valor: 6533342000,
+  },
   {
+    ranking: 7,
     id: "CHS",
-    territorio: "",
-    toneladas: "463,510,000",
-  }, //Chiapas
+    entidad: "Chiapas",
+    volumen: 463510000,
+    precio: 7,
+    valor: 3349511000,
+  },
   {
+    ranking: 8,
     id: "PUE",
-    territorio: "",
-    toneladas: "462,639,000",
-  }, //Puebla
+    entidad: "Puebla",
+    volumen: 462639000,
+    precio: 8,
+    valor: 3601248000,
+  },
   {
+    ranking: 9,
     id: "AGS",
-    territorio: "",
-    toneladas: "440,729,000",
-  }, //Aguascalientes
+    entidad: "Aguascalientes",
+    volumen: 440729000,
+    precio: 8,
+    valor: 3568553000,
+  },
   {
+    ranking: 10,
     id: "EM",
-    territorio: "",
-    toneladas: "434,103,000",
-  }, //México
+    entidad: "México",
+    volumen: 434103000,
+    precio: 9,
+    valor: 3593948000,
+  },
   {
+    ranking: 11,
     id: "HGO",
-    territorio: "",
-    toneladas: "429,857,000",
-  }, //Hidalgo
-  {
-    id: "QRO",
-    territorio: "",
-    toneladas: "419,822,000",
-  }, //Querétaro
-  {
-    id: "MICH",
-    territorio: "",
-    toneladas: "382,988,000",
-  }, //Michoacán
-  {
-    id: "BCN",
-    territorio: "",
-    toneladas: "212,042,000",
-  }, //Baja California
-  {
-    id: "ZAC",
-    territorio: "",
-    toneladas: "194,942,000",
-  }, //Zacatecas
-  {
-    id: "SLP",
-    territorio: "",
-    toneladas: "157,371,000",
-  }, //San Luis Potosí
-  {
-    id: "OAX",
-    territorio: "",
-    toneladas: "151,659,000",
-  }, //Oaxaca
-  {
-    id: "SON",
-    territorio: "",
-    toneladas: "119,593,000",
-  }, //Sonora
-];
-
-/* CARNE DE BOVINO */
-const estados_datos_pro = [
-  //14
-  {
-    id: "VER",
-    territorio: "",
-    toneladas: "287,065",
-  }, //Veracruz
-  {
-    id: "JAL",
-    territorio: "",
-    toneladas: "262,234",
-  }, //Jalisco
-  {
-    id: "SLP",
-    territorio: "",
-    toneladas: "134,585",
-  }, //San Luis Potosí
-  {
-    id: "DGO",
-    territorio: "",
-    toneladas: "121,168",
-  }, //Durango
-  {
-    id: "BCN",
-    territorio: "",
-    toneladas: "114,150",
-  }, //Baja California
-  {
-    id: "CHS",
-    territorio: "",
-    toneladas: "113,355",
-  }, //Chiapas
-  {
-    id: "SIN",
-    territorio: "",
-    toneladas: "112,701",
-  }, //Sinaloa
-  {
-    id: "MICH",
-    territorio: "",
-    toneladas: "103,858",
-  }, //Michoacán
-  {
-    id: "CHI",
-    territorio: "",
-    toneladas: "92,718",
-  }, //Chihuahua
-  {
-    id: "SON",
-    territorio: "",
-    toneladas: "78,646",
-  }, //Sonora
-  {
-    id: "TAB",
-    territorio: "",
-    toneladas: "78,103",
-  }, //Tabasco
-  {
-    id: "NL",
-    territorio: "",
-    toneladas: "77,234",
-  }, //Nuevo León
-  {
-    id: "OAX",
-    territorio: "",
-    toneladas: "67,156",
-  }, //Oaxaca
-  {
-    id: "GTO",
-    territorio: "",
-    toneladas: "59,860",
-  }, //Guanajuato
-];
-
-/* LECHE DE BOVINO */
-const paises_datos_sub_pro = [
-  //17
-  { id: "IND", toneladas: "108,371,300" }, //India
-  { id: "USA", toneladas: "102,721,557" }, //Estados Unidos de América
-  { id: "CHN", toneladas: "71,690,155" }, //China
-  { id: "BRA", toneladas: "35,647,495" }, //Brasil
-  { id: "RUS", toneladas: "32,738,522" }, //Federación de Rusia
-  { id: "DEU", toneladas: "32,399,050" }, //Alemania
-  { id: "FRA", toneladas: "23,967,960" }, //Francia
-  { id: "PAK", toneladas: "23,026,100" }, //Pakistán
-  { id: "NZL", toneladas: "21,051,000" }, //Nueva Zelandia
-  { id: "TUR", toneladas: "19,912,135" }, //Turquía
-  { id: "GBR", toneladas: "15,540,640" }, //Reino Unido de Gran Bretaña e Irlanda del Norte
-  { id: "POL", toneladas: "15,208,490" }, //Polonia
-  { id: "NLD", toneladas: "14,533,740" }, //Países Bajos (Reino de los)
-  { id: "MEX", toneladas: "13,497,999" }, //México
-  { id: "ITA", toneladas: "13,181,870" }, //Italia
-  { id: "ARG", toneladas: "11,904,142" }, //Argentina
-];
-
-/* CARNE DE BOVINO	 */
-const paises_datos_pro = [
-  //12
-  { id: "USA", toneladas: "12,890,324" }, // Estados Unidos de América
-  { id: "BRA", toneladas: "10,350,000" }, // Brasil
-  { id: "CHN", toneladas: "14,371,568" }, // China, Continental
-  { id: "ARG", toneladas: "3,133,103" }, // Argentina
-  { id: "MEX", toneladas: "2,175,577" }, // México
-  { id: "AUS", toneladas: "1,878,088" }, // Australia
-  { id: "BLR", toneladas: "1,620,730" }, // Federación de Rusia
-  { id: "TUR", toneladas: "1,572,747" }, // Turquía
-  { id: "CAN", toneladas: "1,378,656" }, // Canadá
-  { id: "FRA", toneladas: "1,361,310" }, // Francia
-  { id: "PAK", toneladas: "1,269,000" }, // Pakistán
-];
-/* Datos para la primera tabla sobre la producción de carne de vaca a nivel mundial */
-const tabla_paises_prod = [
-  //13
-  { ranking: 1, pais: "Estados Unidos de América", volumen: 12890324 },
-  { ranking: 2, pais: "Brasil", volumen: 10350000 },
-  { ranking: 3, pais: "China", volumen: 7191568 },
-  { ranking: 4, pais: "China, Continental", volumen: 7180000 },
-  { ranking: 5, pais: "Argentina", volumen: 3133103 },
-  { ranking: 6, pais: "México", volumen: 2175577 },
-  { ranking: 7, pais: "Australia", volumen: 1878088 },
-  { ranking: 8, pais: "Federación de Rusia", volumen: 1620730 },
-  { ranking: 9, pais: "Turquía", volumen: 1572747 },
-  { ranking: 10, pais: "Canadá", volumen: 1378656 },
-  { ranking: 11, pais: "Francia", volumen: 1361310 },
-  { ranking: 12, pais: "Pakistán", volumen: 1269000 },
-  { pais: " otros", volumen: 24536581 },
-];
-
-/* Datos para la segunda tabla sobre la producción de leche de vaca a nivel mundial */
-const tabla_paises_sub_prod = [
-  //18
-  { ranking: 1, pais: "India", volumen: 108371300 },
-  { ranking: 2, pais: "Estados Unidos de América", volumen: 102721557 },
-  { ranking: 3, pais: "China", volumen: 36076655 },
-  { ranking: 4, pais: "Brasil", volumen: 35647495 },
-  { ranking: 5, pais: "China, Continental", volumen: 35613500 },
-  { ranking: 6, pais: "Federación de Rusia", volumen: 32738522 },
-  { ranking: 7, pais: "Alemania", volumen: 32399050 },
-  { ranking: 8, pais: "Francia", volumen: 23967960 },
-  { ranking: 9, pais: "Pakistán", volumen: 23026100 },
-  { ranking: 10, pais: "Nueva Zelandia", volumen: 21051000 },
-  { ranking: 11, pais: "Turquía", volumen: 19912135 },
+    entidad: "Hidalgo",
+    volumen: 429857000,
+    precio: 8,
+    valor: 3328284000,
+  },
   {
     ranking: 12,
-    pais: "Reino Unido de Gran Bretaña e Irlanda del Norte",
-    volumen: 15540640,
+    id: "QRO",
+    entidad: "Querétaro",
+    volumen: 419822000,
+    precio: 9,
+    valor: 3630123000,
   },
-  { ranking: 13, pais: "Polonia", volumen: 15208490 },
-  { ranking: 14, pais: "Países Bajos (Reino de los)", volumen: 14533740 },
-  { ranking: 15, pais: "México", volumen: 13497999 },
-  { ranking: 16, pais: "Italia", volumen: 13181870 },
-  { ranking: 17, pais: "Argentina", volumen: 11904142 },
-  { pais: "otros", volumen: 234005078 },
-];
-
-const tab_mun_pro = [
-  { nom: "Mixteca", num: 20 },
-  { nom: "Valles Centrales", num: 17 },
-  { nom: "Papaloapan", num: 8 },
-  { nom: "Istmo", num: 3 },
-  { nom: "Sierra Sur", num: 3 },
-  { nom: "Sierra de Juárez", num: 1 },
+  {
+    ranking: 13,
+    id: "MICH",
+    entidad: "Michoacán",
+    volumen: 382988000,
+    precio: 9,
+    valor: 3516294000,
+  },
+  {
+    ranking: 14,
+    id: "BCN",
+    entidad: "Baja California",
+    volumen: 212042000,
+    precio: 9,
+    valor: 1875074000,
+  },
+  {
+    ranking: 15,
+    id: "ZAC",
+    entidad: "Zacatecas",
+    volumen: 194942000,
+    precio: 9,
+    valor: 1803460000,
+  },
+  {
+    ranking: 16,
+    id: "SLP",
+    entidad: "San Luis Potosí",
+    volumen: 157371000,
+    precio: 8,
+    valor: 1261388000,
+  },
+  {
+    ranking: 17,
+    id: "OAX",
+    entidad: "Oaxaca",
+    volumen: 151659000,
+    precio: 8,
+    valor: 1161156000,
+  },
+  {
+    ranking: 18,
+    id: "SON",
+    entodad: "Sonora",
+    volumen: 119593000,
+    precio: 9,
+    valor: 1048714000,
+  },
+  {
+    ranking: "",
+    entidad: "Otros",
+    volumen: 629304000,
+    precio: 9,
+    valor: 5219620000,
+  },
 ];
 
 /* PRODUCCION NACIONAL DEL SECTOR BOVINO */
@@ -656,6 +551,7 @@ const tab_mun_pro = [
 const tab_mex_pro = [
   {
     ranking: 1,
+    id: "VER",
     entidad: "Veracruz",
     volumen: 287065,
     peso: 234,
@@ -664,6 +560,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 2,
+    id: "JAL",
     entidad: "Jalisco",
     volumen: 262234,
     peso: 268,
@@ -672,6 +569,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 3,
+    id: "SLP",
     entidad: "San Luis Potosí",
     volumen: 134585,
     peso: 251,
@@ -680,6 +578,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 4,
+    id: "DGO",
     entidad: "Durango",
     volumen: 121168,
     peso: 240,
@@ -688,6 +587,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 5,
+    id: "BCN",
     entidad: "Baja California",
     volumen: 114150,
     peso: 273,
@@ -696,6 +596,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 6,
+    id: "CHS",
     entidad: "Chiapas",
     volumen: 113355,
     peso: 230,
@@ -704,6 +605,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 7,
+    id: "SIN",
     entidad: "Sinaloa",
     volumen: 112701,
     peso: 246,
@@ -712,6 +614,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 8,
+    id: "MICH",
     entidad: "Michoacán",
     volumen: 103858,
     peso: 231,
@@ -720,6 +623,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 9,
+    id: "CHI",
     entidad: "Chihuahua",
     volumen: 92718,
     peso: 226,
@@ -728,6 +632,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 10,
+    id: "SON",
     entidad: "Sonora",
     volumen: 78646,
     peso: 230,
@@ -736,6 +641,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 11,
+    id: "TAB",
     entidad: "Tabasco",
     volumen: 78103,
     peso: 240,
@@ -744,6 +650,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 12,
+    id: "NL",
     entidad: "Nuevo León",
     volumen: 77234,
     peso: 268,
@@ -752,6 +659,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 13,
+    id: "OAX",
     entidad: "Oaxaca",
     volumen: 67156,
     peso: 195,
@@ -760,6 +668,7 @@ const tab_mex_pro = [
   },
   {
     ranking: 14,
+    id: "GTO",
     entidad: "Guanajuato",
     volumen: 59860,
     peso: 251,
@@ -776,142 +685,99 @@ const tab_mex_pro = [
   },
 ];
 
-/* LECH DE  BOVINO */
-const tab_mex_sub_pro = [
+/* Datos para la segunda tabla sobre la producción de leche de vaca a nivel mundial */
+const tabla_paises_sub_prod = [
+  //18
+  { id: "IND", ranking: 1, pais: "India", volumen: 108371300 },
   {
-    ranking: 1,
-    entidad: "Jalisco",
-    volumen: 2799041000,
-    precio: 8,
-    valor: 23763846000,
-  },
-  {
+    id: "USA",
     ranking: 2,
-    entidad: "Coahuila",
-    volumen: 1537748000,
-    precio: 8,
-    valor: 13108912000,
+    pais: "Estados Unidos de América",
+    volumen: 102721557,
   },
+  { id: "CHN", ranking: 3, pais: "China", volumen: 36076655 },
+  { id: "BRA", ranking: 4, pais: "Brasil", volumen: 35647495 },
+  { id: "CHN", ranking: 5, pais: "China, Continental", volumen: 35613500 },
+  { id: "RUS", ranking: 6, pais: "Federación de Rusia", volumen: 32738522 },
+  { id: "DEU", ranking: 7, pais: "Alemania", volumen: 32399050 },
+  { id: "FRA", ranking: 8, pais: "Francia", volumen: 23967960 },
+  { id: "PAK", ranking: 9, pais: "Pakistán", volumen: 23026100 },
+  { id: "NZL", ranking: 10, pais: "Nueva Zelandia", volumen: 21051000 },
+  { id: "TUR", ranking: 11, pais: "Turquía", volumen: 19912135 },
   {
-    ranking: 3,
-    entidad: "Durango",
-    volumen: 1515250000,
-    precio: 8,
-    valor: 13039810000,
-  },
-  {
-    ranking: 4,
-    entidad: "Chihuahua",
-    volumen: 1262218000,
-    precio: 9,
-    valor: 11829683000,
-  },
-  {
-    ranking: 5,
-    entidad: "Guanajuato",
-    volumen: 912848000,
-    precio: 8,
-    valor: 7587141000,
-  },
-  {
-    ranking: 6,
-    entidad: "Veracruz",
-    volumen: 807075000,
-    precio: 8,
-    valor: 6533342000,
-  },
-  {
-    ranking: 7,
-    entidad: "Chiapas",
-    volumen: 463510000,
-    precio: 7,
-    valor: 3349511000,
-  },
-  {
-    ranking: 8,
-    entidad: "Puebla",
-    volumen: 462639000,
-    precio: 8,
-    valor: 3601248000,
-  },
-  {
-    ranking: 9,
-    entidad: "Aguascalientes",
-    volumen: 440729000,
-    precio: 8,
-    valor: 3568553000,
-  },
-  {
-    ranking: 10,
-    entidad: "México",
-    volumen: 434103000,
-    precio: 9,
-    valor: 3593948000,
-  },
-  {
-    ranking: 11,
-    entidad: "Hidalgo",
-    volumen: 429857000,
-    precio: 8,
-    valor: 3328284000,
-  },
-  {
+    id: "GBR",
     ranking: 12,
-    entidad: "Querétaro",
-    volumen: 419822000,
-    precio: 9,
-    valor: 3630123000,
+    pais: "Reino Unido de Gran Bretaña e Irlanda del Norte",
+    volumen: 15540640,
   },
+  { id: "POL", ranking: 13, pais: "Polonia", volumen: 15208490 },
   {
-    ranking: 13,
-    entidad: "Michoacán",
-    volumen: 382988000,
-    precio: 9,
-    valor: 3516294000,
-  },
-  {
+    id: "NLD",
     ranking: 14,
-    entidad: "Baja California",
-    volumen: 212042000,
-    precio: 9,
-    valor: 1875074000,
+    pais: "Países Bajos (Reino de los)",
+    volumen: 14533740,
   },
-  {
-    ranking: 15,
-    entidad: "Zacatecas",
-    volumen: 194942000,
-    precio: 9,
-    valor: 1803460000,
-  },
-  {
-    ranking: 16,
-    entidad: "San Luis Potosí",
-    volumen: 157371000,
-    precio: 8,
-    valor: 1261388000,
-  },
-  {
-    ranking: 17,
-    entidad: "Oaxaca",
-    volumen: 151659000,
-    precio: 8,
-    valor: 1161156000,
-  },
-  {
-    ranking: 18,
-    entidad: "Sonora",
-    volumen: 119593000,
-    precio: 9,
-    valor: 1048714000,
-  },
-  {
-    ranking: "",
-    entidad: "Otros",
-    volumen: 629304000,
-    precio: 9,
-    valor: 5219620000,
-  },
+  { id: "MEX", ranking: 15, pais: "México", volumen: 13497999 },
+  { id: "ITA", ranking: 16, pais: "Italia", volumen: 13181870 },
+  { id: "ARG", ranking: 17, pais: "Argentina", volumen: 11904142 },
+  { pais: "otros", volumen: 234005078 },
 ];
+
+const agrupado = {};
+
+tabla_paises_sub_prod.forEach((item) => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_sub_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
+
+/* Datos para la primera tabla sobre la producción de carne de vaca a nivel mundial */
+const tabla_paises_prod = [
+  //13
+  { id: "USA", ranking: 1, pais: "Estados Unidos de América", volumen: 12890324 },
+  { id: "BRA", ranking: 2, pais: "Brasil", volumen: 10350000 },
+  { id: "CHN", ranking: 3, pais: "China", volumen: 7191568 },
+  { id: "CHN", ranking: 4, pais: "China, Continental", volumen: 7180000 },
+  { id: "ARG", ranking: 5, pais: "Argentina", volumen: 3133103 },
+  { id: "MEX", ranking: 6, pais: "México", volumen: 2175577 },
+  { id: "AUS", ranking: 7, pais: "Australia", volumen: 1878088 },
+  { id: "BLR", ranking: 8, pais: "Federación de Rusia", volumen: 1620730 },
+  { id: "TUR", ranking: 9, pais: "Turquía", volumen: 1572747 },
+  { id: "CAN", ranking: 10, pais: "Canadá", volumen: 1378656 },
+  { id: "FRA", ranking: 11, pais: "Francia", volumen: 1361310 },
+  { id: "PAK", ranking: 12, pais: "Pakistán", volumen: 1269000 },
+  { pais: " otros", volumen: 24536581 },
+];
+
+const agrupado2 = {};
+
+tabla_paises_prod.forEach((item) => {
+  if (!agrupado2[item.id]) {
+    agrupado2[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado2[item.id].superficie += item.superficie;
+
+    agrupado2[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_pro = Object.values(agrupado2).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 /* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
 const labels_balanza = [
@@ -1264,16 +1130,4 @@ const estacionalidad_producto = [
 const estacionalidad_sub_producto = [
   83.9, 90.2, 97.5, 95.9, 103.3, 108.9, 111.1, 111.2, 110.1, 113.2, 114.2,
   111.1,
-];
-
-/* Datos Tabla MUNICIPIOS QUE PRODUCEN CARNE DE BOVINO EN OAXACA */
-const tab_mun_producto_oax = [
-  { nom: "Costa", num: 26 },
-  { nom: "Istmo", num: 19 },
-  { nom: "Papaloapan", num: 15 },
-  { nom: "Sierra Sur", num: 6 },
-  { nom: "Sierra De Juárez", num: 3 },
-  { nom: "Valles Centrales", num: 2 },
-  { nom: "Sierra De Flores Magón", num: 1 },
-  { nom: "Mixteca", num: 1 },
 ];

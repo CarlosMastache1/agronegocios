@@ -5,48 +5,48 @@ const regionesConMunicipios = {
     //
     {
       id: 20515,
-      territorio: "",
-      toneladas: "470",
+      superficie: "",
+      volumen: "470",
     }, //Santo Domingo Tehuantepec
     {
       id: 20043,
-      territorio: "",
-      toneladas: "329",
+      superficie: "",
+      volumen: "329",
     }, //Heroica Ciudad de Juchitán de Zaragoza
     {
       id: 20130,
-      territorio: "",
-      toneladas: "293",
+      superficie: "",
+      volumen: "293",
     }, //San Dionisio del Mar
     {
       id: 20057,
-      territorio: "",
-      toneladas: "944",
+      superficie: "",
+      volumen: "944",
     }, //Matías Romero Avendaño
     {
       id: 20525,
-      territorio: "",
-      toneladas: "261",
+      superficie: "",
+      volumen: "261",
     }, //Santo Domingo Zanatepec
     {
       id: 20141,
-      territorio: "",
-      toneladas: "256",
+      superficie: "",
+      volumen: "256",
     }, //San Francisco del Mar
     {
       id: 20427,
-      territorio: "",
-      toneladas: "247",
+      superficie: "",
+      volumen: "247",
     }, //Santa María Petapa
     {
       id: 20066,
-      territorio: "",
-      toneladas: "245",
+      superficie: "",
+      volumen: "245",
     }, //Santiago Niltepec
     {
       id: 20005,
-      territorio: "",
-      toneladas: "225",
+      superficie: "",
+      volumen: "225",
     }, //Asunción Ixtaltepec
   ],
   Papaloapa: [
@@ -54,33 +54,33 @@ const regionesConMunicipios = {
     //
     {
       id: 20559,
-      territorio: "",
-      toneladas: "1,188",
+      superficie: "",
+      volumen: "1,188",
     }, //San Juan Bautista Valle Nacional
     {
       id: 20166,
-      territorio: "",
-      toneladas: "499",
+      superficie: "",
+      volumen: "499",
     }, //San José Chiltepec
     {
       id: 20417,
-      territorio: "",
-      toneladas: "495",
+      superficie: "",
+      volumen: "495",
     }, //Santa María Jacatepec
     {
       id: 20002,
-      territorio: "",
-      toneladas: "294",
+      superficie: "",
+      volumen: "294",
     }, //Acatlán de Pérez Figueroa
     {
       id: 20184,
-      territorio: "",
-      toneladas: "289",
+      superficie: "",
+      volumen: "289",
     }, //San Juan Bautista Tuxtepec
     {
       id: 20232,
-      territorio: "",
-      toneladas: "286",
+      superficie: "",
+      volumen: "286",
     }, //San Lucas Ojitlán
   ],
   "Valles Centrales": [
@@ -88,23 +88,23 @@ const regionesConMunicipios = {
     //
     {
       id: 20067,
-      territorio: "",
-      toneladas: "1,961",
+      superficie: "",
+      volumen: "1,961",
     }, //Oaxaca de Juárez
     {
       id: 20068,
-      territorio: "",
-      toneladas: "580",
+      superficie: "",
+      volumen: "580",
     }, //Ocotlán de Morelos
     {
       id: 20023,
-      territorio: "",
-      toneladas: "278",
+      superficie: "",
+      volumen: "278",
     }, //Cuilápam de Guerrero
     {
       id: 20028,
-      territorio: "",
-      toneladas: "200",
+      superficie: "",
+      volumen: "200",
     }, //Heroica Ciudad de Ejutla de Crespo
   ],
   Mixteca: [
@@ -112,23 +112,23 @@ const regionesConMunicipios = {
     //
     {
       id: 20039,
-      territorio: "",
-      toneladas: "321",
+      superficie: "",
+      volumen: "321",
     }, //Heroica Ciudad de Huajuapan de León
     {
       id: 20549,
-      territorio: "",
-      toneladas: "274",
+      superficie: "",
+      volumen: "274",
     }, //H. V. Tezoatlán de Segura y Luna, C. de la I.de O.
     {
       id: 20006,
-      territorio: "",
-      toneladas: "238",
+      superficie: "",
+      volumen: "238",
     }, //Asunción Nochixtlán
     {
       id: 20469,
-      territorio: "",
-      toneladas: "207",
+      superficie: "",
+      volumen: "207",
     }, //Santiago Juxtlahuaca
   ],
   Costa: [
@@ -136,13 +136,13 @@ const regionesConMunicipios = {
     //
     {
       id: 20482,
-      territorio: "",
-      toneladas: "1,633",
+      superficie: "",
+      volumen: "1,633",
     }, //Santiago Pinotepa Nacional
     {
       id: 20467,
-      territorio: "",
-      toneladas: "382",
+      superficie: "",
+      volumen: "382",
     }, //Santiago Jamiltepec
   ],
   "Sierra de Flores Magón": [
@@ -150,8 +150,8 @@ const regionesConMunicipios = {
     //
     {
       id: 20406,
-      territorio: "",
-      toneladas: "212",
+      superficie: "",
+      volumen: "212",
     }, //Santa María Chilchotla
   ],
   "Sierra Sur": [
@@ -159,8 +159,8 @@ const regionesConMunicipios = {
     //
     {
       id: 20386,
-      territorio: "",
-      toneladas: "455",
+      superficie: "",
+      volumen: "455",
     }, //Santa Cruz Zenzontepec
   ],
 };
@@ -170,76 +170,76 @@ const estados_datos_pro = [
   //11
   {
     id: "JAL",
-    territorio: "",
-    toneladas: "411,681",
+    superficie: "",
+    volumen: "411,681",
   }, //Jalisco
   {
     id: "SON",
-    territorio: "",
-    toneladas: "314,096",
+    superficie: "",
+    volumen: "314,096",
   }, //Sonora
   {
     id: "PUE",
-    territorio: "",
-    toneladas: "187,936",
+    superficie: "",
+    volumen: "187,936",
   }, //Puebla
   {
     id: "YUC",
-    territorio: "",
-    toneladas: "166,132",
+    superficie: "",
+    volumen: "166,132",
   }, //Yucatán
   {
     id: "VER",
-    territorio: "",
-    toneladas: "161,911",
+    superficie: "",
+    volumen: "161,911",
   }, //Veracruz
   {
     id: "GTO",
-    territorio: "",
-    toneladas: "140,169",
+    superficie: "",
+    volumen: "140,169",
   }, //Guanajuato
   {
     id: "MICH",
-    territorio: "",
-    toneladas: "53,140",
+    superficie: "",
+    volumen: "53,140",
   }, //Michoacán
   {
     id: "CHS",
-    territorio: "",
-    toneladas: "32,546",
+    superficie: "",
+    volumen: "32,546",
   }, //Chiapas
   {
     id: "OAX",
-    territorio: "",
-    toneladas: "29,567",
+    superficie: "",
+    volumen: "29,567",
   }, //Oaxaca
   {
     id: "QRO",
-    territorio: "",
-    toneladas: "27,676",
+    superficie: "",
+    volumen: "27,676",
   }, //Querétaro
   {
     id: "SLP",
-    territorio: "",
-    toneladas: "26,070",
+    superficie: "",
+    volumen: "26,070",
   }, //San Luis Potosí
 ];
 
 /* PRODUCCION MUNDIAL DEL SECTOR PORCINO */
 const paises_datos_pro = [
   //13
-  { id: "CHN", toneladas: "111,731,097" }, //China, Continental
-  { id: "USA", toneladas: "12,251,984" }, //Estados Unidos de América
-  { id: "BRA", toneladas: "5,186,303" }, //Brasil
-  { id: "ESP", toneladas: "5,066,350" }, //España
-  { id: "RUS", toneladas: "4,532,147" }, //Federación de Rusia
-  { id: "DEU", toneladas: "4,491,710" }, //Alemania
-  { id: "VNM", toneladas: "3,102,000" }, //VietNam
-  { id: "CAN", toneladas: "2,262,744" }, //Canadá
-  { id: "FRA", toneladas: "2,152,260" }, //Francia
-  { id: "POL", toneladas: "1,804,960" }, //Polonia
-  { id: "MEX", toneladas: "1,730,051" }, //México
-  { id: "NLD", toneladas: "1,683,580" }, //Países Bajos (Reino de los)
+  { id: "CHN", volumen: "111,731,097" }, //China, Continental
+  { id: "USA", volumen: "12,251,984" }, //Estados Unidos de América
+  { id: "BRA", volumen: "5,186,303" }, //Brasil
+  { id: "ESP", volumen: "5,066,350" }, //España
+  { id: "RUS", volumen: "4,532,147" }, //Federación de Rusia
+  { id: "DEU", volumen: "4,491,710" }, //Alemania
+  { id: "VNM", volumen: "3,102,000" }, //VietNam
+  { id: "CAN", volumen: "2,262,744" }, //Canadá
+  { id: "FRA", volumen: "2,152,260" }, //Francia
+  { id: "POL", volumen: "1,804,960" }, //Polonia
+  { id: "MEX", volumen: "1,730,051" }, //México
+  { id: "NLD", volumen: "1,683,580" }, //Países Bajos (Reino de los)
 ];
 
 /* Datos para la primera tabla sobre la producción de carne de porcino a nivel mundial */
