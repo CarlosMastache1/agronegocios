@@ -13,9 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
 
 
-      <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
-      <link rel="stylesheet" type="text/css" href="{% static 'css/style-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-layout.css' %}">
 
     <style>
         body {
@@ -75,6 +75,42 @@
             transition: background 0.3s ease;
         }
 
+        #registrar {
+            background: #1a8b5a;
+            color: white;
+            width: 100%;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        #registrar:hover {
+            background: #125b3b;
+        }
+
+        #nuevo {
+            background: #2f2d96;
+            color: #FFF4F7;
+            width: 100%;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        #nuevo:hover {
+            background: #222175;
+        }
+
+        #cancelar {
+            background: #9D2449;
+            color: #E5E5E5;
+            width: 100%;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        #cancelar:hover {
+            background: #B5305A;
+        }
+
         .btn:hover {
             background: #B5305A;
         }
@@ -93,82 +129,82 @@
 </head>
 
 <body>
-         <header class="site-header">
-      <!-- Navbar -->
-      <nav class="navbar navbar-default navbar-fixed-top fluid-navbar navbar-layaout-new" id="navbar-new">
-        <div class="container-fluid">
+    <header class="site-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top fluid-navbar navbar-layaout-new" id="navbar-new">
+            <div class="container-fluid">
 
 
-          <!-- Encabezado con botón toggle -->
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              <img src="{% static 'assets/images/logo-new.png' %}" alt="logo" height="40px">
-            </a>
-            <!-- Botón para colapsar menú -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-colapsable">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+                <!-- Encabezado con botón toggle -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'assets/images/logo-new.png' %}" alt="logo" height="40px">
+                    </a>
+                    <!-- Botón para colapsar menú -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#menu-colapsable">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
 
 
-          <div class="collapse navbar-collapse" id="menu-colapsable">
-            <ul class="nav navbar-nav navbar-right">
+                <div class="collapse navbar-collapse" id="menu-colapsable">
+                    <ul class="nav navbar-nav navbar-right">
 
-              <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-home"></span> INICIO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/">INICIO</a></li>
-                  <li><a href="/nosotros">NOSOTROS</a></li>
-                  <li><a href="/directorio">DIRECTORIO</a></li>
-                  <li><a href="/ubicacion">UBICACION</a></li>
-                </ul>
-              </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-home"></span> INICIO <span
+                                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/">INICIO</a></li>
+                                <li><a href="/nosotros">NOSOTROS</a></li>
+                                <li><a href="/directorio">DIRECTORIO</a></li>
+                                <li><a href="/ubicacion">UBICACION</a></li>
+                            </ul>
+                        </li>
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-lock"></span> DESEMPEÑO DE GARANTÍAS LÍQUIDAS <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
-                  <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
-                </ul>
-              </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-lock"></span> DESEMPEÑO DE GARANTÍAS LÍQUIDAS <span
+                                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
+                                <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a>
+                                </li>
+                            </ul>
+                        </li>
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-stats"></span> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/agricola">AGRICOLA</a></li>
-                  <li><a href="/pecuario">PECUARIO</a></li>
-                </ul>
-              </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-stats"></span> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO
+                                <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/agricola">AGRICOLA</a></li>
+                                <li><a href="/pecuario">PECUARIO</a></li>
+                            </ul>
+                        </li>
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-road"></span> DESARROLLO DE MERCADO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/formProductos" target="_blank">REGISTRA TU PRODUCTO</a></li>
-                  <li><a href="/tiendaHome">CATALOGO DE PRODUCTOS</a></li>
-                  <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
-                </ul>
-              </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-road"></span> DESARROLLO DE MERCADO <span
+                                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/formProductos" target="_blank">REGISTRA TU PRODUCTO</a></li>
+                                <li><a href="/tiendaHome">CATALOGO DE PRODUCTOS</a></li>
+                                <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
+                            </ul>
+                        </li>
 
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container" style="padding-top: 65px;">
         <div class="left-section"></div>
@@ -177,14 +213,50 @@
                 <img src="{% static 'images/logoForm.png' %}" alt="Logo" width="300">
             </div>
             <h4>Registro</h4>
+
+
+            <style>
+                .productor-datos {
+                    background-color: #f8f3f5;
+                    border-left: 5px solid #9D2449;
+                    padding: 16px 20px;
+                    border-radius: 8px;
+                    margin-bottom: 40px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: #333;
+                }
+
+                .productor-datos h3 {
+                    margin-top: 0;
+                    color: #9D2449;
+                }
+
+                .productor-datos p {
+                    margin: 6px 0;
+                    font-size: 16px;
+                }
+            </style>
+            <div class="productor-datos">
+                <h3>Datos del productor:</h3>
+                <p><strong>Nombre:</strong> {{ productor.nombre }}</p>
+                <p><strong>Teléfono:</strong> {{ productor.telefono }}</p>
+                <p><strong>Correo electrónico:</strong> {{ productor.email }}</p>
+            </div>
+
+
             <form action="/formProductos/" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
+                {% if not productor.nombre %}
                 <div class="input-field">
                     <input name="nombreProductor" type="text" id="nombre-productor" required
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-productor">NOMBRE DEL PRODUCTOR</label>
                 </div>
+
+                {% else %}
+                <input type="hidden" name="nombreProductor" id="nombre-productor" value="{{ productor.nombre }}">
+                {% endif %}
                 <div class="input-field">
                     <select id="" required name="municipio">
                         <option value="" disabled selected>ELIGE UNA OPCIÓN</option>
@@ -198,7 +270,7 @@
                     <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
-                <div class="input-field">
+                <div class="input-field" id="input_nombre_pro">
                     <input type="text" name="nombreProducto" id="nombre-producto" required
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-producto">NOMBRE DEL PRODUCTO</label>
@@ -280,8 +352,8 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
-                                <div class="input-field" style="padding-top: 10px;">
-                    <select name="unidad_medidad" required >
+                <div class="input-field" style="padding-top: 10px;">
+                    <select name="unidad_medidad" required>
                         <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="TONELADA">TONELADA</option>
                         <option value="KILOGRAMOS">KILOGRAMOS</option>
@@ -313,7 +385,7 @@
                     </select>
                     <label>DISPONIBILIDAD DE ENTREGA</label>
                 </div>
-
+                {% if not productor %}
                 <div class="input-field">
                     <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
@@ -322,8 +394,10 @@
                     <input name="email" type="email" id="email" required>
                     <label for="email">CORREO ELECTRÓNICO</label>
                 </div>
-
-
+                {% else %}
+                <input type="hidden" name="telefono" id="telefono" value="{{ productor.telefono }}">
+                <input type="hidden" name="email" id="email" value="{{ productor.email }}">
+                {% endif %}
 
                 <div class="file-field input-field">
                     <div class="btn">
@@ -348,10 +422,10 @@
                     <span id="aletar_pdf"></span>
                 </div>
 
-    <div class="input-field">
-  <textarea id="mensaje" class="materialize-textarea" name="comentarios"></textarea>
-  <label for="comentarios">COMENTARIOS</label>
-</div>
+                <div class="input-field">
+                    <textarea id="mensaje" class="materialize-textarea" name="comentarios"></textarea>
+                    <label for="comentarios">COMENTARIOS</label>
+                </div>
 
                 <label>
                     <input type="checkbox" name="terminos" required />
@@ -360,29 +434,41 @@
                 </label>
 
 
-                <button class="btn waves-effect waves-light">REGISTRAR PRODUCTO</button>
+                <button class="btn waves-effect waves-light" style="margin-bottom: 10px;" type="submit" id="registrar"
+                    name="registrar_y_salir">REGISTRAR PRODUCTO</button>
+
+                <button class="btn waves-effect waves-light" style="margin-bottom: 10px;" type="submit" id="nuevo"
+                    name="registrar_y_continuar">Registrar este y
+                    un nuevo producto</button>
+
+                <button class="btn waves-effect waves-light" style="margin-bottom: 10px;" type="submit" id="cancelar"
+                    name="cancelar">Cancelar</button>
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 
-  <script>
-    //navbar-layaout-new 
-    const navbar = document.getElementById('navbar-new');
+    <script>
+        //navbar-layaout-new 
+        const navbar = document.getElementById('navbar-new');
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.remove('navbar-layaout-new');
-        navbar.classList.add('navbar-scroll');
-      } else {
-        navbar.classList.remove('navbar-scroll');
-        navbar.classList.add('navbar-layaout-new');
-      }
-    });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('navbar-layaout-new');
+                navbar.classList.add('navbar-scroll');
+            } else {
+                navbar.classList.remove('navbar-scroll');
+                navbar.classList.add('navbar-layaout-new');
+            }
+        });
 
-  </script>
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             M.FormSelect.init(document.querySelectorAll('select'));
