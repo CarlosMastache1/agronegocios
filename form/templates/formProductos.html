@@ -75,6 +75,18 @@
             transition: background 0.3s ease;
         }
 
+        .btn2 {
+            background: #42b147;
+            color: white;
+            width: 100%;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .btn2:hover {
+            background: #60d366;
+        }
+
         .btn:hover {
             background: #B5305A;
         }
@@ -179,6 +191,7 @@
             <h4>Registro</h4>
             <form action="/formProductos/" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
+    <h5 >DATOS DEL PRODUCTOR</h5>
 
                 <div class="input-field">
                     <input name="nombreProductor" type="text" id="nombre-productor" required
@@ -198,18 +211,22 @@
                     <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
+                    
+    <div id="productos-container">
+        <div class="producto-form">
+            <h5 style="color: #136817; font-weight: bolder;">DATOS DEL PRODUCTO</h5>
                 <div class="input-field">
-                    <input type="text" name="nombreProducto" id="nombre-producto" required
+                    <input type="text" name="nombreProducto[]" id="nombre-producto" required
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-producto">NOMBRE DEL PRODUCTO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" name="nombreMarca" id="nombre-marca"
+                    <input type="text" name="nombreMarca[]" id="nombre-marca"
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-marca">NOMBRE DE LA MARCA</label>
                 </div>
                 <div class="input-field">
-                    <select name="subsector" id="subsector2" required>
+                    <select name="subsector[]" id="subsector2" required>
                         <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="AGRICOLA">AGRICOLA</option>
                         <option value="PECUARIO">PECUARIO</option>
@@ -223,7 +240,7 @@
                 </div>
                 <div id="sub-AGRICOLA-2">
                     <div class="input-field">
-                        <select name="categoria" required>
+                        <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="AGUACATE">AGUACATE</option>
                             <option value="AJONJOLI">AJONJOLI</option>
@@ -242,7 +259,7 @@
                 </div>
                 <div id="sub-PECUARIO-2">
                     <div class="input-field">
-                        <select name="categoria" required>
+                        <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="APICOLA">APICOLA</option>
                             <option value="AVICOLA">AVICOLA</option>
@@ -256,7 +273,7 @@
                 </div>
                 <div id="sub-PESQUERO-2">
                     <div class="input-field">
-                        <select name="categoria" required>
+                        <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="BARRILETE">BARRILETE</option>
                             <option value="CAMARON CAFE">CAMARON CAFE</option>
@@ -269,7 +286,7 @@
                 </div>
                 <div id="sub-ACUICOLA-2">
                     <div class="input-field">
-                        <select name="categoria" required>
+                        <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                             <option value="TILAPIA">TILAPIA</option>
                             <option value="CAMARON BLANCO">CAMARON BLANCO</option>
@@ -281,7 +298,7 @@
                     </div>
                 </div>
                                 <div class="input-field" style="padding-top: 10px;">
-                    <select name="unidad_medidad" required >
+                    <select name="unidad_medidad[]" required >
                         <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="TONELADA">TONELADA</option>
                         <option value="KILOGRAMOS">KILOGRAMOS</option>
@@ -294,13 +311,13 @@
                 </div>
                 <div class="input-field">
                     <input type="text" id="numero" oninput="formatearNumero(this)" />
-                    <input name="volumen_produccion" type="hidden" id="volumen" required
+                    <input name="volumen_produccion[]" type="hidden" id="volumen" required
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
                 </div>
 
                 <div class="input-field">
-                    <select name="disponibilidad_entrega" required>
+                    <select name="disponibilidad_entrega[]" required>
                         <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="SEMANAL">SEMANAL</option>
                         <option value="MENSUAL">MENSUAL</option>
@@ -315,11 +332,11 @@
                 </div>
 
                 <div class="input-field">
-                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
+                    <input name="telefono[]" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
                 </div>
                 <div class="input-field">
-                    <input name="email" type="email" id="email" required>
+                    <input name="email[]" type="email" id="email" required>
                     <label for="email">CORREO ELECTRÓNICO</label>
                 </div>
 
@@ -328,7 +345,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR FOTO DEL PRODUCTO</span>
-                        <input type="file" name="imagenProd" multiple accept="image/png, image/jpeg">
+                        <input type="file" name="imagenProd[]" multiple accept="image/png, image/jpeg">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
@@ -339,7 +356,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>SUBIR CERTIFICADO PDF</span>
-                        <input type="file" name="archivo_pdf" accept="application/pdf" id="archivo-pdf">
+                        <input type="file" name="archivo_pdf[]" accept="application/pdf" id="archivo-pdf">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR CERTIFICADO PDF">
@@ -349,18 +366,21 @@
                 </div>
 
     <div class="input-field">
-  <textarea id="mensaje" class="materialize-textarea" name="comentarios"></textarea>
+  <textarea id="mensaje" class="materialize-textarea" name="comentarios[]"></textarea>
   <label for="comentarios">COMENTARIOS</label>
 </div>
-
+</div>
+</div>
+<button type="button" onclick="agregarProducto()" class="btn2  waves-effect waves-light"  style="padding-bottom: 8px;">AGREGAR OTRO PRODUCTO</button>
+<br><br>
                 <label>
                     <input type="checkbox" name="terminos" required />
                     <span style="padding-bottom: 40px;">Acepto los <a href="/terminos-condiciones"
                             target="_blank">términos y condiciones</a></span>
                 </label>
 
-
-                <button class="btn waves-effect waves-light">REGISTRAR PRODUCTO</button>
+                
+                <button class="btn waves-effect waves-light" style="padding-top: 10px;">REGISTRAR PRODUCTO</button>
             </form>
         </div>
     </div>
@@ -434,6 +454,27 @@
             input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
     </script>
+
+
+<script>
+function agregarProducto() {
+    const container = document.getElementById('productos-container');
+    const firstProducto = container.querySelector('.producto-form');
+    const newProducto = firstProducto.cloneNode(true);
+
+    // Limpiar valores
+    newProducto.querySelectorAll('input, select, textarea').forEach(el => {
+        if (el.tagName === "SELECT") {
+            el.selectedIndex = 0;
+        } else {
+            el.value = '';
+        }
+    });
+
+    container.appendChild(newProducto);
+}
+</script>
+
 </body>
 
 </html>
