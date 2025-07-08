@@ -1,4 +1,4 @@
-document.getElementById("descripcion").innerHTML = `<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">Con una historia de más de <strong>100 años</strong> de cultivo de café, Oaxaca tiene <strong>151 Municipios</strong> productores de café, se encuentra en el <strong>4to lugar</strong> en producción a nivel nacional, con <strong>10 pueblos indígenas</strong> productores de este cultivo.</p>`;
+
 
 /* Tabla 3 PRODUCCION NACIONAL DEL SECTOR PORCINO CARNE DE PORCINO */
 let currentPage = 1;
