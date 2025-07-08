@@ -463,9 +463,6 @@ def formProductos(request):
       
       return render(request, 'formProductos.html', {'form': form})
         
-
-
-
 @login_required
 def creditDetail(request, credit_id):
   credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)

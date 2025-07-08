@@ -1,142 +1,59 @@
-const data = [
-  {
-    ranking: 1,
-    entidad: "Jalisco",
-    volumen: "1,715,938",
-    precio: "30",
-    valor: "47,456,882,000",
-  },
-  {
-    ranking: 2,
-    entidad: "Puebla",
-    volumen: "475,816",
-    precio: "29",
-    valor: "12,356,742,000",
-  },
-  {
-    ranking: 3,
-    entidad: "Sonora",
-    volumen: "181,924",
-    precio: "31",
-    valor: "5,516,299,000",
-  },
-  {
-    ranking: 4,
-    entidad: "San Luis Potosí",
-    volumen: "113,599",
-    precio: "29",
-    valor: "3,105,398,000",
-  },
-  {
-    ranking: 5,
-    entidad: "Yucatán",
-    volumen: "111,177",
-    precio: "28",
-    valor: "3,214,287,000",
-  },
-  {
-    ranking: 6,
-    entidad: "Nuevo León",
-    volumen: "95,245",
-    precio: "29",
-    valor: "2,706,889,000",
-  },
-  {
-    ranking: 7,
-    entidad: "Durango",
-    volumen: "78,256",
-    precio: "27",
-    valor: "2,024,376,000",
-  },
-  {
-    ranking: 8,
-    entidad: "Sinaloa",
-    volumen: "76,946",
-    precio: "28",
-    valor: "2,209,239,000",
-  },
-  {
-    ranking: 9,
-    entidad: "Guanajuato",
-    volumen: "69,418",
-    precio: "33",
-    valor: "2,246,766,000",
-  },
-  {
-    ranking: 10,
-    entidad: "Coahuila",
-    volumen: "61,700",
-    precio: "26",
-    valor: "1,566,610,000",
-  },
-  {
-    ranking: 11,
-    entidad: "Baja California",
-    volumen: "31,849",
-    precio: "26",
-    valor: "820,578,000",
-  },
-  {
-    ranking: 12,
-    entidad: "Nayarit",
-    volumen: "25,199",
-    precio: "26",
-    valor: "664,613,000",
-  },
-  {
-    ranking: 13,
-    entidad: "Michoacán",
-    volumen: "20,736",
-    precio: "30",
-    valor: "602,715,000",
-  },
-  {
-    ranking: 14,
-    entidad: "Querétaro",
-    volumen: "19,701",
-    precio: "30",
-    valor: "569,460,000",
-  },
-  {
-    ranking: 15,
-    entidad: "Veracruz",
-    volumen: "17,550",
-    precio: "32",
-    valor: "576,807,000",
-  },
-  {
-    ranking: 16,
-    entidad: "México",
-    volumen: "15,731",
-    precio: "26",
-    valor: "439,960,000",
-  },
-  {
-    ranking: 17,
-    entidad: "Guerrero",
-    volumen: "9,090",
-    precio: "35",
-    valor: "313,488,000",
-  },
-  {
-    ranking: 18,
-    entidad: "Aguascalientes",
-    volumen: "8,900",
-    precio: "29",
-    valor: "262,544,000",
-  },
-  {
-    ranking: 19,
-    entidad: "Oaxaca",
-    volumen: "6,879",
-    precio: "28",
-    valor: "194,001,000",
-  },
-];
+/* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
+const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
+const total_tab1 = document.getElementById("total_tabla1");
+let suma_total1 = 0;
+
+for (let i = 0; i < tabla_paises_prod.length; i++) {
+  const fila = document.createElement("tr");
+
+  const celdaRanking = document.createElement("td");
+  celdaRanking.textContent = tabla_paises_prod[i].ranking;
+
+  const celdaPais = document.createElement("td");
+  celdaPais.textContent = tabla_paises_prod[i].pais;
+
+  const celdaVolumen = document.createElement("td");
+  celdaVolumen.textContent =
+    tabla_paises_prod[i].volumen.toLocaleString("es-MX");
+
+  fila.appendChild(celdaRanking);
+  fila.appendChild(celdaPais);
+  fila.appendChild(celdaVolumen);
+
+  tabla_pais_pro.appendChild(fila);
+  suma_total1 += tabla_paises_prod[i].volumen;
+}
+total_tab1.innerHTML = suma_total1.toLocaleString("es-MX");
+
+/* Preparación de la segunda tabla, datos de la producción de leche a nivel internacional.  */
+const tabla_pais_sub_pro = document.getElementById("tab_cuerpo_pais_sub_pro");
+const total_tab2 = document.getElementById("total_tabla2");
+let suma_total2 = 0;
+for (let i = 0; i < tabla_paises_sub_prod.length; i++) {
+  const fila = document.createElement("tr");
+
+  const celdaRanking = document.createElement("td");
+  celdaRanking.textContent = tabla_paises_sub_prod[i].ranking;
+
+  const celdaPais = document.createElement("td");
+  celdaPais.textContent = tabla_paises_sub_prod[i].pais;
+
+  const celdaVolumen = document.createElement("td");
+  celdaVolumen.textContent =
+    tabla_paises_sub_prod[i].volumen.toLocaleString("es-MX");
+
+  fila.appendChild(celdaRanking);
+  fila.appendChild(celdaPais);
+  fila.appendChild(celdaVolumen);
+
+  tabla_pais_sub_pro.appendChild(fila);
+  suma_total2 += tabla_paises_sub_prod[i].volumen;
+}
+total_tab2.innerHTML = suma_total2.toLocaleString("es-MX");
 
 let currentPage = 1;
 let rowsPerPage = 10;
-let filteredData = [...data];
+let filteredData = [...tab_mex_sub_pro];
 
 const tableBody = document.querySelector("#dataTable tbody");
 const searchInput = document.getElementById("searchInput");
@@ -153,7 +70,7 @@ function renderTable() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen}</td><td>${row.precio}</td><td>${row.valor}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
     tableBody.appendChild(tr);
   }
 
@@ -165,7 +82,7 @@ function renderTable() {
 
 function applyFilters() {
   const query = searchInput.value.toLowerCase();
-  filteredData = data.filter(
+  filteredData = tab_mex_sub_pro.filter(
     (item) =>
       item.entidad.toLowerCase().includes(query) ||
       String(item.id).includes(query)
@@ -199,197 +116,9 @@ nextBtn.addEventListener("click", () => {
 // Inicializar
 renderTable();
 
-const data2 = [
-  //23
-  {
-    ranking: 1,
-    entidad: "Veracruz",
-    volumen: "537,883",
-    peso: 2,
-    precio: 38,
-    valor: "20,150,762,000",
-  },
-  {
-    ranking: 2,
-    entidad: "Jalisco",
-    volumen: "440,347",
-    peso: 2,
-    precio: 43,
-    valor: "16,198,954,000",
-  },
-  {
-    ranking: 3,
-    entidad: "Aguascalientes",
-    volumen: "425,189",
-    peso: 2,
-    precio: 38,
-    valor: "16,039,850,000",
-  },
-  {
-    ranking: 4,
-    entidad: "Querétaro",
-    volumen: "382,439",
-    peso: 2,
-    precio: 42,
-    valor: "15,633,543,000",
-  },
-  {
-    ranking: 5,
-    entidad: "Durango",
-    volumen: "279,505",
-    peso: 1,
-    precio: 37,
-    valor: "10,323,492,000",
-  },
-  {
-    ranking: 6,
-    entidad: "Chiapas",
-    volumen: "240,387",
-    peso: 2,
-    precio: 48,
-    valor: "9,431,184,000",
-  },
-  {
-    ranking: 7,
-    entidad: "Guanajuato",
-    volumen: "225,870",
-    peso: 2,
-    precio: 40,
-    valor: "8,688,387,000",
-  },
-  {
-    ranking: 8,
-    entidad: "Puebla",
-    volumen: "211,313",
-    peso: 2,
-    precio: 31,
-    valor: "7,205,385,000",
-  },
-  {
-    ranking: 9,
-    entidad: "Yucatán",
-    volumen: "179,680",
-    peso: 2,
-    precio: 40,
-    valor: "7,500,166,000",
-  },
-  {
-    ranking: 10,
-    entidad: "Sinaloa",
-    volumen: "151,625",
-    peso: 2,
-    precio: 39,
-    valor: "5,808,965,000",
-  },
-  {
-    ranking: 11,
-    entidad: "México",
-    volumen: "115,914",
-    peso: 2,
-    precio: 43,
-    valor: "4,897,063,000",
-  },
-  {
-    ranking: 12,
-    entidad: "San Luis Potosí",
-    volumen: "108,833",
-    peso: 2,
-    precio: 43,
-    valor: "4,193,049,000",
-  },
-  {
-    ranking: 13,
-    entidad: "Coahuila",
-    volumen: "94,080",
-    peso: 2,
-    precio: 30,
-    valor: "3,101,299,000",
-  },
-  {
-    ranking: 14,
-    entidad: "Hidalgo",
-    volumen: "90,179",
-    peso: 2,
-    precio: 38,
-    valor: "3,542,631,000",
-  },
-  {
-    ranking: 15,
-    entidad: "Nuevo León",
-    volumen: "77,883",
-    peso: 2,
-    precio: 35,
-    valor: "2,916,455,000",
-  },
-  {
-    ranking: 16,
-    entidad: "Michoacán",
-    volumen: "74,981",
-    peso: 2,
-    precio: 33,
-    valor: "2,521,225,000",
-  },
-  {
-    ranking: 17,
-    entidad: "Morelos",
-    volumen: "68,530",
-    peso: 2,
-    precio: 39,
-    valor: "2,665,397,000",
-  },
-  {
-    ranking: 18,
-    entidad: "Sonora",
-    volumen: "43,362",
-    peso: 1,
-    precio: 17,
-    valor: "1,576,071,000",
-  },
-  {
-    ranking: 19,
-    entidad: "Nayarit",
-    volumen: "39,465",
-    peso: 2,
-    precio: 37,
-    valor: "1,459,563,000",
-  },
-  {
-    ranking: 20,
-    entidad: "Campeche",
-    volumen: "23,806",
-    peso: 2,
-    precio: 42,
-    valor: "925,926,000",
-  },
-  {
-    ranking: 21,
-    entidad: "Tabasco",
-    volumen: "22,253",
-    peso: 2,
-    precio: 49,
-    valor: "973,767,000",
-  },
-  {
-    ranking: 22,
-    entidad: "Colima",
-    volumen: "13,480",
-    peso: 2,
-    precio: 32,
-    valor: "521,370,000",
-  },
-  {
-    ranking: 23,
-    entidad: "Oaxaca",
-    volumen: "13,122",
-    peso: 2,
-    precio: 35,
-    valor: "495,459,000",
-  },
-];
-
 let currentPage2 = 1;
 let rowsPerPage2 = 10;
-let rfilteredData2 = [...data2];
+let rfilteredData2 = [...tab_mex_pro];
 
 const tableBody2 = document.querySelector("#data2Table tbody");
 const searchInput2 = document.getElementById("searchInput2");
@@ -406,7 +135,7 @@ function renderTable2() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen}</td><td>${row.peso}</td><td>${row.precio}</td><td>${row.valor}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.peso.toFixed(2)}</td><td>${row.precio.toLocaleString("es-MX")}</td><td>${row.valor}</td>`;
     tableBody2.appendChild(tr);
   }
 
@@ -418,7 +147,7 @@ function renderTable2() {
 
 function applyFilters2() {
   const query = searchInput2.value.toLowerCase();
-  rfilteredData2 = data2.filter(
+  rfilteredData2 = tab_mex_pro.filter(
     (item) =>
       item.entidad.toLowerCase().includes(query) ||
       String(item.id).includes(query)
@@ -1234,257 +963,133 @@ const config7 = {
 };
 
 new Chart(ctx7, config7);
-/* Tabla produccion de carne de gallina */
 
-const data3 = [
-  //23
-  {
-    ranking: 1,
-    entidad: "Veracruz",
-    volumen: "537,883",
-    peso: 2,
-    precio: 38,
-    valor: "20,150,762,000",
-  },
-  {
-    ranking: 2,
-    entidad: "Jalisco",
-    volumen: "440,347",
-    peso: 2,
-    precio: 43,
-    valor: "16,198,954,000",
-  },
-  {
-    ranking: 3,
-    entidad: "Aguascalientes",
-    volumen: "425,189",
-    peso: 2,
-    precio: 38,
-    valor: "16,039,850,000",
-  },
-  {
-    ranking: 4,
-    entidad: "Querétaro",
-    volumen: "382,439",
-    peso: 2,
-    precio: 42,
-    valor: "15,633,543,000",
-  },
-  {
-    ranking: 5,
-    entidad: "Durango",
-    volumen: "279,505",
-    peso: 1,
-    precio: 37,
-    valor: "10,323,492,000",
-  },
-  {
-    ranking: 6,
-    entidad: "Chiapas",
-    volumen: "240,387",
-    peso: 2,
-    precio: 48,
-    valor: "9,431,184,000",
-  },
-  {
-    ranking: 7,
-    entidad: "Guanajuato",
-    volumen: "225,870",
-    peso: 2,
-    precio: 40,
-    valor: "8,688,387,000",
-  },
-  {
-    ranking: 8,
-    entidad: "Puebla",
-    volumen: "211,313",
-    peso: 2,
-    precio: 31,
-    valor: "7,205,385,000",
-  },
-  {
-    ranking: 9,
-    entidad: "Yucatán",
-    volumen: "179,680",
-    peso: 2,
-    precio: 40,
-    valor: "7,500,166,000",
-  },
-  {
-    ranking: 10,
-    entidad: "Sinaloa",
-    volumen: "151,625",
-    peso: 2,
-    precio: 39,
-    valor: "5,808,965,000",
-  },
-  {
-    ranking: 11,
-    entidad: "México",
-    volumen: "115,914",
-    peso: 2,
-    precio: 43,
-    valor: "4,897,063,000",
-  },
-  {
-    ranking: 12,
-    entidad: "San Luis Potosí",
-    volumen: "108,833",
-    peso: 2,
-    precio: 43,
-    valor: "4,193,049,000",
-  },
-  {
-    ranking: 13,
-    entidad: "Coahuila",
-    volumen: "94,080",
-    peso: 2,
-    precio: 30,
-    valor: "3,101,299,000",
-  },
-  {
-    ranking: 14,
-    entidad: "Hidalgo",
-    volumen: "90,179",
-    peso: 2,
-    precio: 38,
-    valor: "3,542,631,000",
-  },
-  {
-    ranking: 15,
-    entidad: "Nuevo León",
-    volumen: "77,883",
-    peso: 2,
-    precio: 35,
-    valor: "2,916,455,000",
-  },
-  {
-    ranking: 16,
-    entidad: "Michoacán",
-    volumen: "74,981",
-    peso: 2,
-    precio: 33,
-    valor: "2,521,225,000",
-  },
-  {
-    ranking: 17,
-    entidad: "Morelos",
-    volumen: "68,530",
-    peso: 2,
-    precio: 39,
-    valor: "2,665,397,000",
-  },
-  {
-    ranking: 18,
-    entidad: "Sonora",
-    volumen: "43,362",
-    peso: 1,
-    precio: 17,
-    valor: "1,576,071,000",
-  },
-  {
-    ranking: 19,
-    entidad: "Nayarit",
-    volumen: "39,465",
-    peso: 2,
-    precio: 37,
-    valor: "1,459,563,000",
-  },
-  {
-    ranking: 20,
-    entidad: "Campeche",
-    volumen: "23,806",
-    peso: 2,
-    precio: 42,
-    valor: "925,926,000",
-  },
-  {
-    ranking: 21,
-    entidad: "Tabasco",
-    volumen: "22,253",
-    peso: 2,
-    precio: 49,
-    valor: "973,767,000",
-  },
-  {
-    ranking: 22,
-    entidad: "Colima",
-    volumen: "13,480",
-    peso: 2,
-    precio: 32,
-    valor: "521,370,000",
-  },
-  {
-    ranking: 23,
-    entidad: "Oaxaca",
-    volumen: "13,122",
-    peso: 2,
-    precio: 35,
-    valor: "495,459,000",
-  },
-];
 
-let currentPage3 = 1;
-let rowsPerPage3 = 10;
-let rfilteredData3 = [...data3];
+const contenedor_botones = document.getElementById("botones");
+const contenedor_tabla = document.getElementById("tabla");
+const titulo_regmun = document.getElementById("titulo_regmun");
 
-const tableBody3 = document.querySelector("#data3Table tbody");
-const searchInput3 = document.getElementById("searchInput3");
-const rowsSelect3 = document.getElementById("rowsPerPage3");
-const prevBtn3 = document.getElementById("prevBtn3");
-const nextBtn3 = document.getElementById("nextBtn3");
-const pageInfo3 = document.getElementById("pageInfo3");
+let pagina_actual = 1;
+const items_por_pagina = 15;
+let municipios_actuales = [];
 
-function renderTable3() {
-  tableBody3.innerHTML = "";
-  const start = (currentPage3 - 1) * rowsPerPage3;
-  const end = start + rowsPerPage3;
-  const pageData = rfilteredData3.slice(start, end);
-
-  for (const row of pageData) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen}</td><td>${row.peso}</td><td>${row.precio}</td><td>${row.valor}</td>`;
-    tableBody3.appendChild(tr);
-  }
-
-  const totalPages3 = Math.ceil(rfilteredData3.length / rowsPerPage3);
-  pageInfo3.textContent = `Página ${currentPage3} de ${totalPages3}`;
-  prevBtn3.disabled = currentPage3 === 1;
-  nextBtn3.disabled = currentPage3 === totalPages3;
+for (const region in regionesConMunicipios) {
+  const boton = document.createElement("button");
+  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
+  boton.addEventListener("click", () => mostrar_tabla(region, 1));
+  contenedor_botones.appendChild(boton);
 }
 
-function applyFilters3() {
-  const query = searchInput3.value.toLowerCase();
-  rfilteredData3 = data3.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+function mostrar_tabla(region, pagina) {
+  municipios_actuales = regionesConMunicipios[region];
+  pagina_actual = pagina;
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
   );
-  currentPage3 = 1;
-  renderTable3();
+  const inicio = (pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  if (municipios_actuales.length > items_por_pagina) {
+    html += `<div class="pagination_mun">`;
+
+    if (pagina > 1) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina - 1
+      })">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= total_paginas; i++) {
+      if (i === pagina) {
+        html += `<button style="font-weight:bold;">${i}</button>`;
+      } else {
+        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+      }
+    }
+
+    if (pagina < total_paginas) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina + 1
+      })">Siguiente</button>`;
+    }
+
+    html += `</div>`;
+  }
+
+  contenedor_tabla.innerHTML = html;
 }
 
-searchInput3.addEventListener("input", applyFilters3);
-rowsSelect3.addEventListener("change", () => {
-  rowsPerPage3 = parseInt(rowsSelect3.value);
-  currentPage3 = 1;
-  renderTable3();
-});
+function cambiar_pagina(nueva_pagina) {
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  if (nueva_pagina < 1) nueva_pagina = 1;
+  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
 
-prevBtn3.addEventListener("click", () => {
-  if (currentPage3 > 1) {
-    currentPage3--;
-    renderTable3();
+  const inicio = (nueva_pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+
+  html += `<div class="pagination_mun">`;
+
+  if (nueva_pagina > 1) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina - 1
+    })">Anterior</button>`;
   }
-});
 
-nextBtn3.addEventListener("click", () => {
-  const totalPages3 = Math.ceil(rfilteredData3.length / rowsPerPage3);
-  if (currentPage3 < totalPages3) {
-    currentPage3++;
-    renderTable3();
+  for (let i = 1; i <= total_paginas; i++) {
+    if (i === nueva_pagina) {
+      html += `<button style="font-weight:bold;">${i}</button>`;
+    } else {
+      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+    }
   }
-});
 
-// Inicializar
-renderTable3();
+  if (nueva_pagina < total_paginas) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina + 1
+    })">Siguiente</button>`;
+  }
+
+  html += `</div>`;
+
+  contenedor_tabla.innerHTML = html;
+  pagina_actual = nueva_pagina;
+}
