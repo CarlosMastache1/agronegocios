@@ -13,6 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
 
 
+
+
+
       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
       <link rel="stylesheet" type="text/css" href="{% static 'css/style-layout.css' %}">
@@ -211,6 +214,14 @@
                     <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
+                                <div class="input-field">
+                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
+                    <label for="telefono">NÚMERO TELEFÓNICO</label>
+                </div>
+                <div class="input-field">
+                    <input name="email" type="email" id="email" required>
+                    <label for="email">CORREO ELECTRÓNICO</label>
+                </div>
                     
     <div id="productos-container">
         <div class="producto-form">
@@ -330,17 +341,6 @@
                     </select>
                     <label>DISPONIBILIDAD DE ENTREGA</label>
                 </div>
-
-                <div class="input-field">
-                    <input name="telefono[]" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
-                    <label for="telefono">NÚMERO TELEFÓNICO</label>
-                </div>
-                <div class="input-field">
-                    <input name="email[]" type="email" id="email" required>
-                    <label for="email">CORREO ELECTRÓNICO</label>
-                </div>
-
-
 
                 <div class="file-field input-field">
                     <div class="btn">
@@ -471,9 +471,21 @@ function agregarProducto() {
         }
     });
 
+    // Elimina clases "valid" e "invalid" de Materialize (si hay)
+    newProducto.querySelectorAll('input, select').forEach(el => {
+        el.classList.remove("valid");
+        el.classList.remove("invalid");
+    });
+
+    // Agregar el nuevo bloque al DOM
     container.appendChild(newProducto);
+
+    // 🔁 Re-inicializar selects (Materialize)
+    const selects = newProducto.querySelectorAll('select');
+    M.FormSelect.init(selects);
 }
 </script>
+
 
 </body>
 

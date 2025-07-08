@@ -433,10 +433,51 @@ def formProductos(request):
           'form' : productosForm,
           'muni' : muni
       })
-    else: 
-        form = productosForm(request.POST, request.FILES)
-        new_prod = form.save(commit=False)
-        new_prod.save()
+    else:
+        nombreProductor = request.POST.get("nombreProductor")
+        municipio = request.POST.get("municipio")
+        localidad = request.POST.get("localidad")
+        telefono = request.POST.get("telefono")
+        email = request.POST.get("email") 
+
+        nombreProducto = request.POST.getlist("nombreProducto[]")
+        nombreMarca = request.POST.getlist("nombreMarca[]")
+        subsectores = request.POST.getlist("subsector[]")
+        categorias = request.POST.getlist("categoria[]")
+        unidades = request.POST.getlist("unidad_medidad[]")
+        volumenes = request.POST.getlist("volumen_produccion[]")
+        disponibilidades = request.POST.getlist("disponibilidad_entrega[]")
+
+        # Archivos
+        imagenes = request.FILES.getlist("imagenProd[]")
+        pdfs = request.FILES.getlist("archivo_pdf[]")
+
+        comentarios = request.POST.get("comentarios[]")
+
+
+        
+        for i in range(len(nombreProducto)):
+            productoNew = productos.objects.create(
+                nombreProductor=nombreProductor,
+                municipio_id=municipio,
+                localidad=localidad,
+                telefono=telefono,
+                email=email,
+                comentarios=comentarios,
+
+                nombreProducto=nombreProducto[i],
+                nombreMarca=nombreMarca[i],
+                subsector=subsectores[i],
+                categoria=categorias[i],
+                unidad_medidad=unidades[i],
+                volumen_produccion=volumenes[i],
+                disponibilidad_entrega=disponibilidades[i],
+                imagenProd=imagenes[i] if i < len(imagenes) else None,
+                archivo_pdf=pdfs[i] if i < len(pdfs) else None
+            )
+        #form = productosForm(request.POST, request.FILES)
+        #new_prod = form.save(commit=False)
+        #new_prod.save()
         # Enviar email de confirmación
         # subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
         # message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
