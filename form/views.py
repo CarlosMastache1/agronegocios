@@ -443,8 +443,9 @@ def formProductos(request):
         # from_email = "agronegociossefader@gmail.com"
         # recipient_list = [new_prod.email]
         # send_mail(subject, message, from_email, recipient_list)
-    messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
-    return redirect('tiendaHome')
+        messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
+        return redirect('tiendaHome')
+
 
 
 @login_required
