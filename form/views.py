@@ -433,36 +433,20 @@ def formProductos(request):
           'form' : productosForm,
           'muni' : muni
       })
-    else:
-      form = productosForm(request.POST, request.FILES)
-      if form.is_valid():
+    else: 
+        form = productosForm(request.POST, request.FILES)
         new_prod = form.save(commit=False)
         new_prod.save()
-        if 'registrar_y_salir' in request.POST:# Enviar email de confirmación
-          # subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
-          # message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
-          # from_email = "agronegociossefader@gmail.com"
-          # recipient_list = [new_prod.email]
-          # send_mail(subject, message, from_email, recipient_list)
-          messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
-          return redirect('tiendaHome')
-        elif 'registrar_y_continuar' in request.POST:
-           muni = municipios.objects.all()
-           productor = {
-              'nombre' : request.POST.get('nombreProductor'),
-              'telefono' :  request.POST.get('telefono'),
-              'email' :  request.POST.get('email'),
-           }
-           return render(request, 'formProductos.html', {
-          'form' : form,
-          'muni' : muni,
-          'productor': productor
-      })
-      else:
-        form = productosForm()
-      
-      return render(request, 'formProductos.html', {'form': form})
-        
+        # Enviar email de confirmación
+        # subject = "SOLICITUD DE REGISTRO PRODUCTO EXITOSO"
+        # message = f"Hola {new_prod.nombreProductor},\n\nHemos recibido tu solicitud para que publiquemos tu producto en la pagina ofical de Agronegocios:\n\n\n\nNos pondremos en contacto contigo cuando aprobemos tu producto y se pueda visualizar en la pagina web."
+        # from_email = "agronegociossefader@gmail.com"
+        # recipient_list = [new_prod.email]
+        # send_mail(subject, message, from_email, recipient_list)
+    messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
+    return redirect('tiendaHome')
+
+
 @login_required
 def creditDetail(request, credit_id):
   credito = get_object_or_404(entidadesFinancieras2, pk=credit_id)
