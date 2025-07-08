@@ -49,8 +49,10 @@
 
 					<div class="card">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>México ocupa el <strong>8º lugar</strong> mundial en producción de carne avícola, con un volumen de producción de <strong>3,781,735 Ton</strong>; México ocupa el
-							<strong>7º lugar</strong> en producción de huevo de gallina,con un volumen de producción de <strong>61,628,301 Ton</strong>.
+						<p>México ocupa el <strong>8º lugar</strong> mundial en producción de carne avícola, con un
+							volumen de producción de <strong>3,781,735 Ton</strong>; México ocupa el
+							<strong>7º lugar</strong> en producción de huevo de gallina,con un volumen de producción de
+							<strong>61,628,301 Ton</strong>.
 						</p>
 					</div>
 
@@ -62,14 +64,27 @@
 
 					<div class="card">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>23º lugar</strong> nacional en producción de carne de ave, con un volumen de producción de <strong>13,122 Ton</strong>, con un peso promedio de <strong>2 KG</strong>, un precio de <strong>35 $/KG</strong> y un valor de producción de <strong>$495,459,000</strong>, por otro lado Oaxaca ocupa el <strong>19º lugar</strong> en producción de huevo de gallina, con un volumen de producción de <strong>6,879 Ton</strong>, un precio de <strong>28 $/KG</strong> y un valor de producción de <strong>$194,001,000</strong>
+						<p>Oaxaca ocupa el <strong>23º lugar</strong> nacional en producción de carne de ave, con un
+							volumen de producción de <strong>13,122 Ton</strong>, con un peso promedio de <strong>2
+								KG</strong>, un precio de <strong>35 $/KG</strong> y un valor de producción de
+							<strong>$495,459,000</strong>, por otro lado Oaxaca ocupa el <strong>19º lugar</strong> en
+							producción de huevo de gallina, con un volumen de producción de <strong>6,879 Ton</strong>,
+							un precio de <strong>28 $/KG</strong> y un valor de producción de
+							<strong>$194,001,000</strong>
 						</p>
 					</div>
 
 					<div class="card">
 						<h2>📈 Región con mayor producción</h2>
-						<p>La región con mayor producción de carne de ave es la <strong>Sierra de Flores Magón</strong>, con 45 municipios productores, los caules tienen un volumen de producción de <strong>6,676 Ton</strong>, un peso de <strong>2 KG</strong>, con un precio de <strong>43 $/KG</strong>, y un valor de producción de <strong>$268,365,000</strong>
-							y los <strong>Valles Centrales</strong> lideran en producción de huevo de gallina, con 121 municipios productores, los cuales cuentan con un volumen de producción de <strong>1,957 Ton</strong>, un precio de <strong>26 $/KG</strong> y un valor de producción de <strong>$49,953,000</strong>.</p>
+						<p>La región con mayor producción de carne de ave es la <strong>Sierra de Flores Magón</strong>,
+							con 45 municipios productores, los caules tienen un volumen de producción de <strong>6,676
+								Ton</strong>, un peso de <strong>2 KG</strong>, con un precio de <strong>43
+								$/KG</strong>, y un valor de producción de <strong>$268,365,000</strong>
+							y los <strong>Valles Centrales</strong> lideran en producción de huevo de gallina, con 121
+							municipios productores, los cuales cuentan con un volumen de producción de <strong>1,957
+								Ton</strong>, un precio de <strong>26 $/KG</strong> y un valor de producción de
+							<strong>$49,953,000</strong>.
+						</p>
 					</div>
 
 					<div class="card">
@@ -140,94 +155,26 @@
 								</tr>
 							</thead>
 
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Estados Unidos de América</td>
-									<td>19,599,212</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>China</td>
-									<td>14,998,714</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Brasil</td>
-									<td>14,524,000</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>China, Continental</td>
-									<td>14,300,000</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Federación de Rusia</td>
-									<td>5,308,201</td>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>India</td>
-									<td>4,906,817</td>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>Indonesia</td>
-									<td>4,040,989</td>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>México</td>
-									<td>3,781,735</td>
-								</tr>
-								<tr>
-									<td>9</td>
-									<td>Egipto</td>
-									<td>2,523,466</td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>Turquía</td>
-									<td>2,417,995</td>
-								</tr>
-								<tr>
-									<td>11</td>
-									<td>Japón</td>
-									<td>2,371,643</td>
-								</tr>
-								<tr>
-									<td>12</td>
-									<td>Argentina</td>
-									<td>2,319,000</td>
-								</tr>
-								<tr>
-									<td>13</td>
-									<td>Polonia</td>
-									<td>2,231,610</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>otros </td>
-									<td>45,129,689</td>
-								</tr>
+							<tbody id="tab_cuerpo_pais_pro">
+
+
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>Total:</th>
-									<th colspan="2"> 138,453,072 </th>
+									<th colspan="2" id="total_tabla1"> </th>
 								</tr>
 							</tfoot>
 
 						</table>
 					</div>
-					<iframe id="frame_mundo" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
+					<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 				</div>
 			</div>
 			<div class="bloque-subproducto">
 				<H3>HUEVO DE GALLINA</H3>
 				<div class="contenedor_col2">
-					<iframe id="frame_mundo_huevo" src="{% url 'iframeMundo' %}" class="columna1"
+					<iframe id="frame_mundo_sub_prod" src="{% url 'iframeMundo' %}" class="columna1"
 						frameborder="0"></iframe>
 
 					<div class="columna2">
@@ -236,89 +183,19 @@
 								<tr>
 									<th>RANKING</th>
 									<th>PAIS</th>
-									<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+									<th>VOLUMEN DE PRODUCCIÓN (L)</th>
 								</tr>
 							</thead>
 
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>China</td>
-									<td>621,844,040</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>China, Continental</td>
-									<td>613,161,060</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Indonesia</td>
-									<td>137,976,993</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>India</td>
-									<td>126,048,497</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Estados Unidos de América</td>
-									<td>116,042,457</td>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>Brasil</td>
-									<td>61,981,178</td>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>México</td>
-									<td>61,628,301</td>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>Federación de Rusia</td>
-									<td>48,276,871</td>
-								</tr>
-								<tr>
-									<td>9</td>
-									<td>Japón</td>
-									<td>45,875,475</td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>Pakistán</td>
-									<td>23,570,064</td>
-								</tr>
-								<tr>
-									<td>11</td>
-									<td>Turquía</td>
-									<td>21,046,572</td>
-								</tr>
-								<tr>
-									<td>12</td>
-									<td>Nigeria</td>
-									<td>17,253,832</td>
-								</tr>
-								<tr>
-									<td>13</td>
-									<td>Colombia</td>
-									<td>17,062,669</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>otros </td>
-									<td>412,457,884</td>
-								</tr>
+							<!-- Datos dinámicos -->
+							<tbody id="tab_cuerpo_pais_sub_pro">
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>Total:</th>
-									<th colspan="2"> 2,324,225,893 </th>
+									<th colspan="2" id="total_tabla2"></th>
 								</tr>
 							</tfoot>
-
 						</table>
 					</div>
 				</div>
@@ -374,7 +251,7 @@
 					<span id="pageInfo2"></span>
 					<button id="nextBtn2">Siguiente</button>
 				</div>
-				<iframe id="iframe_mexico_carne" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+				<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 					frameborder="0"></iframe>
 			</div>
 			<div class="bloque-subproducto">
@@ -423,7 +300,7 @@
 					<span id="pageInfo"></span>
 					<button id="nextBtn">Siguiente</button>
 				</div>
-				<iframe id="iframe_mexico_huevo" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+				<iframe id="iframe_mexico_sub_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 					frameborder="0"></iframe>
 			</div>
 		</section>
@@ -652,7 +529,8 @@
 					refiere a la variación en la frecuencia mensual con la que se
 					produce carne de pollo, gallina en el estado de Oaxaca. Esta variación se mide mediante el
 					Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
-					acuerdo con este indicador, <strong>diciembre</strong> se posiciona como el mes con la mayor producción de carne,
+					acuerdo con este indicador, <strong>diciembre</strong> se posiciona como el mes con la mayor
+					producción de carne,
 					alcanzando un valor de <strong>127 puntos</strong> en el índice.</p>
 				<h2>Producción de Carne en canal de pollo y gallina</h2>
 				<div class="chart-container">
@@ -665,7 +543,8 @@
 					refiere a la variación en la frecuencia mensual con la que se
 					produce el huevo en el estado de Oaxaca. Esta variación se mide mediante el
 					Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
-					acuerdo con este indicador, el mes de <strong>septiembre</strong> volumen es septiembre, con un valor de <strong>134 puntos</strong> en el índice.</p>
+					acuerdo con este indicador, el mes de <strong>septiembre</strong> volumen es septiembre, con un
+					valor de <strong>134 puntos</strong> en el índice.</p>
 				<h3>Producción de Huevo</h2>
 
 					<div class="chart-container">
@@ -677,61 +556,10 @@
 		</section>
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN CARNE Y HUEVO DE GALLINA EN OAXACA</h1>
-			<div class="contenedor_col1">
-				<div class="columna1">
-					<table class="tabla-datos">
-						<thead>
-							<tr>
-								<th>REGION</th>
-								<th>CANTIDAD DE MUNICIPIOS</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<tr>
-								<td>Papaloapan</td>
-								<td>11</td>
-							</tr>
-							<tr>
-								<td>Sierra de Flores Magón</td>
-								<td>9</td>
-							</tr>
-							<tr>
-								<td>Istmo</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Valles Centrales</td>
-								<td>2</td>
-							</tr>
-							<tr>
-								<td>Sierra de Juárez</td>
-								<td>2</td>
-							</tr>
-							<tr>
-								<td>Costa</td>
-								<td>2</td>
-							</tr>
-							<tr>
-								<td>Mixteca</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>Sierra Sur</td>
-								<td>1</td>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>Total:</th>
-								<th>32</th>
-							</tr>
-						</tfoot>
-
-					</table>
-				</div>
-				<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="columna2" frameborder="0"></iframe>
-			</div>
+			<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+			<div id="botones"></div>
+			<div id="titulo_regmun"></div>
+			<div id="tabla"></div>
 		</section>
 	</div>
 
@@ -782,8 +610,7 @@
 	});
 </script>
 
-<script src="{% static 'data/mapas/pecuario/avicolaHuevo.js' %}"></script>
-<script src="{% static 'data/mapas/pecuario/avicolaCarne.js' %}"></script>
+<script src="{% static 'data/mapas/pecuario/avicola.js' %}"></script>
 <script src="{% static 'pecuario/js/avicola_js.js' %}"></script>
 
 <script>
@@ -793,24 +620,24 @@
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
 
-	const mundo_carne = document.getElementById("frame_mundo");
+	const mundo_carne = document.getElementById("frame_mundo_prod");
 	mundo_carne.onload = function () {
-		mundo_carne.contentWindow.postMessage(paisesDatosCarne, "*");
+		mundo_carne.contentWindow.postMessage(paises_datos_pro, "*");
 	}
 
-	const mundo_huevo = document.getElementById("frame_mundo_huevo");
+	const mundo_huevo = document.getElementById("frame_mundo_sub_prod");
 	mundo_huevo.onload = function () {
-		mundo_huevo.contentWindow.postMessage(paisesDatos, "*");
+		mundo_huevo.contentWindow.postMessage(paises_datos_sub_pro, "*");
 	}
 
-	const mexico_huevo = document.getElementById("iframe_mexico_huevo");
+	const mexico_huevo = document.getElementById("iframe_mexico_sub_prod");
 	mexico_huevo.onload = function () {
-		mexico_huevo.contentWindow.postMessage(estadosDatos, "*");
+		mexico_huevo.contentWindow.postMessage(tab_mex_sub_pro, "*");
 	}
 
-	const mexico_carne = document.getElementById("iframe_mexico_carne");
+	const mexico_carne = document.getElementById("iframe_mexico_prod");
 	mexico_carne.onload = function () {
-		mexico_carne.contentWindow.postMessage(estadosCarne, "*");
+		mexico_carne.contentWindow.postMessage(tab_mex_pro, "*");
 	}
 </script>
 
@@ -823,7 +650,7 @@
 
 		// Recarga los iframes de mapa para miel para refrescar datos o visualización
 		document.getElementById('frame_mundo_prod').contentWindow.location.reload();
-		document.getElementById('iframe_mexico_carne').contentWindow.location.reload();
+		document.getElementById('iframe_mexico_prod').contentWindow.location.reload();
 		document.getElementById('frame_oaxaca').contentWindow.location.reload();
 	}
 
@@ -833,8 +660,8 @@
 		document.querySelectorAll('.bloque-subproducto').forEach(el => el.style.display = 'block');
 
 		// Recarga los iframes de mapa para cera para refrescar datos o visualización
-		document.getElementById('frame_mundo_huevo').contentWindow.location.reload();
-		document.getElementById('iframe_mexico_huevo').contentWindow.location.reload();
+		document.getElementById('frame_mundo_sub_prod').contentWindow.location.reload();
+		document.getElementById('iframe_mexico_sub_prod').contentWindow.location.reload();
 
 	}
 
