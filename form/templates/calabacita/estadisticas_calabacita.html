@@ -161,12 +161,12 @@
 						<button id="nextBtn">Siguiente</button>
 					</div>
 
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
-
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+					NACIONES UNIDAS PARA LA
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section3" class="section">
@@ -212,8 +212,12 @@
 				<span id="pageInfo2"></span>
 				<button id="nextBtn2">Siguiente</button>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 		</section>
 
 		<section id="section4" class="section">
@@ -222,7 +226,7 @@
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
 
@@ -261,8 +265,7 @@
 				<span id="pageInfoDesExp"></span>
 				<button id="nextBtnDesExp">Siguiente</button>
 			</div>
-
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
@@ -270,6 +273,7 @@
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
 
 
@@ -295,6 +299,8 @@
 					</tr>
 				</tfoot>
 			</table>
+			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
@@ -302,6 +308,7 @@
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 		</section>
 
 		<section id="section7" class="section">
@@ -319,14 +326,16 @@
 			<div class="chart-container">
 				<canvas id="lineChart4"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
-
 
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN DE CALABACITA EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>

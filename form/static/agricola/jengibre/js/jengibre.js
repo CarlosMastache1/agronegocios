@@ -486,3 +486,229 @@ function cambiar_pagina(nueva_pagina) {
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
 }
+
+/* Producción histórica de calabacita en Oaxaca */
+const ctx2 = document.getElementById("lineChart2").getContext("2d");
+
+const datos2 = {
+  labels: labels_historica_producto,
+  datasets: [
+    {
+      label: produccion_historica_producto[0].nom,
+      data: produccion_historica_producto[0].fila,
+      borderColor: "rgba(178, 0, 0, 1)",
+      backgroundColor: "rgba(178, 0, 0, 0.2)",
+      borderWidth: 4,
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config2 = {
+  type: "line",
+  data: datos2,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        text: `Volumen de producción por Región (${
+          labels_historica_producto[0]
+        } - ${
+          labels_historica_producto[labels_historica_producto.length - 1]
+        })`,
+        font: {
+          size: 22,
+        },
+      },
+      legend: {
+        position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
+      },
+      tooltip: {
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Volumen (TON)",
+          font: {
+            size: 18,
+          },
+        },
+        beginAtZero: true,
+      },
+      x: {
+        title: {
+          display: true,
+          text: "Año",
+          font: {
+            size: 18,
+          },
+        },
+      },
+    },
+  },
+};
+
+new Chart(ctx2, config2);
+
+
+
+
+/* GRAFICA 3 */
+const ctx3 = document.getElementById("lineChart3").getContext("2d");
+const datos3 = {
+  labels: pub_indigenas_producto[0],
+  datasets: [
+    {
+      label: "Producción (Ton)",
+      data: pub_indigenas_producto[1],
+      borderColor: "rgb(208, 122, 0)",
+      backgroundColor: "rgb(208, 122, .8)",
+      tension: 0.3,
+      fill: false,
+    },
+  ],
+};
+
+const config3 = {
+  type: "bar",
+  data: datos3,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          font: {
+            size: 19,
+          },
+          color: "black",
+        },
+      },
+      tooltip: {
+        backgroundColor: "white",
+        titleColor: "#333",
+        bodyColor: "#333",
+        titleFont: {
+          size: 17,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 16,
+        },
+        padding: 10,
+        cornerRadius: 8,
+      },
+      datalabels: {
+        color: "black",
+        font: {
+          weight: "bold",
+          size: 18,
+        },
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  },
+  plugins: [ChartDataLabels],
+};
+
+new Chart(ctx3, config3);
+
+
+/* TABLA PRODUCCION  DE AGAVE EN OAXACA	*/
+const tab_pro_miel_oax = document.getElementById("tabla_produccion_prod_oax");
+let volumen_producto = 0;
+let superficie_producto = 0;
+let rendimiento_producto = 0;
+let valor_producto = 0;
+let cantidad_producto = 0;
+
+for (let i = 0; i < tabla_produccion_producto.length; i++) {
+  volumen_producto += tabla_produccion_producto[i].volumen;
+  superficie_producto += tabla_produccion_producto[i].superficie;
+  rendimiento_producto += tabla_produccion_producto[i].rendimiento;
+  valor_producto += tabla_produccion_producto[i].valor;
+  cantidad_producto += tabla_produccion_producto[i].cantidad;
+
+  const fila = document.createElement("tr");
+
+  const celdaRegion = document.createElement("td");
+  celdaRegion.textContent = tabla_produccion_producto[i].region;
+
+  const celdaVolumen = document.createElement("td");
+  celdaVolumen.textContent =
+    tabla_produccion_producto[i].volumen.toLocaleString("es-MX");
+
+  const celdaSuperficie = document.createElement("td");
+  celdaSuperficie.textContent =
+    tabla_produccion_producto[i].superficie.toLocaleString("es-MX");
+
+  const celdaRendimeinto = document.createElement("td");
+  celdaRendimeinto.textContent =
+    tabla_produccion_producto[i].rendimiento.toLocaleString("es-MX");
+
+  const celdaValor = document.createElement("td");
+  celdaValor.textContent =
+    tabla_produccion_producto[i].valor.toLocaleString("es-MX");
+
+  const celdaCantidad = document.createElement("td");
+  celdaCantidad.textContent =
+    tabla_produccion_producto[i].cantidad.toLocaleString("es-MX");
+
+  fila.appendChild(celdaRegion);
+  fila.appendChild(celdaVolumen);
+  fila.appendChild(celdaSuperficie);
+  fila.appendChild(celdaRendimeinto);
+  fila.appendChild(celdaValor);
+  fila.appendChild(celdaCantidad);
+
+  tab_pro_miel_oax.appendChild(fila);
+}
+
+const total_tab_pro_miel_oax = document.getElementById(
+  "total_tab_pro_miel_oax"
+);
+total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLocaleString(
+  "es-MX"
+)}</th><th>${superficie_producto.toLocaleString(
+  "es-MX"
+)}</th><th>${7.9}</th><th>${valor_producto.toLocaleString(
+  "es-MX"
+)}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
