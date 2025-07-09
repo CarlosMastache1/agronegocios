@@ -4,10 +4,7 @@
 
 {% block content %}
 
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -53,18 +50,14 @@
 				<strong>41 Municipios</strong> productores de sandia, se encuentra en el <strong>8° lugar</strong> en
 				producción a nivel nacional, con <strong>8 pueblos indígenas</strong> productores de este cultivo.
 			</p>
-
-
 			<div class="descripcion">
 				<div class="container">
-
 					<div class="card">
 						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anual</h2>
 						<p>
 							Ciclo de vida de <strong>3 a 6 meses</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📊 Lugar a nivel mundial</h2>
 						<p>
@@ -72,14 +65,12 @@
 							una superficie para su cosecha de <strong>36,795 Ha</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📍 Municipios en Oaxaca</h2>
 						<p>
 							En Oaxaca hay <strong>42 municipios</strong> que están dedicados al cultivo de sandia.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
 						<p>Oaxaca ocupa el <strong>8º lugar</strong> nacional en producción de sandia. Con un volumen de
@@ -87,7 +78,6 @@
 							un rendimeinto de <strong>23.48 Ton/Ha</strong> y un valor de <strong>$254,980,035</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📈 Región con mayor producción</h2>
 						<p>
@@ -96,10 +86,8 @@
 							producción. Con un volumen de producción de <strong>18,018 Ton</strong>, una superficie de
 							<strong>655 Ha</strong>, con un rendimeinto de <strong>26.01 Ton/Ha</strong> y un valor de
 							<strong>$76,938,782</strong>.
-
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
 						<p>Un total de <strong>8 pueblos indígenas</strong> se encuentran dentro de la producción de
@@ -115,8 +103,6 @@
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
 				<div class="columna1">
-
-
 					<div class="controls">
 						<label>
 							Mostrar
@@ -128,10 +114,8 @@
 							</select>
 							registros
 						</label>
-
 						<input type="text" id="searchInput" placeholder="Buscar...">
 					</div>
-
 					<table id="dataTable" class="tabla-datos">
 						<thead>
 							<tr>
@@ -145,30 +129,26 @@
 						</tbody>
 						<tfoot>
 							<tr id="total_datos_tab1">
-
 							</tr>
 						</tfoot>
 					</table>
-
 					<div class="pagination">
 						<button id="prevBtn">Anterior</button>
 						<span id="pageInfo"></span>
 						<button id="nextBtn">Siguiente</button>
 					</div>
-
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
-
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+					NACIONES UNIDAS PARA LA
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section3" class="section">
 			<h1>PRODUCCIÓN NACIONAL DE SANDIA</h1>
 
 			<H2>Cierre Agricola 2022</H2>
-
 			<div class="controls">
 				<label>
 					Mostrar
@@ -180,7 +160,6 @@
 					</select>
 					registros
 				</label>
-
 				<input type="text" id="searchInput2" placeholder="Buscar...">
 			</div>
 			<table id="data2Table" class="tabla-datos">
@@ -201,26 +180,28 @@
 					<tr id="total_datos_tab2"></tr>
 				</tfoot>
 			</table>
-
 			<div class="pagination">
 				<button id="prevBtn2">Anterior</button>
 				<span id="pageInfo2"></span>
 				<button id="nextBtn2">Siguiente</button>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 		</section>
 
 		<section id="section4" class="section">
 			<h1>BALANZA COMERCIAL DE SANDIA EN MÉXICO</h1>
-
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
-
 			<div class="controls">
 				<label>
 					Mostrar
@@ -232,7 +213,6 @@
 					</select>
 					registros
 				</label>
-
 				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
 			</div>
 			<table id="dataTableDesExp" class="tabla-datos">
@@ -250,13 +230,13 @@
 					<tr id="total_datos_tabDesExp"></tr>
 				</tfoot>
 			</table>
-
 			<div class="pagination">
 				<button id="prevBtnDesExp">Anterior</button>
 				<span id="pageInfoDesExp"></span>
 				<button id="nextBtnDesExp">Siguiente</button>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
@@ -264,8 +244,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
-
 
 		<section id="section6" class="section">
 			<h1>PRODUCCIÓN DE SANDIA EN OAXACA</h1>
@@ -280,9 +260,7 @@
 						<th>CANTIDAD DE MUNICIPIOS</th>
 					</tr>
 				</thead>
-
 				<tbody id="tabla_produccion_prod_oax">
-
 				</tbody>
 				<tfoot>
 					<tr id="total_tab_pro_miel_oax">
@@ -292,10 +270,11 @@
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
-
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
 
 		<section id="section7" class="section">
@@ -312,14 +291,16 @@
 			<div class="chart-container">
 				<canvas id="lineChart4"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
-
 
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN DE SANDIA EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>

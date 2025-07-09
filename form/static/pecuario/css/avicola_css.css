@@ -7,7 +7,6 @@
      --gris-azul: #454E55;
  }
 
-
  .contenedor_col1,
  .contenedor_col2 {
      display: flex;
@@ -25,7 +24,6 @@
      height: 100vh;
  }
 
-
  .contenedor_col2 .columna1 {
      width: 100%;
      height: 100vh;
@@ -34,7 +32,6 @@
  .contenedor_col2 .columna2 {
      width: 100%;
  }
-
 
  /* A partir de 768px (pantallas medianas y grandes) */
  @media (min-width: 1100px) {
@@ -95,7 +92,6 @@
          content: attr(data-label);
      }
  }
-
 
  .mapa_mexico_sty {
      width: 100%;
@@ -188,7 +184,7 @@
      height: 100px;
      padding: 20px;
      text-align: center;
-     background-color:var(--rosa-palo);
+     background-color: var(--rosa-palo);
      border: 1px solid var(--gris-claro);
      border-radius: 12px;
      margin: 10px 0px;
@@ -234,15 +230,12 @@
      color: var(--gris-azul);
  }
 
-
-
  @media (max-width: 600px) {
      .descripcion .info {
          flex-direction: column;
          align-items: flex-start;
      }
  }
-
 
  #botones button {
      background-color: var(--vino-intenso);
@@ -283,4 +276,22 @@
  .pagination_mun button:hover {
      background-color: var(--gris-azul);
      border: var(--vino-intenso);
+ }
+
+ .fuentes_pie {
+     text-align: center;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: .9rem;
+     margin-top: 0px;
+     color: rgb(99, 30, 30);
+     margin-bottom: 40px;
+     margin-top: -10px
+ }
+
+ .fuente_mapa {
+     margin-top: -30px;
+ }
+
+ .fuente_elemento {
+     margin-top: 8px
  }
