@@ -38,7 +38,6 @@
   </div>
 </main>
 
-
 <!-- Cinta ticker -->
 <div class="ticker">
   <div class="ticker-content" id="ticker-content">
@@ -69,7 +68,8 @@
           <div class="card">
             <h2>📊 Lugar a nivel mundial</h2>
             <p>
-              México ocupa el <strong>2° lugar</strong> a nivel mundial en la producción de agave, produciendo principalmente tequila y mezcal y contando; Con una superficie de cosecha de <strong>13,601 Ha</strong>.
+              México ocupa el <strong>2° lugar</strong> a nivel mundial en la producción de agave, produciendo
+              principalmente tequila y mezcal y contando; Con una superficie de cosecha de <strong>13,601 Ha</strong>.
             </p>
           </div>
 
@@ -82,7 +82,10 @@
 
           <div class="card">
             <h2>🇲🇽 Lugar a nivel nacional</h2>
-            <p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de agave, con un volumen de producción de <strong>256,549 Ton</strong> con una superficie de producción de <strong>11,736 Ha</strong>, la cual presenta un rendimiento de <strong>51.91 Ton/Ha</strong>, y un valor de producción de <strong>$982,328,853</strong>.
+            <p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de agave, con un volumen de producción
+              de <strong>256,549 Ton</strong> con una superficie de producción de <strong>11,736 Ha</strong>, la cual
+              presenta un rendimiento de <strong>51.91 Ton/Ha</strong>, y un valor de producción de
+              <strong>$982,328,853</strong>.
             </p>
           </div>
 
@@ -90,7 +93,10 @@
             <h2>📈 Región con mayor producción</h2>
             <p>
               La región de <strong>Sierra Sur</strong> es la region con mayor
-              producción de agave en el estado de Oaxaca, contando con  <strong>34 municipios</strong>, teniendo un volumen de producción de <strong>190,162 Ton</strong>, una superficie sembrada de <strong>5,535 Ha</strong>, con un rendimiento de <strong>63.05 Ton/Ha</strong>, y contando con un valor de producción de <strong>$724,298,264</strong>.
+              producción de agave en el estado de Oaxaca, contando con  <strong>34 municipios</strong>, teniendo un
+              volumen de producción de <strong>190,162 Ton</strong>, una superficie sembrada de <strong>5,535
+                Ha</strong>, con un rendimiento de <strong>63.05 Ton/Ha</strong>, y contando con un valor de producción
+              de <strong>$724,298,264</strong>.
 
             </p>
           </div>
@@ -103,8 +109,6 @@
         </div>
       </div>
     </section>
-
-
 
     <section id="section2" class="section">
       <h1>PRODUCCIÓN MUNDIAL DE AGAVE</h1>
@@ -150,8 +154,11 @@
         <button id="nextBtn">Siguiente</button>
       </div>
 
+      <p class="fuentes_pie "><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
       <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
-
+      <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
     </section>
 
     <section id="section3" class="section">
@@ -197,7 +204,9 @@
         <span id="pageInfo2"></span>
         <button id="nextBtn2">Siguiente</button>
       </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
       <iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+       <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
     </section>
 
     <section id="section4" class="section">
@@ -239,7 +248,8 @@
         <span id="pageInfoDesExp"></span>
         <button id="nextBtnDesExp">Siguiente</button>
       </div>
-
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
       <h3>DESTINO DE LA EXPORTACIÓN 2023 POR REGIÓN</h3>
       <table class="tabla-datos">
         <thead>
@@ -259,8 +269,9 @@
             <th colspan="2" id="tfoot_cuer_region_exp"></th>
           </tr>
         </tfoot>
-
       </table>
+      <p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
     </section>
 
     <section id="section5" class="section">
@@ -268,6 +279,7 @@
       <div class="chart-container">
         <canvas id="lineChart"></canvas>
       </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
     </section>
 
 
@@ -293,6 +305,7 @@
           </tr>
         </tfoot>
       </table>
+      <p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
 
       <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
       </h4>
@@ -300,6 +313,7 @@
       <div class="chart-container">
         <canvas id="lineChart2"></canvas>
       </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
     </section>
 
     <section id="section7" class="section">
@@ -313,13 +327,15 @@
       <div class="chart-container">
         <canvas id="lineChart3"></canvas>
       </div>
-
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
     </section>
 
 
     <section id="section8" class="section">
       <h1>MUNICIPIOS QUE PRODUCEN AGAVE EN OAXACA</h1>
-      <iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+      <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+        frameborder="0"></iframe>
+      <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
       <div id="botones"></div>
       <div id="titulo_regmun"></div>
       <div id="tabla"></div>

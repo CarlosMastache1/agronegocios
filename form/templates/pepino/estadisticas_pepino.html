@@ -48,20 +48,18 @@
 		<section id="section1" class="section">
 			<h1>DESCRIPCIÓN DEL <strong>PEPINO</strong></h1>
 			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				Este cultivo es anual por lo que su ciclo de vida es de <strong>3 a 4 meses</strong>, Oaxaca tiene <strong>13 Municipios</strong> productores de pepino, se encuentra en el <strong>24° lugar</strong> en producción a nivel nacional, con <strong>2 pueblos indígenas</strong> productores de este cultivo.
+				Este cultivo es anual por lo que su ciclo de vida es de <strong>3 a 4 meses</strong>, Oaxaca tiene
+				<strong>13 Municipios</strong> productores de pepino, se encuentra en el <strong>24° lugar</strong> en
+				producción a nivel nacional, con <strong>2 pueblos indígenas</strong> productores de este cultivo.
 			</p>
-
-
 			<div class="descripcion">
 				<div class="container">
-
 					<div class="card">
 						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anual</h2>
 						<p>
 							Ciclo de vida de <strong>3 a 4 meses</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📊 Lugar a nivel mundial</h2>
 						<p>
@@ -69,23 +67,21 @@
 							una superficie para su cosecha de <strong>19,123 Ha</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📍 Municipios en Oaxaca</h2>
 						<p>
 							En Oaxaca hay <strong>13 municipios</strong> que están dedicados al cultivo de pepino.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>24º lugar</strong> nacional en producción de pepino. Con un volumen de
+						<p>Oaxaca ocupa el <strong>24º lugar</strong> nacional en producción de pepino. Con un volumen
+							de
 							producción de <strong>2,204 Ton</strong>, una superficie de <strong>74 Ha</strong>,
 							con un rendimeinto de <strong>21.63 Ton/Ha</strong> y un valor de
 							<strong>$17,221,548</strong>.
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>📈 Región con mayor producción</h2>
 						<p>
@@ -94,10 +90,8 @@
 							producción. Con un volumen de producción de <strong>1,801 Ton</strong>, una superficie de
 							<strong>36 Ha</strong>, con un rendimeinto de <strong>30.19 Ton/Ha</strong> y un valor
 							de <strong>$14,334,359</strong>.
-
 						</p>
 					</div>
-
 					<div class="card">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
 						<p>Un total de <strong>2 pueblos indígenas</strong> se encuentran dentro de la producción de
@@ -113,8 +107,6 @@
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
 				<div class="columna1">
-
-
 					<div class="controls">
 						<label>
 							Mostrar
@@ -126,10 +118,8 @@
 							</select>
 							registros
 						</label>
-
 						<input type="text" id="searchInput" placeholder="Buscar...">
 					</div>
-
 					<table id="dataTable" class="tabla-datos">
 						<thead>
 							<tr>
@@ -143,30 +133,26 @@
 						</tbody>
 						<tfoot>
 							<tr id="total_datos_tab1">
-
 							</tr>
 						</tfoot>
 					</table>
-
 					<div class="pagination">
 						<button id="prevBtn">Anterior</button>
 						<span id="pageInfo"></span>
 						<button id="nextBtn">Siguiente</button>
 					</div>
-
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
-
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+					NACIONES UNIDAS PARA LA
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section3" class="section">
 			<h1>PRODUCCIÓN NACIONAL DE PEPINO</h1>
 
 			<H2>Cierre Agricola 2022</H2>
-
 			<div class="controls">
 				<label>
 					Mostrar
@@ -178,7 +164,6 @@
 					</select>
 					registros
 				</label>
-
 				<input type="text" id="searchInput2" placeholder="Buscar...">
 			</div>
 			<table id="data2Table" class="tabla-datos">
@@ -199,14 +184,17 @@
 					<tr id="total_datos_tab2"></tr>
 				</tfoot>
 			</table>
-
 			<div class="pagination">
 				<button id="prevBtn2">Anterior</button>
 				<span id="pageInfo2"></span>
 				<button id="nextBtn2">Siguiente</button>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 		</section>
 
 		<section id="section4" class="section">
@@ -215,10 +203,10 @@
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
-
 			<div class="controls">
 				<label>
 					Mostrar
@@ -230,7 +218,6 @@
 					</select>
 					registros
 				</label>
-
 				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
 			</div>
 			<table id="dataTableDesExp" class="tabla-datos">
@@ -248,13 +235,13 @@
 					<tr id="total_datos_tabDesExp"></tr>
 				</tfoot>
 			</table>
-
 			<div class="pagination">
 				<button id="prevBtnDesExp">Anterior</button>
 				<span id="pageInfoDesExp"></span>
 				<button id="nextBtnDesExp">Siguiente</button>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
@@ -262,8 +249,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
-
 
 		<section id="section6" class="section">
 			<h1>PRODUCCIÓN DE PEPINO EN OAXACA</h1>
@@ -278,22 +265,24 @@
 						<th>CANTIDAD DE MUNICIPIOS</th>
 					</tr>
 				</thead>
-
 				<tbody id="tabla_produccion_prod_oax">
-
 				</tbody>
 				<tfoot>
 					<tr id="total_tab_pro_miel_oax">
 					</tr>
 				</tfoot>
 			</table>
+			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong>
+			</p>
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
-
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
 
 		<section id="section7" class="section">
@@ -310,13 +299,16 @@
 			<div class="chart-container">
 				<canvas id="lineChart4"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
-
 
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN DE PEPINO EN OAXACA</h1>
-			<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>

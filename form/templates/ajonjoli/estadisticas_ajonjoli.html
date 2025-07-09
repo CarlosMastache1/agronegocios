@@ -72,7 +72,8 @@
 					<div class="card">
 						<h2>📊 Lugar a nivel mundial</h2>
 						<p>
-							México ocupa el <strong>18° lugar</strong> a nivel mundial en la producción de ajonjolí, con una superficie de producción de <strong>81,368 Ha</strong>.
+							México ocupa el <strong>18° lugar</strong> a nivel mundial en la producción de ajonjolí, con
+							una superficie de producción de <strong>81,368 Ha</strong>.
 						</p>
 					</div>
 
@@ -85,7 +86,10 @@
 
 					<div class="card">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de ajonjolí, con un volumen de producción de <strong>6,543 Ton</strong>, una superficie de producción de <strong>8,242 Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de producción <strong>$232,605,456</strong>.
+						<p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de ajonjolí, con un volumen
+							de producción de <strong>6,543 Ton</strong>, una superficie de producción de <strong>8,242
+								Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de
+							producción <strong>$232,605,456</strong>.
 						</p>
 					</div>
 
@@ -93,7 +97,10 @@
 						<h2>📈 Región con mayor producción</h2>
 						<p>
 							La región del <strong>Istmo</strong> es la region con mayor
-							producción de ajonjolí en el estado de Oaxaca, contando con <strong>29 municipios</strong>, un volumen de producción de <strong>4,828 Ton</strong>, una superficie de <strong>6,158 Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de producción de <strong>$177,046,476</strong>.
+							producción de ajonjolí en el estado de Oaxaca, contando con <strong>29 municipios</strong>,
+							un volumen de producción de <strong>4,828 Ton</strong>, una superficie de <strong>6,158
+								Ha</strong>, con un rendimiento de <strong>0.79 Ton/Ha</strong>, y un valor de
+							producción de <strong>$177,046,476</strong>.
 						</p>
 					</div>
 
@@ -152,13 +159,12 @@
 						<span id="pageInfo"></span>
 						<button id="nextBtn">Siguiente</button>
 					</div>
-
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
-
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+					NACIONES UNIDAS PARA LA
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section3" class="section">
@@ -204,8 +210,12 @@
 				<span id="pageInfo2"></span>
 				<button id="nextBtn2">Siguiente</button>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 		</section>
 
 		<section id="section4" class="section">
@@ -214,6 +224,9 @@
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
@@ -221,8 +234,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
-
 
 		<section id="section6" class="section">
 			<h1>PRODUCCIÓN DE AJONJOLÍ EN OAXACA</h1>
@@ -246,6 +259,8 @@
 					</tr>
 				</tfoot>
 			</table>
+			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
@@ -253,6 +268,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
 
 		<section id="section7" class="section">
@@ -269,13 +286,16 @@
 			<div class="chart-container">
 				<canvas id="lineChart4"></canvas>
 			</div>
-
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
 		</section>
-
 
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN DE AJONJOLÍ EN OAXACA</h1>
-			<iframe id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong></p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
