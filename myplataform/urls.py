@@ -56,6 +56,7 @@ urlpatterns = [
     path('product/<int:prodA_id>/desapproved', views.productDesapproved, name='productDesapproved'),
     path('credit/<int:credit_id>/update', views.creditUpdate, name='creditUpdate'),
     path('eliminar/<int:id>/', views.delete_credit, name='delete_credit'),
+    path('eliminarProd/<int:id>/', views.delete_product, name='delete_product'),
     path('', views.indSec, name='index' ),
     path('agricola/', views.sectorAgri, name='agricola'),
     path('pecuario/', views.sectorPecu, name='pecuario'),

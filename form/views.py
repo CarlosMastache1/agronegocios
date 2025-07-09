@@ -2688,6 +2688,13 @@ def delete_credit(request, id):
   return redirect('home')
 
 
+def delete_product(request, id):
+  product = get_object_or_404(productos, pk= id)
+  product.delete()
+  messages.success(request, 'Producto eliminado en la base de datos')
+  return redirect('gestionProductos')
+
+
 
 def get_chart5(request):
 
