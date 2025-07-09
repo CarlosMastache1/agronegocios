@@ -50,7 +50,6 @@
                                     Aprobar producto <i class="fas fa-check-circle"></i>
                                 </button>
                                 </form>
-                                <button onclick="confirmarEliminacion2('{{ prod.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar Producto  <i class="fas fa-trash"></i></button>
 
                                 </td>
             
@@ -135,7 +134,7 @@
         cancelButtonText: "Cancelar"
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "/eliminarProd" + id + "/";  // Redirecciona a la URL de eliminación
+          window.location.href = "/eliminarProd/" + id + "/";  // Redirecciona a la URL de eliminación
         }
       });
     }
