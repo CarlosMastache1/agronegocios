@@ -237,7 +237,7 @@
                     <label for="nombre-marca">NOMBRE DE LA MARCA</label>
                 </div>
                 <div class="input-field">
-                    <select name="subsector[]" id="subsector2" required>
+                    <select name="subsector[]" class="subsector" required>
                         <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
                         <option value="AGRICOLA">AGRICOLA</option>
                         <option value="PECUARIO">PECUARIO</option>
@@ -249,7 +249,7 @@
                     </select>
                     <label>SUBSECTOR</label>
                 </div>
-                <div id="sub-AGRICOLA-2">
+                <div class="sub-AGRICOLA categoria-container" style="display:none" >
                     <div class="input-field">
                         <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
@@ -268,7 +268,7 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
-                <div id="sub-PECUARIO-2">
+                <div  class="sub-PECUARIO categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
@@ -282,7 +282,7 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
-                <div id="sub-PESQUERO-2">
+                <div class="sub-PESQUERO categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
@@ -295,7 +295,7 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
-                <div id="sub-ACUICOLA-2">
+                <div class="sub-ACUICOLA categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
                             <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
@@ -456,35 +456,6 @@
     </script>
 
 
-<script>
-function agregarProducto() {
-    const container = document.getElementById('productos-container');
-    const firstProducto = container.querySelector('.producto-form');
-    const newProducto = firstProducto.cloneNode(true);
-
-    // Limpiar valores
-    newProducto.querySelectorAll('input, select, textarea').forEach(el => {
-        if (el.tagName === "SELECT") {
-            el.selectedIndex = 0;
-        } else {
-            el.value = '';
-        }
-    });
-
-    // Elimina clases "valid" e "invalid" de Materialize (si hay)
-    newProducto.querySelectorAll('input, select').forEach(el => {
-        el.classList.remove("valid");
-        el.classList.remove("invalid");
-    });
-
-    // Agregar el nuevo bloque al DOM
-    container.appendChild(newProducto);
-
-    // 🔁 Re-inicializar selects (Materialize)
-    const selects = newProducto.querySelectorAll('select');
-    M.FormSelect.init(selects);
-}
-</script>
 
 
 </body>
