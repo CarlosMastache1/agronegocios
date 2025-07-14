@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
 <link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
 
+
+
 <main id="contents" class="site-contnts">
 	<!--BANNER-->
 	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/mango/imagenes/13.JPG' %}">
+		<div class="item" data-slide="{% static 'agricola/limon/imagenes/9.jpg' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -25,7 +27,7 @@
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/mango/imagenes/14.JPG' %}">
+		<div class="item" data-slide="{% static 'agricola/limon/imagenes/10.png' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -42,76 +44,72 @@
 		Cargando datos...
 	</div>
 </div>
-
 <div>
 	<div id="body_pag">
 		<!-- Secciones -->
 		<section id="section1" class="section">
-			<h1>DESCRIPCIÓN DEL <strong>MANGO</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				Este cultivo es perenne por lo que tiene un ciclo de vida de <strong>28 a 32 años</strong>, Oaxaca tiene
-				<strong>60 Municipios</strong> productores de mango, se encuentra en el <strong>5to lugar</strong> en
-				producción a nivel nacional, con <strong>13 pueblos indígenas</strong> productores de este cultivo.
+			<h1>DESCRIPCIÓN DEL <strong>LIMON</strong></h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+				Este cultivo es perenne por lo que tiene un ciclo de vida mayor a <strong>50 años</strong>, Oaxaca tiene
+				<strong></strong> productores de limón, se encuentra en el <strong></strong> en
+				producción a nivel nacional, con <strong></strong> productores de este cultivo.
 			</p>
-
 
 			<div class="descripcion">
 				<div class="container">
-
 					<div class="card">
 						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Perenne</h2>
 						<p>
-							Ciclo de vida de <strong>28 a 32 años</strong>.
+							Ciclo de vida <strong>mayor a 50 años</strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
-							México ocupa el <strong>6° lugar</strong> a nivel mundial en la producción de mango; con una
-							superficie para su cosecha de <strong>221,858 Ha</strong>.
+						<p id="des_mundo">
+							México ocupa el <strong></strong> a nivel mundial en la producción de limon, con una
+							superficie de producción de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
-							En Oaxaca hay <strong>60 municipios</strong> que están dedicados al cultivo de mango.
+						<p id="des_muni">
+							En Oaxaca hay <strong></strong> que están dedicados al cultivo de limon.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>5º lugar</strong> nacional en producción de mango. Con un volumen de
-							producción de <strong>214,915 Ton</strong>, una superficie de <strong>19,392 Ha</strong>,
-							con un rendimeinto de <strong>8.96 Ton/Ha</strong> y un valor de
-							<strong>$1,070,664,171</strong>.
+						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de limon,
+							contando con un
+							volumen de producción de <strong></strong>, una superficie de <strong></strong>, con un rendimiento de <strong></strong>y un valor de producción
+							de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
-							La región del <strong>Istmo</strong> es la region con mayor
-							producción de mango en el estado de Oaxaca contando con <strong>18 Municipios</strong> de
-							producción. Con un volumen de producción de <strong>189,388 Ton</strong>, una superficie de
-							<strong>16,429 Ha</strong>, con un rendimeinto de <strong>10.01 Ton/Ha</strong> y un valor
-							de <strong>$959,021,903</strong>.
-
+						<p id="des_reg">
+							La región del <strong></strong> es la region con mayor
+							producción de limon en el estado de Oaxaca, contando con <strong></strong>, con
+							un volumen de producción de <strong></strong>, una superficie de <strong></strong>, un rendimiento de <strong></strong>, y un valor de producción
+							de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>13 pueblos indígenas</strong> se encuentran dentro de la producción de
-							mango.</p>
+						<p id="des_pue">Un total de <strong></strong> se encuentran dentro de la
+							producción de
+							limon.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="section2" class="section">
-			<h1>PRODUCCIÓN MUNDIAL DE MANGO</h1>
+			<h1>PRODUCCIÓN MUNDIAL DE LIMON</h1>
 
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
@@ -159,14 +157,16 @@
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
-
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section3" class="section">
-			<h1>PRODUCCIÓN NACIONAL DE MANGO</h1>
+			<h1>PRODUCCIÓN NACIONAL DE LIMON</h1>
 
 			<H2>Cierre Agricola 2022</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -207,14 +207,17 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
-			<h1>BALANZA COMERCIAL DE MANGO EN MÉXICO</h1>
+			<h1>BALANZA COMERCIAL DE LIMON EN MÉXICO</h1>
 
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
@@ -223,6 +226,7 @@
 					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -234,6 +238,7 @@
 					</select>
 					registros
 				</label>
+
 				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
 			</div>
 			<table id="dataTableDesExp" class="tabla-datos">
@@ -251,6 +256,7 @@
 					<tr id="total_datos_tabDesExp"></tr>
 				</tfoot>
 			</table>
+
 			<div class="pagination">
 				<button id="prevBtnDesExp">Anterior</button>
 				<span id="pageInfoDesExp"></span>
@@ -261,7 +267,7 @@
 		</section>
 
 		<section id="section5" class="section">
-			<h1>PRODUCCIÓN HISTÓRICA DE MANGO EN OAXACA</h1>
+			<h1>PRODUCCIÓN HISTÓRICA DE LIMON EN OAXACA</h1>
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
@@ -269,7 +275,7 @@
 		</section>
 
 		<section id="section6" class="section">
-			<h1>PRODUCCIÓN DE MANGO EN OAXACA</h1>
+			<h1>PRODUCCIÓN DE LIMON EN OAXACA</h1>
 			<table class="tabla-datos">
 				<thead>
 					<tr>
@@ -296,6 +302,7 @@
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
+
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
@@ -305,13 +312,13 @@
 
 		<section id="section7" class="section">
 			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce mango en
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
+				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce limon en
 				el estado
-				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>mayo</strong>
+				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>junio</strong>
 				es
 				cuando se
-				cosecha más mango alcanzando <strong>442 puntos</strong> de dicho índice.
+				cosecha más limon alcanzando <strong>175 puntos</strong> de dicho índice.
 			</p>
 			<h2>INDICE DE VOLUMEN FISICO (IVF)</h2>
 			<div class="chart-container">
@@ -322,11 +329,13 @@
 		</section>
 
 		<section id="section8" class="section">
-			<h1>MUNICIPIOS QUE PRODUCEN DE MANGO EN OAXACA</h1>
+			<h1>MUNICIPIOS QUE PRODUCEN DE LIMON EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -350,11 +359,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -380,8 +399,8 @@
 	});
 </script>
 
-<script src="{% static 'data/mapas/agricola/mango.js' %}"></script>
-<script src="{% static 'agricola/mango/js/mango.js' %}"></script>
+<script src="{% static 'data/mapas/agricola/limon.js' %}"></script>
+<script src="{% static 'agricola/limon/js/limon.js' %}"></script>
 
 <script>
 
@@ -399,6 +418,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

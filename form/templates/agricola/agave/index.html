@@ -50,60 +50,58 @@
     <!-- Secciones -->
     <section id="section1" class="section">
       <h1>DESCRIPCIÓN DEL <strong>AGAVE</strong></h1>
-      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
         Este cultivo es perenne por lo que su ciclo de vida es <strong>6 a 8 años</strong> después del plantado. Oaxaca
-        tiene <strong>135 Municipios</strong> productores de agave, se encuentra en el <strong>4to lugar</strong> en
-        producción a nivel nacional, con <strong>5 pueblos indígenas</strong> productores de este cultivo.
+        tiene <strong></strong> productores de agave, se encuentra en el <strong></strong> en
+        producción a nivel nacional, con <strong></strong> productores de este cultivo.
       </p>
       <div class="descripcion">
         <div class="container">
-
-          <div class="card">
+          <div class="card" data-target="section1">
             <h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Perenne</h2>
             <p>
               Ciclo de vida de <strong>6 a 8 años</strong> según condiciones climáticas y manejo agrícola.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card" data-target="section2">
             <h2>📊 Lugar a nivel mundial</h2>
-            <p>
-              México ocupa el <strong>2° lugar</strong> a nivel mundial en la producción de agave, produciendo
-              principalmente tequila y mezcal y contando; Con una superficie de cosecha de <strong>13,601 Ha</strong>.
+            <p id="des_mundo">
+              México ocupa el <strong></strong> a nivel mundial en la producción de agave, produciendo
+              principalmente <strong></strong>; contando con una superficie de cosecha de <strong></strong>.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card" data-target="section8">
             <h2>📍 Municipios en Oaxaca</h2>
-            <p>
-              En Oaxaca hay <strong>135 municipios</strong> que están dedicados al cultivo de agave.
+            <p id="des_muni">
+              En Oaxaca hay <strong></strong> que están dedicados al cultivo de agave.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card" data-target="section3">
             <h2>🇲🇽 Lugar a nivel nacional</h2>
-            <p>Oaxaca ocupa el <strong>4º lugar</strong> nacional en producción de agave, con un volumen de producción
-              de <strong>256,549 Ton</strong> con una superficie de producción de <strong>11,736 Ha</strong>, la cual
-              presenta un rendimiento de <strong>51.91 Ton/Ha</strong>, y un valor de producción de
+            <p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de agave, con un volumen de producción
+              de <strong></strong>, con una superficie de producción de <strong></strong>, la cual
+              presenta un rendimiento de <strong></strong>, y un valor de producción de
               <strong>$982,328,853</strong>.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card" data-target="section6">
             <h2>📈 Región con mayor producción</h2>
-            <p>
-              La región de <strong>Sierra Sur</strong> es la region con mayor
-              producción de agave en el estado de Oaxaca, contando con  <strong>34 municipios</strong>, teniendo un
-              volumen de producción de <strong>190,162 Ton</strong>, una superficie sembrada de <strong>5,535
-                Ha</strong>, con un rendimiento de <strong>63.05 Ton/Ha</strong>, y contando con un valor de producción
-              de <strong>$724,298,264</strong>.
+            <p id="des_reg">
+              La región de <strong></strong> es la region con mayor
+              producción de agave en el estado de Oaxaca, contando con <strong></strong>, teniendo un
+              volumen de producción de <strong></strong>, una superficie sembrada de <strong></strong>, con un rendimiento de <strong></strong>, y contando con un valor de producción
+              de <strong></strong>.
 
             </p>
           </div>
 
-          <div class="card">
+          <div class="card" data-target="section6">
             <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-            <p>Un total de <strong>5 pueblos indígenas</strong> se encuentran dentro de la producción de
+            <p id="des_pue">Un total de <strong></strong> se encuentran dentro de la producción de
               agave.</p>
           </div>
         </div>
@@ -289,7 +287,7 @@
         <thead>
           <tr>
             <th>REGION</th>
-            <th>VOLUMEN DE PRODUCCION (TON)</th>
+            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
             <th>SUPERFICIE SEMBRADA (HA)</th>
             <th>RENDIMIENTO (TON/HA)</th>
             <th>VALOR DE LA PRODUCCIÓN ($)</th>
@@ -307,7 +305,7 @@
       </table>
       <p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
 
-      <h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
+      <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
       </h4>
 
       <div class="chart-container">
@@ -318,7 +316,7 @@
 
     <section id="section7" class="section">
       <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
         La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce agave en el estado
         de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>marzo</strong> es cuando se
         cosecha más agave alcanzando <strong>399 puntos</strong> de dicho índice.
@@ -359,11 +357,21 @@
 <script>
   const circles = document.querySelectorAll('.progress-circle');
   const sections = document.querySelectorAll('section');
+  const cards = document.querySelectorAll('.card');
 
   // Scroll a la sección al hacer clic
   circles.forEach(circle => {
     circle.addEventListener('click', () => {
       const targetId = circle.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Scroll a la sección al hacer clic
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target');
       const targetSection = document.getElementById(targetId);
       targetSection.scrollIntoView({ behavior: 'smooth' });
     });
@@ -408,6 +416,21 @@
   iframe.onload = function () {
     iframe.contentWindow.postMessage(regionesConMunicipios, "*");
   };
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

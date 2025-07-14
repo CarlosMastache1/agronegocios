@@ -1,3 +1,165 @@
+const mexicoDataPro = tabla_paises_prod.find((entidad) => entidad.id === "MEX");
+const mexicoDataSPro = tabla_paises_sub_prod.find(
+  (entidad) => entidad.id === "MEX"
+);
+
+const pTag = document.getElementById("des_mundo");
+const strongTags = pTag.querySelectorAll("strong");
+
+if (mexicoDataPro && mexicoDataSPro && strongTags.length > 3) {
+  strongTags[0].textContent = `${mexicoDataPro.ranking}° lugar`;
+  strongTags[1].textContent = `${mexicoDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTags[2].textContent = `${mexicoDataSPro.ranking}° lugar`;
+  strongTags[3].textContent = `${mexicoDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+}
+
+const pTagM = document.getElementById("des_muni");
+const strongTagsM = pTagM.querySelectorAll("strong");
+let sumMunPro = 0;
+tabla_produccion_producto.forEach((region) => (sumMunPro += region.municipios));
+
+let sumMunSPro = 0;
+tabla_produccion_sub_producto.forEach(
+  (region) => (sumMunSPro += region.municipios)
+);
+
+if (
+  tabla_produccion_producto &&
+  tabla_produccion_sub_producto &&
+  strongTagsM.length > 1
+) {
+  strongTagsM[0].textContent = `${sumMunPro} municipios`;
+  /* strongTagsM[1].textContent = `${sumMunSPro} municipios`; */
+}
+
+const oaxacaDataPro = tab_mex_pro.find((entidad) => entidad.id === "OAX");
+const oaxacaDataSPro = tab_mex_sub_pro.find((entidad) => entidad.id === "OAX");
+const pTagN = document.getElementById("des_na");
+const strongTagsN = pTagN.querySelectorAll("strong");
+
+if (oaxacaDataPro && strongTagsN.length > 8) {
+  strongTagsN[0].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsN[1].textContent = `${oaxacaDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[2].textContent = `${oaxacaDataPro.peso.toLocaleString(
+    "es-MX"
+  )} KG`;
+  strongTagsN[3].textContent = `${oaxacaDataPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[4].textContent = `$${oaxacaDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  strongTagsN[5].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsN[6].textContent = `${oaxacaDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[7].textContent = `${oaxacaDataSPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[8].textContent = `$${oaxacaDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const regionDataPro = tabla_produccion_producto[0];
+const regionDataSPro = tabla_produccion_sub_producto[0];
+const pTagR = document.getElementById("des_reg");
+const strongTagsR = pTagR.querySelectorAll("strong");
+
+if (regionDataPro && strongTagsR.length > 10) {
+  strongTagsR[0].textContent = `${regionDataPro.region}`;
+  strongTagsR[1].textContent = `${regionDataPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[2].textContent = `${regionDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[3].textContent = `${regionDataPro.peso.toFixed(2)} KG`;
+  strongTagsR[4].textContent = `${regionDataPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[5].textContent = `$${regionDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  strongTagsR[6].textContent = `${regionDataSPro.region}`;
+  strongTagsR[7].textContent = `${regionDataSPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[8].textContent = `${regionDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[9].textContent = `${regionDataSPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[10].textContent = `$${regionDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const pTagP = document.getElementById("des_pue");
+const strongTagsP = pTagP.querySelectorAll("strong");
+if (strongTagsP.length > 1) {
+  strongTagsP[0].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+  strongTagsP[1].textContent = `${
+    pub_indigenas_sub_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const pTagD = document.getElementById("descripcion");
+const strongTagsD = pTagD.querySelectorAll("strong");
+if (oaxacaDataPro && oaxacaDataSPro && strongTagsD.length > 1) {
+  strongTagsD[0].textContent = `${sumMunPro} municipios`;
+  strongTagsD[1].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsD[2].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+  strongTagsD[3].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsD[4].textContent = `${
+    pub_indigenas_sub_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const meses = [
+  "ENERO",
+  "FEBRERO",
+  "MARZO",
+  "ABRIL",
+  "MAYO",
+  "JUNIO",
+  "JULIO",
+  "AGOSTO",
+  "SEPTIEMBRE",
+  "OCTUBRE",
+  "NOVIEMBRE",
+  "DICIEMBRE",
+];
+
+const pTagE = document.getElementById("estacionalidad");
+const strongTagsE = pTagE.querySelectorAll("strong");
+
+const maxValor = Math.max(...estacionalidad_producto);
+const indiceMax = estacionalidad_producto.indexOf(maxValor);
+
+if (strongTagsE.length > 1) {
+  strongTagsE[0].textContent = `${meses[indiceMax]}`;
+  strongTagsE[1].textContent = `${maxValor.toLocaleString("es-MX")} puntos`;
+}
+
+const pTagE2 = document.getElementById("estacionalidad2");
+const strongTagsE2 = pTagE2.querySelectorAll("strong");
+
+const maxValor2 = Math.max(...estacionalidad_sub_producto);
+const indiceMax2 = estacionalidad_sub_producto.indexOf(maxValor2);
+
+if (strongTagsE2.length > 1) {
+  strongTagsE2[0].textContent = `${meses[indiceMax2]}`;
+  strongTagsE2[1].textContent = `${maxValor2.toLocaleString("es-MX")} puntos`;
+}
+
 /* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
 const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
 const total_tab1 = document.getElementById("total_tabla1");
@@ -70,7 +232,13 @@ function renderTable() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${
+      row.entidad
+    }</td><td>${row.volumen.toLocaleString(
+      "es-MX"
+    )}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString(
+      "es-MX"
+    )}</td>`;
     tableBody.appendChild(tr);
   }
 
@@ -135,7 +303,11 @@ function renderTable2() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.peso.toFixed(2)}</td><td>${row.precio.toLocaleString("es-MX")}</td><td>${row.valor}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${
+      row.entidad
+    }</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.peso.toFixed(
+      2
+    )}</td><td>${row.precio.toLocaleString("es-MX")}</td><td>${row.valor}</td>`;
     tableBody2.appendChild(tr);
   }
 
@@ -643,33 +815,250 @@ const config3 = {
 
 new Chart(ctx3, config3);
 
-/* Grafica 4 */
+const contenedor_botones = document.getElementById("botones");
+const contenedor_tabla = document.getElementById("tabla");
+const titulo_regmun = document.getElementById("titulo_regmun");
+
+let pagina_actual = 1;
+const items_por_pagina = 15;
+let municipios_actuales = [];
+
+for (const region in regionesConMunicipios) {
+  const boton = document.createElement("button");
+  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
+  boton.addEventListener("click", () => mostrar_tabla(region, 1));
+  contenedor_botones.appendChild(boton);
+}
+
+function mostrar_tabla(region, pagina) {
+  municipios_actuales = regionesConMunicipios[region];
+  pagina_actual = pagina;
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  const inicio = (pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+  if (municipios_actuales.length > items_por_pagina) {
+    html += `<div class="pagination_mun">`;
+
+    if (pagina > 1) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina - 1
+      })">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= total_paginas; i++) {
+      if (i === pagina) {
+        html += `<button style="font-weight:bold;">${i}</button>`;
+      } else {
+        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+      }
+    }
+
+    if (pagina < total_paginas) {
+      html += `<button onclick="cambiar_pagina(${
+        pagina + 1
+      })">Siguiente</button>`;
+    }
+
+    html += `</div>`;
+  }
+
+  contenedor_tabla.innerHTML = html;
+}
+
+function cambiar_pagina(nueva_pagina) {
+  const total_paginas = Math.ceil(
+    municipios_actuales.length / items_por_pagina
+  );
+  if (nueva_pagina < 1) nueva_pagina = 1;
+  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
+
+  const inicio = (nueva_pagina - 1) * items_por_pagina;
+  const fin = inicio + items_por_pagina;
+  const municipios_pagina = municipios_actuales.slice(inicio, fin);
+
+  let html = `<table class="tabla-datos">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>Toneladas (Ton)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  municipios_pagina.forEach((m) => {
+    html += `<tr>
+      <td>${m.nombre}</td>
+      <td>${m.volumen.toLocaleString("es-MX")}</td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>`;
+
+  html += `<div class="pagination_mun">`;
+
+  if (nueva_pagina > 1) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina - 1
+    })">Anterior</button>`;
+  }
+
+  for (let i = 1; i <= total_paginas; i++) {
+    if (i === nueva_pagina) {
+      html += `<button style="font-weight:bold;">${i}</button>`;
+    } else {
+      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
+    }
+  }
+
+  if (nueva_pagina < total_paginas) {
+    html += `<button onclick="cambiar_pagina(${
+      nueva_pagina + 1
+    })">Siguiente</button>`;
+  }
+
+  html += `</div>`;
+
+  contenedor_tabla.innerHTML = html;
+  pagina_actual = nueva_pagina;
+}
+
+const tab_pro_miel_oax = document.getElementById("tabla_produccion_miel_oax");
+let volumen_pro_miel = 0;
+let precio_pro_miel = 0;
+let valor_pro_miel = 0;
+let municipios_pro_miel = 0;
+
+for (let i = 0; i < tabla_produccion_producto.length; i++) {
+  volumen_pro_miel += tabla_produccion_producto[i].volumen;
+  precio_pro_miel += tabla_produccion_producto[i].precio;
+  valor_pro_miel += tabla_produccion_producto[i].valor;
+  municipios_pro_miel += tabla_produccion_producto[i].municipios;
+
+  const fila = document.createElement("tr");
+
+  const celdaRegion = document.createElement("td");
+  celdaRegion.textContent = tabla_produccion_producto[i].region;
+
+  const celdaVolumen = document.createElement("td");
+  celdaVolumen.textContent =
+    tabla_produccion_producto[i].volumen.toLocaleString("es-MX");
+
+  const celdaPrecio = document.createElement("td");
+  celdaPrecio.textContent =
+    tabla_produccion_producto[i].precio.toLocaleString("es-MX");
+
+  const celdaValor = document.createElement("td");
+  celdaValor.textContent =
+    tabla_produccion_producto[i].valor.toLocaleString("es-MX");
+
+  const celdaMunicipio = document.createElement("td");
+  celdaMunicipio.textContent =
+    tabla_produccion_producto[i].municipios.toLocaleString("es-MX");
+
+  fila.appendChild(celdaRegion);
+  fila.appendChild(celdaVolumen);
+  fila.appendChild(celdaPrecio);
+  fila.appendChild(celdaValor);
+  fila.appendChild(celdaMunicipio);
+
+  tab_pro_miel_oax.appendChild(fila);
+}
+
+const total_tab_pro_miel_oax = document.getElementById(
+  "total_tab_pro_miel_oax"
+);
+total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_pro_miel.toLocaleString(
+  "es-MX"
+)}</th><th>2</th><th>${(precio_pro_miel / tabla_produccion_producto.length).toFixed(
+  0
+)}</th><th>${/* valor_pro_miel.toLocaleString(
+  "es-MX"
+) */ "495,459,000"}</th><th>${municipios_pro_miel.toLocaleString("es-MX")}</th>`;
+
+/* Tabla PRODUCCION  DE LECHE DE VACA EN OAXACA	 */
+const tabla_produccion_sub_prod_oax = document.getElementById(
+  "tabla_produccion_sub_prod_oax"
+);
+
+let volumen_pro_cera = 0;
+let precio_sub_producto = 0;
+let valor_pro_cera = 0;
+let municipios_sub_producto = 0;
+
+for (let i = 0; i < tabla_produccion_sub_producto.length; i++) {
+  volumen_pro_cera += tabla_produccion_sub_producto[i].volumen;
+  precio_sub_producto += tabla_produccion_sub_producto[i].precio;
+  valor_pro_cera += tabla_produccion_sub_producto[i].valor;
+  municipios_sub_producto += tabla_produccion_sub_producto[i].municipios;
+  const fila = document.createElement("tr");
+
+  const celdaRegion = document.createElement("td");
+  celdaRegion.textContent = tabla_produccion_sub_producto[i].region;
+
+  const celdaVolumen = document.createElement("td");
+  celdaVolumen.textContent =
+    tabla_produccion_sub_producto[i].volumen.toLocaleString("es-MX");
+
+  const celdaPrecio = document.createElement("td");
+  celdaPrecio.textContent =
+    tabla_produccion_sub_producto[i].precio.toLocaleString("es-MX");
+
+  const celdaValor = document.createElement("td");
+  celdaValor.textContent =
+    tabla_produccion_sub_producto[i].valor.toLocaleString("es-MX");
+
+  const celdaMunicipio = document.createElement("td");
+  celdaMunicipio.textContent =
+    tabla_produccion_sub_producto[i].municipios.toLocaleString("es-MX");
+
+  fila.appendChild(celdaRegion);
+  fila.appendChild(celdaVolumen);
+  fila.appendChild(celdaPrecio);
+  fila.appendChild(celdaValor);
+  fila.appendChild(celdaMunicipio);
+
+  tabla_produccion_sub_prod_oax.appendChild(fila);
+}
+const total_tb_pro_cera_oax = document.getElementById("total_tb_pro_cera_oax");
+total_tb_pro_cera_oax.innerHTML = `
+<th>Estatal</th>
+<th>${/* volumen_pro_cera.toLocaleString("es-MX") */ "151,659,000"}</th>
+<th>${(precio_sub_producto / tabla_produccion_sub_producto.length).toFixed(
+  0
+)}</th>
+<th>${/* valor_pro_cera.toLocaleString("es-MX") */ "1,161,156,000"}</th>
+<th>${municipios_sub_producto}</th>`;
+
 const ctx4 = document.getElementById("lineChart4").getContext("2d");
 
 const datos4 = {
-  labels: [
-    "NO PUEBLO INDIGENA",
-    "NAHUA",
-    "MAZATECO",
-    "ZAPOTECO",
-    "MIXTECO",
-    "CHINANTECO",
-    "CUICATECO",
-    "MIXE",
-    "CHATINO",
-    "ZOQUE",
-    "CHONTAL DE OAXACA",
-    "HUAVE",
-    "TRIQUI",
-    "AMUZGO",
-    "CHOCHOLTECO",
-  ],
+  labels: pub_indigenas_producto[0],
   datasets: [
     {
       label: "Producción (Ton)",
-      data: [
-        2166, 3385, 2266, 1766, 1413, 966, 455, 403, 102, 62, 55, 37, 23, 12, 9,
-      ],
+      data: pub_indigenas_producto[1],
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -721,6 +1110,7 @@ const config4 = {
       intersect: false,
     },
   },
+  plugins: [ChartDataLabels],
 };
 
 new Chart(ctx4, config4);
@@ -729,29 +1119,11 @@ new Chart(ctx4, config4);
 const ctx5 = document.getElementById("lineChart5").getContext("2d");
 
 const datos5 = {
-  labels: [
-    "NO PUEBLO INDIGENA",
-    "ZAPOTECO",
-    "CHINANTECO",
-    "MIXTECO",
-    "MIXE",
-    "MAZATECO",
-    "ZOQUE",
-    "CHONTAL DE OAXACA",
-    "CHATINO",
-    "NAHUA",
-    "CUICATECO",
-    "HUAVE",
-    "TRIQUI",
-    "AMUZGO",
-    "CHOCHOLTECO",
-  ],
+  labels: pub_indigenas_sub_producto[0],
   datasets: [
     {
       label: "Producción (Ton)",
-      data: [
-        1810, 1857, 1175, 679, 533, 392, 91, 90, 87, 51, 45, 44, 13, 10, 3,
-      ],
+      data: pub_indigenas_sub_producto[1],
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -886,7 +1258,7 @@ const config6 = {
 
 new Chart(ctx6, config6);
 
-/* Grafica 7*/
+/* Grafica 7 ESTACIONALIDAD DE LA PRODUCCION EN OAXACA LECHE*/
 const ctx7 = document.getElementById("lineChart7").getContext("2d");
 
 const datos7 = {
@@ -906,8 +1278,8 @@ const datos7 = {
   ],
   datasets: [
     {
-      label: "Huevo de gallina",
-      data: [77, 79, 94, 89, 104, 127, 125, 88, 134, 82, 74, 80],
+      label: "Leche de bovino",
+      data: estacionalidad_sub_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -963,133 +1335,3 @@ const config7 = {
 };
 
 new Chart(ctx7, config7);
-
-
-const contenedor_botones = document.getElementById("botones");
-const contenedor_tabla = document.getElementById("tabla");
-const titulo_regmun = document.getElementById("titulo_regmun");
-
-let pagina_actual = 1;
-const items_por_pagina = 15;
-let municipios_actuales = [];
-
-for (const region in regionesConMunicipios) {
-  const boton = document.createElement("button");
-  boton.textContent = `${region} (${regionesConMunicipios[region].length})`;
-  boton.addEventListener("click", () => mostrar_tabla(region, 1));
-  contenedor_botones.appendChild(boton);
-}
-
-function mostrar_tabla(region, pagina) {
-  municipios_actuales = regionesConMunicipios[region];
-  pagina_actual = pagina;
-  const total_paginas = Math.ceil(
-    municipios_actuales.length / items_por_pagina
-  );
-  const inicio = (pagina - 1) * items_por_pagina;
-  const fin = inicio + items_por_pagina;
-  const municipios_pagina = municipios_actuales.slice(inicio, fin);
-  titulo_regmun.innerHTML = `<h2>${region}</h2>`;
-
-  let html = `<table class="tabla-datos">
-    <thead>
-      <tr>
-        <th>Municipio</th>
-        <th>Toneladas (Ton)</th>
-      </tr>
-    </thead>
-    <tbody>`;
-
-  municipios_pagina.forEach((m) => {
-    html += `<tr>
-      <td>${m.nombre}</td>
-      <td>${m.volumen.toLocaleString("es-MX")}</td>
-    </tr>`;
-  });
-
-  html += `</tbody></table>`;
-  if (municipios_actuales.length > items_por_pagina) {
-    html += `<div class="pagination_mun">`;
-
-    if (pagina > 1) {
-      html += `<button onclick="cambiar_pagina(${
-        pagina - 1
-      })">Anterior</button>`;
-    }
-
-    for (let i = 1; i <= total_paginas; i++) {
-      if (i === pagina) {
-        html += `<button style="font-weight:bold;">${i}</button>`;
-      } else {
-        html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
-      }
-    }
-
-    if (pagina < total_paginas) {
-      html += `<button onclick="cambiar_pagina(${
-        pagina + 1
-      })">Siguiente</button>`;
-    }
-
-    html += `</div>`;
-  }
-
-  contenedor_tabla.innerHTML = html;
-}
-
-function cambiar_pagina(nueva_pagina) {
-  const total_paginas = Math.ceil(
-    municipios_actuales.length / items_por_pagina
-  );
-  if (nueva_pagina < 1) nueva_pagina = 1;
-  if (nueva_pagina > total_paginas) nueva_pagina = total_paginas;
-
-  const inicio = (nueva_pagina - 1) * items_por_pagina;
-  const fin = inicio + items_por_pagina;
-  const municipios_pagina = municipios_actuales.slice(inicio, fin);
-
-  let html = `<table class="tabla-datos">
-    <thead>
-      <tr>
-        <th>Municipio</th>
-        <th>Toneladas (Ton)</th>
-      </tr>
-    </thead>
-    <tbody>`;
-
-  municipios_pagina.forEach((m) => {
-    html += `<tr>
-      <td>${m.nombre}</td>
-      <td>${m.volumen.toLocaleString("es-MX")}</td>
-    </tr>`;
-  });
-
-  html += `</tbody></table>`;
-
-  html += `<div class="pagination_mun">`;
-
-  if (nueva_pagina > 1) {
-    html += `<button onclick="cambiar_pagina(${
-      nueva_pagina - 1
-    })">Anterior</button>`;
-  }
-
-  for (let i = 1; i <= total_paginas; i++) {
-    if (i === nueva_pagina) {
-      html += `<button style="font-weight:bold;">${i}</button>`;
-    } else {
-      html += `<button onclick="cambiar_pagina(${i})">${i}</button>`;
-    }
-  }
-
-  if (nueva_pagina < total_paginas) {
-    html += `<button onclick="cambiar_pagina(${
-      nueva_pagina + 1
-    })">Siguiente</button>`;
-  }
-
-  html += `</div>`;
-
-  contenedor_tabla.innerHTML = html;
-  pagina_actual = nueva_pagina;
-}

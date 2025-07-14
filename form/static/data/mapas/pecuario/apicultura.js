@@ -779,7 +779,7 @@ const exportacion_balanza = [
   25076, 27443,
 ];
 
-const produccion_historica_miel = [
+const produccion_historica_producto = [
   {
     nom: "Sierra de Florez Magón",
     fila: [127, 135, 143, 144, 146, 145, 150, 149, 146, 80, 149, 146, 134, 119],
@@ -838,17 +838,17 @@ const produccion_historica_miel = [
   },
 ];
 
-const labels_historica_miel = [
+const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
-const labels_historica_cera = [
+const labels_historica_sub_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
 
-const produccion_historica_cera = [
+const produccion_historica_sub_producto = [
   {
     nom: "Sierra de Florez Magón",
     fila: [4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 3, 3],
@@ -883,7 +883,7 @@ const produccion_historica_cera = [
   },
 ];
 
-const tabla_produccion_miel = [
+const tabla_produccion_producto = [
   {
     region: "Costa",
     volumen: 2189,
@@ -942,7 +942,7 @@ const tabla_produccion_miel = [
   },
 ];
 
-const api_miel_ind = [
+const pub_indigenas_producto = [
   [
     "NO PUEBLO INDIGENA",
     "MIXTECO",
@@ -961,7 +961,7 @@ const api_miel_ind = [
   [837, 1926, 1118, 280, 279, 159, 81, 60, 45, 4, 4, 1, 1],
 ];
 
-const tabla_produccion_cera = [
+const tabla_produccion_sub_producto = [
   {
     region: "Costa",
     volumen: 74,
@@ -1020,7 +1020,7 @@ const tabla_produccion_cera = [
   },
 ];
 
-const api_cera_ind = [
+const pub_indigenas_sub_producto = [
   [
     "NO PUEBLO INDIGENA",
     "MIXTECO",
@@ -1039,4 +1039,4 @@ const api_cera_ind = [
   [23, 54, 32, 9, 7, 4, 2, 1, 0.5, 0.1, 0.1, 0.05, 0.04],
 ];
 
-const estacionalidad_miel = [156, 119, 93, 55, 120, 36, 0, 0, 0, 114, 471, 350];
+const estacionalidad_producto = [156, 119, 93, 55, 120, 36, 0, 0, 0, 114, 471, 350];

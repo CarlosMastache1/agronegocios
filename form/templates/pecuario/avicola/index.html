@@ -37,34 +37,37 @@
 		<!-- Secciones -->
 		<section id="section1" class="section">
 			<h1>DESCRIPCIÓN DEL SECTOR AVICOLA</h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				Oaxaca cuenta con 570 municipios productores del sector avícola, se encuentra en el 23° lugar en
-				producción de carne de ave y en el 19° en producción de huevo de gallina a nivel nacional, con 14
-				pueblos indígenas productores de este sector.
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+				Oaxaca cuenta con <strong></strong> productores del sector avícola, se encuentra en el <strong></strong>
+				a nivel
+				nacional en producción de carne de ave, con <strong></strong> productores de este sector; Oaxaca se
+				encuentra en el <strong></strong> en producción de huevo de gallina a nivel nacional, con
+				<strong></strong> productores de este sector.
 			</p>
-
 
 			<div class="descripcion">
 				<div class="container">
-
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>México ocupa el <strong>8º lugar</strong> mundial en producción de carne avícola, con un
+						<p id="des_mundo">México ocupa el <strong>8º lugar</strong> mundial en producción de carne
+							avícola, con un
 							volumen de producción de <strong>3,781,735 Ton</strong>; México ocupa el
-							<strong>7º lugar</strong> en producción de huevo de gallina,con un volumen de producción de
+							<strong>7º lugar</strong> en producción de huevo de gallina, con un volumen de producción de
 							<strong>61,628,301 Ton</strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>Oaxaca cuenta con <strong>570 municipios productores</strong> del sector avícola, tanto de
-							carne como de huevo de gallina.</p>
+						<p id="des_muni">Oaxaca cuenta con <strong>570 municipios</strong> productores del sector
+							avícola, tanto de
+							carne como de huevo de gallina. <strong></strong></p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>23º lugar</strong> nacional en producción de carne de ave, con un
+						<p id="des_na">Oaxaca ocupa el <strong>23º lugar</strong> nacional en producción de carne de
+							ave, con un
 							volumen de producción de <strong>13,122 Ton</strong>, con un peso promedio de <strong>2
 								KG</strong>, un precio de <strong>35 $/KG</strong> y un valor de producción de
 							<strong>$495,459,000</strong>, por otro lado Oaxaca ocupa el <strong>19º lugar</strong> en
@@ -74,22 +77,26 @@
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>La región con mayor producción de carne de ave es la <strong>Sierra de Flores Magón</strong>,
-							con 45 municipios productores, los caules tienen un volumen de producción de <strong>6,676
+						<p id="des_reg">La región con mayor producción de carne de ave es la <strong>Sierra de Flores
+								Magón</strong>,
+							con <strong></strong> productores, los caules tienen un volumen de producción de
+							<strong>6,676
 								Ton</strong>, un peso de <strong>2 KG</strong>, con un precio de <strong>43
 								$/KG</strong>, y un valor de producción de <strong>$268,365,000</strong>
-							y los <strong>Valles Centrales</strong> lideran en producción de huevo de gallina, con 121
-							municipios productores, los cuales cuentan con un volumen de producción de <strong>1,957
+							y los <strong>Valles Centrales</strong> lideran en producción de huevo de gallina, con
+							<strong></strong> productores, los cuales cuentan con un volumen de producción de
+							<strong>1,957
 								Ton</strong>, un precio de <strong>26 $/KG</strong> y un valor de producción de
 							<strong>$49,953,000</strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>14 pueblos indígenas</strong> participan activamente en la producción
+						<p id="des_pue">Un total de <strong>14 pueblos indígenas</strong> participan activamente en la
+							producción
 							avícola en Oaxaca.</p>
 					</div>
 				</div>
@@ -98,7 +105,6 @@
 			<!-- Contenedor de botones para filtrar entre producto y subproducto -->
 			<div class="container-buttons">
 				<!-- Botón para mostrar producto (carne) -->
-
 				<a class="btn h-button active" data-text="Ver Producto" aria-label="Thanks" onclick="mostrarProducto()">
 					<svg width="277" height="62" aria-hidden="true">
 						<defs>
@@ -134,8 +140,6 @@
 					<span>v</span>
 					<span>o</span>
 				</a>
-
-
 			</div>
 			<!-- Espacio visual entre secciones -->
 			<div class="espacio-estilo"></div>
@@ -157,7 +161,6 @@
 
 							<tbody id="tab_cuerpo_pais_pro">
 
-
 							</tbody>
 							<tfoot>
 								<tr>
@@ -168,8 +171,14 @@
 
 						</table>
 					</div>
-					<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
+					<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2"
+						frameborder="0"></iframe>
 				</div>
+				<p class="fuentes_pie fuente_mapa">
+					<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+					<button onclick="recargarMundoProducto()" class="boton-recargar"><i
+							class="fa-solid fa-rotate"></i></button>
+				</p>
 			</div>
 			<div class="bloque-subproducto">
 				<H3>HUEVO DE GALLINA</H3>
@@ -199,6 +208,14 @@
 						</table>
 					</div>
 				</div>
+				<p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
+						DE
+						LAS
+						NACIONES UNIDAS PARA LA
+						ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+					<button onclick="recargarMundoSubProducto()" class="boton-recargar"><i
+							class="fa-solid fa-rotate"></i></button>
+				</p>
 			</div>
 		</section>
 		<section id="section3" class="section">
@@ -251,8 +268,17 @@
 					<span id="pageInfo2"></span>
 					<button id="nextBtn2">Siguiente</button>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+						2023</strong>
+				</p>
+
 				<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 					frameborder="0"></iframe>
+				<p class="fuentes_pie fuente_mapa">
+					<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+					<button onclick="recargarMexicoProducto()" class="boton-recargar"><i
+							class="fa-solid fa-rotate"></i></button>
+				</p>
 			</div>
 			<div class="bloque-subproducto">
 				<H3>PRODUCCIÓN NACIONAL DE HUEVO DE GALLINA</H3>
@@ -300,8 +326,17 @@
 					<span id="pageInfo"></span>
 					<button id="nextBtn">Siguiente</button>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+						2023</strong>
+				</p>
+
 				<iframe id="iframe_mexico_sub_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
 					frameborder="0"></iframe>
+				<p class="fuentes_pie fuente_mapa">
+					<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+					<button onclick="recargarMexicoSubProducto()" class="boton-recargar"><i
+							class="fa-solid fa-rotate"></i></button>
+				</p>
 			</div>
 		</section>
 		<section id="section4" class="section">
@@ -310,6 +345,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 		<section id="section5" class="section">
 			<h1>PRODUCCIÓN HISTORICA DE CARNE DE AVE Y HUEVO DE GALLINA</h1>
@@ -318,6 +355,7 @@
 				<div class="chart-container">
 					<canvas id="lineChart2"></canvas>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 			</div>
 			<div class="bloque-subproducto">
 				<h3>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE HUEVO DE GALLINA (TON)</h3>
@@ -325,6 +363,7 @@
 				<div class="chart-container">
 					<canvas id="lineChart3"></canvas>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 			</div>
 		</section>
 		<section id="section6" class="section">
@@ -332,96 +371,31 @@
 			<div class="bloque-producto">
 				<h2>PRODUCCIÓN DE CARNE DE AVE EN OAXACA</h2>
 
+				<!-- Tabla con datos por región -->
 				<table class="tabla-datos">
 					<thead>
 						<tr>
 							<th>REGION</th>
 							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-							<th>PESO (KG)</th>
 							<th>PRECIO ($/KG)</th>
 							<th>VALOR DE PRODUCCIÓN ($)</th>
 							<th>CANTIDAD DE MUNICIPIOS</th>
 						</tr>
 					</thead>
 
-					<tbody>
-						<tr>
-							<td>Sierra de Flores Magón</td>
-							<td>6,676</td>
-							<td>2</td>
-							<td>43</td>
-							<td>268,365,000</td>
-							<td>45</td>
-						</tr>
-						<tr>
-							<td>Valles Centrales</td>
-							<td>2,115</td>
-							<td>2</td>
-							<td>28</td>
-							<td>57,501,000</td>
-							<td>121</td>
-						</tr>
-						<tr>
-							<td>Mixteca</td>
-							<td>1,058</td>
-							<td>1</td>
-							<td>38</td>
-							<td>40,187,000</td>
-							<td>155</td>
-						</tr>
-						<tr>
-							<td>Papaloapan</td>
-							<td>991</td>
-							<td>2</td>
-							<td>40</td>
-							<td>40,079,000</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>Istmo</td>
-							<td>686</td>
-							<td>1</td>
-							<td>39</td>
-							<td>26,508,000</td>
-							<td>41</td>
-						</tr>
-						<tr>
-							<td>Costa</td>
-							<td>659</td>
-							<td>2</td>
-							<td>45</td>
-							<td>30,561,000</td>
-							<td>50</td>
-						</tr>
-						<tr>
-							<td>Sierra de Juárez</td>
-							<td>504</td>
-							<td>2</td>
-							<td>31</td>
-							<td>17,534,000</td>
-							<td>69</td>
-						</tr>
-						<tr>
-							<td>Sierra Sur</td>
-							<td>433</td>
-							<td>2</td>
-							<td>33</td>
-							<td>14,723,000</td>
-							<td>69</td>
-						</tr>
+					<tbody id="tabla_produccion_miel_oax">
+						<!-- Datos dinámicos -->
 					</tbody>
 					<tfoot>
-						<tr>
-							<th>ESTATAL</th>
-							<th>13,122</th>
-							<th>2</th>
-							<th>35</th>
-							<th>495,459,000</th>
-							<th>570</th>
+						<tr id="total_tab_pro_miel_oax">
+							<!-- Totales -->
 						</tr>
 					</tfoot>
 				</table>
-
+				<p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+						AGRÍCOLA
+						2023</strong>
+				</p>
 
 				<h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
 				</h4>
@@ -429,6 +403,9 @@
 				<div class="chart-container">
 					<canvas id="lineChart4"></canvas>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+						2023</strong>
+				</p>
 			</div>
 			<div class="bloque-subproducto">
 				<h3>PRODUCCIÓN DE HUEVO DE GALLINA EN OAXACA</h3>
@@ -436,95 +413,42 @@
 					<thead>
 						<tr>
 							<th>REGION</th>
-							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+							<th>VOLUMEN DE PRODUCCIÓN (L)</th>
 							<th>PRECIO ($/KG)</th>
 							<th>VALOR DE PRODUCCIÓN ($)</th>
 							<th>CANTIDAD DE MUNICIPIOS</th>
 						</tr>
 					</thead>
 
-					<tbody>
-						<tr>
-							<td>Valles Centrales</td>
-							<td>1,957</td>
-							<td>26</td>
-							<td>49,953,000</td>
-							<td>121</td>
-						</tr>
-						<tr>
-							<td>Papaloapan</td>
-							<td>1,343</td>
-							<td>28</td>
-							<td>37,923,000</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>Istmo</td>
-							<td>973</td>
-							<td>30</td>
-							<td>28,532,000</td>
-							<td>41</td>
-						</tr>
-						<tr>
-							<td>Sierra de Juárez</td>
-							<td>669</td>
-							<td>32</td>
-							<td>20,642,000</td>
-							<td>69</td>
-						</tr>
-						<tr>
-							<td>Mixteca</td>
-							<td>596</td>
-							<td>26</td>
-							<td>15,822,000</td>
-							<td>155</td>
-						</tr>
-						<tr>
-							<td>Sierra Sur</td>
-							<td>551</td>
-							<td>27</td>
-							<td>15,076,000</td>
-							<td>69</td>
-						</tr>
-						<tr>
-							<td>Costa</td>
-							<td>434</td>
-							<td>36</td>
-							<td>15,901,000</td>
-							<td>50</td>
-						</tr>
-						<tr>
-							<td>Sierra de Flores Magón</td>
-							<td>355</td>
-							<td>29</td>
-							<td>10,154,000</td>
-							<td>45</td>
-						</tr>
+					<tbody id="tabla_produccion_sub_prod_oax">
+
 					</tbody>
 					<tfoot>
-						<tr>
-							<th>ESTATAL</th>
-							<th>6,879</th>
-							<th>28</th>
-							<th>194,001,000</th>
-							<th>570</th>
+						<tr id="total_tb_pro_cera_oax">
 						</tr>
 					</tfoot>
 				</table>
+				<p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+						AGRÍCOLA
+						2023</strong>
+				</p>
 
 				<h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
 				</h4>
 				<div class="chart-container">
 					<canvas id="lineChart5"></canvas>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+						2023</strong>
+				</p>
 			</div>
 		</section>
 		<section id="section7" class="section">
 			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
 
-
 			<div class="bloque-producto">
-				<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la
+				<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">La
+					estacionalidad de la
 					producción se
 					refiere a la variación en la frecuencia mensual con la que se
 					produce carne de pollo, gallina en el estado de Oaxaca. Esta variación se mide mediante el
@@ -536,9 +460,13 @@
 				<div class="chart-container">
 					<canvas id="lineChart6"></canvas>
 				</div>
+				<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+						2023</strong>
+				</p>
 			</div>
 			<div class="bloque-subproducto">
-				<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la
+				<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad2">La
+					estacionalidad de la
 					producción se
 					refiere a la variación en la frecuencia mensual con la que se
 					produce el huevo en el estado de Oaxaca. Esta variación se mide mediante el
@@ -550,13 +478,20 @@
 					<div class="chart-container">
 						<canvas id="lineChart7"></canvas>
 					</div>
+					<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+							2023</strong>
+					</p>
 			</div>
-
-
 		</section>
+		
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN CARNE Y HUEVO DE GALLINA EN OAXACA</h1>
-			<iframe loading="lazy"  id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+				frameborder="0"></iframe>
+			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -580,11 +515,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -638,6 +583,31 @@
 	const mexico_carne = document.getElementById("iframe_mexico_prod");
 	mexico_carne.onload = function () {
 		mexico_carne.contentWindow.postMessage(tab_mex_pro, "*");
+	}
+
+	function recargarMexicoProducto() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundoProducto() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMexicoSubProducto() {
+		const iframe = document.getElementById('iframe_mexico_sub_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundoSubProducto() {
+		const iframe = document.getElementById('frame_mundo_sub_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
 	}
 </script>
 
