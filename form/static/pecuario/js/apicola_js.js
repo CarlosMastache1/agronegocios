@@ -1,3 +1,150 @@
+const mexicoDataPro = tabla_paises_prod.find((entidad) => entidad.id === "MEX");
+const mexicoDataSPro = tabla_paises_sub_prod.find(
+  (entidad) => entidad.id === "MEX"
+);
+
+const pTag = document.getElementById("des_mundo");
+const strongTags = pTag.querySelectorAll("strong");
+
+if (mexicoDataPro && mexicoDataSPro && strongTags.length > 3) {
+  strongTags[0].textContent = `${mexicoDataPro.ranking}° lugar`;
+  strongTags[1].textContent = `${mexicoDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTags[2].textContent = `${mexicoDataSPro.ranking}° lugar`;
+  strongTags[3].textContent = `${mexicoDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+}
+
+const pTagM = document.getElementById("des_muni");
+const strongTagsM = pTagM.querySelectorAll("strong");
+let sumMunPro = 0;
+tabla_produccion_producto.forEach((region) => (sumMunPro += region.municipios));
+
+let sumMunSPro = 0;
+tabla_produccion_sub_producto.forEach(
+  (region) => (sumMunSPro += region.municipios)
+);
+
+if (
+  tabla_produccion_producto &&
+  tabla_produccion_sub_producto &&
+  strongTagsM.length > 1
+) {
+  strongTagsM[0].textContent = `${sumMunPro} municipios`;
+  strongTagsM[1].textContent = `${sumMunSPro} municipios`;
+}
+
+const oaxacaDataPro = tab_mex_pro.find((entidad) => entidad.id === "OAX");
+const oaxacaDataSPro = tab_mex_sub_pro.find((entidad) => entidad.id === "OAX");
+const pTagN = document.getElementById("des_na");
+const strongTagsN = pTagN.querySelectorAll("strong");
+
+if (oaxacaDataPro && strongTagsN.length > 7) {
+  strongTagsN[0].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsN[1].textContent = `${oaxacaDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[2].textContent = `${oaxacaDataPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[3].textContent = `$${oaxacaDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  strongTagsN[4].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsN[5].textContent = `${oaxacaDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[6].textContent = `${oaxacaDataSPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[7].textContent = `$${oaxacaDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const regionDataPro = tabla_produccion_producto[0];
+const regionDataSPro = tabla_produccion_sub_producto[0];
+const pTagR = document.getElementById("des_reg");
+const strongTagsR = pTagR.querySelectorAll("strong");
+
+if (regionDataPro && strongTagsR.length > 9) {
+  strongTagsR[0].textContent = `${regionDataPro.region}`;
+  strongTagsR[1].textContent = `${regionDataPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[2].textContent = `${regionDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[3].textContent = `${regionDataPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[4].textContent = `$${regionDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  strongTagsR[5].textContent = `${regionDataSPro.region}`;
+  strongTagsR[6].textContent = `${regionDataSPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[7].textContent = `${regionDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[8].textContent = `${regionDataSPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[9].textContent = `$${regionDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const pTagP = document.getElementById("des_pue");
+const strongTagsP = pTagP.querySelectorAll("strong");
+if (strongTagsP.length > 1) {
+  strongTagsP[0].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+  strongTagsP[1].textContent = `${
+    pub_indigenas_sub_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const pTagD = document.getElementById("descripcion");
+const strongTagsD = pTagD.querySelectorAll("strong");
+if (oaxacaDataPro && oaxacaDataSPro && strongTagsD.length > 1) {
+  strongTagsD[0].textContent = `${sumMunPro} municipios`;
+  strongTagsD[1].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsD[2].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+  strongTagsD[3].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsD[4].textContent = `${
+    pub_indigenas_sub_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const meses = [
+  "ENERO",
+  "FEBRERO",
+  "MARZO",
+  "ABRIL",
+  "MAYO",
+  "JUNIO",
+  "JULIO",
+  "AGOSTO",
+  "SEPTIEMBRE",
+  "OCTUBRE",
+  "NOVIEMBRE",
+  "DICIEMBRE",
+];
+
+const pTagE = document.getElementById("estacionalidad");
+const strongTagsE = pTagE.querySelectorAll("strong");
+
+const maxValor = Math.max(...estacionalidad_producto);
+const indiceMax = estacionalidad_producto.indexOf(maxValor);
+
+if (strongTagsE.length > 1) {
+  strongTagsE[0].textContent = `${meses[indiceMax]}`;
+  strongTagsE[1].textContent = `${maxValor.toLocaleString("es-MX")} puntos`;
+}
+
 const tab_cuerpo_pais_miel = document.getElementById("tab_cuerpo_pais_miel");
 const tab_cuerpo_pais_cera = document.getElementById("tab_cuerpo_pais_cera");
 const total_tab1 = document.getElementById("total_tabla1");
@@ -67,7 +214,13 @@ function renderTable() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad.toLocaleString("es-MX")}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad.toLocaleString(
+      "es-MX"
+    )}</td><td>${row.volumen.toLocaleString(
+      "es-MX"
+    )}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString(
+      "es-MX"
+    )}</td>`;
 
     tableBody.appendChild(tr);
   }
@@ -154,7 +307,13 @@ function renderTable2() {
 
   for (const row of pageData) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${row.ranking}</td><td>${row.entidad}</td><td>${row.volumen.toLocaleString("es-MX")}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString("es-MX")}</td>`;
+    tr.innerHTML = `<td>${row.ranking}</td><td>${
+      row.entidad
+    }</td><td>${row.volumen.toLocaleString(
+      "es-MX"
+    )}</td><td>${row.precio.toFixed(2)}</td><td>${row.valor.toLocaleString(
+      "es-MX"
+    )}</td>`;
     tableBody2.appendChild(tr);
   }
 
@@ -215,11 +374,11 @@ const promedioPrecio2 = sumaPrecioPonderado2 / sumaVolumen2;
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>${sumaVolumen2?.toLocaleString(
-  "es-MX"
-) || "0" }</th><th>${promedioPrecio2.toFixed(0)}</th><th>${sumaValor2?.toLocaleString(
-  "es-MX"
-) || "0"}</th> `;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>${
+  sumaVolumen2?.toLocaleString("es-MX") || "0"
+}</th><th>${promedioPrecio2.toFixed(0)}</th><th>${
+  sumaValor2?.toLocaleString("es-MX") || "0"
+}</th> `;
 
 const ctx = document.getElementById("lineChart").getContext("2d");
 
@@ -329,11 +488,11 @@ new Chart(ctx, config);
 const ctx2 = document.getElementById("lineChart2").getContext("2d");
 
 const datos2 = {
-  labels: labels_historica_miel,
+  labels: labels_historica_producto,
   datasets: [
     {
-      label: produccion_historica_miel[0].nom,
-      data: produccion_historica_miel[0].fila,
+      label: produccion_historica_producto[0].nom,
+      data: produccion_historica_producto[0].fila,
       borderColor: "rgba(178, 0, 0, 1)",
       backgroundColor: "rgba(178, 0, 0, 0.2)",
       borderWidth: 4,
@@ -341,8 +500,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[1].nom,
-      data: produccion_historica_miel[1].fila,
+      label: produccion_historica_producto[1].nom,
+      data: produccion_historica_producto[1].fila,
       borderColor: "rgba(0, 0, 178, 1)",
       backgroundColor: "rgba(0, 0, 178, 0.2)",
       borderWidth: 4,
@@ -350,8 +509,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[2].nom,
-      data: produccion_historica_miel[2].fila,
+      label: produccion_historica_producto[2].nom,
+      data: produccion_historica_producto[2].fila,
       borderColor: "rgba(204, 204, 0, 1)",
       backgroundColor: "rgba(204, 204, 0, 0.2)",
       borderWidth: 4,
@@ -359,8 +518,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[3].nom,
-      data: produccion_historica_miel[3].fila,
+      label: produccion_historica_producto[3].nom,
+      data: produccion_historica_producto[3].fila,
       borderColor: "rgba(102, 0, 153, 1)",
       backgroundColor: "rgba(102, 0, 153, 0.2)",
       borderWidth: 4,
@@ -368,8 +527,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[4].nom,
-      data: produccion_historica_miel[4].fila,
+      label: produccion_historica_producto[4].nom,
+      data: produccion_historica_producto[4].fila,
       borderColor: "rgba(204, 102, 0, 1)",
       backgroundColor: "rgba(204, 102, 0, 0.2)",
       borderWidth: 4,
@@ -377,8 +536,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[5].nom,
-      data: produccion_historica_miel[5].fila,
+      label: produccion_historica_producto[5].nom,
+      data: produccion_historica_producto[5].fila,
       borderColor: "rgba(0, 102, 0, 1)",
       backgroundColor: "rgba(0, 102, 0, 0.2)",
       borderWidth: 4,
@@ -386,8 +545,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[6].nom,
-      data: produccion_historica_miel[6].fila,
+      label: produccion_historica_producto[6].nom,
+      data: produccion_historica_producto[6].fila,
       borderColor: "rgba(85, 85, 85, 1)",
       backgroundColor: "rgba(85, 85, 85, 0.2)",
       borderWidth: 4,
@@ -395,8 +554,8 @@ const datos2 = {
       fill: false,
     },
     {
-      label: produccion_historica_miel[7].nom,
-      data: produccion_historica_miel[7].fila,
+      label: produccion_historica_producto[7].nom,
+      data: produccion_historica_producto[7].fila,
       borderColor: "rgba(36, 113, 163, 1)",
       backgroundColor: "rgba(36, 113, 163, 0.2)",
       borderWidth: 4,
@@ -415,8 +574,10 @@ const config2 = {
       title: {
         display: true,
         text: `Volumen de producción por Región (${
-          labels_historica_miel[0]
-        } - ${labels_historica_miel[labels_historica_miel.length - 1]})`,
+          labels_historica_producto[0]
+        } - ${
+          labels_historica_producto[labels_historica_producto.length - 1]
+        })`,
         font: {
           size: 22,
         },
@@ -487,11 +648,11 @@ new Chart(ctx2, config2);
 const ctx3 = document.getElementById("lineChart3").getContext("2d");
 
 const datos3 = {
-  labels: labels_historica_cera,
+  labels: labels_historica_sub_producto,
   datasets: [
     {
-      label: produccion_historica_cera[0].nom,
-      data: produccion_historica_cera[0].fila,
+      label: produccion_historica_sub_producto[0].nom,
+      data: produccion_historica_sub_producto[0].fila,
       borderColor: "rgba(178, 0, 0, 1)",
       backgroundColor: "rgba(178, 0, 0, 0.2)",
       borderWidth: 4,
@@ -499,8 +660,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[1].nom,
-      data: produccion_historica_cera[1].fila,
+      label: produccion_historica_sub_producto[1].nom,
+      data: produccion_historica_sub_producto[1].fila,
       borderColor: "rgba(0, 0, 178, 1)",
       backgroundColor: "rgba(0, 0, 178, 0.2)",
       borderWidth: 4,
@@ -509,8 +670,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[2].nom,
-      data: produccion_historica_cera[2].fila,
+      label: produccion_historica_sub_producto[2].nom,
+      data: produccion_historica_sub_producto[2].fila,
       borderColor: "rgba(204, 204, 0, 1)",
       backgroundColor: "rgba(204, 204, 0, 0.2)",
       borderWidth: 4,
@@ -518,8 +679,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[3].nom,
-      data: produccion_historica_cera[3].fila,
+      label: produccion_historica_sub_producto[3].nom,
+      data: produccion_historica_sub_producto[3].fila,
       borderColor: "rgba(102, 0, 153, 1)",
       backgroundColor: "rgba(102, 0, 153, 0.2)",
       borderWidth: 4,
@@ -527,8 +688,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[4].nom,
-      data: produccion_historica_cera[4].fila,
+      label: produccion_historica_sub_producto[4].nom,
+      data: produccion_historica_sub_producto[4].fila,
       borderColor: "rgba(204, 102, 0, 1)",
       backgroundColor: "rgba(204, 102, 0, 0.2)",
       borderWidth: 4,
@@ -536,8 +697,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[5].nom,
-      data: produccion_historica_cera[5].fila,
+      label: produccion_historica_sub_producto[5].nom,
+      data: produccion_historica_sub_producto[5].fila,
       borderColor: "rgba(0, 102, 0, 1)",
       backgroundColor: "rgba(0, 102, 0, 0.2)",
       tension: 0.3,
@@ -545,8 +706,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[6].nom,
-      data: produccion_historica_cera[6].fila,
+      label: produccion_historica_sub_producto[6].nom,
+      data: produccion_historica_sub_producto[6].fila,
       borderColor: "rgba(85, 85, 85, 1)",
       backgroundColor: "rgba(85, 85, 85, 0.2)",
       borderWidth: 4,
@@ -554,8 +715,8 @@ const datos3 = {
       fill: false,
     },
     {
-      label: produccion_historica_cera[7].nom,
-      data: produccion_historica_cera[7].fila,
+      label: produccion_historica_sub_producto[7].nom,
+      data: produccion_historica_sub_producto[7].fila,
       borderColor: "rgba(36, 113, 163, 1)",
       backgroundColor: "rgba(36, 113, 163, 0.2)",
       borderWidth: 4,
@@ -574,8 +735,12 @@ const config3 = {
       title: {
         display: true,
         text: `Volumen de producción por Región (${
-          labels_historica_cera[0]
-        } - ${labels_historica_cera[labels_historica_cera.length - 1]})`,
+          labels_historica_sub_producto[0]
+        } - ${
+          labels_historica_sub_producto[
+            labels_historica_sub_producto.length - 1
+          ]
+        })`,
         font: {
           size: 22,
         },
@@ -648,32 +813,32 @@ let precio_pro_miel = 0;
 let valor_pro_miel = 0;
 let municipios_pro_miel = 0;
 
-for (let i = 0; i < tabla_produccion_miel.length; i++) {
-  volumen_pro_miel += tabla_produccion_miel[i].volumen;
-  precio_pro_miel += tabla_produccion_miel[i].precio;
-  valor_pro_miel += tabla_produccion_miel[i].valor;
-  municipios_pro_miel += tabla_produccion_miel[i].municipios;
+for (let i = 0; i < tabla_produccion_producto.length; i++) {
+  volumen_pro_miel += tabla_produccion_producto[i].volumen;
+  precio_pro_miel += tabla_produccion_producto[i].precio;
+  valor_pro_miel += tabla_produccion_producto[i].valor;
+  municipios_pro_miel += tabla_produccion_producto[i].municipios;
 
   const fila = document.createElement("tr");
 
   const celdaRegion = document.createElement("td");
-  celdaRegion.textContent = tabla_produccion_miel[i].region;
+  celdaRegion.textContent = tabla_produccion_producto[i].region;
 
   const celdaVolumen = document.createElement("td");
   celdaVolumen.textContent =
-    tabla_produccion_miel[i].volumen.toLocaleString("es-MX");
+    tabla_produccion_producto[i].volumen.toLocaleString("es-MX");
 
   const celdaPrecio = document.createElement("td");
   celdaPrecio.textContent =
-    tabla_produccion_miel[i].precio.toLocaleString("es-MX");
+    tabla_produccion_producto[i].precio.toLocaleString("es-MX");
 
   const celdaValor = document.createElement("td");
   celdaValor.textContent =
-    tabla_produccion_miel[i].valor.toLocaleString("es-MX");
+    tabla_produccion_producto[i].valor.toLocaleString("es-MX");
 
   const celdaMunicipio = document.createElement("td");
   celdaMunicipio.textContent =
-    tabla_produccion_miel[i].municipios.toLocaleString("es-MX");
+    tabla_produccion_producto[i].municipios.toLocaleString("es-MX");
 
   fila.appendChild(celdaRegion);
   fila.appendChild(celdaVolumen);
@@ -689,7 +854,7 @@ const total_tab_pro_miel_oax = document.getElementById(
 );
 total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_pro_miel.toLocaleString(
   "es-MX"
-)}</th><th>${(precio_pro_miel / tabla_produccion_miel.length).toFixed(
+)}</th><th>${(precio_pro_miel / tabla_produccion_producto.length).toFixed(
   0
 )}</th><th>${valor_pro_miel.toLocaleString(
   "es-MX"
@@ -699,11 +864,11 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_pro_miel.toLoc
 const ctx4 = document.getElementById("lineChart4").getContext("2d");
 
 const datos4 = {
-  labels: api_miel_ind[0],
+  labels: pub_indigenas_producto[0],
   datasets: [
     {
       label: "Producción (Ton)",
-      data: api_miel_ind[1],
+      data: pub_indigenas_producto[1],
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -767,31 +932,31 @@ let precio_pro_cera = 0;
 let valor_pro_cera = 0;
 let municipios_pro_cera = 0;
 
-for (let i = 0; i < tabla_produccion_cera.length; i++) {
-  volumen_pro_cera += tabla_produccion_cera[i].volumen;
-  precio_pro_cera += tabla_produccion_cera[i].precio;
-  valor_pro_cera += tabla_produccion_cera[i].valor;
-  municipios_pro_cera += tabla_produccion_cera[i].municipios;
+for (let i = 0; i < tabla_produccion_sub_producto.length; i++) {
+  volumen_pro_cera += tabla_produccion_sub_producto[i].volumen;
+  precio_pro_cera += tabla_produccion_sub_producto[i].precio;
+  valor_pro_cera += tabla_produccion_sub_producto[i].valor;
+  municipios_pro_cera += tabla_produccion_sub_producto[i].municipios;
   const fila = document.createElement("tr");
 
   const celdaRegion = document.createElement("td");
-  celdaRegion.textContent = tabla_produccion_cera[i].region;
+  celdaRegion.textContent = tabla_produccion_sub_producto[i].region;
 
   const celdaVolumen = document.createElement("td");
   celdaVolumen.textContent =
-    tabla_produccion_cera[i].volumen.toLocaleString("es-MX");
+    tabla_produccion_sub_producto[i].volumen.toLocaleString("es-MX");
 
   const celdaPrecio = document.createElement("td");
   celdaPrecio.textContent =
-    tabla_produccion_cera[i].precio.toLocaleString("es-MX");
+    tabla_produccion_sub_producto[i].precio.toLocaleString("es-MX");
 
   const celdaValor = document.createElement("td");
   celdaValor.textContent =
-    tabla_produccion_cera[i].valor.toLocaleString("es-MX");
+    tabla_produccion_sub_producto[i].valor.toLocaleString("es-MX");
 
   const celdaMunicipio = document.createElement("td");
   celdaMunicipio.textContent =
-    tabla_produccion_cera[i].municipios.toLocaleString("es-MX");
+    tabla_produccion_sub_producto[i].municipios.toLocaleString("es-MX");
 
   fila.appendChild(celdaRegion);
   fila.appendChild(celdaVolumen);
@@ -805,20 +970,19 @@ const total_tb_pro_cera_oax = document.getElementById("total_tb_pro_cera_oax");
 total_tb_pro_cera_oax.innerHTML = `
 <th>ESTATAL</th>
 <th>${/* volumen_pro_cera.toLocaleString("es-MX") */ 132}</th>
-<th>${(precio_pro_cera/tabla_produccion_cera.length).toFixed(0)}</th>
-<th>${/* valor_pro_cera.toLocaleString("es-MX") */'9,823,000'}</th>
+<th>${(precio_pro_cera / tabla_produccion_sub_producto.length).toFixed(0)}</th>
+<th>${/* valor_pro_cera.toLocaleString("es-MX") */ "9,823,000"}</th>
 <th>${municipios_pro_cera}</th>`;
-
 
 /* Grafica 5 */
 const ctx5 = document.getElementById("lineChart5").getContext("2d");
 
 const datos5 = {
-  labels: api_cera_ind[0],
+  labels: pub_indigenas_sub_producto[0],
   datasets: [
     {
       label: "Producción (Ton)",
-      data: api_cera_ind[1],
+      data: pub_indigenas_sub_producto[1],
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -875,29 +1039,15 @@ const config5 = {
 
 new Chart(ctx5, config5);
 
-
 /* Grafica 6*/
 const ctx6 = document.getElementById("lineChart6").getContext("2d");
 
 const datos6 = {
-  labels: [
-    "ENERO",
-    "FEBRERO",
-    "MARZO",
-    "ABRIL",
-    "MAYO",
-    "JUNIO",
-    "JULIO",
-    "AGOSTO",
-    "SEPTIEMBRE",
-    "OCTUBRE",
-    "NOVIEMBRE",
-    "DICIEMBRE",
-  ],
+  labels: meses,
   datasets: [
     {
       label: "Miel de abeja",
-      data: estacionalidad_miel,
+      data: estacionalidad_producto,
       borderColor: "rgb(208, 122, 0)",
       backgroundColor: "rgb(208, 122, .8)",
       tension: 0.3,
@@ -953,7 +1103,6 @@ const config6 = {
 };
 
 new Chart(ctx6, config6);
-
 
 const contenedor_botones = document.getElementById("botones");
 const contenedor_tabla = document.getElementById("tabla");

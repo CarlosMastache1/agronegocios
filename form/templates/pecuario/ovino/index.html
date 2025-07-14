@@ -43,8 +43,12 @@
         <section id="section1" class="section">
             <h1>DESCRIPCIÓN DEL SECTOR OVINO</h1>
             <!-- Texto introductorio con datos clave sobre municipios productores de carne y lana de ovino -->
-            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-                Oaxaca cuenta con <strong>191 municipios</strong> con producción de lana de ovino y  <strong>457 municipios</strong> con producción de carne de ovino, a nivel nacional ocupa el <strong> 9° lugar</strong> en producción de carne y <strong>7° lugar</strong> en producción de lana, con <strong>13 pueblos indígenas</strong>  productores de este sector.
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+                Oaxaca cuenta con <strong></strong> productores del sector ovino, se encuentra en el <strong></strong>
+                a nivel
+                nacional en producción de carne de ovino, con <strong></strong> productores de este sector; Oaxaca se
+                encuentra en el <strong></strong> en producción de lana de oveja a nivel nacional, con
+                <strong></strong> productores de este sector.
             </p>
 
             <!-- Contenedor con tarjetas que resumen datos importantes -->
@@ -52,9 +56,9 @@
                 <div class="container">
 
                     <!-- Tarjeta 1: Lugar a nivel mundial -->
-                    <div class="card">
+                    <div class="card" data-target="section2">
                         <h2>📊 Lugar a nivel mundial</h2>
-                        <p>
+                        <p id="des_mundo">
                             México ocupa el <strong>33° lugar</strong> a nivel mundial en la producción de carne de
                             ovino con un volumen de producción de <strong>67,249 Ton</strong>; y ocupa el <strong>40°
                                 lugar</strong> en producción de lana de ovino con un volumend e producción de
@@ -63,18 +67,19 @@
                     </div>
 
                     <!-- Tarjeta 2: Municipios productores en Oaxaca -->
-                    <div class="card">
+                    <div class="card" data-target="section8">
                         <h2>📍 Municipios en Oaxaca</h2>
-                        <p>
+                        <p id="des_muni">
                             En Oaxaca hay <strong>457 municipios</strong> que producen carne de ovino y <strong>191
                                 municipios</strong> con producción de lana.
                         </p>
                     </div>
 
                     <!-- Tarjeta 3: Lugar a nivel nacional -->
-                    <div class="card">
+                    <div class="card" data-target="section3">
                         <h2>🇲🇽 Lugar a nivel nacional</h2>
-                        <p>Oaxaca ocupa el <strong>9º lugar</strong> nacional en producción de carne de ovino, contando
+                        <p id="des_na">Oaxaca ocupa el <strong>9º lugar</strong> nacional en producción de carne de
+                            ovino, contando
                             con un volumen de producción de <strong>2,554 Ton</strong>, un peso de <strong>18
                                 KG</strong>, un precio de <strong>83 $/KG</strong>, dando un volumen de producción de
                             <strong>$213,315,000</strong>.
@@ -85,14 +90,16 @@
                     </div>
 
                     <!-- Tarjeta 4: Regiones con mayor producción -->
-                    <div class="card">
+                    <div class="card" data-target="section6">
                         <h2>📈 Región con mayor producción</h2>
-                        <p>
+                        <p id="des_reg">
                             La región de la <strong>Mixteca</strong> se encuentra con la mayor producción de carne de
-                            ovino, contando con <strong>128 municipios</strong> productores, con un volumen de producción
+                            ovino, contando con <strong>128 municipios</strong> productores, con un volumen de
+                            producción
                             de <strong>786 Ton</strong>, un peso de <strong>18 KG</strong>, con un precio de
                             <strong>81 $/KG</strong> y teniendo un valor de producción de
-                            <strong>$63,656,000</strong>. <strong>Valles Centrales</strong> es la región con mayor producción de lana de Ovino, contando con
+                            <strong>$63,656,000</strong>. <strong>Valles Centrales</strong> es la región con mayor
+                            producción de lana de Ovino, contando con
                             <strong>70 municipios</strong> productores, con un volumen de producción de
                             <strong>95 Ton</strong>, con un precio de <strong>9 $/KG</strong> y teniendo un valor
                             de producción de <strong>$819,000</strong>.
@@ -101,10 +108,12 @@
                     </div>
 
                     <!-- Tarjeta 5: Pueblos indígenas productores -->
-                    <div class="card">
+                    <div class="card" data-target="section6">
                         <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-                        <p>Un total de <strong>13 pueblos indígenas</strong> se encuentran dentro de la producción de
-                            carne de ovino, mientars que <strong>5 pueblos indígenas</strong> se encuentran dentro de la producción de
+                        <p id="des_pue">Un total de <strong>13 pueblos indígenas</strong> se encuentran dentro de la
+                            producción de
+                            carne de ovino, mientars que <strong>5 pueblos indígenas</strong> se encuentran dentro de la
+                            producción de
                             lana de ovino.</p>
                     </div>
                 </div>
@@ -185,6 +194,13 @@
                     <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2"
                         frameborder="0"></iframe>
                 </div>
+                <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE
+                        LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
 
             <!-- Bloque subproducto: LANA de ovino -->
@@ -218,6 +234,14 @@
                         </table>
                     </div>
                 </div>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
+                        DE
+                        LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoSubProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
         </section>
 
@@ -271,10 +295,18 @@
                     <span id="pageInfo"></span>
                     <button id="nextBtn">Siguiente</button>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <!-- Iframe con mapa nacional -->
                 <iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
                     frameborder="0"></iframe>
+                <p class="fuentes_pie fuente_mapa">
+                    <strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+                    <button onclick="recargarMexicoProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
 
             <!-- Bloque subproducto: lana de ovino -->
@@ -321,10 +353,18 @@
                     <span id="pageInfo2"></span>
                     <button id="nextBtn2">Siguiente</button>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <!-- Iframe con mapa nacional para lana -->
                 <iframe id="iframe_mexico_sub_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
                     frameborder="0"></iframe>
+                <p class="fuentes_pie fuente_mapa">
+                    <strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+                    <button onclick="recargarMexicoSubProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
         </section>
 
@@ -334,6 +374,8 @@
             <div class="chart-container">
                 <canvas id="lineChart"></canvas>
             </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+                    PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
         </section>
 
         <!-- Sección 5: Producción histórica del sector ovino en Oaxaca -->
@@ -346,6 +388,7 @@
                     <!-- Canvas para gráfico de línea -->
                     <canvas id="lineChart2"></canvas>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
             </div>
             <!-- Bloque subproducto: producción histórica de lana -->
             <div class="bloque-subproducto">
@@ -353,6 +396,7 @@
                 <div class="chart-container">
                     <canvas id="lineChart3"></canvas>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
             </div>
         </section>
 
@@ -383,6 +427,10 @@
                         </tr>
                     </tfoot>
                 </table>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+                        AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
                 </h4>
@@ -390,6 +438,9 @@
                 <div class="chart-container">
                     <canvas id="lineChart4"></canvas>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
             </div>
             <!-- Bloque subproducto: lana -->
             <div class="bloque-subproducto">
@@ -414,12 +465,19 @@
                         </tr>
                     </tfoot>
                 </table>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+                        AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
                 </h4>
                 <div class="chart-container">
                     <canvas id="lineChart5"></canvas>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
             </div>
         </section>
 
@@ -427,7 +485,9 @@
         <section id="section7" class="section bloque-producto">
             <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
 
-            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">La estacionalidad
+                de
+                la
                 producción se refiere a la variación en la frecuencia mensual con la que se produce carne de ovinos
                 en el estado de Oaxaca. Esta variación se mide mediante el
                 Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
@@ -445,7 +505,12 @@
         <!-- Sección 8: Municipios productores de carne de ovino en Oaxaca -->
         <section id="section8" class="section bloque-producto">
             <h1>MUNICIPIOS QUE PRODUCEN CARNE DE OVINO EN OAXACA</h1>
-            <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+            <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+            <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                    2023</strong>
+                <button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+            </p>
             <div id="botones"></div>
             <div id="titulo_regmun"></div>
             <div id="tabla"></div>
@@ -478,11 +543,21 @@
     const circles = document.querySelectorAll('.progress-circle');
     // Selecciona todas las secciones del documento
     const sections = document.querySelectorAll('section');
+    const cards = document.querySelectorAll('.card');
 
     // Añade evento click a cada círculo para hacer scroll suave a la sección correspondiente
     circles.forEach(circle => {
         circle.addEventListener('click', () => {
             const targetId = circle.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Scroll a la sección al hacer clic
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
@@ -542,6 +617,31 @@
     const mexico_producto = document.getElementById("iframe_mexico_prod");
     mexico_producto.onload = function () {
         mexico_producto.contentWindow.postMessage(tab_mex_pro, "*");
+    }
+
+    function recargarMexicoProducto() {
+        const iframe = document.getElementById('iframe_mexico_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoProducto() {
+        const iframe = document.getElementById('frame_mundo_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarOaxaca() {
+        const iframe = document.getElementById('frame_oaxaca');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMexicoSubProducto() {
+        const iframe = document.getElementById('iframe_mexico_sub_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoSubProducto() {
+        const iframe = document.getElementById('frame_mundo_sub_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
     }
 </script>
 

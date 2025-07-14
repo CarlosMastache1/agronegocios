@@ -790,11 +790,11 @@ const importacion_balanza = [];
 const exportacion_balanza = [];
 
 /* Etiquetas para el periodo de tiempo usado en la grafica de produccion historica */
-
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,
 ];
+
 const labels_historica_sub_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
   2023,

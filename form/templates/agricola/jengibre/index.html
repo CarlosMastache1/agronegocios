@@ -4,10 +4,7 @@
 
 {% block content %}
 
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -50,9 +47,9 @@
 		<!-- Secciones -->
 		<section id="section1" class="section">
 			<h1>DESCRIPCIÓN DEL <strong>JENGIBRE</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
 				Este cultivo es anual por lo que su ciclo de vida es de <strong>8 a 9 meses</strong>, Oaxaca tiene
-				<strong>1 Municipio</strong> productor de Jengibre, se encuentra en el <strong>2° lugar</strong> en
+				<strong></strong> productor de Jengibre, se encuentra en el <strong></strong> en
 				producción a nivel nacional, con <strong></strong> productor de este cultivo.
 			</p>
 
@@ -68,45 +65,47 @@
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
-							México ocupa el <strong>23° lugar</strong> a nivel mundial en la producción de jengibre, con
-							una superficie de producción <strong>433 Ha</strong>.
+						<p id="des_mundo">
+							México ocupa el <strong></strong> a nivel mundial en la producción de jengibre, con
+							una superficie de producción <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
-							En Oaxaca hay <strong>1 municipio</strong> que esta dedicado al cultivo de jengibre.
+						<p id="des_muni">
+							En Oaxaca hay <strong></strong> que esta dedicado al cultivo de jengibre.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>2º lugar</strong> nacional en producción de jengibre, contando con un
-							volumen de producción de <strong>332 Ton</strong>, una superficie de <strong>42 Ha</strong>,
-							con un rendimiento de <strong>7.90 Ton/Ha</strong>y un valor de producción de
-							<strong>$4,635,263</strong>.
+						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de jengibre, contando
+							con un
+							volumen de producción de <strong></strong>, una superficie de <strong></strong>,
+							con un rendimiento de <strong></strong>y un valor de producción de
+							<strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
+						<p id="des_reg">
 							La región de <strong>Papaloapan</strong> es la region con mayor
-							producción de jengibre en el estado de Oaxaca, contando con <strong>1 Municipio</strong>,
-							con un volumen de producción de <strong>332 Ton</strong>, una superficie de <strong>42
-								Ha</strong>, un rendimiento de <strong>7.90 Ton/Ha</strong>, y un valor de producción de
-							<strong>$4,635,263</strong>.
+							producción de jengibre en el estado de Oaxaca, contando con <strong></strong>,
+							con un volumen de producción de <strong></strong>, una superficie de <strong></strong>, un
+							rendimiento de <strong></strong>, y un valor de producción de
+							<strong></strong>.
 
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>1 pueblo indígena</strong> se encuentran dentro de la producción de
+						<p id="des_pue">Un total de <strong></strong> se encuentran dentro de la
+							producción de
 							jengibre.</p>
 					</div>
 				</div>
@@ -167,7 +166,9 @@
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section3" class="section">
@@ -215,11 +216,13 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
@@ -228,7 +231,8 @@
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
-			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
 
@@ -267,7 +271,8 @@
 				<span id="pageInfoDesExp"></span>
 				<button id="nextBtnDesExp">Siguiente</button>
 			</div>
-			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
@@ -300,7 +305,8 @@
 					</tr>
 				</tfoot>
 			</table>
-			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong>
 			</p>
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
@@ -318,7 +324,9 @@
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -341,11 +349,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -390,6 +408,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

@@ -1,3 +1,162 @@
+const mexicoDataPro = tabla_paises_prod.find((entidad) => entidad.id === "MEX");
+const mexicoDataSPro = tabla_paises_sub_prod.find(
+  (entidad) => entidad.id === "MEX"
+);
+
+const pTag = document.getElementById("des_mundo");
+const strongTags = pTag.querySelectorAll("strong");
+
+if (mexicoDataPro && mexicoDataSPro && strongTags.length > 3) {
+  strongTags[0].textContent = `${mexicoDataPro.ranking}° lugar`;
+  strongTags[1].textContent = `${mexicoDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTags[2].textContent = `${mexicoDataSPro.ranking}° lugar`;
+  strongTags[3].textContent = `${mexicoDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} L`;
+}
+
+const pTagM = document.getElementById("des_muni");
+const strongTagsM = pTagM.querySelectorAll("strong");
+let sumMunPro = 0;
+tabla_produccion_producto.forEach((region) => (sumMunPro += region.municipios));
+
+/* let sumMunSPro = 0;
+tabla_produccion_sub_producto.forEach(
+  (region) => (sumMunSPro += region.municipios)
+); */
+
+if (
+  tabla_produccion_producto &&
+  /*  tabla_produccion_sub_producto && */
+  strongTagsM.length > 0
+) {
+  strongTagsM[0].textContent = `${sumMunPro} municipios`;
+  /* strongTagsM[1].textContent = `${sumMunSPro} municipios`; */
+}
+
+const oaxacaDataPro = tab_mex_pro.find((entidad) => entidad.id === "OAX");
+/* const oaxacaDataSPro = tab_mex_sub_pro.find((entidad) => entidad.id === "OAX"); */
+const pTagN = document.getElementById("des_na");
+const strongTagsN = pTagN.querySelectorAll("strong");
+
+if (oaxacaDataPro && strongTagsN.length > 4) {
+  strongTagsN[0].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsN[1].textContent = `${oaxacaDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[2].textContent = `${oaxacaDataPro.peso.toLocaleString(
+    "es-MX"
+  )} KG`;
+  strongTagsN[3].textContent = `${oaxacaDataPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[4].textContent = `$${oaxacaDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  /* strongTagsN[5].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsN[6].textContent = `${oaxacaDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[7].textContent = `${oaxacaDataSPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[8].textContent = `$${oaxacaDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`; */
+}
+
+const regionDataPro = tabla_produccion_producto[0];
+/* const regionDataSPro = tabla_produccion_sub_producto[0]; */
+const pTagR = document.getElementById("des_reg");
+const strongTagsR = pTagR.querySelectorAll("strong");
+
+if (regionDataPro && strongTagsR.length > 5) {
+  strongTagsR[0].textContent = `${regionDataPro.region}`;
+  strongTagsR[1].textContent = `${regionDataPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[2].textContent = `${regionDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[3].textContent = `${regionDataPro.peso.toFixed(2)} KG`;
+  strongTagsR[4].textContent = `${regionDataPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[5].textContent = `$${regionDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+  /* strongTagsR[6].textContent = `${regionDataSPro.region}`;
+  strongTagsR[7].textContent = `${regionDataSPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[8].textContent = `${regionDataSPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[9].textContent = `${regionDataSPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[10].textContent = `$${regionDataSPro.valor.toLocaleString(
+    "es-MX"
+  )}`; */
+}
+
+const pTagP = document.getElementById("des_pue");
+const strongTagsP = pTagP.querySelectorAll("strong");
+if (strongTagsP.length > 0) {
+  strongTagsP[0].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const pTagD = document.getElementById("descripcion");
+const strongTagsD = pTagD.querySelectorAll("strong");
+if (oaxacaDataPro && /* oaxacaDataSPro && */ strongTagsD.length > 2) {
+  strongTagsD[0].textContent = `${sumMunPro} municipios`;
+  strongTagsD[1].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsD[2].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+ /*  strongTagsD[3].textContent = `${oaxacaDataSPro.ranking}° lugar`;
+  strongTagsD[4].textContent = `${
+    pub_indigenas_sub_producto[0].length - 1
+  } pueblos indígenas`; */
+}
+
+const meses = [
+  "ENERO",
+  "FEBRERO",
+  "MARZO",
+  "ABRIL",
+  "MAYO",
+  "JUNIO",
+  "JULIO",
+  "AGOSTO",
+  "SEPTIEMBRE",
+  "OCTUBRE",
+  "NOVIEMBRE",
+  "DICIEMBRE",
+];
+
+const pTagE = document.getElementById("estacionalidad");
+const strongTagsE = pTagE.querySelectorAll("strong");
+
+const maxValor = Math.max(...estacionalidad_producto);
+const indiceMax = estacionalidad_producto.indexOf(maxValor);
+
+if (strongTagsE.length > 1) {
+  strongTagsE[0].textContent = `${meses[indiceMax]}`;
+  strongTagsE[1].textContent = `${maxValor.toLocaleString("es-MX")} puntos`;
+}
+/* 
+const pTagE2 = document.getElementById("estacionalidad2");
+const strongTagsE2 = pTagE2.querySelectorAll("strong");
+
+const maxValor2 = Math.max(...estacionalidad_sub_producto);
+const indiceMax2 = estacionalidad_sub_producto.indexOf(maxValor2);
+
+if (strongTagsE2.length > 1) {
+  strongTagsE2[0].textContent = `${meses[indiceMax2]}`;
+  strongTagsE2[1].textContent = `${maxValor2.toLocaleString("es-MX")} puntos`;
+} */
+
 /* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
 const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
 const total_tab1 = document.getElementById("total_tabla1");
@@ -141,13 +300,13 @@ const promedio_precio = sumaPrecio / tab_mex_pro.length;
 
 const total_datos_tab1 = document.getElementById("total_datos_tab1");
 
-total_datos_tab1.innerHTML = `<th></th><th>Total:</th><th>${/* sumaVolumen.toLocaleString(
+total_datos_tab1.innerHTML = `<th></th><th>Total:</th><th>${
+  /* sumaVolumen.toLocaleString(
   "es-MX"
-) */'41,033'}</th><th>${ promedio_peso.toFixed(0) }</th><th>${
-   /* promedio_precio.toFixed(0 ) */ 76
+) */ "41,033"
+}</th><th>${promedio_peso.toFixed(0)}</th><th>${
+  /* promedio_precio.toFixed(0 ) */ 76
 }</th><th>${sumaValor.toLocaleString("es-MX")}</th> `;
-
-
 
 /* Primera Gráfica de línea para muestra la balanza comercial */
 const ctx = document.getElementById("lineChart").getContext("2d");
@@ -414,8 +573,6 @@ const config2 = {
 
 new Chart(ctx2, config2);
 
-
-
 /* TABLA PRODUCCION  DE CARNE DE CAPRINO EN OAXACA	*/
 const tab_pro_miel_oax = document.getElementById("tabla_produccion_prod_oax");
 let volumen_producto = 0;
@@ -473,9 +630,11 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${
   /* volumen_producto.toLocaleString(
   "es-MX"
 ) */ "3,754"
-}</th><th>${/* (peso_producto / tabla_produccion_producto.length).toFixed(
+}</th><th>${
+  /* (peso_producto / tabla_produccion_producto.length).toFixed(
   0
-) */15}</th><th>${
+) */ 15
+}</th><th>${
   /* (precio_producto / tabla_produccion_producto.length).toFixed(
   0
 ) */ 73
@@ -484,8 +643,6 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${
   "es-MX"
 ) */ "273,500,000"
 }</th><th>${municipios_producto.toLocaleString("es-MX")}</th>`;
-
-
 
 /* Grafica 4 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
 const ctx4 = document.getElementById("lineChart4").getContext("2d");
@@ -550,8 +707,6 @@ const config4 = {
 };
 
 new Chart(ctx4, config4);
-
-
 
 /* Grafica 6 ESTACIONALIDAD DE LA PRODUCCION EN OAXACA*/
 const ctx6 = document.getElementById("lineChart6").getContext("2d");
@@ -630,8 +785,6 @@ const config6 = {
 };
 
 new Chart(ctx6, config6);
-
-
 
 const contenedor_botones = document.getElementById("botones");
 const contenedor_tabla = document.getElementById("tabla");
@@ -761,4 +914,3 @@ function cambiar_pagina(nueva_pagina) {
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
 }
-
