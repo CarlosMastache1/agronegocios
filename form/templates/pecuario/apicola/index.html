@@ -148,26 +148,41 @@
                 <H2>MIEL DE ABEJA</H2>
                 <div class="contenedor_col1">
                     <div class="columna1">
-                        <!-- Tabla con datos de producción mundial de miel -->
-                        <table class="tabla-datos">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais" placeholder="Buscar...">
+
+                        </div>
+                        <table id="dataTablePais" class="tabla-datos">
                             <thead>
                                 <tr>
                                     <th>RANKING</th>
-                                    <th>PAIS</th>
+                                    <th>PAÍS</th>
                                     <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
                                 </tr>
                             </thead>
-                            <tbody id="tab_cuerpo_pais_miel">
-                                <!-- Datos dinámicos -->
+                            <tbody>
+                                <!-- Filas dinámicas -->
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla1"> 138,453,072 </th>
+                                <tr id="total_datos_tabPais">
                                 </tr>
                             </tfoot>
-
                         </table>
+                        <div class="pagination">
+                            <button id="prevBtnPais">Anterior</button>
+                            <span id="pageInfoPais"></span>
+                            <button id="nextBtnPais">Siguiente</button>
+                        </div>
                     </div>
                     <!-- Mapa mundial en iframe -->
                     <iframe id="frame_mundo_miel" src="{% url 'iframeMundo' %}" class="columna2"
@@ -188,27 +203,42 @@
                     <!-- Mapa mundial para cera en iframe -->
                     <iframe id="frame_mundo_cera" src="{% url 'iframeMundo' %}" class="columna1"
                         frameborder="0"></iframe>
-                    <!-- Tabla con datos de producción mundial de cera -->
                     <div class="columna2">
-                        <table class="tabla-datos">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais2">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais2" placeholder="Buscar...">
+
+                        </div>
+                        <table id="dataTablePais2" class="tabla-datos">
                             <thead>
                                 <tr>
                                     <th>RANKING</th>
-                                    <th>PAIS</th>
+                                    <th>PAÍS</th>
                                     <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
                                 </tr>
                             </thead>
-
-                            <tbody id="tab_cuerpo_pais_cera">
-                                <!-- Datos dinámicos -->
+                            <tbody>
+                                <!-- Filas dinámicas -->
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla2"></th>
+                                <tr id="total_datos_tabPais2">
                                 </tr>
                             </tfoot>
                         </table>
+                        <div class="pagination">
+                            <button id="prevBtnPais2">Anterior</button>
+                            <span id="pageInfoPais2"></span>
+                            <button id="nextBtnPais2">Siguiente</button>
+                        </div>
                     </div>
                 </div>
                 <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN

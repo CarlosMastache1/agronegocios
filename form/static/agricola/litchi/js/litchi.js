@@ -97,11 +97,15 @@ function renderTable2() {
 }
 
 function applyFilters2() {
-  const query = searchInput2.value.toLowerCase();
+  const query = removeAccents(searchInput2.value.toLowerCase());
   rfilteredData2 = tab_pro_nacional.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+    (item) => {
+      const entidad = removeAccents(item.entidad.toLowerCase());
+      const id = String(item.id);
+
+      return entidad.includes(query) ||
+      id.includes(query)
+    }
   );
   currentPage2 = 1;
   renderTable2();
@@ -587,4 +591,9 @@ function cambiar_pagina(nueva_pagina) {
 
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
+}
+
+// Función auxiliar para remover acentos
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

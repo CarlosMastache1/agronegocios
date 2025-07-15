@@ -706,7 +706,7 @@ const tabla_paises_sub_prod = [
   { id: "MEX", ranking: 11, pais: "México", volumen: 1533 },
   { id: "UGA", ranking: 12, pais: "Uganda", volumen: 1358 },
   { id: "URY", ranking: 13, pais: "Uruguay", volumen: 1193 },
-  { pais: "otros", volumen: 7541 },
+  { ranking: '', pais: "Otros", volumen: 7541 },
 ];
 
 const agrupado = {};
@@ -745,7 +745,7 @@ const tabla_paises_prod = [
   { id: "UKR", ranking: 9, pais: "Ucrania", volumen: 63079 },
   { id: "BRA", ranking: 10, pais: "Brasil", volumen: 60966 },
   { id: "USA", ranking: 11, pais: "Estados Unidos de América", volumen: 56849 },
-  { pais: "Otros", volumen: 558547 },
+  { ranking: '', pais: "Otros", volumen: 558547 },
 ];
 
 const agrupado2 = {};

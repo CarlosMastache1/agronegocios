@@ -573,7 +573,7 @@ const tabla_paises_prod = [
   { id: "JPN", ranking: 11, pais: "Japón", volumen: 2371643 },
   { id: "ARG", ranking: 12, pais: "Argentina", volumen: 2319000 },
   { id: "POL", ranking: 13, pais: "Polonia", volumen: 2231610 },
-  { ranking: "", pais: "otros", volumen: 45129689 },
+  { ranking: "", pais: "Otros", volumen: 45129689 },
 ];
 
 const agrupado2 = {};
@@ -615,7 +615,7 @@ const tabla_paises_sub_prod = [
   { id: "TUR", ranking: 11, pais: "Turquía", volumen: 21046572 },
   { id: "NGA", ranking: 12, pais: "Nigeria", volumen: 17253832 },
   { id: "COL", ranking: 13, pais: "Colombia", volumen: 17062669 },
-  { ranking: "", pais: "otros ", volumen: 412457884 },
+  { ranking: "", pais: "Otros ", volumen: 412457884 },
 ];
 
 const agrupado = {};

@@ -150,26 +150,41 @@
 				<H2>CARNE DE AVE</H2>
 				<div class="contenedor_col1">
 					<div class="columna1">
-						<table class="tabla-datos">
+						<div class="controls">
+							<label>
+								Mostrar
+								<select id="rowsPerPagePais">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								registros
+							</label>
+							<input type="text" id="searchInputPais" placeholder="Buscar...">
+
+						</div>
+						<table id="dataTablePais" class="tabla-datos">
 							<thead>
 								<tr>
 									<th>RANKING</th>
-									<th>PAIS</th>
-									<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+									<th>PAÍS</th>
+                                    <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
 								</tr>
 							</thead>
-
-							<tbody id="tab_cuerpo_pais_pro">
-
+							<tbody>
+								<!-- Filas dinámicas -->
 							</tbody>
 							<tfoot>
-								<tr>
-									<th>Total:</th>
-									<th colspan="2" id="total_tabla1"> </th>
+								<tr id="total_datos_tabPais">
 								</tr>
 							</tfoot>
-
 						</table>
+						<div class="pagination">
+							<button id="prevBtnPais">Anterior</button>
+							<span id="pageInfoPais"></span>
+							<button id="nextBtnPais">Siguiente</button>
+						</div>
 					</div>
 					<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2"
 						frameborder="0"></iframe>
@@ -185,27 +200,42 @@
 				<div class="contenedor_col2">
 					<iframe id="frame_mundo_sub_prod" src="{% url 'iframeMundo' %}" class="columna1"
 						frameborder="0"></iframe>
-
 					<div class="columna2">
-						<table class="tabla-datos">
+						<div class="controls">
+							<label>
+								Mostrar
+								<select id="rowsPerPagePais2">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								registros
+							</label>
+							<input type="text" id="searchInputPais2" placeholder="Buscar...">
+
+						</div>
+						<table id="dataTablePais2" class="tabla-datos">
 							<thead>
 								<tr>
 									<th>RANKING</th>
-									<th>PAIS</th>
-									<th>VOLUMEN DE PRODUCCIÓN (L)</th>
+									<th>PAÍS</th>
+                                    <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
 								</tr>
 							</thead>
-
-							<!-- Datos dinámicos -->
-							<tbody id="tab_cuerpo_pais_sub_pro">
+							<tbody>
+								<!-- Filas dinámicas -->
 							</tbody>
 							<tfoot>
-								<tr>
-									<th>Total:</th>
-									<th colspan="2" id="total_tabla2"></th>
+								<tr id="total_datos_tabPais2">
 								</tr>
 							</tfoot>
 						</table>
+						<div class="pagination">
+							<button id="prevBtnPais2">Anterior</button>
+							<span id="pageInfoPais2"></span>
+							<button id="nextBtnPais2">Siguiente</button>
+						</div>
 					</div>
 				</div>
 				<p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
@@ -413,7 +443,7 @@
 					<thead>
 						<tr>
 							<th>REGION</th>
-							<th>VOLUMEN DE PRODUCCIÓN (L)</th>
+							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
 							<th>PRECIO ($/KG)</th>
 							<th>VALOR DE PRODUCCIÓN ($)</th>
 							<th>CANTIDAD DE MUNICIPIOS</th>
@@ -483,7 +513,7 @@
 					</p>
 			</div>
 		</section>
-		
+
 		<section id="section8" class="section">
 			<h1>MUNICIPIOS QUE PRODUCEN CARNE Y HUEVO DE GALLINA EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
