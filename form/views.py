@@ -359,7 +359,7 @@ def tiendaIndustrial(request):
   page_obj = paginator.get_page(page_number)
 
   return render(request, 'industrialTienda.html',
-  {'page_obj': page_obj, 'tiendaInd' : tiendaInd})
+  {'page_obj': page_obj, 'tiendaInd' : page_obj})
 
 @login_required
 def gestProd(request):
