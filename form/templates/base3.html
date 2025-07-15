@@ -72,19 +72,15 @@
     <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
   </div>
 
-  <style>
-
-  </style>
   <div id="page" class="site row">
     <header class="site-header">
       <!-- Navbar -->
       <nav class="navbar navbar-default navbar-fixed-top fluid-navbar navbar-layaout-new" id="navbar-new">
         <div class="container-fluid">
 
-
           <!-- Encabezado con botón toggle -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               <img src="{% static 'assets/images/logo-new.png' %}" alt="logo" height="40px">
             </a>
             <!-- Botón para colapsar menú -->
@@ -95,10 +91,8 @@
             </button>
           </div>
 
-
           <div class="collapse navbar-collapse" id="menu-colapsable">
             <ul class="nav navbar-nav navbar-right">
-
               <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-home"></span> INICIO <span
@@ -145,20 +139,14 @@
                   <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
                 </ul>
               </li>
-
             </ul>
           </div>
         </div>
       </nav>
-
-
     </header>
     {% block content %}
 
     {% endblock %}
-
-
-
     <!--Footer-->
     <footer id="footer" class="site-footer">
       <!--Footer Top-->
@@ -177,9 +165,7 @@
         </div>
       </section>
       <!--Footer Bottom-->
-
     </footer>
-
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -192,7 +178,6 @@
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'assets/js/hostpro.js' %}"></script>
   <script src="{% static 'assets/js/custom.js' %}"></script>
-
 
   <script>
     //navbar-layaout-new 
@@ -207,10 +192,7 @@
         navbar.classList.add('navbar-layaout-new');
       }
     });
-
   </script>
-
-
 </body>
 
 </html>

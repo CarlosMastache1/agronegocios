@@ -59,12 +59,8 @@ def maiz_precioMXN(request):
 
   return render(request,  'graficasBV.html')
 
-
-
 def redondear_velas(velas):
     return [[round(valor, 2) for valor in fila] for fila in velas]
-
-
 
 def precios_maiz(request):
     hoy = datetime.today().date()
@@ -81,8 +77,6 @@ def precios_maiz(request):
     df_gVacuno = yf.download("LE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
-
-
 
     # Fechas y velas redondeadas
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
@@ -117,7 +111,6 @@ def precios_maiz(request):
 
     fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
-
 
     ###### BLOQUE DE CODIGO PARA OBTENER PRECIOS POR PESOS MEXICANOS
 
@@ -166,10 +159,6 @@ def precios_maiz(request):
     algodon = yf.Ticker("CT=F").history(period="5d", interval="4h")["Close"].iloc[-1]
     precio_algodon_mxn_kg = round((algodon / 100 * tipo_cambio) / kg_por_libra, 2)
 
-
-
-
-
     return render(request, 'graficasBV.html', {
         'fechas_maiz': json.dumps(fechas_maiz),
         'velas_maiz': json.dumps(velas_maiz),
@@ -205,7 +194,6 @@ def precios_maiz(request):
         "precio_azucar_mxn_kg": "{:.2f}".format(precio_azucar_mxn_kg),
         "precio_algodon_mxn_kg": "{:.2f}".format(precio_algodon_mxn_kg),
 
-
         'rango_texto': f"{inicio} → {hoy}",
     })
 
@@ -230,7 +218,6 @@ def home(request):
 
 def tiendaIndex(request):
   return render(request, 'tiendaHome.html')
-
 
 def tiendaCategorias(request):
   return render(request, 'categoriasTiendas.html')
@@ -285,7 +272,6 @@ def productorProductorAgri(request, categoria, nombre):
   page_obj = paginator.get_page(page_number)
   return render(request, 'productosProductorAgri.html',
   {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
-
 
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
@@ -441,7 +427,6 @@ def signup(request):
                     'error' : 'LAS CONTRASEÑAS NO COINCIDEN '
                 })
 
-
 def signout(request):
     logout(request)
     return redirect('login')
@@ -488,8 +473,6 @@ def formProductos(request):
         pdfs = request.FILES.getlist("archivo_pdf[]")
 
         comentarios = request.POST.get("comentarios[]")
-
-
         
         for i in range(len(nombreProducto)):
             productoNew = productos.objects.create(
@@ -3703,7 +3686,6 @@ def graficasPublicas(request):
       sflm_for_monto_2024 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
       total_for_monto_2024 = (entidadesFinancieras2.objects.filter(subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
 
-
       return render(request, 'graficasPublicas.html',{
         'conteo_VC' : conteo_VC, 
         'conteo_IST' : conteo_IST, 
@@ -3907,7 +3889,6 @@ def graficasPublicas(request):
         'monto_mec_2023' : monto_mec_2023,
         'monto_re_2023' : monto_re_2023,
 
-
         'garantias_ct' : garantias_ct,
         'garantias_eq' : garantias_eq,
         'garantias_iaa' : garantias_iaa,
@@ -3915,7 +3896,6 @@ def graficasPublicas(request):
         'garantias_ap' : garantias_ap,
         'garantias_mec' : garantias_mec,
         'garantias_re' : garantias_re,
-
 
         'garantias_ct_2023' : garantias_ct_2023,
         'garantias_eq_2023' : garantias_eq_2023,
@@ -3971,8 +3951,6 @@ def graficasPublicas(request):
         'total_pes' : total_pes,
         'total_for' : total_for,
 
-
-
         'valles_agri_2023' : valles_agri_2023,
         'istmo_agri_2023' : istmo_agri_2023,
         'costa_agri_2023' : costa_agri_2023,
@@ -4019,8 +3997,6 @@ def graficasPublicas(request):
         'total_pes_2023' : total_pes_2023,
         'total_for_2023' : total_for_2023,
 
-
-
         'valles_agri_2024' : valles_agri_2024,
         'istmo_agri_2024' : istmo_agri_2024,
         'costa_agri_2024' : costa_agri_2024,
@@ -4066,8 +4042,6 @@ def graficasPublicas(request):
         'total_acu_2024' : total_acu_2024,
         'total_pes_2024' : total_pes_2024,
         'total_for_2024' : total_for_2024,
-
-
 
         'c' : total_concepto,
 
@@ -4117,9 +4091,6 @@ def graficasPublicas(request):
         'total_pes_monto' : total_pes_monto,
         'total_for_monto' : total_for_monto,
 
-
-
-
       #monto 2023
         'valles_agri_monto_2023' : valles_agri_monto_2023,
         'istmo_agri_monto_2023' : istmo_agri_monto_2023,
@@ -4166,9 +4137,6 @@ def graficasPublicas(request):
         'total_acu_monto_2023' : total_acu_monto_2023,
         'total_pes_monto_2023' : total_pes_monto_2023,
         'total_for_monto_2023' : total_for_monto_2023,
-
-
-
         
       #monto 2024
         'valles_agri_monto_2024' : valles_agri_monto_2024,
@@ -4216,10 +4184,6 @@ def graficasPublicas(request):
         'total_acu_monto_2024' : total_acu_monto_2024,
         'total_pes_monto_2024' : total_pes_monto_2024,
         'total_for_monto_2024' : total_for_monto_2024,
-
-
-
-
 
         'can_municipios_VC' : can_municipios_VC,
         'can_municipios_IST' : can_municipios_IST,
@@ -4273,23 +4237,13 @@ def graficasPublicas(request):
         'totalPIG_2024' : totalPIG_2024,
         'totalEDG_2024' : totalEDG_2024, 
         'totalCMG_2024' : totalCMG_2024
-
-
-
         })
-
-
-
-
-
 
 def nosotros(request):
   return render(request, 'nosotros.html')
 
-
 def directorio(request):
   return render(request, 'directorio.html')
-
 
 def ubicacion(request):
   return render(request, 'ubicacion.html')
