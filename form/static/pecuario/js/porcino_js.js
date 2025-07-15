@@ -1,29 +1,106 @@
-/* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
-const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
-const total_tab1 = document.getElementById("total_tabla1");
-let suma_total1 = 0;
+const mexicoDataPro = tabla_paises_prod.find((entidad) => entidad.id === "MEX");
+const pTag = document.getElementById("des_mundo");
+const strongTags = pTag.querySelectorAll("strong");
 
-for (let i = 0; i < tabla_paises_prod.length; i++) {
-  const fila = document.createElement("tr");
-
-  const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = tabla_paises_prod[i].ranking;
-
-  const celdaPais = document.createElement("td");
-  celdaPais.textContent = tabla_paises_prod[i].pais;
-
-  const celdaVolumen = document.createElement("td");
-  celdaVolumen.textContent =
-    tabla_paises_prod[i].volumen.toLocaleString("es-MX");
-
-  fila.appendChild(celdaRanking);
-  fila.appendChild(celdaPais);
-  fila.appendChild(celdaVolumen);
-
-  tabla_pais_pro.appendChild(fila);
-  suma_total1 += tabla_paises_prod[i].volumen;
+if (mexicoDataPro && strongTags.length > 1) {
+  strongTags[0].textContent = `${mexicoDataPro.ranking}° lugar`;
+  strongTags[1].textContent = `${mexicoDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
 }
-total_tab1.innerHTML = suma_total1.toLocaleString("es-MX");
+
+const pTagM = document.getElementById("des_muni");
+const strongTagsM = pTagM.querySelectorAll("strong");
+let sumMunPro = 0;
+tabla_produccion_producto.forEach((region) => (sumMunPro += region.municipios));
+
+if (tabla_produccion_producto && strongTagsM.length >= 1) {
+  strongTagsM[0].textContent = `${sumMunPro} municipios`;
+}
+
+const oaxacaDataPro = tab_mex_pro.find((entidad) => entidad.id === "OAX");
+
+const pTagN = document.getElementById("des_na");
+const strongTagsN = pTagN.querySelectorAll("strong");
+
+if (oaxacaDataPro && strongTagsN.length > 4) {
+  strongTagsN[0].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsN[1].textContent = `${oaxacaDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[2].textContent = `${oaxacaDataPro.peso.toLocaleString(
+    "es-MX"
+  )} KG`;
+  strongTagsN[3].textContent = `${oaxacaDataPro.precio.toLocaleString(
+    "es-MX"
+  )} $/KG`;
+  strongTagsN[4].textContent = `$${oaxacaDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const regionDataPro = tabla_produccion_producto[0];
+const pTagR = document.getElementById("des_reg");
+const strongTagsR = pTagR.querySelectorAll("strong");
+
+if (regionDataPro && strongTagsR.length > 5) {
+  strongTagsR[0].textContent = `${regionDataPro.region}`;
+  strongTagsR[1].textContent = `${regionDataPro.municipios.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[2].textContent = `${regionDataPro.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[3].textContent = `${regionDataPro.peso.toFixed(2)} KG`;
+  strongTagsR[4].textContent = `${regionDataPro.precio.toFixed(2)} $/KG`;
+  strongTagsR[5].textContent = `$${regionDataPro.valor.toLocaleString(
+    "es-MX"
+  )}`;
+}
+
+const pTagP = document.getElementById("des_pue");
+const strongTagsP = pTagP.querySelectorAll("strong");
+if (strongTagsP.length >= 1) {
+  strongTagsP[0].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const pTagD = document.getElementById("descripcion");
+const strongTagsD = pTagD.querySelectorAll("strong");
+if (oaxacaDataPro && strongTagsD.length > 2) {
+  strongTagsD[0].textContent = `${sumMunPro} municipios`;
+  strongTagsD[1].textContent = `${oaxacaDataPro.ranking}° lugar`;
+  strongTagsD[2].textContent = `${
+    pub_indigenas_producto[0].length - 1
+  } pueblos indígenas`;
+}
+
+const meses = [
+  "ENERO",
+  "FEBRERO",
+  "MARZO",
+  "ABRIL",
+  "MAYO",
+  "JUNIO",
+  "JULIO",
+  "AGOSTO",
+  "SEPTIEMBRE",
+  "OCTUBRE",
+  "NOVIEMBRE",
+  "DICIEMBRE",
+];
+
+const pTagE = document.getElementById("estacionalidad");
+const strongTagsE = pTagE.querySelectorAll("strong");
+
+const maxValor = Math.max(...estacionalidad_producto);
+const indiceMax = estacionalidad_producto.indexOf(maxValor);
+
+if (strongTagsE.length > 1) {
+  strongTagsE[0].textContent = `${meses[indiceMax]}`;
+  strongTagsE[1].textContent = `${maxValor.toLocaleString("es-MX")} puntos`;
+}
 
 /* Tabla 3 PRODUCCION NACIONAL DEL SECTOR PORCINO CARNE DE PORCINO */
 let currentPage = 1;
@@ -64,12 +141,13 @@ function renderTable() {
 }
 
 function applyFilters() {
-  const query = searchInput.value.toLowerCase();
-  filteredData = tab_mex_pro.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
-  );
+  const query = removeAccents(searchInput.value.toLowerCase());
+  filteredData = tab_mex_pro.filter((item) => {
+    const entidad = removeAccents(item.entidad.toLowerCase());
+    const id = String(item.id);
+
+    return entidad.includes(query) || id.includes(query);
+  });
   currentPage = 1;
   renderTable();
 }
@@ -599,7 +677,6 @@ const config6 = {
 
 new Chart(ctx6, config6);
 
-
 const contenedor_botones = document.getElementById("botones");
 const contenedor_tabla = document.getElementById("tabla");
 const titulo_regmun = document.getElementById("titulo_regmun");
@@ -728,3 +805,75 @@ function cambiar_pagina(nueva_pagina) {
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
 }
+
+// Función auxiliar para remover acentos
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+let currentPagePais = 1;
+let rowsPerPagePais = 10;
+let filteredDataPais = [...tabla_paises_prod];
+const tableBodyPais = document.querySelector("#dataTablePais tbody");
+const searchInputPais = document.getElementById("searchInputPais");
+const rowsSelectPais = document.getElementById("rowsPerPagePais");
+const prevBtnPais = document.getElementById("prevBtnPais");
+const nextBtnPais = document.getElementById("nextBtnPais");
+const pageInfoPais = document.getElementById("pageInfoPais");
+
+function renderTablePais() {
+  tableBodyPais.innerHTML = "";
+  const start = (currentPagePais - 1) * rowsPerPagePais;
+  const end = start + rowsPerPagePais;
+  const pageData = filteredDataPais.slice(start, end);
+
+  for (const row of pageData) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${row.ranking}</td><td>${
+      row.pais
+    }</td><td>${row.volumen.toLocaleString("es-MX")}</td>`;
+    tableBodyPais.appendChild(tr);
+  }
+
+  const totalPages = Math.ceil(filteredDataPais.length / rowsPerPagePais);
+  pageInfoPais.textContent = `Página ${currentPagePais} de ${totalPages}`;
+  prevBtnPais.disabled = currentPagePais === 1;
+  nextBtnPais.disabled = currentPagePais === totalPages;
+}
+
+function applyFiltersPais() {
+  const query = removeAccents(searchInputPais.value.toLowerCase());
+  filteredDataPais = tabla_paises_prod.filter((item) => {
+    const pais = removeAccents(item.pais.toLowerCase());
+    const ranking = String(item.ranking);
+
+    return pais.includes(query) || ranking.includes(query);
+  });
+  currentPagePais = 1;
+  renderTablePais();
+}
+
+searchInputPais.addEventListener("input", applyFiltersPais);
+rowsSelectPais.addEventListener("change", () => {
+  rowsPerPagePais = parseInt(rowsSelectPais.value);
+  currentPagePais = 1;
+  renderTablePais();
+});
+
+prevBtnPais.addEventListener("click", () => {
+  if (currentPagePais > 1) {
+    currentPagePais--;
+    renderTablePais();
+  }
+});
+
+nextBtnPais.addEventListener("click", () => {
+  const totalPages = Math.ceil(filteredDataPais.length / rowsPerPagePais);
+  if (currentPagePais < totalPages) {
+    currentPagePais++;
+    renderTablePais();
+  }
+});
+
+// Inicializar
+renderTablePais();

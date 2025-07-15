@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
 <link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
 
+
+
 <main id="contents" class="site-contnts">
 	<!--BANNER-->
 	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/melón/imagenes/15.png' %}">
+		<div class="item" data-slide="{% static 'agricola/calabacita/imagenes/5.png' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -25,12 +27,13 @@
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/melón/imagenes/16.png' %}">
+		<div class="item" data-slide="{% static 'agricola/calabacita/imagenes/6.png' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </main>
@@ -47,11 +50,11 @@
 	<div id="body_pag">
 		<!-- Secciones -->
 		<section id="section1" class="section">
-			<h1>DESCRIPCIÓN DEL <strong>MELÓN</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+			<h1>DESCRIPCIÓN DEL <strong>CALABACITA</strong></h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
 				Este cultivo es anual por lo que su ciclo de vida es de <strong>3 a 4 meses</strong>, Oaxaca tiene
-				<strong>28 municipios</strong> productores de melón, se encuentra en el <strong>8° lugar</strong> en
-				producción a nivel nacional, con <strong>8 pueblos indígenas</strong> productores de este cultivo.
+				<strong></strong> productores de Calabacitas, se encuentra en el <strong></strong>
+				en producción a nivel nacional, con <strong></strong> productores de este cultivo.
 			</p>
 
 
@@ -59,62 +62,67 @@
 				<div class="container">
 
 					<div class="card">
-						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anuak</h2>
+						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anual</h2>
 						<p>
-							Ciclo de vida de <strong>3 a 4 meses</strong>.
+							Ciclo de vida de <strong>3 a 4 meses</strong> según condiciones climáticas y manejo
+							agrícola.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
-							México ocupa el <strong>13° lugar</strong> a nivel mundial en la producción de melón; con
-							una superficie para su cosecha de <strong>17,886 Ha</strong>.
+						<p id="des_mundo">
+							México ocupa el <strong></strong> a nivel mundial en la producción de calabacita,
+							con una superficie de producción de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
-							En Oaxaca hay <strong>28 municipios</strong> que están dedicados al cultivo de melón.
+						<p id="des_muni">
+							En Oaxaca hay <strong></strong> que están dedicados al cultivo de calabacita.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>5º lugar</strong> nacional en producción de melón. Con un volumen de
-							producción de <strong>18,460 Ton</strong>, una superficie de <strong>1,173 Ha</strong>, con
-							un rendimeinto de <strong>18.12 Ton/Ha</strong> y un valor de <strong>$122,358,248</strong>.
+						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de calabacita, contando
+							con
+							un volumen de producción de <strong></strong>, una superficie de <strong></strong>, con un
+							rendimiento de <strong></strong>y un valor de producción
+							de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
-							La región del <strong>Istmo</strong> es la region con mayor
-							producción de melón en el estado de Oaxaca contando con <strong>11 Municipios</strong> de
-							producción. Con un volumen de producción de <strong>13,216 Ton</strong>, una superficie de
-							<strong>933 Ha</strong>, con un rendimeinto de <strong>14.02 Ton/Ha</strong> y un valor de
-							<strong>$89,447,132</strong>.
+						<p id="des_reg">
+							La región de la <strong></strong> es la region con mayor
+							producción de calabacita en el estado de Oaxaca, contando con <strong></strong>, con un volumen de producción de <strong></strong>, una
+							superficie de <strong></strong>, un rendimiento de <strong></strong>, y un
+							valor de producción de <strong></strong>.
 
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>8 pueblos indígenas</strong> se encuentran dentro de la producción de
-							melón.</p>
+						<p id="des_pue">Un total de <strong></strong> se encuentran dentro de la
+							producción de
+							calabacita.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="section2" class="section">
-			<h1>PRODUCCIÓN MUNDIAL DE MELÓN</h1>
+			<h1>PRODUCCIÓN MUNDIAL DE CALABACITA</h1>
 
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
 				<div class="columna1">
+
+
 					<div class="controls">
 						<label>
 							Mostrar
@@ -154,20 +162,21 @@
 						<button id="nextBtn">Siguiente</button>
 					</div>
 
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section3" class="section">
-			<h1>PRODUCCIÓN NACIONAL DE MELÓN</h1>
+			<h1>PRODUCCIÓN NACIONAL DE CALABACITA</h1>
 
 			<H2>Cierre Agricola 2022</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -179,6 +188,7 @@
 					</select>
 					registros
 				</label>
+
 				<input type="text" id="searchInput2" placeholder="Buscar...">
 			</div>
 			<table id="data2Table" class="tabla-datos">
@@ -207,14 +217,16 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
-			<h1>BALANZA COMERCIAL DE MELÓN EN MÉXICO</h1>
+			<h1>BALANZA COMERCIAL DE CALABACITA EN MÉXICO</h1>
 
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
@@ -223,6 +235,7 @@
 					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -234,6 +247,7 @@
 					</select>
 					registros
 				</label>
+
 				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
 			</div>
 			<table id="dataTableDesExp" class="tabla-datos">
@@ -251,6 +265,7 @@
 					<tr id="total_datos_tabDesExp"></tr>
 				</tfoot>
 			</table>
+
 			<div class="pagination">
 				<button id="prevBtnDesExp">Anterior</button>
 				<span id="pageInfoDesExp"></span>
@@ -261,15 +276,16 @@
 		</section>
 
 		<section id="section5" class="section">
-			<h1>PRODUCCIÓN HISTÓRICA DE MELÓN EN OAXACA</h1>
+			<h1>PRODUCCIÓN HISTÓRICA DE CALABACITA EN OAXACA</h1>
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
 
+
 		<section id="section6" class="section">
-			<h1>PRODUCCIÓN DE MELÓN EN OAXACA</h1>
+			<h1>PRODUCCIÓN DE CALABACITA EN OAXACA</h1>
 			<table class="tabla-datos">
 				<thead>
 					<tr>
@@ -281,7 +297,9 @@
 						<th>CANTIDAD DE MUNICIPIOS</th>
 					</tr>
 				</thead>
+
 				<tbody id="tabla_produccion_prod_oax">
+
 				</tbody>
 				<tfoot>
 					<tr id="total_tab_pro_miel_oax">
@@ -294,22 +312,23 @@
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
+
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
-			</p>
 		</section>
 
 		<section id="section7" class="section">
 			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce melón en
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
+				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce calabacita
+				en
 				el estado
-				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>febrero</strong>
+				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>marzo</strong>
 				es
 				cuando se
-				cosecha más melón alcanzando <strong>622 puntos</strong> de dicho índice.
+				cosecha más calabacita alcanzando <strong>733 puntos</strong> de dicho índice.
 			</p>
 			<h2>INDICE DE VOLUMEN FISICO (IVF)</h2>
 			<div class="chart-container">
@@ -320,11 +339,13 @@
 		</section>
 
 		<section id="section8" class="section">
-			<h1>MUNICIPIOS QUE PRODUCEN DE MELÓN EN OAXACA</h1>
+			<h1>MUNICIPIOS QUE PRODUCEN DE CALABACITA EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -348,11 +369,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -378,8 +409,8 @@
 	});
 </script>
 
-<script src="{% static 'data/mapas/agricola/melon.js' %}"></script>
-<script src="{% static 'agricola/melon/js/melon.js' %}"></script>
+<script src="{% static 'data/mapas/agricola/calabacita.js' %}"></script>
+<script src="{% static 'agricola/calabacita/js/calabacita.js' %}"></script>
 
 <script>
 
@@ -397,6 +428,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

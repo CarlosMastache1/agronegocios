@@ -45,7 +45,7 @@
 		<!-- Secciones -->
 		<section id="section1" class="section">
 			<h1>DESCRIPCIÓN DEL <strong>PLÁTANO</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
 				Este cultivo es perenne por lo que su ciclo de vida es <strong>mayor a 12 meses</strong>, Oaxaca tiene
 				<strong>32 Municipios</strong> productores de plátano, se encuentra en el <strong>8° lugar</strong> en
 				producción a nivel nacional, con <strong>7 pueblos indígenas</strong> productores de este cultivo.
@@ -58,30 +58,31 @@
 							Ciclo de vida <strong>mayor a 12 meses</strong>.
 						</p>
 					</div>
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
+						<p id="des_mundo">
 							México ocupa el <strong>24° lugar</strong> a nivel mundial en la producción de plátano; con
 							una superficie para su cosecha de <strong>18,115 Ha</strong>.
 						</p>
 					</div>
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
+						<p id="des_muni">
 							En Oaxaca hay <strong>32 municipios</strong> que están dedicados al cultivo de plátano.
 						</p>
 					</div>
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>8º lugar</strong> nacional en producción de plátano. Con un volumen
+						<p id="des_na">Oaxaca ocupa el <strong>8º lugar</strong> nacional en producción de plátano. Con
+							un volumen
 							de producción de <strong>82,995 Ton</strong>, una superficie de <strong>3,672 Ha</strong>,
 							con un rendimeinto de <strong>18.16 Ton/Ha</strong> y un valor de
 							<strong>$518,097,491</strong>.
 						</p>
 					</div>
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
+						<p id="des_reg">
 							La región del <strong>Papaloapan</strong> es la region con mayor
 							producción de plátano en el estado de Oaxaca contando con <strong>7 Municipios</strong> de
 							producción. Con un volumen de producción de <strong>50,247 Ton</strong>, una superficie de
@@ -90,9 +91,10 @@
 
 						</p>
 					</div>
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>7 pueblos indígenas</strong> se encuentran dentro de la producción de
+						<p id="des_pue">Un total de <strong>7 pueblos indígenas</strong> se encuentran dentro de la
+							producción de
 							plátano.</p>
 					</div>
 				</div>
@@ -144,7 +146,9 @@
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section3" class="section">
@@ -189,10 +193,12 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
@@ -283,7 +289,7 @@
 
 		<section id="section7" class="section">
 			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
 				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce plátano en
 				el estado
 				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>julio</strong>
@@ -304,7 +310,9 @@
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -328,11 +336,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -377,6 +395,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

@@ -19,7 +19,7 @@
 <main id="contents" class="site-contnts">
 	<!--BANNER-->
 	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/jenjibre/imagenes/7.png' %}">
+		<div class="item" data-slide="{% static 'agricola/cafe/imagenes/3.jpg' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -27,12 +27,13 @@
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/jenjibre/imagenes/8.png' %}">
+		<div class="item" data-slide="{% static 'agricola/cafe/imagenes/4.jpg' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </main>
@@ -49,78 +50,74 @@
 	<div id="body_pag">
 		<!-- Secciones -->
 		<section id="section1" class="section">
-			<h1>DESCRIPCIÓN DEL <strong>JENGIBRE</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				Este cultivo es anual por lo que su ciclo de vida es de <strong>8 a 9 meses</strong>, Oaxaca tiene
-				<strong>1 Municipio</strong> productor de Jengibre, se encuentra en el <strong>2° lugar</strong> en
-				producción a nivel nacional, con <strong></strong> productor de este cultivo.
+			<h1>DESCRIPCIÓN DEL <strong>CAFÉ</strong></h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+				Con una historia de más de <strong>100 años</strong> de cultivo de café, Oaxaca tiene <strong></strong> productores de café, se encuentra en el <strong></strong> en producción
+				a nivel nacional, con <strong></strong> productores de este cultivo.
 			</p>
 
 
 			<div class="descripcion">
 				<div class="container">
-
 					<div class="card">
-						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anual</h2>
+						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Perenne</h2>
 						<p>
-							Ciclo de vida de <strong>8 a 9 meses</strong> según condiciones climáticas y manejo
+							Ciclo de vida de <strong>20 a 25 años</strong> según condiciones climáticas y manejo
 							agrícola.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
-							México ocupa el <strong>23° lugar</strong> a nivel mundial en la producción de jengibre, con
-							una superficie de producción <strong>433 Ha</strong>.
+						<p id="des_mundo">
+							México ocupa el <strong></strong> a nivel mundial en la producción de café, contando
+							con una superficie de producción de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
-							En Oaxaca hay <strong>1 municipio</strong> que esta dedicado al cultivo de jengibre.
+						<p id="des_muni">
+							En Oaxaca hay <strong></strong> que están dedicados al cultivo de café.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>2º lugar</strong> nacional en producción de jengibre, contando con un
-							volumen de producción de <strong>332 Ton</strong>, una superficie de <strong>42 Ha</strong>,
-							con un rendimiento de <strong>7.90 Ton/Ha</strong>y un valor de producción de
-							<strong>$4,635,263</strong>.
+						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de café,
+							contando con un
+							volumen de producción de <strong></strong>, con una superficie de <strong></strong>, teniendo un rendimiento de <strong></strong>, y con un valor de
+							producción de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
-							La región de <strong>Papaloapan</strong> es la region con mayor
-							producción de jengibre en el estado de Oaxaca, contando con <strong>1 Municipio</strong>,
-							con un volumen de producción de <strong>332 Ton</strong>, una superficie de <strong>42
-								Ha</strong>, un rendimiento de <strong>7.90 Ton/Ha</strong>, y un valor de producción de
-							<strong>$4,635,263</strong>.
-
+						<p id="des_reg">
+							La región del <strong>Sierra de Juárez</strong> es la region con mayor
+							producción de café en el estado de Oaxaca, contando con <strong></strong>,
+							teniendo un volumen de producción de <strong></strong>, una superficie de
+							<strong></strong> y un rendimiento de <strong></strong>, con un valor de
+							producción de <strong></strong>.
 						</p>
 					</div>
 
-					<div class="card">
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>1 pueblo indígena</strong> se encuentran dentro de la producción de
-							jengibre.</p>
+						<p id="des_pue">Un total de <strong></strong> se encuentran dentro de la
+							producción de
+							café.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="section2" class="section">
-			<h1>PRODUCCIÓN MUNDIAL DE JENGIBRE</h1>
+			<h1>PRODUCCIÓN MUNDIAL DE CAFÉ</h1>
 
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
 				<div class="columna1">
-
-
 					<div class="controls">
 						<label>
 							Mostrar
@@ -159,22 +156,20 @@
 						<span id="pageInfo"></span>
 						<button id="nextBtn">Siguiente</button>
 					</div>
-
-
-
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
+
 		</section>
 
 		<section id="section3" class="section">
-			<h1>PRODUCCIÓN NACIONAL DE JENGIBRE</h1>
-
+			<h1>PRODUCCIÓN NACIONAL DE CAFÉ</h1>
 			<H2>Cierre Agricola 2022</H2>
-
 			<div class="controls">
 				<label>
 					Mostrar
@@ -215,20 +210,21 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
-			<h1>BALANZA COMERCIAL DE JENGIBRE EN MÉXICO</h1>
-
+			<h1>BALANZA COMERCIAL DE CAFÉ EN MÉXICO</h1>
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
 			</div>
-			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
 
@@ -267,11 +263,12 @@
 				<span id="pageInfoDesExp"></span>
 				<button id="nextBtnDesExp">Siguiente</button>
 			</div>
-			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
 		<section id="section5" class="section">
-			<h1>PRODUCCIÓN HISTÓRICA DE JENGIBRE EN OAXACA</h1>
+			<h1>PRODUCCIÓN HISTÓRICA DE CAFÉ EN OAXACA</h1>
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
@@ -279,7 +276,7 @@
 		</section>
 
 		<section id="section6" class="section">
-			<h1>PRODUCCIÓN DE JENGIBRE EN OAXACA</h1>
+			<h1>PRODUCCIÓN DE CAFÉ EN OAXACA</h1>
 			<table class="tabla-datos">
 				<thead>
 					<tr>
@@ -300,7 +297,8 @@
 					</tr>
 				</tfoot>
 			</table>
-			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+					2023</strong>
 			</p>
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
@@ -313,12 +311,32 @@
 			</p>
 		</section>
 
+		<section id="section7" class="section">
+			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
+				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce café en
+				el estado
+				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>diciembre</strong>
+				es
+				cuando se
+				cosecha más café alcanzando <strong>350 puntos</strong> de dicho índice.
+			</p>
+			<h2>INDICE DE VOLUMEN FISICO (IVF)</h2>
+			<div class="chart-container">
+				<canvas id="lineChart4"></canvas>
+			</div>
+			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+			</p>
+		</section>
+
 		<section id="section8" class="section">
-			<h1>MUNICIPIOS QUE PRODUCEN DE JENGIBRE EN OAXACA</h1>
+			<h1>MUNICIPIOS QUE PRODUCEN DE CAFÉ EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -333,6 +351,7 @@
 		<div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
 		<div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
 		<div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+		<div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
 		<div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
 	</div>
 </div>
@@ -341,11 +360,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -371,8 +400,8 @@
 	});
 </script>
 
-<script src="{% static 'data/mapas/agricola/jengibre.js' %}"></script>
-<script src="{% static 'agricola/jengibre/js/jengibre.js' %}"></script>
+<script src="{% static 'data/mapas/agricola/cafe.js' %}"></script>
+<script src="{% static 'agricola/cafe/js/cafe.js' %}"></script>
 
 <script>
 
@@ -390,6 +419,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

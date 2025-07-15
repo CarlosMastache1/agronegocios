@@ -43,54 +43,59 @@
         <!-- Sección 1: Descripción general del sector apícola -->
         <section id="section1" class="section">
             <h1>DESCRIPCIÓN DEL SECTOR APICOLA</h1>
-            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-                Oaxaca cuenta con <STRong>244 municipios productores</STRong> del sector apicola, se encuentra en el 5°
-                lugar a nivel nacional de miel de abeja y el <STRong>4° lugar</STRong> en producción de cera de abeja,
-                con <strong>12 pueblos indígenas</STRong> productores de este sector.
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+                Oaxaca cuenta con <strong></strong> productores del sector apicola, se encuentra en el <strong></strong>
+                a nivel
+                nacional de miel de abeja, con <strong></strong> productores de este sector; Oaxaca se encuentra en el
+                <strong></strong> en producción de cera de abeja,
+                con <strong></strong> productores de este sector.
             </p>
 
             <div class="descripcion">
                 <div class="container">
-
-                    <div class="card">
+                    <div class="card" data-target="section2">
                         <h2>📊 Lugar a nivel mundial</h2>
-                        <p>México ocupa el <strong>8º lugar</strong> mundial en producción de miel de abeja, con un
-                            volumen de producción de <strong>64,320 Ton</strong> y el
-                            <strong>11º lugar</strong> en producción de cera de abeja, con un volumen de producción de
-                            <strong>1,533 Ton</strong>.
+                        <p id="des_mundo">México ocupa el <strong></strong> mundial en producción de miel de abeja, con
+                            un
+                            volumen de producción de <strong></strong> y el
+                            <strong></strong> en producción de cera de abeja, con un volumen de producción de
+                            <strong></strong>.
                         </p>
                     </div>
-
-                    <div class="card">
+                    <div class="card" data-target="section8">
                         <h2>📍 Municipios en Oaxaca</h2>
-                        <p>Oaxaca cuenta con <strong>244 municipios productores</strong> de miel de abeja mientras que
-                            <strong>243 municipios</strong> producen cera de abeja.
+                        <p id="des_muni">Oaxaca cuenta con <strong></strong> productores de miel de abeja; Mientras que
+                            <strong></strong> producen cera de abeja.
                         </p>
                     </div>
-
-                    <div class="card">
+                    <div class="card" data-target="section3">
                         <h2>🇲🇽 Lugar a nivel nacional</h2>
-                        <p>Oaxaca ocupa el <strong>5º lugar</strong> nacional en producción de miel de abeja con un
-                            volumen de producción de <strong>4,795 Ton</strong> y un precio de <strong>43 $/KG</strong>
-                            teniendo un valor de producción de <strong>$212,493,000</strong>. Oaxaca tiene el
-                            <strong>4º lugar</strong> en producción de cera de abeja con un volumen de producción de
-                            <strong>132 Ton</strong> y un precio de <strong>74 $/KG</strong> teniendo un valor de
-                            producción de <strong>$9,823,000</strong>.
+                        <p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de miel de abeja
+                            con un
+                            volumen de producción de <strong></strong> y un precio de <strong></strong>
+                            teniendo un valor de producción de <strong></strong>. Oaxaca tiene el
+                            <strong></strong> en producción de cera de abeja con un volumen de producción de
+                            <strong></strong> y un precio de <strong></strong> teniendo un valor de
+                            producción de <strong></strong>.
                         </p>
                     </div>
-
-                    <div class="card">
+                    <div class="card" data-target="section6">
                         <h2>📈 Región con mayor producción</h2>
-                        <p>La región con mayor producción de miel y cera de abeja es la <strong>Costa</strong> con 39
-                            municipios, teniendo un volumen de producción de <strong>2,189 Ton</strong>, un precio de
-                            <strong>48 $/KG</strong> y un valor de producción de <strong>$101,216,000</strong>.
+                        <p id="des_reg">La región con mayor producción de miel de abeja es la
+                            <strong></strong> con <strong></strong>, teniendo un volumen de producción de
+                            <strong></strong>, un precio de
+                            <strong></strong>, y un valor de producción de <strong></strong>; Mientras que la región con
+                            mayor producción de cera de abeja es la
+                            <strong></strong> con <strong></strong>, teniendo un volumen de producción de
+                            <strong></strong>, un precio de
+                            <strong></strong>, y un valor de producción de <strong></strong>.
                         </p>
                     </div>
-
-                    <div class="card">
+                    <div class="card" data-target="section6">
                         <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-                        <p>Un total de <strong>12 pueblos indígenas</strong> participan activamente en la producción
-                            de miel y cera de abeja en Oaxaca.</p>
+                        <p id="des_pue">Un total de <strong></strong> participan activamente en la producción de miel en
+                            Oaxaca y un total de <strong></strong> participan activamente en la producción de cera de
+                            abeja en Oaxaca.</p>
                     </div>
                 </div>
             </div>
@@ -143,31 +148,53 @@
                 <H2>MIEL DE ABEJA</H2>
                 <div class="contenedor_col1">
                     <div class="columna1">
-                        <!-- Tabla con datos de producción mundial de miel -->
-                        <table class="tabla-datos">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais" placeholder="Buscar...">
+
+                        </div>
+                        <table id="dataTablePais" class="tabla-datos">
                             <thead>
                                 <tr>
                                     <th>RANKING</th>
-                                    <th>PAIS</th>
+                                    <th>PAÍS</th>
                                     <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
                                 </tr>
                             </thead>
-                            <tbody id="tab_cuerpo_pais_miel">
-                                <!-- Datos dinámicos -->
+                            <tbody>
+                                <!-- Filas dinámicas -->
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla1"> 138,453,072 </th>
+                                <tr id="total_datos_tabPais">
                                 </tr>
                             </tfoot>
-
                         </table>
+                        <div class="pagination">
+                            <button id="prevBtnPais">Anterior</button>
+                            <span id="pageInfoPais"></span>
+                            <button id="nextBtnPais">Siguiente</button>
+                        </div>
                     </div>
                     <!-- Mapa mundial en iframe -->
                     <iframe id="frame_mundo_miel" src="{% url 'iframeMundo' %}" class="columna2"
                         frameborder="0"></iframe>
                 </div>
+                <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE
+                        LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
 
             <div class="bloque-subproducto">
@@ -176,30 +203,52 @@
                     <!-- Mapa mundial para cera en iframe -->
                     <iframe id="frame_mundo_cera" src="{% url 'iframeMundo' %}" class="columna1"
                         frameborder="0"></iframe>
-                    <!-- Tabla con datos de producción mundial de cera -->
                     <div class="columna2">
-                        <table class="tabla-datos">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais2">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais2" placeholder="Buscar...">
+
+                        </div>
+                        <table id="dataTablePais2" class="tabla-datos">
                             <thead>
                                 <tr>
                                     <th>RANKING</th>
-                                    <th>PAIS</th>
+                                    <th>PAÍS</th>
                                     <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
                                 </tr>
                             </thead>
-
-                            <tbody id="tab_cuerpo_pais_cera">
-                                <!-- Datos dinámicos -->
+                            <tbody>
+                                <!-- Filas dinámicas -->
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla2"></th>
+                                <tr id="total_datos_tabPais2">
                                 </tr>
                             </tfoot>
-
                         </table>
+                        <div class="pagination">
+                            <button id="prevBtnPais2">Anterior</button>
+                            <span id="pageInfoPais2"></span>
+                            <button id="nextBtnPais2">Siguiente</button>
+                        </div>
                     </div>
                 </div>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
+                        DE
+                        LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoSubProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
         </section>
 
@@ -253,10 +302,18 @@
                     <span id="pageInfo"></span>
                     <button id="nextBtn">Siguiente</button>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <!-- Mapa México para miel -->
                 <iframe id="iframe_mexico_miel" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
                     frameborder="0"></iframe>
+                <p class="fuentes_pie fuente_mapa">
+                    <strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+                    <button onclick="recargarMexicoProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
             </div>
             <!-- Bloque de producción de cera -->
             <div class="bloque-subproducto">
@@ -302,11 +359,18 @@
                     <span id="pageInfo2"></span>
                     <button id="nextBtn2">Siguiente</button>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <!-- Mapa México para cera -->
                 <iframe id="iframe_mexico_cera" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
                     frameborder="0"></iframe>
-            </div>
+                <p class="fuentes_pie fuente_mapa">
+                    <strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+                    <button onclick="recargarMexicoSubProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
         </section>
 
         <!-- Sección 4: Balanza comercial del sector apícola -->
@@ -316,6 +380,8 @@
             <div class="chart-container">
                 <canvas id="lineChart"></canvas><!-- Gráfico de línea -->
             </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+                    PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
         </section>
 
         <!-- Sección 5: Producción histórica de miel y cera en Oaxaca -->
@@ -326,6 +392,7 @@
                 <div class="chart-container">
                     <canvas id="lineChart2"></canvas>
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
             </div>
             <div class="bloque-subproducto">
                 <h3>VOLUMEN DE PRODUCCIÓN POR REGIÓN DE CERA DE ABEJA (TON)</h3>
@@ -333,6 +400,7 @@
                 <div class="chart-container">
                     <canvas id="lineChart3"></canvas><!-- Gráfico línea cera -->
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
             </div>
         </section>
 
@@ -364,6 +432,10 @@
                         </tr>
                     </tfoot>
                 </table>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+                        AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
                 </h4>
@@ -371,6 +443,9 @@
                 <div class="chart-container">
                     <canvas id="lineChart4"></canvas><!-- Gráfico pueblos indígenas miel -->
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
             </div>
             <div class="bloque-subproducto">
                 <h3>PRODUCCIÓN DE CERA DE ABEJA EN OAXACA</h3>
@@ -396,19 +471,28 @@
                         </tr>
                     </tfoot>
                 </table>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+                        AGRÍCOLA
+                        2023</strong>
+                </p>
 
                 <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDIGENA
                 </h4>
                 <div class="chart-container">
                     <canvas id="lineChart5"></canvas><!-- Gráfico pueblos indígenas cera -->
                 </div>
+                <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                        2023</strong>
+                </p>
             </div>
         </section>
 
         <!-- Sección 7: Estacionalidad de la producción en Oaxaca -->
         <section id="section7" class="section bloque-producto">
             <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">La estacionalidad de la producción se
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">La estacionalidad
+                de
+                la producción se
                 refiere a la variación en la frecuencia mensual con la que se
                 produce miel de abeja en el estado de Oaxaca. Esta variación se mide mediante el
                 Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
@@ -419,12 +503,19 @@
             <div class="chart-container">
                 <canvas id="lineChart6"></canvas><!-- Gráfico línea estacionalidad -->
             </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+            </p>
         </section>
 
         <!-- Sección 8: Municipios que producen miel y cera en Oaxaca -->
         <section id="section8" class="section">
             <h1>MUNICIPIOS QUE PRODUCEN MIEL Y CERA DE ABEJA EN OAXACA</h1>
-            <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+            <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+            <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                    2023</strong>
+                <button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+            </p>
             <div id="botones"></div>
             <div id="titulo_regmun"></div>
             <div id="tabla"></div>
@@ -458,11 +549,21 @@
     const circles = document.querySelectorAll('.progress-circle');
     // Selecciona todas las secciones del documento
     const sections = document.querySelectorAll('section');
+    const cards = document.querySelectorAll('.card');
 
     // Añade evento click a cada círculo para hacer scroll suave a la sección correspondiente
     circles.forEach(circle => {
         circle.addEventListener('click', () => {
             const targetId = circle.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Scroll a la sección al hacer clic
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
@@ -523,6 +624,31 @@
     const mexico_miel = document.getElementById("iframe_mexico_miel");
     mexico_miel.onload = function () {
         mexico_miel.contentWindow.postMessage(tab_mex_pro, "*");
+    }
+
+    function recargarMexicoProducto() {
+        const iframe = document.getElementById('iframe_mexico_miel');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoProducto() {
+        const iframe = document.getElementById('frame_mundo_miel');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarOaxaca() {
+        const iframe = document.getElementById('frame_oaxaca');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMexicoSubProducto() {
+        const iframe = document.getElementById('iframe_mexico_cera');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoSubProducto() {
+        const iframe = document.getElementById('frame_mundo_cera');
+        iframe.src = iframe.src; // Recarga el iframe actual
     }
 </script>
 

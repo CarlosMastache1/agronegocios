@@ -4,20 +4,19 @@
 
 {% block content %}
 
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <link rel="stylesheet" href="{% static 'pecuario/css/avicola_css.css' %}">
 <link rel="stylesheet" href="{% static 'pecuario/css/estilo_pecuario.css' %}">
 
+
+
 <main id="contents" class="site-contnts">
 	<!--BANNER-->
 	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/pepino/imagenes/19.JPG' %}">
+		<div class="item" data-slide="{% static 'agricola/jengibre/imagenes/7.png' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -25,7 +24,7 @@
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/pepino/imagenes/20.JPG' %}">
+		<div class="item" data-slide="{% static 'agricola/jengibre/imagenes/8.png' %}">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-11 col-md-8 col-lg-7"></div>
@@ -34,6 +33,7 @@
 		</div>
 	</div>
 </main>
+
 
 <!-- Cinta ticker -->
 <div class="ticker">
@@ -46,67 +46,80 @@
 	<div id="body_pag">
 		<!-- Secciones -->
 		<section id="section1" class="section">
-			<h1>DESCRIPCIÓN DEL <strong>PEPINO</strong></h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				Este cultivo es anual por lo que su ciclo de vida es de <strong>3 a 4 meses</strong>, Oaxaca tiene
-				<strong>13 Municipios</strong> productores de pepino, se encuentra en el <strong>24° lugar</strong> en
-				producción a nivel nacional, con <strong>2 pueblos indígenas</strong> productores de este cultivo.
+			<h1>DESCRIPCIÓN DEL <strong>JENGIBRE</strong></h1>
+			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+				Este cultivo es anual por lo que su ciclo de vida es de <strong>8 a 9 meses</strong>, Oaxaca tiene
+				<strong></strong> productor de Jengibre, se encuentra en el <strong></strong> en
+				producción a nivel nacional, con <strong></strong> productor de este cultivo.
 			</p>
+
+
 			<div class="descripcion">
 				<div class="container">
+
 					<div class="card">
 						<h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Anual</h2>
 						<p>
-							Ciclo de vida de <strong>3 a 4 meses</strong>.
+							Ciclo de vida de <strong>8 a 9 meses</strong> según condiciones climáticas y manejo
+							agrícola.
 						</p>
 					</div>
-					<div class="card">
+
+					<div class="card" data-target="section2">
 						<h2>📊 Lugar a nivel mundial</h2>
-						<p>
-							México ocupa el <strong>14° lugar</strong> a nivel mundial en la producción de pepino; con
-							una superficie para su cosecha de <strong>19,123 Ha</strong>.
+						<p id="des_mundo">
+							México ocupa el <strong></strong> a nivel mundial en la producción de jengibre, con
+							una superficie de producción <strong></strong>.
 						</p>
 					</div>
-					<div class="card">
+
+					<div class="card" data-target="section8">
 						<h2>📍 Municipios en Oaxaca</h2>
-						<p>
-							En Oaxaca hay <strong>13 municipios</strong> que están dedicados al cultivo de pepino.
+						<p id="des_muni">
+							En Oaxaca hay <strong></strong> que esta dedicado al cultivo de jengibre.
 						</p>
 					</div>
-					<div class="card">
+
+					<div class="card" data-target="section3">
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
-						<p>Oaxaca ocupa el <strong>24º lugar</strong> nacional en producción de pepino. Con un volumen
-							de
-							producción de <strong>2,204 Ton</strong>, una superficie de <strong>74 Ha</strong>,
-							con un rendimeinto de <strong>21.63 Ton/Ha</strong> y un valor de
-							<strong>$17,221,548</strong>.
+						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de jengibre, contando
+							con un
+							volumen de producción de <strong></strong>, una superficie de <strong></strong>,
+							con un rendimiento de <strong></strong>y un valor de producción de
+							<strong></strong>.
 						</p>
 					</div>
-					<div class="card">
+
+					<div class="card" data-target="section6">
 						<h2>📈 Región con mayor producción</h2>
-						<p>
-							La región de <strong>Valles Centrales</strong> es la region con mayor
-							producción de pepino en el estado de Oaxaca contando con <strong>7 Municipios</strong> de
-							producción. Con un volumen de producción de <strong>1,801 Ton</strong>, una superficie de
-							<strong>36 Ha</strong>, con un rendimeinto de <strong>30.19 Ton/Ha</strong> y un valor
-							de <strong>$14,334,359</strong>.
+						<p id="des_reg">
+							La región de <strong>Papaloapan</strong> es la region con mayor
+							producción de jengibre en el estado de Oaxaca, contando con <strong></strong>,
+							con un volumen de producción de <strong></strong>, una superficie de <strong></strong>, un
+							rendimiento de <strong></strong>, y un valor de producción de
+							<strong></strong>.
+
 						</p>
 					</div>
-					<div class="card">
+
+					<div class="card" data-target="section6">
 						<h2>🧑🏽‍🌾 Pueblos indígenas</h2>
-						<p>Un total de <strong>2 pueblos indígenas</strong> se encuentran dentro de la producción de
-							pepino.</p>
+						<p id="des_pue">Un total de <strong></strong> se encuentran dentro de la
+							producción de
+							jengibre.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section id="section2" class="section">
-			<h1>PRODUCCIÓN MUNDIAL DE PEPINO</h1>
+			<h1>PRODUCCIÓN MUNDIAL DE JENGIBRE</h1>
 
 			<H2>Cierre Agricola 2022</H2>
 			<div class="contenedor_col1">
 				<div class="columna1">
+
+
 					<div class="controls">
 						<label>
 							Mostrar
@@ -118,8 +131,10 @@
 							</select>
 							registros
 						</label>
+
 						<input type="text" id="searchInput" placeholder="Buscar...">
 					</div>
+
 					<table id="dataTable" class="tabla-datos">
 						<thead>
 							<tr>
@@ -133,26 +148,34 @@
 						</tbody>
 						<tfoot>
 							<tr id="total_datos_tab1">
+
 							</tr>
 						</tfoot>
 					</table>
+
 					<div class="pagination">
 						<button id="prevBtn">Anterior</button>
 						<span id="pageInfo"></span>
 						<button id="nextBtn">Siguiente</button>
 					</div>
+
+
+
 				</div>
 				<iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
 			</div>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
 					NACIONES UNIDAS PARA LA
-					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+					ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+				<button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section3" class="section">
-			<h1>PRODUCCIÓN NACIONAL DE PEPINO</h1>
+			<h1>PRODUCCIÓN NACIONAL DE JENGIBRE</h1>
 
 			<H2>Cierre Agricola 2022</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -164,6 +187,7 @@
 					</select>
 					registros
 				</label>
+
 				<input type="text" id="searchInput2" placeholder="Buscar...">
 			</div>
 			<table id="data2Table" class="tabla-datos">
@@ -184,6 +208,7 @@
 					<tr id="total_datos_tab2"></tr>
 				</tfoot>
 			</table>
+
 			<div class="pagination">
 				<button id="prevBtn2">Anterior</button>
 				<span id="pageInfo2"></span>
@@ -191,14 +216,17 @@
 			</div>
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
 			</p>
-			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
-				frameborder="0"></iframe>
-			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+
+			<iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0">
+			</iframe>
+			<p class="fuentes_pie fuente_mapa">
+				<strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 		</section>
 
 		<section id="section4" class="section">
-			<h1>BALANZA COMERCIAL DE PEPINO EN MÉXICO</h1>
+			<h1>BALANZA COMERCIAL DE JENGIBRE EN MÉXICO</h1>
 
 			<div class="chart-container">
 				<canvas id="lineChart"></canvas>
@@ -207,6 +235,7 @@
 					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 
 			<H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
+
 			<div class="controls">
 				<label>
 					Mostrar
@@ -218,6 +247,7 @@
 					</select>
 					registros
 				</label>
+
 				<input type="text" id="searchInputDesExp" placeholder="Buscar...">
 			</div>
 			<table id="dataTableDesExp" class="tabla-datos">
@@ -235,6 +265,7 @@
 					<tr id="total_datos_tabDesExp"></tr>
 				</tfoot>
 			</table>
+
 			<div class="pagination">
 				<button id="prevBtnDesExp">Anterior</button>
 				<span id="pageInfoDesExp"></span>
@@ -245,7 +276,7 @@
 		</section>
 
 		<section id="section5" class="section">
-			<h1>PRODUCCIÓN HISTÓRICA DE PEPINO EN OAXACA</h1>
+			<h1>PRODUCCIÓN HISTÓRICA DE JENGIBRE EN OAXACA</h1>
 			<div class="chart-container">
 				<canvas id="lineChart2"></canvas>
 			</div>
@@ -253,7 +284,7 @@
 		</section>
 
 		<section id="section6" class="section">
-			<h1>PRODUCCIÓN DE PEPINO EN OAXACA</h1>
+			<h1>PRODUCCIÓN DE JENGIBRE EN OAXACA</h1>
 			<table class="tabla-datos">
 				<thead>
 					<tr>
@@ -265,7 +296,9 @@
 						<th>CANTIDAD DE MUNICIPIOS</th>
 					</tr>
 				</thead>
+
 				<tbody id="tabla_produccion_prod_oax">
+
 				</tbody>
 				<tfoot>
 					<tr id="total_tab_pro_miel_oax">
@@ -278,6 +311,7 @@
 
 			<h4>VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA
 			</h4>
+
 			<div class="chart-container">
 				<canvas id="lineChart3"></canvas>
 			</div>
@@ -285,30 +319,14 @@
 			</p>
 		</section>
 
-		<section id="section7" class="section">
-			<h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
-			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;">
-				La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce pepino en
-				el estado
-				de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>abril</strong>
-				es
-				cuando se
-				cosecha más pepino alcanzando <strong>846 puntos</strong> de dicho índice.
-			</p>
-			<h2>INDICE DE VOLUMEN FISICO (IVF)</h2>
-			<div class="chart-container">
-				<canvas id="lineChart4"></canvas>
-			</div>
-			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
-			</p>
-		</section>
-
 		<section id="section8" class="section">
-			<h1>MUNICIPIOS QUE PRODUCEN DE PEPINO EN OAXACA</h1>
+			<h1>MUNICIPIOS QUE PRODUCEN DE JENGIBRE EN OAXACA</h1>
 			<iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
 				frameborder="0"></iframe>
 			<p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
-					2023</strong></p>
+					2023</strong>
+				<button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+			</p>
 			<div id="botones"></div>
 			<div id="titulo_regmun"></div>
 			<div id="tabla"></div>
@@ -323,7 +341,6 @@
 		<div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
 		<div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
 		<div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
-		<div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
 		<div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
 	</div>
 </div>
@@ -332,11 +349,21 @@
 <script>
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
+	const cards = document.querySelectorAll('.card');
 
 	// Scroll a la sección al hacer clic
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
+			const targetSection = document.getElementById(targetId);
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		});
+	});
+
+	// Scroll a la sección al hacer clic
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			const targetId = card.getAttribute('data-target');
 			const targetSection = document.getElementById(targetId);
 			targetSection.scrollIntoView({ behavior: 'smooth' });
 		});
@@ -362,8 +389,8 @@
 	});
 </script>
 
-<script src="{% static 'data/mapas/agricola/pepino.js' %}"></script>
-<script src="{% static 'agricola/pepino/js/pepino.js' %}"></script>
+<script src="{% static 'data/mapas/agricola/jengibre.js' %}"></script>
+<script src="{% static 'agricola/jengibre/js/jengibre.js' %}"></script>
 
 <script>
 
@@ -381,6 +408,21 @@
 	iframe.onload = function () {
 		iframe.contentWindow.postMessage(regionesConMunicipios, "*");
 	};
+
+	function recargarMexico() {
+		const iframe = document.getElementById('iframe_mexico_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarMundo() {
+		const iframe = document.getElementById('frame_mundo_prod');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
+
+	function recargarOaxaca() {
+		const iframe = document.getElementById('frame_oaxaca');
+		iframe.src = iframe.src; // Recarga el iframe actual
+	}
 </script>
 
 <script>

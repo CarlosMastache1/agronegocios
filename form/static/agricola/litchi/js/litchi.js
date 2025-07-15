@@ -1,4 +1,63 @@
 
+
+const pTagM = document.getElementById("des_muni");
+const strongTagsM = pTagM.querySelectorAll("strong");
+let summun = 0;
+tabla_produccion_producto.forEach((region) => (summun += region.cantidad));
+
+if (tabla_produccion_producto && strongTagsM.length > 0) {
+  strongTagsM[0].textContent = `${summun} municipios`;
+}
+
+const oaxacaData = tab_pro_nacional.find((entidad) => entidad.id === "OAX");
+const pTagN = document.getElementById("des_na");
+const strongTagsN = pTagN.querySelectorAll("strong");
+
+if (oaxacaData && strongTagsN.length > 4) {
+  strongTagsN[0].textContent = `${oaxacaData.ranking}° lugar`;
+  strongTagsN[1].textContent = `${oaxacaData.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsN[2].textContent = `${oaxacaData.superficie.toLocaleString(
+    "es-MX"
+  )} Ha`;
+  strongTagsN[3].textContent = `${oaxacaData.rendimiento.toFixed(2)} Ton/Ha`;
+  strongTagsN[4].textContent = `$${oaxacaData.valor.toLocaleString("es-MX")}`;
+}
+
+const regionData = tabla_produccion_producto[0];
+const pTagR = document.getElementById("des_reg");
+const strongTagsR = pTagR.querySelectorAll("strong");
+
+if (regionData && strongTagsR.length > 5) {
+  strongTagsR[0].textContent = `${regionData.region}`;
+  strongTagsR[1].textContent = `${regionData.cantidad.toLocaleString(
+    "es-MX"
+  )} municipios`;
+  strongTagsR[2].textContent = `${regionData.volumen.toLocaleString(
+    "es-MX"
+  )} Ton`;
+  strongTagsR[3].textContent = `${regionData.superficie.toLocaleString(
+    "es-MX"
+  )} Ha`;
+  strongTagsR[4].textContent = `${regionData.rendimiento.toFixed(2)} Ton/Ha`;
+  strongTagsR[5].textContent = `$${regionData.valor.toLocaleString("es-MX")}`;
+}
+
+const pTagP = document.getElementById("des_pue");
+const strongTagsP = pTagP.querySelectorAll("strong");
+if (strongTagsP.length > 0) {
+  strongTagsP[0].textContent = `${pub_indigenas_producto[0].length - 1 } pueblos indígenas`;
+}
+
+const pTagD = document.getElementById("descripcion");
+const strongTagsD = pTagD.querySelectorAll("strong");
+if (oaxacaData && strongTagsD.length > 1) {
+  strongTagsD[1].textContent = `${summun} municipios`;
+  strongTagsD[2].textContent = `${oaxacaData.ranking}° lugar`;
+  strongTagsD[3].textContent = `${pub_indigenas_producto[0].length - 1 } pueblos indígenas`;
+}
+
 /* TABLA 2 PRODUCCIÓN NACIONAL DE AGAVE */
 let currentPage2 = 1;
 let rowsPerPage2 = 10;
@@ -38,11 +97,15 @@ function renderTable2() {
 }
 
 function applyFilters2() {
-  const query = searchInput2.value.toLowerCase();
+  const query = removeAccents(searchInput2.value.toLowerCase());
   rfilteredData2 = tab_pro_nacional.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+    (item) => {
+      const entidad = removeAccents(item.entidad.toLowerCase());
+      const id = String(item.id);
+
+      return entidad.includes(query) ||
+      id.includes(query)
+    }
   );
   currentPage2 = 1;
   renderTable2();
@@ -528,4 +591,9 @@ function cambiar_pagina(nueva_pagina) {
 
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
+}
+
+// Función auxiliar para remover acentos
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

@@ -323,7 +323,7 @@ const tabla_paises_prod = [
   { id: "MEX", ranking: 20, pais: "México", volumen: 40826 },
   { id: "BRA", ranking: 21, pais: "Brasil", volumen: 39891 },
   { id: "IRN", ranking: 22, pais: "Irán (República Islámica del)", volumen: 38839 },
-  { pais: "otros", volumen: 984862 },
+  { ranking: "", pais: "Otros", volumen: 984862 },
 ];
 
 
@@ -346,37 +346,40 @@ const paises_datos_pro = Object.values(agrupado2).map((item, i) => ({
   ranking: i + 1,
 }));
 
-/* LECHE DE CABRAS */
-const paises_datos_sub_pro = [
-  //26
-  { id: "IND", volumen: "6248338.34" }, //India
-  { id: "SDN", volumen: "1160272.58" }, //Sudán
-  { id: "PAK", volumen: "1018000" }, //Pakistán
-  { id: "BGD", volumen: "915180" }, //Bangladesh
-  { id: "FRA", volumen: "717610" }, //Francia
-  { id: "TUR", volumen: "540425.93" }, //Turquía   
-  { id: "", volumen: "221600" }, //Rumania
-  { id: "CHN", volumen: "219339.9" }, //China, Continental
-  { id: "JAM", volumen: "196861.3" }, //Jamaica
-  { id: "MEX", volumen: "173673" }, //México
-  { id: "MNG", volumen: "169585.13" }, //Mongolia
-];
-
-
 const tabla_paises_sub_prod = [
-  { ranking: 1, pais: "India", volumen: 6248338.34 },
-  { ranking: 2, pais: "Sudán", volumen: 1160272.58 },
-  { ranking: 3, pais: "Pakistán", volumen: 1018000 },
-  { ranking: 4, pais: "Bangladesh", volumen: 915180 },
-  { ranking: 5, pais: "Francia", volumen: 717610 },
-  { ranking: 6, pais: "Turquía", volumen: 540425.93 },
-  { ranking: 22, pais: "Rumania", volumen: 221600 },
-  { ranking: 23, pais: "China, Continental", volumen: 219339.9 },
-  { ranking: 24, pais: "Jamaica", volumen: 196861.3 },
-  { ranking: 25, pais: "México", volumen: 173673 },
-  { ranking: 26, pais: "Mongolia", volumen: 169585.13 },
-  { pais: "otros", volumen: 2780822.24 },
+  { id: "IND", ranking: 1, pais: "India", volumen: 6248338.34 },
+  { id: "SDN", ranking: 2, pais: "Sudán", volumen: 1160272.58 },
+  { id: "PAK", ranking: 3, pais: "Pakistán", volumen: 1018000 },
+  { id: "BGD", ranking: 4, pais: "Bangladesh", volumen: 915180 },
+  { id: "FRA", ranking: 5, pais: "Francia", volumen: 717610 },
+  { id: "TUR", ranking: 6, pais: "Turquía", volumen: 540425.93 },
+  { id: "ROU", ranking: 22, pais: "Rumania", volumen: 221600 },
+  { id: "CHN", ranking: 23, pais: "China, Continental", volumen: 219339.9 },
+  { id: "JAM", ranking: 24, pais: "Jamaica", volumen: 196861.3 },
+  { id: "MEX", ranking: 25, pais: "México", volumen: 173673 },
+  { id: "MNG", ranking: 26, pais: "Mongolia", volumen: 169585.13 },
+  { ranking:'', pais: "Otros", volumen: 2780822.24 },
 ];
+
+
+const agrupado = {};
+
+tabla_paises_sub_prod.forEach((item) => {
+  if (!agrupado[item.id]) {
+    agrupado[item.id] = { ...item };
+  } else {
+    // Sumamos superficie
+    agrupado[item.id].superficie += item.superficie;
+
+    agrupado[item.id].volumen += item.volumen;
+  }
+});
+
+// Convertimos el objeto agrupado a arreglo y ajustamos el ranking
+const paises_datos_sub_pro = Object.values(agrupado).map((item, i) => ({
+  ...item,
+  ranking: i + 1,
+}));
 
 /* Etiquetas para el periodo de tiempo usado en la grafica de balanza nacional */
 const labels_balanza = [
