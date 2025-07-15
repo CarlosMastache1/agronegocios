@@ -274,7 +274,6 @@ def tiendaProducInd(request, categoria):
   municipio_id = request.GET.get('municipio', '')
   productos_filtrados = productos.objects.filter(
        subsector__iexact='AGROINDUSTRIAL',
-       categoria__iexact=categoria,
        estado=True
    )
   if busqueda:
