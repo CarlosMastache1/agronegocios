@@ -493,8 +493,6 @@ def formProductos(request):
         
         for i in range(len(nombreProducto)):
             categoria = categorias[i] if i < len(categorias) else None
-            imagen = imagenes[i] if i < len(imagenes) else None
-            pdf = pdfs[i] if i < len(pdfs) else None
             productoNew = productos.objects.create(
                 nombreProductor=nombreProductor,
                 municipio_id=municipio,
@@ -505,7 +503,7 @@ def formProductos(request):
                 nombreProducto=nombreProducto[i],
                 nombreMarca=nombreMarca[i],
                 subsector=subsectores[i],
-                categoria=categorias[i],
+                categoria=categoria,
                 unidad_medidad=unidades[i],
                 volumen_produccion=volumenes[i],
                 disponibilidad_entrega=disponibilidades[i],
