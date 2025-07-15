@@ -166,26 +166,43 @@
                 <H2>CARNE DE BOVINO</H2>
                 <div class="contenedor_col1">
                     <!-- Tabla con ranking mundial de producción de carne -->
-                    <div class="columna1">
-                        <table class="tabla-datos">
-                            <thead>
-                                <tr>
-                                    <th>RANKING</th>
-                                    <th>PAIS</th>
+					<div class="columna1">
+						<div class="controls">
+							<label>
+								Mostrar
+								<select id="rowsPerPagePais">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								registros
+							</label>
+							<input type="text" id="searchInputPais" placeholder="Buscar...">
+
+						</div>
+						<table id="dataTablePais" class="tabla-datos">
+							<thead>
+								<tr>
+									<th>RANKING</th>
+									<th>PAÍS</th>
                                     <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-                                </tr>
-                            </thead>
-                            <!-- Aquí se llenan dinámicamente los datos de los países -->
-                            <tbody id="tab_cuerpo_pais_pro">
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla1"> 138,453,072 </th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Filas dinámicas -->
+							</tbody>
+							<tfoot>
+								<tr id="total_datos_tabPais">
+								</tr>
+							</tfoot>
+						</table>
+						<div class="pagination">
+							<button id="prevBtnPais">Anterior</button>
+							<span id="pageInfoPais"></span>
+							<button id="nextBtnPais">Siguiente</button>
+						</div>
+					</div>
                     <!-- Iframe que muestra mapa mundial de producción -->
                     <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2"
                         frameborder="0"></iframe>
@@ -207,27 +224,43 @@
                         frameborder="0"></iframe>
 
                     <!-- Tabla con ranking mundial de producción de leche -->
-                    <div class="columna2">
-                        <table class="tabla-datos">
-                            <thead>
-                                <tr>
-                                    <th>RANKING</th>
-                                    <th>PAIS</th>
-                                    <th>VOLUMEN DE PRODUCCIÓN (L)</th>
-                                </tr>
-                            </thead>
+					<div class="columna2">
+						<div class="controls">
+							<label>
+								Mostrar
+								<select id="rowsPerPagePais2">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								registros
+							</label>
+							<input type="text" id="searchInputPais2" placeholder="Buscar...">
 
-                            <!-- Datos dinámicos -->
-                            <tbody id="tab_cuerpo_pais_sub_pro">
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Total:</th>
-                                    <th colspan="2" id="total_tabla2"></th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+						</div>
+						<table id="dataTablePais2" class="tabla-datos">
+							<thead>
+								<tr>
+									<th>RANKING</th>
+									<th>PAÍS</th>
+									<th>VOLUMEN DE PRODUCCIÓN (L)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Filas dinámicas -->
+							</tbody>
+							<tfoot>
+								<tr id="total_datos_tabPais2">
+								</tr>
+							</tfoot>
+						</table>
+						<div class="pagination">
+							<button id="prevBtnPais2">Anterior</button>
+							<span id="pageInfoPais2"></span>
+							<button id="nextBtnPais2">Siguiente</button>
+						</div>
+					</div>
                 </div>
                 <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
                         DE

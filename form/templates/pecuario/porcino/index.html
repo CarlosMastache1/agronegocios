@@ -98,25 +98,41 @@
             <H2>CARNE DE PORCINO</H2>
             <div class="contenedor_col1">
                 <div class="columna1">
-                    <table class="tabla-datos">
+                    <div class="controls">
+                        <label>
+                            Mostrar
+                            <select id="rowsPerPagePais">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            registros
+                        </label>
+                        <input type="text" id="searchInputPais" placeholder="Buscar...">
+
+                    </div>
+                    <table id="dataTablePais" class="tabla-datos">
                         <thead>
                             <tr>
                                 <th>RANKING</th>
-                                <th>PAIS</th>
+                                <th>PAÍS</th>
                                 <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
                             </tr>
                         </thead>
-                        <!-- Contenido datos de los paises del producto principal -->
-                        <tbody id="tab_cuerpo_pais_pro">
+                        <tbody>
+                            <!-- Filas dinámicas -->
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>Total:</th>
-                                <th colspan="2" id="total_tabla1"> 138,453,072 </th>
+                            <tr id="total_datos_tabPais">
                             </tr>
                         </tfoot>
-
                     </table>
+                    <div class="pagination">
+                        <button id="prevBtnPais">Anterior</button>
+                        <span id="pageInfoPais"></span>
+                        <button id="nextBtnPais">Siguiente</button>
+                    </div>
                 </div>
                 <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2" frameborder="0"></iframe>
             </div>

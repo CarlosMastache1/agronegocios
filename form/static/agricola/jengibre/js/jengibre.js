@@ -100,12 +100,15 @@ function renderTable() {
 }
 
 function applyFilters() {
-  const query = searchInput.value.toLowerCase();
+  const query = removeAccents(searchInput.value.toLowerCase());
   filteredData = tab_pro_mundial.filter(
     (item) =>
-      item.pais.toLowerCase().includes(query) ||
-      item.ranking.toLowerCase().includes(query) |
-        String(item.ranking).includes(query)
+    {
+      const pais = removeAccents(item.pais.toLowerCase());
+      const ranking = String(item.ranking);
+
+      return pais.includes(query) || ranking.includes(query)
+    }
   );
   currentPage = 1;
   renderTable();
@@ -188,11 +191,15 @@ function renderTable2() {
 }
 
 function applyFilters2() {
-  const query = searchInput2.value.toLowerCase();
+  const query = removeAccents(searchInput2.value.toLowerCase());
   rfilteredData2 = tab_pro_nacional.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+    (item) => {
+      const entidad = removeAccents(item.entidad.toLowerCase());
+      const id = String(item.id);
+
+      return entidad.includes(query) ||
+      id.includes(query)
+    }
   );
   currentPage2 = 1;
   renderTable2();
@@ -278,11 +285,15 @@ function renderTableDesExp() {
 }
 
 function applyFiltersDesExp() {
-  const query = searchInputDesExp.value.toLowerCase();
+  const query = removeAccents(searchInputDesExp.value.toLowerCase());
   rfilteredDataDesExp = tab_destino_exportacion.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
+    (item) => {
+      const pais = removeAccents(item.pais.toLowerCase());
+      const num = String(item.num);
+
+      return pais.includes(query) ||
+      num.includes(query)
+    }
   );
   currentPageDesExp = 1;
   renderTableDesExp();
@@ -782,3 +793,8 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
 )}</th><th>${7.9}</th><th>${valor_producto.toLocaleString(
   "es-MX"
 )}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
+
+// Función auxiliar para remover acentos
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}

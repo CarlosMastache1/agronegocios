@@ -532,7 +532,7 @@ const tab_mex_sub_pro = [
   {
     ranking: 18,
     id: "SON",
-    entodad: "Sonora",
+    entidad: "Sonora",
     volumen: 119593000,
     precio: 9,
     valor: 1048714000,
@@ -720,7 +720,7 @@ const tabla_paises_sub_prod = [
   { id: "MEX", ranking: 15, pais: "México", volumen: 13497999 },
   { id: "ITA", ranking: 16, pais: "Italia", volumen: 13181870 },
   { id: "ARG", ranking: 17, pais: "Argentina", volumen: 11904142 },
-  { pais: "otros", volumen: 234005078 },
+  { ranking: '', pais: "Otros", volumen: 234005078 },
 ];
 
 const agrupado = {};
@@ -757,7 +757,7 @@ const tabla_paises_prod = [
   { id: "CAN", ranking: 10, pais: "Canadá", volumen: 1378656 },
   { id: "FRA", ranking: 11, pais: "Francia", volumen: 1361310 },
   { id: "PAK", ranking: 12, pais: "Pakistán", volumen: 1269000 },
-  { pais: " otros", volumen: 24536581 },
+  { ranking: '', pais: " Otros", volumen: 24536581 },
 ];
 
 const agrupado2 = {};

@@ -323,7 +323,7 @@ const tabla_paises_prod = [
   { id: "MEX", ranking: 20, pais: "México", volumen: 40826 },
   { id: "BRA", ranking: 21, pais: "Brasil", volumen: 39891 },
   { id: "IRN", ranking: 22, pais: "Irán (República Islámica del)", volumen: 38839 },
-  { pais: "otros", volumen: 984862 },
+  { ranking: "", pais: "Otros", volumen: 984862 },
 ];
 
 
@@ -358,7 +358,7 @@ const tabla_paises_sub_prod = [
   { id: "JAM", ranking: 24, pais: "Jamaica", volumen: 196861.3 },
   { id: "MEX", ranking: 25, pais: "México", volumen: 173673 },
   { id: "MNG", ranking: 26, pais: "Mongolia", volumen: 169585.13 },
-  { pais: "otros", volumen: 2780822.24 },
+  { ranking:'', pais: "Otros", volumen: 2780822.24 },
 ];
 
 

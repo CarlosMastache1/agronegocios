@@ -533,7 +533,7 @@ const tabla_paises_sub_prod = [
   { id: "COL", ranking: 39, pais: "Colombia", volumen: 4429 },
   { id: "MEX", ranking: 40, pais: "México", volumen: 3786 },
   { id: "LSO", ranking: 41, pais: "Lesotho", volumen: 3622 },
-  { ranking: "", pais: "otros ", volumen: 43808 },
+  { ranking: "", pais: "Otros ", volumen: 43808 },
 ];
 
 const agrupado = {};
@@ -571,7 +571,7 @@ const tabla_paises_prod = [
   { id: "IRL", ranking: 31, pais: "Irlanda", volumen: 68220 },
   { id: "MEX", ranking: 32, pais: "México", volumen: 67249 },
   { id: "YEM ",ranking: 33, pais: "Yemen", volumen: 64000 },
-  { ranking: "", pais: "otros", volumen: 1490875 },
+  { ranking: "", pais: "Otros", volumen: 1490875 },
 ];
 
 const agrupado2 = {};

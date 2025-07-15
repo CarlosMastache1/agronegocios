@@ -102,33 +102,6 @@ if (strongTagsE.length > 1) {
   strongTagsE[1].textContent = `${maxValor.toLocaleString("es-MX")} puntos`;
 }
 
-/* Preparación de la primera tabla, datos de la producción de carne a nivel internacional.  */
-const tabla_pais_pro = document.getElementById("tab_cuerpo_pais_pro");
-const total_tab1 = document.getElementById("total_tabla1");
-let suma_total1 = 0;
-
-for (let i = 0; i < tabla_paises_prod.length; i++) {
-  const fila = document.createElement("tr");
-
-  const celdaRanking = document.createElement("td");
-  celdaRanking.textContent = tabla_paises_prod[i].ranking;
-
-  const celdaPais = document.createElement("td");
-  celdaPais.textContent = tabla_paises_prod[i].pais;
-
-  const celdaVolumen = document.createElement("td");
-  celdaVolumen.textContent =
-    tabla_paises_prod[i].volumen.toLocaleString("es-MX");
-
-  fila.appendChild(celdaRanking);
-  fila.appendChild(celdaPais);
-  fila.appendChild(celdaVolumen);
-
-  tabla_pais_pro.appendChild(fila);
-  suma_total1 += tabla_paises_prod[i].volumen;
-}
-total_tab1.innerHTML = suma_total1.toLocaleString("es-MX");
-
 /* Tabla 3 PRODUCCION NACIONAL DEL SECTOR PORCINO CARNE DE PORCINO */
 let currentPage = 1;
 let rowsPerPage = 10;
@@ -168,12 +141,13 @@ function renderTable() {
 }
 
 function applyFilters() {
-  const query = searchInput.value.toLowerCase();
-  filteredData = tab_mex_pro.filter(
-    (item) =>
-      item.entidad.toLowerCase().includes(query) ||
-      String(item.id).includes(query)
-  );
+  const query = removeAccents(searchInput.value.toLowerCase());
+  filteredData = tab_mex_pro.filter((item) => {
+    const entidad = removeAccents(item.entidad.toLowerCase());
+    const id = String(item.id);
+
+    return entidad.includes(query) || id.includes(query);
+  });
   currentPage = 1;
   renderTable();
 }
@@ -831,3 +805,75 @@ function cambiar_pagina(nueva_pagina) {
   contenedor_tabla.innerHTML = html;
   pagina_actual = nueva_pagina;
 }
+
+// Función auxiliar para remover acentos
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+let currentPagePais = 1;
+let rowsPerPagePais = 10;
+let filteredDataPais = [...tabla_paises_prod];
+const tableBodyPais = document.querySelector("#dataTablePais tbody");
+const searchInputPais = document.getElementById("searchInputPais");
+const rowsSelectPais = document.getElementById("rowsPerPagePais");
+const prevBtnPais = document.getElementById("prevBtnPais");
+const nextBtnPais = document.getElementById("nextBtnPais");
+const pageInfoPais = document.getElementById("pageInfoPais");
+
+function renderTablePais() {
+  tableBodyPais.innerHTML = "";
+  const start = (currentPagePais - 1) * rowsPerPagePais;
+  const end = start + rowsPerPagePais;
+  const pageData = filteredDataPais.slice(start, end);
+
+  for (const row of pageData) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${row.ranking}</td><td>${
+      row.pais
+    }</td><td>${row.volumen.toLocaleString("es-MX")}</td>`;
+    tableBodyPais.appendChild(tr);
+  }
+
+  const totalPages = Math.ceil(filteredDataPais.length / rowsPerPagePais);
+  pageInfoPais.textContent = `Página ${currentPagePais} de ${totalPages}`;
+  prevBtnPais.disabled = currentPagePais === 1;
+  nextBtnPais.disabled = currentPagePais === totalPages;
+}
+
+function applyFiltersPais() {
+  const query = removeAccents(searchInputPais.value.toLowerCase());
+  filteredDataPais = tabla_paises_prod.filter((item) => {
+    const pais = removeAccents(item.pais.toLowerCase());
+    const ranking = String(item.ranking);
+
+    return pais.includes(query) || ranking.includes(query);
+  });
+  currentPagePais = 1;
+  renderTablePais();
+}
+
+searchInputPais.addEventListener("input", applyFiltersPais);
+rowsSelectPais.addEventListener("change", () => {
+  rowsPerPagePais = parseInt(rowsSelectPais.value);
+  currentPagePais = 1;
+  renderTablePais();
+});
+
+prevBtnPais.addEventListener("click", () => {
+  if (currentPagePais > 1) {
+    currentPagePais--;
+    renderTablePais();
+  }
+});
+
+nextBtnPais.addEventListener("click", () => {
+  const totalPages = Math.ceil(filteredDataPais.length / rowsPerPagePais);
+  if (currentPagePais < totalPages) {
+    currentPagePais++;
+    renderTablePais();
+  }
+});
+
+// Inicializar
+renderTablePais();

@@ -292,7 +292,7 @@ const tabla_paises_prod = [
   { id: "POL", ranking: 11, pais: "Polonia", volumen: 1804960 },
   { id: "MEX", ranking: 12, pais: "México", volumen: 1730051 },
   { id: "NLD", ranking: 13, pais: "Países Bajos (Reino de los)", volumen: 1683580 },
-  { pais: "otros", volumen: 22911308 },
+  { ranking: '', pais: "Otros", volumen: 22911308 },
 ];
 
 const agrupado2 = {};
