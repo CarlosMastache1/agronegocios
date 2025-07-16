@@ -105,8 +105,6 @@
 <div id="body">
     <h1 class="titulo">Productores Agroindustriales</h1>
 
-
-
     <form method="get" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         <input type="text" name="busqueda" placeholder="Buscar productor..." value="{{ request.GET.busqueda }}"
             style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px;">
@@ -184,7 +182,7 @@
 
     <div class="grid">
         {% for productor in page_obj %}
-        <a href="{% url 'productosProductorAgricola' categoria productor.nombreProductor %}">
+        <a href="{% url 'productosAgroindustriales' productor.nombreProductor %}">
             <div class="card">
                 <img src="{% static 'images/iconoProductor.png' %}" alt="Icono productor" />
                 <h3>{{ productor.nombreProductor|default:"Productor sin nombre" }}</h3>
