@@ -539,29 +539,25 @@ def formProductos(request):
 
         comentarios = request.POST.get("comentarios[]")
 
-        for np, nm, ss, cat, um, vol, disp, img, pdf in zip_longest(
-              nombreProducto, nombreMarca, subsectores, categorias,
-              unidades, volumenes, disponibilidades, imagenes, pdfs
-          ):
-              productos.objects.create(
-                  nombreProductor=nombreProductor,
-                  municipio_id=municipio,
-                  localidad=localidad,
-                  telefono=telefono,
-                  email=email,
-                  comentarios=comentarios,
-          
-                  nombreProducto=np,
-                  nombreMarca=nm,
-                  subsector=ss,
-                  categoria=cat,
-                  unidad_medidad=um,
-                  volumen_produccion=vol,
-                  disponibilidad_entrega=disp,
-                  imagenProd=img,
-                  archivo_pdf=pdf
-              )
-        
+        for i in range(len(nombreProducto)):
+            categoria = categorias[i] if i < len(categorias) else None
+            productoNew = productos.objects.create(
+                nombreProductor=nombreProductor,
+                municipio_id=municipio,
+                localidad=localidad,
+                telefono=telefono,
+                email=email,
+                comentarios=comentarios,
+                nombreProducto=nombreProducto[i],
+                nombreMarca=nombreMarca[i],
+                subsector=subsectores[i],
+                categoria=categoria,
+                unidad_medidad=unidades[i],
+                volumen_produccion=volumenes[i],
+                disponibilidad_entrega=disponibilidades[i],
+                imagenProd=imagenes[i] if i < len(imagenes) else None,
+                archivo_pdf=pdfs[i] if i < len(pdfs) else None
+            )
             
         #form = productosForm(request.POST, request.FILES)
         #new_prod = form.save(commit=False)
