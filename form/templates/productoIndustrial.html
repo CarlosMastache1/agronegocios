@@ -163,7 +163,7 @@
         {% with request.GET.municipio as municipio %}
         {% if busqueda or disponibilidad or volumen or unidad or municipio %}
         <!-- Botón activo -->
-        <a href="{% url 'productosAgricola' categoria %}"
+        <a href="{% url 'categoriaAgroindustrial' %}"
             style="padding: 10px 20px; border-radius: 8px; background-color: #7A1B38; color: white; text-decoration: none;">
             Borrar filtros
         </a>
