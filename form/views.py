@@ -26,7 +26,7 @@ from decimal import Decimal
 from .utils import get_data
 from django.core.paginator import Paginator
 from itertools import zip_longest
-
+from collections import defaultdict
 # Create your views here.
 
 def maiz_precioMXN(request):
@@ -399,16 +399,23 @@ def tiendaForestal(request):
 
 def tiendaIndustrial(request):
   busqueda = request.GET.get('busqueda', '')
+  marca = request.GET.get('marca', '')
+  producto = request.GET.get('producto', '')
   disponibilidad = request.GET.get('disponibilidad', '')
   volumen = request.GET.get('volumen', '')
   unidad = request.GET.get('unidad', '')
   municipio_id = request.GET.get('municipio', '')
+
   productos_filtrados = productos.objects.filter(
        subsector__iexact='AGROINDUSTRIAL',
        estado=True
    )
   if busqueda:
        productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if marca:
+       productos_filtrados = productos_filtrados.filter(nombreMarca__icontains=marca)
+  if producto:
+       productos_filtrados = productos_filtrados.filter(nombreProducto__icontains=producto)
   if disponibilidad:
        productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
   if volumen:
@@ -417,10 +424,26 @@ def tiendaIndustrial(request):
        productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
   if municipio_id:
        productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+
   productos_filtrados = productos_filtrados.values(
-       'nombreProductor', 'telefono', 'email'
-   ).distinct()
-  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
+       'nombreProductor', 'telefono', 'email', 'nombreProducto'
+   )
+  
+  productores_dict = defaultdict(lambda: {'productos': set()})
+
+  for item in productos_filtrados:
+    key = (item['nombreProductor'], item['email'], item['telefono'])
+    productores_dict[key]['nombreProductor'] = item['nombreProductor']
+    productores_dict[key]['email'] = item['email']
+    productores_dict[key]['telefono'] = item['telefono']
+    productores_dict[key]['productos'].add(item['nombreProducto'])
+
+  lista_productores = []
+  for val in productores_dict.values():
+    val['productos'] = list(val['productos'])
+    lista_productores.append(val)
+
+  paginator = Paginator(lista_productores, 12)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 

@@ -152,7 +152,7 @@
 
         <button type="submit"
             style="padding: 10px 20px; border: none; border-radius: 8px; background-color: #2c3e50; color: white; cursor: pointer;">
-            Filtrar
+            <i class="fa-solid fa-filter"></i>
         </button>
 
 
@@ -165,14 +165,8 @@
         <!-- Botón activo -->
         <a href="{% url 'productosAgricola' categoria %}"
             style="padding: 10px 20px; border-radius: 8px; background-color: #7A1B38; color: white; text-decoration: none;">
-            Borrar filtros
+             <i class="fa-solid fa-filter-circle-xmark"></i>
         </a>
-        {% else %}
-        <!-- Botón deshabilitado -->
-        <span
-            style="padding: 10px 20px; border-radius: 8px; background-color: #ccc; color: white; cursor: not-allowed;">
-            Borrar filtros
-        </span>
         {% endif %}
         {% endwith %}
         {% endwith %}
@@ -193,7 +187,7 @@
             </div>
         </a>
         {% empty %}
-        <p>No hay productores disponibles.</p>
+        <p style="text-align: center;">No hay productores disponibles.</p>
         {% endfor %}
     </div>
 

@@ -37,7 +37,6 @@ urlpatterns = [
     path('tiendaHome/', views.tiendaIndex, name='tiendaHome'),
     path('tiendaCategorias/', views.tiendaCategorias, name='tiendaCategorias'),
     
-    
     path('catalogo/', views.catalogoProductos, name='catalogoProductos'),
     path('categoriaAgricola/', views.tiendaAgricola, name='categoriaAgricola'),
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),
@@ -48,6 +47,7 @@ urlpatterns = [
     path('productosAgricola/<str:categoria>/', views.tiendaProducAgri, name="productosAgricola"),
     path('productosIndustrial/<str:categoria>/', views.tiendaProducInd, name="productosIndustrial"),
     path('productosAgricola/<str:categoria>/<str:nombre>', views.productorProductorAgri, name="productosProductorAgricola"),
+    path('productosAgroindustriales/<str:nombre>', views.productorProductorIndus, name="productosAgroindustriales"),
     path('productosPecuario/<str:categoria>/', views.tiendaProducPecu, name="productosPecuario"),
     path('detailProduct/<int:product_id>/', views.prodDetail, name='detailProduct'),
     path('formProductos/', views.formProductos, name='formProductos' ),
@@ -61,7 +61,6 @@ urlpatterns = [
     path('', views.indSec, name='index' ),
     path('agricola/', views.sectorAgri, name='agricola'),
     path('pecuario/', views.sectorPecu, name='pecuario'),
-
 
     path('agave/', TemplateView.as_view(template_name="agricola/agave/index.html"), name='agave'),
     path('ajonjoli/', TemplateView.as_view(template_name="agricola/ajonjoli/index.html"), name='ajonjoli'),
@@ -77,7 +76,6 @@ urlpatterns = [
     path('pina/', TemplateView.as_view(template_name="agricola/piña/index.html"), name='pina'),
     path('platano/', TemplateView.as_view(template_name="agricola/platano/index.html"), name='platano'),
     path('sandia/', TemplateView.as_view(template_name="agricola/sandia/index.html"), name='sandia'),
-
 
     path('graficos-precios/', views.precios_maiz, name='graficos_precios'),
     path('nosotros/', views.nosotros, name='nosotros'),
