@@ -311,6 +311,14 @@ def productorProductorAgri(request, categoria, nombre):
   return render(request, 'productosProductorAgri.html',
   {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
 
+def productorProductorIndus(request, nombre):
+  productos_filtrados = productos.objects.filter(subsector = 'AGROINDUSTRIAL', nombreProductor = nombre, estado=True)
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+  return render(request, 'productosProductorIndus.html',
+  {'page_obj': page_obj, 'nombre' : nombre})
+
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
 
