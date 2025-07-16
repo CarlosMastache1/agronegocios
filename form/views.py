@@ -25,6 +25,7 @@ import numpy as np
 from decimal import Decimal
 from .utils import get_data
 from django.core.paginator import Paginator
+from itertools import zip_longest
 
 # Create your views here.
 
@@ -389,7 +390,41 @@ def tiendaForestal(request):
   {'page_obj': page_obj, 'tiendaFor' : tiendaFor})
 
 def tiendaIndustrial(request):
-  return render(request, 'industrialTienda.html')
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='AGROINDUSTRIAL',
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
+  return render(request, 'productoIndustrial.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : 'categoria',
+     'municipios': todos_los_municipios
+     })
+"""   return render(request, 'industrialTienda.html') """
 
 @login_required
 def gestProd(request):
@@ -503,7 +538,7 @@ def formProductos(request):
         pdfs = request.FILES.getlist("archivo_pdf[]")
 
         comentarios = request.POST.get("comentarios[]")
-        
+
         for i in range(len(nombreProducto)):
             categoria = categorias[i] if i < len(categorias) else None
             productoNew = productos.objects.create(
@@ -523,6 +558,7 @@ def formProductos(request):
                 imagenProd=imagenes[i] if i < len(imagenes) else None,
                 archivo_pdf=pdfs[i] if i < len(pdfs) else None
             )
+            
         #form = productosForm(request.POST, request.FILES)
         #new_prod = form.save(commit=False)
         #new_prod.save()
