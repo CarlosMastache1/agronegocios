@@ -2925,9 +2925,11 @@ def get_chart52024(request):
   return JsonResponse(chart)
 
 
-
-
 def graficasPublicas(request):
+   return render(request, 'graficasPublicas.html')
+
+
+def iframePublico(request):
 
 
 
@@ -3783,7 +3785,7 @@ def graficasPublicas(request):
       sflm_for_monto_2024 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
       total_for_monto_2024 = (entidadesFinancieras2.objects.filter(subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
 
-      return render(request, 'graficasPublicas.html',{
+      return render(request, 'graficaPublicaContenido.html',{
         'conteo_VC' : conteo_VC, 
         'conteo_IST' : conteo_IST, 
         'conteo_MIX' : conteo_MIX,
