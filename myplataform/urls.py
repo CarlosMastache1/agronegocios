@@ -87,6 +87,10 @@ urlpatterns = [
     path('iframeMexico/', TemplateView.as_view(template_name="includes/mapaMexico.html"), name='iframeMexico'),
     path('iframeOaxaca/', TemplateView.as_view(template_name="includes/mapaOaxaca.html"), name='iframeOaxaca'),
 
+    path('iframePublico/', views.iframePublico, name='iframePublico'),
+
+    
+
     path('avicola/', TemplateView.as_view(template_name="pecuario/avicola/index.html"), name='avicola'),
     path('apicola/', TemplateView.as_view(template_name="pecuario/apicola/index.html"), name='apicola'),
     path('bovino/', TemplateView.as_view(template_name="pecuario/bovino/index.html"), name='bovino'),
