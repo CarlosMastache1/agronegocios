@@ -193,7 +193,7 @@
 
     <div class="grid">
         {% for productor in page_obj %}
-        <a href="{% url 'productosAgroindustriales' productor.nombreProductor %}">
+        <a href="{% url 'productosAgroindustriales' productor.nombreProductor|urlencode %}">
             <div class="card">
                 <img src="{% static 'images/iconoProductor.png' %}" alt="Icono productor" />
 
