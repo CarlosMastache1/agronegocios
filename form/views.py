@@ -612,7 +612,7 @@ def creditDetail(request, credit_id):
   })
 
 def prodDetail(request, product_id):
-  product = get_object_or_404(productos, pk=product_id)
+  product = get_object_or_404(productos, pk=product_id, estado=True)
   return render(request, 'detailProducto.html', {
     'product' : product
   })
@@ -4346,4 +4346,3 @@ def directorio(request):
 
 def ubicacion(request):
   return render(request, 'ubicacion.html')
-
