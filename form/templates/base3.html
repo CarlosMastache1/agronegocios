@@ -94,15 +94,15 @@
           <div class="collapse navbar-collapse" id="menu-colapsable">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="{% url 'index' %}" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-home"></span> INICIO <span
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/">INICIO</a></li>
-                  <li><a href="/nosotros">NOSOTROS</a></li>
-                  <li><a href="/directorio">DIRECTORIO</a></li>
-                  <li><a href="/ubicacion">UBICACION</a></li>
+                  <li><a href="{% url 'index' %}">INICIO</a></li>
+                  <li><a href="{% url 'nosotros' %}">NOSOTROS</a></li>
+                  <li><a href="{% url 'directorio' %}">DIRECTORIO</a></li>
+                  <li><a href="{% url 'ubicacion' %}">UBICACION</a></li>
                 </ul>
               </li>
 
@@ -112,8 +112,8 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
-                  <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
+                  <li><a href="{% url 'graficaPubli' %}" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
+                  <li><a href="{% url 'login' %}" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
                 </ul>
               </li>
 
@@ -123,8 +123,8 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/agricola">AGRICOLA</a></li>
-                  <li><a href="/pecuario">PECUARIO</a></li>
+                  <li><a href="{% url 'agricola' %}">AGRICOLA</a></li>
+                  <li><a href="{% url 'pecuario' %}">PECUARIO</a></li>
                 </ul>
               </li>
 
@@ -134,9 +134,9 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/tiendaHome" target="_blank">REGISTRA TU PRODUCTO</a></li>
-                  <li><a href="/tiendaCategorias">CATALOGO DE PRODUCTOS</a></li>
-                  <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
+                  <li><a href="{% url 'tiendaHome' %}" target="_blank">REGISTRA TU PRODUCTO</a></li>
+                  <li><a href="{% url 'tiendaCategorias' %}">CATALOGO DE PRODUCTOS</a></li>
+                  <li><a href="{% url 'graficos_precios' %}">COTIZACIÓN DE PRECIOS</a></li>
                 </ul>
               </li>
             </ul>
