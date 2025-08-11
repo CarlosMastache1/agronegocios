@@ -13,28 +13,25 @@
 <!-- Estilos propios del proyecto -->
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
 
 <main id="contents" class="site-contnts">
-    <!-- BANNER con imágenes deslizables -->
-    <div class="home-slider">
-        <!-- Primer slide con imagen bov1.jpg -->
-        <div class="item" data-slide="{% static 'pecuario/ovino/img/ovi1.jpg' %}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-8 col-lg-7"></div>
-                </div>
+    <div class="carousel-comp" id="carousel-comp">
+        <div class="carousel-comp__slides" id="slides-comp">
+            <div class="carousel-comp__slide">
+                <img src="{% static 'pecuario/ovino/img/ovi1.jpg' %}" alt="Imagen 1" />
+            </div>
+            <div class="carousel-comp__slide">
+                <img src="{% static 'pecuario/ovino/img/ovi2.jpg' %}" alt="Imagen 2" />
             </div>
         </div>
 
-        <!-- Segundo slide con imagen bov2.jpg -->
-        <div class="item" data-slide="{% static 'pecuario/ovino/img/ovi2.jpg' %}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-8 col-lg-7"></div>
-                </div>
-            </div>
+        <div class="carousel-comp__indicators" id="indicators-comp">
+            <!-- Cubos blancos generados por JS -->
         </div>
     </div>
+
+    <script src="{% static 'js/carrusel-control.js' %}"></script>
 </main>
 
 <div>

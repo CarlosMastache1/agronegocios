@@ -14,30 +14,29 @@
 <!-- Estilos personalizados -->
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
 
 <!-- ==============================
   Banner principal (slider de imágenes)
 ============================== -->
 <main id="contents" class="site-contnts">
-	<!--BANNER-->
-	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/ajonjoli/imagenes/1.png' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
+
+	<div class="carousel-comp" id="carousel-comp">
+		<div class="carousel-comp__slides" id="slides-comp">
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/ajonjoli/imagenes/1.png' %}" alt="Imagen 1" />
+			</div>
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/ajonjoli/imagenes/2.png' %}" alt="Imagen 2" />
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/ajonjoli/imagenes/2.png' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
-			</div>
-
+		<div class="carousel-comp__indicators" id="indicators-comp">
+			<!-- Cubos blancos generados por JS -->
 		</div>
 	</div>
+
+	<script src="{% static 'js/carrusel-control.js' %}"></script>
 </main>
 
 <!-- Cinta ticker -->

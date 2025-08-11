@@ -1,42 +1,29 @@
 {% extends 'base3.html' %}
-
 {% load static %}
-
-
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
+
 <main id="contents" class="site-contnts">
-	
-	<!--Slider-->
-	<div class="home-slider">
-		<div class="item" data-slide="{% static 'assets/images/agricola.jpg' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7">
-						<h2 class="slide-title"> <strong>DIRECTORIO</strong> 
-						
-					</div>
-				</div>
-			</div>
-		</div>
-        <div class="item"></div>
+    <div class="carousel-comp" id="carousel-comp">
+        <div class="carousel-comp__slides" id="slides-comp">
+            <div class="carousel-comp__slide">
+                <img src="{% static 'assets/images/agricola.jpg' %}" alt="Imagen 1" />
+                <div class="carousel-comp__text-overlay">
+                    <strong>DIRECTORIO</strong>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		</div>
-	</div>
-	
-
-    
     <!--Clients-->
     <section class="row client-logos">
-        <div class="container">            
+        <div class="container">
             <div class="row section-title text-center">
-				<h2>DIRECTORIO </h2>
-                <div class="col-12">       
-                    <div
-                        class="table-responsive"
-                    >
-                        <table
-                            class="table table-striped table-hover table-borderless table-primary align-middle"
-                        >
+                <h2>DIRECTORIO </h2>
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-borderless table-primary align-middle">
                             <thead class="table-light">
                                 <caption>
                                 </caption>
@@ -51,9 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <tr
-                                    class="table-primary"
-                                >
+                                <tr class="table-primary">
                                     <td scope="row">MARIO ROBLES GONZALEZ</td>
                                     <td>SUBSECRETARÍA DE AGRONEGOCIOS</td>
                                     <td>951- 50-16-900</td>
@@ -62,9 +47,7 @@
                                     <td>951 348 0898</td>
 
                                 </tr>
-                                <tr
-                                    class="table-primary"
-                                >
+                                <tr class="table-primary">
                                     <td scope="row">ING. URIEL RIVERA LORENZO</td>
                                     <td>DIRECCIÓN DE FOMENTO A LA INVERSIÓN Y DESARROLLO DE MERCADOS</td>
                                     <td>951- 50-16-900</td>
@@ -72,95 +55,83 @@
                                     <td>uriiell.rive@gmail.com</td>
                                     <td>951 498 7385</td>
                                 </tr>
-                                <tr
-                                class="table-primary"
-                            >
-                                <td scope="row"></td>
-                                <td>DEPARTAMENTO DE DESARROLLO DE MERCADOS</td>
-                                <td>951- 50-16-900</td>
-                                <td>25536</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                                <tr class="table-primary">
+                                    <td scope="row"></td>
+                                    <td>DEPARTAMENTO DE DESARROLLO DE MERCADOS</td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25536</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
 
-                            <tr
-                            class="table-primary"
-                        >
-                            <td scope="row">ING. REYNA ISABEL MARTINEZ </td>
-                            <td>DEPARTAMENTO DE PROMOCIÓN A LA INVERSIÓN</td>
-                            <td>951- 50-16-900</td>
-                            <td>25536</td>
-                            <td>reynaisabel0590@gmail.com </td>
-                            <td>951 397 5407</td>
-                        </tr>
+                                <tr class="table-primary">
+                                    <td scope="row">ING. REYNA ISABEL MARTINEZ </td>
+                                    <td>DEPARTAMENTO DE PROMOCIÓN A LA INVERSIÓN</td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25536</td>
+                                    <td>reynaisabel0590@gmail.com </td>
+                                    <td>951 397 5407</td>
+                                </tr>
 
 
-                        <tr
-                            class="table-primary"
-                        >
-                            <td scope="row">ING. BEATRIZ PEREZ REYES </td>
-                            <td>DIRECCIÓN DE SANIDAD E INOCUIDAD </td>
-                            <td>951- 50-16-900</td>
-                            <td>25510</td>
-                            <td>thishapr@hotmail.com                             </td>
-                            <td>951 544 8990</td>
-                        </tr>
+                                <tr class="table-primary">
+                                    <td scope="row">ING. BEATRIZ PEREZ REYES </td>
+                                    <td>DIRECCIÓN DE SANIDAD E INOCUIDAD </td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25510</td>
+                                    <td>thishapr@hotmail.com </td>
+                                    <td>951 544 8990</td>
+                                </tr>
 
-                        <tr
-                            class="table-primary"
-                        >
-                            <td scope="row"></td>
-                            <td>DEPARTAMENTO DE INOCUIDAD </td>
-                            <td>951- 50-16-900</td>
-                            <td>25510</td>
-                            <td>                           </td>
-                            <td></td>
-                        </tr>
+                                <tr class="table-primary">
+                                    <td scope="row"></td>
+                                    <td>DEPARTAMENTO DE INOCUIDAD </td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25510</td>
+                                    <td> </td>
+                                    <td></td>
+                                </tr>
 
-                        <tr
-                        class="table-primary"
-                    >
-                        <td scope="row"></td>
-                        <td>DEPARTAMENTO DE CERTIFICACIONES</td>
-                        <td>951- 50-16-900</td>
-                        <td>25510</td>
-                        <td>                           </td>
-                        <td></td>
-                    </tr>
+                                <tr class="table-primary">
+                                    <td scope="row"></td>
+                                    <td>DEPARTAMENTO DE CERTIFICACIONES</td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25510</td>
+                                    <td> </td>
+                                    <td></td>
+                                </tr>
 
-                    <tr
-                        class="table-primary"
-                    >
-                        <td scope="row">MARIA FERNANDA ELGUEA GALINDO</td>
-                        <td>DEPARTAMENTO DE SANIDAD VEGETAL </td>
-                        <td>951- 50-16-900</td>
-                        <td>25510</td>
-                        <td>               elguea.fernanda30@gmail.com            </td>
-                        <td></td>
-                    </tr>
+                                <tr class="table-primary">
+                                    <td scope="row">MARIA FERNANDA ELGUEA GALINDO</td>
+                                    <td>DEPARTAMENTO DE SANIDAD VEGETAL </td>
+                                    <td>951- 50-16-900</td>
+                                    <td>25510</td>
+                                    <td> elguea.fernanda30@gmail.com </td>
+                                    <td></td>
+                                </tr>
                             </tbody>
                             <tfoot>
-                                
+
                             </tfoot>
                         </table>
                     </div>
-                    
+
                 </div>
-			</div>
-            
-        
+            </div>
+
+
         </div>
     </section>
-<div class="container">
-    <div class="row">
-        
-     
+    <div class="container">
+        <div class="row">
+
+
+        </div>
     </div>
-</div>
 
 
-    
-	
+
+
 </main>
 
 

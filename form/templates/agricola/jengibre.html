@@ -14,29 +14,28 @@
 <!-- Estilos personalizados -->
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
 
 <!-- ==============================
   Banner principal (slider de imágenes)
 ============================== -->
 <main id="contents" class="site-contnts">
-	<!--BANNER-->
-	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/jengibre/imagenes/7.png' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
+	<div class="carousel-comp" id="carousel-comp">
+		<div class="carousel-comp__slides" id="slides-comp">
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/jengibre/imagenes/7.png' %}" alt="Imagen 1" />
+			</div>
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/jengibre/imagenes/8.png' %}" alt="Imagen 2" />
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/jengibre/imagenes/8.png' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
-			</div>
+		<div class="carousel-comp__indicators" id="indicators-comp">
+			<!-- Cubos blancos generados por JS -->
 		</div>
 	</div>
+
+	<script src="{% static 'js/carrusel-control.js' %}"></script>
 </main>
 
 
@@ -142,24 +141,24 @@
 					</div>
 
 					<div class="tabla-scroll">
-				<table id="dataTable" class="tabla-datos">
-						<thead>
-							<tr>
-								<th>RANKING</th>
-								<th>PAÍS</th>
-								<th>SUPERFICIE COSECHADA (HA)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- Filas dinámicas -->
-						</tbody>
-						<tfoot>
-							<tr id="total_datos_tab1">
+						<table id="dataTable" class="tabla-datos">
+							<thead>
+								<tr>
+									<th>RANKING</th>
+									<th>PAÍS</th>
+									<th>SUPERFICIE COSECHADA (HA)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Filas dinámicas -->
+							</tbody>
+							<tfoot>
+								<tr id="total_datos_tab1">
 
-							</tr>
-						</tfoot>
-					</table>
-			</div>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
 
 					<div class="pagination">
 						<button id="prevBtn">Anterior</button>
@@ -176,7 +175,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 3 - Producción Nacional
     	============================== -->
 		<section id="section3" class="section">
@@ -200,23 +199,23 @@
 			</div>
 			<div class="tabla-scroll">
 				<table id="data2Table" class="tabla-datos">
-				<thead>
-					<tr>
-						<th>RANKING</th>
-						<th>ENTIDAD FEDERATIVA</th>
-						<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-						<th>SUPERFICIE SEMBRADA (HA)</th>
-						<th>RENDIMIENTO (TON/HA)</th>
-						<th>VALOR DE LA PRODUCCIÓN ($)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Filas dinámicas -->
-				</tbody>
-				<tfoot>
-					<tr id="total_datos_tab2"></tr>
-				</tfoot>
-			</table>
+					<thead>
+						<tr>
+							<th>RANKING</th>
+							<th>ENTIDAD FEDERATIVA</th>
+							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+							<th>SUPERFICIE SEMBRADA (HA)</th>
+							<th>RENDIMIENTO (TON/HA)</th>
+							<th>VALOR DE LA PRODUCCIÓN ($)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Filas dinámicas -->
+					</tbody>
+					<tfoot>
+						<tr id="total_datos_tab2"></tr>
+					</tfoot>
+				</table>
 			</div>
 
 			<div class="pagination">
@@ -234,8 +233,8 @@
 				<button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
 			</p>
 		</section>
-		
-    	<!-- ==============================
+
+		<!-- ==============================
     	  Sección 4 - Balanza Comercial
     	============================== -->
 		<section id="section4" class="section">
@@ -265,20 +264,20 @@
 			</div>
 			<div class="tabla-scroll">
 				<table id="dataTableDesExp" class="tabla-datos">
-				<thead>
-					<tr>
-						<th>NUM</th>
-						<th>PAÍS</th>
-						<th>VALOR (USD)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Filas dinámicas -->
-				</tbody>
-				<tfoot>
-					<tr id="total_datos_tabDesExp"></tr>
-				</tfoot>
-			</table>
+					<thead>
+						<tr>
+							<th>NUM</th>
+							<th>PAÍS</th>
+							<th>VALOR (USD)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Filas dinámicas -->
+					</tbody>
+					<tfoot>
+						<tr id="total_datos_tabDesExp"></tr>
+					</tfoot>
+				</table>
 			</div>
 
 			<div class="pagination">
@@ -290,7 +289,7 @@
 					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 5 - Producción Histórica
     	============================== -->
 		<section id="section5" class="section">
@@ -301,32 +300,32 @@
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 6 - Producción del Producto
     	============================== -->
 		<section id="section6" class="section">
 			<h1>PRODUCCIÓN DE JENGIBRE EN OAXACA</h1>
 			<div class="tabla-scroll">
 				<table class="tabla-datos">
-				<thead>
-					<tr>
-						<th>REGION</th>
-						<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-						<th>SUPERFICIE SEMBRADA (HA)</th>
-						<th>RENDIMIENTO (TON/HA)</th>
-						<th>VALOR DE LA PRODUCCIÓN ($)</th>
-						<th>CANTIDAD DE MUNICIPIOS</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th>REGION</th>
+							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+							<th>SUPERFICIE SEMBRADA (HA)</th>
+							<th>RENDIMIENTO (TON/HA)</th>
+							<th>VALOR DE LA PRODUCCIÓN ($)</th>
+							<th>CANTIDAD DE MUNICIPIOS</th>
+						</tr>
+					</thead>
 
-				<tbody id="tabla_produccion_prod_oax">
+					<tbody id="tabla_produccion_prod_oax">
 
-				</tbody>
-				<tfoot>
-					<tr id="total_tab_pro_miel_oax">
-					</tr>
-				</tfoot>
-			</table>
+					</tbody>
+					<tfoot>
+						<tr id="total_tab_pro_miel_oax">
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
 					2023</strong>
@@ -342,7 +341,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 8 - Municipios de Producción
     	============================== -->
 		<section id="section8" class="section">
@@ -359,11 +358,11 @@
 		</section>
 	</div>
 
-  	<!-- ==============================
+	<!-- ==============================
   	  Barra lateral de progreso/navegación rápida
   	============================== -->
 	<div class="progress-bar">
-    	<!-- Cada círculo representa un enlace rápido a una sección -->
+		<!-- Cada círculo representa un enlace rápido a una sección -->
 		<div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
 		<div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
 		<div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
@@ -378,12 +377,12 @@
   Script para navegación y seguimiento de sección activa
 ==============================-->
 <script>
-  	// Obtiene todos los elementos necesarios
+	// Obtiene todos los elementos necesarios
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
 	const cards = document.querySelectorAll('.card');
 
-  	// Clic en un círculo -> scroll suave a la sección
+	// Clic en un círculo -> scroll suave a la sección
 	circles.forEach(circle => {
 		circle.addEventListener('click', () => {
 			const targetId = circle.getAttribute('data-target');
@@ -412,7 +411,7 @@
 			}
 		});
 
-    	// Scroll a la sección al hacer clic
+		// Scroll a la sección al hacer clic
 		circles.forEach(circle => {
 			circle.classList.remove('active');
 			if (circle.getAttribute('data-target') === current) {
@@ -426,11 +425,11 @@
 <script src="{% static 'agricola/jengibre/js/jengibre.js' %}"></script>
 
 <script>
-  	// ==============================
-  	// Comunicación con iframes (mapas y tablas)
-  	// ==============================
-	
-  	// Envía datos a los iframes cuando se cargan
+	// ==============================
+	// Comunicación con iframes (mapas y tablas)
+	// ==============================
+
+	// Envía datos a los iframes cuando se cargan
 	const mundo_producto = document.getElementById("frame_mundo_prod");
 	mundo_producto.onload = function () {
 		mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");
