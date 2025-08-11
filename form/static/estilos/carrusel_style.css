@@ -1,0 +1,65 @@
+.carousel-comp {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.carousel-comp__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-comp__slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-comp__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-comp__text-overlay {
+    position: absolute;
+    bottom: 300px;
+    left: 100px;
+    font-size: 3.8rem;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    /* Contorno negro*/
+    padding: 10px 15px;
+    max-width: 90%;
+}
+
+.carousel-comp__indicators {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-comp__indicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 6px;
+    background-color: white;
+    border-radius: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.carousel-comp__indicator.active {
+    opacity: 1;
+}
