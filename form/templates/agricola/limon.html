@@ -14,29 +14,28 @@
 <!-- Estilos personalizados -->
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
 <link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
 
 <!-- ==============================
   Banner principal (slider de imágenes)
 ============================== -->
 <main id="contents" class="site-contnts">
-	<!--BANNER-->
-	<div class="home-slider">
-		<div class="item" data-slide="{% static 'agricola/limon/imagenes/9.jpg' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
+	<div class="carousel-comp" id="carousel-comp">
+		<div class="carousel-comp__slides" id="slides-comp">
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/limon/imagenes/9.jpg' %}" alt="Imagen 1" />
+			</div>
+			<div class="carousel-comp__slide">
+				<img src="{% static 'agricola/limon/imagenes/10.png' %}" alt="Imagen 2" />
 			</div>
 		</div>
 
-		<div class="item" data-slide="{% static 'agricola/limon/imagenes/10.png' %}">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-11 col-md-8 col-lg-7"></div>
-				</div>
-			</div>
+		<div class="carousel-comp__indicators" id="indicators-comp">
+			<!-- Cubos blancos generados por JS -->
 		</div>
 	</div>
+
+	<script src="{% static 'js/carrusel-control.js' %}"></script>
 </main>
 
 <!-- Cinta ticker -->
@@ -47,19 +46,19 @@
 </div>
 <div>
 	<div id="body_pag">
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 1 - Descripción del cultivo
     	 ============================== -->
 		<section id="section1" class="section">
 			<h1>DESCRIPCIÓN DEL <strong>LIMÓN</strong></h1>
 			<p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
-        		<!-- Texto informativo con datos dinámicos que serán insertados con JavaScript -->
+				<!-- Texto informativo con datos dinámicos que serán insertados con JavaScript -->
 				Este cultivo es perenne por lo que tiene un ciclo de vida mayor a <strong>50 años</strong>, Oaxaca tiene
 				<strong></strong> productores de limón, se encuentra en el <strong></strong> en
 				producción a nivel nacional, con <strong></strong> productores de este cultivo.
 			</p>
 
-      		<!-- Tarjetas informativas, cada una enlaza a otra sección -->
+			<!-- Tarjetas informativas, cada una enlaza a otra sección -->
 			<div class="descripcion">
 				<div class="container">
 					<div class="card">
@@ -88,7 +87,8 @@
 						<h2>🇲🇽 Lugar a nivel nacional</h2>
 						<p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de limón,
 							contando con un
-							volumen de producción de <strong></strong>, una superficie de <strong></strong>, con un rendimiento de <strong></strong>y un valor de producción
+							volumen de producción de <strong></strong>, una superficie de <strong></strong>, con un
+							rendimiento de <strong></strong>y un valor de producción
 							de <strong></strong>.
 						</p>
 					</div>
@@ -98,7 +98,8 @@
 						<p id="des_reg">
 							La región del <strong></strong> es la region con mayor
 							producción de limón en el estado de Oaxaca, contando con <strong></strong>, con
-							un volumen de producción de <strong></strong>, una superficie de <strong></strong>, un rendimiento de <strong></strong>, y un valor de producción
+							un volumen de producción de <strong></strong>, una superficie de <strong></strong>, un
+							rendimiento de <strong></strong>, y un valor de producción
 							de <strong></strong>.
 						</p>
 					</div>
@@ -113,14 +114,14 @@
 			</div>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 2 - Producción Mundial 
     	============================== -->
 		<section id="section2" class="section">
 			<h1>PRODUCCIÓN MUNDIAL DE LIMÓN</h1>
 			<H2>Cierre Agrícola 2022</H2>
 
-      		<!-- Controles de paginación y búsqueda -->
+			<!-- Controles de paginación y búsqueda -->
 			<div class="contenedor_col1">
 				<div class="columna1">
 					<div class="controls">
@@ -138,28 +139,28 @@
 						<input type="text" id="searchInput" placeholder="Buscar...">
 					</div>
 
-      				<!-- Tabla que se llenará dinámicamente -->
+					<!-- Tabla que se llenará dinámicamente -->
 					<div class="tabla-scroll">
-				<table id="dataTable" class="tabla-datos">
-						<thead>
-							<tr>
-								<th>RANKING</th>
-								<th>PAÍS</th>
-								<th>SUPERFICIE COSECHADA (HA)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- Filas dinámicas -->
-						</tbody>
-						<tfoot>
-							<tr id="total_datos_tab1">
+						<table id="dataTable" class="tabla-datos">
+							<thead>
+								<tr>
+									<th>RANKING</th>
+									<th>PAÍS</th>
+									<th>SUPERFICIE COSECHADA (HA)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Filas dinámicas -->
+							</tbody>
+							<tfoot>
+								<tr id="total_datos_tab1">
 
-							</tr>
-						</tfoot>
-					</table>
-			</div>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
 
-      				<!-- Navegación de páginas -->
+					<!-- Navegación de páginas -->
 					<div class="pagination">
 						<button id="prevBtn">Anterior</button>
 						<span id="pageInfo"></span>
@@ -175,7 +176,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 3 - Producción Nacional
     	============================== -->
 		<section id="section3" class="section">
@@ -199,23 +200,23 @@
 			</div>
 			<div class="tabla-scroll">
 				<table id="data2Table" class="tabla-datos">
-				<thead>
-					<tr>
-						<th>RANKING</th>
-						<th>ENTIDAD FEDERATIVA</th>
-						<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-						<th>SUPERFICIE SEMBRADA (HA)</th>
-						<th>RENDIMIENTO (TON/HA)</th>
-						<th>VALOR DE LA PRODUCCIÓN ($)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Filas dinámicas -->
-				</tbody>
-				<tfoot>
-					<tr id="total_datos_tab2"></tr>
-				</tfoot>
-			</table>
+					<thead>
+						<tr>
+							<th>RANKING</th>
+							<th>ENTIDAD FEDERATIVA</th>
+							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+							<th>SUPERFICIE SEMBRADA (HA)</th>
+							<th>RENDIMIENTO (TON/HA)</th>
+							<th>VALOR DE LA PRODUCCIÓN ($)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Filas dinámicas -->
+					</tbody>
+					<tfoot>
+						<tr id="total_datos_tab2"></tr>
+					</tfoot>
+				</table>
 			</div>
 
 			<div class="pagination">
@@ -234,7 +235,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 4 - Balanza Comercial
     	============================== -->
 		<section id="section4" class="section">
@@ -264,20 +265,20 @@
 			</div>
 			<div class="tabla-scroll">
 				<table id="dataTableDesExp" class="tabla-datos">
-				<thead>
-					<tr>
-						<th>NUM</th>
-						<th>PAÍS</th>
-						<th>VALOR (USD)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Filas dinámicas -->
-				</tbody>
-				<tfoot>
-					<tr id="total_datos_tabDesExp"></tr>
-				</tfoot>
-			</table>
+					<thead>
+						<tr>
+							<th>NUM</th>
+							<th>PAÍS</th>
+							<th>VALOR (USD)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Filas dinámicas -->
+					</tbody>
+					<tfoot>
+						<tr id="total_datos_tabDesExp"></tr>
+					</tfoot>
+				</table>
 			</div>
 
 			<div class="pagination">
@@ -289,7 +290,7 @@
 					PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 5 - Producción Histórica
     	============================== -->
 		<section id="section5" class="section">
@@ -300,32 +301,32 @@
 			<p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 6 - Producción del Producto
     	============================== -->
 		<section id="section6" class="section">
 			<h1>PRODUCCIÓN DE LIMÓN EN OAXACA</h1>
 			<div class="tabla-scroll">
 				<table class="tabla-datos">
-				<thead>
-					<tr>
-						<th>REGION</th>
-						<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
-						<th>SUPERFICIE SEMBRADA (HA)</th>
-						<th>RENDIMIENTO (TON/HA)</th>
-						<th>VALOR DE LA PRODUCCIÓN ($)</th>
-						<th>CANTIDAD DE MUNICIPIOS</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th>REGION</th>
+							<th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+							<th>SUPERFICIE SEMBRADA (HA)</th>
+							<th>RENDIMIENTO (TON/HA)</th>
+							<th>VALOR DE LA PRODUCCIÓN ($)</th>
+							<th>CANTIDAD DE MUNICIPIOS</th>
+						</tr>
+					</thead>
 
-				<tbody id="tabla_produccion_prod_oax">
+					<tbody id="tabla_produccion_prod_oax">
 
-				</tbody>
-				<tfoot>
-					<tr id="total_tab_pro_miel_oax">
-					</tr>
-				</tfoot>
-			</table>
+					</tbody>
+					<tfoot>
+						<tr id="total_tab_pro_miel_oax">
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 			<p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
 					2023</strong>
@@ -341,7 +342,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 7 - Estacionalidad del producto
     	============================== -->
 		<section id="section7" class="section">
@@ -362,7 +363,7 @@
 			</p>
 		</section>
 
-    	<!-- ==============================
+		<!-- ==============================
     	  Sección 8 - Municipios de Producción
     	============================== -->
 		<section id="section8" class="section">
@@ -379,11 +380,11 @@
 		</section>
 	</div>
 
-  	<!-- ==============================
+	<!-- ==============================
   	  Barra lateral de progreso/navegación rápida
   	============================== -->
 	<div class="progress-bar">
-    	<!-- Cada círculo representa un enlace rápido a una sección -->
+		<!-- Cada círculo representa un enlace rápido a una sección -->
 		<div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
 		<div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
 		<div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
@@ -399,7 +400,7 @@
   Script para navegación y seguimiento de sección activa
 ==============================-->
 <script>
-  	// Obtiene todos los elementos necesarios
+	// Obtiene todos los elementos necesarios
 	const circles = document.querySelectorAll('.progress-circle');
 	const sections = document.querySelectorAll('section');
 	const cards = document.querySelectorAll('.card');
@@ -433,7 +434,7 @@
 			}
 		});
 
-    	// Scroll a la sección al hacer clic
+		// Scroll a la sección al hacer clic
 		circles.forEach(circle => {
 			circle.classList.remove('active');
 			if (circle.getAttribute('data-target') === current) {
@@ -447,11 +448,11 @@
 <script src="{% static 'agricola/limon/js/limon.js' %}"></script>
 
 <script>
-  	// ==============================
-  	// Comunicación con iframes (mapas y tablas)
-  	// ==============================
-	
-  	// Envía datos a los iframes cuando se cargan
+	// ==============================
+	// Comunicación con iframes (mapas y tablas)
+	// ==============================
+
+	// Envía datos a los iframes cuando se cargan
 	const mundo_producto = document.getElementById("frame_mundo_prod");
 	mundo_producto.onload = function () {
 		mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");

@@ -1,34 +1,31 @@
 {% extends 'base3.html' %}
-
 {% load static %}
-
-
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
+
 <main id="contents" class="site-contnts">
 
-    <!--Slider-->
-    <div class="home-slider">
-        <div class="item" data-slide="{% static 'assets/images/pecuario2.jpg' %}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-8 col-lg-7">
-                        <h2 class="slide-title">Estadisticas <strong>del Sector Pecuario</strong>
-                            <h3>Explora los 6 productos</h3>
-
-                    </div>
+    <div class="carousel-comp" id="carousel-comp">
+        <div class="carousel-comp__slides" id="slides-comp">
+            <div class="carousel-comp__slide">
+                <img src="{% static 'assets/images/pecuario2.jpg' %}" alt="Imagen 1" />
+                <div class="carousel-comp__text-overlay">
+                    Estadísticas <strong>del Sector Pecuario</strong> <br>Explora los 6 productos
                 </div>
             </div>
-        </div>
-        <div class="item" data-slide="{% static 'assets/images/PECUARIO.jpg' %}">
-            <div class="container">
-                <div class="row">
-
-
-                </div>
+            <div class="carousel-comp__slide">
+                <img src="{% static 'assets/images/PECUARIO.jpg' %}" alt="Imagen 2" />
             </div>
         </div>
+
+        <div class="carousel-comp__indicators" id="indicators-comp">
+            <!-- Cubos blancos generados por JS -->
+        </div>
     </div>
-    </div>
+
+    <script src="{% static 'js/carrusel-control.js' %}"></script>
+
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
     <style>
@@ -88,7 +85,7 @@
                     <h3>OVINO</h3>
                 </div>
             </a>
-          
+
         </div>
     </div>
 
