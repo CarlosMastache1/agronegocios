@@ -1,0 +1,71 @@
+.carousel-comp {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.carousel-comp__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-comp__slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-comp__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-comp__text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 4rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-comp__text-overlay strong {
+    font-weight: bold;
+    font-size: 4.5rem;
+}
+
+
+.carousel-comp__indicators {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-comp__indicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 6px;
+    background-color: white;
+    border-radius: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.carousel-comp__indicator.active {
+    opacity: 1;
+}

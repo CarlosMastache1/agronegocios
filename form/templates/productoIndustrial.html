@@ -1,0 +1,235 @@
+{% extends 'baseTienda.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    #body {
+        padding: 30px;
+        font-family: 'Segoe UI', sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .titulo {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        margin-top: 100px;
+        color: #333;
+    }
+
+
+    .card {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        padding: 30px 25px;
+        text-align: center;
+        transition: background 0.3s ease, filter 0.3s ease;
+        height: 50vh;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        filter: brightness(0.8);
+        /* oscurece la tarjeta al hacer hover */
+    }
+
+    .overlay-productos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(250, 250, 250, 0.877);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .card:hover .overlay-productos {
+        opacity: 2;
+    }
+
+    .overlay-productos ul {
+        list-style-type: disc;
+        color: #333;
+        font-size: .9rem;
+    }
+
+    .overlay-productos p {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+
+    .paginacion {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .paginacion a,
+    .paginacion span {
+        display: inline-block;
+        margin: 0 6px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        background-color: #e0e0e0;
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .paginacion .current {
+        background-color: #2c3e50;
+        color: white;
+        font-weight: bold;
+    }
+
+    .paginacion a:hover {
+        background-color: #bbb;
+    }
+
+    
+    .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #ccc;
+        margin: auto;
+        transition: border-color 0.3s ease;
+    }
+</style>
+
+
+<div id="body">
+    <h1 class="titulo">Productores Agroindustriales</h1>
+
+    <form method="get" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <input type="text" name="busqueda" placeholder="Buscar productor..." value="{{ request.GET.busqueda }}"
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px;">
+        <input type="text" name="producto" placeholder="Buscar producto..." value="{{ request.GET.producto }}"
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px;">
+        <input type="text" name="marca" placeholder="Buscar marca..." value="{{ request.GET.marca }}"
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px;">
+
+        <select name="disponibilidad"
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 180px;">
+            <option value="">-- Disponibilidad --</option>
+            <option value="SEMANAL" {% if request.GET.disponibilidad == "SEMANAL" %}selected{% endif %}>SEMANAL</option>
+            <option value="MENSUAL" {% if request.GET.disponibilidad == "MENSUAL" %}selected{% endif %}>MENSUAL</option>
+            <option value="BIMESTRAL" {% if request.GET.disponibilidad == "BIMESTRAL" %}selected{% endif %}>BIMESTRAL
+            </option>
+            <option value="TRIMESTRAL" {% if request.GET.disponibilidad == "TRIMESTRAL" %}selected{% endif %}>TRIMESTRAL
+            </option>
+            <option value="CUATRIMESTRAL" {% if request.GET.disponibilidad == "CUATRIMESTRAL" %}selected{% endif %}>
+                CUATRIMESTRAL</option>
+            <option value="SEMESTRAL" {% if request.GET.disponibilidad == "SEMESTRAL" %}selected{% endif %}>SEMESTRAL
+            </option>
+            <option value="ANUAL" {% if request.GET.disponibilidad == "ANUAL" %}selected{% endif %}>ANUAL</option>
+
+        </select>
+
+        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+            <input type="number" name="volumen" placeholder="Volumen" value="{{ request.GET.volumen }}" min="0"
+                style="border: none; padding: 10px 12px; width: 100px; outline: none;">
+            <select name="unidad" style="border: none; padding: 10px 12px; background-color: #f5f5f5; outline: none;">
+                <option value="">Unidad</option>
+                <option value="TONELADA" {% if request.GET.unidad == "TONELADA" %}selected{% endif %}>TON</option>
+                <option value="KILOGRAMOS" {% if request.GET.unidad == "KILOGRAMOS" %}selected{% endif %}>KG</option>
+                <option value="LITROS" {% if request.GET.unidad == "LITROS" %}selected{% endif %}>L</option>
+                <option value="PIEZAS" {% if request.GET.unidad == "PIEZAS" %}selected{% endif %}>PZA</option>
+            </select>
+        </div>
+
+        <select name="municipio"
+            style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ccc; min-width: 200px; max-width: 210px;">
+            <option value="">-- Municipio --</option>
+            {% for m in municipios %}
+            <option value="{{ m.id }}" {% if request.GET.municipio == m.id|stringformat:"s" %}selected{% endif %}>
+                {{ m.nombre_municipio }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit"
+            style="padding:0px 15px; border: none; border-radius: 8px; background-color: #2c3e50; color: white; cursor: pointer;">
+            <i class="fa-solid fa-filter"></i>
+        </button>
+
+        {% with request.GET.busqueda as busqueda %}
+        {% with request.GET.producto as producto %}
+        {% with request.GET.marca as marca %}
+        {% with request.GET.disponibilidad as disponibilidad %}
+        {% with request.GET.volumen as volumen %}
+        {% with request.GET.unidad as unidad %}
+        {% with request.GET.municipio as municipio %}
+        {% if busqueda or disponibilidad or volumen or unidad or municipio or marca or producto%}
+        <!-- Botón activo -->
+        <a href="{% url 'categoriaAgroindustrial' %}"
+            style="padding: 10px 15px; border-radius: 8px; background-color: #7A1B38; color: white; text-decoration: none;">
+            <i class="fa-solid fa-filter-circle-xmark"></i>
+        </a>
+        {% endif %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+
+    </form>
+
+    <div class="grid">
+        {% for productor in page_obj %}
+        <a href="{% url 'productosAgroindustriales' productor.nombreProductor %}">
+            <div class="card">
+                <img src="{% static 'images/iconoProductor.png' %}" alt="Icono productor" />
+
+                <h3>{{ productor.nombreProductor|default:"Productor sin nombre" }}</h3>
+                <p class="info"><strong>Teléfono:</strong> {{ productor.telefono|default:"N/A" }}</p>
+                <p class="info"><strong>Email:</strong> {{ productor.email|default:"N/A" }}</p>
+
+                <div class="overlay-productos">
+                    <p><strong>PRODUCTOS:</strong></p>
+                    <ul>
+                        {% for producto in productor.productos %}
+                        <li>{{ producto }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <p style="text-align: center;">No hay productores disponibles.</p>
+        {% endfor %}
+    </div>
+
+
+    <div class="paginacion">
+        {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; Primero</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="current">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

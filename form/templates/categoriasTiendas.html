@@ -19,6 +19,12 @@
      
 
     <!-- Start Categories  -->
+
+    <style>
+        .shop-cat-box img{
+            height: 35vh;
+        }
+    </style>
     <div class="categories-shop">
         <div class="container">
             <div class="row">
@@ -54,11 +60,10 @@
                         <a class="btn hvr-hover" href="/categoriaForestal">VER PRODUCTOS FORESTALES</a>
                     </div>
                 </div>
-
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'tienda/images/mezcal.jpg' %}" alt="" />
-                        <a class="btn hvr-hover" href="/categoriaForestal">VER PRODUCTOS AGROINDUSTRIALES</a>
+                        <img class="img-fluid" src="{% static 'tienda/images/agroindustrial.png' %}" alt="" />
+                        <a class="btn hvr-hover" href="{% url 'categoriaAgroindustrial' %}">VER PRODUCTOS AGROINDUSTRIALES</a>
                     </div>
                 </div>
             </div>

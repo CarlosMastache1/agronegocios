@@ -1,0 +1,534 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Iconos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Librería Chart.js para gráficas -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Plugin para mostrar etiquetas en gráficas -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<!-- Estilos personalizados -->
+<link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
+
+<!-- ==============================
+  Banner principal (slider de imágenes)
+============================== -->
+<main id="contents" class="site-contnts">
+
+  <div class="carousel-comp" id="carousel-comp">
+    <div class="carousel-comp__slides" id="slides-comp">
+      <div class="carousel-comp__slide">
+        <img src="{% static 'agricola/agave/imagenes/agave.jpg' %}" alt="Imagen 1" />
+      </div>
+      <div class="carousel-comp__slide">
+        <img src="{% static 'agricola/agave/imagenes/agave3.jpg' %}" alt="Imagen 2" />
+      </div>
+    </div>
+
+    <div class="carousel-comp__indicators" id="indicators-comp">
+      <!-- Cubos blancos generados por JS -->
+    </div>
+  </div>
+
+  <script src="{% static 'js/carrusel-control.js' %}"></script>
+</main>
+
+<!-- Cinta ticker -->
+<div class="ticker">
+  <div class="ticker-content" id="ticker-content">
+    Cargando datos...
+  </div>
+</div>
+
+<div>
+  <div id="body_pag">
+    <!-- ==============================
+      Sección 1 - Descripción del cultivo
+     ============================== -->
+    <section id="section1" class="section">
+      <h1>DESCRIPCIÓN DEL <strong>AGAVE</strong></h1>
+      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+        <!-- Texto informativo con datos dinámicos que serán insertados con JavaScript -->
+        Este cultivo es perenne por lo que su ciclo de vida es <strong>6 a 8 años</strong> después del plantado. Oaxaca
+        tiene <strong></strong> productores de agave, se encuentra en el <strong></strong> en
+        producción a nivel nacional, con <strong></strong> productores de este cultivo.
+      </p>
+
+      <!-- Tarjetas informativas, cada una enlaza a otra sección -->
+      <div class="descripcion">
+        <div class="container">
+          <div class="card" data-target="section1">
+            <h2><i class="fa-solid fa-leaf" style="color: green;"></i> Cultivo Perenne</h2>
+            <p>
+              Ciclo de vida de <strong>6 a 8 años</strong> según condiciones climáticas y manejo agrícola.
+            </p>
+          </div>
+
+          <div class="card" data-target="section2">
+            <h2>📊 Lugar a nivel mundial</h2>
+            <p id="des_mundo">
+              México ocupa el <strong></strong> a nivel mundial en la producción de agave, produciendo
+              principalmente <strong></strong>; contando con una superficie de cosecha de <strong></strong>.
+            </p>
+          </div>
+
+          <div class="card" data-target="section8">
+            <h2>📍 Municipios en Oaxaca</h2>
+            <p id="des_muni">
+              En Oaxaca hay <strong></strong> que están dedicados al cultivo de agave.
+            </p>
+          </div>
+
+          <div class="card" data-target="section3">
+            <h2>🇲🇽 Lugar a nivel nacional</h2>
+            <p id="des_na">Oaxaca ocupa el <strong></strong> nacional en producción de agave, con un volumen de
+              producción
+              de <strong></strong>, con una superficie de producción de <strong></strong>, la cual
+              presenta un rendimiento de <strong></strong>, y un valor de producción de
+              <strong>$982,328,853</strong>.
+            </p>
+          </div>
+
+          <div class="card" data-target="section6">
+            <h2>📈 Región con mayor producción</h2>
+            <p id="des_reg">
+              La región de <strong></strong> es la region con mayor
+              producción de agave en el estado de Oaxaca, contando con <strong></strong>, teniendo un
+              volumen de producción de <strong></strong>, una superficie sembrada de <strong></strong>, con un
+              rendimiento de <strong></strong>, y contando con un valor de producción
+              de <strong></strong>.
+            </p>
+          </div>
+
+          <div class="card" data-target="section6">
+            <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
+            <p id="des_pue">Un total de <strong></strong> se encuentran dentro de la producción de
+              agave.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+      Sección 2 - Producción Mundial 
+    ============================== -->
+    <section id="section2" class="section">
+      <h1>PRODUCCIÓN MUNDIAL DE AGAVE</h1>
+      <H2>Cierre Agrícola 2022</H2>
+
+      <!-- Controles de paginación y búsqueda -->
+      <div class="controls">
+        <label>
+          Mostrar
+          <select id="rowsPerPage">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          registros
+        </label>
+
+        <input type="text" id="searchInput" placeholder="Buscar...">
+      </div>
+
+      <!-- Tabla que se llenará dinámicamente -->
+      <div class="tabla-scroll">
+        <table id="dataTable" class="tabla-datos">
+          <thead>
+            <tr>
+              <th>RANKING</th>
+              <th>PAÍS</th>
+              <th>SUPERFICIE COSECHADA (HA)</th>
+              <th>PRODUCTO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas dinámicas -->
+          </tbody>
+          <tfoot>
+            <tr id="total_datos_tab1">
+
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Navegación de páginas -->
+      <div class="pagination">
+        <button id="prevBtn">Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn">Siguiente</button>
+      </div>
+
+      <p class="fuentes_pie "><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA
+          LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+
+      <!-- Mapa mundial en un iframe -->
+      <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+      <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES
+          UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+        <button onclick="recargarMundo()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+      </p>
+    </section>
+
+    <!-- ==============================
+      Sección 3 - Producción Nacional
+    ============================== -->
+    <section id="section3" class="section">
+      <h1>PRODUCCIÓN NACIONAL DE AGAVE</h1>
+      <H2>Cierre Agrícola 2022</H2>
+
+      <div class="controls">
+        <label>
+          Mostrar
+          <select id="rowsPerPage2">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          registros
+        </label>
+
+        <input type="text" id="searchInput2" placeholder="Buscar...">
+      </div>
+      <div class="tabla-scroll">
+        <table id="data2Table" class="tabla-datos">
+          <thead>
+            <tr>
+              <th>RANKING</th>
+              <th>ENTIDAD FEDERATIVA</th>
+              <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+              <th>SUPERFICIE SEMBRADA (HA)</th>
+              <th>RENDIMIENTO (TON/HA)</th>
+              <th>VALOR DE LA PRODUCCIÓN ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas dinámicas -->
+          </tbody>
+          <tfoot>
+            <tr id="total_datos_tab2"></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <button id="prevBtn2">Anterior</button>
+        <span id="pageInfo2"></span>
+        <button id="nextBtn2">Siguiente</button>
+      </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
+      <iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty" frameborder="0"></iframe>
+      <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+          2023</strong>
+        <button onclick="recargarMexico()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+      </p>
+    </section>
+
+    <!-- ==============================
+      Sección 4 - Balanza Comercial
+    ============================== -->
+    <section id="section4" class="section">
+      <h1>BALANZA COMERCIAL DE AGAVE DE MÉXICO</h1>
+      <H2>DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS</H2>
+
+      <!-- Controles de paginación y búsqueda -->
+      <div class="controls">
+        <label>
+          Mostrar
+          <select id="rowsPerPageDesExp">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          registros
+        </label>
+
+        <input type="text" id="searchInputDesExp" placeholder="Buscar...">
+      </div>
+
+      <!-- Tabla que se llenará dinámicamente -->
+      <div class="tabla-scroll">
+
+        <table id="dataTableDesExp" class="tabla-datos">
+          <thead>
+            <tr>
+              <th>NUM</th>
+              <th>PAÍS</th>
+              <th>VALOR (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas dinámicas -->
+          </tbody>
+          <tfoot>
+            <tr id="total_datos_tabDesExp"></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Navegación de páginas -->
+      <div class="pagination">
+        <button id="prevBtnDesExp">Anterior</button>
+        <span id="pageInfoDesExp"></span>
+        <button id="nextBtnDesExp">Siguiente</button>
+      </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+      <h3>DESTINO DE LA EXPORTACIÓN 2023 POR REGIÓN</h3>
+
+      <!-- Tabla que se llenará dinámicamente -->
+      <div class="tabla-scroll">
+
+        <table class="tabla-datos">
+          <thead>
+            <tr>
+              <th>NUM</th>
+              <th>REGIÓN</th>
+              <th>VALOR (USD)</th>
+            </tr>
+          </thead>
+          <!-- Contenido datos de los países del producto principal -->
+          <tbody id="tab_cuer_region_exp">
+          </tbody>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th>Total:</th>
+              <th colspan="2" id="tfoot_cuer_region_exp"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+          NACIONES UNIDAS PARA LA
+          ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+    </section>
+
+    <!-- ==============================
+      Sección 5 - Producción Histórica
+    ============================== -->
+    <section id="section5" class="section">
+      <h1>PRODUCCIÓN HISTÓRICA DE AGAVE EN OAXACA</h1>
+
+      <!-- Gráfica rellenada dinámicamente-->
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
+    </section>
+
+    <!-- ==============================
+      Sección 6 - Producción del Producto
+    ============================== -->
+    <section id="section6" class="section">
+      <h1>PRODUCCIÓN DE AGAVE EN OAXACA</h1>
+
+      <!-- Tabla que se llenará dinámicamente -->
+      <div class="tabla-scroll">
+
+        <table class="tabla-datos">
+          <thead>
+            <tr>
+              <th>REGION</th>
+              <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+              <th>SUPERFICIE SEMBRADA (HA)</th>
+              <th>RENDIMIENTO (TON/HA)</th>
+              <th>VALOR DE LA PRODUCCIÓN ($)</th>
+              <th>CANTIDAD DE MUNICIPIOS</th>
+            </tr>
+          </thead>
+
+          <tbody id="tabla_produccion_prod_oax">
+
+          </tbody>
+          <tfoot>
+            <tr id="total_tab_pro_miel_oax">
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p class="fuentes_pie fuente_elemento"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+          2023</strong></p>
+
+      <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDÍGENA
+      </h4>
+
+      <!-- Gráfica que se llenará dinámicamente -->
+      <div class="chart-container">
+        <canvas id="lineChart2"></canvas>
+      </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
+    </section>
+
+    <!-- ==============================
+      Sección 7 - Estacionalidad del producto
+    ============================== -->
+    <section id="section7" class="section">
+      <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+
+      <!-- Texto informativo con datos dinámicos que serán insertados con JavaScript -->
+      <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">
+        La estacionalidad de la producción hace referencia a la frecuencia de meses donde se produce agave en el estado
+        de Oaxaca, medido a través del índice de volumen físico, es decir, el mes de <strong>marzo</strong> es cuando se
+        cosecha más agave alcanzando <strong>399 puntos</strong> de dicho índice.
+      </p>
+      <h2>INDICE DE VOLUMEN FÍSICO (IVF)</h2>
+
+      <!-- Gráfica que se llenara dinámicamente -->
+      <div class="chart-container">
+        <canvas id="lineChart3"></canvas>
+      </div>
+      <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong></p>
+    </section>
+
+    <!-- ==============================
+      Sección 8 - Municipios de Producción
+    ============================== -->
+    <section id="section8" class="section">
+      <h1>MUNICIPIOS QUE PRODUCEN AGAVE EN OAXACA</h1>
+      <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+        frameborder="0"></iframe>
+      <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+          2023</strong>
+        <button onclick="recargarOaxaca()" class="boton-recargar"><i class="fa-solid fa-rotate"></i></button>
+      </p>
+      <div id="botones"></div>
+      <div id="titulo_regmun"></div>
+      <div id="tabla"></div>
+    </section>
+  </div>
+
+  <!-- ==============================
+    Barra lateral de progreso/navegación rápida
+  ============================== -->
+  <div class="progress-bar">
+    <!-- Cada círculo representa un enlace rápido a una sección -->
+    <div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
+    <div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
+    <div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
+    <div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
+    <div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
+    <div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+    <div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
+  </div>
+</div>
+
+<!-- ==============================
+  Script para navegación y seguimiento de sección activa
+==============================-->
+<script>
+  // Obtiene todos los elementos necesarios
+  const circles = document.querySelectorAll('.progress-circle');
+  const sections = document.querySelectorAll('section');
+  const cards = document.querySelectorAll('.card');
+
+  // Clic en un círculo -> scroll suave a la sección
+  circles.forEach(circle => {
+    circle.addEventListener('click', () => {
+      const targetId = circle.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Clic en una tarjeta -> scroll suave a la sección
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Detecta la sección visible en pantalla y resalta el círculo correspondiente
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    // Scroll a la sección al hacer clic
+    circles.forEach(circle => {
+      circle.classList.remove('active');
+      if (circle.getAttribute('data-target') === current) {
+        circle.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<script src="{% static 'data/mapas/agricola/agave.js' %}"></script>
+<script src="{% static 'agricola/agave/js/agave.js' %}"></script>
+
+<script>
+  // ==============================
+  // Comunicación con iframes (mapas y tablas)
+  // ==============================
+
+  // Envía datos a los iframes cuando se cargan
+  const mundo_producto = document.getElementById("frame_mundo_prod");
+  mundo_producto.onload = function () {
+    mundo_producto.contentWindow.postMessage(tab_pro_mundial, "*");
+  }
+
+  const mexico_producto = document.getElementById("iframe_mexico_prod");
+  mexico_producto.onload = function () {
+    mexico_producto.contentWindow.postMessage(tab_pro_nacional, "*");
+  }
+
+  const iframe = document.getElementById('frame_oaxaca');
+  iframe.onload = function () {
+    iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+  };
+
+  function recargarMexico() {
+    const iframe = document.getElementById('iframe_mexico_prod');
+    iframe.src = iframe.src; // Recarga el iframe actual
+  }
+
+  function recargarMundo() {
+    const iframe = document.getElementById('frame_mundo_prod');
+    iframe.src = iframe.src; // Recarga el iframe actual
+  }
+
+  function recargarOaxaca() {
+    const iframe = document.getElementById('frame_oaxaca');
+    iframe.src = iframe.src; // Recarga el iframe actual
+  }
+</script>
+
+<script>
+  // Función para obtener y actualizar los datos en la cinta
+  function fetchTickerData() {
+    fetch('/grafica-maiz/api/')
+      .then(response => response.json())
+      .then(data => {
+        let tickerText = `Precio Actual: ${data.current_price} | Apertura: ${data.open_price} | Máximo: ${data.high_price} | Mínimo: ${data.low_price}`;
+        document.getElementById('ticker-content').innerText = tickerText;
+      })
+      .catch(error => console.error("Error al obtener datos:", error));
+  }
+
+  // Obtiene los datos inicialmente y actualiza cada 10 segundos
+  fetchTickerData();
+  setInterval(fetchTickerData, 10000);
+</script>
+
+{% endblock %}

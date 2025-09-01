@@ -72,19 +72,15 @@
     <img src="{% static 'imagenes/123.gif' %}" alt="Cargando...">
   </div>
 
-  <style>
-
-  </style>
   <div id="page" class="site row">
     <header class="site-header">
       <!-- Navbar -->
       <nav class="navbar navbar-default navbar-fixed-top fluid-navbar navbar-layaout-new" id="navbar-new">
         <div class="container-fluid">
 
-
           <!-- Encabezado con botón toggle -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="https://www.oaxaca.gob.mx/sefader/">
               <img src="{% static 'assets/images/logo-new.png' %}" alt="logo" height="40px">
             </a>
             <!-- Botón para colapsar menú -->
@@ -95,20 +91,18 @@
             </button>
           </div>
 
-
           <div class="collapse navbar-collapse" id="menu-colapsable">
             <ul class="nav navbar-nav navbar-right">
-
               <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="{% url 'index' %}" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-home"></span> INICIO <span
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/">INICIO</a></li>
-                  <li><a href="/nosotros">NOSOTROS</a></li>
-                  <li><a href="/directorio">DIRECTORIO</a></li>
-                  <li><a href="/ubicacion">UBICACION</a></li>
+                  <li><a href="{% url 'index' %}">INICIO</a></li>
+                  <li><a href="{% url 'nosotros' %}">NOSOTROS</a></li>
+                  <li><a href="{% url 'directorio' %}">DIRECTORIO</a></li>
+                  <li><a href="{% url 'ubicacion' %}">UBICACION</a></li>
                 </ul>
               </li>
 
@@ -118,8 +112,8 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/graficaPubli" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
-                  <li><a href="/login" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
+                  <li><a href="{% url 'graficaPubli' %}" target="_blank">VER DESEMPEÑO DEL FONDO</a></li>
+                  <li><a href="{% url 'login' %}" target="_blank">HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
                 </ul>
               </li>
 
@@ -129,8 +123,8 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/agricola">AGRICOLA</a></li>
-                  <li><a href="/pecuario">PECUARIO</a></li>
+                  <li><a href="{% url 'agricola' %}">AGRICOLA</a></li>
+                  <li><a href="{% url 'pecuario' %}">PECUARIO</a></li>
                 </ul>
               </li>
 
@@ -140,25 +134,19 @@
                     class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/tiendaHome" target="_blank">REGISTRA TU PRODUCTO</a></li>
-                  <li><a href="/tiendaCategorias">CATALOGO DE PRODUCTOS</a></li>
-                  <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
+                  <li><a href="{% url 'tiendaHome' %}" target="_blank">REGISTRA TU PRODUCTO</a></li>
+                  <li><a href="{% url 'tiendaCategorias' %}">CATALOGO DE PRODUCTOS</a></li>
+                  <li><a href="{% url 'graficos_precios' %}">COTIZACIÓN DE PRECIOS</a></li>
                 </ul>
               </li>
-
             </ul>
           </div>
         </div>
       </nav>
-
-
     </header>
     {% block content %}
 
     {% endblock %}
-
-
-
     <!--Footer-->
     <footer id="footer" class="site-footer">
       <!--Footer Top-->
@@ -177,9 +165,7 @@
         </div>
       </section>
       <!--Footer Bottom-->
-
     </footer>
-
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -192,7 +178,6 @@
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'assets/js/hostpro.js' %}"></script>
   <script src="{% static 'assets/js/custom.js' %}"></script>
-
 
   <script>
     //navbar-layaout-new 
@@ -207,10 +192,7 @@
         navbar.classList.add('navbar-layaout-new');
       }
     });
-
   </script>
-
-
 </body>
 
 </html>

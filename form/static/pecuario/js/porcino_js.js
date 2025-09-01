@@ -234,6 +234,7 @@ const config = {
   type: "line",
   data: datos,
   options: {
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -392,6 +393,7 @@ const config2 = {
   type: "line",
   data: datos2,
   options: {
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -555,6 +557,7 @@ const config4 = {
   type: "bar",
   data: datos4,
   options: {
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       legend: {
@@ -633,6 +636,7 @@ const config6 = {
   type: "bar",
   data: datos6,
   options: {
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       legend: {

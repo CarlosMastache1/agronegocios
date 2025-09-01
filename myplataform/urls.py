@@ -37,7 +37,6 @@ urlpatterns = [
     path('tiendaHome/', views.tiendaIndex, name='tiendaHome'),
     path('tiendaCategorias/', views.tiendaCategorias, name='tiendaCategorias'),
     
-    
     path('catalogo/', views.catalogoProductos, name='catalogoProductos'),
     path('categoriaAgricola/', views.tiendaAgricola, name='categoriaAgricola'),
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),
@@ -46,7 +45,9 @@ urlpatterns = [
     path('categoriaForestal/', views.tiendaForestal, name='categoriaForestal'),
     path('categoriaAgroindustrial/', views.tiendaIndustrial, name='categoriaAgroindustrial'),
     path('productosAgricola/<str:categoria>/', views.tiendaProducAgri, name="productosAgricola"),
+    path('productosIndustrial/<str:categoria>/', views.tiendaProducInd, name="productosIndustrial"),
     path('productosAgricola/<str:categoria>/<str:nombre>', views.productorProductorAgri, name="productosProductorAgricola"),
+    path('productosAgroindustriales/<str:nombre>/', views.productorProductorIndus, name="productosAgroindustriales"),
     path('productosPecuario/<str:categoria>/', views.tiendaProducPecu, name="productosPecuario"),
     path('detailProduct/<int:product_id>/', views.prodDetail, name='detailProduct'),
     path('formProductos/', views.formProductos, name='formProductos' ),
@@ -61,22 +62,20 @@ urlpatterns = [
     path('agricola/', views.sectorAgri, name='agricola'),
     path('pecuario/', views.sectorPecu, name='pecuario'),
 
-
-    path('agave/', TemplateView.as_view(template_name="agricola/agave/index.html"), name='agave'),
-    path('ajonjoli/', TemplateView.as_view(template_name="agricola/ajonjoli/index.html"), name='ajonjoli'),
-    path('calabacita/', TemplateView.as_view(template_name="agricola/calabacita/index.html"), name='calabacita'),
-    path('cafe/', TemplateView.as_view(template_name="agricola/cafe/index.html"), name='cafe'),
-    path('jengibre/', TemplateView.as_view(template_name="agricola/jengibre/index.html"), name='jengibre'),
-    path('limon/', TemplateView.as_view(template_name="agricola/limon/index.html"), name='limon'),
-    path('litchi/', TemplateView.as_view(template_name="agricola/litchi/index.html"), name='litchi'),
-    path('mango/', TemplateView.as_view(template_name="agricola/mango/index.html"), name='mango'),
-    path('melon/', TemplateView.as_view(template_name="agricola/melon/index.html"), name='melon'),
-    path('papaya/', TemplateView.as_view(template_name="agricola/papaya/index.html"), name='papaya'),
-    path('pepino/', TemplateView.as_view(template_name="agricola/pepino/index.html"), name='pepino'),
-    path('pina/', TemplateView.as_view(template_name="agricola/piña/index.html"), name='pina'),
-    path('platano/', TemplateView.as_view(template_name="agricola/platano/index.html"), name='platano'),
-    path('sandia/', TemplateView.as_view(template_name="agricola/sandia/index.html"), name='sandia'),
-
+    path('agave/', TemplateView.as_view(template_name="agricola/agave.html"), name='agave'),
+    path('ajonjoli/', TemplateView.as_view(template_name="agricola/ajonjoli.html"), name='ajonjoli'),
+    path('calabacita/', TemplateView.as_view(template_name="agricola/calabacita.html"), name='calabacita'),
+    path('cafe/', TemplateView.as_view(template_name="agricola/cafe.html"), name='cafe'),
+    path('jengibre/', TemplateView.as_view(template_name="agricola/jengibre.html"), name='jengibre'),
+    path('limon/', TemplateView.as_view(template_name="agricola/limon.html"), name='limon'),
+    path('litchi/', TemplateView.as_view(template_name="agricola/litchi.html"), name='litchi'),
+    path('mango/', TemplateView.as_view(template_name="agricola/mango.html"), name='mango'),
+    path('melon/', TemplateView.as_view(template_name="agricola/melon.html"), name='melon'),
+    path('papaya/', TemplateView.as_view(template_name="agricola/papaya.html"), name='papaya'),
+    path('pepino/', TemplateView.as_view(template_name="agricola/pepino.html"), name='pepino'),
+    path('pina/', TemplateView.as_view(template_name="agricola/pina.html"), name='pina'),
+    path('platano/', TemplateView.as_view(template_name="agricola/platano.html"), name='platano'),
+    path('sandia/', TemplateView.as_view(template_name="agricola/sandia.html"), name='sandia'),
 
     path('graficos-precios/', views.precios_maiz, name='graficos_precios'),
     path('nosotros/', views.nosotros, name='nosotros'),
@@ -88,11 +87,15 @@ urlpatterns = [
     path('iframeMexico/', TemplateView.as_view(template_name="includes/mapaMexico.html"), name='iframeMexico'),
     path('iframeOaxaca/', TemplateView.as_view(template_name="includes/mapaOaxaca.html"), name='iframeOaxaca'),
 
-    path('avicola/', TemplateView.as_view(template_name="pecuario/avicola/index.html"), name='avicola'),
-    path('apicola/', TemplateView.as_view(template_name="pecuario/apicola/index.html"), name='apicola'),
-    path('bovino/', TemplateView.as_view(template_name="pecuario/bovino/index.html"), name='bovino'),
-    path('caprino/', TemplateView.as_view(template_name="pecuario/caprino/index.html"), name='caprino'),
-    path('porcino/', TemplateView.as_view(template_name="pecuario/porcino/index.html"), name='porcino'),
-    path('ovino/', TemplateView.as_view(template_name="pecuario/ovino/index.html"), name='ovino'),
+    path('iframePublico/', views.iframePublico, name='iframePublico'),
+
+    
+
+    path('avicola/', TemplateView.as_view(template_name="pecuario/avicola.html"), name='avicola'),
+    path('apicola/', TemplateView.as_view(template_name="pecuario/apicola.html"), name='apicola'),
+    path('bovino/', TemplateView.as_view(template_name="pecuario/bovino.html"), name='bovino'),
+    path('caprino/', TemplateView.as_view(template_name="pecuario/caprino.html"), name='caprino'),
+    path('porcino/', TemplateView.as_view(template_name="pecuario/porcino.html"), name='porcino'),
+    path('ovino/', TemplateView.as_view(template_name="pecuario/ovino.html"), name='ovino'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

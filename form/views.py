@@ -25,7 +25,8 @@ import numpy as np
 from decimal import Decimal
 from .utils import get_data
 from django.core.paginator import Paginator
-
+from itertools import zip_longest
+from collections import defaultdict
 # Create your views here.
 
 def maiz_precioMXN(request):
@@ -59,12 +60,8 @@ def maiz_precioMXN(request):
 
   return render(request,  'graficasBV.html')
 
-
-
 def redondear_velas(velas):
     return [[round(valor, 2) for valor in fila] for fila in velas]
-
-
 
 def precios_maiz(request):
     hoy = datetime.today().date()
@@ -81,8 +78,6 @@ def precios_maiz(request):
     df_gVacuno = yf.download("LE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
-
-
 
     # Fechas y velas redondeadas
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
@@ -117,7 +112,6 @@ def precios_maiz(request):
 
     fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
-
 
     ###### BLOQUE DE CODIGO PARA OBTENER PRECIOS POR PESOS MEXICANOS
 
@@ -166,10 +160,6 @@ def precios_maiz(request):
     algodon = yf.Ticker("CT=F").history(period="5d", interval="4h")["Close"].iloc[-1]
     precio_algodon_mxn_kg = round((algodon / 100 * tipo_cambio) / kg_por_libra, 2)
 
-
-
-
-
     return render(request, 'graficasBV.html', {
         'fechas_maiz': json.dumps(fechas_maiz),
         'velas_maiz': json.dumps(velas_maiz),
@@ -205,7 +195,6 @@ def precios_maiz(request):
         "precio_azucar_mxn_kg": "{:.2f}".format(precio_azucar_mxn_kg),
         "precio_algodon_mxn_kg": "{:.2f}".format(precio_algodon_mxn_kg),
 
-
         'rango_texto': f"{inicio} → {hoy}",
     })
 
@@ -230,7 +219,6 @@ def home(request):
 
 def tiendaIndex(request):
   return render(request, 'tiendaHome.html')
-
 
 def tiendaCategorias(request):
   return render(request, 'categoriasTiendas.html')
@@ -278,6 +266,43 @@ def tiendaProducAgri(request, categoria):
      'municipios': todos_los_municipios
      })
 
+
+def tiendaProducInd(request, categoria):
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='AGROINDUSTRIAL',
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
+  return render(request, 'productoIndustrial.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : categoria,
+     'municipios': todos_los_municipios
+     })
+
 def productorProductorAgri(request, categoria, nombre):
   productos_filtrados = productos.objects.filter(subsector = 'AGRICOLA',  categoria = categoria, nombreProductor = nombre, estado=True)
   paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
@@ -286,6 +311,13 @@ def productorProductorAgri(request, categoria, nombre):
   return render(request, 'productosProductorAgri.html',
   {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
 
+def productorProductorIndus(request, nombre):
+  productos_filtrados = productos.objects.filter(subsector = 'AGROINDUSTRIAL', nombreProductor = nombre, estado=True)
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+  return render(request, 'productosProductorIndus.html',
+  {'page_obj': page_obj, 'nombre' : nombre})
 
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
@@ -366,14 +398,64 @@ def tiendaForestal(request):
   {'page_obj': page_obj, 'tiendaFor' : tiendaFor})
 
 def tiendaIndustrial(request):
-  productos_filtrados = productos.objects.filter(subsector = 'AGROINDUSTRIAL', estado=True)
+  busqueda = request.GET.get('busqueda', '')
+  marca = request.GET.get('marca', '')
+  producto = request.GET.get('producto', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
 
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='AGROINDUSTRIAL',
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if marca:
+       productos_filtrados = productos_filtrados.filter(nombreMarca__icontains=marca)
+  if producto:
+       productos_filtrados = productos_filtrados.filter(nombreProducto__icontains=producto)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email', 'nombreProducto'
+   )
+  
+  productores_dict = defaultdict(lambda: {'productos': set()})
+
+  for item in productos_filtrados:
+    key = (item['nombreProductor'], item['email'], item['telefono'])
+    productores_dict[key]['nombreProductor'] = item['nombreProductor']
+    productores_dict[key]['email'] = item['email']
+    productores_dict[key]['telefono'] = item['telefono']
+    productores_dict[key]['productos'].add(item['nombreProducto'])
+
+  lista_productores = []
+  for val in productores_dict.values():
+    val['productos'] = list(val['productos'])
+    lista_productores.append(val)
+
+  paginator = Paginator(lista_productores, 12)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
 
-  return render(request, 'industrialTienda.html',
-  {'page_obj': page_obj, 'tiendaInd' : tiendaInd})
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
+  return render(request, 'productoIndustrial.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : 'categoria',
+     'municipios': todos_los_municipios
+     })
+"""   return render(request, 'industrialTienda.html') """
 
 @login_required
 def gestProd(request):
@@ -441,7 +523,6 @@ def signup(request):
                     'error' : 'LAS CONTRASEÑAS NO COINCIDEN '
                 })
 
-
 def signout(request):
     logout(request)
     return redirect('login')
@@ -489,8 +570,6 @@ def formProductos(request):
 
         comentarios = request.POST.get("comentarios[]")
 
-
-        
         for i in range(len(nombreProducto)):
             categoria = categorias[i] if i < len(categorias) else None
             productoNew = productos.objects.create(
@@ -510,6 +589,7 @@ def formProductos(request):
                 imagenProd=imagenes[i] if i < len(imagenes) else None,
                 archivo_pdf=pdfs[i] if i < len(pdfs) else None
             )
+            
         #form = productosForm(request.POST, request.FILES)
         #new_prod = form.save(commit=False)
         #new_prod.save()
@@ -532,7 +612,7 @@ def creditDetail(request, credit_id):
   })
 
 def prodDetail(request, product_id):
-  product = get_object_or_404(productos, pk=product_id)
+  product = get_object_or_404(productos, pk=product_id, estado=True)
   return render(request, 'detailProducto.html', {
     'product' : product
   })
@@ -2845,9 +2925,11 @@ def get_chart52024(request):
   return JsonResponse(chart)
 
 
-
-
 def graficasPublicas(request):
+   return render(request, 'graficasPublicas.html')
+
+
+def iframePublico(request):
 
 
 
@@ -3703,8 +3785,7 @@ def graficasPublicas(request):
       sflm_for_monto_2024 = (entidadesFinancieras2.objects.filter(municipio__region='SIERRA DE FLORES MAGON', subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
       total_for_monto_2024 = (entidadesFinancieras2.objects.filter(subsector='Forestal', fecha_inicio__year=2024).aggregate(sumatotal=Sum('monto_total')))['sumatotal']
 
-
-      return render(request, 'graficasPublicas.html',{
+      return render(request, 'graficaPublicaContenido.html',{
         'conteo_VC' : conteo_VC, 
         'conteo_IST' : conteo_IST, 
         'conteo_MIX' : conteo_MIX,
@@ -3907,7 +3988,6 @@ def graficasPublicas(request):
         'monto_mec_2023' : monto_mec_2023,
         'monto_re_2023' : monto_re_2023,
 
-
         'garantias_ct' : garantias_ct,
         'garantias_eq' : garantias_eq,
         'garantias_iaa' : garantias_iaa,
@@ -3915,7 +3995,6 @@ def graficasPublicas(request):
         'garantias_ap' : garantias_ap,
         'garantias_mec' : garantias_mec,
         'garantias_re' : garantias_re,
-
 
         'garantias_ct_2023' : garantias_ct_2023,
         'garantias_eq_2023' : garantias_eq_2023,
@@ -3971,8 +4050,6 @@ def graficasPublicas(request):
         'total_pes' : total_pes,
         'total_for' : total_for,
 
-
-
         'valles_agri_2023' : valles_agri_2023,
         'istmo_agri_2023' : istmo_agri_2023,
         'costa_agri_2023' : costa_agri_2023,
@@ -4019,8 +4096,6 @@ def graficasPublicas(request):
         'total_pes_2023' : total_pes_2023,
         'total_for_2023' : total_for_2023,
 
-
-
         'valles_agri_2024' : valles_agri_2024,
         'istmo_agri_2024' : istmo_agri_2024,
         'costa_agri_2024' : costa_agri_2024,
@@ -4066,8 +4141,6 @@ def graficasPublicas(request):
         'total_acu_2024' : total_acu_2024,
         'total_pes_2024' : total_pes_2024,
         'total_for_2024' : total_for_2024,
-
-
 
         'c' : total_concepto,
 
@@ -4117,9 +4190,6 @@ def graficasPublicas(request):
         'total_pes_monto' : total_pes_monto,
         'total_for_monto' : total_for_monto,
 
-
-
-
       #monto 2023
         'valles_agri_monto_2023' : valles_agri_monto_2023,
         'istmo_agri_monto_2023' : istmo_agri_monto_2023,
@@ -4166,9 +4236,6 @@ def graficasPublicas(request):
         'total_acu_monto_2023' : total_acu_monto_2023,
         'total_pes_monto_2023' : total_pes_monto_2023,
         'total_for_monto_2023' : total_for_monto_2023,
-
-
-
         
       #monto 2024
         'valles_agri_monto_2024' : valles_agri_monto_2024,
@@ -4216,10 +4283,6 @@ def graficasPublicas(request):
         'total_acu_monto_2024' : total_acu_monto_2024,
         'total_pes_monto_2024' : total_pes_monto_2024,
         'total_for_monto_2024' : total_for_monto_2024,
-
-
-
-
 
         'can_municipios_VC' : can_municipios_VC,
         'can_municipios_IST' : can_municipios_IST,
@@ -4273,24 +4336,13 @@ def graficasPublicas(request):
         'totalPIG_2024' : totalPIG_2024,
         'totalEDG_2024' : totalEDG_2024, 
         'totalCMG_2024' : totalCMG_2024
-
-
-
         })
-
-
-
-
-
 
 def nosotros(request):
   return render(request, 'nosotros.html')
 
-
 def directorio(request):
   return render(request, 'directorio.html')
 
-
 def ubicacion(request):
   return render(request, 'ubicacion.html')
-

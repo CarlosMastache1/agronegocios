@@ -1,0 +1,589 @@
+{% extends 'base3.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Carga de estilos y librerías externas -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Librerías para gráficos -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<!-- Estilos propios del proyecto -->
+<link rel="stylesheet" href="{% static 'css/estilo_estadisticas.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo_estadisticas2.css' %}">
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
+
+<main id="contents" class="site-contnts">
+    <div class="carousel-comp" id="carousel-comp">
+        <div class="carousel-comp__slides" id="slides-comp">
+            <div class="carousel-comp__slide">
+                <img src="{% static 'pecuario/caprino/img/cap1.jpg' %}" alt="Imagen 1" />
+            </div>
+            <div class="carousel-comp__slide">
+                <img src="{% static 'pecuario/caprino/img/cap2.jpg' %}" alt="Imagen 2" />
+            </div>
+        </div>
+
+        <div class="carousel-comp__indicators" id="indicators-comp">
+            <!-- Cubos blancos generados por JS -->
+        </div>
+    </div>
+
+    <script src="{% static 'js/carrusel-control.js' %}"></script>
+</main>
+
+<div>
+    <div id="body_pag">
+        <!-- Sección 1: Descripción general del sector caprino en Oaxaca -->
+        <section id="section1" class="section">
+            <h1>DESCRIPCIÓN DEL SECTOR CAPRINO</h1>
+            <!-- Texto introductorio con datos clave sobre municipios productores de carne y leche de caprino -->
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="descripcion">
+                Oaxaca cuenta con <strong></strong> productores del sector caprino, se encuentra en el <strong></strong>
+                a nivel
+                nacional en producción de carne de caprino, con <strong></strong> productores de este sector.
+            </p>
+
+            <!-- Contenedor con tarjetas que resumen datos importantes -->
+            <div class="descripcion">
+                <div class="container">
+                    <!-- Tarjeta 1: Lugar a nivel mundial -->
+                    <div class="card" data-target="section2">
+                        <h2>📊 Lugar a nivel mundial</h2>
+                        <p id="des_mundo">
+                            México ocupa el <strong>20.º lugar</strong> a nivel mundial en la producción de carne de
+                            caprinos, con un volumen de producción de <strong>40,826 Ton</strong>; y ocupa el
+                            <strong>25.º lugar</strong> en producción de leche de cabra, con un volumen de producción de
+                            <strong> L</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 2: Municipios productores en Oaxaca -->
+                    <div class="card" data-target="section8">
+                        <h2>📍 Municipios en Oaxaca</h2>
+                        <p id="des_muni">
+                            En Oaxaca hay <strong> municipios</strong> que producen carne de caprino.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 3: Lugar a nivel nacional -->
+                    <div class="card" data-target="section3">
+                        <h2>🇲🇽 Lugar a nivel nacional</h2>
+                        <p id="des_na">
+                            Oaxaca ocupa el <strong> lugar</strong> nacional en producción de carne de caprinos, con
+                            un volumen de producción de <strong>3,754 Ton</strong>, un peso de <strong>15 KG</strong>,
+                            con un precio de <strong>73 $/KG</strong>, obteniendo un valor de producción de
+                            <strong>$273,500,000</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 4: Regiones con mayor producción -->
+                    <div class="card" data-target="section6">
+                        <h2>📈 Región con mayor producción</h2>
+                        <p id="des_reg">
+                            La región de la <strong></strong> se encuentra con la mayor producción dentro del
+                            sector caprino, contando con <strong>145 municipios</strong> productores, con un volumen de
+                            producción de <strong>1,687 Ton</strong>, un peso de <strong>17 KG</strong>, con un precio
+                            de <strong>73 $/KG</strong>, con un valor de producción de <strong>$123,010,000</strong>.
+
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 5: Pueblos indígenas productores -->
+                    <div class="card" data-target="section6">
+                        <h2>🧑🏽‍🌾 Pueblos indígenas</h2>
+                        <p id="des_pue">Un total de <strong> pueblos indígenas</strong> se encuentran dentro de la
+                            producción
+                            caprina.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor de botones para filtrar entre producto y subproducto -->
+            <div class="container-buttons">
+                <!-- Botón para mostrar producto (carne) -->
+                <a class="btn h-button active" data-text="Ver Producto" aria-label="Thanks" onclick="mostrarProducto()">
+                    <svg width="277" height="62" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="grad1">
+                                <stop offset="0%" stop-color="#7a1433" />
+                                <stop offset="100%" stop-color="#c95885" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                    </svg>
+                    <!-- Letras del botón separadas para efecto visual -->
+                    <span>C</span>
+                    <span>a</span>
+                    <span>r</span>
+                    <span>n</span>
+                    <span>e</span>
+                </a>
+
+                <!-- Botón para mostrar subproducto (leche) -->
+                <a class="btn h-button" data-text="Ver SubProducto" aria-label="Thanks" onclick="mostrarSubProducto()">
+                    <svg width="277" height="62" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="grad2">
+                                <stop offset="0%" stop-color="#7a1433" />
+                                <stop offset="100%" stop-color="#c95885" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad2)" width="266" height="50"></rect>
+                    </svg>
+                    <span>L</span>
+                    <span>e</span>
+                    <span>c</span>
+                    <span>h</span>
+                    <span>e</span>
+                </a>
+            </div>
+            <!-- Espacio visual entre secciones -->
+            <div class="espacio-estilo"></div>
+        </section>
+        <section id="section2" class="section">
+            <h1>PRODUCCIÓN MUNDIAL DEL SECTOR CAPRINO</h1>
+            <!-- Bloque principal: Carne de caprino -->
+            <div class="bloque-producto">
+                <H2>CARNE DE CAPRINO</H2>
+                <div class="contenedor_col1">
+                    <div class="columna1">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais" placeholder="Buscar...">
+
+                        </div>
+                        <div class="tabla-scroll">
+                            <table id="dataTablePais" class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>RANKING</th>
+                                        <th>PAÍS</th>
+                                        <th>SUPERFICIE COSECHADA (HA)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Filas dinámicas -->
+                                </tbody>
+                                <tfoot>
+                                    <tr id="total_datos_tabPais">
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="pagination">
+                            <button id="prevBtnPais">Anterior</button>
+                            <span id="pageInfoPais"></span>
+                            <button id="nextBtnPais">Siguiente</button>
+                        </div>
+                    </div>
+                    <!-- Iframe que muestra mapa mundial de producción -->
+                    <iframe id="frame_mundo_prod" src="{% url 'iframeMundo' %}" class="columna2"
+                        frameborder="0"></iframe>
+                </div>
+                <p class="fuentes_pie fuente_mapa"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
+            </div>
+            <!-- Bloque subproducto: Leche de bovino -->
+            <div class="bloque-subproducto">
+                <H3>LECHE DE CABRAS</H3>
+                <div class="contenedor_col2">
+                    <!-- Iframe con mapa mundial para leche -->
+                    <iframe id="frame_mundo_sub_prod" src="{% url 'iframeMundo' %}" class="columna1"
+                        frameborder="0"></iframe>
+
+                    <!-- Tabla con ranking mundial de producción de leche -->
+                    <div class="columna2">
+                        <div class="controls">
+                            <label>
+                                Mostrar
+                                <select id="rowsPerPagePais2">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                registros
+                            </label>
+                            <input type="text" id="searchInputPais2" placeholder="Buscar...">
+
+                        </div>
+                        <div class="tabla-scroll">
+                            <table id="dataTablePais2" class="tabla-datos">
+                                <thead>
+                                    <tr>
+                                        <th>RANKING</th>
+                                        <th>PAÍS</th>
+                                        <th>VOLUMEN DE PRODUCCIÓN (L)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Filas dinámicas -->
+                                </tbody>
+                                <tfoot>
+                                    <tr id="total_datos_tabPais2">
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="pagination">
+                            <button id="prevBtnPais2">Anterior</button>
+                            <span id="pageInfoPais2"></span>
+                            <button id="nextBtnPais2">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN
+                        DE
+                        LAS
+                        NACIONES UNIDAS PARA LA
+                        ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong>
+                    <button onclick="recargarMundoSubProducto()" class="boton-recargar"><i
+                            class="fa-solid fa-rotate"></i></button>
+                </p>
+            </div>
+        </section>
+        <!-- Sección 3: Producción nacional del sector caprino -->
+        <section id="section3" class="section bloque-producto">
+            <!-- Bloque producto: carne de bovino -->
+            <h1>PRODUCCIÓN NACIONAL DEL SECTOR CAPRINO</h1>
+
+            <H2>PRODUCCIÓN NACIONAL DE CARNE DE CAPRINO</H2>
+
+            <!-- Controles para paginación y búsqueda -->
+            <div class="controls">
+                <label>
+                    Mostrar
+                    <select id="rowsPerPage">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    registros
+                </label>
+
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+
+            <!-- Tabla con datos nacionales de producción -->
+            <div class="tabla-scroll">
+                <table id="dataTable" class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>RANKING</th>
+                            <th>ENTIDAD FEDERATIVA</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PESO (KG)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas generadas dinámicamente -->
+
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_datos_tab1">
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Controles de paginación -->
+            <div class="pagination">
+                <button id="prevBtn">Anterior</button>
+                <span id="pageInfo"></span>
+                <button id="nextBtn">Siguiente</button>
+            </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                    2023</strong>
+            </p>
+
+            <!-- Iframe con mapa nacional -->
+            <iframe id="iframe_mexico_prod" src="{% url 'iframeMexico' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+            <p class="fuentes_pie fuente_mapa">
+                <strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA 2023</strong>
+                <button onclick="recargarMexicoProducto()" class="boton-recargar"><i
+                        class="fa-solid fa-rotate"></i></button>
+            </p>
+        </section>
+
+        <!-- Sección 4: Balanza comercial del sector caprino en México -->
+        <section id="section4" class="section bloque-producto">
+            <h1>BALANZA COMERCIAL DEL SECTOR CAPRINO DE MEXICO</h1>
+            <h2>VOLUMEN DE COMERCIALIZACIÓN (TON)</h2>
+            <div class="chart-container">
+                <!-- Contenedor para gráfico de líneas de la balanza comercial -->
+                <canvas id="lineChart"></canvas>
+            </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE ORGANIZACIÓN DE LAS NACIONES UNIDAS
+                    PARA LA ALIMENTACIÓN Y LA AGRICULTURA (FAO), AÑO (2022)</strong></p>
+        </section>
+
+        <!-- Sección 5: Producción histórica de carne de caprino en Oaxaca -->
+        <section id="section5" class="section bloque-producto">
+            <h1>PRODUCCIÓN HISTÓRICA DE CARNE DE CAPRINO EN OAXACA</h1>
+            <h2>CARNE DE CAPRINO EN OAXACA (TON)</h2>
+            <!-- Contenedor para gráfico de líneas de producción histórica -->
+            <div class="chart-container">
+                <canvas id="lineChart2"></canvas>
+            </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP</strong></p>
+        </section>
+        <!-- Sección 6: Producción por región y pueblos indígenas en Oaxaca -->
+        <section id="section6" class="section bloque-producto">
+            <h1>PRODUCCIÓN DE CARNE DE CAPRINO EN OAXACA</h1>
+
+            <h2>CARNE DE CAPRINO EN OAXACA</h2>
+            <!-- Tabla con producción por región -->
+            <div class="tabla-scroll">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>REGION</th>
+                            <th>VOLUMEN DE PRODUCCIÓN (TON)</th>
+                            <th>PESO (KG)</th>
+                            <th>PRECIO ($/KG)</th>
+                            <th>VALOR DE PRODUCCIÓN ($)</th>
+                            <th>CANTIDAD DE MUNICIPIOS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabla_produccion_prod_oax">
+                        <!-- Aquí se llenarán dinámicamente los datos de cada región -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="total_tab_pro_miel_oax">
+                            <!-- Aquí irá el total de la tabla -->
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p class="fuentes_pie fuente_mapa_sub_pro"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE
+                    AGRÍCOLA
+                    2023</strong>
+            </p>
+
+            <h4>VOLUMEN DE PRODUCCIÓN POR PUEBLO INDÍGENA
+            </h4>
+            <!-- Gráfico de volumen de producción por pueblo indígena -->
+            <div class="chart-container">
+                <canvas id="lineChart4"></canvas>
+            </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                    2023</strong>
+            </p>
+        </section>
+        <!-- Sección 7: Estacionalidad de la producción de carne de caprino -->
+        <section id="section7" class="section bloque-producto">
+            <h1>ESTACIONALIDAD DE LA PRODUCCIÓN EN OAXACA</h1>
+            <!-- Texto explicativo sobre la estacionalidad -->
+            <p style="text-align: center; font-size: 1.8rem; margin-bottom: 30px;" id="estacionalidad">La estacionalidad
+                de
+                la producción se
+                refiere a la variación en la frecuencia mensual con la que se
+                produce carne de caprino en el estado de Oaxaca. Esta variación se mide mediante el
+                Índice de Volumen Físico, el cual permite identificar los meses con mayor actividad productiva. De
+                acuerdo con este indicador, <strong>Octubre</strong> se posiciona como el mes con la mayor producción
+                de carne,
+                alcanzando un valor de <strong>126 puntos</strong> en el índice.</p>
+
+            <h2>Producción de Carne de Caprino</h2>
+            <!-- Gráfico de líneas de la estacionalidad -->
+            <div class="chart-container">
+                <canvas id="lineChart6"></canvas>
+            </div>
+            <p class="fuentes_pie"><strong>FUENTE: ELABORACIÓN PROPIA CON DATOS DE SIAP, CIERRE AGRÍCOLA
+                    2023</strong>
+            </p>
+        </section>
+        <!-- Sección 8: Municipios productores de carne de caprino en Oaxaca -->
+        <section id="section8" class="section bloque-producto">
+            <h1>MUNICIPIOS QUE PRODUCEN CARNE DE CAPRINO</h1>
+            <iframe loading="lazy" id="frame_oaxaca" src="{% url 'iframeOaxaca' %}" class="mapa_mexico_sty"
+                frameborder="0"></iframe>
+            <div id="botones"></div>
+            <div id="titulo_regmun"></div>
+            <div id="tabla"></div>
+        </section>
+    </div>
+
+    <!-- Barra lateral de progreso para navegación entre secciones -->
+    <div class="progress-bar">
+        <div class="progress-circle" data-target="section1"><i class="fa-solid fa-book"></i></div>
+        <div class="progress-circle" data-target="section2"><i class="fa-solid fa-earth-americas"></i></div>
+        <div class="bloque-producto">
+            <div class="progress-circle" data-target="section3"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div class="progress-circle" data-target="section4"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="progress-circle" data-target="section5"><i class="fa-solid fa-chart-line "></i></div>
+            <div class="progress-circle" data-target="section6"><i class="fa-solid fa-chart-pie"></i></div>
+            <div class="progress-circle" data-target="section7"><i class="fa-solid fa-calendar-days"></i></div>
+            <div class="progress-circle" data-target="section8"><i class="fa-solid fa-map-pin"></i></div>
+        </div>
+    </div>
+</div>
+
+<!-- Importa archivo JavaScript con datos o funciones para el mapa de caprinos -->
+<script src="{% static 'data/mapas/pecuario/caprino.js' %}"></script>
+<!-- Importa archivo JavaScript con funciones específicas para la página caprinos -->
+<script src="{% static 'pecuario/js/caprino_js.js' %}"></script>
+
+<!-- Script para la barra de progreso lateral y navegación entre secciones -->
+<script>
+    // Selecciona todos los elementos con clase 'progress-circle' (círculos de la barra lateral)
+    const circles = document.querySelectorAll('.progress-circle');
+    // Selecciona todas las secciones del documento
+    const sections = document.querySelectorAll('section');
+    const cards = document.querySelectorAll('.card');
+
+    // Añade evento click a cada círculo para hacer scroll suave a la sección correspondiente
+    circles.forEach(circle => {
+        circle.addEventListener('click', () => {
+            const targetId = circle.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+
+    // Scroll a la sección al hacer clic
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Detectar qué sección está en vista y activar el círculo correspondiente
+    window.addEventListener('scroll', () => {
+        let current = '';
+        // Recorre todas las secciones para detectar cuál está visible en pantalla
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Si el scroll vertical está dentro del rango de esta sección
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Para cada círculo elimina la clase 'active' y la asigna sólo al círculo de la sección visible
+        circles.forEach(circle => {
+            circle.classList.remove('active');
+            if (circle.getAttribute('data-target') === current) {
+                circle.classList.add('active');
+            }
+        });
+    });
+</script>
+
+<!-- Script para enviar datos a los iframes cuando cargan -->
+<script>
+    const iframe = document.getElementById('frame_oaxaca');
+
+    // Cuando el iframe haya cargado, envía los datos de regiones con municipios al iframe
+    iframe.onload = function () {
+        iframe.contentWindow.postMessage(regionesConMunicipios, "*");
+    };
+
+    // Similar para el iframe del mapa mundial de producción de carne
+    const mundo_producto = document.getElementById("frame_mundo_prod");
+    mundo_producto.onload = function () {
+        mundo_producto.contentWindow.postMessage(paises_datos_pro, "*");
+    }
+
+    // Similar para el iframe del mapa mundial de producción de leche
+    const mundo_sub_producto = document.getElementById("frame_mundo_sub_prod");
+    mundo_sub_producto.onload = function () {
+        mundo_sub_producto.contentWindow.postMessage(paises_datos_sub_pro, "*");
+    }
+
+    // Similar para el iframe del mapa nacional de producción de carne
+    const mexico_producto = document.getElementById("iframe_mexico_prod");
+    mexico_producto.onload = function () {
+        mexico_producto.contentWindow.postMessage(tab_mex_pro, "*");
+    }
+
+    function recargarMexicoProducto() {
+        const iframe = document.getElementById('iframe_mexico_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoProducto() {
+        const iframe = document.getElementById('frame_mundo_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarOaxaca() {
+        const iframe = document.getElementById('frame_oaxaca');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+
+    function recargarMundoSubProducto() {
+        const iframe = document.getElementById('frame_mundo_sub_prod');
+        iframe.src = iframe.src; // Recarga el iframe actual
+    }
+</script>
+
+<!-- Script para mostrar/ocultar bloques según el botón seleccionado y manejar estilos de botones -->
+<script>
+    // Función para mostrar los bloques de producto (carne) y ocultar subproductos (leche)
+    function mostrarProducto() {
+        document.querySelectorAll('.bloque-producto').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.bloque-subproducto').forEach(el => el.style.display = 'none');
+
+        // Recarga los iframes de mapa para miel para refrescar datos o visualización
+        document.getElementById('frame_mundo_prod').contentWindow.location.reload();
+        document.getElementById('iframe_mexico_prod').contentWindow.location.reload();
+        document.getElementById('frame_oaxaca').contentWindow.location.reload();
+    }
+
+    // Función para mostrar los bloques de subproducto (leche) y ocultar productos (carne)
+    function mostrarSubProducto() {
+        document.querySelectorAll('.bloque-producto').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.bloque-subproducto').forEach(el => el.style.display = 'block');
+
+        // Recarga los iframes de mapa para cera para refrescar datos o visualización
+        document.getElementById('frame_mundo_sub_prod').contentWindow.location.reload();
+
+    }
+
+    // Al cargar el documento, por defecto muestra la vista de producto (carne)
+    document.addEventListener('DOMContentLoaded', () => {
+        mostrarProducto();
+    });
+
+    // Añade funcionalidad a los botones de filtro para alternar clases 'active'
+    const buttons = document.querySelectorAll('.container-buttons .btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault(); // opcional, si no quieres que el enlace navegue
+
+            // Quita clase 'active' de todos los botones
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Añade clase 'active' sólo al botón clickeado
+            btn.classList.add('active');
+        });
+    });
+</script>
+{% endblock %}
