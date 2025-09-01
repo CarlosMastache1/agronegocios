@@ -5,3 +5,5 @@ mydatabase
 .env
 __pycache__/
 *.pyc
+form/static/tienda/images/*.pdf
+form/static/tienda/images/*.docx
