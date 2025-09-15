@@ -229,6 +229,9 @@ def catalogoProductos(request):
 def tiendaAgricola(request):
   return render(request, 'agricolaTienda.html')
 
+def tiendaAgroindustrial(request):
+  return render(request, 'agroindustrialTienda.html')
+
 def tiendaProducAgri(request, categoria):
   busqueda = request.GET.get('busqueda', '')
   disponibilidad = request.GET.get('disponibilidad', '')

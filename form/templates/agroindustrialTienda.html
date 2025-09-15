@@ -1,0 +1,33 @@
+{% extends 'baseTienda.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
+
+<!-- Start Shop Page  -->
+<div class="container">
+    <div class="row justify-content-center align-items-center g-2 pt-4">
+        <div class="col-12" style="padding-top: 60px;">
+            <div class="alert alert-danger " role="alert">
+                <h2 style="text-align: center; color: #9d2449; font-weight: bold"> PRODUCTOS AGROINDUSTRIALES </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Tarjetas -->
+<div class="body-card">
+    <div class="container">
+ 
+
+        <a href="{% url 'productosAgricola' 'CAFE' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ">
+                <h3>CAFÉ</h3>
+            </div>
+        </a>
+          
+    </div>
+</div>
+{% endblock %}
