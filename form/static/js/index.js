@@ -1,6 +1,6 @@
 const getOptionChart = async () =>{
 try{
-     const response = await fetch("https://sefader-agronegocios.com/getcharts/");
+     const response = await fetch("https://www.sefaderoaxaca.gob.mx/getcharts/");
      return await response.json();
   } catch (ex) {
      alert(ex);
@@ -23,7 +23,7 @@ window.addEventListener("load", async()=>{
 
 const getOptionChart2 = async () =>{
     try{
-       const response = await fetch("https://sefader-agronegocios.com/getcharts2/");
+       const response = await fetch("https://www.sefaderoaxaca.gob.mx/getcharts2/");
        return await response.json();
     } catch (ex) {
        alert(ex);
@@ -47,7 +47,7 @@ window.addEventListener("load", async()=>{
 
 const getOptionChart3 = async () =>{
      try{
-      const response = await fetch("https://sefader-agronegocios.com/getcharts3/");
+      const response = await fetch("https://www.sefaderoaxaca.gob.mx/getcharts3/");
        return await response.json();
     } catch (ex) {
        alert(ex);
@@ -69,7 +69,7 @@ window.addEventListener("load", async()=>{
 
 const getOptionChart4 = async () =>{
      try{
-       const response = await fetch("https://sefader-agronegocios.com/getcharts4/");
+       const response = await fetch("https://www.sefaderoaxaca.gob.mx/getcharts4/");
        return await response.json();
      } catch (ex) {
        alert(ex);
@@ -95,7 +95,7 @@ const initChart4 = async()=>{
 
 const getOptionChart5 = async () =>{
     try{
-       const response = await fetch("https://sefader-agronegocios.com/getcharts5/");
+       const response = await fetch("https://www.sefaderoaxaca.gob.mx/getcharts5/");
        return await response.json();
     } catch (ex) {
        alert(ex);
