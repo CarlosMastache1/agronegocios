@@ -19,12 +19,7 @@
 <!--Tarjetas -->
 <div class="body-card">
     <div class="container">
-        <!-- <a href="{% url 'productosAgricola' 'AGAVE' %}">
-            <div class="card">
-                <img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE">
-                <h3>AGAVE</h3>
-            </div>
-        </a> -->
+      
 
         <a href="{% url 'productosAgricola' 'AJONJOLI' %}">
             <div class="card">
@@ -32,12 +27,12 @@
                 <h3>AJONJOLI</h3>
             </div>
         </a>
-        <a href="{% url 'productosAgricola' 'CAFE' %}">
+        {% comment %} <a href="{% url 'productosAgricola' 'CAFE' %}">
             <div class="card">
                 <img src="{% static 'imagenesSA/3.png' %}" alt="CAFÉ">
                 <h3>CAFÉ</h3>
             </div>
-        </a>
+        </a> {% endcomment %}
         <a href="{% url 'productosAgricola' 'CALABACITA' %}">
             <div class="card">
                 <img src="{% static 'imagenesSA/4.png' %}" alt="CALABACITA">
@@ -102,8 +97,15 @@
             <div class="card">
                 <img src="{% static 'imagenesSA/14.png' %}" alt="SANDIA">
                 <h3>SANDIA</h3>
+
             </div>
         </a>
+          <a href="{% url 'productosAgricola' 'TOMATE' %}">
+            <div class="card">
+                <img src="{% static 'tienda/images/Pesca.png' %}" alt="TOMATE">
+                <h3>TOMATE</h3>
+            </div>
+        </a> 
     </div>
 </div>
 {% endblock %}

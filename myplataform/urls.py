@@ -43,8 +43,11 @@ urlpatterns = [
     path('categoriaPesquero/', views.tiendaPesquero, name='categoriaPesquero'),
     path('categoriaAcuicola/', views.tiendaAcuicola, name='categoriaAcuicola'),
     path('categoriaForestal/', views.tiendaForestal, name='categoriaForestal'),
-    
-    path('categoriaAgroindustrial/', views.tiendaIndustrial, name='categoriaAgroindustrial'),
+    path('categoriaAgroindustrial/', views.tiendaAgroindustrial, name='categoriaAgroindustrial'),
+    # path('categoriaAgroindustrial/', views.tiendaIndustrial, name='categoriaAgroindustrial'),
+
+
+
     path('productosAgricola/<str:categoria>/', views.tiendaProducAgri, name="productosAgricola"),
     path('productosIndustrial/<str:categoria>/', views.tiendaProducInd, name="productosIndustrial"),
     path('productosAgricola/<str:categoria>/<str:nombre>', views.productorProductorAgri, name="productosProductorAgricola"),
