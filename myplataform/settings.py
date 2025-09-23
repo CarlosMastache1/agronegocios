@@ -95,32 +95,32 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # BASE DE DATOS PARA PRODUCCION
-DATABASES = {
-                             'default': {
-                                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                                 'NAME': 'agronegocios',
-                                 'USER': 'carlos',
-                                 'PASSWORD': 'mastache123',
-                                 'HOST': 'agronegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
-                                 'PORT': '5432', 
-                                 'OPTIONS' : {
-                                            'sslmode': 'require'
-                                        },
-                                        'CONN_MAX_AGE': 60,
-                                             }
-                             }
+# DATABASES = {
+#                              'default': {
+#                                  'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                                  'NAME': 'agronegocios',
+#                                  'USER': 'carlos',
+#                                  'PASSWORD': 'mastache123',
+#                                  'HOST': 'agronegocios.c3k440iemp4z.us-west-1.rds.amazonaws.com',
+#                                  'PORT': '5432', 
+#                                  'OPTIONS' : {
+#                                             'sslmode': 'require'
+#                                         },
+#                                         'CONN_MAX_AGE': 60,
+#                                              }
+#                              }
 
 # BASE DE DATOS PARA DESARROLLO
-# DATABASES = {
-#                                                                                'default': {
-#                                                                                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                                                 'NAME': 'developer',
-#                                                                                 'USER': 'postgres', 
-#                                                                                 'PASSWORD': 'mastache', 
-#                                                                                 'HOST': 'localhost',
-#                                                                                 'PORT': '5432'
-#                                                                             }
-#                                                                          } 
+DATABASES = {
+                                                                                'default': {
+                                                                                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                                                                                 'NAME': 'developer',
+                                                                                 'USER': 'postgres', 
+                                                                                 'PASSWORD': 'mastache', 
+                                                                                 'HOST': 'localhost',
+                                                                                 'PORT': '5432'
+                                                                             }
+                                                                          } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -175,7 +175,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-3fb5.up.railway.app', 'https://sefader-agronegocios.com']
+CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-3fb5.up.railway.app', 'https://sefader-agronegocios.com', 'https://www.sefaderoaxaca.gob.mx']
 
 #PERMISO PARA MANDAR CORREO ELECTRONICO
 
