@@ -191,9 +191,10 @@
             <div class="center-align">
                 <img src="{% static 'images/logoForm.png' %}" alt="Logo" width="300">
             </div>
-            <h4>Registro</h4>
-            <form action="/formProductos/" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
+      <h4>{% if modo == 'editar' %}EDITAR PRODUCTO{% else %}REGISTRAR PRODUCTO{% endif %}</h4>
+         <form action="{% if modo == 'editar' %}{% url 'productos_update' obj.pk %}{% else %}{% url 'formProductos' %}{% endif %}"
+            method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
     <h5 >DATOS DEL PRODUCTOR</h5>
 
                 <div class="input-field">

@@ -42,7 +42,6 @@ urlpatterns = [
     path('categoriaPecuario/', views.tiendaPecuario, name='categoriaPecuario'),
     path('categoriaPesquero/', views.tiendaPesquero, name='categoriaPesquero'),
     path('categoriaAcuicola/', views.tiendaAcuicola, name='categoriaAcuicola'),
-    path('categoriaForestal/', views.tiendaForestal, name='categoriaForestal'),
     path('categoriaAgroindustrial/', views.tiendaAgroindustrial, name='categoriaAgroindustrial'),
     # path('categoriaAgroindustrial/', views.tiendaIndustrial, name='categoriaAgroindustrial'),
 
@@ -53,8 +52,12 @@ urlpatterns = [
     path('productosAgricola/<str:categoria>/<str:nombre>', views.productorProductorAgri, name="productosProductorAgricola"),
     path('productosAgroindustriales/<str:nombre>/', views.productorProductorIndus, name="productosAgroindustriales"),
     path('productosPecuario/<str:categoria>/', views.tiendaProducPecu, name="productosPecuario"),
+    path('productosPesquero/<str:categoria>/', views.tiendaProducPesq, name="productosPesquero"),
+    path('productosAcuicola/<str:categoria>/', views.tiendaProducAcui, name="productosAcuicola"),
+    path('productosForestal/', views.tiendaProducFores, name="productosForestal"),
     path('detailProduct/<int:product_id>/', views.prodDetail, name='detailProduct'),
     path('formProductos/', views.formProductos, name='formProductos' ),
+    path('productos/<int:pk>/editar/', views.editarProducto, name='productos_update'),
     path('credit/<int:credit_id>/', views.creditDetail, name='creditDetail'),
     
     path('product/<int:prod_id>/approved', views.productApproved, name='productApproved'),

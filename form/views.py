@@ -363,43 +363,127 @@ def tiendaProducPecu(request, categoria):
      'municipios': todos_los_municipios
      })
 
-def productorProductorPecui(request, categoria, nombre):
-  productos_filtrados = productos.objects.filter(subsector = 'PECUARIO',  categoria = categoria, nombreProductor = nombre, estado=True)
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+
+def tiendaProducPesq(request, categoria):
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='PESQUERO',
+       categoria__iexact=categoria,
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
-  return render(request, 'productosProductorPecu.html',
-  {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
+
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
+  return render(request, 'productoAgricultura.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : categoria,
+     'municipios': todos_los_municipios
+     })
+
+
+def tiendaProducAcui(request, categoria):
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='ACUICOLA',
+       categoria__iexact=categoria,
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+
+  return render(request, 'productoAgricultura.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : categoria,
+     'municipios': todos_los_municipios
+     })
+
+
+def tiendaProducFores(request):
+  busqueda = request.GET.get('busqueda', '')
+  disponibilidad = request.GET.get('disponibilidad', '')
+  volumen = request.GET.get('volumen', '')
+  unidad = request.GET.get('unidad', '')
+  municipio_id = request.GET.get('municipio', '')
+  productos_filtrados = productos.objects.filter(
+       subsector__iexact='FORESTAL',
+       estado=True
+   )
+  if busqueda:
+       productos_filtrados = productos_filtrados.filter(nombreProductor__icontains=busqueda)
+  if disponibilidad:
+       productos_filtrados = productos_filtrados.filter(disponibilidad_entrega__iexact=disponibilidad)
+  if volumen:
+       productos_filtrados = productos_filtrados.filter(volumen_produccion__icontains=volumen)
+  if unidad:
+       productos_filtrados = productos_filtrados.filter(unidad_medidad__iexact=unidad)
+  if municipio_id:
+       productos_filtrados = productos_filtrados.filter(municipio__id=municipio_id)
+  productos_filtrados = productos_filtrados.values(
+       'nombreProductor', 'telefono', 'email'
+   ).distinct()
+  paginator = Paginator(productos_filtrados, 12)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
+  categoria = 'Forestal'
+  return render(request, 'productoAgricultura.html',
+  {
+     'page_obj': page_obj, 
+     'categoria' : categoria,
+     'municipios': todos_los_municipios
+     })
+
+
 
 def tiendaPesquero(request):
-  productos_filtrados = productos.objects.filter(subsector = 'PESQUERO', estado=True)
-
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
-  page_number = request.GET.get('page')
-  page_obj = paginator.get_page(page_number)
-
-  return render(request, 'pesqueroTienda.html',
-  {'page_obj': page_obj, 'tiendaPes' : tiendaPes})
+  return render(request, 'pesqueroTienda.html')
 
 def tiendaAcuicola(request):
-  productos_filtrados = productos.objects.filter(subsector = 'ACUICOLA', estado=True)
+  return render(request, 'acuicolaTienda.html')
 
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
-  page_number = request.GET.get('page')
-  page_obj = paginator.get_page(page_number)
-
-  return render(request, 'acuicolaTienda.html',
-  {'page_obj': page_obj, 'tiendaAcu' : tiendaAcu})
-
-def tiendaForestal(request):
-  productos_filtrados = productos.objects.filter(subsector = 'FORESTAL', estado=True)
-
-  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
-  page_number = request.GET.get('page')
-  page_obj = paginator.get_page(page_number)
-
-  return render(request, 'forestalTienda.html',
-  {'page_obj': page_obj, 'tiendaFor' : tiendaFor})
 
 def tiendaIndustrial(request):
   busqueda = request.GET.get('busqueda', '')
@@ -551,11 +635,12 @@ def formProductos(request):
       muni = municipios.objects.all()
       return render(request, 'formProductos.html', {
           'form' : productosForm,
+          'modo': 'crear',
           'muni' : muni
       })
     else:
         nombreProductor = request.POST.get("nombreProductor")
-        municipio = request.POST.get("municipio")
+        municipio = request.POST.get("municipio") or None
         localidad = request.POST.get("localidad")
         telefono = request.POST.get("telefono")
         email = request.POST.get("email") 
@@ -572,11 +657,11 @@ def formProductos(request):
         imagenes = request.FILES.getlist("imagenProd[]")
         pdfs = request.FILES.getlist("archivo_pdf[]")
 
-        comentarios = request.POST.get("comentarios[]")
+        comentarios = request.POST.get("comentarios[]") or ""
 
         for i in range(len(nombreProducto)):
             categoria = categorias[i] if i < len(categorias) else None
-            productoNew = productos.objects.create(
+            productos.objects.create(
                 nombreProductor=nombreProductor,
                 municipio_id=municipio,
                 localidad=localidad,
@@ -584,12 +669,13 @@ def formProductos(request):
                 email=email,
                 comentarios=comentarios,
                 nombreProducto=nombreProducto[i],
-                nombreMarca=nombreMarca[i],
-                subsector=subsectores[i],
+
+                nombreMarca=nombreMarca[i] if i < len(nombreMarca) else None,
+                subsector=subsectores[i] if i < len(subsectores) else None,
                 categoria=categoria,
-                unidad_medidad=unidades[i],
-                volumen_produccion=volumenes[i],
-                disponibilidad_entrega=disponibilidades[i],
+                unidad_medidad=unidades[i] if i < len(unidades) else None,
+                volumen_produccion=volumenes[i] if i < len(volumenes) else None,
+                disponibilidad_entrega=disponibilidades[i] if i < len(disponibilidades) else None,
                 imagenProd=imagenes[i] if i < len(imagenes) else None,
                 archivo_pdf=pdfs[i] if i < len(pdfs) else None
             )
@@ -605,6 +691,56 @@ def formProductos(request):
         # send_mail(subject, message, from_email, recipient_list)
         messages.success(request, 'Producto registrado. Espere su autorización para que sea mostrado en la página web')
         return redirect('tiendaHome')
+
+def editarProducto(request, pk):
+    obj = get_object_or_404(productos, pk=pk)
+
+    if request.method == 'GET':
+        muni = municipios.objects.all()
+        return render(request, 'formProductos.html', {
+            'muni': muni,
+            'modo': 'editar',  # <-- clave para ocultar botón “Agregar…”
+            'obj': obj,        # <-- para precargar valores en inputs manuales
+        })
+    else:
+        # Campos “del productor” (simples, no con [])
+        obj.nombreProductor = request.POST.get("nombreProductor") or ""
+        obj.municipio_id = request.POST.get("municipio") or None
+        obj.localidad = request.POST.get("localidad") or ""
+        obj.telefono = request.POST.get("telefono") or ""
+        obj.email = request.POST.get("email") or ""
+
+        # Campos “del producto” (mantendremos tus names con [] pero tomamos el primero)
+        nombreProducto = request.POST.getlist("nombreProducto[]")
+        nombreMarca = request.POST.getlist("nombreMarca[]")
+        subsectores = request.POST.getlist("subsector[]")
+        categorias = request.POST.getlist("categoria[]")
+        unidades = request.POST.getlist("unidad_medidad[]")
+        volumenes = request.POST.getlist("volumen_produccion[]")
+        disponibilidades = request.POST.getlist("disponibilidad_entrega[]")
+        comentarios = request.POST.getlist("comentarios[]")
+
+        # Asignamos el primer valor de cada lista si existe
+        obj.nombreProducto = nombreProducto[0] if nombreProducto else obj.nombreProducto
+        obj.nombreMarca = nombreMarca[0] if nombreMarca else obj.nombreMarca
+        obj.subsector = subsectores[0] if subsectores else obj.subsector
+        obj.categoria = categorias[0] if categorias else obj.categoria
+        obj.unidad_medidad = unidades[0] if unidades else obj.unidad_medidad
+        obj.volumen_produccion = volumenes[0] if volumenes else obj.volumen_produccion
+        obj.disponibilidad_entrega = disponibilidades[0] if disponibilidades else obj.disponibilidad_entrega
+        obj.comentarios = comentarios[0] if comentarios else obj.comentarios
+
+        # Archivos (solo reemplazar si se sube algo nuevo)
+        imgs = request.FILES.getlist("imagenProd[]")
+        pdfs = request.FILES.getlist("archivo_pdf[]")
+        if imgs:
+            obj.imagenProd = imgs[0]
+        if pdfs:
+            obj.archivo_pdf = pdfs[0]
+
+        obj.save()
+        messages.success(request, 'Cambios guardados correctamente.')
+        return redirect('gestionProductos')
 
 
 

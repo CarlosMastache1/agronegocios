@@ -1,6 +1,9 @@
 from django import forms 
 from .models import entidadesFinancieras2, productos
 
+
+
+
 class financieras(forms.ModelForm):
     class Meta:
         model = entidadesFinancieras2
@@ -102,8 +105,62 @@ class financieras(forms.ModelForm):
         }
 
 
+SUBSECTOR_CHOICES = [
+    ('AGRICOLA','AGRICOLA'), ('PECUARIO','PECUARIO'), ('PESQUERO','PESQUERO'),
+    ('ACUICOLA','ACUICOLA'), ('FORESTAL','FORESTAL'), ('AGROINDUSTRIAL','AGROINDUSTRIAL'),
+]
+UNIDAD_CHOICES = [
+    ('TONELADA','TONELADA'), ('KILOGRAMOS','KILOGRAMOS'),
+    ('LITROS','LITROS'), ('PIEZAS','PIEZAS'),
+]
+DISP_CHOICES = [
+    ('SEMANAL','SEMANAL'), ('MENSUAL','MENSUAL'), ('BIMESTRAL','BIMESTRAL'),
+    ('TRIMESTRAL','TRIMESTRAL'), ('CUATRIMESTRAL','CUATRIMESTRAL'),
+    ('SEMESTRAL','SEMESTRAL'), ('ANUAL','ANUAL'),
+]
+
 class productosForm(forms.ModelForm):
     class Meta:
         model = productos
         fields = [ 'nombreProductor',  'municipio' , 'localidad', 'nombreProducto', 'nombreMarca', 'subsector', 'categoria', 'unidad_medidad', 'volumen_produccion', 'disponibilidad_entrega', 'telefono', 'email', 'imagenProd', 'archivo_pdf', 'comentarios'
         ]
+        widgets = {
+            'nombreProductor': forms.TextInput(attrs={
+                'oninput':"this.value=this.value.toUpperCase();",
+                'placeholder':'NOMBRE DEL PRODUCTOR'
+            }),
+            'localidad': forms.TextInput(attrs={
+                'oninput':"this.value=this.value.toUpperCase();",
+                'placeholder':'LOCALIDAD'
+            }),
+            'telefono': forms.TextInput(attrs={'pattern':'[0-9]{10}','maxlength':'10'}),
+            'email': forms.EmailInput(),
+            'nombreProducto': forms.TextInput(attrs={'oninput':"this.value=this.value.toUpperCase();"}),
+            'nombreMarca': forms.TextInput(attrs={'oninput':"this.value=this.value.toUpperCase();"}),
+            'subsector': forms.Select(choices=SUBSECTOR_CHOICES, attrs={'class': 'subsector'}),
+            'unidad_medidad': forms.Select(choices=UNIDAD_CHOICES),
+            'disponibilidad_entrega': forms.Select(choices=DISP_CHOICES),
+            'comentarios': forms.Textarea(attrs={'class':'materialize-textarea', 'rows':3}),
+        }
+
+
+
+def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # categoria como <select> (puedes ajustar según subsector con JS)
+        self.fields['categoria'].widget = forms.Select(choices=[
+            ('','ELIGE UNA OPCIÓN'),
+            ('AGUACATE','AGUACATE'), ('AJONJOLI','AJONJOLI'), ('CAFE','CAFE'),
+            ('JENGIBRE','JENGIBRE'), ('LIMON','LIMON'), ('MAIZ','MAIZ'),
+            ('MANGO','MANGO'), ('PAPAYA','PAPAYA'), ('PEPINO','PEPINO'),
+            ('TOMATE','TOMATE'), ('OTRO','OTRO'),
+        ])
+        # placeholders para selects
+        for name in ('subsector','unidad_medidad','disponibilidad_entrega','categoria'):
+            field = self.fields.get(name)
+            if hasattr(field, 'empty_label'):
+                field.empty_label = 'ELIGE UNA OPCIÓN'
+
+def clean_volumen_produccion(self):
+    v = self.cleaned_data.get('volumen_produccion') or ''
+    return ''.join(ch for ch in v if (ch.isdigit() or ch=='.'))
