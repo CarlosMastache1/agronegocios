@@ -51,7 +51,7 @@
                                 </button>
                                 </form>
                                 <button onclick="confirmarEliminacion2('{{ prod.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar Producto Definitivamente  <i class="fas fa-trash"></i></button>
-                                <a href="{% url 'productos_update' prod.id %}" class="btn btn-sm btn-primary">Editar Producto <i class="fa-fa-pencil-alt"></i></a> 
+                                <a href="{% url 'productos_update' prod.id %}" class="btn btn-sm btn-primary">Editar Producto <i class="fas fa-pencil-alt"></i></a> 
 
                                 </td>
             
@@ -103,6 +103,10 @@
                                     
                                 </button>
                                 </form>
+                                
+                                <a href="{% url 'productos_update' prodA.id %}" class="btn btn-sm btn-primary">Editar Producto <i class="fas fa-pencil-alt"></i></a> 
+
+
 
                                 </td>
             

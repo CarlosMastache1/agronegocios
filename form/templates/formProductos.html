@@ -198,29 +198,29 @@
     <h5 >DATOS DEL PRODUCTOR</h5>
 
                 <div class="input-field">
-                    <input name="nombreProductor" type="text" id="nombre-productor" required
+                    <input name="nombreProductor" type="text" id="nombre-productor" required value="{{ obj.nombreProductor|default_if_none:'' }}"
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-productor">NOMBRE DEL PRODUCTOR</label>
                 </div>
                 <div class="input-field">
-                    <select id="" required name="municipio">
-                        <option value="" disabled selected>ELIGE UNA OPCIÓN</option>
+                    <select  required name="municipio">
+                        <option value="" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                         {% for mun in muni %}
-                        <option value="{{mun.id}}">{{mun.nombre_municipio}}</option>
+                        <option value="{{mun.id}}" {% if obj and obj.municipio_id == mun.id %}selected{% endif %}>{{mun.nombre_municipio}}</option>
                         {% endfor %}
                     </select>
                     <label>MUNICIPIO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="localidad" name="localidad" oninput="this.value = this.value.toUpperCase();">
+                    <input type="text" id="localidad" name="localidad"  value="{{ obj.localidad|default_if_none:'' }}" oninput="this.value = this.value.toUpperCase();">
                     <label for="localidad">LOCALIDAD</label>
                 </div>
                                 <div class="input-field">
-                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono">
+                    <input name="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" id="telefono" value="{{ obj.telefono|default_if_none:'' }}">
                     <label for="telefono">NÚMERO TELEFÓNICO</label>
                 </div>
                 <div class="input-field">
-                    <input name="email" type="email" id="email" required>
+                    <input name="email" type="email" id="email" required value="{{ obj.email|default_if_none:'' }}">
                     <label for="email">CORREO ELECTRÓNICO</label>
                 </div>
                     
@@ -228,24 +228,24 @@
         <div class="producto-form">
             <h5 style="color: #136817; font-weight: bolder;">DATOS DEL PRODUCTO</h5>
                 <div class="input-field">
-                    <input type="text" name="nombreProducto[]" id="nombre-producto" required
+                    <input type="text" name="nombreProducto[]" id="nombre-producto" required value="{{ obj.nombreProducto|default_if_none:'' }}"
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-producto">NOMBRE DEL PRODUCTO</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" name="nombreMarca[]" id="nombre-marca"
+                    <input type="text" name="nombreMarca[]" id="nombre-marca" value="{{ obj.nombreMarca|default_if_none:'' }}"
                         oninput="this.value = this.value.toUpperCase();">
                     <label for="nombre-marca">NOMBRE DE LA MARCA</label>
                 </div>
                 <div class="input-field">
                     <select name="subsector[]" class="subsector" required>
-                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                        <option value="AGRICOLA">AGRICOLA</option>
-                        <option value="PECUARIO">PECUARIO</option>
-                        <option value="PESQUERO">PESQUERO</option>
-                        <option value="ACUICOLA">ACUICOLA</option>
-                        <option value="FORESTAL">FORESTAL</option>
-                        <option value="AGROINDUSTRIAL">AGROINDUSTRIAL</option>
+                        <option value="0" disabled {% if not obj %}selected{% endif %} >ELIGE UNA OPCIÓN</option>
+                        <option value="AGRICOLA"  {% if obj and obj.subsector == 'AGRICOLA' %}selected{% endif %}>AGRICOLA</option>
+                        <option value="PECUARIO"  {% if obj and obj.subsector == 'PECUARIO' %}selected{% endif %}>PECUARIO</option>
+                        <option value="PESQUERO"  {% if obj and obj.subsector == 'PESQUERO' %}selected{% endif %}>PESQUERO</option>
+                        <option value="ACUICOLA"  {% if obj and obj.subsector == 'ACUICOLA' %}selected{% endif %}>ACUICOLA</option>
+                        <option value="FORESTAL"  {% if obj and obj.subsector == 'FORESTAL' %}selected{% endif %}>FORESTAL</option>
+                        <option value="AGROINDUSTRIAL"  {% if obj and obj.subsector == 'AGROINDUSTRIAL' %}selected{% endif %}>AGROINDUSTRIAL</option>
 
                     </select>
                     <label>SUBSECTOR</label>
@@ -253,31 +253,31 @@
                 <div class="sub-AGRICOLA categoria-container" style="display:none" >
                     <div class="input-field">
                         <select name="categoria[]" required>
-                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                            <option value="AGUACATE">AGUACATE</option>
-                            <option value="AJONJOLI">AJONJOLI</option>
-                            <option value="CAFE">CAFE</option>
-                            <option value="JENGIBRE">JENGIBRE</option>
-                            <option value="LIMON">LIMON</option>
-                            <option value="MAIZ">MAIZ</option>
-                            <option value="MANGO">MANGO</option>
-                            <option value="PAPAYA">PAPAYA</option>
-                            <option value="PEPINO">PEPINO</option>
-                            <option value="TOMATE">TOMATE</option>
-                            <option value="OTRO">OTRO</option>
+                    <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                  <option value="AGUACATE" {% if obj and obj.categoria == 'AGUACATE' %}selected{% endif %}>AGUACATE</option>
+                  <option value="AJONJOLI" {% if obj and obj.categoria == 'AJONJOLI' %}selected{% endif %}>AJONJOLI</option>
+                  <option value="CAFE" {% if obj and obj.categoria == 'CAFE' %}selected{% endif %}>CAFE</option>
+                  <option value="JENGIBRE" {% if obj and obj.categoria == 'JENGIBRE' %}selected{% endif %}>JENGIBRE</option>
+                  <option value="LIMON" {% if obj and obj.categoria == 'LIMON' %}selected{% endif %}>LIMON</option>
+                  <option value="MAIZ" {% if obj and obj.categoria == 'MAIZ' %}selected{% endif %}>MAIZ</option>
+                  <option value="MANGO" {% if obj and obj.categoria == 'MANGO' %}selected{% endif %}>MANGO</option>
+                  <option value="PAPAYA" {% if obj and obj.categoria == 'PAPAYA' %}selected{% endif %}>PAPAYA</option>
+                  <option value="PEPINO" {% if obj and obj.categoria == 'PEPINO' %}selected{% endif %}>PEPINO</option>
+                  <option value="TOMATE" {% if obj and obj.categoria == 'TOMATE' %}selected{% endif %}>TOMATE</option>
+                  <option value="OTRO" {% if obj and obj.categoria == 'OTRO' %}selected{% endif %}>OTRO</option>
                         </select>
                         <label>CATEGORIA</label>
                     </div>
                 </div>
                 <div  class="sub-PECUARIO categoria-container" style="display:none">
                     <div class="input-field">
-                        <select name="categoria[]" required>
-                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                            <option value="APICOLA">APICOLA</option>
-                            <option value="AVICOLA">AVICOLA</option>
-                            <option value="BOVINO">BOVINO</option>
-                            <option value="CAPRINO">CAPRINO</option>
-                            <option value="PORCINO">PORCINO</option>
+                    <select name="categoria[]" required>
+                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                  <option value="APICOLA" {% if obj and obj.categoria == 'APICOLA' %}selected{% endif %}>APICOLA</option>
+                  <option value="AVICOLA" {% if obj and obj.categoria == 'AVICOLA' %}selected{% endif %}>AVICOLA</option>
+                  <option value="BOVINO" {% if obj and obj.categoria == 'BOVINO' %}selected{% endif %}>BOVINO</option>
+                  <option value="CAPRINO" {% if obj and obj.categoria == 'CAPRINO' %}selected{% endif %}>CAPRINO</option>
+                  <option value="PORCINO" {% if obj and obj.categoria == 'PORCINO' %}selected{% endif %}>PORCINO</option>
 
                         </select>
                         <label>CATEGORIA</label>
@@ -286,11 +286,11 @@
                 <div class="sub-PESQUERO categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
-                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                            <option value="BARRILETE">BARRILETE</option>
-                            <option value="CAMARON CAFE">CAMARON CAFE</option>
-                            <option value="CAZON">CAZON</option>
-                            <option value="OTRO">OTRO</option>
+                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                  <option value="BARRILETE" {% if obj and obj.categoria == 'BARRILETE' %}selected{% endif %}>BARRILETE</option>
+                  <option value="CAMARON CAFE" {% if obj and obj.categoria == 'CAMARON CAFE' %}selected{% endif %}>CAMARON CAFE</option>
+                  <option value="CAZON" {% if obj and obj.categoria == 'CAZON' %}selected{% endif %}>CAZON</option>
+                  <option value="OTRO" {% if obj and obj.categoria == 'OTRO' %}selected{% endif %}>OTRO</option>
 
                         </select>
                         <label>CATEGORIA</label>
@@ -299,11 +299,11 @@
                 <div class="sub-ACUICOLA categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
-                            <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                            <option value="TILAPIA">TILAPIA</option>
-                            <option value="CAMARON BLANCO">CAMARON BLANCO</option>
-                            <option value="TRUCHA ARCOIRIS">TRUCHA ARCOIRIS</option>
-                            <option value="OTRO">OTRO</option>
+                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                  <option value="TILAPIA" {% if obj and obj.categoria == 'TILAPIA' %}selected{% endif %}>TILAPIA</option>
+                  <option value="CAMARON BLANCO" {% if obj and obj.categoria == 'CAMARON BLANCO' %}selected{% endif %}>CAMARON BLANCO</option>
+                  <option value="TRUCHA ARCOIRIS" {% if obj and obj.categoria == 'TRUCHA ARCOIRIS' %}selected{% endif %}>TRUCHA ARCOIRIS</option>
+                  <option value="OTRO" {% if obj and obj.categoria == 'OTRO' %}selected{% endif %}>OTRO</option>
 
                         </select>
                         <label>CATEGORIA</label>
@@ -311,36 +311,36 @@
                 </div>
                                 <div class="input-field" style="padding-top: 10px;">
                     <select name="unidad_medidad[]" required >
-                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                        <option value="TONELADA">TONELADA</option>
-                        <option value="KILOGRAMOS">KILOGRAMOS</option>
-                        <option value="LITROS">LITROS</option>
-                        <option value="PIEZAS">PIEZAS</option>
+                <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                <option value="TONELADA" {% if obj and obj.unidad_medidad == 'TONELADA' %}selected{% endif %}>TONELADA</option>
+                <option value="KILOGRAMOS" {% if obj and obj.unidad_medidad == 'KILOGRAMOS' %}selected{% endif %}>KILOGRAMOS</option>
+                <option value="LITROS" {% if obj and obj.unidad_medidad == 'LITROS' %}selected{% endif %}>LITROS</option>
+                <option value="PIEZAS" {% if obj and obj.unidad_medidad == 'PIEZAS' %}selected{% endif %}>PIEZAS</option>
 
 
                     </select>
                     <label style="padding-top: 10px;">UNIDAD DE MEDIDA</label>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="numero" oninput="formatearNumero(this)" />
+                    <input type="text" id="numero" oninput="formatearNumero(this)" value="{{ obj.volumen_produccion|default_if_none:'' }}" />
                     <input name="volumen_produccion[]" type="hidden" id="volumen" required
-                        oninput="this.value = this.value.toUpperCase();">
+                        oninput="this.value = this.value.toUpperCase();" value="{{ obj.volumen_produccion|default_if_none:'' }}">
                     <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
                 </div>
 
                 <div class="input-field">
-                    <select name="disponibilidad_entrega[]" required>
-                        <option value="0" disabled selected>ELIGE UNA OPCIÓN</option>
-                        <option value="SEMANAL">SEMANAL</option>
-                        <option value="MENSUAL">MENSUAL</option>
-                        <option value="BIMESTRAL">BIMESTRAL</option>
-                        <option value="TRIMESTRAL">TRIMESTRAL</option>
-                        <option value="CUATRIMESTRAL">CUATRIMESTRAL</option>
-                        <option value="SEMESTRAL">SEMESTRAL</option>
-                        <option value="ANUAL">ANUAL</option>
+                <select name="disponibilidad_entrega[]" required>
+                <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                <option value="SEMANAL" {% if obj and obj.disponibilidad_entrega == 'SEMANAL' %}selected{% endif %}>SEMANAL</option>
+                <option value="MENSUAL" {% if obj and obj.disponibilidad_entrega == 'MENSUAL' %}selected{% endif %}>MENSUAL</option>
+                <option value="BIMESTRAL" {% if obj and obj.disponibilidad_entrega == 'BIMESTRAL' %}selected{% endif %}>BIMESTRAL</option>
+                <option value="TRIMESTRAL" {% if obj and obj.disponibilidad_entrega == 'TRIMESTRAL' %}selected{% endif %}>TRIMESTRAL</option>
+                <option value="CUATRIMESTRAL" {% if obj and obj.disponibilidad_entrega == 'CUATRIMESTRAL' %}selected{% endif %}>CUATRIMESTRAL</option>
+                <option value="SEMESTRAL" {% if obj and obj.disponibilidad_entrega == 'SEMESTRAL' %}selected{% endif %}>SEMESTRAL</option>
+                <option value="ANUAL" {% if obj and obj.disponibilidad_entrega == 'ANUAL' %}selected{% endif %}>ANUAL</option>
 
                     </select>
-                    <label>DISPONIBILIDAD DE ENTREGA</label>
+                    <label class="active">DISPONIBILIDAD DE ENTREGA</label>
                 </div>
 
                 <div class="file-field input-field">
@@ -351,6 +351,9 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR FOTO DEL PRODUCTO">
                     </div>
+                                {% if obj and obj.imagenProd %}
+                <p>Actual: <a href="{{ obj.imagenProd.url }}" target="_blank">Ver imagen</a></p>
+              {% endif %}
                 </div>
 
 
@@ -362,17 +365,25 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="SUBIR CERTIFICADO PDF">
                     </div>
-
+                        {% if obj and obj.archivo_pdf %}
+                            <p>Actual: <a href="{{ obj.archivo_pdf.url }}" target="_blank">ver PDF</a></p>
+                        {% endif %}
                     <span id="aletar_pdf"></span>
                 </div>
 
     <div class="input-field">
-  <textarea id="mensaje" class="materialize-textarea" name="comentarios[]"></textarea>
+  <textarea id="mensaje" class="materialize-textarea" name="comentarios[]"> {{ obj.comentarios|default_if_none:'' }} </textarea>
   <label for="comentarios">COMENTARIOS</label>
 </div>
 </div>
 </div>
-<button type="button" onclick="agregarProducto()" class="btn2  waves-effect waves-light"  style="padding-bottom: 8px;">AGREGAR OTRO PRODUCTO</button>
+
+                
+                {% if modo != 'editar' %}
+                <button type="button" onclick="agregarProducto()" class="btn2 waves-effect waves-light" style="padding-bottom: 8px;">
+                AGREGAR OTRO PRODUCTO
+                </button>
+                {% endif %}
 <br><br>
                 <label>
                     <input type="checkbox" name="terminos" required />
@@ -380,8 +391,10 @@
                             target="_blank">términos y condiciones</a></span>
                 </label>
 
-                
-                <button class="btn waves-effect waves-light" style="padding-top: 10px;">REGISTRAR PRODUCTO</button>
+
+        <button class="btn waves-effect waves-light" style="padding-top: 10px;">
+          {% if modo == 'editar' %}GUARDAR CAMBIOS{% else %}REGISTRAR PRODUCTO{% endif %}
+        </button>
             </form>
         </div>
     </div>
@@ -413,47 +426,55 @@
 
 
     <script>
-        const input = document.getElementById("volumen");
-        input.addEventListener("input", function () {
-            this.value = this.value.replace(/[^0-9.]/g, '');
-            // Evitar más de un punto decimal
-            const parts = this.value.split('.');
-            if (parts.length > 2) {
-                this.value = parts[0] + '.' + parts.slice(1).join('');
-            }
-        });
+    // Solo números y un punto en el hidden volumen
+    const inputHiddenVol = document.getElementById("volumen");
+    if (inputHiddenVol) {
+      inputHiddenVol.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9.]/g, '');
+        const parts = this.value.split('.');
+        if (parts.length > 2) {
+          this.value = parts[0] + '.' + parts.slice(1).join('');
+        }
+      });
+    }
 
-        const phoneInput = document.getElementById("telefono");
-        phoneInput.addEventListener("input", function () {
-            this.value = this.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
-        });
+
+        // Solo dígitos en teléfono
+    const phoneInput = document.getElementById("telefono");
+    if (phoneInput) {
+      phoneInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, '');
+      });
+    }
 
         const tamano_maximo = 100000000; // 100mb
 
         const spanAlert = document.getElementById("aletar_pdf");
 
         const inputFile = document.getElementById('archivo-pdf');
-        inputFile.addEventListener("change", function () {
-            if (this.files.length <= 0) return;
+            if (inputFile) {
+      inputFile.addEventListener("change", function () {
+        if (this.files.length <= 0) return;
+        const archvo = this.files[0];
+        if (archvo.size >= tamano_maximo) {
+          inputFile.value = "";
+          if (spanAlert) spanAlert.innerHTML = "El certificado es muy pesado; asegúrate de que el archivo no exceda 100MB";
+        } else {
+          if (spanAlert) spanAlert.innerHTML = "";
+        }
+      });
+    }
 
-            const archvo = this.files[0];
-
-            if (archvo.size >= tamano_maximo) {
-                inputFile.value = "";
-                spanAlert.innerHTML = "El certificado es muy pesado; Asegurate de que el peso del arhivo no sea mayor a 100MB"
-            }
-
-        });
     </script>
 
 
     <script>
-        function formatearNumero(input) {
-            let valor = input.value.replace(/[^0-9]/g, '');
-
-            document.getElementById('volumen').value = valor;
-            input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
+    // Formateo visible con comas y sincroniza al hidden
+    function formatearNumero(input) {
+      let valor = (input.value || '').toString().replace(/[^0-9]/g, '');
+      document.getElementById('volumen').value = valor;
+      input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
     </script>
 
 
