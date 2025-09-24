@@ -50,7 +50,7 @@
                                     Aprobar producto <i class="fas fa-check-circle"></i>
                                 </button>
                                 </form>
-                                <button onclick="confirmarEliminacion2('{{ prod.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar Producto Definitivamente  <i class="fas fa-trash"></i></button>
+                                <button onclick="confirmarEliminacion2('{{ prod.id }}')" style="font-size: 12px;" class="btn btn-danger pt-2">Eliminar  Definitivamente  <i class="fas fa-trash"></i></button>
                                 <a href="{% url 'productos_update' prod.id %}" class="btn btn-sm btn-primary">Editar Producto <i class="fas fa-pencil-alt"></i></a> 
 
                                 </td>
@@ -99,7 +99,7 @@
                                 <form action="{% url 'productDesapproved' prodA.id %}" method="POST">
                                     {% csrf_token %}
                                     <button  class="btn btn-danger">
-                                    Dar de baja producto <i class="bi bi-x-circle"></i>
+                                    Dar de baja <i class="bi bi-x-circle"></i>
                                     
                                 </button>
                                 </form>
