@@ -309,6 +309,19 @@
                         <label>CATEGORIA</label>
                     </div>
                 </div>
+                                <div class="sub-AGROINDUSTRIAL categoria-container" style="display:none">
+                    <div class="input-field">
+                        <select name="categoria[]" required>
+                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+                  <option value="CAFE" {% if obj and obj.categoria == 'CAFE' %}selected{% endif %}>CAFE</option>
+                  <option value="MEZCAL" {% if obj and obj.categoria == 'MEZCAL' %}selected{% endif %}>MEZCAL</option>
+                  <option value="MIEL" {% if obj and obj.categoria == 'MIEL' %}selected{% endif %}>MIEL</option>
+                  <option value="CHOCOLATE" {% if obj and obj.categoria == 'CHOCOLATE' %}selected{% endif %}>CHOCOLATE</option>
+                  <option value="PIÑA ENLATADA" {% if obj and obj.categoria == 'PIÑA ENLATADA' %}selected{% endif %}>PIÑA ENLATADA</option>
+                        </select>
+                        <label>CATEGORIA</label>
+                    </div>
+                </div>
                                 <div class="input-field" style="padding-top: 10px;">
                     <select name="unidad_medidad[]" required >
                 <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
