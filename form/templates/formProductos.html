@@ -253,7 +253,7 @@
                 <div class="sub-AGRICOLA categoria-container" style="display:none" >
                     <div class="input-field">
                         <select name="categoria[]" required>
-                    <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+<option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="AGUACATE" {% if obj and obj.categoria == 'AGUACATE' %}selected{% endif %}>AGUACATE</option>
                   <option value="AJONJOLI" {% if obj and obj.categoria == 'AJONJOLI' %}selected{% endif %}>AJONJOLI</option>
                   <option value="CAFE" {% if obj and obj.categoria == 'CAFE' %}selected{% endif %}>CAFE</option>
@@ -272,7 +272,7 @@
                 <div  class="sub-PECUARIO categoria-container" style="display:none">
                     <div class="input-field">
                     <select name="categoria[]" required>
-                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+<option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="APICOLA" {% if obj and obj.categoria == 'APICOLA' %}selected{% endif %}>APICOLA</option>
                   <option value="AVICOLA" {% if obj and obj.categoria == 'AVICOLA' %}selected{% endif %}>AVICOLA</option>
                   <option value="BOVINO" {% if obj and obj.categoria == 'BOVINO' %}selected{% endif %}>BOVINO</option>
@@ -286,7 +286,7 @@
                 <div class="sub-PESQUERO categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
-                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+<option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="BARRILETE" {% if obj and obj.categoria == 'BARRILETE' %}selected{% endif %}>BARRILETE</option>
                   <option value="CAMARON CAFE" {% if obj and obj.categoria == 'CAMARON CAFE' %}selected{% endif %}>CAMARON CAFE</option>
                   <option value="CAZON" {% if obj and obj.categoria == 'CAZON' %}selected{% endif %}>CAZON</option>
@@ -298,7 +298,7 @@
                 </div>
                 <div class="sub-ACUICOLA categoria-container" style="display:none">
                     <div class="input-field">
-                        <select name="categoria[]" required>
+<option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="TILAPIA" {% if obj and obj.categoria == 'TILAPIA' %}selected{% endif %}>TILAPIA</option>
                   <option value="CAMARON BLANCO" {% if obj and obj.categoria == 'CAMARON BLANCO' %}selected{% endif %}>CAMARON BLANCO</option>
@@ -312,7 +312,7 @@
                                 <div class="sub-AGROINDUSTRIAL categoria-container" style="display:none">
                     <div class="input-field">
                         <select name="categoria[]" required>
-                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
+<option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="CAFE" {% if obj and obj.categoria == 'CAFE' %}selected{% endif %}>CAFE</option>
                   <option value="MEZCAL" {% if obj and obj.categoria == 'MEZCAL' %}selected{% endif %}>MEZCAL</option>
                   <option value="MIEL" {% if obj and obj.categoria == 'MIEL' %}selected{% endif %}>MIEL</option>
