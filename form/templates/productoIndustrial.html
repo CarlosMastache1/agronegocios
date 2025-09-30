@@ -113,7 +113,7 @@
 
 
 <div id="body">
-    <h1 class="titulo">Productores Agroindustriales</h1>
+    <h1 class="titulo">Productores de {{ categoria|title }}</h1>
 
     <form method="get" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         <input type="text" name="busqueda" placeholder="Buscar productor..." value="{{ request.GET.busqueda }}"
