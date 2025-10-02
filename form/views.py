@@ -324,13 +324,13 @@ def productorProductorIndus(request, nombre):
   {'page_obj': page_obj, 'nombre' : nombre})
 
 
-def productorProductorAcui(request, nombre):
-  productos_filtrados = productos.objects.filter(subsector = 'ACUICOLA', nombreProductor = nombre, estado=True)
+def productorProductorAcui(request, categoria, nombre):
+  productos_filtrados = productos.objects.filter(subsector = 'ACUICOLA', categoria = categoria, nombreProductor = nombre, estado=True)
   paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
   page_number = request.GET.get('page')
   page_obj = paginator.get_page(page_number)
   return render(request, 'productosProductorAcuicola.html',
-  {'page_obj': page_obj, 'nombre' : nombre})
+  {'page_obj': page_obj, 'categoria' : categoria, 'nombre' : nombre})
 
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
