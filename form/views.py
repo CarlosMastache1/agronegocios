@@ -323,6 +323,15 @@ def productorProductorIndus(request, nombre):
   return render(request, 'productosProductorIndus.html',
   {'page_obj': page_obj, 'nombre' : nombre})
 
+
+def productorProductorAcui(request, nombre):
+  productos_filtrados = productos.objects.filter(subsector = 'ACUICOLA', nombreProductor = nombre, estado=True)
+  paginator = Paginator(productos_filtrados, 9)  # 9 productos por página
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+  return render(request, 'productosProductorAcuicola.html',
+  {'page_obj': page_obj, 'nombre' : nombre})
+
 def tiendaPecuario(request):
   return render(request, 'pecuarioTienda.html')
 
@@ -432,7 +441,7 @@ def tiendaProducAcui(request, categoria):
 
   todos_los_municipios = municipios.objects.all().order_by('nombre_municipio')
 
-  return render(request, 'productoAgricultura.html',
+  return render(request, 'productoAcuicola.html',
   {
      'page_obj': page_obj, 
      'categoria' : categoria,
