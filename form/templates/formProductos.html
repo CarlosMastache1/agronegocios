@@ -249,7 +249,7 @@
 
                     </select>
                     <label>SUBSECTOR</label>
-                </div>
+                </div> <br>
                 <div class="sub-AGRICOLA categoria-container" style="display:none" >
                     <div class="input-field">
                         <select name="categoria[]" required>
@@ -298,8 +298,8 @@
                 </div>
                 <div class="sub-ACUICOLA categoria-container" style="display:none">
                     <div class="input-field">
+                      <select name="categoria[]" required>
 <option value="" disabled {% if not obj or not obj.categoria %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
-                  <option value="0" disabled {% if not obj %}selected{% endif %}>ELIGE UNA OPCIÓN</option>
                   <option value="TILAPIA" {% if obj and obj.categoria == 'TILAPIA' %}selected{% endif %}>TILAPIA</option>
                   <option value="CAMARON BLANCO" {% if obj and obj.categoria == 'CAMARON BLANCO' %}selected{% endif %}>CAMARON BLANCO</option>
                   <option value="TRUCHA ARCOIRIS" {% if obj and obj.categoria == 'TRUCHA ARCOIRIS' %}selected{% endif %}>TRUCHA ARCOIRIS</option>
@@ -340,7 +340,7 @@
                     <input type="text" id="numero" oninput="formatearNumero(this)" value="{{ obj.volumen_produccion|default_if_none:'' }}" />
                     <input name="volumen_produccion[]" type="hidden" id="volumen" required
                         oninput="this.value = this.value.toUpperCase();" value="{{ obj.volumen_produccion|default_if_none:'' }}">
-                    <label for="volumen">VOLUMEN DE PRODUCCIÓN</label>
+                    <label for="volumen">VOLUMEN DE PRODUCCIÓN</label> 
                 </div>
 
                 <div class="input-field">
@@ -355,7 +355,7 @@
                 <option value="ANUAL" {% if obj and obj.disponibilidad_entrega == 'ANUAL' %}selected{% endif %}>ANUAL</option>
 
                     </select>
-                    <label class="active">DISPONIBILIDAD DE ENTREGA</label>
+                    <label style="padding-top: 10px;">DISPONIBILIDAD DE ENTREGA</label>
                 </div>
 
                 <div class="file-field input-field">
