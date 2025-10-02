@@ -198,8 +198,8 @@
                 <img src="{% static 'images/iconoProductor.png' %}" alt="Icono productor" />
 
                 <h3>{{ productor.nombreProductor|default:"Productor sin nombre" }}</h3>
-                <p class="info"><strong>Teléfono:</strong> {{ productor.telefono|default:"N/A" }}</p>
-                <p class="info"><strong>Email:</strong> {{ productor.email|default:"N/A" }}</p>
+                {% comment %} <p class="info"><strong>Teléfono:</strong> {{ productor.telefono|default:"N/A" }}</p>
+                <p class="info"><strong>Email:</strong> {{ productor.email|default:"N/A" }}</p> {% endcomment %}
 
                 <div class="overlay-productos">
                     <p><strong>PRODUCTOS:</strong></p>

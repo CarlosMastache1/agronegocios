@@ -4484,5 +4484,9 @@ def nosotros(request):
 def directorio(request):
   return render(request, 'directorio.html')
 
+def testimonios(request):
+  return render(request, 'videosTestimonios.html')
+
+
 def ubicacion(request):
   return render(request, 'ubicacion.html')
