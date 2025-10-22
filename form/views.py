@@ -200,13 +200,13 @@ def precios_maiz(request):
 
 @login_required
 def home(request):
-    finan = entidadesFinancieras2.objects.all()
-    finanAcri = entidadesFinancieras2.objects.filter(intermediario_financiero = 'COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO')
-    finanFind = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE')
-    finanFira = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)')
-    finanNego = entidadesFinancieras2.objects.filter(intermediario_financiero = 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE')
-    finanCaja = entidadesFinancieras2.objects.filter(intermediario_financiero = 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO')
-    finanUcep = entidadesFinancieras2.objects.filter(intermediario_financiero = 'UNION DE CREDITO ESTATAL DE PRODUCTORES DE CAFE DE OAXACA, S.A. DE C.V.')
+    finan = entidadesFinancieras2.objects.all().order_by('id')
+    finanAcri = entidadesFinancieras2.objects.filter(intermediario_financiero = 'COOPERATIVA ACREIMEX, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').order_by('id')
+    finanFind = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FINDECA, SOCIEDAD ANÓNIMA DE CAPITAL VARIABLE').order_by('id')
+    finanFira = entidadesFinancieras2.objects.filter(intermediario_financiero = 'FIDEICOMISOS INSTITUIDOS EN RELACION CON LA AGRICULTURA (FIRA)').order_by('id')
+    finanNego = entidadesFinancieras2.objects.filter(intermediario_financiero = 'NEGOCIOS EMPRESARIALES DE APOYO DE OAXACA, SOCIEDAD ANONIMA DE CAPITAL VARIABLE').order_by('id')
+    finanCaja = entidadesFinancieras2.objects.filter(intermediario_financiero = 'CAJA SOLIDARIA SAN DIONISIO OCOTEPEC, SOCIEDAD COOPERATIVA DE AHORRO Y PRESTAMO').order_by('id')
+    finanUcep = entidadesFinancieras2.objects.filter(intermediario_financiero = 'UNION DE CREDITO ESTATAL DE PRODUCTORES DE CAFE DE OAXACA, S.A. DE C.V.').order_by('id')
 
     return render(request, 'home.html', {
       'finan' : finan,
