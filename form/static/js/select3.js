@@ -109,3 +109,40 @@ function agregarProducto() {
     asignarEventosSubsectores();
 }
 
+
+
+// ======================
+// 🚀 Integración con Select2
+// ======================
+
+// Cargar Select2 solo si existe la librería
+function initSelect2() {
+  if (window.jQuery && $.fn.select2) {
+    $('select.select2').select2({
+      placeholder: "ELIGE UNA OPCIÓN",
+      allowClear: true,
+      width: '100%'
+    });
+  } else {
+    console.warn("Select2 no está cargado o falta jQuery completo (no usar jquery.slim).");
+  }
+}
+
+// Esperar a que el DOM esté listo y Materialize inicializado
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializar Select2 al cargar
+  initSelect2();
+
+  // 🔁 Cuando se agregue un nuevo producto dinámicamente:
+  // Hook: interceptamos la función existente sin modificarla
+  const originalAgregarProducto = window.agregarProducto;
+  window.agregarProducto = function() {
+    // Llamar a la función original
+    const result = originalAgregarProducto.apply(this, arguments);
+
+    // Re-inicializar Select2 en los nuevos selects
+    initSelect2();
+
+    return result;
+  };
+});

@@ -293,7 +293,7 @@
                 <th>REGIÓN</th>
                 <th>MONTO DEL CREDITO</th>
                 <th>FINANCIERA</th>
-                <th>SUBSECTOR</th>
+                <th>Fecha de Inicio</th>
                 <th>OPCIONES</th>
 
             </tr>
@@ -309,7 +309,7 @@
                 <td>{{fin.municipio.region}}</td>
                 <td>${{ fin.monto_total|floatformat:2|intcomma }}</td>
                 <td>{{fin.intermediario_financiero}}</td>
-                <td>{{fin.subsector}}</td>
+                <td>{{fin.fecha_inicio}}</td>
                 <td><a href="{% url 'creditDetail' fin.id %}" class="btn btn-success" style="font-size: 12px;">Ver <i class="fas fa-eye"></i> </a>
                     <!-- <form action="{% url 'delete_credit' fin.id %}" method="POST">
                         {% csrf_token  %} -->
