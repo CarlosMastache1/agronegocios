@@ -62,7 +62,7 @@
                   <li><a href="/nosotros">NOSOTROS</a></li>
                   <li><a href="/directorio">DIRECTORIO</a></li>
                   <li><a href="/ubicacion">UBICACION</a></li>
-                  <li><a href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
+            <li><a class="dropdown-item texto-pequeno" href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
                 </ul>
               </li>
 
@@ -72,7 +72,7 @@
                     class="glyphicon glyphicon-chevron-down pull-right"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/graficaPubli" >VER DESEMPEÑO DEL FONDO</a></li>
+                  <li><a href="/graficaPubli" >DESEMPEÑO DEL FONDO</a></li>
                   <li><a href="/login" >HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
                 </ul>
               </li>
@@ -94,9 +94,9 @@
                     class="glyphicon glyphicon-chevron-down pull-right"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/tiendaHome" >REGISTRA TU PRODUCTO</a></li>
-                  <li><a href="/tiendaHome/#mitad">CATALOGO DE PRODUCTOS</a></li>
-                  <li><a href="/graficos-precios">COTIZACIÓN DE PRECIOS</a></li>
+                  <li><a href="{% url 'tiendaHome' %}" >REGISTRA TU PRODUCTO</a></li>
+                  <li><a href="{% url 'tiendaCategorias' %}">CATALOGO DE PRODUCTOS</a></li>
+                  <li><a href="{% url 'graficos_precios' %}">COTIZACIÓN DE PRECIOS</a></li>
                 </ul>
               </li>
 

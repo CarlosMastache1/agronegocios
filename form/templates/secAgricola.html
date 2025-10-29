@@ -47,12 +47,12 @@
         <h2 class="text-3xl font-bold text-center titulo-estilo">ESTADISTICAS DEL SECTOR AGRÍCOLA</h2>
 
         <div class="container-card">
-            <a href="{% url 'agave' %}">
+            {% comment %} <a href="{% url 'agave' %}">
                 <div class="card">
                     <img src="{% static 'imagenesSA/1.png' %}" alt="AGAVE">
                     <h3>AGAVE</h3>
                 </div>
-            </a> 
+            </a>  {% endcomment %}
 
             <a href="{% url 'ajonjoli' %}">
                 <div class="card">
