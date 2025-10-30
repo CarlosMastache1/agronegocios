@@ -175,21 +175,25 @@
         {% endwith %}
 
     </form>
-
-    <div class="grid">
-        {% for productor in page_obj %}
-        <a href="{% url 'productosProductorAgricola' categoria productor.nombreProductor %}">
-            <div class="card">
-                <img src="{% static 'images/iconoProductor.png' %}" alt="Icono productor" />
-                <h3>{{ productor.nombreProductor|default:"Productor sin nombre" }}</h3>
-                {% comment %} <p class="info"><strong>Teléfono:</strong> {{ productor.telefono|default:"N/A" }}</p>
-                <p class="info"><strong>Email:</strong> {{ productor.email|default:"N/A" }}</p> {% endcomment %}
-            </div>
-        </a>
-        {% empty %}
-        <p style="text-align: center;">No hay productores disponibles.</p>
-        {% endfor %}
+<div class="container mt-4">
+  <div class="row g-4">
+    {% for productor in page_obj %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <a href="{% url 'productosProductorAgricola' categoria productor.nombreProductor %}" class="text-decoration-none text-dark">
+        <div class="card h-100 shadow-sm text-center">
+          <img src="{% static 'images/iconoProductor.png' %}" class="card-img-top p-3" alt="Icono productor">
+          <div class="card-body">
+            <h5 class="card-title mb-0">{{ productor.nombreProductor|default:"Productor sin nombre" }}</h5>
+          </div>
+        </div>
+      </a>
     </div>
+    {% empty %}
+    <p class="text-center">No hay productores disponibles.</p>
+    {% endfor %}
+  </div>
+</div>
+
 
     <div class="paginacion">
         {% if page_obj.has_previous %}
