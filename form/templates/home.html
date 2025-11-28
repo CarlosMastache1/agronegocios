@@ -289,8 +289,8 @@
             <tr>
                 <th>NOMBRE DEL PORYECTO</th>
                 <th>NOMBRE DEL PRODUCTOR</th>
-                <th>MUNICIPIO</th>
-                <th>REGIÓN</th>
+                {% comment %} <th>MUNICIPIO</th> {% endcomment %}
+                {% comment %} <th>REGIÓN</th> {% endcomment %}
                 <th>MONTO DEL CREDITO</th>
                 <th>FINANCIERA</th>
                 <th>Fecha de Inicio</th>
@@ -305,8 +305,8 @@
             <tr class="table-primary" >
                 <td scope="row">{{fin.nombre_proyecto}}</td>
                 <td>{{fin.nombre_cliente}}</td>
-                <td>{{fin.municipio.nombre_municipio}}</td>
-                <td>{{fin.municipio.region}}</td>
+                {% comment %} <td>{{fin.municipio.nombre_municipio}}</td>
+                <td>{{fin.municipio.region}}</td> {% endcomment %}
                 <td>${{ fin.monto_total|floatformat:2|intcomma }}</td>
                 <td>{{fin.intermediario_financiero}}</td>
                 <td>{{fin.fecha_inicio}}</td>
