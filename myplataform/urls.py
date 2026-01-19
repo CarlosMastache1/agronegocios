@@ -96,7 +96,7 @@ urlpatterns = [
     path('iframeMexico/', TemplateView.as_view(template_name="includes/mapaMexico.html"), name='iframeMexico'),
     path('iframeOaxaca/', TemplateView.as_view(template_name="includes/mapaOaxaca.html"), name='iframeOaxaca'),
 
-    path('iframePublico/', views.graficasPublicas, name='iframePublico'),
+
 
     
 
