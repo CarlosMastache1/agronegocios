@@ -133,160 +133,134 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <h1 style="color: #9d2449;">REPORTE GENERAL </h1>
-          <table class="table table-responsive  text-center" id="myTable2">
-            <thead>
-              <tr >
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Proyectos</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Monto de Financiamiento</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col" style="width: 20%;">Garantías Liquidas</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Municipios</th> 
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
-    
-              </tr>
-            </thead>
-            <tbody >
-              <tr>
-                <th scope="row">Valles Centrales</th>
-                <td style="text-align: center;">  
-                {% for region in conteo_VC %}
-                {{ region.total }} 
-                {% endfor %} </td>
-               
-                <td style="text-align: center;"> ${{ monto_VC_templates|floatformat:2|intcomma }} </td>
-                <td style="text-align: center;">${{ garantia_VC_templates|floatformat:2|intcomma }}</td>
-                <td style="text-align: center;">{{ beneficiarios_VC_T }}</td>
-                <td style="text-align: center;"> {{ can_municipios_VC }} </td> 
-                <td style="text-align: center;">{{ E100_VC }}</td>
-                <td style="text-align: center;">{{ PI_VC }}</td>
-                <td style="text-align: center;">{{ empleos_VC_T }}</td>
-    
-    
-              </tr>
-              <tr>
-                <th scope="row">Istmo</th>
-                
-                <td style="text-align: center;">{{ mensaje_IST }} 
-                {% for region_IST in conteo_IST %} {{ region_IST.total }} 
-                {% endfor %}        </td>            
-                <td style="text-align: center;"> $ {{ monto_IST_templates|floatformat:2|intcomma  }} </td> 
-                <td style="text-align: center;">$ {{ garantia_IST_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_IST_T }}</td>
-                 <td style="text-align: center;"> {{ can_municipios_IST }} </td> 
-                <td style="text-align: center;">{{ E100_IST }}</td>
-                <td style="text-align: center;">{{ PI_IST }}</td>
-                <td style="text-align: center;">{{ empleos_IST_T }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Costa</th>
-                
-                <td style="text-align: center;">{{ mensaje_COS }} 
-                  {% for conteo_COS in conteo_COS %}
-                  {{ conteo_COS.total }} 
-                {% endfor %} </td>
-                <td style="text-align: center;">$ {{ monto_COS_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_COS_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_COS_T }}</td>
-                 <td style="text-align: center;">{{ can_municipios_COS }}</td> 
-                <td style="text-align: center;">{{ E100_COS }}</td>
-                <td style="text-align: center;">{{ PI_COS }}</td>
-                <td style="text-align: center;">{{ empleos_COS_T }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Papaloapan</th>
-                <td style="text-align: center;"> {{ mensaje_PAPA }}
-                  {% for conteo_PAPA in conteo_PAPA %}
-                  {{ conteo_PAPA.total }}
-                {% endfor %}   </td>
-                <td style="text-align: center;">$ {{ monto_PAPA_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_PAPA_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_PAPA_T }}</td>
-                <td style="text-align: center;">{{ can_municipios_PAPA }}</td> 
-                <td style="text-align: center;">{{ E100_PAPA }}</td>
-                <td style="text-align: center;">{{ PI_PAPA }}</td>
-                <td style="text-align: center;">{{ empleos_PAPA_T }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Mixteca</th>
-                <td style="text-align: center;"> {{ mensaje_MIX }}
-                {% for conteo_MIX in conteo_MIX %}
-                 {{ conteo_MIX.total }} 
-                {% endfor %}  </td>
-                <td style="text-align: center;"> $ {{ monto_MIX_templates|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">$ {{ garantia_MIX_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_MIX_T }}</td>
-                <td style="text-align: center;">{{ can_municipios_MIX }}</td> 
-                <td style="text-align: center;">{{ E100_MIX }}</td>
-                <td style="text-align: center;">{{ PI_MIX }}</td>
-                <td style="text-align: center;">{{ empleos_MIX_T }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Sierra de Juarez</th>
-                <td style="text-align: center;">{{ mensaje_SJ }} 
-                  {% for conteo_SJ in conteo_SJ %}
-                  {{ conteo_SJ.total }} 
-                {% endfor %}  </td>
-                <td style="text-align: center;">$ {{ monto_SJ_templates|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">$ {{ garantia_SJ_templates|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">{{ beneficiarios_SJ_T }}</td>
-                 <td style="text-align: center;">{{ can_municipios_SJ }}</td> 
-                <td style="text-align: center;">{{ E100_SJ }}</td>
-                <td style="text-align: center;">{{ PI_SJ }}</td>
-                <td style="text-align: center;">{{ empleos_SJ_T }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Sierra Sur</th>
-                <td style="text-align: center;"> {{ mensaje_SS }} 
-                  {% for conteo_SS in conteo_SS %}
-                  {{ conteo_SS.total }}
-                {% endfor %}  </td>
-                <td style="text-align: center;">$ {{ monto_SS_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_SS_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_SS_T }}</td>
-                <td style="text-align: center;">{{ can_municipios_SS }}</td> 
-                <td style="text-align: center;">{{ E100_SS }}</td>
-                <td style="text-align: center;">{{ PI_SS }}</td>
-                <td style="text-align: center;">{{ empleos_SS_T }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Sierra de Flores Magon</th>
-                <td style="text-align: center;">   {{ mensaje_SFM }}
-                {% for conteo_SFM in conteo_SFM %}
-                 {{ conteo_SFM.total }} 
-                {% endfor %} </td>
-                <td style="text-align: center;">$ {{ monto_SFM_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_SFM_templates|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_SFM_T }}</td>
-                 <td style="text-align: center;">{{ can_municipios_SFM }}</td>
-                <td style="text-align: center;">{{ E100_SFM }}</td>
-                <td style="text-align: center;">{{ PI_SFM }}</td>
-                <td style="text-align: center;">{{ empleos_SFM_T }}</td>
-    
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Total</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCPG}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalMFG|floatformat:2|intcomma }}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalGLG|floatformat:2|intcomma }}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalBG}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCMG}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalE100G}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalPIG}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalEDG}}</th>
-    
-              </tr>
-          </tfoot>
-          </table>
+<table class="table table-responsive text-center" id="myTable2">
+  <thead>
+    <tr>
+      <th style="background-color:#9d2449;color:white;">Región</th>
+      <th style="background-color:#9d2449;color:white;">Cantidad de Proyectos</th>
+      <th style="background-color:#9d2449;color:white;">Monto de Financiamiento</th>
+      <th style="background-color:#9d2449;color:white;">Garantías Liquidas</th>
+      <th style="background-color:#9d2449;color:white;">Beneficiarios</th>
+      <th style="background-color:#9d2449;color:white;">Cantidad de Municipios</th>
+      <th style="background-color:#9d2449;color:white;">E-100</th>
+      <th style="background-color:#9d2449;color:white;">Pueblos Indígenas</th>
+      <th style="background-color:#9d2449;color:white;">Empleos Directos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>Valles Centrales</th>
+      <td>{{ conteo_VC }}</td>
+      <td>${{ monto_VC_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_VC_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_VC_T }}</td>
+      <td>{{ can_municipios_VC }}</td>
+      <td>{{ E100_VC }}</td>
+      <td>{{ PI_VC }}</td>
+      <td>{{ empleos_VC_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Istmo</th>
+      <td>{{ conteo_IST }}</td>
+      <td>${{ monto_IST_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_IST_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_IST_T }}</td>
+      <td>{{ can_municipios_IST }}</td>
+      <td>{{ E100_IST }}</td>
+      <td>{{ PI_IST }}</td>
+      <td>{{ empleos_IST_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Costa</th>
+      <td>{{ conteo_COS }}</td>
+      <td>${{ monto_COS_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_COS_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_COS_T }}</td>
+      <td>{{ can_municipios_COS }}</td>
+      <td>{{ E100_COS }}</td>
+      <td>{{ PI_COS }}</td>
+      <td>{{ empleos_COS_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Papaloapan</th>
+      <td>{{ conteo_PAPA }}</td>
+      <td>${{ monto_PAPA_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_PAPA_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_PAPA_T }}</td>
+      <td>{{ can_municipios_PAPA }}</td>
+      <td>{{ E100_PAPA }}</td>
+      <td>{{ PI_PAPA }}</td>
+      <td>{{ empleos_PAPA_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Mixteca</th>
+      <td>{{ conteo_MIX }}</td>
+      <td>${{ monto_MIX_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_MIX_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_MIX_T }}</td>
+      <td>{{ can_municipios_MIX }}</td>
+      <td>{{ E100_MIX }}</td>
+      <td>{{ PI_MIX }}</td>
+      <td>{{ empleos_MIX_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra de Juárez</th>
+      <td>{{ conteo_SJ }}</td>
+      <td>${{ monto_SJ_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_SJ_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_SJ_T }}</td>
+      <td>{{ can_municipios_SJ }}</td>
+      <td>{{ E100_SJ }}</td>
+      <td>{{ PI_SJ }}</td>
+      <td>{{ empleos_SJ_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra Sur</th>
+      <td>{{ conteo_SS }}</td>
+      <td>${{ monto_SS_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_SS_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_SS_T }}</td>
+      <td>{{ can_municipios_SS }}</td>
+      <td>{{ E100_SS }}</td>
+      <td>{{ PI_SS }}</td>
+      <td>{{ empleos_SS_T }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra de Flores Magón</th>
+      <td>{{ conteo_SFM }}</td>
+      <td>${{ monto_SFM_templates|floatformat:2|intcomma }}</td>
+      <td>${{ garantia_SFM_templates|floatformat:2|intcomma }}</td>
+      <td>{{ beneficiarios_SFM_T }}</td>
+      <td>{{ can_municipios_SFM }}</td>
+      <td>{{ E100_SFM }}</td>
+      <td>{{ PI_SFM }}</td>
+      <td>{{ empleos_SFM_T }}</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th style="background-color:#9d2449;color:white;">Total</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalCPG }}</th>
+      <th style="background-color:#9d2449;color:white;">${{ totalMFG|floatformat:2|intcomma }}</th>
+      <th style="background-color:#9d2449;color:white;">${{ totalGLG|floatformat:2|intcomma }}</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalBG }}</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalCMG }}</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalE100G }}</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalPIG }}</th>
+      <th style="background-color:#9d2449;color:white;">{{ totalEDG }}</th>
+    </tr>
+  </tfoot>
+</table>
+
     
           <div class="row ">
             <div class="col-sm-12 col-md-12 pt-4">
@@ -440,15 +414,7 @@
                         <td style="text-align: center;">${{ garantias_re|floatformat:2|intcomma   }}</td>
                       </tr>
                     </tbody>
-                <!--     <tfoot style="text-align: center;">
-                      <tr>
-                          <th scope="row">Total</th>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
-        
-                      </tr>
-                  </tfoot> -->
+          
                   </table>
                   
                   
@@ -686,161 +652,134 @@
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
           <h1 style="color: #9d2449;">REPORTE AÑO 2023</h1>
-          <table class="table table-responsive text-center" id="myTable3">
-            <thead>
-              <tr>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Región</th>
-                <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col">Cantidad de Proyectos</th>
-                <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Monto de Financiamiento</th>
-                <th style="background-color: #9d2449; text-align: center; color: white; width: 20%;" scope="col" >Garantías Liquidas</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Beneficiarios</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Cantidad de Municipios</th> 
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">E-100</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Pueblos Indigenas</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Empleos Directos</th>
-    
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Valles Centrales</th>
-                <td style="text-align: center;">  
-                {% for region in conteo_VC_2023 %}
-                {{ region.total }} 
-                {% endfor %} </td>
-               
-                <td style="text-align: center;"> ${{ monto_VC_templates_2023|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">${{ garantia_VC_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_VC_T_2023 }}</td>
-                <td style="text-align: center;">{{ can_municipios_VC_2023 }}</td> 
-                <td style="text-align: center;">{{ E100_VC_2023 }}</td>
-                <td style="text-align: center;">{{ PI_VC_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_VC_T_2023 }}</td>
-    
-    
-              </tr>
-              <tr>
-                <th scope="row">Istmo</th>
-                
-                <td style="text-align: center;">{{ mensaje_IST }} 
-                {% for region_IST in conteo_IST_2023 %} {{ region_IST.total }} 
-                {% endfor %}        </td>            
-                <td style="text-align: center;"> $ {{ monto_IST_templates_2023|floatformat:2|intcomma  }} </td> 
-                <td style="text-align: center;">$ {{ garantia_IST_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_IST_T_2023 }}</td>
-                <td style="text-align: center;"> {{ can_municipios_IST_2023 }} </td> 
-                <td style="text-align: center;">{{ E100_IST_2023 }}</td>
-                <td style="text-align: center;">{{ PI_IST_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_IST_T_2023 }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Costa</th>
-                
-                <td style="text-align: center;">{{ mensaje_COS }} 
-                  {% for conteo_COS in conteo_COS_2023 %}
-                  {{ conteo_COS.total }} 
-                {% endfor %} </td>
-                <td style="text-align: center;">$ {{ monto_COS_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_COS_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_COS_T_2023 }}</td>
-                <td style="text-align: center;"> {{ can_municipios_COS_2023 }}  </td>
-                <td style="text-align: center;">{{ E100_COS_2023 }}</td>
-                <td style="text-align: center;">{{ PI_COS_2023 }}</td>
-                <td  style="text-align: center;">{{ empleos_COS_T_2023 }}</td>
-    
-              </tr>
-              <tr >
-                <th scope="row">Papaloapan</th>
-                <td style="text-align: center;"> {{ mensaje_PAPA }}
-                  {% for conteo_PAPA in conteo_PAPA_2023 %}
-                  {{ conteo_PAPA.total }}
-                {% endfor %}   </td>
-                <td style="text-align: center;">$ {{ monto_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_PAPA_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_PAPA_T_2023 }}</td>
-                <td style="text-align: center;"> {{ can_municipios_PAPA_2023 }}  </td> 
-                <td style="text-align: center;">{{ E100_PAPA_2023 }}</td>
-                <td style="text-align: center;">{{ PI_PAPA_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_PAPA_T_2023 }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Mixteca</th>
-                <td style="text-align: center;"> {{ mensaje_MIX }}
-                {% for conteo_MIX in conteo_MIX_2023 %}
-                 {{ conteo_MIX.total }} 
-                {% endfor %}  </td>
-                <td style="text-align: center;"> $ {{ monto_MIX_templates_2023|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">$ {{ garantia_MIX_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_MIX_T_2023 }}</td>
-                <td style="text-align: center;">{{ can_municipios_MIX_2023 }} </td> 
-                <td style="text-align: center;">{{ E100_MIX_2023 }}</td>
-                <td style="text-align: center;">{{ PI_MIX_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_MIX_T_2023 }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Sierra de Juarez</th>
-                <td style="text-align: center;">{{ mensaje_SJ }} 
-                  {% for conteo_SJ in conteo_SJ_2023 %}
-                  {{ conteo_SJ.total }} 
-                {% endfor %}  </td>
-                <td style="text-align: center;">$ {{ monto_SJ_templates_2023|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">$ {{ garantia_SJ_templates_2023|floatformat:2|intcomma  }} </td>
-                <td style="text-align: center;">{{ beneficiarios_SJ_T_2023 }}</td>
-                <td  style="text-align: center;">{{ can_municipios_SJ_2023 }} </td> 
-                <td style="text-align: center;">{{ E100_SJ_2023 }}</td>
-                <td style="text-align: center;">{{ PI_SJ_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_SJ_T_2023 }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Sierra Sur</th>
-                <td style="text-align: center;"> {{ mensaje_SS }} 
-                  {% for conteo_SS in conteo_SS_2023 %}
-                  {{ conteo_SS.total }}
-                {% endfor %}  </td>
-                <td style="text-align: center;">$ {{ monto_SS_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_SS_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_SS_T_2023 }}</td>
-                <td style="text-align: center;">{{ can_municipios_SS_2023 }} </td>
-                <td style="text-align: center;">{{ E100_SS_2023 }}</td>
-                <td style="text-align: center;">{{ PI_SS_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_SS_T_2023 }}</td>
-    
-              </tr>
-              <tr>
-                <th scope="row">Sierra de Flores Magon</th>
-                <td style="text-align: center;">   {{ mensaje_SFM }}
-                {% for conteo_SFM in conteo_SFM_2023 %}
-                 {{ conteo_SFM.total }} 
-                {% endfor %} </td>
-                <td style="text-align: center;">$ {{ monto_SFM_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">$ {{ garantia_SFM_templates_2023|floatformat:2|intcomma  }}</td>
-                <td style="text-align: center;">{{ beneficiarios_SFM_T_2023 }}</td>
-                <td style="text-align: center;">{{ can_municipios_SFM_2023 }} </td> 
-                <td style="text-align: center;">{{ E100_SFM_2023 }}</td>
-                <td style="text-align: center;">{{ PI_SFM_2023 }}</td>
-                <td style="text-align: center;">{{ empleos_SFM_T_2023 }}</td>
-    
-              </tr>
-            </tbody>
-    
-            <tfoot>
-              <tr>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">Total</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCPG_2023}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalMFG_2023|floatformat:2|intcomma }}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">$ {{totalGLG_2023|floatformat:2|intcomma }}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalBG_2023}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalCMG_2023}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalE100G_2023}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalPIG_2023}}</th>
-                <th style="background-color: #9d2449; text-align: center; color: white;" scope="col">{{totalEDG_2023}}</th>
-    
-              </tr>
-          </tfoot>
-          </table>
+         <table class="table table-responsive text-center" id="myTable3">
+  <thead>
+    <tr>
+      <th style="background:#9d2449;color:white;">Región</th>
+      <th style="background:#9d2449;color:white;">Cantidad de Proyectos</th>
+      <th style="background:#9d2449;color:white;">Monto de Financiamiento</th>
+      <th style="background:#9d2449;color:white;">Garantías Líquidas</th>
+      <th style="background:#9d2449;color:white;">Beneficiarios</th>
+      <th style="background:#9d2449;color:white;">Cantidad de Municipios</th>
+      <th style="background:#9d2449;color:white;">E-100</th>
+      <th style="background:#9d2449;color:white;">Pueblos Indígenas</th>
+      <th style="background:#9d2449;color:white;">Empleos Directos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>Valles Centrales</th>
+      <td>{{ vc_cantidad }}</td>
+      <td>${{ vc_monto|floatformat:2|intcomma }}</td>
+      <td>${{ vc_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ vc_beneficiarios }}</td>
+      <td>{{ vc_municipios }}</td>
+      <td>{{ vc_e100 }}</td>
+      <td>{{ vc_pi }}</td>
+      <td>{{ vc_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Istmo</th>
+      <td>{{ ist_cantidad }}</td>
+      <td>${{ ist_monto|floatformat:2|intcomma }}</td>
+      <td>${{ ist_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ ist_beneficiarios }}</td>
+      <td>{{ ist_municipios }}</td>
+      <td>{{ ist_e100 }}</td>
+      <td>{{ ist_pi }}</td>
+      <td>{{ ist_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Costa</th>
+      <td>{{ cos_cantidad }}</td>
+      <td>${{ cos_monto|floatformat:2|intcomma }}</td>
+      <td>${{ cos_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ cos_beneficiarios }}</td>
+      <td>{{ cos_municipios }}</td>
+      <td>{{ cos_e100 }}</td>
+      <td>{{ cos_pi }}</td>
+      <td>{{ cos_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Papaloapan</th>
+      <td>{{ papa_cantidad }}</td>
+      <td>${{ papa_monto|floatformat:2|intcomma }}</td>
+      <td>${{ papa_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ papa_beneficiarios }}</td>
+      <td>{{ papa_municipios }}</td>
+      <td>{{ papa_e100 }}</td>
+      <td>{{ papa_pi }}</td>
+      <td>{{ papa_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Mixteca</th>
+      <td>{{ mix_cantidad }}</td>
+      <td>${{ mix_monto|floatformat:2|intcomma }}</td>
+      <td>${{ mix_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ mix_beneficiarios }}</td>
+      <td>{{ mix_municipios }}</td>
+      <td>{{ mix_e100 }}</td>
+      <td>{{ mix_pi }}</td>
+      <td>{{ mix_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra de Juárez</th>
+      <td>{{ sj_cantidad }}</td>
+      <td>${{ sj_monto|floatformat:2|intcomma }}</td>
+      <td>${{ sj_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ sj_beneficiarios }}</td>
+      <td>{{ sj_municipios }}</td>
+      <td>{{ sj_e100 }}</td>
+      <td>{{ sj_pi }}</td>
+      <td>{{ sj_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra Sur</th>
+      <td>{{ ss_cantidad }}</td>
+      <td>${{ ss_monto|floatformat:2|intcomma }}</td>
+      <td>${{ ss_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ ss_beneficiarios }}</td>
+      <td>{{ ss_municipios }}</td>
+      <td>{{ ss_e100 }}</td>
+      <td>{{ ss_pi }}</td>
+      <td>{{ ss_empleos }}</td>
+    </tr>
+
+    <tr>
+      <th>Sierra Flores Magón</th>
+      <td>{{ sfm_cantidad }}</td>
+      <td>${{ sfm_monto|floatformat:2|intcomma }}</td>
+      <td>${{ sfm_garantia|floatformat:2|intcomma }}</td>
+      <td>{{ sfm_beneficiarios }}</td>
+      <td>{{ sfm_municipios }}</td>
+      <td>{{ sfm_e100 }}</td>
+      <td>{{ sfm_pi }}</td>
+      <td>{{ sfm_empleos }}</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th style="background:#9d2449;color:white;">Total</th>
+      <th style="background:#9d2449;color:white;">{{ totalCPG_2023 }}</th>
+      <th style="background:#9d2449;color:white;">${{ totalMFG_2023|floatformat:2|intcomma }}</th>
+      <th style="background:#9d2449;color:white;">${{ totalGLG_2023|floatformat:2|intcomma }}</th>
+      <th style="background:#9d2449;color:white;">{{ totalBG_2023 }}</th>
+      <th style="background:#9d2449;color:white;">{{ totalCMG_2023 }}</th>
+      <th style="background:#9d2449;color:white;">{{ totalE100G_2023 }}</th>
+      <th style="background:#9d2449;color:white;">{{ totalPIG_2023 }}</th>
+      <th style="background:#9d2449;color:white;">{{ totalEDG_2023 }}</th>
+    </tr>
+  </tfoot>
+</table>
+
     
           <div class="row ">
     
@@ -967,15 +906,7 @@
                         <td style="text-align: center;">${{ garantias_re_2023|floatformat:2|intcomma   }}</td>
                       </tr>
                     </tbody>
-                <!--     <tfoot style="text-align: center;">
-                      <tr>
-                          <th scope="row">Total</th>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
-        
-                      </tr>
-                  </tfoot> -->
+                
                   </table>
                   
                   
@@ -1488,15 +1419,7 @@
                       <td style="text-align: center;">${{ garantias_re_2024|floatformat:2|intcomma   }}</td>
                     </tr>
                   </tbody>
-              <!--     <tfoot style="text-align: center;">
-                    <tr>
-                        <th scope="row">Total</th>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-      
-                    </tr>
-                </tfoot> -->
+             
                 </table>
                 
                 
