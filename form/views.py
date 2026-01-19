@@ -854,7 +854,6 @@ def reporte(request):
 
     })
 
-@login_required
 def graficas(request):
 
 
