@@ -3075,7 +3075,7 @@ def get_chart52024(request):
 
 
 def graficasPublicas(request):
-   return render(request, 'graficasPublicas.html')
+   return render(request, 'graficaPublicaContenido.html')
 
 
 def iframePublico(request):

@@ -1,0 +1,45 @@
+{% extends 'baseTienda.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
+
+
+
+<!--Tarjetas -->
+<div class="body-card">
+    <div class="container">
+        <a href="{% url 'productosAcuicola' 'TILAPIA' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/tilapia.jpg' %}" alt="TILAPIA">
+                <h3>TILAPIA</h3>
+            </div>
+        </a>
+
+        <a href="{% url 'productosAcuicola' 'CAMARON BLANCO' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/camaronBlanco.jpg' %}" alt="CAMARON_BLANCO">
+                <h3>CAMARON BLANCO</h3>
+            </div>
+        </a>
+        <a href="{% url 'productosAcuicola' 'TRUCHA ARCOIRIS' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/trucha.jpg' %}" alt="TRUCHA_ARCOIRIS">
+                <h3>TRUCHA ARCOIRIS</h3>
+            </div>
+        </a>
+
+        <a href="{% url 'productosAcuicola' 'OTRO' %}">
+            <div class="card">
+                <img src="{% static 'imagenesSA/acuicola.jpg' %}" alt="OTRO">
+                <h3>OTRO</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
