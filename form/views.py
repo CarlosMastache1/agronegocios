@@ -3073,11 +3073,11 @@ def get_chart52024(request):
   return JsonResponse(chart)
 
 
+# def graficasPublicas(request):
+#    return render(request, 'graficaPublicaContenido.html')
+
+
 def graficasPublicas(request):
-   return render(request, 'graficaPublicaContenido.html')
-
-
-def iframePublico(request):
 
 
 
