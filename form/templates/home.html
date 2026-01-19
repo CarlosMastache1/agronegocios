@@ -287,7 +287,8 @@
         <thead class="table-light">
       
             <tr>
-                <th>NOMBRE DEL PORYECTO</th>
+                <th>NUMERO DEL PROYECTO</th>
+                <th>NOMBRE DEL PROYECTO</th>
                 <th>NOMBRE DEL PRODUCTOR</th>
                 {% comment %} <th>MUNICIPIO</th> {% endcomment %}
                 {% comment %} <th>REGIÓN</th> {% endcomment %}
@@ -303,6 +304,7 @@
             {% for fin in finan %}
 
             <tr class="table-primary" >
+                <td scope="row">{{fin.num_credito}}</td>
                 <td scope="row">{{fin.nombre_proyecto}}</td>
                 <td>{{fin.nombre_cliente}}</td>
                 {% comment %} <td>{{fin.municipio.nombre_municipio}}</td>

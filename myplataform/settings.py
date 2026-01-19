@@ -96,31 +96,31 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 
 # BASE DE DATOS PARA PRODUCCION
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',  # <-- nombre de la base en Railway
-        'USER': 'postgres',
-        'PASSWORD': 'xdFnfDJMIBYvSWjQxEwFtpFRjzKsmVgh',  # <-- tu contraseña de Railway
-        'HOST': 'switchyard.proxy.rlwy.net',
-        'PORT': '38767',
-        'OPTIONS': {
-            'sslmode': 'require',  # Railway requiere SSL
-        },
-        'CONN_MAX_AGE': 60,
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'railway',  # <-- nombre de la base en Railway
+         'USER': 'postgres',
+         'PASSWORD': 'xdFnfDJMIBYvSWjQxEwFtpFRjzKsmVgh',  # <-- tu contraseña de Railway
+         'HOST': 'switchyard.proxy.rlwy.net',
+         'PORT': '38767',
+         'OPTIONS': {
+             'sslmode': 'require',  # Railway requiere SSL
+         },
+         'CONN_MAX_AGE': 60,
+     }
+ }
 
 # BASE DE DATOS PARA DESARROLLO
 # DATABASES = {
-#                                                                                 'default': {
-#                                                                                  'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#                                                                                  'NAME': 'developer',
-#                                                                                  'USER': 'postgres', 
-#                                                                                  'PASSWORD': 'mastache', 
-#                                                                                  'HOST': 'localhost',
-#                                                                                  'PORT': '5432'
-#                                                                              }
-#                                                                           } 
+#                                                                                  'default': {
+#                                                                                   'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                                                                                   'NAME': 'developer',
+#                                                                                   'USER': 'postgres', 
+#                                                                                   'PASSWORD': 'mastache', 
+#                                                                                   'HOST': 'localhost',
+#                                                                                   'PORT': '5432'
+#                                                                               }
+#                                                                            } 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
