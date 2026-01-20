@@ -7,7 +7,7 @@ from django.db import IntegrityError
 from .forms import financieras, productosForm
 from django.contrib import messages
 from .models import entidadesFinancieras2, municipios, productos
-from django.db.models import Sum, Count, Q
+from django.db.models import Sum, Count, Q, Value, DecimalField, IntegerField
 from django.http.response import JsonResponse
 from random import randrange
 from django.contrib.auth.decorators import login_required
@@ -2344,35 +2344,35 @@ def reporte(request):
 
 
 def graficas(request):
-    # 1. DEFINIMOS LOS FILTROS COMUNES PARA NO REPETIR CODIGO
-    # Regiones
+    # 1. DEFINIMOS LOS FILTROS COMUNES
     regiones = {
         'VC': 'VALLES CENTRALES', 'IST': 'ISTMO', 'COS': 'COSTA',
         'PAPA': 'PAPALOAPAN', 'MIX': 'MIXTECA', 'SJ': 'SIERRA DE JUAREZ',
         'SS': 'SIERRA SUR', 'SFM': 'SIERRA DE FLORES MAGON'
     }
     
-    # Subsectores
     subsectores = ['Agricola', 'Pecuario', 'Acuicola', 'Pesquero', 'Forestal']
 
-    # 2. CONSTRUIMOS LA GRAN CONSULTA DE AGREGACIÓN
-    # Usamos un diccionario para ir armando las cientos de métricas dinámicamente
+    # 2. CONSTRUIMOS LA GRAN CONSULTA
     agregaciones = {}
 
-    # --- MÉTRICAS GENERALES Y POR AÑO (2023, 2024) ---
-    # Iteramos sobre las regiones para crear las métricas: conteo_VC, monto_VC, conteo_VC_2023, etc.
+    # --- MÉTRICAS GENERALES Y POR AÑO ---
     for clave, nombre_region in regiones.items():
         filtro_region = Q(municipio__region=nombre_region)
         
         # GENERAL
         agregaciones[f'conteo_{clave}'] = Count('id', filter=filtro_region)
-        agregaciones[f'monto_{clave}'] = Coalesce(Sum('monto_total', filter=filtro_region), 0.0)
-        agregaciones[f'garantias_{clave}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_region), 0.0)
-        agregaciones[f'beneficiarios_{clave}_T'] = Coalesce(Sum('total_beneficiarios', filter=filtro_region), 0)
+        
+        # CORRECCIÓN AQUÍ: Agregamos output_field=DecimalField() para evitar el error de tipos mixtos
+        agregaciones[f'monto_{clave}'] = Coalesce(Sum('monto_total', filter=filtro_region), 0, output_field=DecimalField())
+        agregaciones[f'garantias_{clave}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_region), 0, output_field=DecimalField())
+        
+        # Para enteros (personas/empleos) usamos IntegerField
+        agregaciones[f'beneficiarios_{clave}_T'] = Coalesce(Sum('total_beneficiarios', filter=filtro_region), 0, output_field=IntegerField())
         agregaciones[f'can_municipios_{clave}'] = Count('municipio', filter=filtro_region, distinct=True)
         agregaciones[f'E100_{clave}'] = Count('id', filter=filtro_region & Q(municipio__eCien=True))
         agregaciones[f'PI_{clave}'] = Count('id', filter=filtro_region & ~Q(municipio__puebloIndigena='false'))
-        agregaciones[f'empleos_{clave}_T'] = Coalesce(Sum('empleos_directos', filter=filtro_region), 0)
+        agregaciones[f'empleos_{clave}_T'] = Coalesce(Sum('empleos_directos', filter=filtro_region), 0, output_field=IntegerField())
 
         # AÑOS 2023 y 2024
         for anio in [2023, 2024]:
@@ -2380,18 +2380,16 @@ def graficas(request):
             sufijo = f'_{anio}'
             
             agregaciones[f'conteo_{clave}{sufijo}'] = Count('id', filter=filtro_anio)
-            agregaciones[f'monto_{clave}{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_anio), 0.0)
-            agregaciones[f'garantias_{clave}{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_anio), 0.0)
-            agregaciones[f'beneficiarios_{clave}_T{sufijo}'] = Coalesce(Sum('total_beneficiarios', filter=filtro_anio), 0)
+            agregaciones[f'monto_{clave}{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_anio), 0, output_field=DecimalField())
+            agregaciones[f'garantias_{clave}{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_anio), 0, output_field=DecimalField())
+            agregaciones[f'beneficiarios_{clave}_T{sufijo}'] = Coalesce(Sum('total_beneficiarios', filter=filtro_anio), 0, output_field=IntegerField())
             agregaciones[f'can_municipios_{clave}{sufijo}'] = Count('municipio', filter=filtro_anio, distinct=True)
             agregaciones[f'E100_{clave}{sufijo}'] = Count('id', filter=filtro_anio & Q(municipio__eCien=True))
             agregaciones[f'PI_{clave}{sufijo}'] = Count('id', filter=filtro_anio & ~Q(municipio__puebloIndigena='false'))
-            agregaciones[f'empleos_{clave}_T{sufijo}'] = Coalesce(Sum('empleos_directos', filter=filtro_anio), 0)
+            agregaciones[f'empleos_{clave}_T{sufijo}'] = Coalesce(Sum('empleos_directos', filter=filtro_anio), 0, output_field=IntegerField())
 
             # SUBSECTORES POR REGIÓN Y AÑO
-            # Genera variables como: valles_agri, valles_agri_2023, valles_agri_monto, etc.
-            # Nota: Mapeamos tus nombres de variable específicos (ej: valles_agri)
-            nom_var_reg = nombre_region.split(' ')[0].lower() # 'VALLES' -> 'valles'
+            nom_var_reg = nombre_region.split(' ')[0].lower()
             if clave == 'SFM': nom_var_reg = 'sflm'
             if clave == 'SJ': nom_var_reg = 'sjua'
             if clave == 'SS': nom_var_reg = 'ssur'
@@ -2401,20 +2399,17 @@ def graficas(request):
             if clave == 'COS': nom_var_reg = 'costa'
 
             for sub in subsectores:
-                sub_abbr = sub[:3].lower() if sub != 'Agricola' else 'agri' # agri, pec, acu...
+                sub_abbr = sub[:3].lower() if sub != 'Agricola' else 'agri'
                 if sub == 'Pecuario': sub_abbr = 'pec'
                 if sub == 'Acuicola': sub_abbr = 'acu'
                 if sub == 'Pesquero': sub_abbr = 'pes'
                 if sub == 'Forestal': sub_abbr = 'for'
 
-                # Conteo General
                 agregaciones[f'{nom_var_reg}_{sub_abbr}'] = Count('id', filter=filtro_region & Q(subsector=sub))
-                # Conteo Año
                 agregaciones[f'{nom_var_reg}_{sub_abbr}{sufijo}'] = Count('id', filter=filtro_anio & Q(subsector=sub))
-                # Monto General
-                agregaciones[f'{nom_var_reg}_{sub_abbr}_monto'] = Coalesce(Sum('monto_total', filter=filtro_region & Q(subsector=sub)), 0.0)
-                # Monto Año
-                agregaciones[f'{nom_var_reg}_{sub_abbr}_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_anio & Q(subsector=sub)), 0.0)
+                
+                agregaciones[f'{nom_var_reg}_{sub_abbr}_monto'] = Coalesce(Sum('monto_total', filter=filtro_region & Q(subsector=sub)), 0, output_field=DecimalField())
+                agregaciones[f'{nom_var_reg}_{sub_abbr}_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_anio & Q(subsector=sub)), 0, output_field=DecimalField())
 
     # --- CONCEPTOS DE APOYO ---
     conceptos = [
@@ -2425,55 +2420,53 @@ def graficas(request):
     
     for key, nombre_concepto in conceptos:
         filtro_conc = Q(tipo_concepto=nombre_concepto)
-        # General
         agregaciones[f'cantidad_{key}'] = Count('id', filter=filtro_conc)
-        agregaciones[f'monto_{key}'] = Coalesce(Sum('monto_total', filter=filtro_conc), 0.0)
-        agregaciones[f'garantias_{key}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_conc), 0.0)
+        agregaciones[f'monto_{key}'] = Coalesce(Sum('monto_total', filter=filtro_conc), 0, output_field=DecimalField())
+        agregaciones[f'garantias_{key}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_conc), 0, output_field=DecimalField())
         
-        # Años
         for anio in [2023, 2024]:
             sufijo = f'_{anio}'
             filtro_conc_anio = filtro_conc & Q(fecha_inicio__year=anio)
             agregaciones[f'cantidad_{key}{sufijo}'] = Count('id', filter=filtro_conc_anio)
-            agregaciones[f'monto_{key}{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_conc_anio), 0.0)
-            agregaciones[f'garantias_{key}{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_conc_anio), 0.0)
+            agregaciones[f'monto_{key}{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_conc_anio), 0, output_field=DecimalField())
+            agregaciones[f'garantias_{key}{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_conc_anio), 0, output_field=DecimalField())
 
     # --- TOTALES GLOBALES ---
     agregaciones['totalCPG'] = Count('id')
-    agregaciones['totalMFG'] = Coalesce(Sum('monto_total'), 0.0)
-    agregaciones['totalGLG'] = Coalesce(Sum('monto_garantiasLiquidasVigente'), 0.0)
-    agregaciones['totalBG'] = Coalesce(Sum('total_beneficiarios'), 0)
+    agregaciones['totalMFG'] = Coalesce(Sum('monto_total'), 0, output_field=DecimalField())
+    agregaciones['totalGLG'] = Coalesce(Sum('monto_garantiasLiquidasVigente'), 0, output_field=DecimalField())
+    agregaciones['totalBG'] = Coalesce(Sum('total_beneficiarios'), 0, output_field=IntegerField())
     agregaciones['totalE100G'] = Count('id', filter=Q(municipio__eCien=True))
     agregaciones['totalPIG'] = Count('id', filter=~Q(municipio__puebloIndigena='false'))
-    agregaciones['totalEDG'] = Coalesce(Sum('empleos_directos'), 0)
+    agregaciones['totalEDG'] = Coalesce(Sum('empleos_directos'), 0, output_field=IntegerField())
     agregaciones['totalCMG'] = Count('municipio', distinct=True)
-    agregaciones['total_concepto'] = Count('id', filter=Q(tipo_concepto__in=[c[1] for c in conceptos])) # Aprox
+    agregaciones['total_concepto'] = Count('id', filter=Q(tipo_concepto__in=[c[1] for c in conceptos]))
 
     # Totales por año globales
     for anio in [2023, 2024]:
         sufijo = f'_{anio}'
         filtro_tot = Q(fecha_inicio__year=anio)
         agregaciones[f'totalCPG{sufijo}'] = Count('id', filter=filtro_tot)
-        agregaciones[f'totalMFG{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot), 0.0)
-        agregaciones[f'totalGLG{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_tot), 0.0)
-        agregaciones[f'totalBG{sufijo}'] = Coalesce(Sum('total_beneficiarios', filter=filtro_tot), 0)
+        agregaciones[f'totalMFG{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot), 0, output_field=DecimalField())
+        agregaciones[f'totalGLG{sufijo}'] = Coalesce(Sum('monto_garantiasLiquidasVigente', filter=filtro_tot), 0, output_field=DecimalField())
+        agregaciones[f'totalBG{sufijo}'] = Coalesce(Sum('total_beneficiarios', filter=filtro_tot), 0, output_field=IntegerField())
         agregaciones[f'totalE100G{sufijo}'] = Count('id', filter=filtro_tot & Q(municipio__eCien=True))
         agregaciones[f'totalPIG{sufijo}'] = Count('id', filter=filtro_tot & ~Q(municipio__puebloIndigena='false'))
-        agregaciones[f'totalEDG{sufijo}'] = Coalesce(Sum('empleos_directos', filter=filtro_tot), 0)
+        agregaciones[f'totalEDG{sufijo}'] = Coalesce(Sum('empleos_directos', filter=filtro_tot), 0, output_field=IntegerField())
         agregaciones[f'totalCMG{sufijo}'] = Count('municipio', filter=filtro_tot, distinct=True)
         
-        # Totales subsectores por año (agregado simple)
+        # Totales subsectores por año
         agregaciones[f'total_agri{sufijo}'] = Count('id', filter=filtro_tot & Q(subsector='Agricola'))
         agregaciones[f'total_pec{sufijo}'] = Count('id', filter=filtro_tot & Q(subsector='Pecuario'))
         agregaciones[f'total_acu{sufijo}'] = Count('id', filter=filtro_tot & Q(subsector='Acuicola'))
         agregaciones[f'total_pes{sufijo}'] = Count('id', filter=filtro_tot & Q(subsector='Pesquero'))
         agregaciones[f'total_for{sufijo}'] = Count('id', filter=filtro_tot & Q(subsector='Forestal'))
         
-        agregaciones[f'total_agri_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Agricola')), 0.0)
-        agregaciones[f'total_pec_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Pecuario')), 0.0)
-        agregaciones[f'total_acu_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Acuicola')), 0.0)
-        agregaciones[f'total_pes_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Pesquero')), 0.0)
-        agregaciones[f'total_for_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Forestal')), 0.0)
+        agregaciones[f'total_agri_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Agricola')), 0, output_field=DecimalField())
+        agregaciones[f'total_pec_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Pecuario')), 0, output_field=DecimalField())
+        agregaciones[f'total_acu_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Acuicola')), 0, output_field=DecimalField())
+        agregaciones[f'total_pes_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Pesquero')), 0, output_field=DecimalField())
+        agregaciones[f'total_for_monto{sufijo}'] = Coalesce(Sum('monto_total', filter=filtro_tot & Q(subsector='Forestal')), 0, output_field=DecimalField())
 
     # Totales subsectores generales
     agregaciones['total_agri'] = Count('id', filter=Q(subsector='Agricola'))
@@ -2482,35 +2475,27 @@ def graficas(request):
     agregaciones['total_pes'] = Count('id', filter=Q(subsector='Pesquero'))
     agregaciones['total_for'] = Count('id', filter=Q(subsector='Forestal'))
     
-    agregaciones['total_agri_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Agricola')), 0.0)
-    agregaciones['total_pec_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Pecuario')), 0.0)
-    agregaciones['total_acu_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Acuicola')), 0.0)
-    agregaciones['total_pes_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Pesquero')), 0.0)
-    agregaciones['total_for_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Forestal')), 0.0)
+    agregaciones['total_agri_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Agricola')), 0, output_field=DecimalField())
+    agregaciones['total_pec_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Pecuario')), 0, output_field=DecimalField())
+    agregaciones['total_acu_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Acuicola')), 0, output_field=DecimalField())
+    agregaciones['total_pes_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Pesquero')), 0, output_field=DecimalField())
+    agregaciones['total_for_monto'] = Coalesce(Sum('monto_total', filter=Q(subsector='Forestal')), 0, output_field=DecimalField())
 
 
-    # 3. EJECUTAR LA CONSULTA (ESTO TARDA MILISEGUNDOS)
+    # 3. EJECUTAR LA CONSULTA
     results = entidadesFinancieras2.objects.aggregate(**agregaciones)
 
-    # 4. MAPEO DE VARIABLES (Parche para que coincida con tu HTML)
-    # Tu HTML usa nombres como monto_VC_templates, pero el aggregate generó monto_VC.
-    # Vamos a duplicar las claves para que tu HTML no se rompa.
-    
+    # 4. MAPEO DE VARIABLES
     final_context = results.copy()
     
-    # Mapeo manual para las variables _templates que usas en el HTML
     for clave in regiones.keys():
-        # General
         final_context[f'monto_{clave}_templates'] = results[f'monto_{clave}']
-        final_context[f'garantia_{clave}_templates'] = results[f'garantias_{clave}'] # Ojo: singular/plural en tu html
+        final_context[f'garantia_{clave}_templates'] = results[f'garantias_{clave}']
         
-        # Años
         for anio in [2023, 2024]:
             final_context[f'monto_{clave}_templates_{anio}'] = results[f'monto_{clave}_{anio}']
             final_context[f'garantia_{clave}_templates_{anio}'] = results[f'garantias_{clave}_{anio}']
 
-    # Mapeo manual para variables de reporte 2023 que tenían nombres distintos en tu vista original
-    # (vc_cantidad vs conteo_VC_2023)
     final_context.update({
         'vc_cantidad': results['conteo_VC_2023'], 'vc_monto': results['monto_VC_2023'], 'vc_garantia': results['garantias_VC_2023'],
         'vc_beneficiarios': results['beneficiarios_VC_T_2023'], 'vc_municipios': results['can_municipios_VC_2023'],
@@ -2546,7 +2531,6 @@ def graficas(request):
     })
 
     return render(request, 'graficas.html', final_context)
-
 
 def get_chart(request):
       #MONTOS DE FINANCIAMIENTO
