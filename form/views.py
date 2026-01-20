@@ -644,38 +644,50 @@ def signout(request):
 def form(request):
     if request.method == 'GET':
         muni = municipios.objects.all()
+        # Asegúrate de usar los paréntesis () para instanciar el form vacío
         return render(request, 'form.html', {
-            'form': financieras(),  # Asegúrate de instanciar el formulario vacío con ()
+            'form': financieras(), 
             'muni': muni
         })
     else:
-        # 1. Copiamos los datos para poder modificarlos (request.POST es inmutable)
+        # 1. Copia de datos
         datos = request.POST.copy()
 
-        # 2. Limpiamos las comas de los campos numéricos problemáticos
-        # Repite esta línea para cualquier otro campo de dinero que use comas
-        if 'monto_garantiasLiquidasVigente' in datos:
-            datos['monto_garantiasLiquidasVigente'] = datos['monto_garantiasLiquidasVigente'].replace(',', '')
+        # 2. LISTA DE TODOS TUS CAMPOS DECIMALES/NUMÉRICOS
+        # Agrega aquí cualquier otro campo que sea dinero o porcentaje
+        campos_numericos = [
+            'monto_garantiasLiquidasVigente',
+            'porcentaje_garantias',
+            'monto_total',
+            'tasa_interes',
+            'monto_garantiaLiquidaEjercida',
+            'saldo_disponible',
+            'monto_recuperado',
+            'aportacion_productor'
+        ]
 
-        # 3. Pasamos los datos LIMPIOS al formulario
+        # 3. Bucle para limpiar todos a la vez
+        for campo in campos_numericos:
+            if campo in datos and datos[campo]:
+                # Reemplaza comas y símbolos de porcentaje por vacío
+                datos[campo] = datos[campo].replace(',', '').replace('%', '')
+
+        # 4. Validar
         form_instance = financieras(datos)
 
-        # 4. Validamos ANTES de guardar (Crucial para evitar el ValueError)
         if form_instance.is_valid():
             new_finan = form_instance.save(commit=False)
             new_finan.save()
-            messages.success(request, 'Registro guardado en la base de datos')
+            messages.success(request, 'Registro guardado exitosamente')
             return redirect('home')
         else:
-            # 5. Si falla, volvemos a mostrar el formulario CON LOS ERRORES
-            # Esto permitirá ver en pantalla qué campo está mal
+            # Si falla, imprimimos errores y volvemos al form
+            print("---- ERRORES DE VALIDACIÓN ----")
+            print(form_instance.errors)
+            
             muni = municipios.objects.all()
-            
-            # (Opcional) Imprimir errores en consola para depurar
-            print("Errores de validación:", form_instance.errors)
-            
             return render(request, 'form.html', {
-                'form': form_instance, # Devolvemos el form con lo que escribió el usuario + errores
+                'form': form_instance,
                 'muni': muni
             })
 
