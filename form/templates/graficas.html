@@ -1363,7 +1363,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     // Función para inicializar una gráfica
     const initChart2023 = async (chartId, url) => {
-        console.log(`Intentando inicializar ${chartId} desde ${url}`); 
+        console.log(`Intentando inicializar ${chartId} desde ${url}`); // DEPURACIÓN
         const chartElement = document.getElementById(chartId);
         if (!chartElement) {
             console.warn(`No se encontró el elemento ${chartId}`);
@@ -1393,27 +1393,36 @@
         }
     };
 
+
+
     // Detectar cambio de tab en Bootstrap Pills
     document.querySelectorAll('button[data-bs-toggle="pill"]').forEach(tab => {
         tab.addEventListener("shown.bs.tab", function (event) {
-            const targetTab = event.target.getAttribute("data-bs-target"); 
-            console.log(`➡ Tab activo: ${targetTab}`); 
+            const targetTab = event.target.getAttribute("data-bs-target"); // ID del tab activo
+            console.log(`➡ Tab activo: ${targetTab}`); // DEPURACIÓN
 
             if (targetTab === "#pills-profile") { 
-                initChart2023("chart6", "https://sefader-agronegocios.com/get_chart_2023_1/");
-                initChart2023("chart7", "https://sefader-agronegocios.com/get_chart_2023_2/");
-                initChart2023("chart8", "https://sefader-agronegocios.com/get_chart_2023_3/");
-                initChart2023("chart9", "https://sefader-agronegocios.com/get_chart_2023_5/");
+                initChart2023("chart6", "https://www.sefaderoaxaca.gob.mx/get_chart_2023_1/");
+                initChart2023("chart7", "https://www.sefaderoaxaca.gob.mx/get_chart_2023_2/");
+                initChart2023("chart8", "https://www.sefaderoaxaca.gob.mx/get_chart_2023_3/");
+                initChart2023("chart9", "https://www.sefaderoaxaca.gob.mx/get_chart_2023_5/");
+
+
+
             }
             if (targetTab === "#pills-contact") { 
-              initChart2023("chart10", "https://sefader-agronegocios.com/get_chart_2024_1/");
-              initChart2023("chart11", "https://sefader-agronegocios.com/get_chart_2024_2/");
-              initChart2023("chart12", "https://sefader-agronegocios.com/get_chart_2024_3/");
-              initChart2023("chart13", "https://sefader-agronegocios.com/get_chart_2024_5/");
+              initChart2023("chart10", "https://www.sefaderoaxaca.gob.mx/get_chart_2024_1/");
+              initChart2023("chart11", "https://www.sefaderoaxaca.gob.mx/get_chart_2024_2/");
+              initChart2023("chart12", "https://www.sefaderoaxaca.gob.mx/get_chart_2024_3/");
+              initChart2023("chart13", "https://www.sefaderoaxaca.gob.mx/get_chart_2024_5/");
+
+
+
             }
         });
     });
 });
+
 </script>
 
 {% endblock %}
