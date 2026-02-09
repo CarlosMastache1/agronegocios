@@ -18,6 +18,7 @@ urlpatterns = [
     path('reporte/', views.reporte, name='reporte'),
     path('grafica/', views.graficas, name='grafica'),
     path('graficaPubli/', views.iframePublico, name='graficaPubli'),
+    path('graficaPubliView/', views.graficasPublicas, name='graficaPubliView'),
     path('getcharts/', views.get_chart, name='getcharts'),
     path('getcharts2/', views.get_chart2, name='getcharts2'),
     path('getcharts22023/', views.get_chart22023, name='getcharts22023'),

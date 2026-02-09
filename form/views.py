@@ -2533,7 +2533,7 @@ def iframePublico(request):
 
 
 def graficasPublicas(request):
-   return render(request, 'graficaPublicaContenido.html')
+   return render(request, 'graficasPublicas.html')
 
 
 
