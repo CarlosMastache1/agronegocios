@@ -89,6 +89,7 @@ urlpatterns = [
     path('nosotros/', views.nosotros, name='nosotros'),
     path('directorio/', views.directorio, name='directorio'),
     path('testimonios/', views.testimonios, name='testimonios'),
+    path('estatus/', views.estatus, name='estatus'),
     path('ubicacion/', views.ubicacion, name='ubicacion'),
     path('terminos-condiciones/', TemplateView.as_view(template_name="terminos.html"), name='terminos-condiciones'),
 

@@ -3522,3 +3522,26 @@ def testimonios(request):
 
 def ubicacion(request):
   return render(request, 'ubicacion.html')
+
+
+
+
+
+def estatus(request):
+    query = request.GET.get('q', '').strip()
+    resultado = None
+    busqueda_realizada = False
+    
+    if query:
+        busqueda_realizada = True
+        # Usamos __iexact para evitar problemas de mayúsculas/minúsculas
+        resultado = entidadesFinancieras2.objects.filter(num_credito__iexact=query).first()
+        
+        # Depuración en consola
+        print(f"Buscando: '{query}' | Encontrado: {resultado}")
+
+    return render(request, 'buscadorCreditos.html', {
+        'credito': resultado,
+        'query': query,
+        'busqueda_realizada': busqueda_realizada  # <--- Fundamental que esté aquí
+    })    

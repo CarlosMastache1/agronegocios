@@ -1,43 +1,94 @@
-{% extends 'baseTienda.html' %}
-
+{% extends 'base3.html' %}
 {% load static %}
-
+{% load humanize %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_tarjeta.css' %}">
 
 
+<link rel="stylesheet" href="{% static 'estilos/carrusel_style.css' %}">
 
-<!--Tarjetas -->
-<div class="body-card">
-    <div class="container">
-        <a href="{% url 'productosAcuicola' 'TILAPIA' %}">
-            <div class="card">
-                <img src="{% static 'imagenesSA/tilapia.jpg' %}" alt="TILAPIA">
-                <h3>TILAPIA</h3>
+<main class="site-contnts">
+	<div class="carousel-comp" id="carousel-comp">
+		<div class="carousel-comp__slides" id="slides-comp">
+			<div class="carousel-comp__slide">
+				<img src="{% static 'assets/images/agricola2.jpg' %}" alt="Imagen 1" />
+				<div class="carousel-comp__text-overlay">
+					<strong>CONSULTA EL ESTADO DE TU CREDITO</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Clients-->
+	<section class="row client-logos">
+        <div class="container">
+			<div class="row section-title text-center">
+				<h2>ESCRIBE EL NUMERO DE TU CREDITO EN EL BUSCADOR </h2>
+			</div>
+            <div class="row section-title text-center"> 
+				<form method="GET" action="." class="m-0">
+                   <div class="mb-3">
+                    <label  class="form-label">Numero de Credito: </label>
+                    <input type="text" name="q" value="{{ query }}" class="form-control"  placeholder="Escribe tu numero de credito"> <br>
+                    <button type="submit" class="btn btn-primary" style="background-color: #611232; border-radius: 30px; border: none; align-items: center; justify-content: center; gap: 10px;">BUSCAR </button>
+                            </div>       
+                </form>
+        </div>
+
+    <div class="row section-title text-center">       
+                {% if credito %}
+    <div class="card border-success">
+        <div class="alert alert-success" style="font-size: 18px; font-weight:bolder; color; #27420c" role="alert">
+        Crédito Localizado: {{ credito.num_credito }} <br>
+        </div>
+     <p class="card-text" style="">
+    Estatus: 
+    <b style="color: #26308b;">{{ credito.status }}</b> 
+</p> 
+        <div class="card-body">
+            <h3 class="card-title">Nombre del Cliente: {{ credito.nombre_cliente }}</h3>
+<p class="card-text" style="">
+    Monto Financiado: 
+    <b style="color: #2d572c;">${{ credito.monto_total|floatformat:2|intcomma }}</b> <br> Tasa de interes :  {{ credito.tasa_interes }} <br> Periodo de Pago: {{ credito.periodo_pago }} 
+</p> 
+          
+<p class="card-text" style="">
+    Nombre del proyecto: {{ credito.nombre_proyecto }}   <br>   Municipio donde se esta desarrolando: {{ credito.municipio.nombre_municipio }} </p>  
+    <p class="card-text" style="">
+    Fecha de Inicio del Credito: {{ credito.fecha_inicio }} - Fecha del Termino del Credito: {{ credito.fecha_termino }} </p>  
+        <p class="card-text" style="">
+    Intermediario Financiero: {{ credito.intermediario_financiero }} <br> Periodo de pago: {{ credito.periodo_pago }}</p>  
+      <p class="card-text" style="">
+    Producto que comercializa: {{ credito.producto_comercializa }} <br> Aportacion del productor: {{ credito.aportacion_productor }}</p> 
+          <p class="card-text" style="">
+    Tecnico que supervisa el Proyecto: {{ credito.tecnico }} <br> Observaciones: {{ credito.observaciones }}</p> 
+</div>
+    </div>
+
+{% elif busqueda_realizada %}
+    <div class="alert alert-danger shadow-sm border-start border-danger border-5">
+        <div class="d-flex align-items-center">
+            <span class="fs-4 me-3" style="color: black; font-size: 25px">⚠️</span>
+            <div style="color: black">
+                <p style="color: black; font-size: 25px">No se encontró el registro.</p><br>
+                El ID de crédito <p style="color: black; font-weight:bolder">"{{ query }}"</p> No existe en el sistema. 
+                Por favor, verifique que el número sea correcto.
             </div>
-        </a>
+        </div>
+    </div>
+{% endif %}
 
-        <a href="{% url 'productosAcuicola' 'CAMARON BLANCO' %}">
-            <div class="card">
-                <img src="{% static 'imagenesSA/camaronBlanco.jpg' %}" alt="CAMARON_BLANCO">
-                <h3>CAMARON BLANCO</h3>
-            </div>
-        </a>
-        <a href="{% url 'productosAcuicola' 'TRUCHA ARCOIRIS' %}">
-            <div class="card">
-                <img src="{% static 'imagenesSA/trucha.jpg' %}" alt="TRUCHA_ARCOIRIS">
-                <h3>TRUCHA ARCOIRIS</h3>
-            </div>
-        </a>
-
-        <a href="{% url 'productosAcuicola' 'OTRO' %}">
-            <div class="card">
-                <img src="{% static 'imagenesSA/acuicola.jpg' %}" alt="OTRO">
-                <h3>OTRO</h3>
-            </div>
-        </a>
     </div>
 </div>
+	</section>
+
+</main>
+
+
+
+
+
+
+
 
 
 
