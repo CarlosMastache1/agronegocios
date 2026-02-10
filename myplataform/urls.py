@@ -86,7 +86,7 @@ urlpatterns = [
     path('platano/', TemplateView.as_view(template_name="agricola/platano.html"), name='platano'),
     path('sandia/', TemplateView.as_view(template_name="agricola/sandia.html"), name='sandia'),
 
-    path('graficos-precios/', views.precios_maiz, name='graficos_precios'),
+    path('graficos-precios/', views.precios_maiz, name='graficos-precios'),
     path('nosotros/', views.nosotros, name='nosotros'),
     path('directorio/', views.directorio, name='directorio'),
     path('testimonios/', views.testimonios, name='testimonios'),
