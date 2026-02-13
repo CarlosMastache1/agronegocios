@@ -2,7 +2,6 @@ import yfinance as yf
 import requests
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
-from .models import ProductoPrecio
 
 
 # Tickers de futuros

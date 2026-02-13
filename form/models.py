@@ -117,7 +117,52 @@ class productos(models.Model):
     estado = models.BooleanField(default=False)
 
 
+class CentralAbasto(models.Model):
+    nombre = models.CharField(max_length=200) # Ej: Central de Abasto de Iztapalapa
+    estado = models.CharField(max_length=100)
+    ciudad = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f"{self.nombre} ({self.ciudad})"
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=200)
+    categoria = models.CharField(max_length=100) # Ej: Frutas, Verduras, Abarrotes
+
+    def __str__(self):
+        return f"{self.nombre} - {self.categoria}"
+
+class RegistroPrecio(models.Model):
+    TENDENCIA_CHOICES = [
+        ('SUBE', 'Subió'),
+        ('BAJA', 'Bajó'),
+        ('ESTABLE', 'Estable'),
+    ]
+
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='precios')
+    central = models.ForeignKey(CentralAbasto, on_delete=models.CASCADE)
+    
+    # Precios
+    precio_minimo = models.DecimalField(max_digits=10, decimal_places=2)
+    precio_maximo = models.DecimalField(max_digits=10, decimal_places=2)
+    precio_frecuente = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    # Detalles
+    origen = models.CharField(max_length=200, blank=True, null=True)
+    unidad_medida = models.CharField(max_length=50, default='Kg')
+    tendencia = models.CharField(max_length=10, choices=TENDENCIA_CHOICES, default='ESTABLE')
+    
+    # Fechas
+    fecha_reporte = models.DateField()
+    creado_el = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-fecha_reporte', 'producto__nombre']
+        unique_together = ('producto', 'central', 'fecha_reporte')
+
+    def __str__(self):
+        return f"{self.producto.nombre} - ${self.precio_frecuente} ({self.fecha_reporte})"
+        
 
 
 
