@@ -1,239 +1,50 @@
 // Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
   Mixteca: [
-    //14
-    {
-      id: 20004,
-      superficie: 2,
-      volumen: 73,
-      nombre: "Asunción Cuyotepeji"
-    },
-    {
-      id: 20039,
-      superficie: 15,
-      volumen: 414,
-      nombre: "Heroica Ciudad de Huajuapan de León"
-    },
-    {
-      id: 20081,
-      superficie: 30,
-      volumen: 719,
-      nombre: "San Agustín Atenango"
-    },
-    {
-      id: 20089,
-      superficie: 1,
-      volumen: 35,
-      nombre: "San Andrés Dinicuiti"
-    },
-    {
-      id: 20089,
-      superficie: 2,
-      volumen: 39,
-      nombre: "San Juan Bautista Suchitepec"
-    },
-    {
-      id: 20237,
-      superficie: 8,
-      volumen: 215,
-      nombre: "San Marcos Arteaga"
-    },
-    {
-      id: 20400,
-      superficie: 24,
-      volumen: 603,
-      nombre: "Santa María Camotlán"
-    },
-    {
-      id: 20461,
-      superficie: 3,
-      volumen: 76,
-      nombre: "Santiago del Río"
-    },
-    {
-      id: 20462,
-      superficie: 62,
-      volumen: 1600,
-      nombre: "Santiago Huajolotitlán"
-    },
-    {
-      id: 20476,
-      superficie: 1,
-      volumen: 33,
-      nombre: "Santiago Miltepec"
-    },
-    {
-      id: 20520,
-      superficie: 183,
-      volumen: 4659,
-      nombre: "Santo Domingo Tonalá"
-    },
-    {
-      id: 20524,
-      superficie: 3,
-      volumen: 70,
-      nombre: "Santo Domingo Yodohino"
-    },
-    {
-      id: 20537,
-      superficie: 6,
-      volumen: 158,
-      nombre: "Silacayoápam"
-    },
-    {
-      id: 20549,
-      superficie: 29,
-      volumen: 700,
-      nombre: "H. V. Tezoatlán de Segura y Luna, C. de la I.de O."
-    },
+    { id: 20520, superficie: 185.00, volumen: 5181.85, nombre: "Santo Domingo Tonalá" },
+    { id: 20462, superficie: 60.70, volumen: 1710.53, nombre: "Santiago Huajolotitlán" },
+    { id: 20081, superficie: 28.40, volumen: 737.83, nombre: "San Agustín Atenango" },
+    { id: 20549, superficie: 28.00, volumen: 731.08, nombre: "Tezoatlán de Segura y Luna" },
+    { id: 20400, superficie: 24.10, volumen: 630.70, nombre: "Santa María Camotlán" },
+    { id: 20039, superficie: 14.30, volumen: 431.15, nombre: "Heroica Ciudad de Huajuapan de León" },
+    { id: 20237, superficie: 8.56, volumen: 238.14, nombre: "San Marcos Arteaga" },
+    { id: 20537, superficie: 5.82, volumen: 168.49, nombre: "Silacayoápam" },
+    { id: 20461, superficie: 3.33, volumen: 80.29, nombre: "Santiago del Río" },
+    { id: 20524, superficie: 2.81, volumen: 80.31, nombre: "Santo Domingo Yodohino" },
+    { id: 20004, superficie: 2.61, volumen: 91.09, nombre: "Asunción Cuyotepeji" },
+    { id: 20181, superficie: 1.46, volumen: 46.00, nombre: "San Juan Bautista Suchitepec" },
+    { id: 20476, superficie: 1.42, volumen: 36.81, nombre: "Santiago Miltepec" },
+    { id: 20089, superficie: 1.41, volumen: 44.99, nombre: "San Andrés Dinicuiti" }
   ],
   "Valles Centrales": [
-    //21
-    {
-      id: 20023,
-      superficie: 2,
-      volumen: 25,
-      nombre: "Cuilápam de Guerrero"
-    },
-    {
-      id: 20068,
-      superficie: 21,
-      volumen: 325,
-      nombre: "Ocotlán de Morelos"
-    },
-    {
-      id: 20092,
-      superficie: 6,
-      volumen: 100,
-      nombre: "San Andrés Ixtlahuaca"
-    },
-    {
-      id: 20103,
-      superficie: 16,
-      volumen: 254,
-      nombre: "San Antonino Castillo Velasco"
-    },
-    {
-      id: 20132,
-      superficie: 8,
-      volumen: 117,
-      nombre: "San Dionisio Ocotlán"
-    },
-    {
-      id: 20150,
-      superficie: 2,
-      volumen: 30,
-      nombre: "San Francisco Telixtlahuaca"
-    },
-    {
-      id: 20273,
-      superficie: 3,
-      volumen: 39,
-      nombre: "San Miguel Peras"
-    },
-    {
-      id: 20294,
-      superficie: 7,
-      volumen: 107,
-      nombre: "San Pablo Huitzo"
-    },
-    {
-      id: 20301,
-      superficie: 3,
-      volumen: 55,
-      nombre: "San Pedro Apóstol"
-    },
-    {
-      id: 20310,
-      superficie: 2,
-      volumen: 39,
-      nombre: "San Pedro Ixtlahuaca"
-    },
-    {
-      id: 20315,
-      superficie: 2,
-      volumen: 34,
-      nombre: "San Pedro Mártir"
-    },
-    {
-      id: 20368,
-      superficie: 2,
-      volumen: 25,
-      nombre: "Santa Catarina Minas"
-    },
-    {
-      id: 20388,
-      superficie: 2,
-      volumen: 30,
-      nombre: "Santa Inés del Monte"
-    },
-    {
-      id: 20393,
-      superficie: 4,
-      volumen: 60,
-      nombre: "Santa Lucía Ocotlán"
-    },
-    {
-      id: 20399,
-      superficie: 2,
-      volumen: 34,
-      nombre: "Santa María Atzompa"
-    },
-    {
-      id: 20452,
-      superficie: 6,
-      volumen: 97,
-      nombre: "Santiago Apóstol"
-    },
-    {
-      id: 20483,
-      superficie: 8,
-      volumen: 117,
-      nombre: "Santiago Suchilquitongo"
-    },
-    {
-      id: 20561,
-      superficie: 4,
-      volumen: 64,
-      nombre: "Yaxe"
-    },
-    {
-      id: 20570,
-      superficie: 2,
-      volumen: 33,
-      nombre: "Zimatlán de Álvarez"
-    },
-    {
-      id: 20028,
-      superficie: 21,
-      volumen: 238,
-      nombre: "Heroica Ciudad de Ejutla de Crespo"
-    },
-    {
-      id: 20268,
-      superficie: 7,
-      volumen: 89,
-      nombre: "San Miguel Ejutla"
-    },
+    { id: 20068, superficie: 19.20, volumen: 311.09, nombre: "Ocotlán de Morelos" },
+    { id: 20028, superficie: 18.00, volumen: 201.60, nombre: "Heroica Ciudad de Ejutla de Crespo" },
+    { id: 20103, superficie: 16.00, volumen: 265.70, nombre: "San Antonino Castillo Velasco" },
+    { id: 20132, superficie: 7.25, volumen: 114.58, nombre: "San Dionisio Ocotlán" },
+    { id: 20452, superficie: 7.00, volumen: 112.77, nombre: "Santiago Apóstol" },
+    { id: 20301, superficie: 7.00, volumen: 93.84, nombre: "San Pedro Apóstol" },
+    { id: 20268, superficie: 6.80, volumen: 78.88, nombre: "San Miguel Ejutla" },
+    { id: 20092, superficie: 6.80, volumen: 107.77, nombre: "San Andrés Ixtlahuaca" },
+    { id: 20483, superficie: 6.30, volumen: 101.25, nombre: "Santiago Suchilquitongo" },
+    { id: 20294, superficie: 6.00, volumen: 92.70, nombre: "San Pablo Huitzo" },
+    { id: 20561, superficie: 3.30, volumen: 54.12, nombre: "Yaxe" },
+    { id: 20393, superficie: 2.80, volumen: 42.00, nombre: "Santa Lucía Ocotlán" },
+    { id: 20315, superficie: 2.50, volumen: 39.76, nombre: "San Pedro Mártir" },
+    { id: 20388, superficie: 2.20, volumen: 33.84, nombre: "Santa Inés del Monte" },
+    { id: 20570, superficie: 2.20, volumen: 37.31, nombre: "Zimatlán de Álvarez" },
+    { id: 20310, superficie: 2.00, volumen: 31.80, nombre: "San Pedro Ixtlahuaca" },
+    { id: 20399, superficie: 1.70, volumen: 26.69, nombre: "Santa María Atzompa" },
+    { id: 20273, superficie: 1.50, volumen: 23.53, nombre: "San Miguel Peras" },
+    { id: 20150, superficie: 1.50, volumen: 22.47, nombre: "San Francisco Telixtlahuaca" },
+    { id: 20368, superficie: 1.30, volumen: 21.98, nombre: "Santa Catarina Minas" },
+    { id: 20023, superficie: 1.25, volumen: 20.91, nombre: "Cuilápam de Guerrero" }
   ],
   "Sierra de Flores Magón": [
-    //1
-    {
-      id: 20431,
-      superficie: 26,
-      volumen: 575,
-      nombre: "Santa María Tecomavaca"
-    },
+    { id: 20431, superficie: 26.80, volumen: 592.28, nombre: "Santa María Tecomavaca" }
   ],
   "Sierra Sur": [
-    //1
-    {
-      id: 20059,
-      superficie: 11,
-      volumen: 131,
-      nombre: "Miahuatlán de Porfirio Díaz"
-    },
-  ],
+    { id: 20559, superficie: 9.60, volumen: 112.80, nombre: "Miahuatlán de Porfirio Díaz" }
+  ]
 };
 
 // Tabla de producción estatal
@@ -483,277 +294,38 @@ const regionesConMunicipios = {
 ];
  */
 const tab_pro_nacional = [
-  {
-    ranking: 1,
-    id: "SON",
-    entidad: "Sonora",
-    volumen: 165704,
-    superficie: 6099,
-    rendimiento: 22.65,
-    valor: 1103951520,
-  },
-  {
-    ranking: 2,
-    id: "PUE",
-    entidad: "Puebla",
-    volumen: 71148,
-    superficie: 4080,
-    rendimiento: 16.75,
-    valor: 382094599,
-  },
-  {
-    ranking: 3,
-    id: "SIN",
-    entidad: "Sinaloa",
-    volumen: 55646,
-    superficie: 2027,
-    rendimiento: 24.29,
-    valor: 391017819,
-  },
-  {
-    ranking: 4,
-    id: "MICH",
-    entidad: "Michoacán",
-    volumen: 44156,
-    superficie: 2027,
-    rendimiento: 20.84,
-    valor: 331253924,
-  },
-  {
-    ranking: 5,
-    id: "HGO",
-    entidad: "Hidalgo",
-    volumen: 28712,
-    superficie: 1541,
-    rendimiento: 14.94,
-    valor: 147108286,
-  },
-  {
-    ranking: 6,
-    id: "JAL",
-    entidad: "Jalisco",
-    volumen: 25817,
-    superficie: 1150,
-    rendimiento: 21.73,
-    valor: 171972032,
-  },
-  {
-    ranking: 7,
-    id: "ZAC",
-    entidad: "Zacatecas",
-    volumen: 20425,
-    superficie: 785,
-    rendimiento: 23.44,
-    valor: 99933242,
-  },
-  {
-    ranking: 8,
-    id: "MOR",
-    entidad: "Morelos",
-    volumen: 18625,
-    superficie: 1279,
-    rendimiento: 14.68,
-    valor: 86305609,
-  },
-  {
-    ranking: 9,
-    id: "YUC",
-    entidad: "Yucatán",
-    volumen: 17123,
-    superficie: 1027,
-    rendimiento: 14.07,
-    valor: 120347279,
-  },
-  {
-    ranking: 10,
-    id: "EM",
-    entidad: "México",
-    volumen: 14350,
-    superficie: 950,
-    rendimiento: 14.19,
-    valor: 90286761,
-  },
-  {
-    ranking: 11,
-    id: "GTO",
-    entidad: "Guanajuato",
-    volumen: 13970,
-    superficie: 805,
-    rendimiento: 16.06,
-    valor: 74999431,
-  },
-  {
-    ranking: 12,
-    id: "OAX",
-    entidad: "Oaxaca",
-    volumen: 12012,
-    superficie: 535,
-    rendimiento: 18.48,
-    valor: 76207510,
-  },
-  {
-    ranking: 13,
-    id: "BCS",
-    entidad: "Baja California Sur",
-    volumen: 10067,
-    superficie: 303,
-    rendimiento: 27.64,
-    valor: 62269063,
-  },
-  {
-    ranking: 14,
-    id: "SLP",
-    entidad: "San Luis Potosí",
-    volumen: 7769,
-    superficie: 351,
-    rendimiento: 21.65,
-    valor: 60339488,
-  },
-  {
-    ranking: 15,
-    id: "GRO",
-    entidad: "Guerrero",
-    volumen: 7382,
-    superficie: 698,
-    rendimiento: 9.42,
-    valor: 44772501,
-  },
-  {
-    ranking: 16,
-    id: "AGS",
-    entidad: "Aguascalientes",
-    volumen: 6798,
-    superficie: 260,
-    rendimiento: 21.41,
-    valor: 31105736,
-  },
-  {
-    ranking: 17,
-    id: "COA",
-    entidad: "Coahuila",
-    volumen: 5572,
-    superficie: 314,
-    rendimiento: 19.33,
-    valor: 36420972,
-  },
-  {
-    ranking: 18,
-    id: "BCN",
-    entidad: "Baja California",
-    volumen: 4997,
-    superficie: 186,
-    rendimiento: 20.27,
-    valor: 41882676,
-  },
-  {
-    ranking: 19,
-    id: "NL",
-    entidad: "Nuevo León",
-    volumen: 4698,
-    superficie: 142,
-    rendimiento: 33.33,
-    valor: 41994926,
-  },
-  {
-    ranking: 20,
-    id: "CHI",
-    entidad: "Chihuahua",
-    volumen: 3820,
-    superficie: 226,
-    rendimiento: 21.48,
-    valor: 31435562,
-  },
-  {
-    ranking: 21,
-    id: "VER",
-    entidad: "Veracruz",
-    volumen: 3504,
-    superficie: 315,
-    rendimiento: 10.67,
-    valor: 20762712,
-  },
-  {
-    ranking: 22,
-    id: "QR",
-    entidad: "Quintana Roo",
-    volumen: 2669,
-    superficie: 411,
-    rendimiento: 9.42,
-    valor: 15828768,
-  },
-  {
-    ranking: 23,
-    id: "DGO",
-    entidad: "Durango",
-    volumen: 2662,
-    superficie: 90,
-    rendimiento: 21.84,
-    valor: 17765744,
-  },
-  {
-    ranking: 24,
-    id: "QRO",
-    entidad: "Querétaro",
-    volumen: 1406,
-    superficie: 97,
-    rendimiento: 16.55,
-    valor: 9655217,
-  },
-  {
-    ranking: 25,
-    id: "CAM",
-    entidad: "Campeche",
-    volumen: 1173,
-    superficie: 121,
-    rendimiento: 10.52,
-    valor: 11476392,
-  },
-  {
-    ranking: 26,
-    id: "NAY",
-    entidad: "Nayarit",
-    volumen: 990,
-    superficie: 84,
-    rendimiento: 11.26,
-    valor: 5319565,
-  },
-  {
-    ranking: 27,
-    id: "CDMX",
-    entidad: "Ciudad de México",
-    volumen: 855,
-    superficie: 84,
-    rendimiento: 9.78,
-    valor: 7660914,
-  },
-  {
-    ranking: 28,
-    id: "TAMP",
-    entidad: "Tamaulipas",
-    volumen: 840,
-    superficie: 53,
-    rendimiento: 15.91,
-    valor: 8727288,
-  },
-  {
-    ranking: 29,
-    id: "TLAX",
-    entidad: "Tlaxcala",
-    volumen: 378,
-    superficie: 27,
-    rendimiento: 13.78,
-    valor: 2190407,
-  },
-  {
-    ranking: 30,
-    id: "COL",
-    entidad: "Colima",
-    volumen: 85,
-    superficie: 6,
-    rendimiento: 15.88,
-    valor: 535083,
-  },
+  { ranking: 1, id: "SON", entidad: "Sonora", volumen: 128290.89, superficie: 4721.00, rendimiento: 23.59, valor: 936476330.36 },
+  { ranking: 2, id: "PUE", entidad: "Puebla", volumen: 67839.19, superficie: 3944.70, rendimiento: 17.25, valor: 399878307.39 },
+  { ranking: 3, id: "SIN", entidad: "Sinaloa", volumen: 54335.96, superficie: 1945.80, rendimiento: 25.69, valor: 375223698.95 },
+  { ranking: 4, id: "MICH", entidad: "Michoacán", volumen: 41013.00, superficie: 1907.00, rendimiento: 20.27, valor: 275389297.75 },
+  { ranking: 5, id: "HGO", entidad: "Hidalgo", volumen: 30930.22, superficie: 1757.07, rendimiento: 14.41, valor: 136434826.58 },
+  { ranking: 6, id: "ZAC", entidad: "Zacatecas", volumen: 19836.04, superficie: 777.56, rendimiento: 22.17, valor: 113097333.76 },
+  { ranking: 7, id: "MOR", entidad: "Morelos", volumen: 18629.66, superficie: 1294.50, rendimiento: 14.47, valor: 94414116.60 },
+  { ranking: 8, id: "YUC", entidad: "Yucatán", volumen: 17506.77, superficie: 990.20, rendimiento: 13.99, valor: 128046912.39 },
+  { ranking: 9, id: "JAL", entidad: "Jalisco", volumen: 16065.95, superficie: 708.50, rendimiento: 21.96, valor: 119542311.10 },
+  { ranking: 10, id: "EM", entidad: "México", volumen: 13455.84, superficie: 902.71, rendimiento: 13.91, valor: 87963713.72 },
+  { ranking: 11, id: "OAX", entidad: "Oaxaca", volumen: 12748.93, superficie: 526.92, rendimiento: 19.44, valor: 80770778.61 },
+  { ranking: 12, id: "GTO", entidad: "Guanajuato", volumen: 10719.48, superficie: 680.50, rendimiento: 15.32, valor: 59389603.23 },
+  { ranking: 13, id: "SLP", entidad: "San Luis Potosí", volumen: 8378.04, superficie: 349.00, rendimiento: 22.98, valor: 66912483.71 },
+  { ranking: 14, id: "BCS", entidad: "Baja California Sur", volumen: 8350.47, superficie: 263.80, rendimiento: 26.35, valor: 53482995.78 },
+  { ranking: 15, id: "GRO", entidad: "Guerrero", volumen: 7435.70, superficie: 680.91, rendimiento: 9.26, valor: 49180936.70 },
+  { ranking: 16, id: "CHI", entidad: "Chihuahua", volumen: 4233.42, superficie: 192.50, rendimiento: 22.30, valor: 37291518.22 },
+  { ranking: 17, id: "VER", entidad: "Veracruz", volumen: 3603.50, superficie: 321.71, rendimiento: 10.72, valor: 24221433.39 },
+  { ranking: 18, id: "COA", entidad: "Coahuila", volumen: 3463.47, superficie: 182.80, rendimiento: 20.12, valor: 29857464.98 },
+  { ranking: 19, id: "AGS", entidad: "Aguascalientes", volumen: 2927.80, superficie: 131.00, rendimiento: 20.53, valor: 11921267.63 },
+  { ranking: 20, id: "QR", entidad: "Quintana Roo", volumen: 2922.73, superficie: 312.00, rendimiento: 9.48, valor: 24106722.24 },
+  { ranking: 21, id: "BCN", entidad: "Baja California", volumen: 2006.00, superficie: 96.00, rendimiento: 19.14, valor: 29465480.00 },
+  { ranking: 22, id: "DGO", entidad: "Durango", volumen: 1301.15, superficie: 46.70, rendimiento: 22.15, valor: 9290089.17 },
+  { ranking: 23, id: "CAM", entidad: "Campeche", volumen: 1224.96, superficie: 122.00, rendimiento: 10.48, valor: 15485333.65 },
+  { ranking: 24, id: "NL", entidad: "Nuevo León", volumen: 1050.00, superficie: 50.00, rendimiento: 21.00, valor: 10758175.83 },
+  { ranking: 25, id: "NAY", entidad: "Nayarit", volumen: 914.88, superficie: 80.20, rendimiento: 13.26, valor: 6190904.31 },
+  { ranking: 26, id: "CDMX", entidad: "Ciudad de México", volumen: 870.70, superficie: 87.00, rendimiento: 9.85, valor: 10096357.73 },
+  { ranking: 27, id: "QRO", entidad: "Querétaro", volumen: 690.52, superficie: 51.50, rendimiento: 13.47, valor: 5073203.79 },
+  { ranking: 28, id: "TLAX", entidad: "Tlaxcala", volumen: 347.19, superficie: 25.00, rendimiento: 13.71, valor: 2081188.11 },
+  { ranking: 29, id: "TAMP", entidad: "Tamaulipas", volumen: 90.00, superficie: 5.50, rendimiento: 17.10, valor: 750914.91 },
+  { ranking: 30, id: "COL", entidad: "Colima", volumen: 76.42, superficie: 4.90, rendimiento: 15.89, valor: 482102.90 },
 ];
+
 
 //Ranking mundial de países por superficie sembrada (en hectáreas)
 const tab_pro_mundial = [
@@ -824,7 +396,7 @@ const tab_destino_exportacion = [
 // Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
-  2023,
+  2023, 2024, 
 ];
 
 // Producción histórica (en toneladas) por región desde 2010 hasta 2023
@@ -832,27 +404,27 @@ const labels_historica_producto = [
 const produccion_historica_producto = [
   {
     nom: "Sierra de Flores Magón",
-    fila: [, , , , , , , , 822.47, 1054.93, 814.2, 836.96, 799.89, 575.12],
+    fila: [, , , , , , , , 822.47, 1054.93, 814.2, 836.96, 799.89, 575.12, 592.28],
   },
   {
     nom: "Mixteca",
     fila: [
       9340.3, 9336.4, 9317.9, 8024.5, 7532.4, 9274.57, 10295.67, 10109.5,
-      7845.75, 10137.33, 10429.36, 9154.77, 8421.82, 9395.23,
+      7845.75, 10137.33, 10429.36, 9154.77, 8421.82, 9395.23, 10209.26,
     ],
   },
   {
     nom: "Sierra Sur",
     fila: [
       64.8, 63, 50, 70.27, 49.35, 74.48, 82.86, 83.58, 82.18, 122.4, 151.23,
-      138.08, 131.25, 130.82,
+      138.08, 131.25, 130.82, 112.8, 
     ],
   },
   {
     nom: "Valles Centrales",
     fila: [
       1324.24, 1299.45, 1177.27, 1180.18, 1177.72, 1299.06, 1332.49, 1567.88,
-      1570, 1935.44, 2047.38, 1799.43, 1821.57, 1910.38,
+      1570, 1935.44, 2047.38, 1799.43, 1821.57, 1910.38, 1834.59, 
     ],
   },
 ];
@@ -867,34 +439,34 @@ const produccion_historica_producto = [
 const tabla_produccion_producto = [
   {
     region: "Mixteca",
-    volumen: 9395,
-    superficie: 370,
-    rendimiento: 25.45,
-    valor: 51431607,
+    volumen: 10209.26,
+    superficie: 367.92,
+    rendimiento: 28.45,
+    valor: 56514728.85,
     cantidad: 14,
   },
   {
     region: "Valles Centrales",
-    volumen: 1910,
-    superficie: 128,
-    rendimiento: 15.5,
-    valor: 18600710,
-    cantidad: 21,
+    volumen: 1834.59,
+    superficie: 122.60,
+    rendimiento: 15.53,
+    valor: 18471827.94,
+    cantidad: 31,
   },
   {
     region: "Cañada",
-    volumen: 575,
-    superficie: 26,
-    rendimiento: 22.12,
-    valor: 5052648,
+    volumen: 592.28,
+    superficie: 26.80,
+    rendimiento: 22.10,
+    valor: 4762624.33,
     cantidad: 1,
   },
   {
     region: "Sierra Sur",
-    volumen: 131,
-    superficie: 11,
-    rendimiento: 12.4,
-    valor: 1122545,
+    volumen: 112.80,
+    superficie: 9.60,
+    rendimiento: 11.75,
+    valor: 1021597.49,
     cantidad: 1,
   },
 ];
@@ -904,7 +476,7 @@ const tabla_produccion_producto = [
 // Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
   ["NO PUEBLO INDIGENA", "Mixteco", "Zapoteco", "Mazateco"],
-  [3222, 6925, 1290, 575],
+  [4121.63, 7461.99, 573.03, 592.28],
 ];
 
 // Datos de estacionalidad del producto por mes

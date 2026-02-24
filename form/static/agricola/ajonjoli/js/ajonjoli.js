@@ -1,5 +1,5 @@
 
-const mexicoData = tab_pro_mundial.find((entidad) => entidad.id === "MEX");
+const mexicoData = tab_pro_mundial.find((pais) => pais.id === "MEX");
 const pTag = document.getElementById("des_mundo");
 const strongTags = pTag.querySelectorAll("strong");
 
@@ -278,7 +278,7 @@ const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.len
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>50,812</th><th>71,079</th><th>0.81</th><th>1,149,222,648</th>`;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>44,112.08</th><th>64,409.28</th><th>0.78</th><th>$833,941,823.47</th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
 /* let currentPageDesExp = 1;

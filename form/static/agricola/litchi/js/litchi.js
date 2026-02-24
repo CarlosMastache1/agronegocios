@@ -154,7 +154,7 @@ const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.len
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>   26,116   </th><th>   3,936 </th><th>  5.33 </th><th>  520,253,559 </th>`;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>    30,006.60  </th><th>    3,865.40  </th><th>   6.69  </th><th>   $660,802,878.76  </th>`;
 
 
 /* Producción histórica de calabacita en Oaxaca */
@@ -329,7 +329,7 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${  2.55 }</th><th>${valor_producto.toLocaleString(
+)}</th><th>${  6.55 }</th><th>${valor_producto.toLocaleString(
   "es-MX"
 )}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 

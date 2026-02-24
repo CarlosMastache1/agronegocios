@@ -275,7 +275,7 @@ const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.len
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>553,352 </th><th>26,073</th><th>  17.20 </th><th>  3,525,621,023 </th>`;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>481,258.88</th><th>23,158.98</th><th>  17.20 </th><th>   $3,193,275,803.49  </th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
 let currentPageDesExp = 1;

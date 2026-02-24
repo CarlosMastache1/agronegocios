@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios Central de Abasto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #1e1e1e;
+            --bg-card: #151515;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --text-green: #3cdc5a;
+            --bg-green-badge: rgba(60, 220, 90, 0.15);
+            --text-red: #ff4d4d;
+            --bg-red-badge: rgba(255, 77, 77, 0.15);
+            --border-color: #2a2a2a;
+        }
+
+       html, body {
+            background-color: var(--bg-page);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh; 
+        }
+
+        .widget-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .widget-header h2 {
+            margin: 0 0 4px 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .widget-header p {
+            margin: 0;
+            font-size: 0.75rem;
+            color: var(--text-green);
+            font-weight: 700;
+        }
+
+        .table-container {
+            background-color: var(--bg-card);
+            width: 100%;
+            border-radius: 12px;
+            padding: 20px 30px;
+            color: var(--text-main);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            height: fit-content;
+        }
+
+        /* Encabezados de la tabla */
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--text-green);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+        
+        .col-prod { width: 50%; }
+        .col-price { width: 25%; text-align: right; }
+        .col-var { width: 25%; text-align: right; }
+
+        /* Filas de productos */
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .product-row:last-child { border-bottom: none; }
+
+        .product-name { font-size: 0.9rem; font-weight: 800; margin: 0 0 2px 0; }
+        .product-quality { font-size: 0.55rem; color: var(--text-green); font-weight: 700; margin: 0; letter-spacing: 0.5px; }
+        
+        .price-val { font-size: 1.1rem; font-weight: 800; margin: 0 0 1px 0; }
+        .price-unit { font-size: 0.55rem; color: var(--text-muted); font-weight: 700; margin: 0; }
+
+        /* Badges de Porcentaje (Las pastillas de colores) */
+        .badge {
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            display: inline-block;
+        }
+        .badge-up { background-color: var(--bg-green-badge); color: var(--text-green); }
+        .badge-down { background-color: var(--bg-red-badge); color: var(--text-red); }
+        .badge-neutral { background-color: #2a2a2a; color: #a0a0a0; }
+
+        .widget-footer {
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .widget-footer p {
+            margin: 0;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .widget-footer span {
+            color: var(--text-green);
+            margin-right: 4px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <div class="widget-header">
+        <h2>Precios al Día</h2>
+        <p>📍 Central de Abasto CDMX</p>
+    </div>
+    
+    <div class="table-header">
+        <div class="col-prod">PRODUCTO</div>
+        <div class="col-price">PRECIO HOY</div>
+        <div class="col-var">VAR %</div>
+    </div>
+
+    <div>
+        {% for item in precios %}
+        <div class="product-row">
+            <div class="col-prod">
+                <p class="product-name">{{ item.producto_abasto.nombre }}</p>
+                <p class="product-quality">CALIDAD PRIMERA</p>
+            </div>
+            
+            <div class="col-price">
+                <p class="price-val">${{ item.precio_actual|floatformat:2 }}</p>
+                <p class="price-unit">x KG</p>
+            </div>
+            
+            <div class="col-var">
+                {% if item.porcentaje > 0 %}
+                    <span class="badge badge-up">↑ {{ item.porcentaje_abs|floatformat:1 }}%</span>
+                {% elif item.porcentaje < 0 %}
+                    <span class="badge badge-down">↓ {{ item.porcentaje_abs|floatformat:1 }}%</span>
+                {% else %}
+                    <span class="badge badge-neutral">- 0.0%</span>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="product-row" style="justify-content: center; color: #888888; font-size: 0.8rem;">
+            No hay datos cargados para el día de hoy.
+        </div>
+        {% endfor %}
+    </div>
+    <div class="widget-footer">
+        <p><span>✔</span> Fuente: Datos oficiales del SNIIM</p>
+    </div>
+
+</div>
+
+</body>
+</html>

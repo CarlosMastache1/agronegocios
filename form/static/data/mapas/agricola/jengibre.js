@@ -3,8 +3,8 @@ const regionesConMunicipios = {
   Papaloapan: [
     {
       id: 20136,
-      superficie: 42,
-      volumen: 332,
+      superficie: 44,
+      volumen: 360.8,
       nombre: "San Felipe Usila",
     },
   ],
@@ -18,58 +18,68 @@ const tab_pro_nacional = [
     id: "PUE",
     ranking: 1,
     entidad: "Puebla",
-    volumen: 2369,
-    superficie: 195,
-    rendimiento: 11.93,
-    valor: 49171129,
+    volumen: 2457.7,
+    superficie: 197,
+    rendimiento: 12.37,
+    valor: 51597180,
   },
   {
     id: "OAX",
     ranking: 2,
     entidad: "Oaxaca",
-    volumen: 332,
-    superficie: 42,
-    rendimiento: 7.9,
-    valor: 4635263,
+    volumen: 360.8,
+    superficie: 44,
+    rendimiento: 8.2,
+    valor: 5218171.02,
   },
   {
     id: "GRO",
     ranking: 3,
     entidad: "Guerrero",
-    volumen: 5,
-    superficie: 1,
+    volumen: 11.16,
+    superficie: 2.3,
     rendimiento: 4.85,
-    valor: 92084,
+    valor: 211909.65,
   },
 ];
 
+
 //Ranking mundial de países por superficie sembrada (en hectáreas)
+
 const tab_pro_mundial = [
-  { id: "IND", ranking: 1, pais: "India", superficie: 193000 },
-  { id: "NGA", ranking: 2, pais: "Nigeria", superficie: 96120 },
-  { id: "CHN", ranking: 3, pais: "China", superficie: 63312 },
-  { id: "CHN", ranking: 4, pais: "China, Continental", superficie: 62458 },
-  { id: "NPL", ranking: 5, pais: "Nepal", superficie: 22441 },
-  { id: "BGD", ranking: 6, pais: "Bangladesh", superficie: 10429 },
-  { id: "IDN", ranking: 7, pais: "Indonesia", superficie: 10409 },
-  { id: "THA", ranking: 8, pais: "Tailandia", superficie: 10269 },
-  { id: "PER", ranking: 9, pais: "Perú", superficie: 8001 },
-  { id: "LKA", ranking: 10, pais: "Sri Lanka", superficie: 6736 },
-  { id: "CMR", ranking: 11, pais: "Camerún", superficie: 5087 },
-  { id: "PHL", ranking: 12, pais: "Filipinas", superficie: 4057 },
-  { id: "GUY", ranking: 13, pais: "Guyana", superficie: 3877 },
-  { id: "ETH", ranking: 14, pais: "Etiopía", superficie: 3657 },
-  { id: "KOR", ranking: 15, pais: "República de Corea", superficie: 3455 },
-  { id: "MLI", ranking: 16, pais: "Malí", superficie: 3121 },
-  { id: "JPN", ranking: 17, pais: "Japón", superficie: 1830 },
-  { id: "TWN", ranking: 18, pais: "China, Taiwán", superficie: 854 },
-  { id: "BTN", ranking: 19, pais: "Bhután", superficie: 800 },
-  { id: "PAN", ranking: 20, pais: "Panamá", superficie: 650 },
-  { id: "FJI", ranking: 21, pais: "Fiji", superficie: 563 },
-  { id: "CIV", ranking: 22, pais: "Côte d'Ivoire", superficie: 536 },
-  { id: "MEX", ranking: 23, pais: "México", superficie: 433 },
-  { ranking: "", pais: "Otros", superficie: 1863 },
+  { ranking: 1, id: "IND", pais: "India", superficie: 191000 },
+  { ranking: 2, id: "NGA", pais: "Nigeria", superficie: 89827 },
+  { ranking: 3, id: "CHN", pais: "China", superficie: 64653 },
+  { ranking: 4, id: "CHN", pais: "China, Continental", superficie: 63806 },
+  { ranking: 5, id: "NPL", pais: "Nepal", superficie: 23829 },
+  { ranking: 6, id: "THA", pais: "Tailandia", superficie: 10449 },
+  { ranking: 7, id: "BGD", pais: "Bangladesh", superficie: 10399 },
+  { ranking: 8, id: "PER", pais: "Perú", superficie: 8364 },
+  { ranking: 9, id: "IDN", pais: "Indonesia", superficie: 8343 },
+  { ranking: 10, id: "LKA", pais: "Sri Lanka", superficie: 5561 },
+  { ranking: 11, id: "CMR", pais: "Camerún", superficie: 4970 },
+  { ranking: 12, id: "PHL", pais: "Filipinas", superficie: 4816 },
+  { ranking: 13, id: "GUY", pais: "Guyana", superficie: 4289 },
+  { ranking: 14, id: "ETH", pais: "Etiopía", superficie: 3602 },
+  { ranking: 15, id: "MLI", pais: "Malí", superficie: 2876 },
+  { ranking: 16, id: "KOR", pais: "República de Corea", superficie: 2303 },
+  { ranking: 17, id: "JPN", pais: "Japón", superficie: 1649 },
+  { ranking: 18, id: "TWN", pais: "China, Taiwán provincia de", superficie: 847 },
+  { ranking: 19, id: "MYS", pais: "Malasia", superficie: 721 },
+  { ranking: 20, id: "BTN", pais: "Bhután", superficie: 653 },
+  { ranking: 21, id: "FJI", pais: "Fiji", superficie: 631 },
+  { ranking: 22, id: "CIV", pais: "Côte d'Ivoire", superficie: 537 },
+  { ranking: 23, id: "PAN", pais: "Panamá", superficie: 468 },
+  { ranking: 24, id: "UGA", pais: "Uganda", superficie: 465 },
+  { ranking: 25, id: "AUS", pais: "Australia", superficie: 450 },
+  { ranking: 26, id: "CRI", pais: "Costa Rica", superficie: 332 },
+  { ranking: 27, id: "JAM", pais: "Jamaica", superficie: 280 },
+  { ranking: 28, id: "MEX", pais: "México", superficie: 238 },
+  { ranking: "", pais: "Otros", superficie: 776 },
+
 ];
+
+
 
 const agrupado = {};
 
@@ -149,10 +159,10 @@ const produccion_historica_producto = [
 const tabla_produccion_producto = [
   {
     region: "Papaloapan",
-    volumen: 332,
-    superficie: 42,
-    rendimiento: 7.9,
-    valor: 4635263,
+    volumen: 360.8,
+    superficie: 44,
+    rendimiento: 8.2,
+    valor: 5218171.02,
     cantidad: 1,
   },
 ];
@@ -160,4 +170,4 @@ const tabla_produccion_producto = [
 // Datos de producción por grupo indígena
 // Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
 // Segundo array: volumen producido en toneladas por cada grupo correspondiente
-const pub_indigenas_producto = [["Chinanteco"], [332]];
+const pub_indigenas_producto = [["Chinanteco"], [360.8]];

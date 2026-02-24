@@ -978,9 +978,9 @@ for (let i = 0; i < tabla_produccion_sub_producto.length; i++) {
 const total_tb_pro_cera_oax = document.getElementById("total_tb_pro_cera_oax");
 total_tb_pro_cera_oax.innerHTML = `
 <th>ESTATAL</th>
-<th>${/* volumen_pro_cera.toLocaleString("es-MX") */ 132}</th>
+<th>${/* volumen_pro_cera.toLocaleString("es-MX") */ 107}</th>
 <th>${(precio_pro_cera / tabla_produccion_sub_producto.length).toFixed(0)}</th>
-<th>${/* valor_pro_cera.toLocaleString("es-MX") */ "9,823,000"}</th>
+<th>${/* valor_pro_cera.toLocaleString("es-MX") */ " 8,054"}</th>
 <th>${municipios_pro_cera}</th>`;
 
 /* Grafica 5 */

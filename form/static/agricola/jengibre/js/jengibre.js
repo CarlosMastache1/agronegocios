@@ -248,7 +248,7 @@ const promediorendimientonacional = sumarendimientonacional/tab_pro_nacional.len
 
 const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
-total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>  2,705  </th><th>  238 </th><th>  9.71 </th><th>    53,898,475  </th>`;
+total_datos_tab2.innerHTML = `<th></th><th>Total:</th><th>  2,829.66 </th><th>  243.3 </th><th>  10.03 </th><th>     $57,027,260.67   </th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
 let currentPageDesExp = 1;
@@ -793,7 +793,7 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${7.9}</th><th>${valor_producto.toLocaleString(
+)}</th><th>${8.2}</th><th>${valor_producto.toLocaleString(
   "es-MX"
 )}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 

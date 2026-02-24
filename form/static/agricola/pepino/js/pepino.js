@@ -276,16 +276,16 @@ const total_datos_tab2 = document.getElementById("total_datos_tab2");
 
 total_datos_tab2.innerHTML = `<th></th><th>Total:</th>
 <th>  
-  1,036,717
+ 959,037.85 
 </th>
 <th>  
-  19,488
+ 16,127.54 
 </th>
 <th>
-  46.68
+   65.34 
 </th>
 <th>
-  8,889,235,281
+ $7,706,718,097.27 
 </th>`;
 
 /* TABLA 3 DESTINO DE LA EXPORTACIÓN 2023 POR PAÍS */
@@ -649,9 +649,9 @@ total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_producto.toLoc
   "es-MX"
 )}</th><th>${superficie_producto.toLocaleString(
   "es-MX"
-)}</th><th>${  21.63 }</th><th>${/* valor_producto.toLocaleString(
+)}</th><th>${  26.05 }</th><th>${/* valor_producto.toLocaleString(
   "es-MX"
-) */'17,221,548'}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
+) */'$27,063,363.82'}</th><th>${cantidad_producto.toLocaleString("es-MX")}</th>`;
 
 /* Grafica 2 VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	*/
 /* const ctx2 = document.getElementById("lineChart2").getContext("2d");

@@ -1,226 +1,123 @@
 // Datos por regiones del estado de Oaxaca, agrupando municipios con su ID, superficie (Ha) y toneladas producidas
 const regionesConMunicipios = {
-  Papaloapan: [
-    //12
-    {
-      id: 20417,
-      superficie: 103,
-      volumen: 328,
-      nombre: "Santa María Jacatepec",
-    },
-    {
-      id: 20498,
-      superficie: 144,
-      volumen: 392,
-      nombre: "Santiago Yaveo",
-    },
-    {
-      id: 20166,
-      superficie: 60,
-      volumen: 187,
-      nombre: "San José Chiltepec",
-    },
-    {
-      id: 20044,
-      superficie: 42,
-      volumen: 130,
-      nombre: "Loma Bonita",
-    },
-    {
-      id: 20184,
-      superficie: 8,
-      volumen: 21,
-      nombre: "San Juan Bautista Tuxtepec",
-    },
-    {
-      id: 20136,
-      superficie: 10,
-      volumen: 19,
-      nombre: "San Felipe Usila",
-    },
-    {
-      id: 20559,
-      superficie: 5,
-      volumen: 14,
-      nombre: "San Juan Bautista Valle Nacional",
-    },
-    {
-      id: 20205,
-      superficie: 11,
-      volumen: 13,
-      nombre: "San Juan Lalana",
-    },
-    {
-      id: 20021,
-      superficie: 8,
-      volumen: 10,
-      nombre: "Cosolapa",
-    },
-    {
-      id: 20232,
-      superficie: 7,
-      volumen: 9,
-      nombre: "San Lucas Ojitlán",
-    },
-    {
-      id: 20468,
-      superficie: 2,
-      volumen: 2,
-      nombre: "Santiago Jocotepec",
-    },
-    {
-      id: 20278,
-      superficie: 2,
-      volumen: 2,
-      nombre: "San Miguel Soyaltepec",
-    },
-  ],
-
-  "Sierra de Juárez": [
-    //2
+  "Sierra Norte": [
     {
       id: 20190,
-      superficie: 183,
-      volumen: 409,
-      nombre: "San Juan Cotzocón",
+      superficie: 183.00,
+      volumen: 1172.55,
+      nombre: "San Juan Cotzocón"
     },
     {
       id: 20207,
-      superficie: 31,
-      volumen: 43,
-      nombre: "San Juan Mazatlán",
-    },
+      superficie: 33.50,
+      volumen: 61.20,
+      nombre: "San Juan Mazatlán"
+    }
   ],
-
-  Istmo: [
-    //1
+  "Papaloapam": [
+    {
+      id: 20498,
+      superficie: 144.00,
+      volumen: 1020.28,
+      nombre: "Santiago Yaveo"
+    },
+    {
+      id: 20417,
+      superficie: 103.00,
+      volumen: 831.35,
+      nombre: "Santa María Jacatepec"
+    },
+    {
+      id: 20166,
+      superficie: 59.50,
+      volumen: 480.02,
+      nombre: "San José Chiltepec"
+    },
+    {
+      id: 20044,
+      superficie: 42.40,
+      volumen: 330.20,
+      nombre: "Loma Bonita"
+    },
+    {
+      id: 20205,
+      superficie: 11.00,
+      volumen: 57.20,
+      nombre: "San Juan Lalana"
+    },
+    {
+      id: 20136,
+      superficie: 10.50,
+      volumen: 62.79,
+      nombre: "San Felipe Usila"
+    },
+    {
+      id: 20184,
+      superficie: 8.20,
+      volumen: 58.22,
+      nombre: "San Juan Bautista Tuxtepec"
+    },
+    {
+      id: 20021,
+      superficie: 8.00,
+      volumen: 40.40,
+      nombre: "Cosolapa"
+    },
+    {
+      id: 20232,
+      superficie: 7.00,
+      volumen: 40.46,
+      nombre: "San Lucas Ojitlán"
+    },
+    {
+      id: 20559,
+      superficie: 5.10,
+      volumen: 35.60,
+      nombre: "San Juan Bautista Valle Nacional"
+    },
+    {
+      id: 20468,
+      superficie: 2.00,
+      volumen: 10.00,
+      nombre: "Santiago Jocotepec"
+    },
+    {
+      id: 20278,
+      superficie: 1.50,
+      volumen: 7.80,
+      nombre: "San Miguel Soyaltepec"
+    }
+  ],
+  "Istmo": [
     {
       id: 20057,
-      superficie: 6,
-      volumen: 9,
-      nombre: "Matías Romero Avendaño",
-    },
-  ],
+      superficie: 6.00,
+      volumen: 9.10,
+      nombre: "Matías Romero Avendaño"
+    }
+  ]
 };
-
 // Tabla de producción estatal
 // Contiene datos por entidad federativa: ranking nacional, volumen producido, superficie sembrada,
 // rendimiento por hectárea y valor de la producción (en pesos mexicanos)
 const tab_pro_nacional = [
-  {
-    ranking: 1,
-    id: "VER",
-    entidad: "Veracruz",
-    volumen: 11789,
-    superficie: 1392,
-    rendimiento: 8.27,
-    valor: 201716421,
-  },
-  {
-    ranking: 2,
-    id: "PUE",
-    entidad: "Puebla",
-    volumen: 8397,
-    superficie: 638,
-    rendimiento: 10.78,
-    valor: 138347065,
-  },
-  {
-    ranking: 3,
-    id: "SLP",
-    entidad: "San Luis Potosí",
-    volumen: 2068,
-    superficie: 748,
-    rendimiento: 2.78,
-    valor: 49371841,
-  },
-  {
-    ranking: 4,
-    id: "OAX",
-    entidad: "Oaxaca",
-    volumen: 1588,
-    superficie: 622,
-    rendimiento: 2.55,
-    valor: 78124584,
-  },
-  {
-    ranking: 5,
-    id: "SIN",
-    entidad: "Sinaloa",
-    volumen: 1039,
-    superficie: 240,
-    rendimiento: 4.33,
-    valor: 23346703,
-  },
-  {
-    ranking: 6,
-    id: "NAY",
-    entidad: "Nayarit",
-    volumen: 833,
-    superficie: 199,
-    rendimiento: 3.73,
-    valor: 21694444,
-  },
-  {
-    ranking: 7,
-    id: "HGO",
-    entidad: "Hidalgo",
-    volumen: 211,
-    superficie: 65,
-    rendimiento: 3.19,
-    valor: 5478289,
-  },
-  {
-    ranking: 8,
-    id: "MICH",
-    entidad: "Michoacán",
-    volumen: 125,
-    superficie: 15,
-    rendimiento: 8.44,
-    valor: 1485196,
-  },
-  {
-    ranking: 9,
-    id: "MOR",
-    entidad: "Morelos",
-    volumen: 32,
-    superficie: 5,
-    rendimiento: 6.4,
-    valor: 236800,
-  },
-  {
-    ranking: 10,
-    id: "JAL",
-    entidad: "Jalisco",
-    volumen: 28,
-    superficie: 6,
-    rendimiento: 4.76,
-    valor: 302821,
-  },
-  {
-    ranking: 11,
-    id: "BCS",
-    entidad: "Baja California Sur",
-    volumen: 5,
-    superficie: 1,
-    rendimiento: 3.67,
-    valor: 149392,
-  },
-  {
-    ranking: 12,
-    id: "TAMP",
-    entidad: "Tamaulipas",
-    volumen: 0,
-    superficie: 6,
-    rendimiento: 0,
-    valor: 0,
-  },
+  { ranking: 1, id: "VER", entidad: "Veracruz", volumen: 11983.41, superficie: 1342.5, rendimiento: 8.55, valor: 194376631.49 },
+  { ranking: 2, id: "PUE", entidad: "Puebla", volumen: 8368.41, superficie: 635.8, rendimiento: 10.87, valor: 137845760.84 },
+  { ranking: 3, id: "OAX", entidad: "Oaxaca", volumen: 4217.17, superficie: 624.7, rendimiento: 6.55, valor: 199928544.38 },
+  { ranking: 4, id: "SLP", entidad: "San Luis Potosí", volumen: 3127.53, superficie: 753.25, rendimiento: 4.12, valor: 74303187.31 },
+  { ranking: 5, id: "SIN", entidad: "Sinaloa", volumen: 1070.3, superficie: 240, rendimiento: 4.52, valor: 23654542.7 },
+  { ranking: 6, id: "NAY", entidad: "Nayarit", volumen: 916.93, superficie: 182.25, rendimiento: 4.81, valor: 25571637.11 },
+  { ranking: 7, id: "HGO", entidad: "Hidalgo", volumen: 224.51, superficie: 64.9, rendimiento: 3.62, valor: 4233083 },
+  { ranking: 8, id: "MICH", entidad: "Michoacán", volumen: 38.3, superficie: 5, rendimiento: 7.66, valor: 353425.12 },
+  { ranking: 9, id: "MOR", entidad: "Morelos", volumen: 32, superficie: 5, rendimiento: 6.4, valor: 240000 },
+  { ranking: 10, id: "JAL", entidad: "Jalisco", volumen: 28.04, superficie: 6, rendimiento: 4.71, valor: 296066.81 },
+  { ranking: 11, id: "TAM", entidad: "Tamaulipas", volumen: 0, superficie: 6, rendimiento: 0, valor: 0 },
 ];
 
 // Años de refeencia para los datos de producción historica
 const labels_historica_producto = [
-  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
-  2023,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,2022,
+  2023, 2024, 
 ];
 
 // Producción histórica (en toneladas) por región desde 2010 hasta 2023
@@ -228,20 +125,20 @@ const labels_historica_producto = [
 const produccion_historica_producto = [
   {
     nom: "Istmo",
-    fila: [, , , , , , , , , 8, 9.06, 9.36],
+    fila: [null, null, null, null, null, null, null, null, null, 8, 9.06, 9.36, 9.10],
   },
   {
     nom: "Papaloapan",
     fila: [
       6851.5, 3054.54, 2611.13, 1133.78, 2139.24, 1462.88, 2177.94, 11.48,
-      2541.53, 1277.69, 2782.71, 985.95,
+      2541.53, 1277.69, 2782.71, 1125.95, 2974.32
     ],
   },
   {
     nom: "Sierra de Juárez",
     fila: [
       710.5, 628.68, 305.03, 293.21, 408.8, 430.6, 339.6, 0, 516.4, 375.6,
-      763.47, 452.7,
+      763.47, 452.7, 1233.75
     ],
   },
 ];
@@ -256,34 +153,35 @@ const produccion_historica_producto = [
 const tabla_produccion_producto = [
   {
     region: "Papaloapan",
-    volumen: 1126,
-    superficie: 402,
-    rendimiento: 2.23,
-    valor: 55600267,
-    cantidad: 12,
+    volumen: 2974.32,
+    superficie: 402.2,
+    rendimiento: 6.69,
+    valor: 141931535.18,
+    cantidad: 16,
   },
   {
-    region: "Sierra de Juárez",
-    volumen: 453,
-    superficie: 214,
-    rendimiento: 3.57,
-    valor: 22094667,
-    cantidad: 2,
+    region: "Sierra Norte",
+    volumen: 1233.75,
+    superficie: 216.5,
+    rendimiento: 6.45,
+    valor: 57739738.19,
+    cantidad: 3,
   },
   {
     region: "Istmo",
-    volumen: 9,
+    volumen: 9.1,
     superficie: 6,
-    rendimiento: 4.68,
-    valor: 429651,
+    rendimiento: 4.55,
+    valor: 257271.01,
     cantidad: 1,
   },
 ];
+
 
 // Datos de producción por grupo indígena
 // Primer array: nombres de pueblos indígenas y categoría "No es pueblo indígena"
 // Segundo array: volumen producido en toneladas por cada grupo correspondiente
 const pub_indigenas_producto = [
-  ["NO PUEBLO INDIGENA", "Chinanteco", "Mixe", "Nahua"],
-  [9, 1116, 453, 10],
+  ["NO PUEBLO INDIGENA", "Chinanteco", "Mixe", "Mazateco"],
+  [379.7, 1575.64, 2254.03, 7.8],
 ];

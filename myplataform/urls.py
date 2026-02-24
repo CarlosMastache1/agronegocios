@@ -108,5 +108,8 @@ urlpatterns = [
     path('caprino/', TemplateView.as_view(template_name="pecuario/caprino.html"), name='caprino'),
     path('porcino/', TemplateView.as_view(template_name="pecuario/porcino.html"), name='porcino'),
     path('ovino/', TemplateView.as_view(template_name="pecuario/ovino.html"), name='ovino'),
+    path('tablaPrecios/', views.tabla_precios, name='tablaPrecios'),
+    path('paginaProductos/', views.paginaProductos, name='paginaProductos'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

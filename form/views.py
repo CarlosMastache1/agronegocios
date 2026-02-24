@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 from django.db import IntegrityError
 from .forms import financieras, productosForm
 from django.contrib import messages
-from .models import entidadesFinancieras2, municipios, productos
+from .models import entidadesFinancieras2, municipios, productos, HistorialPrecio
 from django.db.models import Sum, Count, Q, Value, DecimalField, IntegerField
 from django.http.response import JsonResponse
 from random import randrange
@@ -16,7 +16,7 @@ from django.core.mail import send_mail
 import time
 import yfinance as yf
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import urllib.parse
 from json import JSONDecodeError
 import json 
@@ -28,6 +28,7 @@ from django.core.paginator import Paginator
 from itertools import zip_longest
 from collections import defaultdict
 from django.db.models.functions import Coalesce
+from django.utils.timezone import localtime
 # Create your views here.
 
 def maiz_precioMXN(request):
@@ -3525,9 +3526,8 @@ def ubicacion(request):
 
 
 
-
-
 def estatus(request):
+
     query = request.GET.get('q', '').strip()
     resultado = None
     busqueda_realizada = False
@@ -3545,3 +3545,53 @@ def estatus(request):
         'query': query,
         'busqueda_realizada': busqueda_realizada  # <--- Fundamental que esté aquí
     })    
+
+
+def tabla_precios(request):
+    # Obtenemos los precios guardados el día de hoy, trayendo también los datos del producto
+    precios_hoy = HistorialPrecio.objects.filter(fecha__date=date.today()).select_related('producto_abasto')
+    
+    lista_datos = []
+    ultima_actualizacion = None
+
+    # Si hay precios hoy, sacamos la hora exacta en que el Scraper los descargó
+    if precios_hoy.exists():
+        hora_local = localtime(precios_hoy.first().fecha)
+        # Formateamos la fecha para que se vea como: "20 de Febrero, 2024 - 06:05 hrs"
+        ultima_actualizacion = hora_local.strftime("%d de %B, %Y - %H:%M hrs")
+
+    for registro_hoy in precios_hoy:
+        # Buscamos el último precio registrado ANTES de hoy para ese producto
+        registro_anterior = HistorialPrecio.objects.filter(
+            producto_abasto=registro_hoy.producto_abasto,
+            fecha__date__lt=registro_hoy.fecha.date()
+        ).first()
+        
+        # Si hay un registro anterior lo usamos, si es nuevo usamos el precio de hoy para que la variación sea 0
+        precio_anterior_val = registro_anterior.precio if registro_anterior else registro_hoy.precio
+        
+        # Matemáticas para sacar la diferencia en dinero
+        variacion_dinero = registro_hoy.precio - precio_anterior_val
+        
+        # Matemáticas para sacar el porcentaje (%)
+        if precio_anterior_val > 0:
+            porcentaje = (variacion_dinero / precio_anterior_val) * 100
+        else:
+            porcentaje = 0
+            
+        # Guardamos todo en la lista que le enviaremos al HTML
+        lista_datos.append({
+            'producto_abasto': registro_hoy.producto_abasto,
+            'precio_actual': registro_hoy.precio,
+            'porcentaje': porcentaje,
+            'porcentaje_abs': abs(porcentaje) # abs() quita el signo negativo para que no salga "↓ -1.1%"
+        })
+
+    # Le mandamos los datos al template
+    return render(request, 'tablasPrecios.html', {
+        'precios': lista_datos,
+        'ultima_actualizacion': ultima_actualizacion
+    })
+
+def paginaProductos(request):
+  return render(request, 'paginaProductosCentral.html')
