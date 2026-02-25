@@ -197,7 +197,7 @@ const paises_datos_pro = Object.values(agrupado).map((item, i) => ({
 
 // Años de referencia para los datos de balanza comercial
 const labels_balanza = [
-  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
 ];
 
 // Valores anuales de importación en dólares (USD) por año correspondiente en `labels_balanza`
@@ -216,13 +216,16 @@ const importacion_balanza = [
   ,
   ,
   56,
+  26.48,
+  130.7
+
 ];
 
 // Valores anuales de exportación en dólares (USD) por año correspondiente en `labels_balanza`
 // Representan el valor de las exportaciones del producto
 const exportacion_balanza = [
   53648, 38069, 56405, 56997, 41271, 76987, 86267, 87476, 75217, 60748, 41517,
-  27233, 27241,
+  27233, 27241, 27282.29, 15709.75
 ];
 
 // Tabla de los principales destinos de exportación
