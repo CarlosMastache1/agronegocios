@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - Módulo de Abasto Oaxaca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 30px;
+        }
+        .header {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; color: #1a202c; font-size: 28px; }
+        
+        /* NUEVO: Contenedor para alinear lugar y fecha */
+        .sub-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px; /* Espacio entre el texto y la fecha */
+            margin-top: 10px;
+        }
+        
+        .lugar-texto {
+            color: #718096; 
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* NUEVO: Diseño de fecha compacta al lado del texto */
+        .fecha-compacta {
+            background-color: #f9ecef;
+            color: #9F2241;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #9F2241;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-input:focus {
+            border-color: #9F2241;
+            box-shadow: 0 0 0 3px rgba(159, 34, 65, 0.2);
+        }
+
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; white-space: nowrap; }
+        th { 
+            background-color: #9F2241; 
+            color: #ffffff; 
+            font-weight: 600; 
+            padding: 14px 16px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            letter-spacing: 0.5px; 
+        }
+        th:first-child { border-top-left-radius: 8px; }
+        th:last-child { border-top-right-radius: 8px; }
+        td { padding: 14px 16px; border-bottom: 1px solid #edf2f7; font-size: 14px; vertical-align: middle; }
+        tbody tr:hover { background-color: #f7fafc; transition: background-color 0.2s ease; }
+        .precio { font-weight: 700; color: #2d3748; }
+        
+        .badge { display: inline-block; padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 600; text-align: center; min-width: 70px; }
+        .badge.subio { background-color: #fff5f5; color: #e53e3e; border: 1px solid #fed7d7; }
+        .badge.bajo { background-color: #f0fff4; color: #38a169; border: 1px solid #c6f6d5; }
+        .badge.igual { background-color: #edf2f7; color: #718096; border: 1px solid #e2e8f0; }
+        .empty-state { text-align: center; padding: 40px; color: #a0aec0; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Precios de Frutas y Hortalizas</h1>
+            <div class="sub-header">
+                <p class="lugar-texto" style="color: black">Módulo de Abasto de Oaxaca</p>
+                <span class="fecha-compacta">📅 {{ fechas.0|date:"d/m/Y" }}</span>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="buscadorProductos" class="search-input" placeholder="🔍 Buscar producto... (ej. Limón)" onkeyup="filtrarTabla()">
+        </div>
+
+        <div class="table-responsive">
+            <table id="tablaDatos">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Calidad</th>
+                        <th>Presentación</th>
+                        <th>Precio Prom. ($)</th>
+                        <th>Variación (vs ayer)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td>{{ item.producto }}</td>
+                        <td>{{ item.calidad }}</td>
+                        <td>{{ item.presentacion }}</td>
+                        <td class="precio">${{ item.precio_actual }}</td>
+                        <td>
+                            {% if item.variacion > 0 %}
+                                <span class="badge subio">▲ {{ item.variacion }}%</span>
+                            {% elif item.variacion < 0 %}
+                                <span class="badge bajo">▼ {{ item.variacion|stringformat:"+d"|slice:"1:" }}%</span>
+                            {% else %}
+                                <span class="badge igual">- 0.0%</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="empty-state">
+                            Aún no hay suficientes datos históricos. Ejecuta el script de extracción.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function filtrarTabla() {
+            let input = document.getElementById("buscadorProductos").value.toLowerCase();
+            let tabla = document.getElementById("tablaDatos");
+            let filas = tabla.getElementsByTagName("tr");
+
+            for (let i = 1; i < filas.length; i++) {
+                let celdaProducto = filas[i].getElementsByTagName("td")[0];
+                if (celdaProducto) {
+                    let textoProducto = celdaProducto.textContent || celdaProducto.innerText;
+                    if (textoProducto.toLowerCase().indexOf(input) > -1) {
+                        filas[i].style.display = "";
+                    } else {
+                        filas[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
+
+</body>
+</html>

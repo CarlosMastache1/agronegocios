@@ -98,13 +98,13 @@ WSGI_APPLICATION = 'myplataform.wsgi.application'
 DATABASES = {
          'default': {
              'ENGINE': 'django.db.backends.postgresql_psycopg2',
-             'NAME': 'railway',  # <-- nombre de la base en Railway
+             'NAME': 'railway',  
              'USER': 'postgres',
-             'PASSWORD': 'xdFnfDJMIBYvSWjQxEwFtpFRjzKsmVgh',  # <-- tu contraseña de Railway
+             'PASSWORD': 'xdFnfDJMIBYvSWjQxEwFtpFRjzKsmVgh',  
              'HOST': 'switchyard.proxy.rlwy.net',
              'PORT': '38767',
              'OPTIONS': {
-                 'sslmode': 'require',  # Railway requiere SSL
+                 'sslmode': 'require',  
              },
              'CONN_MAX_AGE': 60,
          }

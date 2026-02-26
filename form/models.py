@@ -133,6 +133,20 @@ class HistorialPrecio(models.Model):
         ordering = ['-fecha']
 
 
+class PrecioAgricola(models.Model):
+    producto = models.CharField(max_length=150)
+    calidad = models.CharField(max_length=100)
+    presentacion = models.CharField(max_length=150)
+    precio_frec = models.DecimalField(max_digits=8, decimal_places=2) # Este es tu precio promedio
+    fecha = models.DateField()
+
+    class Meta:
+        # Ahora el candado es la combinación de estos 4
+        unique_together = ('producto', 'calidad', 'presentacion', 'fecha') 
+
+    def __str__(self):
+        return f"{self.producto} ({self.presentacion}) - {self.fecha}"
+
 
 
 

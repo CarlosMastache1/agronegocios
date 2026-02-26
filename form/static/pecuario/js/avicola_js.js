@@ -418,14 +418,14 @@ const ctx2 = document.getElementById("lineChart2").getContext("2d");
 const datos2 = {
   labels: [
     2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
-    2022, 2023,
+    2022, 2023, 2024, 
   ],
   datasets: [
     {
       label: "Sierra de Flores Magón",
       data: [
         3397, 3523, 6259, 6306, 6412, 6407, 6298, 6125, 6515, 6530, 6562, 6484,
-        6441, 6676,
+        6441, 6676, 6789.954
       ],
       borderColor: "rgba(178, 0, 0, 1)",
       backgroundColor: "rgba(178, 0, 0, 0.2)",
@@ -436,7 +436,7 @@ const datos2 = {
     {
       label: "Costa",
       data: [
-        571, 588, 592, 567, 574, 601, 600, 626, 633, 622, 619, 643, 626, 659,
+        571, 588, 592, 567, 574, 601, 600, 626, 633, 622, 619, 643, 626, 659, 671
       ],
       borderColor: "rgba(0, 0, 178, 1)",
       backgroundColor: "rgba(0, 0, 178, 0.2)",
@@ -447,7 +447,7 @@ const datos2 = {
     {
       label: "Istmo",
       data: [
-        791, 818, 565, 563, 568, 581, 603, 614, 633, 646, 660, 668, 678, 686,
+        791, 818, 565, 563, 568, 581, 603, 614, 633, 646, 660, 668, 678, 686, 697
       ],
       borderColor: "rgba(204, 204, 0, 1)",
       backgroundColor: "rgba(204, 204, 0, 0.2)",
@@ -459,7 +459,7 @@ const datos2 = {
       label: "Mixteca",
       data: [
         1739, 1802, 1323, 1259, 1282, 1177, 1150, 1103, 1066, 1043, 1097, 1068,
-        1075, 1058,
+        1075, 1058, 1058
       ],
       borderColor: "rgba(102, 0, 153, 1)",
       backgroundColor: "rgba(102, 0, 153, 0.2)",
@@ -471,7 +471,7 @@ const datos2 = {
       label: "Papaloapan",
       data: [
         970, 1004, 923, 946, 946, 958, 970, 979, 1012, 1034, 1035, 1037, 1040,
-        991,
+        991, 1001
       ],
       borderColor: "rgba(204, 102, 0, 1)",
       backgroundColor: "rgba(204, 102, 0, 0.2)",
@@ -482,7 +482,7 @@ const datos2 = {
     {
       label: "Sierra de Juárez",
       data: [
-        218, 219, 431, 436, 430, 436, 447, 443, 468, 465, 479, 485, 491, 504,
+        218, 219, 431, 436, 430, 436, 447, 443, 468, 465, 479, 485, 491, 504, 483
       ],
       borderColor: "rgba(0, 102, 0, 1)",
       backgroundColor: "rgba(0, 102, 0, 0.2)",
@@ -492,7 +492,7 @@ const datos2 = {
     },
     {
       label: "Sierra Sur",
-      data: [, , 350, 348, 377, 374, 379, 380, 380, 388, 425, 425, 437, 433],
+      data: [, , 350, 348, 377, 374, 379, 380, 380, 388, 425, 425, 437, 433, 460],
       borderColor: "rgba(85, 85, 85, 1)",
       backgroundColor: "rgba(85, 85, 85, 0.2)",
       borderWidth: 4,
@@ -500,10 +500,10 @@ const datos2 = {
       fill: false,
     },
     {
-      label: "Sierra Sur",
+      label: "Valles Centrales",
       data: [
         1689, 1750, 1582, 1554, 1559, 1490, 1546, 1693, 1659, 1906, 1955, 2030,
-        2078, 2115,
+        2078, 2115, 2198
       ],
       borderColor: "rgba(36, 113, 163, 1)",
       backgroundColor: "rgba(36, 113, 163, 0.2)",
@@ -523,7 +523,7 @@ const config2 = {
     plugins: {
       title: {
         display: true,
-        text: "Volumen de producción por Región (2010 - 2023)",
+        text: "Volumen de producción por Región (2010 - 2024)",
         font: {
           size: 22,
         },
@@ -700,7 +700,7 @@ const config3 = {
     plugins: {
       title: {
         display: true,
-        text: "Volumen de producción por Región (2010 - 2023)",
+        text: "Volumen de producción por Región (2010 - 2024)",
         font: {
           size: 22,
         },
@@ -943,12 +943,12 @@ const total_tab_pro_miel_oax = document.getElementById(
 );
 total_tab_pro_miel_oax.innerHTML = `<th>Estatal</th><th>${volumen_pro_miel.toLocaleString(
   "es-MX"
-)}</th><th>2</th><th>${(
+)}</th><th>${(
   precio_pro_miel / tabla_produccion_producto.length
 ).toFixed(0)}</th><th>${
   /* valor_pro_miel.toLocaleString(
   "es-MX"
-) */ "495,459,000"
+) */ " 550,891"
 }</th><th>${municipios_pro_miel.toLocaleString("es-MX")}</th>`;
 
 /* Tabla PRODUCCION  DE LECHE DE VACA EN OAXACA	 */

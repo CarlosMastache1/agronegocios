@@ -1,192 +1,72 @@
 const regionesConMunicipios = {
-  //32
-  "Valles Centrales": [
-    //2
-    {
-      id: 20067,
-      volumen: 1981,
-      nombre: "Oaxaca de Juárez",
-    },
-    {
-      id: 20068,
-      volumen: 1111,
-      nombre: "Ocotlán de Morelos",
-    },
+  "Sierra de Flores Magón": [
+    { id: 20545, volumen: 3158, valor: 128878, nombre: "Teotitlán de Flores Magón" },
+    { id: 20041, volumen: 309, valor: 13032, nombre: "Huautla de Jiménez" },
+    { id: 20406, volumen: 278, valor: 12079, nombre: "Santa María Chilchotla" },
+    { id: 20058, volumen: 256, valor: 10819, nombre: "Mazatlán Villa de Flores" },
+    { id: 20171, volumen: 242, valor: 10269, nombre: "San José Tenango" },
+    { id: 20244, volumen: 129, valor: 6093, nombre: "San Martín Toxpalan" },
+    { id: 20490, volumen: 125, valor: 5802, nombre: "Santiago Texcalcingo" },
+    { id: 20434, volumen: 121, valor: 5546, nombre: "Santa María Teopoxco" },
+    { id: 20177, volumen: 103, valor: 4714, nombre: "San Juan Bautista Cuicatlán" },
+    { id: 20142, volumen: 91, valor: 4085, nombre: "San Francisco Huehuetlán" },
+    { id: 20163, volumen: 90, valor: 4080, nombre: "San Jerónimo Tecóatl" },
+    { id: 20431, volumen: 89, valor: 4186, nombre: "Santa María Tecomavaca" },
+    { id: 20326, volumen: 89, valor: 4040, nombre: "San Pedro Sochiápam" },
+    { id: 20024, volumen: 85, valor: 3730, nombre: "Cuyamecalco Villa de Zaragoza" },
+    { id: 20206, volumen: 83, valor: 3669, nombre: "San Juan de Los Cués" },
+    { id: 20330, volumen: 82, valor: 3675, nombre: "San Pedro Teutila" },
+    { id: 20234, volumen: 82, valor: 3648, nombre: "San Lucas Zoquiápam" },
+    { id: 20098, volumen: 80, valor: 3658, nombre: "San Andrés Teotilálpam" },
+    { id: 20019, volumen: 73, valor: 3385, nombre: "Concepción Pápalo" },
+    { id: 20322, volumen: 73, valor: 3280, nombre: "San Pedro Ocopetatillo" },
+    { id: 20478, volumen: 71, valor: 3267, nombre: "Santiago Nacaltepec" },
+    { id: 20396, volumen: 60, valor: 2863, nombre: "Santa María La Asunción" },
+    { id: 20558, volumen: 57, valor: 2633, nombre: "Valerio Trujano" },
+    { id: 20027, volumen: 56, valor: 2724, nombre: "Chiquihuitlán de Benito Juárez" },
+    { id: 20425, volumen: 56, valor: 2589, nombre: "Santa María Pápalo" },
+    { id: 20527, volumen: 53, valor: 2262, nombre: "Santos Reyes Pápalo" },
+    { id: 20187, volumen: 51, valor: 2216, nombre: "San Juan Coatzóspam" },
+    { id: 20116, volumen: 50, valor: 2373, nombre: "San Bartolomé Ayautla" },
+    { id: 20438, volumen: 48, valor: 2207, nombre: "Santa María Tlalixtac" },
+    { id: 20109, volumen: 47, valor: 2084, nombre: "San Antonio Nanahuatípam" },
+    { id: 20416, volumen: 47, valor: 2160, nombre: "Santa María Ixcatlán" },
+    { id: 20220, volumen: 46, valor: 2201, nombre: "San Juan Tepeuxila" }
   ],
-  Papaloapan: [
-    //11
-    {
-      id: 20559,
-      volumen: 227,
-      nombre: "San Juan Bautista Valle Nacional",
-    },
-    {
-      id: 20417,
-      volumen: 204,
-      nombre: "Santa María Jacatepec",
-    },
-    {
-      id: 20184,
-      volumen: 202,
-      nombre: "San Juan Bautista Tuxtepec",
-    },
-    {
-      id: 20278,
-      volumen: 178,
-      nombre: "San Miguel Soyaltepec",
-    },
-    {
-      id: 20044,
-      volumen: 143,
-      nombre: "Loma Bonita",
-    },
-    {
-      id: 20002,
-      volumen: 140,
-      nombre: "Acatlán de Pérez Figueroa",
-    },
-    {
-      id: 20498,
-      volumen: 136,
-      nombre: "Santiago Yaveo",
-    },
-    {
-      id: 20232,
-      volumen: 128,
-      nombre: "San Lucas Ojitlán",
-    },
-    {
-      id: 20205,
-      volumen: 118,
-      nombre: "San Juan Lalana",
-    },
-    {
-      id: 20468,
-      volumen: 117,
-      nombre: "Santiago Jocotepec",
-    },
-    {
-      id: 20166,
-      volumen: 116,
-      nombre: "San José Chiltepec",
-    },
+  "Valles Centrales": [
+    { id: 20067, volumen: 1093, valor: 38773, nombre: "Oaxaca de Juárez" },
+    { id: 20068, volumen: 596, valor: 20821, nombre: "Ocotlán de Morelos" }
+  ],
+  "Sierra Norte": [
+    { id: 20190, volumen: 155, valor: 6493, nombre: "San Juan Cotzocón" },
+    { id: 20207, volumen: 78, valor: 3508, nombre: "San Juan Mazatlán" }
   ],
   Istmo: [
-    //4
-    {
-      id: 20057,
-      volumen: 257,
-      nombre: "Matías Romero Avendaño",
-    },
-    {
-      id: 20198,
-      volumen: 231,
-      nombre: "San Juan Guichicovi",
-    },
-    {
-      id: 20005,
-      volumen: 134,
-      nombre: "Asunción Ixtaltepec",
-    },
-    {
-      id: 20427,
-      volumen: 110,
-      nombre: "Santa María Petapa",
-    },
+    { id: 20057, volumen: 130, valor: 5561, nombre: "Matías Romero Avendaño" },
+    { id: 20198, volumen: 74, valor: 3172, nombre: "San Juan Guichicovi" }
   ],
-  "Sierra de Juárez": [
-    //2
-    {
-      id: 20190,
-      volumen: 296,
-      nombre: "San Juan Cotzocón",
-    },
-    {
-      id: 20207,
-      volumen: 209,
-      nombre: "San Juan Mazatlán",
-    },
-  ],
-  Mixteca: [
-    //1
-    {
-      id: 20209,
-      volumen: 104,
-      nombre: "San Juan Mixtepec",
-    },
-  ],
-  "Sierra Sur": [
-    //1
-    {
-      id: 20125,
-      volumen: 107,
-      nombre: "San Carlos Yautepec",
-    },
+  Papaloapan: [
+    { id: 20559, volumen: 99, valor: 4107, nombre: "San Juan Bautista Valle Nacional" },
+    { id: 20278, volumen: 81, valor: 3442, nombre: "San Miguel Soyaltepec" },
+    { id: 20417, volumen: 79, valor: 3312, nombre: "Santa María Jacatepec" },
+    { id: 20184, volumen: 72, valor: 3016, nombre: "San Juan Bautista Tuxtepec" },
+    { id: 20205, volumen: 67, valor: 2954, nombre: "San Juan Lalana" },
+    { id: 20498, volumen: 62, valor: 2847, nombre: "Santiago Yaveo" },
+    { id: 20044, volumen: 57, valor: 2422, nombre: "Loma Bonita" },
+    { id: 20468, volumen: 56, valor: 2436, nombre: "Santiago Jocotepec" },
+    { id: 20002, volumen: 53, valor: 2233, nombre: "Acatlán de Pérez Figueroa" },
+    { id: 20232, volumen: 50, valor: 2072, nombre: "San Lucas Ojitlán" }
   ],
   Costa: [
-    //2
-    {
-      id: 20509,
-      volumen: 104,
-      nombre: "Santo Domingo de Morelos",
-    },
-
-    {
-      id: 20334,
-      volumen: 116,
-      nombre: "Villa de Tututepec de Melchor Ocampo",
-    },
+    { id: 20334, volumen: 73, valor: 3242, nombre: "Villa de Tututepec de Melchor Ocampo" },
+    { id: 20509, volumen: 59, valor: 2600, nombre: "Santo Domingo de Morelos" },
+    { id: 20439, volumen: 47, valor: 2274, nombre: "Santa María Tonameca" }
   ],
-  "Sierra de Flores Magón": [
-    //9
-    {
-      id: 20406,
-      volumen: 306,
-      nombre: "Santa María Chilchotla",
-    },
-    {
-      id: 20041,
-      volumen: 295,
-      nombre: "Huautla de Jiménez",
-    },
-    {
-      id: 20058,
-      volumen: 278,
-      nombre: "Mazatlán Villa de Flores",
-    },
-    {
-      id: 20171,
-      volumen: 263,
-      nombre: "San José Tenango",
-    },
-    {
-      id: 20244,
-      volumen: 137,
-      nombre: "San Martín Toxpalan",
-    },
-    {
-      id: 20490,
-      volumen: 135,
-      nombre: "Santiago Texcalcingo",
-    },
-    {
-      id: 20434,
-      volumen: 131,
-      nombre: "Santa María Teopoxco",
-    },
-    {
-      id: 20177,
-      volumen: 112,
-      nombre: "San Juan Bautista Cuicatlán",
-    },
-    {
-      id: 20545,
-      volumen: 3123,
-      nombre: "Teotitlán de Flores Magón",
-    },
-  ],
+  Mixteca: [
+    { id: 20208, volumen: 59, valor: 2510, nombre: "San Juan Mixtepec" },
+    { id: 20397, volumen: 56, valor: 2245, nombre: "Heroica Ciudad de Tlaxiaco" }
+  ]
 };
-
 const tab_mex_sub_pro = [
   {
     ranking: 1,
@@ -343,238 +223,60 @@ const tab_mex_sub_pro = [
 ];
 
 const tab_mex_pro = [
-  //23
-  {
-    ranking: 1,
-    id: "VER",
-    entidad: "Veracruz",
-    volumen: 537883,
-    peso: 2,
-    precio: 38,
-    valor: 20150762000,
-  },
-  {
-    ranking: 2,
-    id: "JAL",
-    entidad: "Jalisco",
-    volumen: 440347,
-    peso: 2,
-    precio: 43,
-    valor: 16198954000,
-  },
-  {
-    ranking: 3,
-    id: "AGS",
-    entidad: "Aguascalientes",
-    volumen: 425189,
-    peso: 2,
-    precio: 38,
-    valor: 16039850000,
-  },
-  {
-    ranking: 4,
-    id: "QRO",
-    entidad: "Querétaro",
-    volumen: 382439,
-    peso: 2,
-    precio: 42,
-    valor: 15633543000,
-  },
-  {
-    ranking: 5,
-    id: "DGO",
-    entidad: "Durango",
-    volumen: 279505,
-    peso: 1,
-    precio: 37,
-    valor: 10323492000,
-  },
-  {
-    ranking: 6,
-    id: "CHS",
-    entidad: "Chiapas",
-    volumen: 240387,
-    peso: 2,
-    precio: 48,
-    valor: 9431184000,
-  },
-  {
-    ranking: 7,
-    id: "GTO",
-    entidad: "Guanajuato",
-    volumen: 225870,
-    peso: 2,
-    precio: 40,
-    valor: 8688387000,
-  },
-  {
-    ranking: 8,
-    id: "PUE",
-    entidad: "Puebla",
-    volumen: 211313,
-    peso: 2,
-    precio: 31,
-    valor: 7205385000,
-  },
-  {
-    ranking: 9,
-    id: "YUC",
-    entidad: "Yucatán",
-    volumen: 179680,
-    peso: 2,
-    precio: 40,
-    valor: 7500166000,
-  },
-  {
-    ranking: 10,
-    id: "SIN",
-    entidad: "Sinaloa",
-    volumen: 151625,
-    peso: 2,
-    precio: 39,
-    valor: 5808965000,
-  },
-  {
-    ranking: 11,
-    id: "EM",
-    entidad: "México",
-    volumen: 115914,
-    peso: 2,
-    precio: 43,
-    valor: 4897063000,
-  },
-  {
-    ranking: 12,
-    id: "SLP",
-    entidad: "San Luis Potosí",
-    volumen: 108833,
-    peso: 2,
-    precio: 43,
-    valor: 4193049000,
-  },
-  {
-    ranking: 13,
-    id: "COA",
-    entidad: "Coahuila",
-    volumen: 94080,
-    peso: 2,
-    precio: 30,
-    valor: 3101299000,
-  },
-  {
-    ranking: 14,
-    id: "HGO",
-    entidad: "Hidalgo",
-    volumen: 90179,
-    peso: 2,
-    precio: 38,
-    valor: 3542631000,
-  },
-  {
-    ranking: 15,
-    id: "NL",
-    entidad: "Nuevo León",
-    volumen: 77883,
-    peso: 2,
-    precio: 35,
-    valor: 2916455000,
-  },
-  {
-    ranking: 16,
-    id: "MICH",
-    entidad: "Michoacán",
-    volumen: 74981,
-    peso: 2,
-    precio: 33,
-    valor: 2521225000,
-  },
-  {
-    ranking: 17,
-    id: "MOR",
-    entidad: "Morelos",
-    volumen: 68530,
-    peso: 2,
-    precio: 39,
-    valor: 2665397000,
-  },
-  {
-    ranking: 18,
-    id: "SON",
-    entidad: "Sonora",
-    volumen: 43362,
-    peso: 1,
-    precio: 17,
-    valor: 1576071000,
-  },
-  {
-    ranking: 19,
-    id: "NAY",
-    entidad: "Nayarit",
-    volumen: 39465,
-    peso: 2,
-    precio: 37,
-    valor: 1459563000,
-  },
-  {
-    ranking: 20,
-    id: "CAM",
-    entidad: "Campeche",
-    volumen: 23806,
-    peso: 2,
-    precio: 42,
-    valor: 925926000,
-  },
-  {
-    ranking: 21,
-    id: "TAB",
-    entidad: "Tabasco",
-    volumen: 22253,
-    peso: 2,
-    precio: 49,
-    valor: 973767000,
-  },
-  {
-    ranking: 22,
-    id: "COL",
-    entidad: "Colima",
-    volumen: 13480,
-    peso: 2,
-    precio: 32,
-    valor: 521370000,
-  },
-  {
-    ranking: 23,
-    id: "OAX",
-    entidad: "Oaxaca",
-    volumen: 13122,
-    peso: 2,
-    precio: 35,
-    valor: 495459000,
-  },
+  { ranking: 1, id: "VER", entidad: "Veracruz", volumen: 553792, peso: 2, precio: 40.62, valor: 22827305 },
+  { ranking: 2, id: "JAL", entidad: "Jalisco", volumen: 454465, peso: 2, precio: 46.12, valor: 18187701 },
+  { ranking: 3, id: "AGS", entidad: "Aguascalientes", volumen: 437743, peso: 2, precio: 42.25, valor: 18120937 },
+  { ranking: 4, id: "QRO", entidad: "Querétaro", volumen: 393543, peso: 2, precio: 45.79, valor: 17768479 },
+  { ranking: 5, id: "DGO", entidad: "Durango", volumen: 288786, peso: 1, precio: 39.50, valor: 11594217 },
+  { ranking: 6, id: "CHS", entidad: "Chiapas", volumen: 254077, peso: 2, precio: 49.56, valor: 10890263 },
+  { ranking: 7, id: "GTO", entidad: "Guanajuato", volumen: 229844, peso: 2, precio: 42.18, valor: 9678714 },
+  { ranking: 8, id: "PUE", entidad: "Puebla", volumen: 217257, peso: 2, precio: 35.59, valor: 8236229 },
+  { ranking: 9, id: "YUC", entidad: "Yucatán", volumen: 187964, peso: 2, precio: 43.30, valor: 8603122 },
+  { ranking: 10, id: "SIN", entidad: "Sinaloa", volumen: 154634, peso: 2, precio: 41.87, valor: 6491539 },
+  { ranking: 11, id: "EM", entidad: "México", volumen: 120784, peso: 2, precio: 46.55, valor: 5563303 },
+  { ranking: 12, id: "SLP", entidad: "San Luis Potosí", volumen: 110674, peso: 2, precio: 44.87, valor: 4569495 },
+  { ranking: 13, id: "COA", entidad: "Coahuila", volumen: 96857, peso: 2, precio: 31.94, valor: 3602181 },
+  { ranking: 14, id: "HGO", entidad: "Hidalgo", volumen: 93699, peso: 2, precio: 40.47, valor: 3961596 },
+  { ranking: 15, id: "NL", entidad: "Nuevo León", volumen: 81724, peso: 2, precio: 38.53, valor: 3365407 },
+  { ranking: 16, id: "MICH", entidad: "Michoacán", volumen: 75700, peso: 2, precio: 36.70, valor: 2849348 },
+  { ranking: 17, id: "MOR", entidad: "Morelos", volumen: 73330, peso: 2, precio: 43.19, valor: 3158293 },
+  { ranking: 18, id: "SON", entidad: "Sonora", volumen: 45363, peso: 1, precio: 19.05, valor: 1827534 },
+  { ranking: 19, id: "NAY", entidad: "Nayarit", volumen: 41083, peso: 2, precio: 40.44, valor: 1665065 },
+  { ranking: 20, id: "CAM", entidad: "Campeche", volumen: 24032, peso: 2, precio: 44.72, valor: 1031886 },
+  { ranking: 21, id: "TAB", entidad: "Tabasco", volumen: 22480, peso: 2, precio: 48.74, valor: 1057922 },
+  { ranking: 22, id: "COL", entidad: "Colima", volumen: 13817, peso: 2, precio: 36.86, valor: 586792 },
+  { ranking: 23, id: "OAX", entidad: "Oaxaca", volumen: 13358, peso: 2, precio: 38.88, valor: 550891 },
+  { ranking: 24, id: "GRO", entidad: "Guerrero", volumen: 11735, peso: 2, precio: 46.00, valor: 536244 },
+  { ranking: 25, id: "QR", entidad: "Quintana Roo", volumen: 6832, peso: 2, precio: 51.54, valor: 335131 },
+  { ranking: 26, id: "CHIH", entidad: "Chihuahua", volumen: 3279, peso: 2, precio: 36.23, valor: 127974 },
+  { ranking: 27, id: "ZAC", entidad: "Zacatecas", volumen: 3108, peso: 2, precio: 46.18, valor: 139280 },
+  { ranking: 28, id: "BC", entidad: "Baja California", volumen: 1143, peso: 2, precio: 38.44, valor: 43948 },
+  { ranking: 29, id: "TLAX", entidad: "Tlaxcala", volumen: 835, peso: 2, precio: 45.37, valor: 37750 },
+  { ranking: 30, id: "BCS", entidad: "Baja California Sur", volumen: 787, peso: 2, precio: 45.25, valor: 37733 },
+  { ranking: 31, id: "TAM", entidad: "Tamaulipas", volumen: 439, peso: 2, precio: 37.92, valor: 17104 },
+  { ranking: 32, id: "CDMX", entidad: "Ciudad de México", volumen: 51, peso: 2, precio: 47.26, valor: 2436 },
 ];
 
 const tabla_paises_prod = [
-  //13
-  {
-    id: "USA",
-    ranking: 1,
-    pais: "Estados Unidos de América",
-    volumen: 19599212,
-  },
-  { id: "CHN", ranking: 2, pais: "China", volumen: 14998714 },
-  { id: "BRA", ranking: 3, pais: "Brasil", volumen: 14524000 },
-  { id: "CHN", ranking: 4, pais: "China, Continental", volumen: 14300000 },
-  { id: "RUS", ranking: 5, pais: "Federación de Rusia", volumen: 5308201 },
-  { id: "IND", ranking: 6, pais: "India", volumen: 4906817 },
-  { id: "IDN", ranking: 7, pais: "Indonesia", volumen: 4040989 },
-  { id: "MEX", ranking: 8, pais: "México", volumen: 3781735 },
-  { id: "EGY", ranking: 9, pais: "Egipto", volumen: 2523466 },
-  { id: "TUR", ranking: 10, pais: "Turquía", volumen: 2417995 },
-  { id: "JPN", ranking: 11, pais: "Japón", volumen: 2371643 },
-  { id: "ARG", ranking: 12, pais: "Argentina", volumen: 2319000 },
-  { id: "POL", ranking: 13, pais: "Polonia", volumen: 2231610 },
-  { ranking: "", pais: "Otros", volumen: 45129689 },
+  { id: "CHN", ranking: 1, pais: "China", volumen: 27509045 },
+  { id: "CHN", ranking: 2, pais: "China, Continental", volumen: 26418926 },
+  { id: "BRA", ranking: 3, pais: "Brasil", volumen: 21115786 },
+  { id: "IDN", ranking: 4, pais: "Indonesia", volumen: 9356402 },
+  { id: "IND", ranking: 5, pais: "India", volumen: 8019410 },
+  { id: "RUS", ranking: 6, pais: "Federación de Rusia", volumen: 7937291 },
+  { id: "MEX", ranking: 7, pais: "México", volumen: 6005700 },
+  { id: "PAK", ranking: 8, pais: "Pakistán", volumen: 4001000 },
+  { id: "IRN", ranking: 9, pais: "Irán (República Islámica de)", volumen: 3899587 },
+  { id: "EGY", ranking: 10, pais: "Egipto", volumen: 3608823 },
+  { id: "TUR", ranking: 11, pais: "Türkiye", volumen: 3599042 },
+  { id: "POL", ranking: 12, pais: "Polonia", volumen: 3518159 },
+  { id: "JPN", ranking: 13, pais: "Japón", volumen: 3206004 },
+  { ranking: "", pais: "Otros", volumen:   72491296},
+
+
 ];
+
+
 
 const agrupado2 = {};
 
@@ -639,68 +341,68 @@ const paises_datos_sub_pro = Object.values(agrupado).map((item, i) => ({
 
 const tabla_produccion_producto = [
   {
-    region: "Sierra de Flores Magón",
-    volumen: 6676,
-    peso: 2,
-    precio: 43,
-    valor: 268365000,
-    municipios: 45,
+    region: "Sierra de Flores Magón", // Denominada 'Cañada' en la imagen
+    volumen: 6790, //
+    peso: 2, 
+    precio: 45.04, //
+    valor: 290953, //
+    municipios: 45, //
   },
   {
     region: "Valles Centrales",
-    volumen: 2115,
+    volumen: 2198, //
     peso: 2,
-    precio: 28,
-    valor: 57501000,
-    municipios: 121,
+    precio: 32.12, //
+    valor: 76023, //
+    municipios: 121, //
   },
   {
     region: "Mixteca",
-    volumen: 1058,
+    volumen: 1058, //
     peso: 1,
-    precio: 38,
-    valor: 40187000,
-    municipios: 155,
+    precio: 40.73, //
+    valor: 43067, //
+    municipios: 155, //
   },
   {
     region: "Papaloapan",
-    volumen: 991,
+    volumen: 1001, //
     peso: 2,
-    precio: 40,
-    valor: 40079000,
-    municipios: 20,
+    precio: 42.42, //
+    valor: 42561, //
+    municipios: 20, //
   },
   {
     region: "Istmo",
-    volumen: 686,
+    volumen: 697, //
     peso: 1,
-    precio: 39,
-    valor: 26508000,
-    municipios: 41,
+    precio: 43.45, //
+    valor: 30210, //
+    municipios: 41, //
   },
   {
     region: "Costa",
-    volumen: 659,
+    volumen: 671, //
     peso: 2,
-    precio: 45,
-    valor: 30561000,
-    municipios: 50,
+    precio: 46.58, //
+    valor: 31958, //
+    municipios: 50, //
   },
   {
-    region: "Sierra de Juárez",
-    volumen: 504,
+    region: "Sierra de Juárez", // Denominada 'Sierra Norte' en la imagen
+    volumen: 483, //
     peso: 2,
-    precio: 31,
-    valor: 17534000,
-    municipios: 69,
+    precio: 35.65, //
+    valor: 18844, //
+    municipios: 68, //
   },
   {
     region: "Sierra Sur",
-    volumen: 433,
+    volumen: 460, //
     peso: 2,
-    precio: 33,
-    valor: 14723000,
-    municipios: 69,
+    precio: 36.46, //
+    valor: 17275, //
+    municipios: 70, //
   },
 ];
 
@@ -767,7 +469,6 @@ const tabla_produccion_sub_producto = [
 const pub_indigenas_producto = [
   [
     "NO PUEBLO INDIGENA",
-    "NAHUA",
     "MAZATECO",
     "ZAPOTECO",
     "MIXTECO",
@@ -779,10 +480,9 @@ const pub_indigenas_producto = [
     "CHONTAL DE OAXACA",
     "HUAVE",
     "TRIQUI",
-    "AMUZGO",
     "CHOCHOLTECO",
   ],
-  [2166, 3385, 2266, 1766, 1413, 966, 455, 403, 102, 62, 55, 37, 23, 12, 9],
+  [2229.046, 5475.397, 2160.727, 1402.182, 743.78, 584.823, 488.836, 88, 23, 19,38,57,2],
 ];
 
 /* Datos  grafica VOLUMEN DE PRODUCCION POR PUEBLO INDIGENA	LECHE*/
