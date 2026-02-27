@@ -87,14 +87,14 @@
                 </div>
             </div>
         </div>
-        {% if product.archivo_pdf %}
+        {% comment %} {% if product.archivo_pdf %}
 <h1 style="text-align: center; color: #9d2449; font-weight: bold;">CERTIFICADO DEL PRODUCTOR </h1>
         <div class="pdf-wrapper">
             <iframe src="{{ product.archivo_pdf.url }}" class="pdf-frame"></iframe>
         </div>
-        {% else %}
+        {% else %} {% endcomment %}
         <p>Aun no se ha cargado el certificado en PDF.</p>
-    {% endif %}
+    {% comment %} {% endif %} {% endcomment %}
 
     </div>
 </div>

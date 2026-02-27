@@ -20,7 +20,7 @@ const regionesConMunicipios = {
     { id: 20190, superficie: 4120.00, volumen: 50516.40, nombre: "San Juan Cotzocón" },
     { id: 20207, superficie: 2157.50, volumen: 26770.31, nombre: "San Juan Mazatlán" }
   ],
-  Cañada: [
+  "Sierra de Flores Magón": [
     { id: 20431, superficie: 458.00, volumen: 2954.60, nombre: "Santa María Tecomavaca" },
     { id: 20027, superficie: 421.75, volumen: 2383.25, nombre: "Chiquihuitlán de Benito Juárez" },
     { id: 20244, superficie: 393.00, volumen: 2469.99, nombre: "San Martín Toxpalan" },
@@ -492,7 +492,7 @@ const tabla_produccion_producto = [
     cantidad: 11,
   },
   {
-    region: "Cañada",
+    region: "Sierra de Flores Magón",
     volumen: 14281.06,
     superficie: 2345.25,
     rendimiento: 8.10,

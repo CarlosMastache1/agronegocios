@@ -50,59 +50,52 @@
 
 
           <div class="collapse navbar-collapse" id="menu-colapsable">
-            <ul class="nav navbar-nav navbar-right">
-
+<ul class="nav navbar-nav navbar-right">
               <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="{% url 'index' %}" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-home"></span> INICIO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                    class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/">INICIO</a></li>
-                  <li><a href="/nosotros">NOSOTROS</a></li>
-                  <li><a href="/directorio">DIRECTORIO</a></li>
-                  <li><a href="/ubicacion">UBICACION</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
+                  <li><a href="{% url 'index' %}">INICIO</a></li>
+                  <li><a href="{% url 'nosotros' %}">NOSOTROS</a></li>
+                  <li><a href="{% url 'directorio' %}">DIRECTORIO</a></li>
+                  <li><a href="{% url 'ubicacion' %}">UBICACIÓN</a></li> <li><a href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
                 </ul>
               </li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-lock"></span> DESEMPEÑO DE GARANTÍAS LÍQUIDAS <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                    class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/graficaPubli" >DESEMPEÑO DEL FONDO</a></li>
-                  <li><a href="/login" >HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
-                  <li><a href="{% url 'estatus' %}" >CONSULTAR EL ESTATUS DE MI CREDITO</a></li>
-                </ul>
+                  <li><a href="/graficaPubliView" >DESEMPEÑO DEL FONDO</a></li>
+                  <li><a href="{% url 'login' %}" >HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
+                  <li><a href="{% url 'estatus' %}" >CONSULTAR EL ESTATUS DE MI CRÉDITO</a></li> </ul>
               </li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-stats"></span> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                    class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="/agricola">AGRICOLA</a></li>
-                  <li><a href="/pecuario">PECUARIO</a></li>
+                  <li><a href="{% url 'agricola' %}">AGRÍCOLA</a></li> <li><a href="{% url 'pecuario' %}">PECUARIO</a></li>
                 </ul>
               </li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="glyphicon glyphicon-road"></span> DESARROLLO DE MERCADO <span
-                    class="glyphicon glyphicon-chevron-down pull-right"></span>
+                    class="glyphicon glyphicon-chevron-down pull-right" style="margin-left: 3px;"></span>
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="{% url 'tiendaHome' %}" >REGISTRA TU PRODUCTO</a></li>
-                  <li><a href="{% url 'tiendaCategorias' %}">CATALOGO DE PRODUCTOS</a></li>
-                  <li><a href="{% url 'graficos-precios' %}">COTIZACIÓN DE PRECIOS</a></li>
-                  <li><a href="{% url 'paginaProductos' %}">PRECIOS DE PRODUCTOS EN LA CENTRAL</a></li>
-
+                  <li><a href="{% url 'tiendaCategorias' %}">CATÁLOGO DE PRODUCTOS</a></li> <li><a href="{% url 'graficos-precios' %}">COTIZACIÓN DE PRECIOS INTERNACIONALES</a></li>
+                  <li><a href="{% url 'paginaProductos' %}">COTIZACIÓN DE PRECIOS EN OAXACA</a></li>
                 </ul>
               </li>
-
             </ul>
           </div>
         </div>

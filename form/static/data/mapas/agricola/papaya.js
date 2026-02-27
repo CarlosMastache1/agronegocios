@@ -549,7 +549,7 @@ const tabla_produccion_producto = [
     cantidad: 3,
   },
   {
-    region: "Cañada",
+    region: "Sierra de Flores Magón",
     volumen: 1022.95,
     superficie: 28.00,
     rendimiento: 37.08,

@@ -588,7 +588,7 @@ const tabla_produccion_producto = [
     municipios: 26,
   },
   {
-    region: "Cañada",
+    region: "Sierra de Flores Magón",
     volumen: 130,
     precio: 35.18,
     valor: 4714,
@@ -662,7 +662,7 @@ const tabla_produccion_sub_producto = [
     municipios: 50,
   },
   {
-    region: "Cañada",
+    region: "Sierra de Flores Magón",
     volumen: 3,
     precio: 75.09,
     valor: 213,

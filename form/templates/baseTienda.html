@@ -154,55 +154,40 @@
     </button>
 
     <!-- Enlaces de la Navbar -->
-    <div class="collapse navbar-collapse" id="navbarNav">
+<div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
 
-       <!-- Dropdown Categorías -->
-        <li class="nav-item dropdown">
+       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white texto-pequeno" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
-            <i class="fa-solid fa-house fa-sm	"></i> INICIO <i class="fa-solid fa-chevron-down ms-1"></i>
+            <i class="fa-solid fa-house fa-sm "></i> INICIO <i class="fa-solid fa-chevron-down ms-1"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item texto-pequeno" href="/"> INICIO</a> </li>
             <li><a class="dropdown-item texto-pequeno" href="/nosotros">NOSOTROS</a></li>
             <li><a class="dropdown-item texto-pequeno" href="/directorio"> DIRECTORIO</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="/ubicacion"> UBICACION</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
+            <li><a class="dropdown-item texto-pequeno" href="/ubicacion"> UBICACIÓN</a></li> <li><a class="dropdown-item texto-pequeno" href="{% url 'testimonios' %}">TESTIMONIOS</a></li>
 
-            <!-- Desactivado temporalmente
-            <li><a class="dropdown-item" href="/categoriaForestal"><i class="fa-solid fa-tree"></i> Forestal</a></li>
-            -->
-          </ul>
+            </ul>
         </li>
 
-
-               <!-- Dropdown Categorías -->
-        <li class="nav-item dropdown">
+               <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white texto-pequeno" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
-            <i class="fa-solid fa-lock"></i> DESEMPEÑO DE GARANTIAS LIQUIDAS <i class="fa-solid fa-chevron-down ms-1"></i>
-          </a>
+            <i class="fa-solid fa-lock"></i> DESEMPEÑO DE GARANTÍAS LÍQUIDAS <i class="fa-solid fa-chevron-down ms-1"></i> </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item texto-pequeno" href="/graficaPubli" >DESEMPEÑO DEL FONDO</a></li>
             <li><a class="dropdown-item texto-pequeno" href="/login" >HERRAMIENTA PARA INTERMEDIARIOS FINANCIEROS</a></li>
-            <li><a href="{% url 'estatus' %}" >CONSULTAR EL ESTATUS DE MI CREDITO</a></li>
-
-
-          </ul>
+            <li><a href="{% url 'estatus' %}" >CONSULTAR EL ESTATUS DE MI CRÉDITO</a></li> </ul>
         </li>
-
 
                <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white texto-pequeno" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
             <i class="fa-solid fa-chart-bar"></i> ESTADÍSTICAS DEL SECTOR AGROALIMENTARIO  <i class="fa-solid fa-chevron-down ms-1"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item texto-pequeno" href="/agricola" >AGRICOLA</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="/pecuario" >PECUARIO</a></li>
+            <li><a class="dropdown-item texto-pequeno" href="/agricola" >AGRÍCOLA</a></li> <li><a class="dropdown-item texto-pequeno" href="/pecuario" >PECUARIO</a></li>
 
           </ul>
         </li>
-
-
         
                <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white texto-pequeno" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 600;">
@@ -210,14 +195,11 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item texto-pequeno" href="/tiendaHome" >REGISTRA TU PRODUCTO</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="/tiendaCategorias" >CATALOGO DE PRODUCTOS</a></li>
-            <li><a class="dropdown-item texto-pequeno" href="/graficos-precios" >COTIZACIÓN DE PRECIOS</a></li>
+            <li><a class="dropdown-item texto-pequeno" href="/tiendaCategorias" >CATÁLOGO DE PRODUCTOS</a></li> <li><a class="dropdown-item texto-pequeno" href="/graficos-precios" >COTIZACIÓN DE PRECIOS</a></li>
             <li><a href="{% url 'paginaProductos' %}">PRECIOS DE PRODUCTOS EN LA CENTRAL</a></li>
 
           </ul>
         </li>
-
-
 
       </ul>
     </div>

@@ -31,12 +31,12 @@
         }
         .header h1 { margin: 0; color: #1a202c; font-size: 28px; }
         
-        /* NUEVO: Contenedor para alinear lugar y fecha */
+        /* Contenedor para alinear lugar y fecha */
         .sub-header {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px; /* Espacio entre el texto y la fecha */
+            gap: 12px;
             margin-top: 10px;
         }
         
@@ -46,7 +46,7 @@
             margin: 0;
         }
 
-        /* NUEVO: Diseño de fecha compacta al lado del texto */
+        /* Diseño de fecha compacta al lado del texto */
         .fecha-compacta {
             background-color: #f9ecef;
             color: #9F2241;
@@ -100,6 +100,16 @@
         .badge.bajo { background-color: #f0fff4; color: #38a169; border: 1px solid #c6f6d5; }
         .badge.igual { background-color: #edf2f7; color: #718096; border: 1px solid #e2e8f0; }
         .empty-state { text-align: center; padding: 40px; color: #a0aec0; font-style: italic; }
+        
+        /* MODIFICADO: Estilo para la fuente de datos centrada y más viva */
+        .fuente-datos {
+            text-align: center;
+            font-size: 13px;
+            color: #2d3748; /* Color más oscuro y vivo */
+            font-weight: 500; /* Letra un poco más gruesa */
+            margin-top: 20px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -155,6 +165,11 @@
                 </tbody>
             </table>
         </div>
+        
+        <div class="fuente-datos">
+            * Datos extraídos del Sistema Nacional de Información e Integración de Mercados (SNIIM).
+        </div>
+
     </div>
 
     <script>
