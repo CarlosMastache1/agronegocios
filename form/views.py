@@ -3597,31 +3597,68 @@ def paginaProductos(request):
   return render(request, 'paginaProductosCentral.html')
 
 
-def tabla_precios(request):
-    # Buscamos las fechas disponibles, ordenadas de la más reciente a la más antigua
-    fechas = list(PrecioAgricola.objects.values_list('fecha', flat=True).distinct().order_by('-fecha')[:2])
+# def tabla_precios(request):
+#     # Buscamos las fechas disponibles, ordenadas de la más reciente a la más antigua
+#     fechas = list(PrecioAgricola.objects.values_list('fecha', flat=True).distinct().order_by('-fecha')[:2])
     
+#     datos_completos = []
+
+#     # Cambiamos el >= 2 por >= 1 para que funcione desde el DÍA 1
+#     if len(fechas) >= 1:
+#         fecha_actual = fechas[0]
+#         precios_hoy = PrecioAgricola.objects.filter(fecha=fecha_actual).order_by('producto')
+        
+#         # Preparamos los precios de ayer (si es que existe un ayer)
+#         precios_ayer = {}
+#         if len(fechas) == 2:
+#             fecha_anterior = fechas[1]
+#             precios_ayer = {
+#                 (p.producto, p.calidad, p.presentacion): float(p.precio_frec) 
+#                 for p in PrecioAgricola.objects.filter(fecha=fecha_anterior)
+#             }
+
+#         for item in precios_hoy:
+#             precio_actual = float(item.precio_frec)
+#             llave_busqueda = (item.producto, item.calidad, item.presentacion)
+            
+#             # Si no hay datos de ayer, el precio anterior será 0
+#             precio_anterior = precios_ayer.get(llave_busqueda, 0)
+            
+#             variacion = 0.0
+#             if precio_anterior > 0:
+#                 variacion = ((precio_actual - precio_anterior) / precio_anterior) * 100
+
+#             datos_completos.append({
+#                 'producto': item.producto,
+#                 'calidad': item.calidad,
+#                 'presentacion': item.presentacion,
+#                 'precio_actual': precio_actual,
+#                 'variacion': round(variacion, 2)
+#             })
+
+#     return render(request, 'tablaMercadoOaxaca.html', {'datos': datos_completos, 'fechas': fechas})
+
+
+def tabla_precios(request):
+    fechas = list(PrecioAgricola.objects.values_list('fecha', flat=True).distinct().order_by('-fecha')[:2])
     datos_completos = []
 
-    # Cambiamos el >= 2 por >= 1 para que funcione desde el DÍA 1
     if len(fechas) >= 1:
         fecha_actual = fechas[0]
         precios_hoy = PrecioAgricola.objects.filter(fecha=fecha_actual).order_by('producto')
         
-        # Preparamos los precios de ayer (si es que existe un ayer)
         precios_ayer = {}
         if len(fechas) == 2:
             fecha_anterior = fechas[1]
             precios_ayer = {
-                (p.producto, p.calidad, p.presentacion): float(p.precio_frec) 
+                (str(p.producto).strip().lower(), str(p.calidad).strip().lower(), str(p.presentacion).strip().lower()): float(p.precio_frec) 
                 for p in PrecioAgricola.objects.filter(fecha=fecha_anterior)
             }
 
         for item in precios_hoy:
             precio_actual = float(item.precio_frec)
-            llave_busqueda = (item.producto, item.calidad, item.presentacion)
+            llave_busqueda = (str(item.producto).strip().lower(), str(item.calidad).strip().lower(), str(item.presentacion).strip().lower())
             
-            # Si no hay datos de ayer, el precio anterior será 0
             precio_anterior = precios_ayer.get(llave_busqueda, 0)
             
             variacion = 0.0
@@ -3633,6 +3670,7 @@ def tabla_precios(request):
                 'calidad': item.calidad,
                 'presentacion': item.presentacion,
                 'precio_actual': precio_actual,
+                'precio_ayer': precio_anterior, # <--- NUEVA LÍNEA DE DIAGNÓSTICO
                 'variacion': round(variacion, 2)
             })
 
