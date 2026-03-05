@@ -135,7 +135,6 @@
                         <th>Calidad</th>
                         <th>Presentación</th>
                         <th>Precio Prom. ($)</th>
-                        <th>Precio Ayer</th>
                         <th>Variación (vs ayer)</th>
                     </tr>
                 </thead>
@@ -145,7 +144,6 @@
                         <td>{{ item.producto }}</td>
                         <td>{{ item.calidad }}</td>
                         <td>{{ item.presentacion }}</td>
-                        <td class="precio" style="color: #a0aec0;">${{ item.precio_ayer }}</td> <td>
                         <td class="precio">${{ item.precio_actual }}</td>
                         <td>
                             {% if item.variacion > 0 %}
