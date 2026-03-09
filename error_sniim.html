@@ -1,0 +1,436 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<title>Default</title>
+		<meta content="False" name="vs_snapToGrid">
+		<meta content="False" name="vs_showGrid">
+		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+		<meta content="Visual Basic .NET 7.1" name="CODE_LANGUAGE">
+		<meta content="JavaScript" name="vs_defaultClientScript">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<LINK href="Diseno/Estilos/estilo.css" type="text/css" rel="stylesheet">
+		<script language="javascript">
+			function OpenNewLink(strPage)
+			{
+				window.open(strPage);
+			}
+			function Redirecciona(strPagina)
+			{
+				window.parent.location.href = strPagina;
+
+			}
+			
+			function ClickAgregar()
+			{
+				if (window.event.keyCode==13)
+				{
+					event.returnValue = false;
+					document.all.btnLogin.click();
+				}
+			}
+
+			function NotEnter()
+			{
+				if (window.event.keyCode==13)
+				{
+					event.returnValue = false;
+				}
+			}
+			
+			function NextTo(Opcion)
+			{
+				if (window.event.keyCode==13)
+				{
+					event.returnValue = false;
+					switch(Opcion)
+					{
+						case 1:
+							document.all.txtContrasena.focus();
+						break;					
+						case 2:
+							document.all.btnRCManda.click();
+						break;
+					}
+				}
+			}
+		</script>
+		<script language="javascript" src="FuncionesValidarLogin.js"></script>
+
+
+<!--script type="text/javascript">
+window.onload=function(){
+alert("Este contenido será modificado temporalmente en atención a las disposiciones legales y normativas en materia electoral, con motivo del inicio de período de campañas")};
+</script-->	
+
+</HEAD>
+
+	<body onkeypress="NotEnter();" bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0"
+		MS_POSITIONING="GridLayout">
+		<script language="javascript">
+function EncuestaZZZ(Pagina)
+	{
+		window.showModalDialog(Pagina,'','center:yes;dialogHeight=365px;dialogWidth=315px;help:no;resizable:no;status:no');
+	}
+		</script>
+		<form name="Form1" method="post" action="Default.aspx" id="Form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTExMjYzMDc2MA9kFgICAQ9kFipmDw8WAh4EVGV4dAUHVXN1YXJpb2RkAgEPD2QWAh4Kb25rZXlwcmVzcwUKTmV4dFRvKDEpO2QCAg8PFgIfAAULQ29udHJhc2XDsWFkZAIDDw9kFgIfAQUPQ2xpY2tBZ3JlZ2FyKCk7ZAIEDw8WAh4ISW1hZ2VVcmwFKkRpc2Vuby9JbWFnZW5lcy9ib3RSZWN1cGVyYXJDb250cmFzZW5hLmdpZmRkAgUPDxYCHwIFHURpc2Vuby9JbWFnZW5lcy9ib3RFbnRyYXIuZ2lmZGQCBg8PFgIeB1Rvb2xUaXAFCkFncsOtY29sYXNkZAIHDw8WAh8DBQlQZWN1YXJpb3NkZAIIDw8WAh8DBQlQZXNxdWVyb3NkZAILDw8WAh8ABQEgZGQCDA8PFgIfAAUBIGRkAg8PDxYCHwAFCjExLDY1Nyw1MzBkZAIQDw8WAh8ABQlTZXJ2aWNpb3NkZAIRDw8WAh8CBSBEaXNlbm8vSW1hZ2VuZXMvYmFubG9naXN0aWNhLmdpZmRkAhIPDxYCHwIFH0Rpc2Vuby9JbWFnZW5lcy9iYW5EZW1hbmRhcy5naWZkZAITDw9kFgIeB29uY2xpY2sFJE9wZW5OZXdMaW5rKCdodHRwOi8vd3d3Lm1pb2Eub3JnLycpO2QCFA8PFgIfAgUiRGlzZW5vL0ltYWdlbmVzL2JhbkluZm9QcmVjaW9zLmdpZmRkAhgPZBYIAgEPDxYCHwAFO1RlY2xlZSBzdSBjdWVudGEgcGFyYSBtYW5kYXJsZSB1biBjb3JyZW8gY29uIGxhIGNvbnRyYXNlw7FhZGQCAw8PZBYCHwEFCk5leHRUbygyKTtkAgUPDxYCHwAFDEVudmlhIENvcnJlb2RkAgcPDxYCHwAFCENhbmNlbGFyZGQCGQ9kFgYCAQ8PFgIfAAUNwqFCaWVudmVuaWRvIWRkAgUPDxYEHwAFIlJldmlzYSB0dXMgYsO6c3F1ZWRhcyBwcmVkZWZpbmlkYXMeC05hdmlnYXRlVXJsBU1odHRwOi8vd3d3LmVjb25vbWlhLXNuaWltLmdvYi5teC9udWV2by9QZXJzb25hbGl6YWNpb24vQ29udHJvbFJlc3VsdGFkb3MuYXNweGRkAgcPDxYEHwUFTWh0dHA6Ly93d3cuZWNvbm9taWEtc25paW0uZ29iLm14L251ZXZvL1VzdWFyaW8vQWx0YVVzdWFyaW8uYXNweD9TdWJPcGNpb249MCwxHwAFE01vZGlmaWNhciBtaSBwZXJmaWxkZAIaD2QWBgIBDw8WAh8ABRdWZW50YWphcyBkZSByZWdpc3RyYXJzZWRkAgMPDxYCHwIFH0Rpc2Vuby9JbWFnZW5lcy9ib3RDYW5jZWxhci5naWZkZAIHDw8WAh8CBSJEaXNlbm8vSW1hZ2VuZXMvYm90UmVnaXN0cmFyc2UuZ2lmZGQCGw8WAh4Dc3JjBSsvbnVldm8vSW50ZXJmYXovU2Vzc2lvbkFkbWluLmFzcD9JZGlvbWFJZD0xZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WDQUSaWJ0blJlY3VwZXJhQ29udHJhBQhidG5Mb2dpbgUNaWJ0bkFncmljb2xhcwUNaWJ0blBlY3VhcmlvcwUNaWJ0blBlc3F1ZXJvcwULaWJ0bkVubGFjZXMFDGltZ1N1YlRpdHVsbwUNaWJ0bkxvZ2lzdGljYQUMaWJ0bkRlbWFuZGFzBQhpYnRuTUlPQQULaWJ0blByZWNpb3MFEGlidG5NZXNhc05lZ29jaW8FC2lidG5PcGluaW9uYei6ZLCKG7lI+THiOZD2b6ctLqE=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEAKlm9nHAgKpwKPFCALR88mgDQLsoZauAwKC3IeGDAL4+9ArAqvr7rwEAvLdlNYOAvL6l/sHAraxwM8NAofkit4DApOqmu4PAofU+OAIAprw3tYLArjhgM4CAqCgz4gNZwNfSlZS/x6pSwgV4cThIwytnU4=" />
+</div>
+			<table height="390" cellSpacing="0" cellPadding="0" width="100%" border="0">
+				<tr>
+					<td style="HEIGHT: 390px" vAlign="top">
+						<table cellSpacing="0" cellPadding="0" width="100%" background="Diseno/Imagenes/bgdDegradado.gif"
+							border="0">
+							<tr>
+								<td><IMG height="9" src="imagenes/uno.gif" width="1"></td>
+							</tr>
+						</table>
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tr width="100%">
+								<td style="BACKGROUND-IMAGE: url(Diseno/Imagenes/bgdLoginWelcome.gif2); BACKGROUND-REPEAT: no-repeat"
+									vAlign="top" align="left" width="185" height="40">
+									<table cellSpacing="0" cellPadding="0" width="185" border="0">
+										<tr>
+											<td style="WIDTH: 30px" width="20"><IMG height="1" src="Diseno/Imagenes/uno.gif" width="20"></td>
+											<td vAlign="top" align="right" width="185">
+												<table cellSpacing="0" cellPadding="0" width="144" border="0">
+													<TBODY>
+														<tr>
+															<td vAlign="top" align="right"><font face="Tahoma, Arial, Helvetica" color="#000000" size="2"><span id="lblUsuario" tabindex="24">Usuario</span></font></td>
+														</tr>
+														<tr>
+															<td vAlign="top" align="right"><input name="txtUsuario" type="text" maxlength="15" id="txtUsuario" tabindex="34" onkeypress="NextTo(1);" style="font-size:10px;width:140px;" /></td>
+														</tr>
+														<tr>
+															<td vAlign="top" align="right">
+																<p><font face="Tahoma, Arial, Helvetica" color="#000000" size="2"><span id="lblClaveAcceso" tabindex="19">Contraseña</span></font></p>
+															</td>
+														</tr>
+														<tr>
+															<td vAlign="top" align="right"><input name="txtContrasena" type="password" maxlength="10" id="txtContrasena" tabindex="35" onkeypress="ClickAgregar();" style="font-size:10px;width:140px;" /></td>
+														</tr>
+														<tr>
+															<td vAlign="top" align="right"><input type="image" name="ibtnRecuperaContra" id="ibtnRecuperaContra" src="Diseno/Imagenes/botRecuperarContrasena.gif" style="border-width:0px;" /><input type="image" name="btnLogin" id="btnLogin" tabindex="35" src="Diseno/Imagenes/botEntrar.gif" style="border-width:0px;" /><A href="#"></A></td>
+														</tr>
+														<tr>
+															<td style="HEIGHT: 11px" vAlign="top" align="right"><font face="Verdana, Arial, Helvetica, sans-serif" color="#666666" size="1"></font></td>
+														</tr>
+													</TBODY>
+												</table>
+											</td>
+											<td width="20"><IMG height="1" src="Diseno/Imagenes/uno.gif" width="20"></td>
+										</tr>
+									</table>
+								</td>
+								<td vAlign="top" align="left" height="50">
+									<table cellSpacing="0" cellPadding="0" width="790" border="0">
+										<tr>
+<td vAlign="top" align="left" background="Diseno/Imagenes/bgdLineaNaranja.gif"><IMG height="18" src="Diseno/Imagenes/imgEsquinaLoguin.gif" width="18"></td>
+										</tr>
+										<tr>
+											<td vAlign="top" align="left" width="900">
+<input type="image" name="ibtnAgricolas" id="ibtnAgricolas" tabindex="7" title="Agrícolas" src="Diseno/Imagenes/imgAgricolasHome.jpg" style="border-width:0px;" />
+<input type="image" name="ibtnPecuarios" id="ibtnPecuarios" tabindex="13" title="Pecuarios" src="Diseno/Imagenes/imgPecuariosHome.jpg" style="border-width:0px;" />
+<input type="image" name="ibtnPesqueros" id="ibtnPesqueros" tabindex="14" title="Pesqueros" src="Diseno/Imagenes/imgPesquerosHome.jpg" style="border-width:0px;" />
+<input type="image" name="ibtnEnlaces" id="ibtnEnlaces" tabindex="15" title="Enlaces comerciales" src="Diseno/Imagenes/imgEnlacesHome.jpg" style="border-width:0px;" />
+											</td>
+										</tr>
+										<tr>
+											<td vAlign="top" align="left"><input type="image" name="imgSubTitulo" id="imgSubTitulo" tabindex="17" src="Diseno/Imagenes/titMensajeHome.gif" style="border-width:0px;" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<table id="TblNoticiasServicios" style="WIDTH: 912px; HEIGHT: 90%" height="90%" cellSpacing="0"
+							cellPadding="0" width="912" border="0">
+							<tr vAlign="top" align="center">
+								<td style="WIDTH: 190px" align="center" width="190">
+									<table cellSpacing="0" cellPadding="0" width="180" align="center" border="0" style="WIDTH: 180px; HEIGHT: 274px">
+										<tr>
+											<td width="160"><font face="Arial, Helvetica, sans-serif" color="#669900" size="1"><strong><span id="lblTituloNoticias" tabindex="22" style="display:inline-block;width:100%;"> </span></strong></font></td>
+										</tr>
+										<tr>
+											<td vAlign="top" width="160"><IMG height="1" src="Diseno/Imagenes/imgLineaNoticiasUp.gif" width="160"></td>
+										</tr>
+										<tr>
+											<td vAlign="top" width="160"><IMG height="3" src="Diseno/Imagenes/uno.gif" width="160"></td>
+										</tr>
+										<tr>
+
+<td style="HEIGHT:86px" vAlign="top" align="center" width="160">
+<a href="/Iso2021.asp"><IMG src="Iso2 160 86.jpg" width="100" height="75" border="0" alt="Certificados con ISO9001-2015" style="display: none"></a>
+
+<FONT face="Verdana"  size="1.5">
+<p align="center">
+<b>Política:</b><br>
+Proporcionar información de precios al mayoreo del mercado agroalimentario a fin de coadyuvar a la toma de decisiones en materia de comercio, así como brindar una atención a los usuarios con apego al marco legal aplicable, comprometidos en la mejora continua.
+</p>
+</FONT>
+
+<FONT face="Arial" size="1"><b>
+Los precios consultados en esta página son de referencia<br>
+<br>
+</font>
+</FONT>
+
+
+
+											</td>
+										</tr>
+
+
+
+</td>
+              </tr>
+
+
+
+		<tr>
+<td>
+
+										<tr>
+											<td>
+												<FONT face="Arial" size="1"><b>
+															<span id="LabelMasComent" tabindex="19"></span></b></FONT>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											<!--	<FONT face="Arial" size="1">
+														<span id="Label1" tabindex="19">Visitante No.</span><span id="LabelNVisit" tabindex="19">11,657,530</span></b></FONT> -->
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td id="tdDwn" style="WIDTH: 783px" align="left" width="783" height="90%">
+									<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+										<tr>
+											<td style="HEIGHT: 14px"><font face="Arial, Helvetica, sans-serif" color="#ff6600" size="1"><strong><span id="lblTituloServicio" tabindex="23" style="display:inline-block;font-weight:bold;width:100%;">Servicios</span></strong></font></td>
+										</tr>
+										<tr>
+											<td vAlign="top" align="left"><IMG height="1" src="Diseno/Imagenes/imgLineaServiciosUp.gif" width="330"></td>
+										</tr>
+										<tr>
+											<td id="tdUp" vAlign="top" align="left" height="260"><iframe id="frameServicios" style="WIDTH: 91.61%; HEIGHT: 90%" name="hfraServicios" 
+src="AdministracionSitio/ListaServicios.aspx"
+													frameBorder="no" width="95%" scrolling="auto"> </iframe>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+<table border=0>
+
+		<tr>
+<td>
+
+</td>
+              </tr>
+
+		<tr>
+<td>
+
+</td>
+              </tr>
+
+		<tr>
+<td>
+
+
+</td>
+              </tr>
+		<tr>
+
+
+
+
+		<tr>
+<td align="left">
+
+
+
+
+<br>
+
+<a href="Preguntas Frecuentes.htm">
+<font face="Arial" size=2 color="000000"><b>
+Preguntas Frecuentes
+</b></font>
+</a>
+
+<br>
+<br>
+<a href="\PRODUCTOS MAS BUSCADOS JUNIO 2023.xlsx">
+<font face="Arial" size=2 color="1C1F77"><b>
+Productos mas buscados del mes de Junio de 2023
+</b></font>
+</a>
+
+
+
+<br>
+<br>
+<a href="\Notas de Corrección 23102020.xlsx">
+<font face="Arial" size=2 color="1C1F77"><b>
+Notas de Corrección
+</b></font>
+</a>
+
+
+
+<br>
+<br>
+<a href="\22102020 recomendaciones página SNIIM.pptx">
+<font face="Arial" size=2 color="1C1F77"><b>
+Recomendaciones&nbsp;al&nbsp;Usuario
+</b></font>
+</a>
+
+
+
+<br>
+<br>
+<a href="\Glosario de Términos SNIIM.pdf">
+<font face="Arial" size=2 color="1C1F77"><b>
+Glosario de Términos
+</b></font>
+</a>
+
+<!--  
+<br>
+<br>
+<a href="\INFO_EC.pdf">
+<font face="Arial" size=2 color="1C1F77"><b>
+Información sobre Enlaces Comerciales
+</b></font> 
+</a>
+
+
+<br>
+<br>
+<a href="\INFO_MESAS.pdf">
+<font face="Arial" size=2 color="1C1F77"><b>
+Información sobre Mesas de Negocios
+</b></font>
+</a> 
+ 
+
+<br>
+<br>
+<a href="\CONTACTO DE ENLACES COMERCIALES.pdf">
+<font face="Arial" size=2 color="1C1F77"><b>
+Contacto para Enlaces comerciales
+</b></font>
+</a> -->
+
+<br>
+<br>
+<a href="\Presentación Prin pecuarios y pesqueros.pptx">
+<font face="Arial" size=2 color="1C1F77"><b>
+Principales Productos de los Subsistemas Pecuarios y Pesqueros
+</b></font>
+</a>
+
+
+
+<br>
+<br>
+
+
+
+
+</td>
+              </tr>
+
+
+
+		<tr>
+<td align="left">
+&nbsp;&nbsp;<font face="Arial" size=2>&nbsp;
+<br>
+<b></b></font>
+</td>
+              </tr>
+
+
+
+
+
+
+								</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr id="TR2" height="100%">
+					<td id="TDImgFoot" style="MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px" vAlign="bottom">
+						<table id="TblImagenesFoot" cellSpacing="0" cellPadding="0" width="750" border="0">
+							<TR>
+								<TD style="WIDTH: 175px" align="left" width="175"><input type="image" name="ibtnLogistica" id="ibtnLogistica" src="Diseno/Imagenes/banlogistica.gif" align="bottom" style="border-width:0px;" /></TD>
+								<TD style="WIDTH: 168px" align="left" width="168"><input type="image" name="ibtnDemandas" id="ibtnDemandas" tabindex="9" src="Diseno/Imagenes/banDemandas.gif" align="bottom" style="border-width:0px;" /></TD>
+								<TD style="WIDTH: 167px" align="left" width="167"><input type="image" name="ibtnMIOA" id="ibtnMIOA" tabindex="12" src="Diseno/Imagenes/banMIOA.gif" align="bottom" onclick="OpenNewLink('http://www.mioa.org/');" style="border-width:0px;" /></TD>
+
+								<TD style="WIDTH: 1px" align="left" width="1"><input type="image" name="ibtnPrecios" id="ibtnPrecios" tabindex="16" src="Diseno/Imagenes/banInfoPrecios.gif" align="bottom" style="border-width:0px;" /></TD>
+							        
+								<TD align="left" width="170"><input type="image" name="ibtnMesasNegocio" id="ibtnMesasNegocio" tabindex="10" src="Diseno/Imagenes/BotMesasdeNegocio.gif" align="bottom" style="border-width:0px;" /></TD>
+
+                                                               
+
+								<TD align="left" width="170"><input type="image" name="ibtnOpinion" id="ibtnOpinion" tabindex="10" src="Diseno/Imagenes/BotOpinion.gif" align="bottom" style="border-width:0px;" /></TD>
+
+							</TR>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<div id="pnlOpciones" tabindex="30" style="height:110px;width:185px;background-image:url(Diseno/Imagenes/bgdLoginWelcome.gif);Z-INDEX: 105; LEFT: 0px; POSITION: absolute; TOP: 9px">
+	
+				<TABLE id="Table3" cellSpacing="1" cellPadding="1" width="185" border="0">
+<tr><td><IMG height="5" src="Diseno/imagenes/uno.gif" width="30"></td></tr>
+					<TR>
+						<TD vAlign="top" align="right" width="150">
+
+								<br><br>
+								
+						</TD>
+						<TD width="4"><IMG height="1" src="Diseno/imagenes/uno.gif" width="4"></TD>
+					</TR>
+				</TABLE>
+			
+</div><div id="pnlWelcome" tabindex="30" style="height:110px;width:185px;background-image:url(Diseno/Imagenes/bgdLoginWelcome.gif2);Z-INDEX: 104; LEFT: 0px; POSITION: absolute; TOP: 9px">
+	
+				<TABLE id="Table1" style="WIDTH: 185px" cellSpacing="1" cellPadding="1" border="0">
+					<TR>
+						<TD style="WIDTH: 40px"></TD>
+						<TD align="center">
+							<span id="lblBienvenida" tabindex="18" class="encabPRE" style="font-size:Medium;">¡Bienvenido!</span></TD>
+					</TR>
+					<TR>
+						<TD style="WIDTH: 40px"></TD>
+						<TD align="center">
+							<span id="lblNombreUsuario" tabindex="20" style="color:#015729;font-size:XX-Small;font-weight:bold;"></span></TD>
+					</TR>
+					<TR>
+						<TD style="WIDTH: 40px"></TD>
+						<TD align="left">
+							<a id="hlnkBusqPrefer" tabindex="5" class="encabPRE" href="http://www.economia-sniim.gob.mx/nuevo/Personalizacion/ControlResultados.aspx" target="_parent" style="font-size:XX-Small;">Revisa tus búsquedas predefinidas</a></TD>
+					</TR>
+					<TR>
+						<TD style="WIDTH: 40px"></TD>
+						<TD>
+							<a id="hlnkMiPerfil" tabindex="6" class="encabPRE" href="http://www.economia-sniim.gob.mx/nuevo/Usuario/AltaUsuario.aspx?SubOpcion=0,1" style="font-size:XX-Small;">Modificar mi perfil</a></TD>
+					</TR>
+				</TABLE>
+			
+</div><iframe id="fraInterface" style="Z-INDEX: 106; LEFT: 18px; VISIBILITY: hidden; POSITION: absolute; TOP: 243px; HEIGHT: 30px" width="0" src="/nuevo/Interfaz/SessionAdmin.asp?IdiomaId=1"> </iframe>
+		</form>
+	</body>
+</HTML>

@@ -62,13 +62,40 @@ def maiz_precioMXN(request):
 
   return render(request,  'graficasBV.html')
 
-def redondear_velas(velas):
-    return [[round(valor, 2) for valor in fila] for fila in velas]
 
+
+
+# 1. Función para redondear
+def redondear_velas(velas):
+    return [[round(float(valor), 2) for valor in fila] for fila in velas]
+
+# 2. Función para convertir el historial completo a MXN/kg
+def convertir_ohlc(df, factor_kg, tipo_cambio, en_centavos=True):
+    divisor = 100.0 if en_centavos else 1.0
+    cols = ['Open', 'Close', 'Low', 'High']
+    for col in cols:
+        df[col] = (df[col] / divisor * tipo_cambio) / factor_kg
+    return df
+
+# 3. Tu vista principal
 def precios_maiz(request):
     hoy = datetime.today().date()
     inicio = hoy - timedelta(days=90)
 
+    # A. OBTENER TIPO DE CAMBIO
+    dolar = yf.Ticker("USDMXN=X")
+    datos_dolar = dolar.history(period="5d", interval="1h")
+    tipo_cambio = float(datos_dolar["Close"].squeeze().iloc[-1])
+
+    # B. DEFINIR CONVERSIONES A KG
+    kg_por_libra = 0.4536
+    kg_por_tonelada = 1000
+    kg_por_bushel_maiz = 25.4016
+    kg_por_bushel_soya = 27.216
+    kg_por_bushel_avena = 14.52
+    kg_por_cwt_arroz = 45.3592
+
+    # C. DESCARGAR HISTÓRICOS
     df_maiz = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
@@ -81,7 +108,20 @@ def precios_maiz(request):
     df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
     df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
 
-    # Fechas y velas redondeadas
+    # D. CONVERTIR LOS DATAFRAMES A MXN/KG
+    df_maiz = convertir_ohlc(df_maiz, kg_por_bushel_maiz, tipo_cambio)
+    df_cafe = convertir_ohlc(df_cafe, kg_por_libra, tipo_cambio)
+    df_cacao = convertir_ohlc(df_cacao, kg_por_tonelada, tipo_cambio, en_centavos=False)
+    df_arroz = convertir_ohlc(df_arroz, kg_por_cwt_arroz, tipo_cambio)
+    df_soya = convertir_ohlc(df_soya, kg_por_bushel_soya, tipo_cambio)
+    df_avena = convertir_ohlc(df_avena, kg_por_bushel_avena, tipo_cambio)
+    df_azucar = convertir_ohlc(df_azucar, kg_por_libra, tipo_cambio)
+    df_algodon = convertir_ohlc(df_algodon, kg_por_libra, tipo_cambio)
+    df_gVacuno = convertir_ohlc(df_gVacuno, kg_por_libra, tipo_cambio)
+    df_gJoven = convertir_ohlc(df_gJoven, kg_por_libra, tipo_cambio)
+    df_cMagro = convertir_ohlc(df_cMagro, kg_por_libra, tipo_cambio)
+
+    # E. EXTRAER FECHAS Y VELAS REDONDEADAS
     fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_maiz = redondear_velas(df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist())
 
@@ -115,52 +155,15 @@ def precios_maiz(request):
     fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
     velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
 
-    ###### BLOQUE DE CODIGO PARA OBTENER PRECIOS POR PESOS MEXICANOS
-
-    # Conversiones
-    kg_por_libra = 0.4536
-    kg_por_tonelada = 1000
-    kg_por_bushel_maiz = 25.4016
-    kg_por_bushel_soya = 27.216
-    kg_por_bushel_avena = 14.52
-    kg_por_cwt_arroz = 45.3592
-
-    # Tipo de cambio
-    dolar = yf.Ticker("USDMXN=X")
-    datos_dolar = dolar.history(period="5d", interval="1h")
-    tipo_cambio = datos_dolar["Close"].iloc[-1]
-
-    # Café
-    cafe = yf.Ticker("KC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_cafe_mxn_kg = round((cafe / 100 * tipo_cambio) / kg_por_libra, 2)
-
-    # Cacao
-    cacao = yf.Ticker("CC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_cacao_mxn_kg = round((cacao * tipo_cambio) / kg_por_tonelada, 2)
-
-    # Maíz
-    maiz = yf.Ticker("ZC=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_maiz_mxn_kg = round(((maiz / 100) * tipo_cambio) / kg_por_bushel_maiz, 2)
-
-    # Soya
-    soya = yf.Ticker("ZS=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_soya_mxn_kg = round(((soya / 100) * tipo_cambio) / kg_por_bushel_soya, 2)
-
-    # Avena
-    avena = yf.Ticker("ZO=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_avena_mxn_kg = round(((avena / 100) * tipo_cambio) / kg_por_bushel_avena, 2)
-
-    # Arroz
-    arroz = yf.Ticker("ZR=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_arroz_mxn_kg = round(((arroz / 100) * tipo_cambio) / kg_por_cwt_arroz, 2)
-
-    # Azúcar
-    azucar = yf.Ticker("SB=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_azucar_mxn_kg = round((azucar / 100 * tipo_cambio) / kg_por_libra, 2)
-
-    # Algodón
-    algodon = yf.Ticker("CT=F").history(period="5d", interval="4h")["Close"].iloc[-1]
-    precio_algodon_mxn_kg = round((algodon / 100 * tipo_cambio) / kg_por_libra, 2)
+    # F. OBTENER PRECIOS ACTUALES PARA ETIQUETAS
+    precio_maiz_mxn_kg = float(df_maiz['Close'].squeeze().iloc[-1])
+    precio_cafe_mxn_kg = float(df_cafe['Close'].squeeze().iloc[-1])
+    precio_cacao_mxn_kg = float(df_cacao['Close'].squeeze().iloc[-1])
+    precio_arroz_mxn_kg = float(df_arroz['Close'].squeeze().iloc[-1])
+    precio_soya_mxn_kg = float(df_soya['Close'].squeeze().iloc[-1])
+    precio_avena_mxn_kg = float(df_avena['Close'].squeeze().iloc[-1])
+    precio_azucar_mxn_kg = float(df_azucar['Close'].squeeze().iloc[-1])
+    precio_algodon_mxn_kg = float(df_algodon['Close'].squeeze().iloc[-1])
 
     return render(request, 'graficasBV.html', {
         'fechas_maiz': json.dumps(fechas_maiz),
@@ -171,8 +174,258 @@ def precios_maiz(request):
         'velas_cacao': json.dumps(velas_cacao),
         'fechas_arroz': json.dumps(fechas_arroz),
         'velas_arroz': json.dumps(velas_arroz),
+        'fechas_soya': json.dumps(fechas_soya),
+        'velas_soya': json.dumps(velas_soya),
+        'fechas_avena': json.dumps(fechas_avena),
+        'velas_avena': json.dumps(velas_avena),
+        'fechas_azucar': json.dumps(fechas_azucar),
+        'velas_azucar': json.dumps(velas_azucar),
+        'fechas_algodon': json.dumps(fechas_algodon),
+        'velas_algodon': json.dumps(velas_algodon),
+        'fechas_gVacuno' : json.dumps(fechas_gVacuno),
+        'velas_gVacuno' : json.dumps(velas_gVacuno),
+        'fechas_gJoven' : json.dumps(fechas_gJoven),
+        'velas_gJoven' : json.dumps(velas_gJoven),
+        'fechas_cMagro' : json.dumps(fechas_cMagro),
+        'velas_cMagro' : json.dumps(velas_cMagro),
+
+        "precio_cafe_mxn_kg": "{:.2f}".format(precio_cafe_mxn_kg),
+        "precio_cacao_mxn_kg": "{:.2f}".format(precio_cacao_mxn_kg),
+        "precio_maiz_mxn_kg": "{:.2f}".format(precio_maiz_mxn_kg),
+        "precio_soya_mxn_kg": "{:.2f}".format(precio_soya_mxn_kg),
+        "precio_avena_mxn_kg": "{:.2f}".format(precio_avena_mxn_kg),
+        "precio_arroz_mxn_kg": "{:.2f}".format(precio_arroz_mxn_kg),
+        "precio_azucar_mxn_kg": "{:.2f}".format(precio_azucar_mxn_kg),
+        "precio_algodon_mxn_kg": "{:.2f}".format(precio_algodon_mxn_kg),
+
+        'rango_texto': f"{inicio} → {hoy}",
+    })
+
+
+def precios_maiz(request):
+    hoy = datetime.today().date()
+    inicio = hoy - timedelta(days=90)
+
+    # 1. OBTENER TIPO DE CAMBIO (y forzarlo a ser un número puro)
+    dolar = yf.Ticker("USDMXN=X")
+    datos_dolar = dolar.history(period="5d", interval="1h")
+    tipo_cambio = float(datos_dolar["Close"].squeeze().iloc[-1])
+
+    # 2. DEFINIR CONVERSIONES A KG
+    kg_por_libra = 0.4536
+    kg_por_tonelada = 1000
+    kg_por_bushel_maiz = 25.4016
+    kg_por_bushel_soya = 27.216
+    kg_por_bushel_avena = 14.52
+    kg_por_cwt_arroz = 45.3592
+
+    # 3. DESCARGAR HISTÓRICOS
+    df_maiz = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_arroz = yf.download("ZR=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_soya = yf.download("ZS=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_avena = yf.download("ZO=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_algodon = yf.download("CT=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gVacuno = yf.download("LE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+
+    # 4. CONVERTIR TODO EL HISTORIAL A MXN/KG (¡Esto cambia los números de la gráfica!)
+    # El cacao cotiza en dólares enteros, los demás normalmente en centavos.
+    df_maiz = convertir_historial_a_mxn_kg(df_maiz, kg_por_bushel_maiz, tipo_cambio)
+    df_cafe = convertir_historial_a_mxn_kg(df_cafe, kg_por_libra, tipo_cambio)
+    df_cacao = convertir_historial_a_mxn_kg(df_cacao, kg_por_tonelada, tipo_cambio, en_centavos=False)
+    df_arroz = convertir_historial_a_mxn_kg(df_arroz, kg_por_cwt_arroz, tipo_cambio)
+    df_soya = convertir_historial_a_mxn_kg(df_soya, kg_por_bushel_soya, tipo_cambio)
+    df_avena = convertir_historial_a_mxn_kg(df_avena, kg_por_bushel_avena, tipo_cambio)
+    df_azucar = convertir_historial_a_mxn_kg(df_azucar, kg_por_libra, tipo_cambio)
+    df_algodon = convertir_historial_a_mxn_kg(df_algodon, kg_por_libra, tipo_cambio)
+    df_gVacuno = convertir_historial_a_mxn_kg(df_gVacuno, kg_por_libra, tipo_cambio)
+    df_gJoven = convertir_historial_a_mxn_kg(df_gJoven, kg_por_libra, tipo_cambio)
+    df_cMagro = convertir_historial_a_mxn_kg(df_cMagro, kg_por_libra, tipo_cambio)
+
+    # 5. EXTRAER FECHAS Y VELAS REDONDEADAS (Ahora sí, ya traen el precio en MXN/kg)
+    fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_maiz = redondear_velas(df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cafe = df_cafe['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cafe = redondear_velas(df_cafe[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cacao = df_cacao['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cacao = redondear_velas(df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_arroz = df_arroz['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_arroz = redondear_velas(df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_soya = df_soya['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_soya = redondear_velas(df_soya[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_avena = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_avena = redondear_velas(df_avena[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_azucar = df_azucar['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_azucar = redondear_velas(df_azucar[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_algodon = df_algodon['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_algodon = redondear_velas(df_algodon[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_gVacuno = df_gVacuno['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gVacuno = redondear_velas(df_gVacuno[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_gJoven = df_gJoven['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gJoven = redondear_velas(df_gJoven[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    # 6. OBTENER PRECIOS ACTUALES (Para las etiquetas verdes)
+    # Como los DataFrames ya están en MXN/kg, solo tomamos el último valor de cierre
+    precio_maiz_mxn_kg = float(df_maiz['Close'].squeeze().iloc[-1])
+    precio_cafe_mxn_kg = float(df_cafe['Close'].squeeze().iloc[-1])
+    precio_cacao_mxn_kg = float(df_cacao['Close'].squeeze().iloc[-1])
+    precio_arroz_mxn_kg = float(df_arroz['Close'].squeeze().iloc[-1])
+    precio_soya_mxn_kg = float(df_soya['Close'].squeeze().iloc[-1])
+    precio_avena_mxn_kg = float(df_avena['Close'].squeeze().iloc[-1])
+    precio_azucar_mxn_kg = float(df_azucar['Close'].squeeze().iloc[-1])
+    precio_algodon_mxn_kg = float(df_algodon['Close'].squeeze().iloc[-1])
+
+    return render(request, 'graficasBV.html', {
+        'fechas_maiz': json.dumps(fechas_maiz),
+        'velas_maiz': json.dumps(velas_maiz),
+        'fechas_cafe': json.dumps(fechas_cafe),
+        'velas_cafe': json.dumps(velas_cafe),
         'fechas_cacao': json.dumps(fechas_cacao),
         'velas_cacao': json.dumps(velas_cacao),
+        'fechas_arroz': json.dumps(fechas_arroz),
+        'velas_arroz': json.dumps(velas_arroz),
+        'fechas_soya': json.dumps(fechas_soya),
+        'velas_soya': json.dumps(velas_soya),
+        'fechas_avena': json.dumps(fechas_avena),
+        'velas_avena': json.dumps(velas_avena),
+        'fechas_azucar': json.dumps(fechas_azucar),
+        'velas_azucar': json.dumps(velas_azucar),
+        'fechas_algodon': json.dumps(fechas_algodon),
+        'velas_algodon': json.dumps(velas_algodon),
+        'fechas_gVacuno' : json.dumps(fechas_gVacuno),
+        'velas_gVacuno' : json.dumps(velas_gVacuno),
+        'fechas_gJoven' : json.dumps(fechas_gJoven),
+        'velas_gJoven' : json.dumps(velas_gJoven),
+        'fechas_cMagro' : json.dumps(fechas_cMagro),
+        'velas_cMagro' : json.dumps(velas_cMagro),
+
+        "precio_cafe_mxn_kg": "{:.2f}".format(precio_cafe_mxn_kg),
+        "precio_cacao_mxn_kg": "{:.2f}".format(precio_cacao_mxn_kg),
+        "precio_maiz_mxn_kg": "{:.2f}".format(precio_maiz_mxn_kg),
+        "precio_soya_mxn_kg": "{:.2f}".format(precio_soya_mxn_kg),
+        "precio_avena_mxn_kg": "{:.2f}".format(precio_avena_mxn_kg),
+        "precio_arroz_mxn_kg": "{:.2f}".format(precio_arroz_mxn_kg),
+        "precio_azucar_mxn_kg": "{:.2f}".format(precio_azucar_mxn_kg),
+        "precio_algodon_mxn_kg": "{:.2f}".format(precio_algodon_mxn_kg),
+
+        'rango_texto': f"{inicio} → {hoy}",
+    })
+
+def precios_maiz(request):
+    hoy = datetime.today().date()
+    inicio = hoy - timedelta(days=90)
+
+    # 1. OBTENER TIPO DE CAMBIO PRIMERO
+    dolar = yf.Ticker("USDMXN=X")
+    datos_dolar = dolar.history(period="5d", interval="1h")
+    tipo_cambio = float(datos_dolar["Close"].squeeze().iloc[-1])
+
+    # 2. DEFINIR CONVERSIONES A KG
+    kg_por_libra = 0.4536
+    kg_por_tonelada = 1000
+    kg_por_bushel_maiz = 25.4016
+    kg_por_bushel_soya = 27.216
+    kg_por_bushel_avena = 14.52
+    kg_por_cwt_arroz = 45.3592
+
+    # 3. DESCARGAR HISTÓRICOS
+    df_maiz = yf.download("ZC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cafe = yf.download("KC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cacao = yf.download("CC=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_arroz = yf.download("ZR=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_soya = yf.download("ZS=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_avena = yf.download("ZO=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_azucar = yf.download("SB=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_algodon = yf.download("CT=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gVacuno = yf.download("LE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_gJoven = yf.download("GF=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+    df_cMagro = yf.download("HE=F", start=inicio, end=hoy + timedelta(days=1)).reset_index()
+
+    # 4. CONVERTIR LOS DATAFRAMES A MXN/KG
+    # Cacao es el único que cotiza en USD enteros por tonelada, el resto en centavos de USD.
+    df_maiz = convertir_ohlc(df_maiz, kg_por_bushel_maiz, tipo_cambio)
+    df_cafe = convertir_ohlc(df_cafe, kg_por_libra, tipo_cambio)
+    df_cacao = convertir_ohlc(df_cacao, kg_por_tonelada, tipo_cambio, en_centavos=False)
+    df_arroz = convertir_ohlc(df_arroz, kg_por_cwt_arroz, tipo_cambio)
+    df_soya = convertir_ohlc(df_soya, kg_por_bushel_soya, tipo_cambio)
+    df_avena = convertir_ohlc(df_avena, kg_por_bushel_avena, tipo_cambio)
+    df_azucar = convertir_ohlc(df_azucar, kg_por_libra, tipo_cambio)
+    df_algodon = convertir_ohlc(df_algodon, kg_por_libra, tipo_cambio)
+    # Ganado también suele cotizar en centavos de dólar por libra
+    df_gVacuno = convertir_ohlc(df_gVacuno, kg_por_libra, tipo_cambio)
+    df_gJoven = convertir_ohlc(df_gJoven, kg_por_libra, tipo_cambio)
+    df_cMagro = convertir_ohlc(df_cMagro, kg_por_libra, tipo_cambio)
+
+    # 5. EXTRAER FECHAS Y VELAS REDONDEADAS
+    fechas_maiz = df_maiz['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_maiz = redondear_velas(df_maiz[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cafe = df_cafe['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cafe = redondear_velas(df_cafe[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cacao = df_cacao['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cacao = redondear_velas(df_cacao[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_arroz = df_arroz['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_arroz = redondear_velas(df_arroz[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_soya = df_soya['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_soya = redondear_velas(df_soya[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_avena = df_avena['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_avena = redondear_velas(df_avena[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_azucar = df_azucar['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_azucar = redondear_velas(df_azucar[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_algodon = df_algodon['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_algodon = redondear_velas(df_algodon[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_gVacuno = df_gVacuno['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gVacuno = redondear_velas(df_gVacuno[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_gJoven = df_gJoven['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_gJoven = redondear_velas(df_gJoven[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    fechas_cMagro = df_cMagro['Date'].dt.strftime('%Y-%m-%d').tolist()
+    velas_cMagro = redondear_velas(df_cMagro[['Open', 'Close', 'Low', 'High']].values.tolist())
+
+    # 6. OBTENER PRECIOS ACTUALES (Desde el DataFrame ya convertido)
+    # Extraemos el valor como float nativo para que el format() de Django no falle
+    precio_maiz_mxn_kg = float(df_maiz['Close'].squeeze().iloc[-1])
+    precio_cafe_mxn_kg = float(df_cafe['Close'].squeeze().iloc[-1])
+    precio_cacao_mxn_kg = float(df_cacao['Close'].squeeze().iloc[-1])
+    precio_arroz_mxn_kg = float(df_arroz['Close'].squeeze().iloc[-1])
+    precio_soya_mxn_kg = float(df_soya['Close'].squeeze().iloc[-1])
+    precio_avena_mxn_kg = float(df_avena['Close'].squeeze().iloc[-1])
+    precio_azucar_mxn_kg = float(df_azucar['Close'].squeeze().iloc[-1])
+    precio_algodon_mxn_kg = float(df_algodon['Close'].squeeze().iloc[-1])
+
+    return render(request, 'graficasBV.html', {
+        'fechas_maiz': json.dumps(fechas_maiz),
+        'velas_maiz': json.dumps(velas_maiz),
+        'fechas_cafe': json.dumps(fechas_cafe),
+        'velas_cafe': json.dumps(velas_cafe),
+        'fechas_cacao': json.dumps(fechas_cacao),
+        'velas_cacao': json.dumps(velas_cacao),
+        'fechas_arroz': json.dumps(fechas_arroz),
+        'velas_arroz': json.dumps(velas_arroz),
         'fechas_soya': json.dumps(fechas_soya),
         'velas_soya': json.dumps(velas_soya),
         'fechas_avena': json.dumps(fechas_avena),

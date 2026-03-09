@@ -147,6 +147,20 @@ class PrecioAgricola(models.Model):
     def __str__(self):
         return f"{self.producto} ({self.presentacion}) - {self.fecha}"
 
+class PrecioGrano(models.Model):
+    producto = models.CharField(max_length=150)
+    calidad = models.CharField(max_length=150, verbose_name="Origen") # Aquí guardaremos el Origen (ej. Puebla)
+    presentacion = models.CharField(max_length=150)
+    precio_actual = models.DecimalField(max_digits=8, decimal_places=2)
+    fecha_registro = models.DateField(auto_now_add=True)
+
+    class Meta:
+        # Evita duplicados del mismo producto el mismo día
+        unique_together = ('producto', 'calidad', 'presentacion', 'fecha_registro')
+
+    def __str__(self):
+        return f"{self.producto} ({self.calidad}) - ${self.precio_actual}"
+
 
 
 

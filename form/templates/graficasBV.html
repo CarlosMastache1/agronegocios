@@ -1,27 +1,22 @@
 {% extends 'basegraficos.html' %}
 
-
 {% block content %}
 
 <style>
-  .precio-old {
+  /* Ajustes en la etiqueta: letra más grande, menos ancha y diseño en bloque */
+  .precio-badge {
     background-color: rgb(37, 187, 17);
+    color: white;
+    padding: 4px 10px; /* Menos relleno para que sea menos ancha */
     border-radius: 6px;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    margin-left: 170px;
-    margin-top: 200px;
     font-weight: bold;
+    font-size: 1.2rem; /* Texto más grande */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: inline-block;
   }
 
-    @media (max-width: 600px) {
-    .precio-old {
-      margin-left: 70px;
-    }
-  }
-
-    footer {
-  background-color: #991B3D;
+  footer {
+    background-color: #991B3D;
     color: white;
     padding: 20px;
     text-align: center;
@@ -33,230 +28,218 @@
   <div class="alert alert-danger" role="alert">
     <h1 class="mb-4 text-center">Historial de Precios de Cultivos</h1>
     <p class="text-center">Rango: {{ rango_texto }}</p>
-    <p class="text-center" style="font-weight: bolder;">Precios expresados en Dolares</p>
-    <p style="text-align: justify;">En esta sección podrá explorar los precios a nivel internacional de productos
-      agrícolas y pecuarios que cotizan en los mercados de futuros de las principales bolsas de valores del mundo.
-      Los mercados de futuros consisten en la realización de contratos de compra o venta de ciertas materias primas en
-      una fecha futura, pactando en el presente el precio, la cantidad y la fecha de vencimiento. Actualmente estas
-      negociaciones se realizan en mercados organizados y especulativos.
-      Desde estos mercados son fijados los precios de productos como el café, maíz, arroz, cacao, trigo, avena, azúcar,
-      algodón y ganado bovino y porcino de acuerdo con la oferta y demanda a nivel internacional.
-      Esta sección permitirá conocer los precios al que cotizan los productos en tiempo real, evitando desfases en la
-      entrega de la información con el fin de tomar mejores decisiones durante la comercialización.
+    <p class="text-center" style="font-weight: bolder; font-size: 1.2rem;">
+      Precios expresados en Pesos Mexicanos (MXN) por Kilogramo
+    </p>
+    <p style="text-align: justify;">
+      En esta sección podrá explorar los precios históricos y actuales de productos
+      agrícolas y pecuarios, <strong>ya convertidos a moneda nacional y kilogramos</strong> para facilitar su interpretación local. 
+      Los datos provienen de los mercados de futuros de las principales bolsas de valores del mundo, donde se fijan 
+      los precios internacionales de acuerdo con la oferta y demanda. Esta sección permite conocer los precios en 
+      tiempo real, evitando desfases para la toma de mejores decisiones durante la comercialización.
     </p>
   </div>
 
   <div class="row g-4">
-    <!-- Maíz -->
     <div class="col-md-6">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_maiz_mxn_kg }} MXN/kg</span>
-          <div id="grafico-maiz" style="height: 400px;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Café -->
-    <div class="col-md-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_cafe_mxn_kg }} MXN/kg </span>
-          <div id="grafico-cafe" style="height: 400px;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cacao -->
-    <div class="col-md-6">
-      <div class="card shadow-sm pt-3">
-        <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_cacao_mxn_kg }} MXN/kg</span>
-          <div id="grafico-cacao" style="height: 400px;"></div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- ARROZ -->
-    <div class="col-md-6">
-      <div class="card shadow-sm pt-3">
-        <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_arroz_mxn_kg }} MXN/kg</span>
-          <div id="grafico-arroz" style="height: 400px;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOYA -->
-    <div class="col-md-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_soya_mxn_kg }} MXN/kg </span>
-          <div id="grafico-soya" style="height: 400px;"></div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- SOYA -->
-    <div class="col-md-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_avena_mxn_kg }}  MXN/kg  </span>
-          <div id="grafico-avena" style="height: 400px;"></div>
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_maiz_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-maiz" style="height: 400px; width: 100%;"></div>
         </div>
       </div>
     </div>
 
     <div class="col-md-6">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_azucar_mxn_kg }} MXN/kg  </span>
-          <div id="grafico-azucar" style="height: 400px;"></div>
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_cafe_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-cafe" style="height: 400px; width: 100%;"></div>
         </div>
       </div>
     </div>
 
     <div class="col-md-6">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <span class="precio-old">Precio Actual: {{ precio_algodon_mxn_kg }} MXN/kg </span>
-          <div id="grafico-algodon" style="height: 400px;"></div>
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_cacao_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-cacao" style="height: 400px; width: 100%;"></div>
         </div>
       </div>
     </div>
 
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_arroz_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-arroz" style="height: 400px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_soya_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-soya" style="height: 400px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_avena_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-avena" style="height: 400px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_azucar_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-azucar" style="height: 400px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
 
-
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-end mb-2">
+            <span class="precio-badge">Actual: {{ precio_algodon_mxn_kg }} MXN/kg</span>
+          </div>
+          <div id="grafico-algodon" style="height: 400px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
-
-  <footer>
-  <p>&copy; Fuente: Elaboración propia con datos de Yahoo Finance</p>
-</footer>
+  <footer class="mt-5">
+    <p>&copy; Fuente: Elaboración propia con datos de Yahoo Finance</p>
+  </footer>
 
 </div>
 
-
 <script>
-  const fechas_maiz = {{ fechas_maiz| safe }};
-  const velas_maiz = {{ velas_maiz| safe }};
-  const fechas_cafe = {{ fechas_cafe| safe }};
-  const velas_cafe = {{ velas_cafe| safe }};
-  const fechas_cacao = {{ fechas_cacao| safe }};
-  const velas_cacao = {{ velas_cacao| safe }};
-  const fechas_arroz = {{ fechas_arroz| safe }};
-  const velas_arroz = {{ velas_arroz| safe }};
-  const fechas_soya = {{ fechas_soya| safe }};
-  const velas_soya = {{ velas_soya| safe }};
-  const fechas_avena = {{ fechas_avena| safe }};
-  const velas_avena = {{ velas_avena| safe }};
-  const fechas_azucar = {{ fechas_azucar| safe }};
-  const velas_azucar = {{ velas_azucar| safe }};
-  const fechas_algodon = {{ fechas_algodon| safe }};
-  const velas_algodon = {{ velas_algodon| safe }};
+  // Extraemos las variables de Django
+  const fechas_maiz = {{ fechas_maiz|safe }};
+  const velas_maiz = {{ velas_maiz|safe }};
+  const fechas_cafe = {{ fechas_cafe|safe }};
+  const velas_cafe = {{ velas_cafe|safe }};
+  const fechas_cacao = {{ fechas_cacao|safe }};
+  const velas_cacao = {{ velas_cacao|safe }};
+  const fechas_arroz = {{ fechas_arroz|safe }};
+  const velas_arroz = {{ velas_arroz|safe }};
+  const fechas_soya = {{ fechas_soya|safe }};
+  const velas_soya = {{ velas_soya|safe }};
+  const fechas_avena = {{ fechas_avena|safe }};
+  const velas_avena = {{ velas_avena|safe }};
+  const fechas_azucar = {{ fechas_azucar|safe }};
+  const velas_azucar = {{ velas_azucar|safe }};
+  const fechas_algodon = {{ fechas_algodon|safe }};
+  const velas_algodon = {{ velas_algodon|safe }};
 
-  console.log("Fechas café:", fechas_cafe);
-  console.log("Velas café:", velas_cafe);
+  // Función genérica para inicializar gráficos
+  function initChart(elementId, titleText, xAxisData, seriesData) {
+    echarts.init(document.getElementById(elementId)).setOption({
+      title: { text: titleText, left: 'left' },
+      
+      // Personalización de la cajita flotante (Tooltip)
+      tooltip: { 
+        trigger: 'axis',
+        axisPointer: { type: 'cross' },
+        formatter: function (params) {
+          let item = params[0];
+          let fecha = item.axisValue;
+          let open = item.value[1];
+          let close = item.value[2];
+          let lowest = item.value[3];
+          let highest = item.value[4];
+          
+          return `
+            <div style="font-weight: bold; margin-bottom: 5px; color: #333;">${fecha}</div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span><span style="display:inline-block;margin-right:4px;border-radius:50%;width:10px;height:10px;background-color:#ef232a;"></span>Apertura:</span>
+              <strong style="margin-left: 15px;">${open} MXN/kg</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span><span style="display:inline-block;margin-right:4px;border-radius:50%;width:10px;height:10px;background-color:#14b143;"></span>Cierre:</span>
+              <strong style="margin-left: 15px;">${close} MXN/kg</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span><span style="display:inline-block;margin-right:4px;border-radius:50%;width:10px;height:10px;background-color:#ccc;"></span>Mínimo:</span>
+              <strong style="margin-left: 15px;">${lowest} MXN/kg</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span><span style="display:inline-block;margin-right:4px;border-radius:50%;width:10px;height:10px;background-color:#ccc;"></span>Máximo:</span>
+              <strong style="margin-left: 15px;">${highest} MXN/kg</strong>
+            </div>
+          `;
+        }
+      },
+      
+      grid: {
+        left: '10%', right: '10%', bottom: '15%'
+      },
+      xAxis: { 
+        data: xAxisData,
+        scale: true
+      },
+      yAxis: { 
+        scale: true,
+        name: 'MXN / Kg'
+      },
+      series: [{
+        type: 'candlestick',
+        data: seriesData,
+        itemStyle: {
+          color: '#ef232a', // Color subida
+          color0: '#14b143', // Color bajada
+          borderColor: '#ef232a',
+          borderColor0: '#14b143'
+        }
+      }]
+    });
+  }
 
+  // Inicialización de todos los gráficos
+  initChart('grafico-maiz', 'MAÍZ (ZC=F)', fechas_maiz, velas_maiz);
+  initChart('grafico-cafe', 'CAFÉ (KC=F)', fechas_cafe, velas_cafe);
+  initChart('grafico-cacao', 'CACAO (CC=F)', fechas_cacao, velas_cacao);
+  initChart('grafico-arroz', 'ARROZ (ZR=F)', fechas_arroz, velas_arroz);
+  initChart('grafico-soya', 'SOYA (ZS=F)', fechas_soya, velas_soya);
+  initChart('grafico-avena', 'AVENA (ZO=F)', fechas_avena, velas_avena);
+  initChart('grafico-azucar', 'AZÚCAR (SB=F)', fechas_azucar, velas_azucar);
+  initChart('grafico-algodon', 'ALGODÓN (CT=F)', fechas_algodon, velas_algodon);
 
-  echarts.init(document.getElementById('grafico-maiz')).setOption({
-    title: { text: 'MAÍZ (ZC=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_maiz },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_maiz
-    }]
+  // Hacer los gráficos responsivos
+  window.addEventListener('resize', function() {
+    echarts.getInstanceByDom(document.getElementById('grafico-maiz')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-cafe')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-cacao')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-arroz')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-soya')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-avena')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-azucar')).resize();
+    echarts.getInstanceByDom(document.getElementById('grafico-algodon')).resize();
   });
-
-  echarts.init(document.getElementById('grafico-cafe')).setOption({
-    title: { text: 'CAFÉ (KC=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_cafe },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_cafe
-    }]
-  });
-
-  echarts.init(document.getElementById('grafico-cacao')).setOption({
-    title: { text: 'CACAO (CC=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_cacao },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_cacao
-    }]
-  });
-
-
-  echarts.init(document.getElementById('grafico-arroz')).setOption({
-    title: { text: 'ARROZ (ZR=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_arroz },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_arroz
-    }]
-  });
-
-  echarts.init(document.getElementById('grafico-soya')).setOption({
-    title: { text: 'SOYA (ZS=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_soya },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_soya
-    }]
-  });
-
-  echarts.init(document.getElementById('grafico-avena')).setOption({
-    title: { text: 'AVENA (ZO=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_avena },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_avena
-    }]
-  });
-
-  echarts.init(document.getElementById('grafico-azucar')).setOption({
-    title: { text: 'AZUCAR (SB=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_azucar },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_azucar
-    }]
-  });
-
-  echarts.init(document.getElementById('grafico-algodon')).setOption({
-    title: { text: 'ALGODON (CT=F)' },
-    tooltip: { trigger: 'axis' },
-    xAxis: { data: fechas_algodon },
-    yAxis: { scale: true },
-    series: [{
-      type: 'candlestick',
-      data: velas_algodon
-    }]
-  });
-
 </script>
-
 
 {% endblock %}
