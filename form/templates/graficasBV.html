@@ -7,12 +7,13 @@
   .precio-badge {
     background-color: rgb(37, 187, 17);
     color: white;
-    padding: 4px 10px; /* Menos relleno para que sea menos ancha */
+    padding: 4px 10px;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 1.2rem; /* Texto más grande */
+    font-size: 1.2rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: inline-block;
+    transition: all 0.2s ease; /* Transición suave cuando cambia el texto */
   }
 
   footer {
@@ -45,7 +46,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_maiz_mxn_kg }} MXN/kg</span>
+            <span id="badge-maiz" class="precio-badge" data-original="Actual: {{ precio_maiz_mxn_kg }} MXN/kg">Actual: {{ precio_maiz_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-maiz" style="height: 400px; width: 100%;"></div>
         </div>
@@ -56,7 +57,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_cafe_mxn_kg }} MXN/kg</span>
+            <span id="badge-cafe" class="precio-badge" data-original="Actual: {{ precio_cafe_mxn_kg }} MXN/kg">Actual: {{ precio_cafe_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-cafe" style="height: 400px; width: 100%;"></div>
         </div>
@@ -67,7 +68,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_cacao_mxn_kg }} MXN/kg</span>
+            <span id="badge-cacao" class="precio-badge" data-original="Actual: {{ precio_cacao_mxn_kg }} MXN/kg">Actual: {{ precio_cacao_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-cacao" style="height: 400px; width: 100%;"></div>
         </div>
@@ -78,7 +79,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_arroz_mxn_kg }} MXN/kg</span>
+            <span id="badge-arroz" class="precio-badge" data-original="Actual: {{ precio_arroz_mxn_kg }} MXN/kg">Actual: {{ precio_arroz_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-arroz" style="height: 400px; width: 100%;"></div>
         </div>
@@ -89,7 +90,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_soya_mxn_kg }} MXN/kg</span>
+            <span id="badge-soya" class="precio-badge" data-original="Actual: {{ precio_soya_mxn_kg }} MXN/kg">Actual: {{ precio_soya_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-soya" style="height: 400px; width: 100%;"></div>
         </div>
@@ -100,7 +101,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_avena_mxn_kg }} MXN/kg</span>
+            <span id="badge-avena" class="precio-badge" data-original="Actual: {{ precio_avena_mxn_kg }} MXN/kg">Actual: {{ precio_avena_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-avena" style="height: 400px; width: 100%;"></div>
         </div>
@@ -111,7 +112,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_azucar_mxn_kg }} MXN/kg</span>
+            <span id="badge-azucar" class="precio-badge" data-original="Actual: {{ precio_azucar_mxn_kg }} MXN/kg">Actual: {{ precio_azucar_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-azucar" style="height: 400px; width: 100%;"></div>
         </div>
@@ -122,7 +123,7 @@
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-2">
-            <span class="precio-badge">Actual: {{ precio_algodon_mxn_kg }} MXN/kg</span>
+            <span id="badge-algodon" class="precio-badge" data-original="Actual: {{ precio_algodon_mxn_kg }} MXN/kg">Actual: {{ precio_algodon_mxn_kg }} MXN/kg</span>
           </div>
           <div id="grafico-algodon" style="height: 400px; width: 100%;"></div>
         </div>
@@ -156,12 +157,14 @@
   const fechas_algodon = {{ fechas_algodon|safe }};
   const velas_algodon = {{ velas_algodon|safe }};
 
-  // Función genérica para inicializar gráficos
-  function initChart(elementId, titleText, xAxisData, seriesData) {
-    echarts.init(document.getElementById(elementId)).setOption({
+  function initChart(elementId, titleText, xAxisData, seriesData, badgeId) {
+    let myChart = echarts.init(document.getElementById(elementId));
+    let badgeElement = document.getElementById(badgeId);
+    let textoOriginal = badgeElement.getAttribute('data-original');
+
+    myChart.setOption({
       title: { text: titleText, left: 'left' },
       
-      // Personalización de la cajita flotante (Tooltip)
       tooltip: { 
         trigger: 'axis',
         axisPointer: { type: 'cross' },
@@ -169,9 +172,11 @@
           let item = params[0];
           let fecha = item.axisValue;
           let open = item.value[1];
-          let close = item.value[2];
+          let close = item.value[2]; // Este es el precio de cierre
           let lowest = item.value[3];
           let highest = item.value[4];
+          
+          badgeElement.innerText = `Precio del Cierre (${fecha}): ${close} MXN/kg`;
           
           return `
             <div style="font-weight: bold; margin-bottom: 5px; color: #333;">${fecha}</div>
@@ -195,50 +200,46 @@
         }
       },
       
-      grid: {
-        left: '10%', right: '10%', bottom: '15%'
-      },
-      xAxis: { 
-        data: xAxisData,
-        scale: true
-      },
-      yAxis: { 
-        scale: true,
-        name: 'MXN / Kg'
-      },
+      grid: { left: '10%', right: '10%', bottom: '15%' },
+      xAxis: { data: xAxisData, scale: true },
+      yAxis: { scale: true, name: 'MXN / Kg' },
       series: [{
         type: 'candlestick',
         data: seriesData,
         itemStyle: {
-          color: '#ef232a', // Color subida
-          color0: '#14b143', // Color bajada
-          borderColor: '#ef232a',
-          borderColor0: '#14b143'
+          color: '#ef232a', color0: '#14b143',
+          borderColor: '#ef232a', borderColor0: '#14b143'
         }
       }]
     });
+
+    myChart.on('globalout', function () {
+      badgeElement.innerText = textoOriginal;
+    });
+
+    return myChart;
   }
 
-  // Inicialización de todos los gráficos
-  initChart('grafico-maiz', 'MAÍZ (ZC=F)', fechas_maiz, velas_maiz);
-  initChart('grafico-cafe', 'CAFÉ (KC=F)', fechas_cafe, velas_cafe);
-  initChart('grafico-cacao', 'CACAO (CC=F)', fechas_cacao, velas_cacao);
-  initChart('grafico-arroz', 'ARROZ (ZR=F)', fechas_arroz, velas_arroz);
-  initChart('grafico-soya', 'SOYA (ZS=F)', fechas_soya, velas_soya);
-  initChart('grafico-avena', 'AVENA (ZO=F)', fechas_avena, velas_avena);
-  initChart('grafico-azucar', 'AZÚCAR (SB=F)', fechas_azucar, velas_azucar);
-  initChart('grafico-algodon', 'ALGODÓN (CT=F)', fechas_algodon, velas_algodon);
+  // Inicialización de todos los gráficos pasando el ID del badge
+  let chartMaiz = initChart('grafico-maiz', 'MAÍZ (ZC=F)', fechas_maiz, velas_maiz, 'badge-maiz');
+  let chartCafe = initChart('grafico-cafe', 'CAFÉ (KC=F)', fechas_cafe, velas_cafe, 'badge-cafe');
+  let chartCacao = initChart('grafico-cacao', 'CACAO (CC=F)', fechas_cacao, velas_cacao, 'badge-cacao');
+  let chartArroz = initChart('grafico-arroz', 'ARROZ (ZR=F)', fechas_arroz, velas_arroz, 'badge-arroz');
+  let chartSoya = initChart('grafico-soya', 'SOYA (ZS=F)', fechas_soya, velas_soya, 'badge-soya');
+  let chartAvena = initChart('grafico-avena', 'AVENA (ZO=F)', fechas_avena, velas_avena, 'badge-avena');
+  let chartAzucar = initChart('grafico-azucar', 'AZÚCAR (SB=F)', fechas_azucar, velas_azucar, 'badge-azucar');
+  let chartAlgodon = initChart('grafico-algodon', 'ALGODÓN (CT=F)', fechas_algodon, velas_algodon, 'badge-algodon');
 
   // Hacer los gráficos responsivos
   window.addEventListener('resize', function() {
-    echarts.getInstanceByDom(document.getElementById('grafico-maiz')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-cafe')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-cacao')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-arroz')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-soya')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-avena')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-azucar')).resize();
-    echarts.getInstanceByDom(document.getElementById('grafico-algodon')).resize();
+    chartMaiz.resize();
+    chartCafe.resize();
+    chartCacao.resize();
+    chartArroz.resize();
+    chartSoya.resize();
+    chartAvena.resize();
+    chartAzucar.resize();
+    chartAlgodon.resize();
   });
 </script>
 
